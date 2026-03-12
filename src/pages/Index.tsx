@@ -286,13 +286,53 @@ const HowWeWork = () => (
 
 /* ═══════════════════════════════════════════════
    SECTION 6 — SECTOR PROOF
-   Clustered proof — editorial, not logo-wall
+   Architectural proof clusters — editorial, not logo-wall
    ═══════════════════════════════════════════════ */
 const proofClusters = [
-  { sector: "Enterprise Technology", logos: ["HP", "Dell", "SAP", "Cisco"] },
-  { sector: "Consumer & Brand Growth", logos: ["Brands For Less", "Unilever", "L'Oréal", "Nestlé"] },
-  { sector: "Institutions & Ecosystems", logos: ["GovTech", "ASEAN Foundation", "Enterprise SG", "MAS"] },
-  { sector: "New Economy & Innovation", logos: ["The Economist", "Grab", "Sea Group", "GoTo"] },
+  {
+    sector: "Enterprise Technology",
+    num: "01",
+    caption: "Growth infrastructure, innovation ecosystems, and partner programmes for global technology leaders entering and expanding across ASEAN.",
+    logos: [
+      { name: "HP", capability: "AI Ecosystems · Innovation" },
+      { name: "Dell", capability: "Growth Infrastructure" },
+      { name: "SAP", capability: "Partner Ecosystems" },
+      { name: "Cisco", capability: "Channel Strategy" },
+    ],
+  },
+  {
+    sector: "Consumer & Brand Growth",
+    num: "02",
+    caption: "Integrated brand-to-demand strategies and market entry for consumer brands scaling across Southeast Asia's diverse retail landscape.",
+    logos: [
+      { name: "Brands For Less", capability: "Market Entry · Launch" },
+      { name: "Unilever", capability: "Brand & Demand" },
+      { name: "L'Oréal", capability: "Digital & Social" },
+      { name: "Nestlé", capability: "Demand Operations" },
+    ],
+  },
+  {
+    sector: "Institutions & Ecosystems",
+    num: "03",
+    caption: "Ecosystem design, programme architecture, and stakeholder engagement for public institutions and regional bodies shaping ASEAN's future.",
+    logos: [
+      { name: "GovTech", capability: "Innovation Programmes" },
+      { name: "ASEAN Foundation", capability: "Ecosystem Design" },
+      { name: "Enterprise SG", capability: "Growth Programmes" },
+      { name: "MAS", capability: "Fintech Ecosystems" },
+    ],
+  },
+  {
+    sector: "New Economy & Innovation",
+    num: "04",
+    caption: "Venture strategy, experience design, and commercial activation for platforms and media companies driving Southeast Asia's new economy.",
+    logos: [
+      { name: "The Economist", capability: "Live Experiences" },
+      { name: "Grab", capability: "Ecosystem Strategy" },
+      { name: "Sea Group", capability: "Growth Infrastructure" },
+      { name: "GoTo", capability: "Market Activation" },
+    ],
+  },
 ];
 
 const SectorProof = () => (
@@ -302,20 +342,41 @@ const SectorProof = () => (
         eyebrow="Sector proof"
         headline="Experience across the industries shaping Southeast Asia."
       />
-      <div className="mt-20 grid md:grid-cols-2 gap-x-12 gap-y-16">
-        {proofClusters.map((cluster, i) => (
-          <RevealSection key={i} delay={i * 0.08}>
-            <div>
-              <h3 className="font-display text-sm font-semibold text-foreground/60 uppercase tracking-wider mb-6">{cluster.sector}</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {cluster.logos.map((logo) => (
-                  <div
-                    key={logo}
-                    className="h-14 rounded-sm bg-card/50 border border-border/40 flex items-center justify-center text-[13px] font-display font-medium text-muted-foreground/70 hover:text-foreground/60 hover:border-border/60 transition-all duration-500"
-                  >
-                    {logo}
+
+      <div className="mt-24 space-y-0">
+        {proofClusters.map((cluster, ci) => (
+          <RevealSection key={ci} delay={ci * 0.06}>
+            <div className="border-t border-border/30 py-14 md:py-16">
+              <div className="grid md:grid-cols-12 gap-8">
+                {/* Left — Cluster label */}
+                <div className="md:col-span-4">
+                  <span className="text-[10px] font-body text-dim block mb-3">{cluster.num}</span>
+                  <h3 className="font-display text-xl md:text-2xl font-bold text-foreground leading-tight">
+                    {cluster.sector}
+                  </h3>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed mt-4 max-w-xs">
+                    {cluster.caption}
+                  </p>
+                </div>
+
+                {/* Right — Logo entries */}
+                <div className="md:col-span-7 md:col-start-6">
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-0">
+                    {cluster.logos.map((logo, li) => (
+                      <div
+                        key={li}
+                        className="group py-5 border-b border-border/20 last:border-b-0 cursor-default"
+                      >
+                        <span className="font-display text-[15px] font-semibold text-foreground/40 group-hover:text-foreground/80 transition-colors duration-700 tracking-tight">
+                          {logo.name}
+                        </span>
+                        <span className="block text-[10px] text-dim/0 group-hover:text-dim transition-all duration-700 mt-1 uppercase tracking-[0.15em] font-body overflow-hidden max-h-0 group-hover:max-h-6">
+                          {logo.capability}
+                        </span>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
             </div>
           </RevealSection>
