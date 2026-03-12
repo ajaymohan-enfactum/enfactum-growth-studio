@@ -20,14 +20,15 @@ const CTABand = ({
   secondaryHref,
 }: CTABandProps) => {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 topology-grid opacity-[0.03]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
+    <section className="relative py-32 md:py-44 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background" />
+      <div className="absolute top-0 left-0 right-0 section-divider" />
       <div className="section-container relative z-10 text-center">
-        <RevealSection>
-          <h2 className="headline-lg max-w-3xl mx-auto">{headline}</h2>
-          <p className="body-lg mt-4 max-w-xl mx-auto">{description}</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+        <RevealSection distance={50}>
+          <p className="eyebrow mb-8">Next step</p>
+          <h2 className="headline-xl max-w-3xl mx-auto">{headline}</h2>
+          {description && <p className="body-lg mt-5 max-w-xl mx-auto">{description}</p>}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
             <Link to={primaryHref}>
               <Button variant="hero" size="xl">{primaryLabel}</Button>
             </Link>
