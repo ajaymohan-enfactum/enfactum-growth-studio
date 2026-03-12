@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import enfactumLogo from "@/assets/enfactum_logo.gif";
+import EnfactumLogo from "@/components/shared/EnfactumLogo";
 
 const footerLinks = {
   Capabilities: [
