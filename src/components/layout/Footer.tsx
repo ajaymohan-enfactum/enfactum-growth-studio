@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import enfactumLogo from "@/assets/enfactum_logo.gif";
+import EnfactumLogo from "@/components/shared/EnfactumLogo";
 
 const footerLinks = {
   Capabilities: [
@@ -29,7 +29,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="inline-block">
-              <img src={enfactumLogo} alt="Enfactum" className="h-6 w-auto" />
+              <EnfactumLogo className="text-lg" />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
               Strategy, ecosystems, and execution for enterprise brands scaling across Southeast Asia.
