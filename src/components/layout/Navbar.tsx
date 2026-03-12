@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import enfactumLogo from "@/assets/enfactum_logo.gif";
+import EnfactumLogo from "@/components/shared/EnfactumLogo";
 
 const capabilitiesLinks = [
   { label: "Growth Infrastructure", href: "/capabilities/growth-infrastructure" },
