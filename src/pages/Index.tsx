@@ -8,101 +8,116 @@ import CTABand from "@/components/shared/CTABand";
 import TopologyBackground from "@/components/shared/TopologyBackground";
 import { ArrowRight } from "lucide-react";
 
-/* ─── Section 1: Hero ─── */
+const ease = [0.22, 1, 0.36, 1] as const;
+
+/* ═══════════════════════════════════════════════
+   SECTION 1 — HERO
+   Full-viewport cinematic opening
+   ═══════════════════════════════════════════════ */
 const Hero = () => (
-  <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+  <section className="relative min-h-screen flex items-end overflow-hidden">
     <TopologyBackground />
-    <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/80" />
-    <div className="section-container relative z-10 py-32 md:py-40">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="max-w-3xl"
+    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/60" />
+    <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
+
+    <div className="section-container relative z-10 pb-20 md:pb-28 lg:pb-36 pt-40">
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 0.2, ease }}
+        className="eyebrow mb-8"
       >
-        <h1 className="headline-xl">
-          Where strategy, ecosystems, and execution{" "}
-          <span className="text-primary">move together.</span>
-        </h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="body-lg mt-6 max-w-2xl"
-        >
-          Built for how Southeast Asia actually works, Enfactum brings together strategy,
-          ecosystems, and execution to help enterprise brands scale with clarity and momentum.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row gap-4 mt-10"
-        >
-          <Link to="/contact">
-            <Button variant="hero" size="xl">Start a conversation</Button>
-          </Link>
-          <Link to="/work">
-            <Button variant="hero-outline" size="xl">See the proof</Button>
-          </Link>
-        </motion.div>
+        Growth &amp; Innovation Operating Partner · Southeast Asia
+      </motion.p>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, delay: 0.4, ease }}
+        className="headline-display max-w-[18ch]"
+      >
+        Where strategy, ecosystems, and execution{" "}
+        <span className="text-primary">move together.</span>
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.7, ease }}
+        className="body-xl mt-8 max-w-[52ch]"
+      >
+        Built for how Southeast Asia actually works, Enfactum brings together
+        strategy, ecosystems, and execution to help enterprise brands scale
+        with clarity and momentum.
+      </motion.p>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.0, ease }}
+        className="flex flex-col sm:flex-row gap-4 mt-14"
+      >
+        <Link to="/contact">
+          <Button variant="hero" size="xl">Start a conversation</Button>
+        </Link>
+        <Link to="/work">
+          <Button variant="hero-outline" size="xl">See the proof</Button>
+        </Link>
       </motion.div>
     </div>
   </section>
 );
 
-/* ─── Section 2: Why SEA ─── */
+/* ═══════════════════════════════════════════════
+   SECTION 2 — WHY SOUTHEAST ASIA
+   Editorial split with generous breathing room
+   ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section className="py-24 md:py-32">
+  <section className="py-32 md:py-44">
     <div className="section-container">
-      <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-        <RevealSection>
-          <p className="eyebrow mb-4">Why Southeast Asia moves differently</p>
-          <h2 className="headline-lg">Not one market. An interconnected web of ecosystems.</h2>
-          <div className="space-y-4 mt-6">
-            <p className="body-md">
-              Southeast Asia is not a single market. It's 700 million people across diverse economies,
-              languages, and regulatory environments — bound together by trade corridors, digital
-              infrastructure, and rapidly evolving consumer behaviour.
-            </p>
-            <p className="body-md">
-              Growth here moves through ecosystems, local trust, and execution nuance. Imported
-              playbooks break. Opportunity exists, but it requires a fundamentally different operating model.
-            </p>
-          </div>
-        </RevealSection>
-        <RevealSection delay={0.15}>
-          <div className="relative aspect-square rounded-lg overflow-hidden bg-secondary/50 border border-border">
-            <div className="absolute inset-0 topology-grid opacity-[0.06]" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <svg viewBox="0 0 300 300" className="w-3/4 h-3/4 opacity-40">
-                {/* Abstract network nodes */}
-                {[
-                  [80, 100], [150, 60], [220, 110], [120, 180], [200, 200],
-                  [60, 220], [180, 140], [250, 180], [100, 130], [160, 240],
-                ].map(([cx, cy], i) => (
-                  <g key={i}>
-                    <circle cx={cx} cy={cy} r="3" fill="hsl(38, 72%, 56%)" opacity="0.6" />
-                    {i > 0 && (
-                      <line
-                        x1={cx} y1={cy}
-                        x2={[80, 150, 220, 120, 200, 60, 180, 250, 100, 160][Math.max(0, i - 1)]}
-                        y2={[100, 60, 110, 180, 200, 220, 140, 180, 130, 240][Math.max(0, i - 1)]}
-                        stroke="hsl(38, 72%, 56%)" strokeWidth="0.5" opacity="0.2"
-                      />
-                    )}
-                  </g>
-                ))}
-              </svg>
+      <div className="grid md:grid-cols-12 gap-12 md:gap-8">
+        <div className="md:col-span-5">
+          <RevealSection>
+            <p className="eyebrow mb-6">Why Southeast Asia moves differently</p>
+            <h2 className="headline-lg">
+              Not one market.<br />
+              An interconnected web of ecosystems.
+            </h2>
+          </RevealSection>
+        </div>
+        <div className="md:col-span-6 md:col-start-7">
+          <RevealSection delay={0.15}>
+            <div className="space-y-6">
+              <p className="body-lg">
+                Southeast Asia is 700 million people across diverse economies,
+                languages, and regulatory environments — bound together by trade
+                corridors, digital infrastructure, and rapidly evolving consumer
+                behaviour.
+              </p>
+              <p className="body-lg">
+                Growth here moves through ecosystems, local trust, and execution
+                nuance. Imported playbooks break. Opportunity exists, but it
+                requires a fundamentally different operating model.
+              </p>
+              <div className="pt-4">
+                <div className="h-px w-20 bg-primary/30" />
+              </div>
+              <p className="body-md text-muted-foreground italic">
+                Enfactum exists because the gap between global ambition and
+                regional reality needed an operator — not another advisor.
+              </p>
             </div>
-          </div>
-        </RevealSection>
+          </RevealSection>
+        </div>
       </div>
     </div>
   </section>
 );
 
-/* ─── Section 3: Where Growth Breaks ─── */
+/* ═══════════════════════════════════════════════
+   SECTION 3 — WHERE GROWTH BREAKS
+   Restrained problem framing
+   ═══════════════════════════════════════════════ */
 const frictionPoints = [
   { title: "Strategy-execution gap", body: "Brilliant plans that die in local implementation." },
   { title: "Ecosystem underbuilt", body: "Partners and channels without structure or activation." },
@@ -112,20 +127,26 @@ const frictionPoints = [
 ];
 
 const GrowthBreaks = () => (
-  <section className="py-24 md:py-32 bg-secondary/20">
+  <section className="py-32 md:py-44">
     <div className="section-container">
+      <div className="section-divider mb-20" />
       <SectionHeader
         eyebrow="Where growth breaks"
         headline="The friction points we're built to solve."
-        description="Most enterprise brands hit the same walls when scaling across Southeast Asia."
       />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
+      <div className="mt-20 grid md:grid-cols-12 gap-y-12">
         {frictionPoints.map((point, i) => (
-          <RevealSection key={i} delay={i * 0.08}>
-            <div className="card-premium h-full">
-              <div className="w-8 h-px bg-primary mb-5" />
-              <h3 className="font-display text-lg font-semibold text-foreground">{point.title}</h3>
-              <p className="body-md mt-2">{point.body}</p>
+          <RevealSection
+            key={i}
+            delay={i * 0.08}
+            className={`md:col-span-4 ${i >= 3 ? "md:col-start-" + (i === 3 ? "3" : "7") : ""}`}
+          >
+            <div className="pr-8">
+              <div className="w-6 h-px bg-primary/50 mb-6" />
+              <h3 className="font-display text-lg font-semibold text-foreground leading-snug">
+                {point.title}
+              </h3>
+              <p className="body-md mt-3 text-muted-foreground">{point.body}</p>
             </div>
           </RevealSection>
         ))}
@@ -134,57 +155,68 @@ const GrowthBreaks = () => (
   </section>
 );
 
-/* ─── Section 4: What Enfactum Builds ─── */
+/* ═══════════════════════════════════════════════
+   SECTION 4 — WHAT ENFACTUM BUILDS
+   Capability cards with editorial spacing
+   ═══════════════════════════════════════════════ */
 const capabilities = [
   {
     title: "Growth Infrastructure",
     desc: "GTM strategy, partner programs, and demand operations that build lasting market position.",
     outcome: "Scalable go-to-market architecture",
     href: "/capabilities/growth-infrastructure",
+    num: "01",
   },
   {
     title: "Brand & Demand",
     desc: "Performance, social, creative, and digital experiences that connect brand to commercial outcomes.",
     outcome: "Integrated demand generation",
     href: "/capabilities/brand-demand",
+    num: "02",
   },
   {
     title: "AI Ecosystems",
     desc: "Venture strategy, startup scouting, and innovation programs that move beyond pilot stage.",
     outcome: "Ecosystem-scale innovation",
     href: "/capabilities/ai-ecosystems",
+    num: "03",
   },
   {
     title: "Live Experiences",
     desc: "Product launches, summits, roadshows, and activations that create market momentum.",
     outcome: "Commercially impactful activations",
     href: "/capabilities/live-experiences",
+    num: "04",
   },
 ];
 
 const WhatWeBuilds = () => (
-  <section className="py-24 md:py-32">
+  <section className="section-alt py-32 md:py-44">
     <div className="section-container">
       <SectionHeader
         eyebrow="What Enfactum builds"
         headline="Four capabilities. One operating model."
         description="Each capability connects. Together, they form a growth operating system for Southeast Asia."
       />
-      <div className="grid md:grid-cols-2 gap-5 mt-14">
+      <div className="mt-20 space-y-0">
         {capabilities.map((cap, i) => (
-          <RevealSection key={i} delay={i * 0.08}>
-            <Link to={cap.href} className="block group">
-              <div className="card-premium h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  <span className="eyebrow">{cap.outcome}</span>
+          <RevealSection key={i} delay={i * 0.06}>
+            <Link to={cap.href} className="group block">
+              <div className="grid md:grid-cols-12 gap-6 py-10 border-b border-border/40 group-hover:border-primary/20 transition-colors duration-700">
+                <div className="md:col-span-1">
+                  <span className="text-xs font-body text-dim">{cap.num}</span>
                 </div>
-                <h3 className="font-display text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
-                  {cap.title}
-                </h3>
-                <p className="body-md mt-3 flex-1">{cap.desc}</p>
-                <div className="flex items-center gap-2 mt-6 text-sm text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  Learn more <ArrowRight className="w-4 h-4" />
+                <div className="md:col-span-4">
+                  <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-500">
+                    {cap.title}
+                  </h3>
+                </div>
+                <div className="md:col-span-5">
+                  <p className="body-md text-muted-foreground">{cap.desc}</p>
+                  <p className="eyebrow mt-4">{cap.outcome}</p>
+                </div>
+                <div className="md:col-span-2 flex items-center justify-end">
+                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all duration-500" />
                 </div>
               </div>
             </Link>
@@ -195,17 +227,20 @@ const WhatWeBuilds = () => (
   </section>
 );
 
-/* ─── Section 5: How We Work ─── */
+/* ═══════════════════════════════════════════════
+   SECTION 5 — HOW WE WORK
+   Horizontal process with cinematic linework
+   ═══════════════════════════════════════════════ */
 const processSteps = [
-  { step: "Define", desc: "Diagnose the growth challenge and align stakeholders on the strategy." },
-  { step: "Build", desc: "Design the infrastructure, partnerships, and go-to-market architecture." },
-  { step: "Operate", desc: "Execute embedded within the business — hands on the work, not just the plan." },
-  { step: "Transfer", desc: "Build internal capability and transition ownership to client teams." },
+  { step: "Define", desc: "Diagnose the challenge. Align stakeholders. Set commercial objectives." },
+  { step: "Build", desc: "Design infrastructure, partnerships, and go-to-market architecture." },
+  { step: "Operate", desc: "Execute embedded — hands on the work, not just the plan." },
+  { step: "Transfer", desc: "Build internal capability. Transition ownership to client teams." },
   { step: "Scale", desc: "Expand across markets, partners, and channels with proven playbooks." },
 ];
 
 const HowWeWork = () => (
-  <section className="py-24 md:py-32 bg-secondary/20">
+  <section className="py-32 md:py-44">
     <div className="section-container">
       <SectionHeader
         eyebrow="How we work"
@@ -213,31 +248,34 @@ const HowWeWork = () => (
         description="We embed within the business and stay until growth has real infrastructure."
         centered
       />
-      <div className="mt-16 relative">
-        {/* Desktop horizontal */}
-        <div className="hidden md:flex items-start justify-between relative">
-          <div className="absolute top-5 left-0 right-0 h-px bg-border" />
-          <div className="absolute top-5 left-0 right-0 h-px bg-gradient-to-r from-primary/0 via-primary/40 to-primary/0" />
-          {processSteps.map((step, i) => (
-            <RevealSection key={i} delay={i * 0.1} className="flex-1 relative px-3">
-              <div className="w-10 h-10 rounded-full border border-primary/50 bg-background flex items-center justify-center mx-auto mb-4 relative z-10">
-                <span className="text-xs font-display font-bold text-primary">{i + 1}</span>
-              </div>
-              <h3 className="font-display font-bold text-lg text-foreground text-center">{step.step}</h3>
-              <p className="text-sm text-muted-foreground text-center mt-2">{step.desc}</p>
-            </RevealSection>
-          ))}
+      <div className="mt-24 relative">
+        {/* Desktop */}
+        <div className="hidden md:block">
+          <div className="flex items-start justify-between relative">
+            {/* Connecting line */}
+            <div className="absolute top-[18px] left-[10%] right-[10%] h-px bg-border/40" />
+            <div className="absolute top-[18px] left-[10%] right-[10%] h-px bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0" />
+            {processSteps.map((step, i) => (
+              <RevealSection key={i} delay={i * 0.1} className="flex-1 relative px-4 text-center">
+                <div className="w-9 h-9 rounded-full border border-border bg-background flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:border-primary/40 transition-colors">
+                  <span className="text-[10px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
+                </div>
+                <h3 className="font-display font-bold text-foreground text-base tracking-tight">{step.step}</h3>
+                <p className="text-[13px] text-muted-foreground mt-3 leading-relaxed max-w-[160px] mx-auto">{step.desc}</p>
+              </RevealSection>
+            ))}
+          </div>
         </div>
-        {/* Mobile vertical */}
-        <div className="md:hidden space-y-8 relative pl-8">
-          <div className="absolute left-3 top-0 bottom-0 w-px bg-border" />
+        {/* Mobile */}
+        <div className="md:hidden space-y-10 relative pl-10">
+          <div className="absolute left-[14px] top-2 bottom-2 w-px bg-border/30" />
           {processSteps.map((step, i) => (
-            <RevealSection key={i} delay={i * 0.08} className="relative">
-              <div className="absolute -left-8 top-0 w-6 h-6 rounded-full border border-primary/50 bg-background flex items-center justify-center">
-                <span className="text-[10px] font-display font-bold text-primary">{i + 1}</span>
+            <RevealSection key={i} delay={i * 0.06} className="relative">
+              <div className="absolute -left-10 top-0 w-7 h-7 rounded-full border border-border bg-background flex items-center justify-center">
+                <span className="text-[9px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
               </div>
-              <h3 className="font-display font-bold text-foreground">{step.step}</h3>
-              <p className="text-sm text-muted-foreground mt-1">{step.desc}</p>
+              <h3 className="font-display font-semibold text-foreground">{step.step}</h3>
+              <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{step.desc}</p>
             </RevealSection>
           ))}
         </div>
@@ -246,43 +284,34 @@ const HowWeWork = () => (
   </section>
 );
 
-/* ─── Section 6: Sector Proof ─── */
+/* ═══════════════════════════════════════════════
+   SECTION 6 — SECTOR PROOF
+   Clustered proof — editorial, not logo-wall
+   ═══════════════════════════════════════════════ */
 const proofClusters = [
-  {
-    sector: "Enterprise Technology",
-    logos: ["HP", "Dell", "SAP", "Cisco"],
-  },
-  {
-    sector: "Consumer & Brand Growth",
-    logos: ["Brands For Less", "Unilever", "L'Oréal", "Nestlé"],
-  },
-  {
-    sector: "Institutions & Ecosystems",
-    logos: ["GovTech", "ASEAN Foundation", "Enterprise SG", "MAS"],
-  },
-  {
-    sector: "New Economy & Innovation",
-    logos: ["The Economist", "Grab", "Sea Group", "GoTo"],
-  },
+  { sector: "Enterprise Technology", logos: ["HP", "Dell", "SAP", "Cisco"] },
+  { sector: "Consumer & Brand Growth", logos: ["Brands For Less", "Unilever", "L'Oréal", "Nestlé"] },
+  { sector: "Institutions & Ecosystems", logos: ["GovTech", "ASEAN Foundation", "Enterprise SG", "MAS"] },
+  { sector: "New Economy & Innovation", logos: ["The Economist", "Grab", "Sea Group", "GoTo"] },
 ];
 
 const SectorProof = () => (
-  <section className="py-24 md:py-32">
+  <section className="section-alt py-32 md:py-44">
     <div className="section-container">
       <SectionHeader
         eyebrow="Sector proof"
         headline="Experience across the industries shaping Southeast Asia."
       />
-      <div className="grid sm:grid-cols-2 gap-8 mt-14">
+      <div className="mt-20 grid md:grid-cols-2 gap-x-12 gap-y-16">
         {proofClusters.map((cluster, i) => (
           <RevealSection key={i} delay={i * 0.08}>
-            <div className="card-premium">
-              <h3 className="font-display font-semibold text-foreground mb-6">{cluster.sector}</h3>
-              <div className="grid grid-cols-2 gap-4">
+            <div>
+              <h3 className="font-display text-sm font-semibold text-foreground/60 uppercase tracking-wider mb-6">{cluster.sector}</h3>
+              <div className="grid grid-cols-2 gap-3">
                 {cluster.logos.map((logo) => (
                   <div
                     key={logo}
-                    className="h-12 rounded-md bg-secondary/60 border border-border flex items-center justify-center text-xs font-display font-medium text-muted-foreground"
+                    className="h-14 rounded-sm bg-card/50 border border-border/40 flex items-center justify-center text-[13px] font-display font-medium text-muted-foreground/70 hover:text-foreground/60 hover:border-border/60 transition-all duration-500"
                   >
                     {logo}
                   </div>
@@ -296,93 +325,112 @@ const SectorProof = () => (
   </section>
 );
 
-/* ─── Section 7: Featured Work ─── */
+/* ═══════════════════════════════════════════════
+   SECTION 7 — FEATURED WORK
+   Large editorial case cards
+   ═══════════════════════════════════════════════ */
 const featuredWork = [
   {
     title: "HP Garage 2.0",
     tags: ["AI Ecosystems", "Innovation"],
     challenge: "Reignite HP's innovation ecosystem across Asia Pacific with a scalable startup engagement platform.",
     role: "End-to-end program design, startup scouting, and partnership architecture.",
-    outcome: "200+ startups evaluated, 12 enterprise pilots launched, regional expansion to 4 markets.",
+    outcome: "200+ startups evaluated · 12 enterprise pilots · 4 markets",
   },
   {
     title: "The Economist BOT",
     tags: ["Live Experiences", "Brand & Demand"],
     challenge: "Create a landmark thought-leadership experience for The Economist's regional audience.",
     role: "Concept, production, audience strategy, and demand generation.",
-    outcome: "2,000+ senior leaders engaged, 40% increase in regional subscription pipeline.",
+    outcome: "2,000+ senior leaders · 40% subscription pipeline lift",
   },
   {
     title: "Brands For Less SEA Launch",
     tags: ["Growth Infrastructure", "Market Entry"],
     challenge: "Launch a Middle East retail brand into Southeast Asia with zero existing presence.",
     role: "Market entry strategy, partner ecosystem build, and launch operations.",
-    outcome: "3 markets entered in 18 months, 50+ retail partnerships activated.",
+    outcome: "3 markets in 18 months · 50+ retail partnerships",
   },
 ];
 
 const FeaturedWork = () => (
-  <section className="py-24 md:py-32 bg-secondary/20">
+  <section className="py-32 md:py-44">
     <div className="section-container">
       <SectionHeader
         eyebrow="Featured work"
         headline="Proof in practice."
-        description="Enterprise programmes designed for scale, built for Southeast Asia."
       />
-      <div className="grid lg:grid-cols-3 gap-6 mt-14">
+      <div className="mt-20 space-y-0">
         {featuredWork.map((work, i) => (
-          <RevealSection key={i} delay={i * 0.1}>
-            <Link to="/work" className="block group h-full">
-              <div className="card-premium h-full flex flex-col">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {work.tags.map((tag) => (
-                    <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary font-medium">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                  {work.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mt-3"><strong className="text-foreground/70">Challenge:</strong> {work.challenge}</p>
-                <p className="text-sm text-muted-foreground mt-2"><strong className="text-foreground/70">Role:</strong> {work.role}</p>
-                <div className="mt-auto pt-5 border-t border-border mt-5">
-                  <p className="text-sm font-medium text-primary">{work.outcome}</p>
+          <RevealSection key={i} delay={i * 0.08}>
+            <Link to="/work" className="group block">
+              <div className="py-12 border-b border-border/30 group-hover:border-primary/15 transition-colors duration-700">
+                <div className="grid md:grid-cols-12 gap-6 md:gap-8">
+                  <div className="md:col-span-5">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {work.tags.map((tag) => (
+                        <span key={tag} className="text-[11px] px-2.5 py-1 rounded-sm bg-primary/8 text-primary/70 font-medium tracking-wide uppercase">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-500">
+                      {work.title}
+                    </h3>
+                  </div>
+                  <div className="md:col-span-5">
+                    <p className="body-md text-muted-foreground">{work.challenge}</p>
+                    <p className="text-[13px] text-dim mt-3">{work.role}</p>
+                  </div>
+                  <div className="md:col-span-2 flex md:flex-col md:items-end md:justify-end">
+                    <p className="text-sm font-medium text-primary/80 leading-snug text-right">
+                      {work.outcome}
+                    </p>
+                  </div>
                 </div>
               </div>
             </Link>
           </RevealSection>
         ))}
       </div>
+      <RevealSection delay={0.3} className="mt-12">
+        <Link to="/work" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors">
+          View all work <ArrowRight className="w-4 h-4" />
+        </Link>
+      </RevealSection>
     </div>
   </section>
 );
 
-/* ─── Section 8: Depth Behind the Work ─── */
+/* ═══════════════════════════════════════════════
+   SECTION 8 — DEPTH BEHIND THE WORK
+   Architectural teaser blocks
+   ═══════════════════════════════════════════════ */
 const depthBlocks = [
-  { title: "Leadership", desc: "Experienced operators across strategy, growth, and technology.", href: "/company/leadership" },
-  { title: "Operating Bench", desc: "200+ specialists across Southeast Asia and India.", href: "/company" },
-  { title: "Regional Nodes", desc: "Singapore, India, Malaysia, Indonesia — and expanding.", href: "/company/regional-nodes" },
-  { title: "Capability Ownership", desc: "Each capability led by domain-specialist principals.", href: "/capabilities" },
+  { title: "Leadership", desc: "Experienced operators across strategy, growth, and technology.", href: "/company/leadership", num: "01" },
+  { title: "Operating Bench", desc: "200+ specialists across Southeast Asia and India.", href: "/company", num: "02" },
+  { title: "Regional Nodes", desc: "Singapore, India, Malaysia, Indonesia — and expanding.", href: "/company/regional-nodes", num: "03" },
+  { title: "Capability Ownership", desc: "Each capability led by domain-specialist principals.", href: "/capabilities", num: "04" },
 ];
 
 const DepthSection = () => (
-  <section className="py-24 md:py-32">
+  <section className="section-alt py-32 md:py-44">
     <div className="section-container">
       <SectionHeader
         eyebrow="Depth behind the work"
         headline="Real teams. Real infrastructure."
       />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
+      <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {depthBlocks.map((block, i) => (
           <RevealSection key={i} delay={i * 0.08}>
-            <Link to={block.href} className="block group">
-              <div className="card-premium h-full">
-                <h3 className="font-display font-semibold text-foreground group-hover:text-primary transition-colors">
+            <Link to={block.href} className="group block h-full">
+              <div className="h-full border-t border-border/40 pt-8 group-hover:border-primary/25 transition-colors duration-700">
+                <span className="text-[10px] font-body text-dim">{block.num}</span>
+                <h3 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-500 mt-3">
                   {block.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mt-2">{block.desc}</p>
-                <ArrowRight className="w-4 h-4 text-primary mt-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <p className="text-[13px] text-muted-foreground mt-2 leading-relaxed">{block.desc}</p>
+                <ArrowRight className="w-4 h-4 text-dim group-hover:text-primary mt-6 group-hover:translate-x-1 transition-all duration-500" />
               </div>
             </Link>
           </RevealSection>
@@ -392,7 +440,10 @@ const DepthSection = () => (
   </section>
 );
 
-/* ─── Section 9: Perspectives ─── */
+/* ═══════════════════════════════════════════════
+   SECTION 9 — PERSPECTIVES
+   Editorial journal preview
+   ═══════════════════════════════════════════════ */
 const articles = [
   { title: "Why imported playbooks fail in Southeast Asia", category: "Growth Strategy", date: "March 2026" },
   { title: "The partner ecosystem advantage in ASEAN enterprise", category: "Ecosystems", date: "February 2026" },
@@ -400,37 +451,44 @@ const articles = [
 ];
 
 const Perspectives = () => (
-  <section className="py-24 md:py-32 bg-secondary/20">
+  <section className="py-32 md:py-44">
     <div className="section-container">
-      <SectionHeader
-        eyebrow="Perspectives"
-        headline="Field intelligence, not thought leadership."
-      />
-      <div className="grid md:grid-cols-3 gap-6 mt-14">
-        {articles.map((article, i) => (
-          <RevealSection key={i} delay={i * 0.08}>
-            <Link to="/thinking" className="block group">
-              <div className="card-premium h-full">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs text-primary font-medium">{article.category}</span>
-                  <span className="text-xs text-dim">{article.date}</span>
-                </div>
-                <h3 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
-                  {article.title}
-                </h3>
-                <div className="flex items-center gap-2 mt-5 text-sm text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  Read <ArrowRight className="w-3 h-3" />
-                </div>
-              </div>
+      <div className="section-divider mb-20" />
+      <div className="grid md:grid-cols-12 gap-8">
+        <div className="md:col-span-4">
+          <RevealSection>
+            <p className="eyebrow mb-6">Perspectives</p>
+            <h2 className="headline-lg">Field intelligence, not thought leadership.</h2>
+            <Link to="/thinking" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-8">
+              All perspectives <ArrowRight className="w-4 h-4" />
             </Link>
           </RevealSection>
-        ))}
+        </div>
+        <div className="md:col-span-7 md:col-start-6">
+          {articles.map((article, i) => (
+            <RevealSection key={i} delay={i * 0.1}>
+              <Link to="/thinking" className="group block">
+                <div className="py-8 border-b border-border/30 group-hover:border-primary/15 transition-colors duration-700">
+                  <div className="flex items-center gap-4 mb-3">
+                    <span className="text-[11px] text-primary/60 font-medium uppercase tracking-wider">{article.category}</span>
+                    <span className="text-[11px] text-dim">{article.date}</span>
+                  </div>
+                  <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-500 leading-snug">
+                    {article.title}
+                  </h3>
+                </div>
+              </Link>
+            </RevealSection>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 );
 
-/* ─── Page ─── */
+/* ═══════════════════════════════════════════════
+   PAGE ASSEMBLY
+   ═══════════════════════════════════════════════ */
 const Index = () => (
   <PageLayout>
     <Hero />
