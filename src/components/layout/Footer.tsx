@@ -28,8 +28,8 @@ const Footer = () => {
       <div className="section-container py-16 md:py-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="font-display text-xl font-bold text-foreground">
-              Enfactum
+            <Link to="/" className="inline-block">
+              <img src={enfactumLogo} alt="Enfactum" className="h-6 w-auto" />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
               Strategy, ecosystems, and execution for enterprise brands scaling across Southeast Asia.

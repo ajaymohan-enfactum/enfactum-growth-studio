@@ -53,8 +53,8 @@ const Navbar = () => {
       }`}
     >
       <div className="section-container flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="font-display text-xl md:text-2xl font-bold tracking-tight text-foreground">
-          Enfactum
+        <Link to="/" className="flex items-center">
+          <img src={enfactumLogo} alt="Enfactum" className="h-6 md:h-7 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
