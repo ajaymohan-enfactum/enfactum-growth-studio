@@ -6,15 +6,16 @@ interface SectionHeaderProps {
   description?: string;
   centered?: boolean;
   className?: string;
+  large?: boolean;
 }
 
-const SectionHeader = ({ eyebrow, headline, description, centered = false, className = "" }: SectionHeaderProps) => {
+const SectionHeader = ({ eyebrow, headline, description, centered = false, className = "", large = false }: SectionHeaderProps) => {
   return (
     <RevealSection className={`${centered ? "text-center" : ""} ${className}`}>
-      {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-      <h2 className="headline-lg">{headline}</h2>
+      {eyebrow && <p className="eyebrow mb-6">{eyebrow}</p>}
+      <h2 className={large ? "headline-xl" : "headline-lg"}>{headline}</h2>
       {description && (
-        <p className={`body-lg mt-4 ${centered ? "max-w-2xl mx-auto" : "max-w-xl"}`}>
+        <p className={`body-lg mt-5 ${centered ? "max-w-2xl mx-auto" : "max-w-xl"}`}>
           {description}
         </p>
       )}
