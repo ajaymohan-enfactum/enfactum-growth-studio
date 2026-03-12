@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, ChevronDown, ChevronRight, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import EnfactumLogo from "@/components/shared/EnfactumLogo";
 
 const capabilitiesLinks = [
@@ -31,6 +32,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -42,6 +44,7 @@ const Navbar = () => {
   useEffect(() => {
     setMobileOpen(false);
     setActiveSubmenu(null);
+    setExpandedMobile(null);
   }, [location]);
 
   return (
@@ -109,53 +112,105 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setMobileOpen(true)}
           className="md:hidden text-foreground p-2"
+          aria-label="Open menu"
         >
-          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          <Menu className="w-5 h-5" />
         </button>
       </div>
 
-      {/* Mobile Nav */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-t border-border overflow-hidden"
-          >
-            <div className="section-container py-6 space-y-4">
-              {navLinks.map((link) => (
-                <div key={link.label}>
+      {/* Mobile Nav - Sheet */}
+      <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+        <SheetContent
+          side="right"
+          className="w-[85vw] max-w-[360px] bg-background border-border/50 p-0 flex flex-col"
+        >
+          <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+          
+          {/* Header */}
+          <div className="px-6 pt-6 pb-4 border-b border-border/40">
+            <EnfactumLogo className="text-xl" />
+          </div>
+
+          {/* Nav Links */}
+          <div className="flex-1 overflow-y-auto py-4">
+            {navLinks.map((link, i) => (
+              <motion.div
+                key={link.label}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.05 * i, duration: 0.3, ease: "easeOut" }}
+              >
+                {link.submenu ? (
+                  <div>
+                    <button
+                      onClick={() =>
+                        setExpandedMobile(expandedMobile === link.label ? null : link.label)
+                      }
+                      className="flex items-center justify-between w-full px-6 py-3.5 text-base font-semibold font-display text-foreground hover:bg-secondary/50 transition-colors"
+                    >
+                      {link.label}
+                      <ChevronRight
+                        className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${
+                          expandedMobile === link.label ? "rotate-90" : ""
+                        }`}
+                      />
+                    </button>
+                    <AnimatePresence>
+                      {expandedMobile === link.label && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pb-2">
+                            {link.submenu.map((sub, j) => (
+                              <motion.div
+                                key={sub.href}
+                                initial={{ opacity: 0, x: 12 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.03 * j, duration: 0.2 }}
+                              >
+                                <Link
+                                  to={sub.href}
+                                  className="flex items-center gap-2 pl-10 pr-6 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/30 transition-colors"
+                                >
+                                  <span className="w-1 h-1 rounded-full bg-primary/60" />
+                                  {sub.label}
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
                   <Link
                     to={link.href}
-                    className="block text-lg font-medium text-foreground py-2"
+                    className="block px-6 py-3.5 text-base font-semibold font-display text-foreground hover:bg-secondary/50 transition-colors"
                   >
                     {link.label}
                   </Link>
-                  {link.submenu && (
-                    <div className="pl-4 space-y-1">
-                      {link.submenu.map((sub) => (
-                        <Link
-                          key={sub.href}
-                          to={sub.href}
-                          className="block text-sm text-muted-foreground py-1.5 hover:text-foreground transition-colors"
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-              <Link to="/contact" className="block pt-2">
-                <Button variant="hero" className="w-full">Get in touch</Button>
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="px-6 py-6 border-t border-border/40">
+            <Link to="/contact" className="block">
+              <Button variant="hero" className="w-full gap-2">
+                Get in touch
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
+        </SheetContent>
+      </Sheet>
     </nav>
   );
 };
