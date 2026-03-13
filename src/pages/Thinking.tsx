@@ -101,7 +101,7 @@ const groupedByCategory = regularArticles.reduce<Record<string, Article[]>>((acc
   return acc;
 }, {});
 
-const categoryOrder = ["Growth Strategy", "Ecosystems & Partnerships", "Brand & Demand", "AI & Innovation", "APAC Market"];
+const categoryOrder = ["Operator View", "Field Note", "Market Signal"];
 const orderedCategories = categoryOrder.filter((c) => groupedByCategory[c]);
 
 const Thinking = () => (
