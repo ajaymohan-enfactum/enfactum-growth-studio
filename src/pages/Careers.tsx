@@ -43,16 +43,14 @@ const Careers = () => (
     <section className="py-20 md:py-28">
       <div className="section-container">
         <SectionHeader eyebrow="Why Enfactum" headline="Not a typical agency. Not a typical consultancy." />
-        <div className="grid sm:grid-cols-2 gap-5 mt-14">
+        <StaggerGrid className="grid sm:grid-cols-2 gap-5 mt-14" staggerDelay={0.1}>
           {whyEnfactum.map((item, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
-              <div className="card-premium h-full">
-                <h3 className="font-display font-semibold text-foreground">{item.title}</h3>
-                <p className="text-sm text-muted-foreground mt-2">{item.desc}</p>
-              </div>
-            </RevealSection>
+            <div key={i} className="card-premium h-full">
+              <h3 className="font-display font-semibold text-foreground">{item.title}</h3>
+              <p className="text-sm text-muted-foreground mt-2">{item.desc}</p>
+            </div>
           ))}
-        </div>
+        </StaggerGrid>
       </div>
     </section>
 
