@@ -84,10 +84,9 @@ const Capabilities = () => (
           </p>
         </RevealSection>
 
-        <div className="mt-16 space-y-0">
+        <StaggerGrid className="mt-16 space-y-0" staggerDelay={0.1}>
           {capabilities.map((cap, i) => (
-            <RevealSection key={i} delay={i * 0.05}>
-              <Link to={cap.href} className="group block">
+            <Link key={i} to={cap.href} className="group block">
                 <div className="border-t border-border/30 py-14 md:py-16 group-hover:border-primary/15 transition-colors duration-700">
                   <div className="grid md:grid-cols-12 gap-8">
                     {/* Left — number + title */}
