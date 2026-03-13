@@ -35,7 +35,7 @@ const Careers = () => (
     />
     <HeroSection
       eyebrow="Careers"
-      headline="Build growth infrastructure. Shape Southeast Asia's future."
+      headline={<>Build growth infrastructure. Shape <span className="text-primary">Southeast Asia's future.</span></>}
       description="Enfactum is for people who want to operate — not just advise. We're building something rare, and we're looking for exceptional people to join us."
     />
 
