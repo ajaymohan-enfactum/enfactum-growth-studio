@@ -9,7 +9,7 @@ const footerLinks = {
     { label: "Live Experiences", href: "/capabilities/live-experiences" },
   ],
   Company: [
-    { label: "About", href: "/company" },
+    { label: "Company", href: "/company" },
     { label: "Leadership", href: "/company/leadership" },
     { label: "Operating Model", href: "/company/operating-model" },
     { label: "Regional Nodes", href: "/company/regional-nodes" },
