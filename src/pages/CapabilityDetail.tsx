@@ -428,11 +428,33 @@ const CapabilityDetail = () => {
         </div>
       </section>
 
-      {/* ─── NEXT CAPABILITY + CTA ─── */}
-      <section className="py-20 md:py-24">
+      {/* ─── FAQ SECTION ─── */}
+      {data.faqs.length > 0 && (
+        <section className="py-20 md:py-28">
+          <div className="section-container">
+            <div className="section-divider mb-16" />
+            <RevealSection>
+              <p className="eyebrow mb-6">Common questions</p>
+              <h2 className="headline-md max-w-2xl">Frequently asked about {data.eyebrow}.</h2>
+            </RevealSection>
+            <div className="mt-12 space-y-0 max-w-3xl">
+              {data.faqs.map((faq, i) => (
+                <RevealSection key={i} delay={i * 0.06}>
+                  <div className="border-b border-border/20 py-8">
+                    <h3 className="font-display text-[15px] font-semibold text-foreground leading-snug">{faq.question}</h3>
+                    <p className="text-[14px] text-muted-foreground mt-3 leading-relaxed">{faq.answer}</p>
+                  </div>
+                </RevealSection>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ─── NEXT CAPABILITY + CROSS-LINKS ─── */}
+      <section className="section-alt py-20 md:py-24">
         <div className="section-container">
-          <div className="section-divider mb-16" />
-          <div className="grid md:grid-cols-12 gap-8">
+          <div className="grid md:grid-cols-12 gap-8 mb-12">
             <div className="md:col-span-5">
               <RevealSection>
                 <p className="text-[11px] text-dim uppercase tracking-[0.15em] font-body mb-3">Next capability</p>
@@ -451,6 +473,23 @@ const CapabilityDetail = () => {
                   <ArrowRight className="w-3.5 h-3.5 text-dim group-hover:text-foreground transition-all duration-300" />
                 </Link>
               </RevealSection>
+            </div>
+          </div>
+          {/* Cross-links */}
+          <div className="border-t border-border/30 pt-10">
+            <div className="grid md:grid-cols-3 gap-6">
+              <Link to="/work" className="group block">
+                <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-1">Related</p>
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">View selected work →</span>
+              </Link>
+              <Link to="/brands" className="group block">
+                <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-1">Related</p>
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Brands we've worked with →</span>
+              </Link>
+              <Link to="/thinking" className="group block">
+                <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-1">Related</p>
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Read our thinking →</span>
+              </Link>
             </div>
           </div>
         </div>
