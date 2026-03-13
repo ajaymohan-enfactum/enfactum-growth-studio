@@ -326,6 +326,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Consumer & Retail"],
     outcomes: ["Revenue Growth", "Customer Acquisition", "Cost Efficiency"],
+    challengeTypes: ["Cost & Operational Efficiency", "Digital Commerce & Acquisition"],
     challenge: "JSHealth needed scalable, cost-efficient acquisition channels across multiple global markets without proportional ad spend increases.",
     role: "Enfactum built and managed a partnership-driven growth engine — affiliate recruitment, performance optimisation, and cross-market scaling.",
     results: [
