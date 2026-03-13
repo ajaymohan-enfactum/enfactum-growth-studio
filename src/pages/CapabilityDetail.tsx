@@ -105,30 +105,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Optimisation & scaling", desc: "Continuous optimisation based on commercial outcomes. Scale what works. Kill what doesn't. Expand to new markets." },
       { step: "Capability transfer", desc: "Build internal capability. Transfer playbooks, vendor relationships, and operational knowledge to your team." },
     ],
-    proof: [
-      {
-        title: "JSHealth Vitamins Global Growth",
-        capability: "Affiliate · Partnership Channels",
-        region: "AU · EU · UK · US",
-        outcomes: [
-          { metric: "+411%", label: "ROAS via partnerships" },
-          { metric: "+311%", label: "Total ROI delivered" },
-          { metric: "190+", label: "Active affiliate partners" },
-        ],
-        insight: "Affiliate partnerships can transform into a scalable, high-ROI growth channel.",
-      },
-      {
-        title: "TikTok Shop Pharma",
-        capability: "Creator Marketing · Digital Commerce",
-        region: "Indonesia",
-        outcomes: [
-          { metric: "1B+", label: "IDR monthly revenue" },
-          { metric: "10M+", label: "Total reach generated" },
-          { metric: "4.1%", label: "Engagement rate (above avg)" },
-        ],
-        insight: "Creator-led commerce at scale requires operational infrastructure, not just influencer lists.",
-      },
-    ],
+    proofCaseIds: ["economist-affiliate", "myrepublic", "loose-moose", "jshealth", "tiktok-pharma"],
     team: {
       heading: "Led by creative and performance specialists.",
       body: "The Brand & Demand capability is led by specialists who've run integrated demand programmes across ASEAN — people who bridge brand strategy and commercial performance, not just media buying.",
