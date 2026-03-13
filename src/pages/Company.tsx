@@ -314,7 +314,7 @@ const Company = () => (
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-5">
             <RevealSection>
-              <p className="eyebrow mb-6">Operating principles</p>
+              <p className="eyebrow mb-6">What we value</p>
               <h2 className="headline-lg">How we work. What we believe.</h2>
             </RevealSection>
           </div>
