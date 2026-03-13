@@ -18,6 +18,7 @@ const footerLinks = {
   Explore: [
     { label: "Work", href: "/work" },
     { label: "Brands", href: "/brands" },
+    { label: "Partnerships", href: "/partnerships" },
     { label: "Thinking", href: "/thinking" },
     { label: "Contact", href: "/contact" },
   ],
