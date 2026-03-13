@@ -4,6 +4,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
+import CapabilityGraph from "@/components/shared/CapabilityGraph";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight, Layers, Megaphone, Brain, Sparkles } from "lucide-react";
