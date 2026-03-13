@@ -1,89 +1,178 @@
-import { Link } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
-import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import { ArrowRight } from "lucide-react";
 
-const featuredArticle = {
-  title: "The ASEAN growth paradox: why more investment doesn't always mean more traction",
-  category: "Growth Strategy",
-  date: "March 2026",
-  excerpt: "Enterprise brands pour resources into Southeast Asia expecting linear returns. The reality is more nuanced — and more rewarding for those who understand the operating system underneath.",
-};
+interface Article {
+  title: string;
+  category: string;
+  author: string;
+  authorRole?: string;
+  readTime: string;
+  teaser: string;
+  featured?: boolean;
+  date: string;
+}
 
-const thematicBands = [
+const articles: Article[] = [
   {
-    theme: "Southeast Asia Growth",
-    articles: [
-      { title: "Market entry isn't a launch. It's an ecosystem play.", date: "Feb 2026" },
-      { title: "What global brands still get wrong about ASEAN consumers", date: "Jan 2026" },
-    ],
+    title: "Why Your APAC Strategy Needs a Regional Operating System",
+    category: "GTM Strategy",
+    author: "Ajay Mohan",
+    authorRole: "Managing Partner, GTM Strategy",
+    readTime: "7 min read",
+    teaser: "Expanding into Asia isn't about replicating your home market playbook. It's about building the infrastructure to operate across 15 markets simultaneously.",
+    featured: true,
+    date: "March 2026",
   },
   {
-    theme: "Ecosystems & Partnerships",
-    articles: [
-      { title: "The partner ecosystem advantage in enterprise sales", date: "Feb 2026" },
-      { title: "Channel programmes that actually scale: lessons from the field", date: "Dec 2025" },
-    ],
+    title: "AI Won't Replace Your Marketing. But It Will Expose Your Gaps.",
+    category: "AI & Innovation",
+    author: "Sumit Ramchandani",
+    authorRole: "Adtech & Martech Practice Head",
+    readTime: "6 min read",
+    teaser: "Generative AI is already reshaping how buyers discover brands. The question isn't whether to adopt—it's whether your foundation can support it.",
+    featured: true,
+    date: "February 2026",
   },
   {
-    theme: "AI & Innovation",
-    articles: [
-      { title: "From pilot to platform: scaling AI ventures in SEA", date: "Jan 2026" },
-      { title: "Why corporate venture needs an operating partner, not just capital", date: "Nov 2025" },
-    ],
+    title: "The Partner Ecosystem Advantage in Enterprise Sales",
+    category: "Ecosystems & Partnerships",
+    author: "William Gaultier",
+    authorRole: "Partner",
+    readTime: "8 min read",
+    teaser: "Direct sales gets the glory. But in APAC enterprise technology, partners drive 70%+ of revenue. Here's how to build an ecosystem that compounds.",
+    date: "February 2026",
   },
   {
-    theme: "Brand & Demand",
-    articles: [
-      { title: "Performance marketing in SEA: beyond the ROAS trap", date: "Dec 2025" },
-      { title: "Influencer ecosystems as demand infrastructure", date: "Oct 2025" },
-    ],
+    title: "The $3M Question: Why Your Events Aren't Generating Pipeline",
+    category: "Growth Strategy",
+    author: "Ajay Mohan",
+    authorRole: "Managing Partner, GTM Strategy",
+    readTime: "8 min read",
+    teaser: "Most B2B events generate buzz but not business. Here's how to fix that.",
+    date: "January 2026",
+  },
+  {
+    title: "Stop Choosing Between Brand and Performance",
+    category: "Brand & Demand",
+    author: "Irfan Mulla",
+    authorRole: "Managing Director, Indonesia",
+    readTime: "6 min read",
+    teaser: "The false dichotomy that's holding back your growth—and how to integrate for results.",
+    date: "January 2026",
+  },
+  {
+    title: "GEO: The New SEO for AI-First Discovery",
+    category: "AI & Innovation",
+    author: "Irfan Mulla",
+    authorRole: "Managing Director, Indonesia",
+    readTime: "7 min read",
+    teaser: "When your customers ask ChatGPT instead of Google, does your brand show up? Generative Engine Optimisation is the new imperative.",
+    date: "December 2025",
+  },
+  {
+    title: "Southeast Asia Retail: The New Frontier",
+    category: "APAC Market",
+    author: "Enfactum Team",
+    readTime: "10 min read",
+    teaser: "Why global brands are rethinking their SEA retail strategy—and what the winners are doing differently.",
+    date: "December 2025",
+  },
+  {
+    title: "The Urgency of Now: Why B2B Brands Must Act",
+    category: "Growth Strategy",
+    author: "Ajay Mohan",
+    authorRole: "Managing Partner, GTM Strategy",
+    readTime: "5 min read",
+    teaser: "Market windows don't wait. Here's why speed matters more than ever in B2B tech.",
+    date: "November 2025",
   },
 ];
+
+const featuredArticles = articles.filter((a) => a.featured);
+const regularArticles = articles.filter((a) => !a.featured);
+
+// Group regular articles by category
+const groupedByCategory = regularArticles.reduce<Record<string, Article[]>>((acc, article) => {
+  if (!acc[article.category]) acc[article.category] = [];
+  acc[article.category].push(article);
+  return acc;
+}, {});
+
+const categoryOrder = ["Growth Strategy", "Ecosystems & Partnerships", "Brand & Demand", "AI & Innovation", "APAC Market"];
+const orderedCategories = categoryOrder.filter((c) => groupedByCategory[c]);
 
 const Thinking = () => (
   <PageLayout>
     <HeroSection
       eyebrow="Thinking"
       headline="Field intelligence from the front lines of Southeast Asian growth."
-      description="Not thought leadership for its own sake. Observations, frameworks, and perspectives earned through execution."
+      description="Original perspectives on growth, marketing, AI, and the APAC market — from people who operate in it every day."
     />
 
-    {/* Featured */}
+    {/* Featured articles */}
     <section className="py-20 md:py-28">
       <div className="section-container">
-        <RevealSection>
-          <div className="card-premium max-w-4xl">
-            <span className="eyebrow">{featuredArticle.category}</span>
-            <h2 className="headline-md mt-3">{featuredArticle.title}</h2>
-            <p className="body-md mt-4">{featuredArticle.excerpt}</p>
-            <div className="flex items-center gap-3 mt-6">
-              <span className="text-xs text-dim">{featuredArticle.date}</span>
-              <span className="text-sm text-primary font-medium flex items-center gap-1">Read <ArrowRight className="w-3 h-3" /></span>
-            </div>
-          </div>
-        </RevealSection>
+        <div className="grid md:grid-cols-2 gap-8">
+          {featuredArticles.map((article, i) => (
+            <RevealSection key={i} delay={i * 0.1}>
+              <div className="card-premium h-full group cursor-pointer transition-all duration-500 hover:border-primary/20">
+                <span className="eyebrow text-primary">{article.category}</span>
+                <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mt-3 leading-snug group-hover:text-primary transition-colors duration-500">
+                  {article.title}
+                </h2>
+                <p className="text-sm text-muted-foreground mt-4 leading-relaxed font-body">
+                  {article.teaser}
+                </p>
+                <div className="flex items-center gap-3 mt-6 pt-4 border-t border-border/30">
+                  <div className="flex-1">
+                    <p className="text-[13px] font-medium text-foreground font-body">{article.author}</p>
+                    {article.authorRole && (
+                      <p className="text-[11px] text-muted-foreground font-body">{article.authorRole}</p>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-3 text-xs text-dim">
+                    <span>{article.readTime}</span>
+                    <span>·</span>
+                    <span>{article.date}</span>
+                  </div>
+                </div>
+                <span className="inline-flex items-center gap-1 mt-4 text-[11px] text-primary/60 uppercase tracking-wider font-body group-hover:text-primary transition-colors duration-500">
+                  Read article <ArrowRight className="w-3 h-3" />
+                </span>
+              </div>
+            </RevealSection>
+          ))}
+        </div>
       </div>
     </section>
 
     {/* Thematic bands */}
-    {thematicBands.map((band, bi) => (
-      <section key={bi} className={`py-16 md:py-20 ${bi % 2 === 0 ? "bg-secondary/20" : ""}`}>
+    {orderedCategories.map((category, bi) => (
+      <section key={category} className={`py-16 md:py-20 ${bi % 2 === 0 ? "bg-secondary/20" : ""}`}>
         <div className="section-container">
           <RevealSection>
-            <h3 className="eyebrow mb-8">{band.theme}</h3>
+            <h3 className="eyebrow mb-8">{category}</h3>
           </RevealSection>
           <div className="grid md:grid-cols-2 gap-6">
-            {band.articles.map((article, ai) => (
+            {groupedByCategory[category].map((article, ai) => (
               <RevealSection key={ai} delay={ai * 0.08}>
                 <div className="group cursor-pointer border-b border-border pb-6">
                   <h4 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
                     {article.title}
                   </h4>
-                  <span className="text-xs text-dim mt-2 block">{article.date}</span>
+                  <p className="text-sm text-muted-foreground mt-2 font-body leading-relaxed">
+                    {article.teaser}
+                  </p>
+                  <div className="flex items-center gap-3 mt-3">
+                    <span className="text-[12px] font-medium text-foreground/70 font-body">{article.author}</span>
+                    <span className="text-xs text-dim">·</span>
+                    <span className="text-xs text-dim">{article.readTime}</span>
+                    <span className="text-xs text-dim">·</span>
+                    <span className="text-xs text-dim">{article.date}</span>
+                  </div>
                 </div>
               </RevealSection>
             ))}
@@ -92,7 +181,7 @@ const Thinking = () => (
       </section>
     ))}
 
-    <CTABand headline="Have a growth challenge to discuss?" primaryLabel="Start a conversation" />
+    <CTABand headline="Have a growth challenge to discuss?" primaryLabel="Start a conversation" primaryHref="/contact" />
   </PageLayout>
 );
 
