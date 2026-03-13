@@ -3,6 +3,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
+import StaggerGrid from "@/components/shared/StaggerGrid";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead, { makeFAQSchema, makeBreadcrumbSchema } from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
