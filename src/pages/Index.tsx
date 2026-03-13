@@ -463,7 +463,7 @@ const depthBlocks = [
 ];
 
 const DepthSection = () => (
-  <section className="section-alt py-32 md:py-44">
+  <section id="depth" className="section-alt py-32 md:py-44">
     <div className="section-container">
       <SectionHeader
         eyebrow="Depth behind the work"
