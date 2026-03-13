@@ -88,7 +88,7 @@ const outcomeCapsules = [
   },
   {
     brand: "Brands For Less",
-    label: "Growth Infrastructure / Digital Commerce",
+    label: "Growth Infrastructure / Market Entry",
     outcome: "Transformed digital acquisition channels to drive +42% site traffic uplift, strengthening competitive position in online retail.",
   },
 ];
