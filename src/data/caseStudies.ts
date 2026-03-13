@@ -305,6 +305,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Consumer & Retail", "Digital Commerce"],
     outcomes: ["Revenue Growth", "Customer Acquisition"],
+    challengeTypes: ["Digital Commerce & Acquisition"],
     challenge: "A traditional pharmaceutical brand needed to establish digital commerce dominance on TikTok Shop across Indonesia.",
     role: "Enfactum built the full commerce architecture — creator recruitment, content strategy, TikTok Shop operations, and massive-scale activation with 220+ creators.",
     results: [
