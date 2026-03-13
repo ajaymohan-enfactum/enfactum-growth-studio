@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Capabilities from "./pages/Capabilities";
 import CapabilityDetail from "./pages/CapabilityDetail";
 import Work from "./pages/Work";
+import Brands from "./pages/Brands";
 import Thinking from "./pages/Thinking";
 import Company from "./pages/Company";
 import Leadership from "./pages/Leadership";
