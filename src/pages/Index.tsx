@@ -23,13 +23,14 @@ import { ArrowRight, Crosshair, Network, Unlink, FlaskConical, Rocket } from "lu
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-type BgStyle = "topology" | "aurora" | "noise";
+type BgStyle = "topology" | "aurora" | "noise" | "hybrid";
 const bgLabels: Record<BgStyle, string> = {
   topology: "Topology Mesh",
   aurora: "Aurora Waves",
   noise: "Noise + Depth",
+  hybrid: "Hybrid",
 };
-const bgOptions: BgStyle[] = ["topology", "aurora", "noise"];
+const bgOptions: BgStyle[] = ["topology", "aurora", "noise", "hybrid"];
 
 /* ═══════════════════════════════════════════════
    SECTION 1 — HERO
