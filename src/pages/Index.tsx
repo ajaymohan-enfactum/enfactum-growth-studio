@@ -461,9 +461,9 @@ const DepthSection = () => (
    Editorial journal preview
    ═══════════════════════════════════════════════ */
 const articles = [
-  { title: "Why imported playbooks fail in Southeast Asia", category: "Operator View", date: "March 2026" },
-  { title: "The partner ecosystem advantage in ASEAN enterprise", category: "Field Note", date: "February 2026" },
-  { title: "From pilot to platform: scaling AI ventures in SEA", category: "Market Signal", date: "January 2026" },
+  { title: "Southeast Asia Is Not One Market. Stop Planning It Like One.", category: "Operator View", date: "March 2026" },
+  { title: "In B2B, Your Buyer Already Trusts Someone Else.", category: "Operator View", date: "March 2026" },
+  { title: "Imported Playbooks Break Fast in Southeast Asia.", category: "Field Note", date: "February 2026" },
 ];
 
 const Perspectives = () => (
