@@ -79,10 +79,9 @@ const RegionalNodes = () => (
           headline="Strategic hub. Scale engine. Market nodes."
           description="Our footprint is designed for how work actually flows across Southeast Asia — strategy set in Singapore, scale built through India, markets activated locally."
         />
-        <div className="grid md:grid-cols-2 gap-6 mt-14">
+        <StaggerGrid className="grid md:grid-cols-2 gap-6 mt-14" staggerDelay={0.12}>
           {nodes.map((node, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
-              <div className="card-premium h-full">
+            <div key={i} className="card-premium h-full">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-2 h-2 rounded-full bg-primary" />
                   <span className="eyebrow">{node.type}</span>
