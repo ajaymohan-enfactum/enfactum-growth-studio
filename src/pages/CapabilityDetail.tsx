@@ -5,6 +5,8 @@ import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
+import CaseCard from "@/components/shared/CaseCard";
+import { getCasesByIds } from "@/data/caseStudies";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
