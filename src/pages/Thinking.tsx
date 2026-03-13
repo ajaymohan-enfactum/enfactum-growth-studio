@@ -28,7 +28,7 @@ const articles: Article[] = [
   },
   {
     title: "AI Won't Replace Your Marketing. But It Will Expose Your Gaps.",
-    category: "AI & Innovation",
+    category: "Market Signal",
     author: "Sumit Ramchandani",
     authorRole: "Adtech & Martech Practice Head",
     readTime: "6 min read",
