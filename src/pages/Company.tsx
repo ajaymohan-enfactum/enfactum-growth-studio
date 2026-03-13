@@ -174,11 +174,22 @@ const Company = () => (
           {leaders.map((leader, i) => (
             <RevealSection key={i} delay={i * 0.08} blur>
               <div className="group">
-                {/* Portrait placeholder — restrained monochrome */}
-                <div className="w-full aspect-[3/4] rounded-sm bg-gradient-to-b from-secondary/80 to-secondary/40 border border-border/30 mb-6 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent group-hover:via-primary/30 transition-all duration-700" />
-                </div>
+                {leader.photo ? (
+                  <div className="w-full aspect-[3/4] rounded-sm overflow-hidden mb-6 relative">
+                    <img
+                      src={leader.photo}
+                      alt={leader.name}
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent group-hover:via-primary/30 transition-all duration-700" />
+                  </div>
+                ) : (
+                  <div className="w-full aspect-[3/4] rounded-sm bg-gradient-to-b from-secondary/80 to-secondary/40 border border-border/30 mb-6 overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent group-hover:via-primary/30 transition-all duration-700" />
+                  </div>
+                )}
                 <h3 className="font-display text-base font-semibold text-foreground tracking-tight">{leader.name}</h3>
                 <p className="text-[13px] text-primary/70 font-medium mt-0.5">{leader.role}</p>
                 <p className="text-[10px] text-dim uppercase tracking-[0.15em] font-body mt-2">{leader.focus}</p>
