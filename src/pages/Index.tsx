@@ -397,7 +397,7 @@ const FeaturedWork = () => {
     <section className="py-32 md:py-44">
       <div className="section-container">
         <SectionHeader
-          eyebrow="Featured work"
+          eyebrow="Selected work"
           headline="Selected outcomes."
         />
         <p className="text-[13px] text-muted-foreground mt-4 max-w-lg">

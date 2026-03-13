@@ -15,7 +15,7 @@ const footerLinks = {
     { label: "Regional Nodes", href: "/company/regional-nodes" },
     { label: "Careers", href: "/company/careers" },
   ],
-  Resources: [
+  Explore: [
     { label: "Work", href: "/work" },
     { label: "Brands", href: "/brands" },
     { label: "Thinking", href: "/thinking" },

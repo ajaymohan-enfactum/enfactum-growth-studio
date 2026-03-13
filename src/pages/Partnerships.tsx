@@ -231,7 +231,7 @@ const Partnerships = () => (
     <section className="py-20 md:py-28 section-alt">
       <div className="section-container">
         <RevealSection>
-          <p className="eyebrow mb-4">How we create value</p>
+          <p className="eyebrow mb-4">How Enfactum creates value</p>
           <h2 className="headline-lg max-w-4xl">We do more than connect companies. We help make the partnership work.</h2>
         </RevealSection>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px mt-14 bg-border/30 rounded-md overflow-hidden border border-border/40">

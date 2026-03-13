@@ -166,7 +166,7 @@ const Contact = () => {
       <section className="py-24 md:py-32">
         <div className="section-container">
           <RevealSection>
-            <p className="eyebrow mb-6">Select your inquiry type</p>
+            <p className="eyebrow mb-6">Contact pathways</p>
             <p className="text-[13px] text-muted-foreground max-w-lg mb-12">
               This helps us route your message to the right principal on our team.
             </p>

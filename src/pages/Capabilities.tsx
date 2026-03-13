@@ -100,7 +100,7 @@ const Capabilities = () => (
                     <div className="md:col-span-6">
                       <div className="space-y-6">
                         <div>
-                          <h4 className="text-[11px] uppercase tracking-[0.2em] text-foreground/40 font-body mb-3">The problem</h4>
+                          <h4 className="text-[11px] uppercase tracking-[0.2em] text-foreground/40 font-body mb-3">The challenge</h4>
                           <p className="text-[15px] text-secondary-foreground leading-[1.7]">{cap.problem}</p>
                         </div>
                         <div>

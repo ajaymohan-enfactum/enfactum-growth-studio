@@ -371,7 +371,7 @@ const CapabilityDetail = () => {
           <div className="grid md:grid-cols-12 gap-8">
             <div className="md:col-span-4">
               <RevealSection>
-                <p className="eyebrow mb-4">Capability ownership</p>
+                <p className="eyebrow mb-4">Capability leadership</p>
                 <h3 className="headline-md">{data.team.heading}</h3>
               </RevealSection>
             </div>
