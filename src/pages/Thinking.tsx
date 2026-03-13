@@ -166,7 +166,7 @@ const articles: Article[] = [
     category: "Field Note",
     theme: "Launches & Activation",
     author: "Ajay Mohan",
-    authorRole: "Managing Partner, GTM Strategy",
+    authorRole: "Founder & Managing Partner",
     readTime: "6 min read",
     teaser: "Entry points keep opening doors long after the moment has passed. The best activations connect to follow-up systems — giving buyers a reason to engage and partners something to act on.",
     date: "October 2025",
