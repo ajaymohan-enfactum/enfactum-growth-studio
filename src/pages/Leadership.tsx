@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
+import StaggerGrid from "@/components/shared/StaggerGrid";
 import CTABand from "@/components/shared/CTABand";
 import TeamProfilePanel from "@/components/shared/TeamProfilePanel";
 import SEOHead, { makeBreadcrumbSchema } from "@/components/shared/SEOHead";
@@ -218,9 +219,8 @@ const Leadership = () => {
 
       <section className="py-20 md:py-28">
         <div className="section-container">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
             {leadershipTeam.map((leader, i) => (
-              <RevealSection key={i} delay={i * 0.08}>
                 <button
                   onClick={() => openProfile(i)}
                   className="card-premium h-full w-full text-left group cursor-pointer transition-all duration-500 hover:border-primary/20"
@@ -252,9 +252,8 @@ const Leadership = () => {
                     View profile →
                   </span>
                 </button>
-              </RevealSection>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 

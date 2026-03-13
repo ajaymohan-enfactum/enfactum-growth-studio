@@ -3,6 +3,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
+import StaggerGrid from "@/components/shared/StaggerGrid";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead, { makeFAQSchema, makeBreadcrumbSchema } from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
@@ -78,10 +79,9 @@ const RegionalNodes = () => (
           headline="Strategic hub. Scale engine. Market nodes."
           description="Our footprint is designed for how work actually flows across Southeast Asia — strategy set in Singapore, scale built through India, markets activated locally."
         />
-        <div className="grid md:grid-cols-2 gap-6 mt-14">
+        <StaggerGrid className="grid md:grid-cols-2 gap-6 mt-14" staggerDelay={0.12}>
           {nodes.map((node, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
-              <div className="card-premium h-full">
+            <div key={i} className="card-premium h-full">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-2 h-2 rounded-full bg-primary" />
                   <span className="eyebrow">{node.type}</span>
@@ -98,10 +98,9 @@ const RegionalNodes = () => (
                     <span key={cap} className="text-xs px-2.5 py-1 rounded-full bg-secondary text-muted-foreground border border-border">{cap}</span>
                   ))}
                 </div>
-              </div>
-            </RevealSection>
+            </div>
           ))}
-        </div>
+        </StaggerGrid>
       </div>
     </section>
 
