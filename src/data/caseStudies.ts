@@ -444,6 +444,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["AI Ecosystems"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Ecosystem Scale", "Revenue Growth"],
+    challengeTypes: ["Innovation & AI Deployment"],
     challenge: "HP's enterprise customers needed practical AI implementations — not innovation theatre — with measurable data and operational outcomes.",
     role: "Enfactum delivered enterprise AI solutions across multiple use cases — from data enrichment to multi-lingual voice agents — moving each from pilot to production.",
     results: [
