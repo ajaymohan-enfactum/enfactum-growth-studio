@@ -13,7 +13,7 @@ import {
   challengeFilters,
 } from "@/data/caseStudies";
 
-/* ─── Prioritised case order for the proof engine ─── */
+/* ─── Prioritised case order ─── */
 const priorityOrder = [
   "hp-garage",
   "economist-bot",
