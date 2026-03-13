@@ -181,6 +181,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Channel Engagement", "Cost Efficiency", "Sales Enablement"],
+    challengeTypes: ["Channel & Partner Activation"],
     challenge: "HP needed a scalable, low-cost way to engage and activate its graphics partner network across India and SEA — beyond traditional email and events.",
     role: "Enfactum built a WhatsApp-based partner engagement programme with structured communications, enablement content, and partner activation workflows.",
     results: [
