@@ -123,7 +123,7 @@ const Brands = () => (
           <div className="md:col-span-5">
             <RevealSection>
               <p className="eyebrow mb-6">Why this matters</p>
-              <h2 className="headline-lg">Breadth as proof, not vanity.</h2>
+              <h2 className="headline-lg">Breadth as experience, not vanity.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-6 md:col-start-7">
