@@ -427,7 +427,7 @@ const SectorExperience = () => (
 const FeaturedWork = () => {
   const flagships = getFlagshipCases();
   return (
-    <section className="py-32 md:py-44">
+    <section id="selected-work" className="py-32 md:py-44">
       <div className="section-container">
         <SectionHeader
           eyebrow="Selected work"
