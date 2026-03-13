@@ -17,76 +17,90 @@ const PrivacyPolicy = () => (
 
     <section className="py-16 md:py-24">
       <div className="section-container max-w-3xl">
-        <div className="prose-enfactum space-y-10">
+        <div className="space-y-10">
           <div>
-            <p className="text-sm text-muted-foreground">Last updated: March 2026</p>
+            <p className="text-sm text-muted-foreground">Last updated: 27 November 2023</p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="font-display text-xl font-bold text-foreground">1. Introduction</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Enfactum Pte. Ltd. ("Enfactum", "we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website or engage with our services.
+              Enfactum ("Enfactum", "us", "we" or "our") has created this Privacy Policy ("Policy") to comprehensively inform individuals about our privacy practices and a firm commitment to privacy. We respect your privacy and are committed to protecting your personal data and strictly limiting any disclosure in accordance with applicable local laws and regulations. This Policy describes how we collect, use, disclose, transfer, store, retain or otherwise process personal information in performing our integrated marketing services and other business activities, including administration of our website and communications between you and Enfactum.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              When we refer to "you" or "your", we mean the person we collect personal information about. If you access our website or services on behalf of another person or entity, "you" and "your" refer to both you and that person or entity.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              We provide integrated marketing services to businesses, not individual consumers. However, we may collect personal information of individuals in providing services to our clients. This may include information collected from our website visitors, client contacts, or sole proprietor clients that engage our services.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">This Policy includes:</p>
+            <ol className="list-decimal pl-5 space-y-1 text-sm text-muted-foreground leading-relaxed">
+              <li>Collection of Personal Information</li>
+              <li>Use of Personal Information</li>
+              <li>Disclosure to Third Parties</li>
+              <li>Data Retention</li>
+              <li>Individual Rights</li>
+              <li>Data Security</li>
+              <li>Contact Information</li>
+              <li>Changes to This Policy</li>
+            </ol>
+          </div>
+
+          <div className="space-y-4">
+            <h2 className="font-display text-xl font-bold text-foreground">Collection of Personal Information</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Enfactum collects personal information from clients and website visitors necessary to provide marketing services, fulfill requests, respond to inquiries, or customize website content. This may include name, contact information, demographic information, preferences, interests, and other information relevant to tailoring marketing campaigns and materials. Information is collected directly when provided voluntarily. Enfactum may also collect information from publicly available sources.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="font-display text-xl font-bold text-foreground">2. Information We Collect</h2>
+            <h2 className="font-display text-xl font-bold text-foreground">Use of Personal Information</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              We may collect the following types of information:
-            </p>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground leading-relaxed">
-              <li><strong className="text-foreground">Contact information</strong> — name, email address, phone number, and company name provided through our contact forms.</li>
-              <li><strong className="text-foreground">Usage data</strong> — information about how you interact with our website, including pages visited, time spent, and referring URLs.</li>
-              <li><strong className="text-foreground">Device information</strong> — browser type, operating system, IP address, and device identifiers.</li>
-              <li><strong className="text-foreground">Cookies and tracking</strong> — we use cookies and similar technologies to improve your experience and analyse website performance.</li>
-            </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="font-display text-xl font-bold text-foreground">3. How We Use Your Information</h2>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground leading-relaxed">
-              <li>To respond to enquiries and provide requested services.</li>
-              <li>To improve and personalise your experience on our website.</li>
-              <li>To analyse website usage and optimise performance.</li>
-              <li>To comply with legal obligations and enforce our terms.</li>
-              <li>To send relevant updates about our services, where you have opted in.</li>
-            </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="font-display text-xl font-bold text-foreground">4. Sharing of Information</h2>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              We do not sell your personal information. We may share information with trusted third-party service providers who assist us in operating our website and delivering our services, subject to appropriate confidentiality and data protection obligations.
+              Enfactum uses personal information to provide contracted marketing services to clients, analyze the effectiveness of marketing campaigns, customize website content and marketing messages, send marketing communications to clients and subscribers, and for other legitimate business purposes disclosed at the time of collection.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="font-display text-xl font-bold text-foreground">5. Data Retention</h2>
+            <h2 className="font-display text-xl font-bold text-foreground">Disclosure to Third Parties</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              We retain personal information only for as long as necessary to fulfil the purposes for which it was collected, or as required by applicable law.
+              Enfactum discloses personal information to third-party service providers and partners solely for purposes disclosed at collection and with appropriate privacy and security controls. Enfactum otherwise does not share personal information externally except to meet legal requirements, comply with regulations, or protect our legal rights.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="font-display text-xl font-bold text-foreground">6. Your Rights</h2>
+            <h2 className="font-display text-xl font-bold text-foreground">Data Retention</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Depending on your jurisdiction, you may have the right to access, correct, delete, or restrict the processing of your personal data. To exercise these rights, please contact us at <a href="mailto:hello@enfactum.com" className="text-primary hover:underline">hello@enfactum.com</a>.
+              Enfactum retains personal information for the period necessary to fulfill the purposes outlined in this privacy policy unless a longer retention period is required or permitted by law.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="font-display text-xl font-bold text-foreground">7. Security</h2>
+            <h2 className="font-display text-xl font-bold text-foreground">Individual Rights</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              We implement appropriate technical and organisational measures to protect your personal information. However, no method of transmission over the internet is completely secure.
+              Individuals have the right to request access to, correction of, deletion of, or restriction of our use of their personal data, as well as the right to data portability and to object to processing subject to limitations under applicable regulations. Individuals also have the right to withdraw consent at any time.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="font-display text-xl font-bold text-foreground">8. Contact</h2>
+            <h2 className="font-display text-xl font-bold text-foreground">Data Security</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              If you have questions about this Privacy Policy, please contact us at:<br />
-              <a href="mailto:hello@enfactum.com" className="text-primary hover:underline">hello@enfactum.com</a><br />
-              71 Robinson Road, #14-01, Singapore 068895
+              Enfactum maintains reasonable and appropriate security measures commensurate with applicable privacy and data security regulations to protect against unauthorized access, disclosure, use or loss of personal information in our possession.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h2 className="font-display text-xl font-bold text-foreground">Contact Information</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              For any questions or concerns regarding this privacy policy or to exercise data subject rights requests, please contact us at <a href="mailto:info@enfactum.com" className="text-primary hover:underline">info@enfactum.com</a>.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h2 className="font-display text-xl font-bold text-foreground">Changes to This Policy</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Enfactum may update this privacy policy to comply with changing legal requirements or address new issues. We will appropriately notify website visitors and clients of any significant changes.
             </p>
           </div>
         </div>
