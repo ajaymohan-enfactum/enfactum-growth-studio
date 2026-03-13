@@ -276,7 +276,7 @@ const Partnerships = () => (
     <section className="py-20 md:py-28 section-alt">
       <div className="section-container">
         <RevealSection>
-          <p className="eyebrow mb-4">In practice</p>
+          <p className="eyebrow mb-4">Partnerships in practice</p>
           <h2 className="headline-lg max-w-3xl">Partnerships we've helped build and operate.</h2>
         </RevealSection>
         <div className="space-y-0 mt-14">
