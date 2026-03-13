@@ -23,7 +23,7 @@ interface CapData {
   challenge: { heading: string; body: string; bullets: string[] };
   whatWeBuild: { heading: string; body: string; deliverables: { title: string; desc: string }[] };
   howItWorks: { step: string; desc: string }[];
-  proofCaseIds: string[];       // references to central case study data
+  outcomeCaseIds: string[];     // references to central case study data
   team: { heading: string; body: string };
   nextCapability: { title: string; href: string };
 }
@@ -63,7 +63,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Operations build", desc: "Embed within the business to build pipeline infrastructure, sales processes, and demand operations." },
       { step: "Scale & transfer", desc: "Expand to new markets using proven playbooks. Transfer operations, knowledge, and ownership to internal teams." },
     ],
-    proofCaseIds: ["economist-bot", "economist-ht", "lexmark-mpc", "hp-whatsapp", "bfl-sea", "hp-smb"],
+    outcomeCaseIds: ["economist-bot", "economist-ht", "lexmark-mpc", "hp-whatsapp", "bfl-sea", "hp-smb"],
     team: {
       heading: "Led by GTM and channel specialists.",
       body: "The Growth Infrastructure capability is led by principals with deep experience in enterprise sales, channel programme design, and regional GTM architecture — people who have built and operated these systems across ASEAN markets.",
@@ -105,7 +105,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Optimisation & scaling", desc: "Continuous optimisation based on commercial outcomes. Scale what works. Kill what doesn't. Expand to new markets." },
       { step: "Capability transfer", desc: "Build internal capability. Transfer playbooks, vendor relationships, and operational knowledge to your team." },
     ],
-    proofCaseIds: ["economist-affiliate", "myrepublic", "loose-moose", "jshealth", "tiktok-pharma"],
+    outcomeCaseIds: ["economist-affiliate", "myrepublic", "loose-moose", "jshealth", "tiktok-pharma"],
     team: {
       heading: "Led by creative and performance specialists.",
       body: "The Brand & Demand capability is led by specialists who've run integrated demand programmes across ASEAN — people who bridge brand strategy and commercial performance, not just media buying.",
@@ -147,7 +147,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Pilot & partnership", desc: "Design and manage pilot programmes. Structure partnerships. Operate sandboxes. Evaluate outcomes." },
       { step: "Scale & transfer", desc: "Move successful pilots to production. Build procurement pathways. Transfer programme ownership and methodology." },
     ],
-    proofCaseIds: ["hp-garage", "enterprise-ai", "oracle-dha"],
+    outcomeCaseIds: ["hp-garage", "enterprise-ai", "oracle-dha"],
     team: {
       heading: "Led by innovation operators, not consultants.",
       body: "The AI Ecosystems capability is led by people who've built and operated corporate innovation programmes — who understand both enterprise procurement cycles and startup velocity, and know how to bridge the two.",
@@ -189,7 +189,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Activation & engagement", desc: "Execute the experience. Manage real-time engagement, audience interaction, and partner activation." },
       { step: "Measurement & follow-through", desc: "Post-event pipeline tracking, lead handoff, partner follow-up, and commercial impact reporting." },
     ],
-    proofCaseIds: ["hp-lf-launch", "bfl-sea", "sephora-my", "lazada-1111"],
+    outcomeCaseIds: ["hp-lf-launch", "bfl-sea", "sephora-my", "lazada-1111"],
     team: {
       heading: "Led by event strategists who think in commercial outcomes.",
       body: "The Live Experiences capability is led by people who've produced hundreds of enterprise events across Southeast Asia — and who measure success by pipeline generated, not applause volume.",
@@ -247,7 +247,7 @@ const CapabilityDetail = () => {
           <div className="grid md:grid-cols-12 gap-8">
             <div className="md:col-span-5">
               <RevealSection>
-                <p className="eyebrow mb-6">The business challenge</p>
+                <p className="eyebrow mb-6">The challenge</p>
                 <h2 className="headline-lg">{data.challenge.heading}</h2>
               </RevealSection>
             </div>
@@ -358,7 +358,7 @@ const CapabilityDetail = () => {
           </RevealSection>
 
           <div className="mt-8 space-y-0">
-            {getCasesByIds(data.proofCaseIds).map((cs, i) => (
+            {getCasesByIds(data.outcomeCaseIds).map((cs, i) => (
               <CaseCard key={cs.id} cs={cs} index={i} />
             ))}
           </div>
@@ -371,7 +371,7 @@ const CapabilityDetail = () => {
           <div className="grid md:grid-cols-12 gap-8">
             <div className="md:col-span-4">
               <RevealSection>
-                <p className="eyebrow mb-4">Capability ownership</p>
+                <p className="eyebrow mb-4">Capability leadership</p>
                 <h3 className="headline-md">{data.team.heading}</h3>
               </RevealSection>
             </div>

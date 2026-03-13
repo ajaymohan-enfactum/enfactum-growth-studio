@@ -201,7 +201,7 @@ const Work = () => {
 
       <CTABand
         headline="Have a growth challenge to discuss?"
-        description="We'd like to understand your context before we propose a solution."
+        description="We'd like to understand your context before we propose an approach."
         primaryLabel="Start a conversation"
       />
     </PageLayout>

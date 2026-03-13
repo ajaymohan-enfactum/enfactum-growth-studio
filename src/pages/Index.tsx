@@ -397,7 +397,7 @@ const FeaturedWork = () => {
     <section className="py-32 md:py-44">
       <div className="section-container">
         <SectionHeader
-          eyebrow="Featured work"
+          eyebrow="Selected work"
           headline="Selected outcomes."
         />
         <p className="text-[13px] text-muted-foreground mt-4 max-w-lg">
@@ -461,9 +461,9 @@ const DepthSection = () => (
    Editorial journal preview
    ═══════════════════════════════════════════════ */
 const articles = [
-  { title: "Why imported playbooks fail in Southeast Asia", category: "Growth Strategy", date: "March 2026" },
-  { title: "The partner ecosystem advantage in ASEAN enterprise", category: "Ecosystems", date: "February 2026" },
-  { title: "From pilot to platform: scaling AI ventures in SEA", category: "AI & Innovation", date: "January 2026" },
+  { title: "Why imported playbooks fail in Southeast Asia", category: "Operator View", date: "March 2026" },
+  { title: "The partner ecosystem advantage in ASEAN enterprise", category: "Field Note", date: "February 2026" },
+  { title: "From pilot to platform: scaling AI ventures in SEA", category: "Market Signal", date: "January 2026" },
 ];
 
 const Perspectives = () => (
