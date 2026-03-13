@@ -1,5 +1,5 @@
-import { ReactNode, Children, isValidElement, Fragment } from "react";
-import { motion } from "framer-motion";
+import { ReactNode, Children, isValidElement, Fragment, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 interface HeroSectionProps {
   eyebrow?: string;
