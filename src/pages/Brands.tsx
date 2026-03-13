@@ -218,7 +218,7 @@ const Brands = () => (
                   {capsule.brand}
                 </h3>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  {capsule.proof}
+                  {capsule.outcome}
                 </p>
               </div>
             </RevealSection>
