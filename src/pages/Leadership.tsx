@@ -43,7 +43,7 @@ const Leadership = () => (
       </div>
     </section>
 
-    <CTABand headline="Interested in joining the leadership team?" primaryLabel="View careers" primaryHref="/company/careers" />
+    <CTABand headline="Interested in joining the team?" primaryLabel="View careers" primaryHref="/company/careers" />
   </PageLayout>
 );
 
