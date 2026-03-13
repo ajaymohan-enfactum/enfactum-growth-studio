@@ -143,6 +143,7 @@ const Company = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="gradient" />
     {/* ═══ SECTION 2 — LEADERSHIP ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
