@@ -89,7 +89,7 @@ const TermsOfUse = () => (
             <p className="text-sm text-muted-foreground leading-relaxed">
               For questions about these Terms, please contact us at:<br />
               <a href="mailto:hello@enfactum.com" className="text-primary hover:underline">hello@enfactum.com</a><br />
-              71 Robinson Road, #14-01, Singapore 068895
+              7 Straits View, #05-01, Marina One East Tower, Singapore 018936
             </p>
           </div>
         </div>
