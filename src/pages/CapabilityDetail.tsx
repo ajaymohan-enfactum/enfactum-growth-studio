@@ -135,6 +135,8 @@ const capabilityData: Record<string, CapData> = {
     eyebrow: "AI Ecosystems",
     headline: "Move innovation from pilot to production. Build ecosystem architecture that scales.",
     description: "Venture strategy, startup scouting, partnership design, pilot management, and scale-up architecture — built around enterprise innovation mandates in Southeast Asia.",
+    seoTitle: "AI Ecosystems & Innovation Programs in APAC",
+    seoDescription: "Enterprise AI and innovation ecosystem programmes across Southeast Asia and APAC: venture strategy, startup scouting, pilot-to-production pathways, and commercialisation architecture for corporate innovation mandates.",
     forWhom: "Enterprises with innovation mandates that need an operator to move from scouting to scaling — not another accelerator programme or innovation theatre.",
     typicalClients: ["Global technology companies building regional innovation ecosystems", "Enterprises with corporate venture or open innovation mandates", "Government agencies designing startup engagement programmes", "Companies seeking AI/ML implementation partners through ecosystem models"],
     challenge: {
