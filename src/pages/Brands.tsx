@@ -89,7 +89,7 @@ const outcomeCapsules = [
   {
     brand: "Brands For Less",
     label: "Growth Infrastructure / Digital Commerce",
-    proof: "Transformed digital acquisition channels to drive +42% site traffic uplift, strengthening competitive position in online retail.",
+    outcome: "Transformed digital acquisition channels to drive +42% site traffic uplift, strengthening competitive position in online retail.",
   },
 ];
 
