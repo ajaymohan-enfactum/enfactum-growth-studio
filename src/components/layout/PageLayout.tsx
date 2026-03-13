@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ScrollProgress from "@/components/shared/ScrollProgress";
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -13,6 +14,7 @@ const PageLayout = ({ children }: PageLayoutProps) => {
 
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgress />
       <Navbar />
       <AnimatePresence mode="wait">
         <motion.main
