@@ -7,6 +7,8 @@ import SectionHeader from "@/components/shared/SectionHeader";
 import CTABand from "@/components/shared/CTABand";
 import TopologyBackground from "@/components/shared/TopologyBackground";
 import BrandLogo from "@/components/shared/BrandLogo";
+import CaseCard from "@/components/shared/CaseCard";
+import { getFlagshipCases } from "@/data/caseStudies";
 import { ArrowRight } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
