@@ -56,7 +56,7 @@ const articles: Article[] = [
     category: "Operator View",
     theme: "AI & Innovation",
     author: "Ajay Mohan",
-    authorRole: "Managing Partner, GTM Strategy",
+    authorRole: "Founder & Managing Partner",
     readTime: "7 min read",
     teaser: "Southeast Asia is not short of AI investment or intent. And yet enterprise AI adoption sits at 59% — well behind North America and Europe. The gap is not a technology gap. It is an operating model gap.",
     date: "February 2026",
