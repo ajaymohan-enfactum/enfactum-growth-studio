@@ -98,10 +98,9 @@ const RegionalNodes = () => (
                     <span key={cap} className="text-xs px-2.5 py-1 rounded-full bg-secondary text-muted-foreground border border-border">{cap}</span>
                   ))}
                 </div>
-              </div>
-            </RevealSection>
+            </div>
           ))}
-        </div>
+        </StaggerGrid>
       </div>
     </section>
 
