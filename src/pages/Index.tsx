@@ -315,9 +315,9 @@ const sectorClusters = [
     ],
   },
   {
-    sector: "Media & Partnerships",
+    sector: "Institutions & Ecosystems",
     num: "03",
-    caption: "Build-Operate-Transfer growth programmes, subscription strategy, and market re-entry for global media and publishing brands.",
+    caption: "Working with publishers, institutions, and ecosystem builders where trust, reach, and stakeholder alignment matter.",
     logos: [
       { name: "The Economist", domain: "economist.com", capability: "BOT · Growth Operations" },
       { name: "Dscoop", domain: "dscoop.org", capability: "Community & Events" },
@@ -326,9 +326,9 @@ const sectorClusters = [
     ],
   },
   {
-    sector: "Digital Commerce & Innovation",
+    sector: "New Economy & Innovation",
     num: "04",
-    caption: "Creator-led commerce, affiliate ecosystems, and digital marketplace activation for brands scaling across new channels.",
+    caption: "Partnering with emerging and innovation-led companies shaping new categories across the region.",
     logos: [
       { name: "JSHealth Vitamins", domain: "jshealthvitamins.com", capability: "Affiliate · Global Growth" },
       { name: "Lazada", domain: "lazada.com", capability: "E-Commerce Activation" },
