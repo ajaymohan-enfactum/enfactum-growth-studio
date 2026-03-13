@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { motion } from "framer-motion";
+
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
