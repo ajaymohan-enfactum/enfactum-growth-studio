@@ -119,6 +119,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure", "Brand & Demand"],
     sectors: ["Consumer & Retail"],
     outcomes: ["Market Entry", "Revenue Growth", "Customer Acquisition"],
+    challengeTypes: ["Market Launch & Expansion"],
     challenge: "Brands For Less needed a structured go-to-market strategy and digital infrastructure to launch in Southeast Asia from scratch.",
     role: "Enfactum built the full digital growth architecture — from market entry strategy and competitive analysis through digital acquisition, content systems, and performance optimisation.",
     results: [
