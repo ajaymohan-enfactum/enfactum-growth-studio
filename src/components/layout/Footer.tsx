@@ -36,7 +36,11 @@ const Footer = () => {
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
               Growth and innovation operating partner for enterprise brands scaling across Southeast Asia. Strategy, ecosystems, and execution.
             </p>
-            <p className="mt-6 text-xs text-dim">Singapore · India · Malaysia · Indonesia · USA</p>
+            <div className="mt-6 space-y-1.5 text-xs text-dim">
+              <p>71 Robinson Road, #14-01</p>
+              <p>Singapore 068895</p>
+              <a href="mailto:hello@enfactum.com" className="block hover:text-foreground transition-colors">hello@enfactum.com</a>
+            </div>
           </div>
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
