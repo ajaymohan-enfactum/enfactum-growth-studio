@@ -77,6 +77,8 @@ export const organizationSchema = {
     { "@type": "Place", name: "Indonesia" },
     { "@type": "Place", name: "Malaysia" },
     { "@type": "Place", name: "India" },
+    { "@type": "Place", name: "APAC" },
+    { "@type": "Place", name: "USA" },
   ],
   address: {
     "@type": "PostalAddress",
