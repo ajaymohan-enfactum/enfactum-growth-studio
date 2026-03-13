@@ -74,22 +74,22 @@ const outcomeCapsules = [
   {
     brand: "HP",
     label: "AI Ecosystems / Growth Infrastructure",
-    proof: "Built regional innovation and ecosystem architecture across multiple markets and business units — from AI incubation to SMB pipeline to large format product launches.",
+    outcome: "Built regional innovation and ecosystem architecture across multiple markets and business units — from AI incubation to SMB pipeline to large format product launches.",
   },
   {
     brand: "The Economist",
     label: "Growth Infrastructure / Build-Operate-Transfer",
-    proof: "Created an embedded build-operate-transfer model that delivered 47% cost savings, 50% agency fee reduction, and exceeded revenue expectations within two quarters.",
+    outcome: "Created an embedded build-operate-transfer model that delivered 47% cost savings, 50% agency fee reduction, and exceeded revenue expectations within two quarters.",
   },
   {
     brand: "JSHealth Vitamins",
     label: "Brand & Demand / Affiliate",
-    proof: "Built a performance-led affiliate and demand engine delivering +411% ROAS and +311% ROI through 190+ partnership channels across AU, EU, UK & US.",
+    outcome: "Built a performance-led affiliate and demand engine delivering +411% ROAS and +311% ROI through 190+ partnership channels across AU, EU, UK & US.",
   },
   {
     brand: "Brands For Less",
     label: "Growth Infrastructure / Digital Commerce",
-    proof: "Transformed digital acquisition channels to drive +42% site traffic uplift, strengthening competitive position in online retail.",
+    outcome: "Transformed digital acquisition channels to drive +42% site traffic uplift, strengthening competitive position in online retail.",
   },
 ];
 
@@ -218,7 +218,7 @@ const Brands = () => (
                   {capsule.brand}
                 </h3>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">
-                  {capsule.proof}
+                  {capsule.outcome}
                 </p>
               </div>
             </RevealSection>
