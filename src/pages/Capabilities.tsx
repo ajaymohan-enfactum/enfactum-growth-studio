@@ -96,7 +96,7 @@ const Capabilities = () => (
                       </div>
                     </div>
 
-                    {/* Middle — problem + solution */}
+                    {/* Middle — challenge + what we build */}
                     <div className="md:col-span-6">
                       <div className="space-y-6">
                         <div>
