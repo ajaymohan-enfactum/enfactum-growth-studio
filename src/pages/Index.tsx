@@ -123,11 +123,11 @@ const WhySEA = () => (
    Restrained problem framing
    ═══════════════════════════════════════════════ */
 const frictionPoints = [
-  { title: "Strategy-execution gap", body: "Brilliant plans that die in local implementation." },
-  { title: "Ecosystem underbuilt", body: "Partners and channels without structure or activation." },
-  { title: "Brand-demand disconnect", body: "Creative that doesn't connect to commercial outcomes." },
-  { title: "Innovation in pilot limbo", body: "AI and ventures stuck between demo and scale." },
-  { title: "Launch without momentum", body: "Events and activations without lasting market impact." },
+  { title: "Strategy-execution gap", body: "Brilliant plans that die in local implementation.", icon: Crosshair },
+  { title: "Ecosystem underbuilt", body: "Partners and channels without structure or activation.", icon: Network },
+  { title: "Brand-demand disconnect", body: "Creative that doesn't connect to commercial outcomes.", icon: Unlink },
+  { title: "Innovation in pilot limbo", body: "AI and ventures stuck between demo and scale.", icon: FlaskConical },
+  { title: "Launch without momentum", body: "Events and activations without lasting market impact.", icon: Rocket },
 ];
 
 const GrowthBreaks = () => (
