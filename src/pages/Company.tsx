@@ -232,7 +232,7 @@ const Company = () => (
             <RevealSection delay={0.1}>
               <p className="body-md text-muted-foreground">
                 Each node has a distinct role — strategy from Singapore, scale through India,
-                market presence in Malaysia and Indonesia.
+                market presence in Malaysia and Indonesia, with the USA as a global bridge.
               </p>
               <Link to="/company/regional-nodes" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-6">
                 Explore regional nodes <ArrowRight className="w-4 h-4" />
