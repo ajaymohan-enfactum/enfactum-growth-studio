@@ -355,7 +355,7 @@ const sectorClusters = [
       { name: "The Economist", domain: "economist.com", capability: "BOT · Growth Operations" },
       { name: "AICB", domain: "aicb.org.my", capability: "Community & Events" },
       { name: "Abbott", domain: "abbott.com", capability: "Brand & Demand" },
-      { name: "Fujifilm", domain: "fujifilm.com", capability: "Channel Activation" },
+      { name: "DSCOOP", domain: "dscoop.org", capability: "Channel Activation" },
     ],
   },
   {
