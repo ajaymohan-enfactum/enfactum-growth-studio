@@ -342,9 +342,9 @@ const sectorClusters = [
     caption: "Integrated brand-to-demand strategies and market entry for consumer brands scaling across Southeast Asia's diverse retail landscape.",
     logos: [
       { name: "Brands For Less", domain: "brandsforless.com", capability: "Market Entry · Digital Growth" },
-      { name: "Sephora", domain: "sephora.com", capability: "Live Experiences · Launch" },
+      { name: "Lancôme", domain: "lancome.com", capability: "Live Experiences · Launch" },
       { name: "L'Oréal", domain: "loreal.com", capability: "Brand & Demand" },
-      { name: "Decathlon", domain: "decathlon.com", capability: "Retail Activation" },
+      { name: "Kiehl's", domain: "kiehls.com", capability: "Retail Activation" },
     ],
   },
   {
