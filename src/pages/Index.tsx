@@ -14,6 +14,7 @@ import CTABand from "@/components/shared/CTABand";
 import TopologyBackground from "@/components/shared/TopologyBackground";
 import AuroraBackground from "@/components/shared/AuroraBackground";
 import NoiseTextureBackground from "@/components/shared/NoiseTextureBackground";
+import HybridBackground from "@/components/shared/HybridBackground";
 import BrandLogo from "@/components/shared/BrandLogo";
 import CaseCard from "@/components/shared/CaseCard";
 import SEOHead, { organizationSchema, webSiteSchema } from "@/components/shared/SEOHead";
@@ -22,13 +23,14 @@ import { ArrowRight, Crosshair, Network, Unlink, FlaskConical, Rocket } from "lu
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-type BgStyle = "topology" | "aurora" | "noise";
+type BgStyle = "topology" | "aurora" | "noise" | "hybrid";
 const bgLabels: Record<BgStyle, string> = {
   topology: "Topology Mesh",
   aurora: "Aurora Waves",
   noise: "Noise + Depth",
+  hybrid: "Hybrid",
 };
-const bgOptions: BgStyle[] = ["topology", "aurora", "noise"];
+const bgOptions: BgStyle[] = ["topology", "aurora", "noise", "hybrid"];
 
 /* ═══════════════════════════════════════════════
    SECTION 1 — HERO
@@ -56,6 +58,7 @@ const Hero = ({ bgStyle = "topology" }: { bgStyle?: BgStyle }) => {
       {bgStyle === "topology" && <TopologyBackground />}
       {bgStyle === "aurora" && <AuroraBackground />}
       {bgStyle === "noise" && <NoiseTextureBackground />}
+      {bgStyle === "hybrid" && <HybridBackground />}
       {/* Cursor spotlight */}
       <div
         className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-700"
@@ -573,7 +576,7 @@ const sectionLabels = [
    PAGE ASSEMBLY
    ═══════════════════════════════════════════════ */
 const Index = () => {
-  const [bgStyle, setBgStyle] = useState<BgStyle>("aurora");
+  const [bgStyle, setBgStyle] = useState<BgStyle>("hybrid");
 
   return (
   <PageLayout>
