@@ -24,59 +24,85 @@ const ease = [0.22, 1, 0.36, 1] as const;
    SECTION 1 — HERO
    Full-viewport cinematic opening
    ═══════════════════════════════════════════════ */
-const Hero = () => (
-  <section className="relative min-h-screen flex items-end overflow-hidden">
-    <TopologyBackground />
-    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/60" />
-    <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
+const Hero = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
+  const [hovering, setHovering] = useState(false);
 
-    <div className="section-container relative z-10 pb-20 md:pb-28 lg:pb-36 pt-40">
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.2, ease }}
-        className="eyebrow mb-8"
-      >
-        Growth &amp; Innovation Operating Partner · Southeast Asia
-      </motion.p>
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  }, []);
 
-      <motion.h1
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.4, ease }}
-        className="headline-display max-w-[18ch]"
-      >
-        Where strategy, ecosystems, and execution{" "}
-        <span className="text-primary">move together.</span>
-      </motion.h1>
+  return (
+    <section
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+      className="relative min-h-screen flex items-end overflow-hidden"
+    >
+      <TopologyBackground />
+      {/* Cursor spotlight */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-700"
+        style={{
+          opacity: hovering ? 1 : 0,
+          background: `radial-gradient(600px circle at ${cursorPos.x}px ${cursorPos.y}px, hsl(210 100% 50% / 0.07), transparent 55%)`,
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/60" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
 
-      <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.7, ease }}
-        className="body-xl mt-8 max-w-[52ch]"
-      >
-        Built for how Southeast Asia actually works, Enfactum brings together
-        strategy, ecosystems, and execution to help enterprise brands scale
-        with clarity and momentum.
-      </motion.p>
+      <div className="section-container relative z-10 pb-20 md:pb-28 lg:pb-36 pt-40">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.2, ease }}
+          className="eyebrow mb-8"
+        >
+          Growth &amp; Innovation Operating Partner · Southeast Asia
+        </motion.p>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.0, ease }}
-        className="flex flex-col sm:flex-row gap-4 mt-14"
-      >
-        <Link to="/contact">
-          <Button variant="hero" size="xl">Start a conversation</Button>
-        </Link>
-        <Link to="/work">
-          <Button variant="hero-outline" size="xl">See our work</Button>
-        </Link>
-      </motion.div>
-    </div>
-  </section>
-);
+        <motion.h1
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.4, ease }}
+          className="headline-display max-w-[18ch]"
+        >
+          Where strategy, ecosystems, and execution{" "}
+          <TextShimmer><span className="text-primary">move together.</span></TextShimmer>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.7, ease }}
+          className="body-xl mt-8 max-w-[52ch]"
+        >
+          Built for how Southeast Asia actually works, Enfactum brings together
+          strategy, ecosystems, and execution to help enterprise brands scale
+          with clarity and momentum.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0, ease }}
+          className="flex flex-col sm:flex-row gap-4 mt-14"
+        >
+          <Link to="/contact">
+            <MagneticButton variant="hero" size="xl">Start a conversation</MagneticButton>
+          </Link>
+          <Link to="/work">
+            <MagneticButton variant="hero-outline" size="xl">See our work</MagneticButton>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 /* ═══════════════════════════════════════════════
    SECTION 2 — WHY SOUTHEAST ASIA
