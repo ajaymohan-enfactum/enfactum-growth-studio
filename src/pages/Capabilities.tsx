@@ -217,7 +217,7 @@ const Capabilities = () => (
         <div className="section-divider mb-20" />
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-5">
-            <RevealSection>
+            <RevealSection blur>
               <p className="eyebrow mb-6">How we engage</p>
               <h2 className="headline-lg">Four ways to work with us.</h2>
             </RevealSection>
