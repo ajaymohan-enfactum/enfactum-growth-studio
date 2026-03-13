@@ -147,7 +147,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Pilot & partnership", desc: "Design and manage pilot programmes. Structure partnerships. Operate sandboxes. Evaluate outcomes." },
       { step: "Scale & transfer", desc: "Move successful pilots to production. Build procurement pathways. Transfer programme ownership and methodology." },
     ],
-    proofCaseIds: ["hp-garage", "enterprise-ai", "oracle-dha"],
+    outcomeCaseIds: ["hp-garage", "enterprise-ai", "oracle-dha"],
     team: {
       heading: "Led by innovation operators, not consultants.",
       body: "The AI Ecosystems capability is led by people who've built and operated corporate innovation programmes — who understand both enterprise procurement cycles and startup velocity, and know how to bridge the two.",
