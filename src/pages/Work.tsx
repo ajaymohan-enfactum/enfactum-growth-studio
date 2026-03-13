@@ -171,7 +171,7 @@ const Work = () => {
       {/* ─── Featured Cases (full cards) ─── */}
       <section className="py-16 md:py-24">
         <div className="section-container">
-          <RevealSection>
+          <RevealSection blur>
             <p className="eyebrow mb-2">
               {activeFilter !== "All" ? activeFilter : "All programmes"}
             </p>
