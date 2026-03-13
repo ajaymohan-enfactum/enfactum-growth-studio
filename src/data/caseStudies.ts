@@ -97,6 +97,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure", "Brand & Demand"],
     sectors: ["Media & Publishing"],
     outcomes: ["Cost Efficiency", "Revenue Growth", "Customer Acquisition"],
+    challengeTypes: ["Cost & Operational Efficiency"],
     challenge: "The Economist needed to overhaul its APAC marketing capabilities to drive subscription growth — fast — without the cost and timeline of a traditional agency build.",
     role: "Enfactum led the full Build-Operate-Transfer engagement — team assessment, rapid deployment, integrated growth operations, and capability transfer.",
     results: [
