@@ -107,7 +107,7 @@ const Navbar = () => {
           ))}
           <Link to="/contact">
             <Button variant="hero" size="default">
-              Get in touch
+              Start a conversation
             </Button>
           </Link>
         </div>
