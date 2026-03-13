@@ -357,43 +357,11 @@ const CapabilityDetail = () => {
             </p>
           </RevealSection>
 
-          {data.proof.map((p, pi) => (
-            <RevealSection key={pi} delay={0.05}>
-              <div className="border-t border-border/30 py-14 md:py-16 mt-8 first:mt-14">
-                <div className="grid md:grid-cols-12 gap-8">
-                  <div className="md:col-span-5">
-                    <span className="text-[10px] text-dim uppercase tracking-[0.15em] font-body block mb-3">{p.capability}</span>
-                    <h3 className="font-display text-2xl font-bold text-foreground">{p.title}</h3>
-                    <span className="text-[12px] text-muted-foreground block mt-2">{p.region}</span>
-                    <p className="text-[13px] text-foreground/50 italic mt-8 border-l-2 border-primary/20 pl-4 leading-relaxed">
-                      "{p.insight}"
-                    </p>
-                  </div>
-                  <div className="md:col-span-5 md:col-start-7">
-                    <h4 className="text-[11px] uppercase tracking-[0.2em] text-foreground/40 font-body mb-8">Outcomes</h4>
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-8">
-                      {p.outcomes.map((o, oi) => (
-                        <motion.div
-                          key={oi}
-                          initial={{ opacity: 0, y: 15 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.7, delay: 0.15 + oi * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                        >
-                          <span className="font-display text-3xl font-extrabold text-primary/85 tracking-tight block">
-                            {o.metric}
-                          </span>
-                          <span className="text-[12px] text-muted-foreground mt-1.5 block leading-snug font-body">
-                            {o.label}
-                          </span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </RevealSection>
-          ))}
+          <div className="mt-8 space-y-0">
+            {getCasesByIds(data.proofCaseIds).map((cs, i) => (
+              <CaseCard key={cs.id} cs={cs} index={i} />
+            ))}
+          </div>
         </div>
       </section>
 
