@@ -1,13 +1,16 @@
+import { Link } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
+import SEOHead, { makeFAQSchema, makeBreadcrumbSchema } from "@/components/shared/SEOHead";
+import { ArrowRight } from "lucide-react";
 
 const nodes = [
   {
     city: "Singapore",
-    type: "Head Office",
+    type: "Strategic Hub",
     desc: "Headquarters and strategic centre. Client relationships, capability leadership, and regional oversight.",
     capabilities: ["Strategy", "Client leadership", "Innovation", "Regional coordination"],
     address: ["Enfactum Pte. Ltd.", "7 Straits View, #05-01", "Marina One East Tower", "Singapore 018936"],
@@ -35,15 +38,33 @@ const nodes = [
   },
   {
     city: "United States",
-    type: "Strategic Node",
+    type: "International Presence",
     desc: "US market bridge for enterprise brands expanding between North America and Southeast Asia.",
     capabilities: ["Strategic partnerships", "Client development", "Global bridge"],
     address: ["Rockefeller Center", "45 Rockefeller Plaza, Suite #2000", "New York, NY 10111", "United States"],
   },
 ];
 
+const faqs = [
+  { question: "Why does Enfactum use regional nodes instead of traditional offices?", answer: "Each node has a distinct operational role — strategy from Singapore, scale through India, market activation in Malaysia and Indonesia. This structure matches how growth work actually flows across Southeast Asia, rather than duplicating resources in every country." },
+  { question: "How does Enfactum deliver across markets it doesn't have a physical node in?", answer: "Beyond core nodes, Enfactum delivers programmes across Thailand, Vietnam, Philippines, and broader ASEAN through established partner networks, project-based specialist teams, and its regional coordination infrastructure based in Singapore." },
+  { question: "What is the role of the India node?", answer: "India serves as Enfactum's Scale & Execution Engine — housing creative production, technology, demand operations, and programme management talent. This gives Enfactum deep operational capability at scale while maintaining strategic direction from Singapore." },
+];
+
 const RegionalNodes = () => (
   <PageLayout>
+    <SEOHead
+      title="Regional Nodes — Operating Network Across Southeast Asia"
+      description="Enfactum's regional operating network spans Singapore, India, Malaysia, Indonesia, and the USA — each node with a distinct role in delivering growth programmes across Southeast Asia."
+      path="/company/regional-nodes"
+      jsonLd={{
+        ...makeBreadcrumbSchema([
+          { name: "Company", url: "/company" },
+          { name: "Regional Nodes", url: "/company/regional-nodes" },
+        ]),
+        ...makeFAQSchema(faqs),
+      }}
+    />
     <HeroSection
       eyebrow="Regional Nodes"
       headline="An operating network built for Southeast Asia."
@@ -98,7 +119,52 @@ const RegionalNodes = () => (
       </div>
     </section>
 
-    <CTABand headline="Let's discuss your market." primaryLabel="Start a conversation" />
+    {/* FAQ Section */}
+    <section className="py-20 md:py-28">
+      <div className="section-container">
+        <RevealSection>
+          <p className="eyebrow mb-6">Common questions</p>
+          <h2 className="headline-md max-w-2xl">About Enfactum's regional operating model.</h2>
+        </RevealSection>
+        <div className="mt-12 space-y-0 max-w-3xl">
+          {faqs.map((faq, i) => (
+            <RevealSection key={i} delay={i * 0.06}>
+              <div className="border-b border-border/20 py-8">
+                <h3 className="font-display text-[15px] font-semibold text-foreground leading-snug">{faq.question}</h3>
+                <p className="text-[14px] text-muted-foreground mt-3 leading-relaxed">{faq.answer}</p>
+              </div>
+            </RevealSection>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Cross-links */}
+    <section className="section-alt py-16 md:py-20">
+      <div className="section-container">
+        <RevealSection>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link to="/company" className="group block border-t border-border/30 pt-6">
+              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Explore</p>
+              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">About Enfactum</h4>
+              <p className="text-[13px] text-muted-foreground mt-1">Our story, leadership, and operating bench.</p>
+            </Link>
+            <Link to="/company/leadership" className="group block border-t border-border/30 pt-6">
+              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Explore</p>
+              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Leadership team</h4>
+              <p className="text-[13px] text-muted-foreground mt-1">Meet the operators behind Enfactum's capabilities.</p>
+            </Link>
+            <Link to="/contact" className="group block border-t border-border/30 pt-6">
+              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Explore</p>
+              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Get in touch</h4>
+              <p className="text-[13px] text-muted-foreground mt-1">Discuss growth in your target market.</p>
+            </Link>
+          </div>
+        </RevealSection>
+      </div>
+    </section>
+
+    <CTABand headline="Let's discuss your market." primaryLabel="Start a conversation" primaryHref="/contact" />
   </PageLayout>
 );
 

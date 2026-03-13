@@ -233,18 +233,18 @@ const Brands = () => (
       </div>
     </section>
 
-    {/* ═══ SECTION 5 — BRIDGE TO WORK ═══ */}
+    {/* ═══ SECTION 5 — BRIDGE TO WORK + CROSS-LINKS ═══ */}
     <section className="section-alt py-24 md:py-32">
       <div className="section-container">
         <RevealSection>
-          <div className="grid md:grid-cols-12 gap-8 items-center">
+          <div className="grid md:grid-cols-12 gap-8 items-center mb-16">
             <div className="md:col-span-7">
               <p className="eyebrow mb-4">From breadth to depth</p>
               <h2 className="headline-md max-w-xl">
                 Behind every logo is a different challenge, market context, and operating model.
               </h2>
               <p className="body-md text-muted-foreground mt-4 max-w-lg">
-                Explore the work to see how Enfactum turns sector experience into measurable outcomes.
+                Explore the selected work behind the brands to see how Enfactum turns sector experience into measurable outcomes.
               </p>
             </div>
             <div className="md:col-span-4 md:col-start-9 flex md:justify-end">
@@ -252,6 +252,24 @@ const Brands = () => (
                 <Button variant="hero" size="xl">
                   View Work <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
+              </Link>
+            </div>
+          </div>
+        </RevealSection>
+        <RevealSection delay={0.1}>
+          <div className="border-t border-border/30 pt-10">
+            <div className="grid md:grid-cols-3 gap-6">
+              <Link to="/capabilities" className="group block">
+                <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-1">Related</p>
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Explore capabilities →</span>
+              </Link>
+              <Link to="/partnerships" className="group block">
+                <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-1">Related</p>
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Partnership models →</span>
+              </Link>
+              <Link to="/thinking" className="group block">
+                <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-1">Related</p>
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Read our thinking →</span>
               </Link>
             </div>
           </div>

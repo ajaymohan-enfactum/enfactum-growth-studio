@@ -24,6 +24,15 @@ const openRoles = [
 
 const Careers = () => (
   <PageLayout>
+    <SEOHead
+      title="Careers — Build Growth Infrastructure in Southeast Asia"
+      description="Join Enfactum's operating bench. Open roles across strategy, creative, technology, demand operations, and programme management in Singapore, India, Malaysia, and Indonesia."
+      path="/company/careers"
+      jsonLd={makeBreadcrumbSchema([
+        { name: "Company", url: "/company" },
+        { name: "Careers", url: "/company/careers" },
+      ])}
+    />
     <HeroSection
       eyebrow="Careers"
       headline="Build growth infrastructure. Shape Southeast Asia's future."

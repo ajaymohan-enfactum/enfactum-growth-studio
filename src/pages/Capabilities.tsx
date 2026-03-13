@@ -206,6 +206,31 @@ const Capabilities = () => (
       </div>
     </section>
 
+    {/* Cross-links */}
+    <section className="py-16 md:py-20">
+      <div className="section-container">
+        <RevealSection>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link to="/work" className="group block border-t border-border/30 pt-6">
+              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
+              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">View selected work</h4>
+              <p className="text-[13px] text-muted-foreground mt-1">Case studies with measurable outcomes across Southeast Asia.</p>
+            </Link>
+            <Link to="/brands" className="group block border-t border-border/30 pt-6">
+              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
+              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Brands we've worked with</h4>
+              <p className="text-[13px] text-muted-foreground mt-1">40+ enterprise brands across four sector clusters.</p>
+            </Link>
+            <Link to="/partnerships" className="group block border-t border-border/30 pt-6">
+              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
+              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Partnership models</h4>
+              <p className="text-[13px] text-muted-foreground mt-1">How Enfactum designs and operates partnership-led growth.</p>
+            </Link>
+          </div>
+        </RevealSection>
+      </div>
+    </section>
+
     <CTABand
       headline="Have a specific growth challenge?"
       description="Tell us the problem. We'll tell you how we'd approach it."
