@@ -34,7 +34,7 @@ const bgOptions: BgStyle[] = ["topology", "aurora", "noise"];
    SECTION 1 — HERO
    Full-viewport cinematic opening
    ═══════════════════════════════════════════════ */
-const Hero = () => {
+const Hero = ({ bgStyle = "topology" }: { bgStyle?: BgStyle }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
   const [hovering, setHovering] = useState(false);
