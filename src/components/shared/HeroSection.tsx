@@ -1,4 +1,4 @@
-import { ReactNode, Children, isValidElement, Fragment, useRef } from "react";
+import { ReactNode, Children, isValidElement, Fragment, useRef, useCallback, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 interface HeroSectionProps {
@@ -21,13 +21,12 @@ const flattenChildren = (node: ReactNode): (string | ReactNode)[] => {
       if (child.type === Fragment) {
         result.push(...flattenChildren(child.props.children));
       } else {
-        // Wrap inline elements (like <span>) — split their text children into words
         const innerParts = flattenChildren(child.props.children);
         innerParts.forEach((part) => {
           if (typeof part === "string" && part.trim()) {
             result.push({ ...child, props: { ...child.props, children: part }, key: `${child.key}-${part}` } as ReactNode);
           } else if (typeof part === "string") {
-            result.push(part); // whitespace
+            result.push(part);
           } else {
             result.push(part);
           }
@@ -51,8 +50,32 @@ const HeroSection = ({ eyebrow, headline, description, children, compact = false
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const bgOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.3]);
 
+  // Cursor spotlight
+  const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
+  const [hovering, setHovering] = useState(false);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  }, []);
+
   return (
-    <section ref={sectionRef} className={`relative ${compact ? "pt-28 pb-16 md:pt-36 md:pb-20" : "pt-32 pb-20 md:pt-44 md:pb-28"} overflow-hidden`}>
+    <section
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+      className={`relative ${compact ? "pt-28 pb-16 md:pt-36 md:pb-20" : "pt-32 pb-20 md:pt-44 md:pb-28"} overflow-hidden`}
+    >
+      {/* Cursor spotlight glow */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-700"
+        style={{
+          opacity: hovering ? 1 : 0,
+          background: `radial-gradient(500px circle at ${cursorPos.x}px ${cursorPos.y}px, hsl(210 100% 50% / 0.06), transparent 60%)`,
+        }}
+      />
       <motion.div className="absolute inset-0 topology-grid opacity-[0.03]" style={{ y: bgY }} />
       <motion.div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-background" style={{ y: bgY, opacity: bgOpacity }} />
       <div className="section-container relative z-10">
@@ -86,7 +109,7 @@ const HeroSection = ({ eyebrow, headline, description, children, compact = false
                     ease: [0.22, 1, 0.36, 1],
                   }}
                   className="inline-block"
-                  style={{ marginRight: typeof part === "string" ? "0.27em" : "0.27em" }}
+                  style={{ marginRight: "0.27em" }}
                 >
                   {part}
                 </motion.span>
