@@ -356,6 +356,33 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* ═══ EXPLORE NEXT ═══ */}
+      <section className="py-16 md:py-20">
+        <div className="section-container">
+          <RevealSection>
+            <p className="eyebrow mb-8">While you're here</p>
+            <div className="grid md:grid-cols-4 gap-6">
+              <Link to="/capabilities" className="group block border-t border-border/30 pt-6">
+                <h4 className="font-display text-[14px] font-semibold text-foreground group-hover:text-primary transition-colors">Capabilities</h4>
+                <p className="text-[12px] text-muted-foreground mt-1">What Enfactum builds.</p>
+              </Link>
+              <Link to="/work" className="group block border-t border-border/30 pt-6">
+                <h4 className="font-display text-[14px] font-semibold text-foreground group-hover:text-primary transition-colors">Selected work</h4>
+                <p className="text-[12px] text-muted-foreground mt-1">Outcomes across the region.</p>
+              </Link>
+              <Link to="/partnerships" className="group block border-t border-border/30 pt-6">
+                <h4 className="font-display text-[14px] font-semibold text-foreground group-hover:text-primary transition-colors">Partnerships</h4>
+                <p className="text-[12px] text-muted-foreground mt-1">How we build together.</p>
+              </Link>
+              <Link to="/thinking" className="group block border-t border-border/30 pt-6">
+                <h4 className="font-display text-[14px] font-semibold text-foreground group-hover:text-primary transition-colors">Thinking</h4>
+                <p className="text-[12px] text-muted-foreground mt-1">Perspectives from the work.</p>
+              </Link>
+            </div>
+          </RevealSection>
+        </div>
+      </section>
+
       {/* ═══ PRIVACY FOOTER ═══ */}
       <section className="py-16">
         <div className="section-container">
