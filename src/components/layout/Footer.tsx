@@ -35,7 +35,7 @@ const Footer = () => {
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
               Strategy, ecosystems, and execution for enterprise brands scaling across Southeast Asia.
             </p>
-            <p className="mt-6 text-xs text-dim">Singapore · India · Malaysia · Indonesia</p>
+            <p className="mt-6 text-xs text-dim">Singapore · India · Malaysia · Indonesia · USA</p>
           </div>
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
