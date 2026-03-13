@@ -74,6 +74,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["AI Ecosystems", "Growth Infrastructure"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Ecosystem Scale", "Revenue Growth", "Channel Engagement"],
+    challengeTypes: ["Innovation & AI Deployment"],
     challenge: "HP needed to build a regional AI innovation programme that would go beyond startup scouting to create enterprise differentiation and recurring revenue.",
     role: "Enfactum designed and operated the full programme — from mandate definition and ecosystem mapping through startup curation, enterprise matchmaking, pilot management, and commercialisation architecture.",
     results: [
