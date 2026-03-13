@@ -58,6 +58,7 @@ const Hero = ({ bgStyle = "topology" }: { bgStyle?: BgStyle }) => {
       {bgStyle === "topology" && <TopologyBackground />}
       {bgStyle === "aurora" && <AuroraBackground />}
       {bgStyle === "noise" && <NoiseTextureBackground />}
+      {bgStyle === "hybrid" && <HybridBackground />}
       {/* Cursor spotlight */}
       <div
         className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-700"
