@@ -4,6 +4,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
 import SectionHeader from "@/components/shared/SectionHeader";
+import SEOHead from "@/components/shared/SEOHead";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { ArrowRight, Check } from "lucide-react";
@@ -156,6 +157,11 @@ const Contact = () => {
 
   return (
     <PageLayout>
+      <SEOHead
+        title="Contact Enfactum — Start a Conversation"
+        description="Get in touch with Enfactum to discuss growth, market entry, partnerships, or career opportunities in Southeast Asia. Offices in Singapore, India, Malaysia, Indonesia, and the USA."
+        path="/contact"
+      />
       <HeroSection
         eyebrow="Contact"
         headline="Start a conversation with Enfactum."

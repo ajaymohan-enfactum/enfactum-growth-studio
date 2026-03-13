@@ -4,6 +4,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
+import SEOHead, { makeFAQSchema } from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
 
 /* ─── Section 3: Partner categories ─── */
@@ -160,6 +161,16 @@ const principles = [
 
 const Partnerships = () => (
   <PageLayout>
+    <SEOHead
+      title="Partnership-Led Growth in Southeast Asia"
+      description="Enfactum designs, activates, and operates partnerships for enterprise brands across Southeast Asia — from channel and distributor activation to innovation ecosystems, strategic alliances, and Build-Operate-Transfer programmes."
+      path="/partnerships"
+      jsonLd={makeFAQSchema([
+        { question: "What types of partnerships does Enfactum support?", answer: "Enfactum works with enterprise technology platforms, distributors and channel ecosystems, AI and innovation partners, startups and venture ecosystems, media and content partners, and specialist collaborators across Southeast Asia." },
+        { question: "How does Enfactum approach partnership-led growth?", answer: "Enfactum treats partnerships as growth infrastructure — designing the strategy, activating the ecosystem, building programme operations, and operating the system until it creates measurable commercial movement." },
+        { question: "What is a Build-Operate-Transfer partnership?", answer: "Enfactum builds a partnership capability, operates it until it delivers proven results, and then transfers full ownership and methodology to the client organisation." },
+      ])}
+    />
     {/* ── SECTION 1: HERO ── */}
     <HeroSection
       eyebrow="Partnerships"

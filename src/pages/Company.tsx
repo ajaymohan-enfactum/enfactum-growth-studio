@@ -5,6 +5,7 @@ import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
+import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
 
 /* ═══════════════════════════════════════════════
@@ -71,6 +72,11 @@ const operatingPrinciples = [
 
 const Company = () => (
   <PageLayout>
+    <SEOHead
+      title="Company — Growth Operating Partner, Singapore"
+      description="Enfactum is a Singapore-headquartered growth and innovation operating partner for enterprise brands in Southeast Asia. 40+ clients, 15+ markets, 200+ specialists across strategy, creative, technology, and operations."
+      path="/company"
+    />
     {/* ─── HERO ─── */}
     <HeroSection
       eyebrow="Company"

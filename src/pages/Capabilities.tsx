@@ -4,6 +4,7 @@ import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
+import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
 
 const capabilities = [
@@ -61,6 +62,11 @@ const systemConnections = [
 
 const Capabilities = () => (
   <PageLayout>
+    <SEOHead
+      title="Capabilities — Growth Infrastructure, Brand & Demand, AI Ecosystems, Live Experiences"
+      description="Enfactum's four integrated capabilities for enterprise brands in Southeast Asia: Growth Infrastructure, Brand & Demand, AI Ecosystems, and Live Experiences. An operating system for regional growth."
+      path="/capabilities"
+    />
     <HeroSection
       eyebrow="Capabilities"
       headline="An integrated growth operating system for Southeast Asia."

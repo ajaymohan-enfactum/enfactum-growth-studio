@@ -6,6 +6,7 @@ import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import BrandLogo from "@/components/shared/BrandLogo";
+import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -98,6 +99,11 @@ const outcomeCapsules = [
    ═══════════════════════════════════════════════ */
 const Brands = () => (
   <PageLayout>
+    <SEOHead
+      title="Brands — Enterprise Experience Across Southeast Asia"
+      description="Enfactum has worked with 40+ enterprise brands across enterprise technology, consumer growth, institutions, and innovation sectors in Southeast Asia. HP, The Economist, Sephora, L'Oréal, and more."
+      path="/brands"
+    />
     {/* ─── HERO ─── */}
     <HeroSection
       eyebrow="Brands"

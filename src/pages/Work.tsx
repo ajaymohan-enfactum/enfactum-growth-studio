@@ -5,6 +5,7 @@ import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import CaseCard from "@/components/shared/CaseCard";
+import SEOHead from "@/components/shared/SEOHead";
 import {
   allCaseStudies,
   outcomeFilters,
@@ -121,6 +122,11 @@ const Work = () => {
 
   return (
     <PageLayout>
+      <SEOHead
+        title="Selected Work Across Southeast Asia"
+        description="Case studies and outcomes from Enfactum's work with enterprise brands across Southeast Asia. Growth infrastructure, brand and demand, AI ecosystems, and live experiences programmes with measurable commercial outcomes."
+        path="/work"
+      />
       <HeroSection
         eyebrow="Work"
         headline="Selected work across the region."

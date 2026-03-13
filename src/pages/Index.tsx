@@ -8,6 +8,7 @@ import CTABand from "@/components/shared/CTABand";
 import TopologyBackground from "@/components/shared/TopologyBackground";
 import BrandLogo from "@/components/shared/BrandLogo";
 import CaseCard from "@/components/shared/CaseCard";
+import SEOHead, { organizationSchema, webSiteSchema } from "@/components/shared/SEOHead";
 import { getFlagshipCases } from "@/data/caseStudies";
 import { ArrowRight } from "lucide-react";
 
@@ -507,6 +508,12 @@ const Perspectives = () => (
    ═══════════════════════════════════════════════ */
 const Index = () => (
   <PageLayout>
+    <SEOHead
+      title="Growth & Innovation Operating Partner for Southeast Asia"
+      description="Enfactum brings together strategy, ecosystems, and execution to help enterprise brands scale across Southeast Asia. GTM strategy, partner ecosystems, AI innovation, brand and demand, and live experiences."
+      path="/"
+      jsonLd={{ ...organizationSchema, ...webSiteSchema }}
+    />
     <Hero />
     <WhySEA />
     <GrowthBreaks />

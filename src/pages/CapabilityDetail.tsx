@@ -6,6 +6,7 @@ import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import CaseCard from "@/components/shared/CaseCard";
+import SEOHead, { makeServiceSchema, makeFAQSchema, makeBreadcrumbSchema } from "@/components/shared/SEOHead";
 import { getCasesByIds } from "@/data/caseStudies";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -18,14 +19,17 @@ interface CapData {
   eyebrow: string;
   headline: string;
   description: string;
+  seoTitle: string;
+  seoDescription: string;
   forWhom: string;
   typicalClients: string[];
   challenge: { heading: string; body: string; bullets: string[] };
   whatWeBuild: { heading: string; body: string; deliverables: { title: string; desc: string }[] };
   howItWorks: { step: string; desc: string }[];
-  outcomeCaseIds: string[];     // references to central case study data
+  outcomeCaseIds: string[];
   team: { heading: string; body: string };
   nextCapability: { title: string; href: string };
+  faqs: { question: string; answer: string }[];
 }
 
 const capabilityData: Record<string, CapData> = {
@@ -33,6 +37,8 @@ const capabilityData: Record<string, CapData> = {
     eyebrow: "Growth Infrastructure",
     headline: "Build the go-to-market architecture your Southeast Asia expansion actually needs.",
     description: "GTM strategy, partner and channel programmes, revenue operations, and market-entry infrastructure — designed for multi-market scale, not single-country experiments.",
+    seoTitle: "Growth Infrastructure for Southeast Asia — GTM Strategy & Partner Ecosystems",
+    seoDescription: "Go-to-market strategy, partner and channel programmes, revenue operations, and market-entry infrastructure for enterprise brands expanding across Southeast Asia.",
     forWhom: "Enterprise brands entering or expanding across Southeast Asia who need GTM infrastructure and partner ecosystems — not just a market-entry plan or a local distributor.",
     typicalClients: ["Global technology companies expanding into ASEAN", "Consumer brands launching in new Southeast Asian markets", "Enterprise SaaS companies building regional channel programmes", "Retail brands activating multi-market partner ecosystems"],
     challenge: {
@@ -69,12 +75,19 @@ const capabilityData: Record<string, CapData> = {
       body: "The Growth Infrastructure capability is led by principals with deep experience in enterprise sales, channel programme design, and regional GTM architecture — people who have built and operated these systems across ASEAN markets.",
     },
     nextCapability: { title: "Brand & Demand", href: "/capabilities/brand-demand" },
+    faqs: [
+      { question: "What is growth infrastructure in Southeast Asia?", answer: "Growth infrastructure refers to the underlying commercial architecture — GTM strategy, partner ecosystems, channel programmes, revenue operations, and market-entry systems — that enables enterprise brands to scale across Southeast Asia's fragmented markets." },
+      { question: "How does Enfactum approach market entry in Southeast Asia?", answer: "Enfactum designs market-entry architecture that connects strategy to execution: country prioritisation, regulatory mapping, partner identification and activation, demand infrastructure, and multi-market playbooks — all built for the region's complexity." },
+      { question: "What is a Build-Operate-Transfer engagement?", answer: "Enfactum builds and operates the growth capability, then transfers full ownership, methodology, and knowledge to the client team — typically over 12–24 months." },
+    ],
   },
 
   "brand-demand": {
     eyebrow: "Brand & Demand",
     headline: "Connect brand to commercial outcomes. Make demand compound across Southeast Asia.",
     description: "Performance marketing, social, influencer, affiliate, and creative — integrated into a single commercial engine with measurable ROI across fragmented ASEAN markets.",
+    seoTitle: "Brand & Demand — Performance Marketing & Growth in Southeast Asia",
+    seoDescription: "Integrated brand and demand generation across Southeast Asia: performance marketing, affiliate programmes, influencer ecosystems, creative, and digital experience — connected to measurable commercial outcomes.",
     forWhom: "Brands that need commercially accountable demand generation across Southeast Asia's digital channels — not another agency retainer with vanity metrics.",
     typicalClients: ["Consumer brands scaling digital presence across ASEAN", "Enterprise companies launching demand programmes regionally", "DTC brands entering Southeast Asian markets", "Technology companies building regional brand authority"],
     challenge: {
@@ -111,12 +124,19 @@ const capabilityData: Record<string, CapData> = {
       body: "The Brand & Demand capability is led by specialists who've run integrated demand programmes across ASEAN — people who bridge brand strategy and commercial performance, not just media buying.",
     },
     nextCapability: { title: "AI Ecosystems", href: "/capabilities/ai-ecosystems" },
+    faqs: [
+      { question: "How does Enfactum integrate brand and performance marketing?", answer: "Enfactum connects brand building and demand generation into a single commercial engine — shared goals, shared signals, shared learning — so creative, performance, social, influencer, and affiliate work together toward revenue." },
+      { question: "What affiliate and influencer programmes does Enfactum build?", answer: "Enfactum designs and operates structured affiliate ecosystems and influencer partnerships — recruited, managed, and measured for commercial impact, not just reach — across Southeast Asia's fragmented digital landscape." },
+      { question: "Does Enfactum operate as an agency?", answer: "Not a traditional agency. Enfactum operates as an embedded growth partner — building capability, running demand operations, and transferring methodology — rather than providing retainer-based agency services." },
+    ],
   },
 
   "ai-ecosystems": {
     eyebrow: "AI Ecosystems",
     headline: "Move innovation from pilot to production. Build ecosystem architecture that scales.",
     description: "Venture strategy, startup scouting, partnership design, pilot management, and scale-up architecture — built around enterprise innovation mandates in Southeast Asia.",
+    seoTitle: "AI Ecosystems & Innovation Programs in APAC",
+    seoDescription: "Enterprise AI and innovation ecosystem programmes across Southeast Asia and APAC: venture strategy, startup scouting, pilot-to-production pathways, and commercialisation architecture for corporate innovation mandates.",
     forWhom: "Enterprises with innovation mandates that need an operator to move from scouting to scaling — not another accelerator programme or innovation theatre.",
     typicalClients: ["Global technology companies building regional innovation ecosystems", "Enterprises with corporate venture or open innovation mandates", "Government agencies designing startup engagement programmes", "Companies seeking AI/ML implementation partners through ecosystem models"],
     challenge: {
@@ -153,12 +173,19 @@ const capabilityData: Record<string, CapData> = {
       body: "The AI Ecosystems capability is led by people who've built and operated corporate innovation programmes — who understand both enterprise procurement cycles and startup velocity, and know how to bridge the two.",
     },
     nextCapability: { title: "Live Experiences", href: "/capabilities/live-experiences" },
+    faqs: [
+      { question: "What is an AI ecosystem programme?", answer: "An AI ecosystem programme connects enterprise innovation mandates with external capability — startups, AI partners, research institutions — through structured scouting, pilot management, and scale-up architecture. It moves beyond demo days to create production-ready implementations." },
+      { question: "How does Enfactum help enterprises scale AI beyond pilots?", answer: "Enfactum builds the operating architecture between pilot and production: business sponsorship, technical integration, procurement pathways, and clear success criteria — so good ideas don't die in sandbox environments." },
+      { question: "What regions does Enfactum cover for innovation programmes?", answer: "Enfactum operates AI and innovation ecosystem programmes across Singapore, India, Malaysia, Indonesia, and broader APAC — with startup ecosystem access across 21 countries." },
+    ],
   },
 
   "live-experiences": {
     eyebrow: "Live Experiences",
     headline: "Create market moments designed for commercial impact, not just attendance.",
     description: "Product launches, partner summits, roadshows, and experiential activations — every event tied to pipeline, partner activation, or market momentum across Southeast Asia.",
+    seoTitle: "Live Experiences — Product Launches & Event Activation in Southeast Asia",
+    seoDescription: "Product launches, partner summits, roadshows, and experiential activations for enterprise brands across Southeast Asia — commercially designed events tied to pipeline, partner activation, and market momentum.",
     forWhom: "Brands that need market moments designed for pipeline, partner activation, and commercial impact — not events measured by headcount and social impressions.",
     typicalClients: ["Technology companies launching products across ASEAN", "Enterprises running partner summits and channel activations", "Brands executing regional roadshows and field marketing", "Companies creating experiential activations with commercial objectives"],
     challenge: {
@@ -195,6 +222,11 @@ const capabilityData: Record<string, CapData> = {
       body: "The Live Experiences capability is led by people who've produced hundreds of enterprise events across Southeast Asia — and who measure success by pipeline generated, not applause volume.",
     },
     nextCapability: { title: "Growth Infrastructure", href: "/capabilities/growth-infrastructure" },
+    faqs: [
+      { question: "What makes Enfactum's approach to events different?", answer: "Enfactum designs events backward from commercial objectives — pipeline targets, partner activation goals, and market impact metrics — rather than from creative concepts. Every event is tied to measurable business outcomes." },
+      { question: "What types of events does Enfactum produce?", answer: "Product launches, partner summits, regional roadshows, experiential activations, and hybrid/digital platforms — all designed for enterprise brands across Southeast Asia." },
+      { question: "How are events measured for success?", answer: "By commercial outcomes: pipeline generated, partner activation rates, deal influence, market perception shift, and follow-through conversion — not just attendance or social impressions." },
+    ],
   },
 };
 
@@ -208,6 +240,15 @@ const CapabilityDetail = () => {
 
   return (
     <PageLayout>
+      <SEOHead
+        title={data.seoTitle}
+        description={data.seoDescription}
+        path={`/capabilities/${slug}`}
+        jsonLd={{
+          ...makeServiceSchema(data.eyebrow, data.seoDescription, `/capabilities/${slug}`),
+          ...makeFAQSchema(data.faqs),
+        }}
+      />
       {/* ─── HERO ─── */}
       <HeroSection eyebrow={data.eyebrow} headline={data.headline} description={data.description}>
         <Link to="/contact">
@@ -387,11 +428,33 @@ const CapabilityDetail = () => {
         </div>
       </section>
 
-      {/* ─── NEXT CAPABILITY + CTA ─── */}
-      <section className="py-20 md:py-24">
+      {/* ─── FAQ SECTION ─── */}
+      {data.faqs.length > 0 && (
+        <section className="py-20 md:py-28">
+          <div className="section-container">
+            <div className="section-divider mb-16" />
+            <RevealSection>
+              <p className="eyebrow mb-6">Common questions</p>
+              <h2 className="headline-md max-w-2xl">Frequently asked about {data.eyebrow}.</h2>
+            </RevealSection>
+            <div className="mt-12 space-y-0 max-w-3xl">
+              {data.faqs.map((faq, i) => (
+                <RevealSection key={i} delay={i * 0.06}>
+                  <div className="border-b border-border/20 py-8">
+                    <h3 className="font-display text-[15px] font-semibold text-foreground leading-snug">{faq.question}</h3>
+                    <p className="text-[14px] text-muted-foreground mt-3 leading-relaxed">{faq.answer}</p>
+                  </div>
+                </RevealSection>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ─── NEXT CAPABILITY + CROSS-LINKS ─── */}
+      <section className="section-alt py-20 md:py-24">
         <div className="section-container">
-          <div className="section-divider mb-16" />
-          <div className="grid md:grid-cols-12 gap-8">
+          <div className="grid md:grid-cols-12 gap-8 mb-12">
             <div className="md:col-span-5">
               <RevealSection>
                 <p className="text-[11px] text-dim uppercase tracking-[0.15em] font-body mb-3">Next capability</p>
@@ -410,6 +473,23 @@ const CapabilityDetail = () => {
                   <ArrowRight className="w-3.5 h-3.5 text-dim group-hover:text-foreground transition-all duration-300" />
                 </Link>
               </RevealSection>
+            </div>
+          </div>
+          {/* Cross-links */}
+          <div className="border-t border-border/30 pt-10">
+            <div className="grid md:grid-cols-3 gap-6">
+              <Link to="/work" className="group block">
+                <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-1">Related</p>
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">View selected work →</span>
+              </Link>
+              <Link to="/brands" className="group block">
+                <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-1">Related</p>
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Brands we've worked with →</span>
+              </Link>
+              <Link to="/thinking" className="group block">
+                <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-1">Related</p>
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Read our thinking →</span>
+              </Link>
             </div>
           </div>
         </div>

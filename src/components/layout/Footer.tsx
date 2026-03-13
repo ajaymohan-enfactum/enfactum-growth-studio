@@ -18,6 +18,7 @@ const footerLinks = {
   Explore: [
     { label: "Work", href: "/work" },
     { label: "Brands", href: "/brands" },
+    { label: "Partnerships", href: "/partnerships" },
     { label: "Thinking", href: "/thinking" },
     { label: "Contact", href: "/contact" },
   ],
@@ -33,7 +34,7 @@ const Footer = () => {
               <EnfactumLogo className="text-lg" />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Strategy, ecosystems, and execution for enterprise brands scaling across Southeast Asia.
+              Growth and innovation operating partner for enterprise brands scaling across Southeast Asia. Strategy, ecosystems, and execution.
             </p>
             <p className="mt-6 text-xs text-dim">Singapore · India · Malaysia · Indonesia · USA</p>
           </div>
