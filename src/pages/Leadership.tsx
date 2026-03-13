@@ -252,9 +252,8 @@ const Leadership = () => {
                     View profile →
                   </span>
                 </button>
-              </RevealSection>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
