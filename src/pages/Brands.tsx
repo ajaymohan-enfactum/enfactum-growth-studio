@@ -6,6 +6,7 @@ import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import BrandLogo from "@/components/shared/BrandLogo";
+import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
