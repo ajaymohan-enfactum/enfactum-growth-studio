@@ -4,6 +4,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
+import SEOHead, { makeFAQSchema } from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
 
 /* ─── Section 3: Partner categories ─── */
