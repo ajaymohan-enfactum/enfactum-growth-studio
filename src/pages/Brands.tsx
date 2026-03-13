@@ -53,7 +53,7 @@ const sectorClusters = [
     ],
   },
   {
-    sector: "Digital Commerce & Innovation",
+    sector: "New Economy & Innovation",
     num: "04",
     narrative: "Partnering with emerging and innovation-led companies shaping new categories across the region.",
     brands: [
