@@ -240,6 +240,15 @@ const CapabilityDetail = () => {
 
   return (
     <PageLayout>
+      <SEOHead
+        title={data.seoTitle}
+        description={data.seoDescription}
+        path={`/capabilities/${slug}`}
+        jsonLd={{
+          ...makeServiceSchema(data.eyebrow, data.seoDescription, `/capabilities/${slug}`),
+          ...makeFAQSchema(data.faqs),
+        }}
+      />
       {/* ─── HERO ─── */}
       <HeroSection eyebrow={data.eyebrow} headline={data.headline} description={data.description}>
         <Link to="/contact">
