@@ -4,6 +4,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
+import CapabilityGraph from "@/components/shared/CapabilityGraph";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight, Layers, Megaphone, Brain, Sparkles } from "lucide-react";
@@ -198,28 +199,11 @@ const Capabilities = () => (
         <SectionHeader
           eyebrow="How the capabilities connect"
           headline="Each capability reinforces the others."
-          description="This isn't four separate offerings. It's one operating system — each capability feeds outcomes to the next."
+          description="This isn't four separate offerings. It's one operating system — each capability feeds outcomes to the next. Hover a node to explore."
           centered
         />
-        <div className="mt-20 space-y-0">
-          {systemConnections.map((conn, i) => (
-            <RevealSection key={i} delay={i * 0.06}>
-              <div className="grid md:grid-cols-12 gap-4 py-6 border-b border-border/20">
-                <div className="md:col-span-3">
-                  <span className="font-display text-[15px] font-semibold text-foreground">{conn.from}</span>
-                </div>
-                <div className="md:col-span-1 flex items-center justify-center">
-                  <ArrowRight className="w-3.5 h-3.5 text-primary/40" />
-                </div>
-                <div className="md:col-span-3">
-                  <span className="font-display text-[15px] font-semibold text-foreground">{conn.to}</span>
-                </div>
-                <div className="md:col-span-5">
-                  <span className="text-[13px] text-muted-foreground">{conn.link}</span>
-                </div>
-              </div>
-            </RevealSection>
-          ))}
+        <div className="mt-16 md:mt-20">
+          <CapabilityGraph />
         </div>
       </div>
     </section>
