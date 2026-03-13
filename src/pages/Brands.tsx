@@ -42,7 +42,7 @@ const sectorClusters = [
     ],
   },
   {
-    sector: "Media & Institutions",
+    sector: "Institutions & Ecosystems",
     num: "03",
     narrative: "Working with publishers, institutions, and ecosystem builders where trust, reach, and stakeholder alignment matter.",
     brands: [
