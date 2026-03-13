@@ -63,7 +63,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Operations build", desc: "Embed within the business to build pipeline infrastructure, sales processes, and demand operations." },
       { step: "Scale & transfer", desc: "Expand to new markets using proven playbooks. Transfer operations, knowledge, and ownership to internal teams." },
     ],
-    proofCaseIds: ["economist-bot", "economist-ht", "lexmark-mpc", "hp-whatsapp", "bfl-sea", "hp-smb"],
+    outcomeCaseIds: ["economist-bot", "economist-ht", "lexmark-mpc", "hp-whatsapp", "bfl-sea", "hp-smb"],
     team: {
       heading: "Led by GTM and channel specialists.",
       body: "The Growth Infrastructure capability is led by principals with deep experience in enterprise sales, channel programme design, and regional GTM architecture — people who have built and operated these systems across ASEAN markets.",
