@@ -15,6 +15,7 @@ import Leadership from "./pages/Leadership";
 import OperatingModel from "./pages/OperatingModel";
 import RegionalNodes from "./pages/RegionalNodes";
 import Careers from "./pages/Careers";
+import Partnerships from "./pages/Partnerships";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/capabilities/:slug" element={<CapabilityDetail />} />
           <Route path="/work" element={<Work />} />
           <Route path="/brands" element={<Brands />} />
+          <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/thinking" element={<Thinking />} />
           <Route path="/company" element={<Company />} />
           <Route path="/company/leadership" element={<Leadership />} />
