@@ -203,6 +203,8 @@ const Brands = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="mist" />
+
     {/* ═══ SECTION 4 — SELECTED OUTCOMES ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
