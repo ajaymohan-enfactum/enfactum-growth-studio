@@ -306,7 +306,7 @@ const Company = () => (
         />
         <div className="mt-20 grid sm:grid-cols-2 gap-x-12 gap-y-10">
           {capabilityOwnership.map((co, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
+            <RevealSection key={i} delay={i * 0.08} scale>
               <div className="border-t border-border/30 pt-8">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
