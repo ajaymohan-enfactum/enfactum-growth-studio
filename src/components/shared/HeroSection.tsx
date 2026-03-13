@@ -1,5 +1,6 @@
 import { ReactNode, Children, isValidElement, Fragment, useRef, useCallback, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import HybridBackground from "@/components/shared/HybridBackground";
 
 interface HeroSectionProps {
   eyebrow?: string;
