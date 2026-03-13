@@ -1,5 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import AnimatedCounter from "./AnimatedCounter";
 import type { CaseStudy } from "@/data/caseStudies";
@@ -27,6 +27,7 @@ const capabilitySlugMap: Record<string, string> = {
 const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const [hovered, setHovered] = useState(false);
 
   if (variant === "compact") {
     return (
@@ -88,7 +89,11 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
     >
-      <article className="py-12 md:py-14 border-b border-border/30 hover:border-primary/15 transition-colors duration-700 group">
+      <article
+        className="relative py-12 md:py-14 border-b border-border/30 hover:border-primary/15 transition-colors duration-700 group"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
         <div className="grid md:grid-cols-12 gap-6 md:gap-8">
           {/* Left: Client + headline + tags */}
           <div className="md:col-span-5">
@@ -170,6 +175,70 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
             </p>
           </div>
         )}
+
+        {/* ═══ Hover Micro-Preview ═══ */}
+        <AnimatePresence>
+          {hovered && (
+            <motion.div
+              initial={{ opacity: 0, y: 12, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 8, scale: 0.97 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] as const }}
+              className="hidden md:block absolute right-0 top-4 z-20 w-[280px] pointer-events-none"
+            >
+              <div className="relative overflow-hidden rounded-xl border border-primary/20 bg-card shadow-2xl shadow-primary/5">
+                {/* Subtle dot pattern background */}
+                <div
+                  className="absolute inset-0 opacity-[0.04]"
+                  style={{
+                    backgroundImage: "radial-gradient(circle, hsl(210 100% 50%) 1px, transparent 1px)",
+                    backgroundSize: "12px 12px",
+                  }}
+                />
+                {/* Gradient accent bar */}
+                <div className="h-1 w-full bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
+
+                <div className="relative p-5">
+                  {/* Client badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-primary">
+                      {cs.client}
+                    </span>
+                    <span className="text-[9px] text-muted-foreground/50 uppercase tracking-wider">
+                      {cs.region}
+                    </span>
+                  </div>
+
+                  {/* Key metrics grid */}
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    {cs.results.slice(0, 4).map((r, ri) => (
+                      <div key={ri} className="bg-secondary/40 rounded-lg p-2.5">
+                        <span className="font-display text-lg font-bold text-primary block leading-none">
+                          {r.metric}
+                        </span>
+                        <span className="text-[9px] text-muted-foreground mt-1 block leading-tight">
+                          {r.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Capability tags */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {cs.capabilities.map((cap) => (
+                      <span
+                        key={cap}
+                        className="text-[9px] px-2 py-0.5 rounded-full bg-primary/10 text-primary/70 font-medium"
+                      >
+                        {cap}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </article>
     </motion.div>
   );
