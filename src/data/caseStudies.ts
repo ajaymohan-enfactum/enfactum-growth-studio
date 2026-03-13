@@ -263,6 +263,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Pipeline Generation", "Sales Enablement"],
+    challengeTypes: ["Pipeline & Revenue Growth"],
     challenge: "Oracle needed a consultative sales framework that could generate qualified pipeline from diagnostic engagements — not cold outreach.",
     role: "Enfactum designed and deployed a Digital Health Assessment framework — an insight-led selling model deployed across major accounts to create qualified pipeline.",
     results: [
