@@ -126,7 +126,7 @@ const articles: Article[] = [
     category: "Operator View",
     theme: "AI & Innovation",
     author: "Ajay Mohan",
-    authorRole: "Managing Partner, GTM Strategy",
+    authorRole: "Founder & Managing Partner",
     readTime: "7 min read",
     teaser: "When innovation programmes lose sight of commercial purpose, they drift into theatre. Lots of activity. Very little consequence. The best programmes look less like showcases and more like commercial engines.",
     date: "November 2025",
