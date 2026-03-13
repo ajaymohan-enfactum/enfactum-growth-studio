@@ -217,7 +217,7 @@ const Brands = () => (
 
         <div className="mt-20 grid sm:grid-cols-2 gap-8">
           {outcomeCapsules.map((capsule, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
+            <RevealSection key={i} delay={i * 0.08} blur>
               <div className="card-premium h-full">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
