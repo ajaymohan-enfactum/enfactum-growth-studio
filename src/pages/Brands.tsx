@@ -42,7 +42,7 @@ const sectorClusters = [
     ],
   },
   {
-    sector: "Media & Institutions",
+    sector: "Institutions & Ecosystems",
     num: "03",
     narrative: "Working with publishers, institutions, and ecosystem builders where trust, reach, and stakeholder alignment matter.",
     brands: [
@@ -53,7 +53,7 @@ const sectorClusters = [
     ],
   },
   {
-    sector: "Digital Commerce & Innovation",
+    sector: "New Economy & Innovation",
     num: "04",
     narrative: "Partnering with emerging and innovation-led companies shaping new categories across the region.",
     brands: [
@@ -88,7 +88,7 @@ const outcomeCapsules = [
   },
   {
     brand: "Brands For Less",
-    label: "Growth Infrastructure / Digital Commerce",
+    label: "Growth Infrastructure / Market Entry",
     outcome: "Transformed digital acquisition channels to drive +42% site traffic uplift, strengthening competitive position in online retail.",
   },
 ];

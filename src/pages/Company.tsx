@@ -44,7 +44,7 @@ const regionalNodes = [
 
 const domainSpecialists = [
   { domain: "Enterprise SaaS & Technology", focus: "GTM strategy, channel programmes, partner ecosystems for technology companies" },
-  { domain: "Consumer & Retail", focus: "Market entry, brand-to-demand, retail partnership activation" },
+  { domain: "Consumer & Brand Growth", focus: "Market entry, brand-to-demand, retail partnership activation" },
   { domain: "Financial Services & Fintech", focus: "Ecosystem design, regulatory navigation, digital transformation" },
   { domain: "Government & Institutions", focus: "Innovation programmes, public-sector engagement, ecosystem architecture" },
 ];
