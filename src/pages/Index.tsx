@@ -473,8 +473,8 @@ const Perspectives = () => (
       <div className="grid md:grid-cols-12 gap-8">
         <div className="md:col-span-4">
           <RevealSection>
-            <p className="eyebrow mb-6">Perspectives</p>
-            <h2 className="headline-lg">Field intelligence, not thought leadership.</h2>
+            <p className="eyebrow mb-6">Thinking</p>
+            <h2 className="headline-lg">Perspectives from inside the work.</h2>
             <Link to="/thinking" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-8">
               All perspectives <ArrowRight className="w-4 h-4" />
             </Link>
