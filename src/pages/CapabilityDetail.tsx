@@ -86,6 +86,8 @@ const capabilityData: Record<string, CapData> = {
     eyebrow: "Brand & Demand",
     headline: "Connect brand to commercial outcomes. Make demand compound across Southeast Asia.",
     description: "Performance marketing, social, influencer, affiliate, and creative — integrated into a single commercial engine with measurable ROI across fragmented ASEAN markets.",
+    seoTitle: "Brand & Demand — Performance Marketing & Growth in Southeast Asia",
+    seoDescription: "Integrated brand and demand generation across Southeast Asia: performance marketing, affiliate programmes, influencer ecosystems, creative, and digital experience — connected to measurable commercial outcomes.",
     forWhom: "Brands that need commercially accountable demand generation across Southeast Asia's digital channels — not another agency retainer with vanity metrics.",
     typicalClients: ["Consumer brands scaling digital presence across ASEAN", "Enterprise companies launching demand programmes regionally", "DTC brands entering Southeast Asian markets", "Technology companies building regional brand authority"],
     challenge: {
