@@ -134,8 +134,8 @@ const Brands = () => (
                   and emerging innovators.
                 </p>
                 <p className="body-md text-muted-foreground">
-                  The breadth matters not as a vanity signal, but as proof of the company's ability
-                  to operate across different sectors, stakeholders, and market realities.
+                  This breadth reflects something deeper — the ability to understand different industries,
+                  navigate different stakeholders, and operate effectively across the region's complexity.
                 </p>
               </div>
             </RevealSection>
