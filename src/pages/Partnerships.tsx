@@ -336,7 +336,32 @@ const Partnerships = () => (
       </div>
     </section>
 
-    {/* ── SECTION 8: FINAL CTA ── */}
+    {/* ── SECTION 8: CROSS-LINKS ── */}
+    <section className="py-16 md:py-20">
+      <div className="section-container">
+        <RevealSection>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link to="/capabilities" className="group block border-t border-border/30 pt-6">
+              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
+              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Explore capabilities</h4>
+              <p className="text-[13px] text-muted-foreground mt-1">How Enfactum's four capabilities connect to partnership-led growth.</p>
+            </Link>
+            <Link to="/brands" className="group block border-t border-border/30 pt-6">
+              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
+              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Brands we've worked with</h4>
+              <p className="text-[13px] text-muted-foreground mt-1">40+ enterprise brands across four sector clusters.</p>
+            </Link>
+            <Link to="/thinking" className="group block border-t border-border/30 pt-6">
+              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
+              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Read our thinking</h4>
+              <p className="text-[13px] text-muted-foreground mt-1">Perspectives on ecosystems, partner-led growth, and commercial strategy.</p>
+            </Link>
+          </div>
+        </RevealSection>
+      </div>
+    </section>
+
+    {/* ── SECTION 9: FINAL CTA ── */}
     <CTABand
       headline="Looking to build together in Southeast Asia?"
       description="Whether you are a platform, distributor, startup, media property, or ecosystem builder — we are interested in partnerships that create real commercial movement."

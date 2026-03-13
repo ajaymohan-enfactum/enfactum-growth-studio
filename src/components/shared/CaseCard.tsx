@@ -9,9 +9,17 @@ interface CaseCardProps {
   variant?: "full" | "compact";
 }
 
+/** Map capability name to slug for internal linking */
+const capabilitySlugMap: Record<string, string> = {
+  "Growth Infrastructure": "/capabilities/growth-infrastructure",
+  "Brand & Demand": "/capabilities/brand-demand",
+  "AI Ecosystems": "/capabilities/ai-ecosystems",
+  "Live Experiences": "/capabilities/live-experiences",
+};
+
 /**
  * Premium case study card — result-oriented, enterprise-ready.
- * Full variant: detailed card with challenge/role/metrics + sector + geography.
+ * Full variant: detailed card with challenge/role/metrics + sector + geography + challenge tag.
  * Compact variant: single-row with outcome headline and key metric.
  */
 const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
@@ -22,7 +30,7 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
       >
-        <Link to="/work" className="group block">
+        <div className="group block">
           <div className="grid md:grid-cols-12 gap-4 py-6 border-b border-border/20 hover:border-primary/10 transition-colors duration-700">
             <div className="md:col-span-3">
               <span className="text-[11px] text-dim font-body block mb-1">{cs.client}</span>
@@ -49,13 +57,23 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
               </div>
             </div>
             <div className="md:col-span-1 flex items-center justify-end">
-              <ArrowRight className="w-3.5 h-3.5 text-dim group-hover:text-primary/60 group-hover:translate-x-0.5 transition-all duration-500" />
+              {cs.capabilities[0] && capabilitySlugMap[cs.capabilities[0]] && (
+                <Link
+                  to={capabilitySlugMap[cs.capabilities[0]]}
+                  className="text-dim hover:text-primary/60 transition-all duration-500"
+                  aria-label={`View ${cs.capabilities[0]} capability`}
+                >
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              )}
             </div>
           </div>
-        </Link>
+        </div>
       </motion.div>
     );
   }
+
+  const primaryCapHref = cs.capabilities[0] ? capabilitySlugMap[cs.capabilities[0]] : null;
 
   return (
     <motion.div
@@ -76,6 +94,11 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
               {cs.sectors[0] && (
                 <span className="text-[10px] px-2.5 py-1 rounded-sm bg-secondary text-muted-foreground font-medium tracking-wide uppercase">
                   {cs.sectors[0]}
+                </span>
+              )}
+              {cs.challengeTypes[0] && (
+                <span className="text-[10px] px-2.5 py-1 rounded-sm border border-border/40 text-muted-foreground/70 font-medium tracking-wide uppercase">
+                  {cs.challengeTypes[0]}
                 </span>
               )}
             </div>
@@ -119,6 +142,15 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
                 </div>
               ))}
             </div>
+            {/* Capability link */}
+            {primaryCapHref && (
+              <Link
+                to={primaryCapHref}
+                className="inline-flex items-center gap-1.5 mt-6 text-[11px] text-primary/50 hover:text-primary uppercase tracking-wider font-body transition-colors duration-500"
+              >
+                {cs.capabilities[0]} <ArrowRight className="w-3 h-3" />
+              </Link>
+            )}
           </div>
         </div>
 
