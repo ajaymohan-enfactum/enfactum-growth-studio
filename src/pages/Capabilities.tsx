@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
-import StaggerGrid from "@/components/shared/StaggerGrid";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead from "@/components/shared/SEOHead";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Layers, Megaphone, Brain, Sparkles } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const capabilities = [
   {
@@ -17,6 +18,8 @@ const capabilities = [
     for: "Enterprise brands entering or expanding across Southeast Asia who need GTM infrastructure, not just a market-entry plan.",
     outcomes: ["Scalable partner ecosystems", "Revenue operations", "Multi-market playbooks"],
     href: "/capabilities/growth-infrastructure",
+    icon: Layers,
+    accent: "from-primary/20 to-primary/5",
   },
   {
     num: "02",
@@ -26,6 +29,8 @@ const capabilities = [
     for: "Brands that need commercially accountable demand generation across Southeast Asia's digital channels — not another agency retainer.",
     outcomes: ["Integrated demand generation", "Creative-to-conversion pipelines", "Measurable brand impact"],
     href: "/capabilities/brand-demand",
+    icon: Megaphone,
+    accent: "from-blue-500/20 to-cyan-500/5",
   },
   {
     num: "03",
@@ -35,6 +40,8 @@ const capabilities = [
     for: "Enterprises with innovation mandates that need an operator to move from scouting to scaling, not another accelerator programme.",
     outcomes: ["Enterprise-startup partnerships", "Pilot-to-platform pathways", "Innovation programme architecture"],
     href: "/capabilities/ai-ecosystems",
+    icon: Brain,
+    accent: "from-violet-500/20 to-primary/5",
   },
   {
     num: "04",
@@ -44,6 +51,8 @@ const capabilities = [
     for: "Brands that need market moments designed for pipeline, partner activation, and commercial impact — not just attendance.",
     outcomes: ["Pipeline-driving events", "Partner activation summits", "Market-entry launches"],
     href: "/capabilities/live-experiences",
+    icon: Sparkles,
+    accent: "from-amber-500/20 to-orange-500/5",
   },
 ];
 
@@ -61,6 +70,113 @@ const systemConnections = [
   { from: "Live Experiences", to: "AI Ecosystems", link: "Events surface ecosystem opportunities and startup deal flow" },
 ];
 
+const HorizontalScrollShowcase = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+
+  return (
+    <section ref={containerRef} className="relative h-[400vh]">
+      {/* Sticky viewport */}
+      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+        {/* Header */}
+        <div className="section-container mb-8 md:mb-12">
+          <p className="eyebrow mb-2">Capability overview</p>
+          <p className="text-[13px] text-muted-foreground max-w-lg">
+            Each capability solves a specific growth challenge. Scroll to explore.
+          </p>
+        </div>
+
+        {/* Horizontal panels */}
+        <motion.div style={{ x }} className="flex gap-6 md:gap-8 pl-[max(1.5rem,calc((100vw-1280px)/2+1.5rem))]">
+          {capabilities.map((cap, i) => (
+            <Link
+              key={i}
+              to={cap.href}
+              className="group flex-shrink-0 w-[85vw] md:w-[42vw] lg:w-[36vw]"
+            >
+              <div className={`relative h-[60vh] md:h-[65vh] rounded-2xl border border-border/30 bg-gradient-to-br ${cap.accent} p-8 md:p-10 flex flex-col justify-between overflow-hidden group-hover:border-primary/30 transition-colors duration-500`}>
+                {/* Background number */}
+                <span className="absolute top-6 right-8 text-[120px] md:text-[180px] font-display font-black text-foreground/[0.03] leading-none select-none">
+                  {cap.num}
+                </span>
+
+                {/* Top — icon + number */}
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="p-2.5 rounded-lg bg-primary/10 text-primary">
+                      <cap.icon className="w-5 h-5" />
+                    </div>
+                    <span className="text-[10px] font-body text-muted-foreground tracking-[0.2em] uppercase">{cap.num}</span>
+                  </div>
+                  <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground group-hover:text-primary transition-colors duration-500 mb-4">
+                    {cap.title}
+                  </h3>
+                  <p className="text-[15px] text-secondary-foreground leading-[1.7] max-w-md">
+                    {cap.problem}
+                  </p>
+                </div>
+
+                {/* Bottom — outcomes + arrow */}
+                <div>
+                  <div className="mb-6">
+                    <h4 className="text-[11px] uppercase tracking-[0.2em] text-foreground/40 font-body mb-3">What we build</h4>
+                    <p className="text-[13px] text-muted-foreground leading-relaxed max-w-sm line-clamp-3">
+                      {cap.what}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex flex-wrap gap-2">
+                      {cap.outcomes.map((o) => (
+                        <span key={o} className="text-[10px] uppercase tracking-[0.12em] text-primary/60 font-body bg-primary/5 px-2 py-1 rounded">
+                          {o}
+                        </span>
+                      ))}
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all duration-500 shrink-0 ml-4" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </motion.div>
+
+        {/* Scroll progress dots */}
+        <div className="section-container mt-8 flex items-center gap-3">
+          {capabilities.map((_, i) => (
+            <ScrollDot key={i} index={i} progress={scrollYProgress} />
+          ))}
+          <span className="text-[11px] text-muted-foreground ml-3 font-body">Scroll to explore</span>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ScrollDot = ({ index, progress }: { index: number; progress: ReturnType<typeof useScroll>["scrollYProgress"] }) => {
+  const opacity = useTransform(
+    progress,
+    [index * 0.25, index * 0.25 + 0.05, (index + 1) * 0.25, (index + 1) * 0.25 + 0.05],
+    [0.3, 1, 1, 0.3]
+  );
+  const scale = useTransform(
+    progress,
+    [index * 0.25, index * 0.25 + 0.05, (index + 1) * 0.25, (index + 1) * 0.25 + 0.05],
+    [1, 1.5, 1.5, 1]
+  );
+
+  return (
+    <motion.div
+      style={{ opacity, scale }}
+      className="w-2 h-2 rounded-full bg-primary"
+    />
+  );
+};
+
 const Capabilities = () => (
   <PageLayout>
     <SEOHead
@@ -74,64 +190,8 @@ const Capabilities = () => (
       description="Each capability solves a specific growth challenge. Together, they form an integrated operating model — strategy connected to ecosystems connected to execution."
     />
 
-    {/* ═══ CAPABILITY INDEX ═══ */}
-    <section className="py-32 md:py-44">
-      <div className="section-container">
-        <RevealSection>
-          <p className="eyebrow mb-2">Capability overview</p>
-          <p className="text-[13px] text-muted-foreground max-w-lg">
-            Each capability page explains the business challenge, what we build, how it works, selected outcomes, and who it's for.
-          </p>
-        </RevealSection>
-
-        <StaggerGrid className="mt-16 space-y-0" staggerDelay={0.1}>
-          {capabilities.map((cap, i) => (
-            <Link key={i} to={cap.href} className="group block">
-                <div className="border-t border-border/30 py-14 md:py-16 group-hover:border-primary/15 transition-colors duration-700">
-                  <div className="grid md:grid-cols-12 gap-8">
-                    {/* Left — number + title */}
-                    <div className="md:col-span-4">
-                      <span className="text-[10px] font-body text-dim block mb-3">{cap.num}</span>
-                      <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-500">
-                        {cap.title}
-                      </h3>
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        {cap.outcomes.map((o) => (
-                          <span key={o} className="text-[10px] uppercase tracking-[0.15em] text-primary/50 font-body">{o}</span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Middle — challenge + what we build */}
-                    <div className="md:col-span-6">
-                      <div className="space-y-6">
-                        <div>
-                          <h4 className="text-[11px] uppercase tracking-[0.2em] text-foreground/40 font-body mb-3">The challenge</h4>
-                          <p className="text-[15px] text-secondary-foreground leading-[1.7]">{cap.problem}</p>
-                        </div>
-                        <div>
-                          <h4 className="text-[11px] uppercase tracking-[0.2em] text-foreground/40 font-body mb-3">What we build</h4>
-                          <p className="text-[15px] text-secondary-foreground leading-[1.7]">{cap.what}</p>
-                        </div>
-                        <div>
-                          <h4 className="text-[11px] uppercase tracking-[0.2em] text-foreground/40 font-body mb-3">Who it's for</h4>
-                          <p className="text-[13px] text-muted-foreground leading-relaxed">{cap.for}</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Right — arrow */}
-                    <div className="md:col-span-2 flex items-start justify-end">
-                      <ArrowRight className="w-5 h-5 text-dim group-hover:text-primary group-hover:translate-x-1 transition-all duration-500" />
-                    </div>
-                  </div>
-                </div>
-            </Link>
-          ))}
-        </StaggerGrid>
-      </div>
-    </section>
-
+    {/* ═══ HORIZONTAL SCROLL CAPABILITY SHOWCASE ═══ */}
+    <HorizontalScrollShowcase />
     {/* ═══ HOW CAPABILITIES CONNECT ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
