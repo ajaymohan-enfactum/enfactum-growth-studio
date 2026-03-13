@@ -268,6 +268,7 @@ const Company = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="gradient" flip />
     {/* ═══ SECTION 5 — DOMAIN SPECIALISTS ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
