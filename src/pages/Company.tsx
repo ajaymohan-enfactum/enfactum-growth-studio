@@ -210,7 +210,7 @@ const Company = () => (
 
         <div className="space-y-0">
           {benchCapabilities.map((bench, i) => (
-            <RevealSection key={i} delay={i * 0.04}>
+            <RevealSection key={i} delay={i * 0.04} scale>
               <div className="grid md:grid-cols-12 gap-4 py-6 border-b border-border/20 hover:border-primary/10 transition-colors duration-700 group">
                 <div className="md:col-span-3">
                   <h3 className="font-display text-[15px] font-semibold text-foreground group-hover:text-primary/90 transition-colors duration-500">
