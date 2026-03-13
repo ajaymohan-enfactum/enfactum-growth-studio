@@ -6,7 +6,7 @@ import MagneticButton from "@/components/shared/MagneticButton";
 import TextShimmer from "@/components/shared/TextShimmer";
 import InsightTicker from "@/components/shared/InsightTicker";
 import StickySectionLabel from "@/components/shared/StickySectionLabel";
-import CursorSpotlight from "@/components/shared/CursorSpotlight";
+
 import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
 import SectionHeader from "@/components/shared/SectionHeader";
