@@ -56,7 +56,7 @@ const articles: Article[] = [
   },
   {
     title: "Stop Choosing Between Brand and Performance",
-    category: "Brand & Demand",
+    category: "Operator View",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
     readTime: "6 min read",
