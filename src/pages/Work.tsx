@@ -123,8 +123,8 @@ const Work = () => {
     <PageLayout>
       <HeroSection
         eyebrow="Work"
-        headline="Proof in practice."
-        description="Enterprise programmes designed for commercial outcomes, operating leverage, and ecosystem scale. Strategy connected to execution. Results foregrounded."
+        headline="Selected work across the region."
+        description="A look at the work, systems, and outcomes Enfactum has built across Southeast Asia."
       />
 
       {/* ─── Filter Bar ─── */}
