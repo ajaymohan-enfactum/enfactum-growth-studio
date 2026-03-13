@@ -482,6 +482,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Channel Engagement", "Sales Enablement"],
+    challengeTypes: ["Channel & Partner Activation"],
     challenge: "Redington needed a scalable content platform to support partner engagement and channel enablement across the region.",
     role: "Enfactum built a content production platform delivering 50+ video assets with full strategy deployment across Redington's partner network.",
     results: [
