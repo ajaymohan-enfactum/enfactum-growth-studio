@@ -173,6 +173,7 @@ const Work = () => {
           </RevealSection>
 
           <div className="mt-8 space-y-0">
+            <div className="bg-red-500 text-white p-8 text-2xl">DEBUG: {featuredCases.length} cases to render</div>
             {featuredCases.map((cs, i) => (
               <CaseCard key={cs.id} cs={cs} index={i} />
             ))}
