@@ -223,7 +223,7 @@ const Capabilities = () => (
             </RevealSection>
           </div>
           <div className="md:col-span-5 md:col-start-7 flex items-end">
-            <RevealSection delay={0.1}>
+            <RevealSection delay={0.1} blur>
               <p className="body-md text-muted-foreground">
                 We structure engagements around your context — not a fixed service menu.
                 Every model is designed to deliver measurable outcomes and build lasting capability.
