@@ -165,7 +165,7 @@ const Brands = () => (
 
         <div className="mt-24 space-y-0">
           {sectorClusters.map((cluster, ci) => (
-            <RevealSection key={ci} delay={ci * 0.06}>
+            <RevealSection key={ci} delay={ci * 0.06} scale>
               <div className="border-t border-border/30 py-14 md:py-16">
                 <div className="grid md:grid-cols-12 gap-8">
                   {/* Left — Cluster label */}
