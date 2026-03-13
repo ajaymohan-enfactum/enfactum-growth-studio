@@ -26,7 +26,7 @@ const articles: Article[] = [
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "8 min read",
-    teaser: "680 million people, eleven countries, and a digital economy past $300 billion — but that aggregate figure conceals as much as it reveals. The companies that win treat Southeast Asia as a connected set of very different realities.",
+    teaser: "Nearly 700 million people, ten countries, and a digital economy past $300 billion — but that aggregate figure conceals as much as it reveals. The companies that win treat Southeast Asia as a connected set of very different realities.",
     featured: true,
     date: "March 2026",
   },
