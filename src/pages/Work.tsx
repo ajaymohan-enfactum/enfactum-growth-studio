@@ -189,6 +189,8 @@ const Work = () => {
         </div>
       </section>
 
+      <ParallaxDivider variant="mist" />
+
       {/* ─── Additional Cases (compact rows) ─── */}
       {additionalCases.length > 0 && (
         <section className="section-alt py-24 md:py-32">
@@ -205,6 +207,8 @@ const Work = () => {
           </div>
         </section>
       )}
+
+      <ParallaxDivider variant="glow" />
 
       <CTABand
         headline="Have a growth challenge to discuss?"
