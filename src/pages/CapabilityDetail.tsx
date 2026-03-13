@@ -189,30 +189,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Activation & engagement", desc: "Execute the experience. Manage real-time engagement, audience interaction, and partner activation." },
       { step: "Measurement & follow-through", desc: "Post-event pipeline tracking, lead handoff, partner follow-up, and commercial impact reporting." },
     ],
-    proof: [
-      {
-        title: "HP Large Format Product Launch",
-        capability: "Immersive Launch · Product Ecosystem",
-        region: "Regional APAC",
-        outcomes: [
-          { metric: "US$3M", label: "Product funnel from launch" },
-          { metric: "$12K+", label: "Immediate art sales at event" },
-          { metric: "50+", label: "Press & media articles generated" },
-        ],
-        insight: "The most powerful brand experiences are commercially designed from day one.",
-      },
-      {
-        title: "Sephora Malaysia Re-Launch",
-        capability: "Experiential · Retail Launch",
-        region: "Malaysia",
-        outcomes: [
-          { metric: "Record", label: "Store opening attendance" },
-          { metric: "High", label: "Social media virality achieved" },
-          { metric: "Cultural", label: "Moment created, not just a store" },
-        ],
-        insight: "Retail launches succeed when they create cultural moments, not just store openings.",
-      },
-    ],
+    proofCaseIds: ["hp-lf-launch", "bfl-sea", "sephora-my", "lazada-1111"],
     team: {
       heading: "Led by event strategists who think in commercial outcomes.",
       body: "The Live Experiences capability is led by people who've produced hundreds of enterprise events across Southeast Asia — and who measure success by pipeline generated, not applause volume.",
