@@ -5,6 +5,7 @@ import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
+import BrandLogo from "@/components/shared/BrandLogo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
