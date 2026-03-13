@@ -131,9 +131,9 @@ const Capabilities = () => (
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
         <SectionHeader
-          eyebrow="System design"
+          eyebrow="How the capabilities connect"
           headline="Each capability reinforces the others."
-          description="This isn't four separate services. It's one operating system — each capability feeds outcomes to the next."
+          description="This isn't four separate offerings. It's one operating system — each capability feeds outcomes to the next."
           centered
         />
         <div className="mt-20 space-y-0">
@@ -166,7 +166,7 @@ const Capabilities = () => (
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-5">
             <RevealSection>
-              <p className="eyebrow mb-6">Engagement models</p>
+              <p className="eyebrow mb-6">How we engage</p>
               <h2 className="headline-lg">Four ways to work with us.</h2>
             </RevealSection>
           </div>

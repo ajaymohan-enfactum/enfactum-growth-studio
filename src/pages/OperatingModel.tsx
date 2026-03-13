@@ -18,7 +18,7 @@ const engagementTypes = [
   { title: "Consulting", desc: "Strategic advisory for specific growth challenges. Diagnostics, strategy, and recommendations.", duration: "4–12 weeks" },
   { title: "Embedded Team", desc: "Enfactum operators embedded within your organisation for sustained execution and capability building.", duration: "6–18 months" },
   { title: "Build-Operate-Transfer", desc: "We build the capability, operate it until proven, then transfer full ownership to your team.", duration: "12–24 months" },
-  { title: "Programme Build", desc: "End-to-end design and launch of growth programmes — partner ecosystems, innovation labs, market activations.", duration: "3–12 months" },
+  { title: "Programme Build", desc: "Full design and launch of growth programmes — partner ecosystems, innovation labs, market activations.", duration: "3–12 months" },
 ];
 
 const OperatingModel = () => (
@@ -34,7 +34,7 @@ const OperatingModel = () => (
     {/* Framework */}
     <section className="py-20 md:py-28">
       <div className="section-container">
-        <SectionHeader eyebrow="Framework" headline="Define → Build → Operate → Transfer → Scale" centered />
+        <SectionHeader eyebrow="The model" headline="Define → Build → Operate → Transfer → Scale" centered />
         <div className="mt-16 space-y-0">
           {processSteps.map((step, i) => (
             <RevealSection key={i} delay={i * 0.08}>
@@ -56,7 +56,7 @@ const OperatingModel = () => (
     {/* Engagement Types */}
     <section className="py-20 md:py-28 bg-secondary/20">
       <div className="section-container">
-        <SectionHeader eyebrow="Engagement types" headline="Structured for your needs." centered />
+        <SectionHeader eyebrow="How we engage" headline="Structured for your needs." centered />
         <div className="grid sm:grid-cols-2 gap-5 mt-14">
           {engagementTypes.map((type, i) => (
             <RevealSection key={i} delay={i * 0.08}>

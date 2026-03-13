@@ -74,7 +74,7 @@ const Company = () => (
     {/* ─── HERO ─── */}
     <HeroSection
       eyebrow="Company"
-      headline="Built for how Southeast Asia actually works."
+      headline="Built to turn strategy into movement."
       description="Enfactum is a growth and innovation operating partner — combining strategy, ecosystems, and execution to help enterprise brands scale with clarity and momentum across the region."
     />
 
@@ -314,7 +314,7 @@ const Company = () => (
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-5">
             <RevealSection>
-              <p className="eyebrow mb-6">Operating principles</p>
+              <p className="eyebrow mb-6">What we value</p>
               <h2 className="headline-lg">How we work. What we believe.</h2>
             </RevealSection>
           </div>
@@ -382,7 +382,7 @@ const Company = () => (
     <CTABand
       headline="Want to work with us — or join us?"
       description="Whether you're an enterprise brand, a potential partner, or exceptional talent."
-      primaryLabel="Get in touch"
+      primaryLabel="Start a conversation"
       secondaryLabel="View careers"
       secondaryHref="/company/careers"
     />

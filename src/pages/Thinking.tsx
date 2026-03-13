@@ -18,7 +18,7 @@ interface Article {
 const articles: Article[] = [
   {
     title: "Why Your APAC Strategy Needs a Regional Operating System",
-    category: "GTM Strategy",
+    category: "Operator View",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "7 min read",
@@ -28,7 +28,7 @@ const articles: Article[] = [
   },
   {
     title: "AI Won't Replace Your Marketing. But It Will Expose Your Gaps.",
-    category: "AI & Innovation",
+    category: "Market Signal",
     author: "Sumit Ramchandani",
     authorRole: "Adtech & Martech Practice Head",
     readTime: "6 min read",
@@ -38,7 +38,7 @@ const articles: Article[] = [
   },
   {
     title: "The Partner Ecosystem Advantage in Enterprise Sales",
-    category: "Ecosystems & Partnerships",
+    category: "Operator View",
     author: "William Gaultier",
     authorRole: "Partner",
     readTime: "8 min read",
@@ -47,7 +47,7 @@ const articles: Article[] = [
   },
   {
     title: "The $3M Question: Why Your Events Aren't Generating Pipeline",
-    category: "Growth Strategy",
+    category: "Field Note",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "8 min read",
@@ -56,7 +56,7 @@ const articles: Article[] = [
   },
   {
     title: "Stop Choosing Between Brand and Performance",
-    category: "Brand & Demand",
+    category: "Operator View",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
     readTime: "6 min read",
@@ -65,7 +65,7 @@ const articles: Article[] = [
   },
   {
     title: "GEO: The New SEO for AI-First Discovery",
-    category: "AI & Innovation",
+    category: "Market Signal",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
     readTime: "7 min read",
@@ -74,7 +74,7 @@ const articles: Article[] = [
   },
   {
     title: "Southeast Asia Retail: The New Frontier",
-    category: "APAC Market",
+    category: "Market Signal",
     author: "Enfactum Team",
     readTime: "10 min read",
     teaser: "Why global brands are rethinking their SEA retail strategy—and what the winners are doing differently.",
@@ -82,7 +82,7 @@ const articles: Article[] = [
   },
   {
     title: "The Urgency of Now: Why B2B Brands Must Act",
-    category: "Growth Strategy",
+    category: "Field Note",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "5 min read",
@@ -101,14 +101,14 @@ const groupedByCategory = regularArticles.reduce<Record<string, Article[]>>((acc
   return acc;
 }, {});
 
-const categoryOrder = ["Growth Strategy", "Ecosystems & Partnerships", "Brand & Demand", "AI & Innovation", "APAC Market"];
+const categoryOrder = ["Operator View", "Field Note", "Market Signal"];
 const orderedCategories = categoryOrder.filter((c) => groupedByCategory[c]);
 
 const Thinking = () => (
   <PageLayout>
     <HeroSection
       eyebrow="Thinking"
-      headline="Field intelligence from the front lines of Southeast Asian growth."
+      headline="Perspectives from inside the work."
       description="Original perspectives on growth, marketing, AI, and the APAC market — from people who operate in it every day."
     />
 

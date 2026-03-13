@@ -124,7 +124,7 @@ export const allCaseStudies: CaseStudy[] = [
     role: "Enfactum built the full digital growth architecture — from market entry strategy and competitive analysis through digital acquisition, content systems, and performance optimisation.",
     results: [
       { metric: "+42%", label: "Site traffic uplift" },
-      { metric: "360°", label: "Growth strategy deployed" },
+      { metric: "Full scope", label: "Growth strategy deployed" },
       { metric: "SEA", label: "Market entry established" },
     ],
     region: "Regional SEA",
@@ -244,12 +244,12 @@ export const allCaseStudies: CaseStudy[] = [
     outcomes: ["Customer Acquisition", "Cost Efficiency"],
     challengeTypes: ["Cost & Operational Efficiency", "Digital Commerce & Acquisition"],
     challenge: "MyRepublic needed a scalable acquisition model with zero upfront risk — paying only for verified sales, not clicks or impressions.",
-    role: "Enfactum built and operated a pay-for-results performance model with end-to-end management, predictable CAC, and a scalable partnership network.",
+    role: "Enfactum built and operated a pay-for-results performance model with full management, predictable CAC, and a scalable partnership network.",
     results: [
       { metric: "Pay-per-sale", label: "Zero upfront risk model" },
       { metric: "Predictable", label: "CAC across all channels" },
       { metric: "Scalable", label: "Partnership network" },
-      { metric: "End-to-end", label: "Hands-off management" },
+      { metric: "Full scope", label: "Hands-off management" },
     ],
     region: "Singapore",
     insight: "Performance marketing becomes strategic when you absorb the risk and prove the economics first.",
@@ -446,7 +446,7 @@ export const allCaseStudies: CaseStudy[] = [
     outcomes: ["Ecosystem Scale", "Revenue Growth"],
     challengeTypes: ["Innovation & AI Deployment"],
     challenge: "HP's enterprise customers needed practical AI implementations — not innovation theatre — with measurable data and operational outcomes.",
-    role: "Enfactum delivered enterprise AI solutions across multiple use cases — from data enrichment to multi-lingual voice agents — moving each from pilot to production.",
+    role: "Enfactum delivered enterprise AI implementations across multiple use cases — from data enrichment to multi-lingual voice agents — moving each from pilot to production.",
     results: [
       { metric: "5+", label: "Major enterprise AI implementations" },
       { metric: "100K+", label: "Records enriched via AI" },

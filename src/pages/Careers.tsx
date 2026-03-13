@@ -70,14 +70,14 @@ const Careers = () => (
               We're always interested in hearing from exceptional people. Send us an expression of interest.
             </p>
             <Link to="/contact" className="inline-block mt-4">
-              <Button variant="outline">Get in touch</Button>
+              <Button variant="outline">Start a conversation</Button>
             </Link>
           </div>
         </RevealSection>
       </div>
     </section>
 
-    <CTABand headline="Ready to build something meaningful?" primaryLabel="Apply now" primaryHref="/contact" />
+    <CTABand headline="Ready to build something meaningful?" primaryLabel="Start a conversation" primaryHref="/contact" />
   </PageLayout>
 );
 
