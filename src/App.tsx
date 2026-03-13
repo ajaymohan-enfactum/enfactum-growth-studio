@@ -15,6 +15,7 @@ import Leadership from "./pages/Leadership";
 import OperatingModel from "./pages/OperatingModel";
 import RegionalNodes from "./pages/RegionalNodes";
 import Careers from "./pages/Careers";
+import Partnerships from "./pages/Partnerships";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
