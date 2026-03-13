@@ -75,6 +75,11 @@ const capabilityData: Record<string, CapData> = {
       body: "The Growth Infrastructure capability is led by principals with deep experience in enterprise sales, channel programme design, and regional GTM architecture — people who have built and operated these systems across ASEAN markets.",
     },
     nextCapability: { title: "Brand & Demand", href: "/capabilities/brand-demand" },
+    faqs: [
+      { question: "What is growth infrastructure in Southeast Asia?", answer: "Growth infrastructure refers to the underlying commercial architecture — GTM strategy, partner ecosystems, channel programmes, revenue operations, and market-entry systems — that enables enterprise brands to scale across Southeast Asia's fragmented markets." },
+      { question: "How does Enfactum approach market entry in Southeast Asia?", answer: "Enfactum designs market-entry architecture that connects strategy to execution: country prioritisation, regulatory mapping, partner identification and activation, demand infrastructure, and multi-market playbooks — all built for the region's complexity." },
+      { question: "What is a Build-Operate-Transfer engagement?", answer: "Enfactum builds and operates the growth capability, then transfers full ownership, methodology, and knowledge to the client team — typically over 12–24 months." },
+    ],
   },
 
   "brand-demand": {
