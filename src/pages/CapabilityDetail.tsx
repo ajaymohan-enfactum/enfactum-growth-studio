@@ -19,14 +19,17 @@ interface CapData {
   eyebrow: string;
   headline: string;
   description: string;
+  seoTitle: string;
+  seoDescription: string;
   forWhom: string;
   typicalClients: string[];
   challenge: { heading: string; body: string; bullets: string[] };
   whatWeBuild: { heading: string; body: string; deliverables: { title: string; desc: string }[] };
   howItWorks: { step: string; desc: string }[];
-  outcomeCaseIds: string[];     // references to central case study data
+  outcomeCaseIds: string[];
   team: { heading: string; body: string };
   nextCapability: { title: string; href: string };
+  faqs: { question: string; answer: string }[];
 }
 
 const capabilityData: Record<string, CapData> = {
