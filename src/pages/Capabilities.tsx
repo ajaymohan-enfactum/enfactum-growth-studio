@@ -210,6 +210,7 @@ const Capabilities = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="mist" flip />
     {/* ═══ ENGAGEMENT MODELS ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
