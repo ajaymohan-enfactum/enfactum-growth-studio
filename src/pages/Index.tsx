@@ -276,7 +276,7 @@ const processSteps = [
 ];
 
 const HowWeWork = () => (
-  <section className="py-32 md:py-44">
+  <section id="how-we-work" className="py-32 md:py-44">
     <div className="section-container">
       <SectionHeader
         eyebrow="How we work"
