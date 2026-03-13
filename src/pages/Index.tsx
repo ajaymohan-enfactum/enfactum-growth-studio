@@ -12,6 +12,8 @@ import RevealSection from "@/components/shared/RevealSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import CTABand from "@/components/shared/CTABand";
 import TopologyBackground from "@/components/shared/TopologyBackground";
+import AuroraBackground from "@/components/shared/AuroraBackground";
+import NoiseTextureBackground from "@/components/shared/NoiseTextureBackground";
 import BrandLogo from "@/components/shared/BrandLogo";
 import CaseCard from "@/components/shared/CaseCard";
 import SEOHead, { organizationSchema, webSiteSchema } from "@/components/shared/SEOHead";
@@ -20,11 +22,19 @@ import { ArrowRight, Crosshair, Network, Unlink, FlaskConical, Rocket } from "lu
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
+type BgStyle = "topology" | "aurora" | "noise";
+const bgLabels: Record<BgStyle, string> = {
+  topology: "Topology Mesh",
+  aurora: "Aurora Waves",
+  noise: "Noise + Depth",
+};
+const bgOptions: BgStyle[] = ["topology", "aurora", "noise"];
+
 /* ═══════════════════════════════════════════════
    SECTION 1 — HERO
    Full-viewport cinematic opening
    ═══════════════════════════════════════════════ */
-const Hero = () => {
+const Hero = ({ bgStyle = "topology" }: { bgStyle?: BgStyle }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
   const [hovering, setHovering] = useState(false);
@@ -43,7 +53,9 @@ const Hero = () => {
       onMouseLeave={() => setHovering(false)}
       className="relative min-h-screen flex items-end overflow-hidden"
     >
-      <TopologyBackground />
+      {bgStyle === "topology" && <TopologyBackground />}
+      {bgStyle === "aurora" && <AuroraBackground />}
+      {bgStyle === "noise" && <NoiseTextureBackground />}
       {/* Cursor spotlight */}
       <div
         className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-700"
@@ -560,7 +572,10 @@ const sectionLabels = [
 /* ═══════════════════════════════════════════════
    PAGE ASSEMBLY
    ═══════════════════════════════════════════════ */
-const Index = () => (
+const Index = () => {
+  const [bgStyle, setBgStyle] = useState<BgStyle>("aurora");
+
+  return (
   <PageLayout>
     <SEOHead
       title="Growth & Innovation Operating Partner for Southeast Asia"
@@ -568,8 +583,26 @@ const Index = () => (
       path="/"
       jsonLd={{ ...organizationSchema, ...webSiteSchema }}
     />
+
+    {/* Background style toggle — floating pill */}
+    <div className="fixed bottom-6 right-6 z-50 flex gap-1 bg-card/90 backdrop-blur-md border border-border/60 rounded-full p-1 shadow-lg">
+      {bgOptions.map((opt) => (
+        <button
+          key={opt}
+          onClick={() => setBgStyle(opt)}
+          className={`px-3 py-1.5 text-[11px] font-medium rounded-full transition-all duration-300 ${
+            bgStyle === opt
+              ? "bg-primary text-primary-foreground shadow-sm"
+              : "text-muted-foreground hover:text-foreground"
+          }`}
+        >
+          {bgLabels[opt]}
+        </button>
+      ))}
+    </div>
+
     <StickySectionLabel sections={sectionLabels} />
-    <Hero />
+    <Hero bgStyle={bgStyle} />
     <WhySEA />
     <GrowthBreaks />
     <WhatWeBuilds />
@@ -591,6 +624,7 @@ const Index = () => (
       secondaryHref="/capabilities"
     />
   </PageLayout>
-);
+  );
+};
 
 export default Index;
