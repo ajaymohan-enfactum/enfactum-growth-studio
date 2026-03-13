@@ -68,9 +68,9 @@ const sectorClusters = [
 ];
 
 /* ═══════════════════════════════════════════════
-   BRAND PROOF CAPSULES
+   SELECTED OUTCOMES
    ═══════════════════════════════════════════════ */
-const proofCapsules = [
+const outcomeCapsules = [
   {
     brand: "HP",
     label: "AI Ecosystems / Growth Infrastructure",
