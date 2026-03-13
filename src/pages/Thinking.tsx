@@ -46,7 +46,7 @@ const articles: Article[] = [
     category: "Field Note",
     theme: "Southeast Asia Growth",
     author: "Ajay Mohan",
-    authorRole: "Managing Partner, GTM Strategy",
+    authorRole: "Founder & Managing Partner",
     readTime: "7 min read",
     teaser: "A playbook that works in the US or Europe can fall apart surprisingly fast here. Not because it was bad — but because the environment changed. Replication assumes the market will bend. Translation builds a model that can move through the market.",
     date: "February 2026",
