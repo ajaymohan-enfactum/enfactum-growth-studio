@@ -1,5 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import AnimatedCounter from "./AnimatedCounter";
 import type { CaseStudy } from "@/data/caseStudies";
