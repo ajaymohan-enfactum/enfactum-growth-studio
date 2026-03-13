@@ -334,9 +334,12 @@ const Contact = () => {
                   <p className="eyebrow mb-6">Regional nodes</p>
                   <div className="space-y-4">
                     {officeNodes.map((node) => (
-                      <div key={node.city} className="flex items-baseline justify-between">
-                        <span className="font-display text-[14px] font-medium text-foreground">{node.city}</span>
-                        <span className="text-[12px] text-muted-foreground">{node.role}</span>
+                      <div key={node.city} className="mb-1">
+                        <div className="flex items-baseline justify-between">
+                          <span className="font-display text-[14px] font-medium text-foreground">{node.city}</span>
+                          <span className="text-[12px] text-muted-foreground">{node.role}</span>
+                        </div>
+                        <p className="text-[11px] text-muted-foreground/50 mt-0.5">{node.address}</p>
                       </div>
                     ))}
                   </div>
