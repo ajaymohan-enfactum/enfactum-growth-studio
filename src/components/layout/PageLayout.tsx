@@ -14,6 +14,7 @@ const PageLayout = ({ children }: PageLayoutProps) => {
 
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgress />
       <Navbar />
       <AnimatePresence mode="wait">
         <motion.main
