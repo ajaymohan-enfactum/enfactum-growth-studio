@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useRef, useCallback, useState } from "react";
 import { Button } from "@/components/ui/button";
+import MagneticButton from "@/components/shared/MagneticButton";
+import TextShimmer from "@/components/shared/TextShimmer";
+import InsightTicker from "@/components/shared/InsightTicker";
+import StickySectionLabel from "@/components/shared/StickySectionLabel";
+import CursorSpotlight from "@/components/shared/CursorSpotlight";
 import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
 import SectionHeader from "@/components/shared/SectionHeader";
