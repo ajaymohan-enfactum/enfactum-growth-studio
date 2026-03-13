@@ -247,7 +247,7 @@ const CapabilityDetail = () => {
           <div className="grid md:grid-cols-12 gap-8">
             <div className="md:col-span-5">
               <RevealSection>
-                <p className="eyebrow mb-6">The business challenge</p>
+                <p className="eyebrow mb-6">The challenge</p>
                 <h2 className="headline-lg">{data.challenge.heading}</h2>
               </RevealSection>
             </div>
