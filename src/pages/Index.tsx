@@ -500,7 +500,7 @@ const articles = [
 ];
 
 const Perspectives = () => (
-  <section className="py-32 md:py-44">
+  <section id="thinking" className="py-32 md:py-44">
     <div className="section-container">
       <div className="section-divider mb-20" />
       <div className="grid md:grid-cols-12 gap-8">
