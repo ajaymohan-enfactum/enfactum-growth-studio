@@ -11,7 +11,7 @@ interface CaseCardProps {
 
 /**
  * Premium case study card — result-oriented, enterprise-ready.
- * Full variant: detailed card with challenge/role/metrics.
+ * Full variant: detailed card with challenge/role/metrics + sector + geography.
  * Compact variant: single-row with outcome headline and key metric.
  */
 const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
@@ -32,6 +32,9 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
             </div>
             <div className="md:col-span-2">
               <span className="text-[10px] text-dim uppercase tracking-wider font-body">{cs.capabilities[0]}</span>
+              {cs.sectors[0] && (
+                <span className="text-[10px] text-muted-foreground/50 block mt-0.5 font-body">{cs.sectors[0]}</span>
+              )}
             </div>
             <div className="md:col-span-3">
               <span className="text-[12px] text-muted-foreground">{cs.challenge}</span>
@@ -60,21 +63,31 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="py-12 md:py-14 border-b border-border/30 hover:border-primary/15 transition-colors duration-700 group">
+      <article className="py-12 md:py-14 border-b border-border/30 hover:border-primary/15 transition-colors duration-700 group">
         <div className="grid md:grid-cols-12 gap-6 md:gap-8">
           {/* Left: Client + headline + tags */}
           <div className="md:col-span-5">
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mb-3">
               {cs.capabilities.map((tag) => (
                 <span key={tag} className="text-[10px] px-2.5 py-1 rounded-sm bg-primary/8 text-primary/70 font-medium tracking-wide uppercase">
                   {tag}
                 </span>
               ))}
+              {cs.sectors[0] && (
+                <span className="text-[10px] px-2.5 py-1 rounded-sm bg-secondary text-muted-foreground font-medium tracking-wide uppercase">
+                  {cs.sectors[0]}
+                </span>
+              )}
             </div>
             <span className="text-[11px] text-dim font-body block mb-2">{cs.client}</span>
             <h3 className="font-display text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-500 leading-tight">
               {cs.headline}
             </h3>
+            {cs.region && (
+              <span className="text-[10px] text-muted-foreground/50 font-body block mt-3 uppercase tracking-wider">
+                {cs.region}
+              </span>
+            )}
           </div>
 
           {/* Middle: Challenge + Role */}
@@ -117,7 +130,7 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
             </p>
           </div>
         )}
-      </div>
+      </article>
     </motion.div>
   );
 };

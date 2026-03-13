@@ -4,6 +4,7 @@ import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
+import SEOHead, { makeBreadcrumbSchema } from "@/components/shared/SEOHead";
 import { Button } from "@/components/ui/button";
 
 const whyEnfactum = [
@@ -23,6 +24,15 @@ const openRoles = [
 
 const Careers = () => (
   <PageLayout>
+    <SEOHead
+      title="Careers — Build Growth Infrastructure in Southeast Asia"
+      description="Join Enfactum's operating bench. Open roles across strategy, creative, technology, demand operations, and programme management in Singapore, India, Malaysia, and Indonesia."
+      path="/company/careers"
+      jsonLd={makeBreadcrumbSchema([
+        { name: "Company", url: "/company" },
+        { name: "Careers", url: "/company/careers" },
+      ])}
+    />
     <HeroSection
       eyebrow="Careers"
       headline="Build growth infrastructure. Shape Southeast Asia's future."

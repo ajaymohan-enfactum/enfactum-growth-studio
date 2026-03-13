@@ -4,6 +4,7 @@ import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import TeamProfilePanel from "@/components/shared/TeamProfilePanel";
+import SEOHead, { makeBreadcrumbSchema } from "@/components/shared/SEOHead";
 import type { TeamMemberFull } from "@/components/shared/TeamProfilePanel";
 
 import ajayPhoto from "@/assets/team/ajay-mohan.png";
@@ -200,6 +201,15 @@ const Leadership = () => {
 
   return (
     <PageLayout>
+      <SEOHead
+        title="Leadership — Operators Across Strategy, Growth, and Technology"
+        description="The Enfactum leadership team brings decades of experience across strategy, growth, technology, and creative — operators who have built and run growth programmes across Southeast Asia."
+        path="/company/leadership"
+        jsonLd={makeBreadcrumbSchema([
+          { name: "Company", url: "/company" },
+          { name: "Leadership", url: "/company/leadership" },
+        ])}
+      />
       <HeroSection
         eyebrow="Leadership"
         headline="Operators who build, not just advise."
