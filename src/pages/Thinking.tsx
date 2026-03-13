@@ -146,7 +146,7 @@ const articles: Article[] = [
     category: "Field Note",
     theme: "Launches & Activation",
     author: "Ajay Mohan",
-    authorRole: "Managing Partner, GTM Strategy",
+    authorRole: "Founder & Managing Partner",
     readTime: "6 min read",
     teaser: "A launch is not successful because people noticed it. It is successful because something moved afterwards — pipeline, partner confidence, market perception, distribution momentum.",
     date: "October 2025",
