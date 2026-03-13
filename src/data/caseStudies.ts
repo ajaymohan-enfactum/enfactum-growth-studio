@@ -346,6 +346,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Customer Acquisition", "Cost Efficiency", "Pipeline Generation"],
+    challengeTypes: ["Pipeline & Revenue Growth"],
     challenge: "Seagate needed to improve global digital performance — driving more qualified traffic while reducing cost per lead across multiple regions.",
     role: "Enfactum optimised the full performance marketing stack — audience targeting, creative strategy, and conversion architecture across APAC, EU, and US.",
     results: [
