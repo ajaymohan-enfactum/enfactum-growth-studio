@@ -34,7 +34,7 @@ const OperatingModel = () => (
     {/* Framework */}
     <section className="py-20 md:py-28">
       <div className="section-container">
-        <SectionHeader eyebrow="Framework" headline="Define → Build → Operate → Transfer → Scale" centered />
+        <SectionHeader eyebrow="The model" headline="Define → Build → Operate → Transfer → Scale" centered />
         <div className="mt-16 space-y-0">
           {processSteps.map((step, i) => (
             <RevealSection key={i} delay={i * 0.08}>
