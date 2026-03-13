@@ -187,7 +187,7 @@ const Work = () => {
         <section className="section-alt py-24 md:py-32">
           <div className="section-container">
             <SectionHeader
-              eyebrow="Further proof"
+              eyebrow="Additional work"
               headline="More work across capabilities and sectors."
             />
             <div className="mt-12 space-y-0">

@@ -512,7 +512,7 @@ const Index = () => (
     <GrowthBreaks />
     <WhatWeBuilds />
     <HowWeWork />
-    <SectorProof />
+    <SectorExperience />
     <FeaturedWork />
     <DepthSection />
     <Perspectives />

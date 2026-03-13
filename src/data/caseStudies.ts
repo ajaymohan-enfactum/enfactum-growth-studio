@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════
    CENTRAL CASE STUDY DATA
-   Single source of truth for all proof across the site
+   Single source of truth for all work across the site
    ═══════════════════════════════════════════════ */
 
 export interface CaseOutcome {

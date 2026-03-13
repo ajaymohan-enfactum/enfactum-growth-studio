@@ -194,18 +194,18 @@ const Brands = () => (
       </div>
     </section>
 
-    {/* ═══ SECTION 4 — PROOF CAPSULES ═══ */}
+    {/* ═══ SECTION 4 — SELECTED OUTCOMES ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
         <div className="section-divider mb-20" />
         <SectionHeader
-          eyebrow="Highlighted proof"
+          eyebrow="Selected outcomes"
           headline="Behind the logos."
           description="A few snapshots of how Enfactum has operated for brands across sectors."
         />
 
         <div className="mt-20 grid sm:grid-cols-2 gap-8">
-          {proofCapsules.map((capsule, i) => (
+          {outcomeCapsules.map((capsule, i) => (
             <RevealSection key={i} delay={i * 0.08}>
               <div className="card-premium h-full">
                 <div className="flex items-center gap-3 mb-5">

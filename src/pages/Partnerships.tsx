@@ -272,24 +272,24 @@ const Partnerships = () => (
       </div>
     </section>
 
-    {/* ── SECTION 6: PROOF IN PARTNERSHIPS ── */}
+    {/* ── SECTION 6: PARTNERSHIPS IN PRACTICE ── */}
     <section className="py-20 md:py-28 section-alt">
       <div className="section-container">
         <RevealSection>
-          <p className="eyebrow mb-4">Proof in partnerships</p>
+          <p className="eyebrow mb-4">In practice</p>
           <h2 className="headline-lg max-w-3xl">Partnerships we've helped build and operate.</h2>
         </RevealSection>
         <div className="space-y-0 mt-14">
-          {proofCapsules.map((proof, i) => (
+          {partnershipExamples.map((example, i) => (
             <RevealSection key={i} delay={i * 0.06}>
               <div className="border-b border-border/30 py-8 md:py-10 grid md:grid-cols-[1fr_2fr] gap-6 md:gap-12 items-start">
                 <div>
-                  <h3 className="font-display text-lg font-semibold text-foreground">{proof.name}</h3>
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-primary/70 mt-1 font-body">{proof.type}</p>
+                  <h3 className="font-display text-lg font-semibold text-foreground">{example.name}</h3>
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-primary/70 mt-1 font-body">{example.type}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground leading-relaxed font-body">{proof.role}</p>
-                  <p className="text-sm text-foreground font-medium mt-3 font-body">{proof.result}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed font-body">{example.role}</p>
+                  <p className="text-sm text-foreground font-medium mt-3 font-body">{example.result}</p>
                 </div>
               </div>
             </RevealSection>
