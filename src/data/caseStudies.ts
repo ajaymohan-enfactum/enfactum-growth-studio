@@ -406,6 +406,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Live Experiences"],
     sectors: ["Consumer & Retail"],
     outcomes: ["Market Entry", "Customer Acquisition"],
+    challengeTypes: ["Market Launch & Expansion"],
     challenge: "Sephora needed a Malaysia re-launch that would generate record attendance and establish cultural relevance beyond a standard store opening.",
     role: "Enfactum designed and produced an experiential launch that created a cultural moment — driving record attendance and sustained social conversation.",
     results: [
