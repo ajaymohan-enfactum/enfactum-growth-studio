@@ -63,7 +63,7 @@ const Capabilities = () => (
   <PageLayout>
     <HeroSection
       eyebrow="Capabilities"
-      headline="Four capabilities. One operating system for Southeast Asia."
+      headline="An integrated growth operating system for Southeast Asia."
       description="Each capability solves a specific growth challenge. Together, they form an integrated operating model — strategy connected to ecosystems connected to execution."
     />
 
