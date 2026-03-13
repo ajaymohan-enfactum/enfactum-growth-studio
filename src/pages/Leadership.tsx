@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
+import StaggerGrid from "@/components/shared/StaggerGrid";
 import CTABand from "@/components/shared/CTABand";
 import TeamProfilePanel from "@/components/shared/TeamProfilePanel";
 import SEOHead, { makeBreadcrumbSchema } from "@/components/shared/SEOHead";
