@@ -11,6 +11,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import CTABand from "@/components/shared/CTABand";
+import ParallaxDivider from "@/components/shared/ParallaxDivider";
 import HybridBackground from "@/components/shared/HybridBackground";
 import BrandLogo from "@/components/shared/BrandLogo";
 import CaseCard from "@/components/shared/CaseCard";
@@ -113,7 +114,7 @@ const WhySEA = () => (
     <div className="section-container">
       <div className="grid md:grid-cols-12 gap-12 md:gap-8">
         <div className="md:col-span-5">
-          <RevealSection>
+          <RevealSection blur>
             <p className="eyebrow mb-6">Why Southeast Asia moves differently</p>
             <h2 className="headline-lg">
               Not one market.<br />
@@ -122,7 +123,7 @@ const WhySEA = () => (
           </RevealSection>
         </div>
         <div className="md:col-span-6 md:col-start-7">
-          <RevealSection delay={0.15}>
+          <RevealSection delay={0.15} blur>
             <div className="space-y-6">
               <p className="body-lg">
                 Southeast Asia is nearly 700 million people across diverse economies,
@@ -175,6 +176,7 @@ const GrowthBreaks = () => (
           <RevealSection
             key={i}
             delay={i * 0.08}
+            blur
             className={`md:col-span-4 ${i >= 3 ? "md:col-start-" + (i === 3 ? "3" : "7") : ""}`}
           >
             <div className="pr-8">
@@ -236,7 +238,7 @@ const WhatWeBuilds = () => (
       />
       <div className="mt-20 space-y-0">
         {capabilities.map((cap, i) => (
-          <RevealSection key={i} delay={i * 0.06}>
+          <RevealSection key={i} delay={i * 0.06} scale>
             <Link to={cap.href} className="group block">
               <div className="grid md:grid-cols-12 gap-6 py-10 border-b border-border/40 group-hover:border-primary/20 transition-colors duration-700">
                 <div className="md:col-span-1">
@@ -471,7 +473,7 @@ const DepthSection = () => (
       />
       <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {depthBlocks.map((block, i) => (
-          <RevealSection key={i} delay={i * 0.08}>
+          <RevealSection key={i} delay={i * 0.08} scale>
             <Link to={block.href} className="group block h-full">
               <div className="h-full border-t border-border/40 pt-8 group-hover:border-primary/25 transition-colors duration-700">
                 <span className="text-[10px] font-body text-dim">{block.num}</span>
@@ -571,11 +573,17 @@ const Index = () => (
 
     <StickySectionLabel sections={sectionLabels} />
     <Hero />
+    <ParallaxDivider variant="mist" />
     <WhySEA />
+    <ParallaxDivider variant="glow" />
     <GrowthBreaks />
+    <ParallaxDivider variant="gradient" />
     <WhatWeBuilds />
+    <ParallaxDivider variant="mist" flip />
     <HowWeWork />
+    <ParallaxDivider variant="glow" />
     <SectorExperience />
+    <ParallaxDivider variant="gradient" flip />
     <FeaturedWork />
     {/* Insight ticker between work and depth */}
     <div className="py-12 border-y border-border/20 overflow-hidden">
