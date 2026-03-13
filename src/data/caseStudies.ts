@@ -426,6 +426,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Consumer & Retail"],
     outcomes: ["Revenue Growth", "Market Entry"],
+    challengeTypes: ["Market Launch & Expansion"],
     challenge: "Delsey needed structured distribution and market activation across Asian markets to reach volume at scale.",
     role: "Enfactum built distribution infrastructure and market activation programmes across multiple Asian markets.",
     results: [
