@@ -121,7 +121,7 @@ const Company = () => (
         <div className="mt-24 border-t border-border/30 pt-14">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             {companyMetrics.map((m, i) => (
-              <RevealSection key={i} delay={i * 0.08}>
+              <RevealSection key={i} delay={i * 0.08} scale>
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
