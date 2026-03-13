@@ -184,6 +184,8 @@ const capabilityData: Record<string, CapData> = {
     eyebrow: "Live Experiences",
     headline: "Create market moments designed for commercial impact, not just attendance.",
     description: "Product launches, partner summits, roadshows, and experiential activations — every event tied to pipeline, partner activation, or market momentum across Southeast Asia.",
+    seoTitle: "Live Experiences — Product Launches & Event Activation in Southeast Asia",
+    seoDescription: "Product launches, partner summits, roadshows, and experiential activations for enterprise brands across Southeast Asia — commercially designed events tied to pipeline, partner activation, and market momentum.",
     forWhom: "Brands that need market moments designed for pipeline, partner activation, and commercial impact — not events measured by headcount and social impressions.",
     typicalClients: ["Technology companies launching products across ASEAN", "Enterprises running partner summits and channel activations", "Brands executing regional roadshows and field marketing", "Companies creating experiential activations with commercial objectives"],
     challenge: {
