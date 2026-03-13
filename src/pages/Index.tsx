@@ -93,7 +93,7 @@ const WhySEA = () => (
           <RevealSection delay={0.15}>
             <div className="space-y-6">
               <p className="body-lg">
-                Southeast Asia is 700 million people across diverse economies,
+                Southeast Asia is nearly 700 million people across diverse economies,
                 languages, and regulatory environments — bound together by trade
                 corridors, digital infrastructure, and rapidly evolving consumer
                 behaviour.

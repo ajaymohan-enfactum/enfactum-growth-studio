@@ -20,7 +20,7 @@ const companyMetrics = [
 ];
 
 const leaders = [
-  { name: "Ajay Mohan", role: "Founder & Strategy Lead", focus: "Strategy · Growth · Southeast Asia", bio: "15+ years building growth infrastructure for enterprise brands across Asia Pacific. Leads Enfactum's strategic vision and client partnerships." },
+  { name: "Ajay Mohan", role: "Founder & Managing Partner", focus: "Strategy · Growth · Southeast Asia", bio: "15+ years building growth infrastructure for enterprise brands across Asia Pacific. Leads Enfactum's strategic vision and client partnerships." },
   { name: "William Gaultier", role: "Partner", focus: "Ecosystems · Innovation · Partnerships", bio: "Deep enterprise and ecosystem experience across ASEAN, driving innovation programmes and strategic partnerships." },
   { name: "Pooja Mohan", role: "Operations Lead", focus: "Operations · Delivery · Scale", bio: "Leads Enfactum's operational backbone — managing delivery, team coordination, and programme execution across the region." },
   { name: "Sumit Ramchandani", role: "Adtech & Martech Lead", focus: "Martech · Performance · Data", bio: "Specialist in marketing technology, performance infrastructure, and data-driven growth architectures." },
