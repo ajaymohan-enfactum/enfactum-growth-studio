@@ -160,6 +160,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Live Experiences"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Pipeline Generation", "Revenue Growth"],
+    challengeTypes: ["Pipeline & Revenue Growth"],
     challenge: "HP needed a product launch that would generate measurable pipeline — not just industry buzz — for its large format printing ecosystem.",
     role: "Enfactum designed and produced an immersive launch experience built backward from commercial objectives, with integrated follow-through into pipeline.",
     results: [
