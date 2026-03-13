@@ -67,6 +67,11 @@ const RegionalNodes = () => (
                 </div>
                 <h3 className="font-display text-2xl font-bold text-foreground">{node.city}</h3>
                 <p className="text-sm text-muted-foreground mt-3">{node.desc}</p>
+                <div className="mt-4 space-y-0.5">
+                  {node.address.map((line, li) => (
+                    <p key={li} className="text-[12px] text-muted-foreground/70 font-body leading-relaxed">{line}</p>
+                  ))}
+                </div>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {node.capabilities.map((cap) => (
                     <span key={cap} className="text-xs px-2.5 py-1 rounded-full bg-secondary text-muted-foreground border border-border">{cap}</span>

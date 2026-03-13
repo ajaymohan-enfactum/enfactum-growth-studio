@@ -363,7 +363,7 @@ const Contact = () => {
             </div>
             <div className="md:col-span-5 md:col-start-8 flex items-end justify-end">
               <p className="text-[11px] text-muted-foreground/40">
-                Singapore · India · Malaysia · Indonesia
+                Singapore · India · Malaysia · Indonesia · USA
               </p>
             </div>
           </div>
