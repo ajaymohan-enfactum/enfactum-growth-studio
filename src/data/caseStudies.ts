@@ -284,6 +284,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Consumer & Retail"],
     outcomes: ["Market Entry", "Revenue Growth", "Customer Acquisition"],
+    challengeTypes: ["Market Launch & Expansion"],
     challenge: "Loose Moose Wine needed to launch across Singapore, Malaysia, and Australia simultaneously with measurable revenue from day one.",
     role: "Enfactum built a performance-led expansion strategy — affiliate recruitment, retail distribution partnerships, and digital revenue generation across all three markets.",
     results: [
