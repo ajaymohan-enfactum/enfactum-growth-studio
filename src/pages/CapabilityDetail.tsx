@@ -222,6 +222,11 @@ const capabilityData: Record<string, CapData> = {
       body: "The Live Experiences capability is led by people who've produced hundreds of enterprise events across Southeast Asia — and who measure success by pipeline generated, not applause volume.",
     },
     nextCapability: { title: "Growth Infrastructure", href: "/capabilities/growth-infrastructure" },
+    faqs: [
+      { question: "What makes Enfactum's approach to events different?", answer: "Enfactum designs events backward from commercial objectives — pipeline targets, partner activation goals, and market impact metrics — rather than from creative concepts. Every event is tied to measurable business outcomes." },
+      { question: "What types of events does Enfactum produce?", answer: "Product launches, partner summits, regional roadshows, experiential activations, and hybrid/digital platforms — all designed for enterprise brands across Southeast Asia." },
+      { question: "How are events measured for success?", answer: "By commercial outcomes: pipeline generated, partner activation rates, deal influence, market perception shift, and follow-through conversion — not just attendance or social impressions." },
+    ],
   },
 };
 
