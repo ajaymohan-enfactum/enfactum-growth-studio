@@ -7,6 +7,7 @@ import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
+import AnimatedCounter from "@/components/shared/AnimatedCounter";
 
 /* ═══════════════════════════════════════════════
    DATA
