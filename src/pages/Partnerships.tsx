@@ -96,8 +96,8 @@ const partnershipModels = [
   },
 ];
 
-/* ─── Section 6: Proof capsules ─── */
-const proofCapsules = [
+/* ─── Section 6: Partnership examples ─── */
+const partnershipExamples = [
   {
     name: "HP Garage 2.0",
     type: "AI ecosystem & innovation architecture",
