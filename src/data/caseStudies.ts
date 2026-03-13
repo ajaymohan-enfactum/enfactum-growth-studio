@@ -366,6 +366,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Pipeline Generation", "Cost Efficiency", "Customer Acquisition"],
+    challengeTypes: ["Pipeline & Revenue Growth"],
     challenge: "HP needed to accelerate SMB pipeline generation in Malaysia through integrated digital and channel activation.",
     role: "Enfactum designed and operated an integrated pipeline programme — digital acquisition, partner co-marketing, and lead management across 9 partner channels.",
     results: [
