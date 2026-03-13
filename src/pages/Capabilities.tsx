@@ -131,9 +131,9 @@ const Capabilities = () => (
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
         <SectionHeader
-          eyebrow="System design"
+          eyebrow="How the capabilities connect"
           headline="Each capability reinforces the others."
-          description="This isn't four separate services. It's one operating system — each capability feeds outcomes to the next."
+          description="This isn't four separate offerings. It's one operating system — each capability feeds outcomes to the next."
           centered
         />
         <div className="mt-20 space-y-0">
