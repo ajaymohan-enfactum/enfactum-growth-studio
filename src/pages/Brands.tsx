@@ -145,11 +145,11 @@ const Brands = () => (
       </div>
     </section>
 
-    {/* ═══ SECTION 3 — SECTOR PROOF ARCHITECTURE ═══ */}
+    {/* ═══ SECTION 3 — SECTOR EXPERIENCE ARCHITECTURE ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
         <SectionHeader
-          eyebrow="Sector proof"
+          eyebrow="Experience"
           headline="A portfolio that reflects the region's real complexity."
           description="From enterprise platforms to consumer brands and innovation-led companies, Enfactum has built experience across the environments that move Southeast Asia."
         />
