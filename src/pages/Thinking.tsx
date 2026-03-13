@@ -38,7 +38,7 @@ const articles: Article[] = [
   },
   {
     title: "The Partner Ecosystem Advantage in Enterprise Sales",
-    category: "Ecosystems & Partnerships",
+    category: "Operator View",
     author: "William Gaultier",
     authorRole: "Partner",
     readTime: "8 min read",
