@@ -9,6 +9,7 @@ import { ArrowRight } from "lucide-react";
 interface Article {
   title: string;
   category: string;
+  theme: string;
   author: string;
   authorRole?: string;
   readTime: string;
