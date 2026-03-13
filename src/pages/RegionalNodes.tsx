@@ -67,7 +67,7 @@ const RegionalNodes = () => (
     />
     <HeroSection
       eyebrow="Regional Nodes"
-      headline="An operating network built for Southeast Asia."
+      headline={<>An operating network built for <span className="text-primary">Southeast Asia.</span></>}
       description="Not offices. Operating nodes — each with a distinct role in how we deliver growth across the region."
     />
 
