@@ -389,7 +389,7 @@ const SectorExperience = () => (
 
 /* ═══════════════════════════════════════════════
    SECTION 7 — FEATURED WORK
-   Result-oriented flagship proof
+   Result-oriented selected work
    ═══════════════════════════════════════════════ */
 const FeaturedWork = () => {
   const flagships = getFlagshipCases();
@@ -398,7 +398,7 @@ const FeaturedWork = () => {
       <div className="section-container">
         <SectionHeader
           eyebrow="Featured work"
-          headline="Proof in practice."
+          headline="Selected outcomes."
         />
         <p className="text-[13px] text-muted-foreground mt-4 max-w-lg">
           Selected work with measurable commercial, operational, and ecosystem outcomes.
