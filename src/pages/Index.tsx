@@ -560,10 +560,7 @@ const sectionLabels = [
 /* ═══════════════════════════════════════════════
    PAGE ASSEMBLY
    ═══════════════════════════════════════════════ */
-const Index = () => {
-  const [bgStyle, setBgStyle] = useState<BgStyle>("hybrid");
-
-  return (
+const Index = () => (
   <PageLayout>
     <SEOHead
       title="Growth & Innovation Operating Partner for Southeast Asia"
@@ -572,25 +569,8 @@ const Index = () => {
       jsonLd={{ ...organizationSchema, ...webSiteSchema }}
     />
 
-    {/* Background style toggle — floating pill */}
-    <div className="fixed bottom-6 right-6 z-50 flex gap-1 bg-card/90 backdrop-blur-md border border-border/60 rounded-full p-1 shadow-lg">
-      {bgOptions.map((opt) => (
-        <button
-          key={opt}
-          onClick={() => setBgStyle(opt)}
-          className={`px-3 py-1.5 text-[11px] font-medium rounded-full transition-all duration-300 ${
-            bgStyle === opt
-              ? "bg-primary text-primary-foreground shadow-sm"
-              : "text-muted-foreground hover:text-foreground"
-          }`}
-        >
-          {bgLabels[opt]}
-        </button>
-      ))}
-    </div>
-
     <StickySectionLabel sections={sectionLabels} />
-    <Hero bgStyle={bgStyle} />
+    <Hero />
     <WhySEA />
     <GrowthBreaks />
     <WhatWeBuilds />
