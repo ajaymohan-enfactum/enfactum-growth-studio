@@ -10,6 +10,7 @@ import CapabilityDetail from "./pages/CapabilityDetail";
 import Work from "./pages/Work";
 import Brands from "./pages/Brands";
 import Thinking from "./pages/Thinking";
+import ThinkingArticle from "./pages/ThinkingArticle";
 import Company from "./pages/Company";
 import Leadership from "./pages/Leadership";
 import OperatingModel from "./pages/OperatingModel";
