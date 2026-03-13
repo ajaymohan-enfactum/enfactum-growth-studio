@@ -7,6 +7,7 @@ import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
+import AnimatedCounter from "@/components/shared/AnimatedCounter";
 
 /* ═══════════════════════════════════════════════
    DATA
@@ -126,9 +127,10 @@ const Company = () => (
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <span className="font-display text-4xl md:text-5xl font-extrabold text-primary/85 tracking-tight block">
-                    {m.metric}
-                  </span>
+                  <AnimatedCounter
+                    value={m.metric}
+                    className="font-display text-4xl md:text-5xl font-extrabold text-primary/85 tracking-tight block"
+                  />
                   <span className="text-[12px] text-muted-foreground mt-2 block leading-snug font-body">
                     {m.label}
                   </span>
