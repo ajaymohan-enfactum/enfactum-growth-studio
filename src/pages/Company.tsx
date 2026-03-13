@@ -230,6 +230,7 @@ const Company = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="glow" />
     {/* ═══ SECTION 4 — REGIONAL NODES ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
