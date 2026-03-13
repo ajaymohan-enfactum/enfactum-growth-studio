@@ -79,7 +79,7 @@ const outcomeCapsules = [
   {
     brand: "The Economist",
     label: "Growth Infrastructure / Build-Operate-Transfer",
-    proof: "Created an embedded build-operate-transfer model that delivered 47% cost savings, 50% agency fee reduction, and exceeded revenue expectations within two quarters.",
+    outcome: "Created an embedded build-operate-transfer model that delivered 47% cost savings, 50% agency fee reduction, and exceeded revenue expectations within two quarters.",
   },
   {
     brand: "JSHealth Vitamins",
