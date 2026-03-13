@@ -18,7 +18,7 @@ interface Article {
 const articles: Article[] = [
   {
     title: "Why Your APAC Strategy Needs a Regional Operating System",
-    category: "GTM Strategy",
+    category: "Operator View",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "7 min read",
