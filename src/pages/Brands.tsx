@@ -1,0 +1,266 @@
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import PageLayout from "@/components/layout/PageLayout";
+import HeroSection from "@/components/shared/HeroSection";
+import SectionHeader from "@/components/shared/SectionHeader";
+import RevealSection from "@/components/shared/RevealSection";
+import CTABand from "@/components/shared/CTABand";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+/* ═══════════════════════════════════════════════
+   SECTOR CLUSTERS — real brands from creds deck
+   ═══════════════════════════════════════════════ */
+const sectorClusters = [
+  {
+    sector: "Enterprise Technology",
+    num: "01",
+    narrative: "Helping technology brands build market entry, partner momentum, and commercial infrastructure across Southeast Asia.",
+    brands: [
+      { name: "HP", cue: "AI Ecosystems · Innovation · Channel" },
+      { name: "Dell EMC", cue: "Growth Infrastructure" },
+      { name: "Seagate", cue: "Global Performance Marketing" },
+      { name: "Redington", cue: "Content & Partner Platforms" },
+      { name: "Lenovo", cue: "Field Marketing" },
+      { name: "Oracle", cue: "Enterprise Programmes" },
+      { name: "Lexmark", cue: "Channel Activation" },
+      { name: "Fujifilm", cue: "Market Programmes" },
+    ],
+  },
+  {
+    sector: "Consumer & Brand Growth",
+    num: "02",
+    narrative: "Supporting brands that need market activation, demand generation, and regional growth with commercial discipline.",
+    brands: [
+      { name: "Brands For Less", cue: "Market Entry · Digital Growth" },
+      { name: "Sephora", cue: "Experiential Launch" },
+      { name: "L'Oréal", cue: "Brand & Demand" },
+      { name: "Decathlon", cue: "Retail Activation" },
+      { name: "Delsey", cue: "Distribution & Scale" },
+      { name: "VIP Industries", cue: "Dealer Enablement" },
+    ],
+  },
+  {
+    sector: "Media & Institutions",
+    num: "03",
+    narrative: "Working with publishers, institutions, and ecosystem builders where trust, reach, and stakeholder alignment matter.",
+    brands: [
+      { name: "The Economist", cue: "BOT · Growth Operations · Affiliate" },
+      { name: "Abbott", cue: "Brand & Demand" },
+      { name: "Dscoop", cue: "Community & Events" },
+      { name: "Guntner", cue: "Enterprise Programmes" },
+    ],
+  },
+  {
+    sector: "Digital Commerce & Innovation",
+    num: "04",
+    narrative: "Partnering with emerging and innovation-led companies shaping new categories across the region.",
+    brands: [
+      { name: "JSHealth Vitamins", cue: "Affiliate · Global Growth" },
+      { name: "Lazada", cue: "E-Commerce Activation" },
+      { name: "Syfe", cue: "Fintech Growth" },
+      { name: "SingX", cue: "Market Expansion" },
+      { name: "insureMO", cue: "Enterprise Technology" },
+      { name: "eBaoTech", cue: "Digital Platforms" },
+    ],
+  },
+];
+
+/* ═══════════════════════════════════════════════
+   BRAND PROOF CAPSULES
+   ═══════════════════════════════════════════════ */
+const proofCapsules = [
+  {
+    brand: "HP",
+    label: "AI Ecosystems / Growth Infrastructure",
+    proof: "Built regional innovation and ecosystem architecture across multiple markets and business units — from AI incubation to SMB pipeline to large format product launches.",
+  },
+  {
+    brand: "The Economist",
+    label: "Growth Infrastructure / Build-Operate-Transfer",
+    proof: "Created an embedded build-operate-transfer model that delivered 47% cost savings, 50% agency fee reduction, and exceeded revenue expectations within two quarters.",
+  },
+  {
+    brand: "JSHealth Vitamins",
+    label: "Brand & Demand / Affiliate",
+    proof: "Built a performance-led affiliate and demand engine delivering +411% ROAS and +311% ROI through 190+ partnership channels across AU, EU, UK & US.",
+  },
+  {
+    brand: "Brands For Less",
+    label: "Growth Infrastructure / Digital Commerce",
+    proof: "Transformed digital acquisition channels to drive +42% site traffic uplift, strengthening competitive position in online retail.",
+  },
+];
+
+/* ═══════════════════════════════════════════════
+   PAGE
+   ═══════════════════════════════════════════════ */
+const Brands = () => (
+  <PageLayout>
+    {/* ─── HERO ─── */}
+    <HeroSection
+      eyebrow="Brands"
+      headline="Trusted across the industries shaping Southeast Asia."
+      description="A cross-sector portfolio of enterprise, consumer, institutional, and innovation-led brands that reflects Enfactum's operating range across the region."
+    >
+      <div className="flex flex-wrap gap-4 mt-2">
+        <Link to="/work">
+          <Button variant="hero" size="xl">See the work</Button>
+        </Link>
+        <Link to="/contact">
+          <Button variant="outline" size="xl" className="border-border/40 text-foreground/70 hover:text-foreground hover:border-border">
+            Start a conversation
+          </Button>
+        </Link>
+      </div>
+    </HeroSection>
+
+    {/* ═══ SECTION 2 — INTRO ═══ */}
+    <section className="py-24 md:py-32">
+      <div className="section-container">
+        <div className="grid md:grid-cols-12 gap-12 md:gap-8">
+          <div className="md:col-span-5">
+            <RevealSection>
+              <p className="eyebrow mb-6">Why this matters</p>
+              <h2 className="headline-lg">Breadth as proof, not vanity.</h2>
+            </RevealSection>
+          </div>
+          <div className="md:col-span-6 md:col-start-7">
+            <RevealSection delay={0.1}>
+              <div className="space-y-6">
+                <p className="body-lg">
+                  Enfactum works across the systems that shape growth in Southeast Asia — from
+                  enterprise technology and channel ecosystems to consumer brands, institutions,
+                  and emerging innovators.
+                </p>
+                <p className="body-md text-muted-foreground">
+                  The breadth matters not as a vanity signal, but as proof of the company's ability
+                  to operate across different sectors, stakeholders, and market realities.
+                </p>
+              </div>
+            </RevealSection>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ═══ SECTION 3 — SECTOR PROOF ARCHITECTURE ═══ */}
+    <section className="section-alt py-32 md:py-44">
+      <div className="section-container">
+        <SectionHeader
+          eyebrow="Sector proof"
+          headline="A portfolio that reflects the region's real complexity."
+          description="From enterprise platforms to consumer brands and innovation-led companies, Enfactum has built experience across the environments that move Southeast Asia."
+        />
+
+        <div className="mt-24 space-y-0">
+          {sectorClusters.map((cluster, ci) => (
+            <RevealSection key={ci} delay={ci * 0.06}>
+              <div className="border-t border-border/30 py-14 md:py-16">
+                <div className="grid md:grid-cols-12 gap-8">
+                  {/* Left — Cluster label */}
+                  <div className="md:col-span-4">
+                    <span className="text-[10px] font-body text-dim block mb-3">{cluster.num}</span>
+                    <h3 className="font-display text-xl md:text-2xl font-bold text-foreground leading-tight">
+                      {cluster.sector}
+                    </h3>
+                    <p className="text-[13px] text-muted-foreground leading-relaxed mt-4 max-w-xs">
+                      {cluster.narrative}
+                    </p>
+                  </div>
+
+                  {/* Right — Brand entries */}
+                  <div className="md:col-span-7 md:col-start-6">
+                    <div className="grid grid-cols-2 gap-x-8 gap-y-0">
+                      {cluster.brands.map((brand, bi) => (
+                        <div
+                          key={bi}
+                          className="group py-5 border-b border-border/20 last:border-b-0 cursor-default"
+                        >
+                          <span className="font-display text-[15px] font-semibold text-foreground/40 group-hover:text-foreground/80 transition-colors duration-700 tracking-tight">
+                            {brand.name}
+                          </span>
+                          <span className="block text-[10px] text-dim/0 group-hover:text-dim transition-all duration-700 mt-1 uppercase tracking-[0.15em] font-body overflow-hidden max-h-0 group-hover:max-h-6">
+                            {brand.cue}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </RevealSection>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ═══ SECTION 4 — PROOF CAPSULES ═══ */}
+    <section className="py-32 md:py-44">
+      <div className="section-container">
+        <div className="section-divider mb-20" />
+        <SectionHeader
+          eyebrow="Highlighted proof"
+          headline="Behind the logos."
+          description="A few snapshots of how Enfactum has operated for brands across sectors."
+        />
+
+        <div className="mt-20 grid sm:grid-cols-2 gap-8">
+          {proofCapsules.map((capsule, i) => (
+            <RevealSection key={i} delay={i * 0.08}>
+              <div className="card-premium h-full">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                  <span className="text-[10px] text-dim uppercase tracking-[0.15em] font-body">
+                    {capsule.label}
+                  </span>
+                </div>
+                <h3 className="font-display text-2xl font-bold text-foreground mb-4">
+                  {capsule.brand}
+                </h3>
+                <p className="text-[13px] text-muted-foreground leading-relaxed">
+                  {capsule.proof}
+                </p>
+              </div>
+            </RevealSection>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ═══ SECTION 5 — BRIDGE TO WORK ═══ */}
+    <section className="section-alt py-24 md:py-32">
+      <div className="section-container">
+        <RevealSection>
+          <div className="grid md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-7">
+              <p className="eyebrow mb-4">From breadth to depth</p>
+              <h2 className="headline-md max-w-xl">
+                Behind every logo is a different challenge, market context, and operating model.
+              </h2>
+              <p className="body-md text-muted-foreground mt-4 max-w-lg">
+                Explore the work to see how Enfactum turns sector experience into measurable outcomes.
+              </p>
+            </div>
+            <div className="md:col-span-4 md:col-start-9 flex md:justify-end">
+              <Link to="/work">
+                <Button variant="hero" size="xl">
+                  View Work <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </RevealSection>
+      </div>
+    </section>
+
+    {/* ═══ SECTION 6 — CTA ═══ */}
+    <CTABand
+      headline="Looking for a partner that understands the region from multiple angles?"
+      description="Let's talk about what growth needs to move next."
+      primaryLabel="Start a conversation"
+    />
+  </PageLayout>
+);
+
+export default Brands;

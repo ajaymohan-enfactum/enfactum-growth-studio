@@ -24,6 +24,7 @@ const companyLinks = [
 const navLinks = [
   { label: "Capabilities", href: "/capabilities", submenu: capabilitiesLinks },
   { label: "Work", href: "/work" },
+  { label: "Brands", href: "/brands" },
   { label: "Thinking", href: "/thinking" },
   { label: "Company", href: "/company", submenu: companyLinks },
 ];

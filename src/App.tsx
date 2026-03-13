@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Capabilities from "./pages/Capabilities";
 import CapabilityDetail from "./pages/CapabilityDetail";
 import Work from "./pages/Work";
+import Brands from "./pages/Brands";
 import Thinking from "./pages/Thinking";
 import Company from "./pages/Company";
 import Leadership from "./pages/Leadership";
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/capabilities" element={<Capabilities />} />
           <Route path="/capabilities/:slug" element={<CapabilityDetail />} />
           <Route path="/work" element={<Work />} />
+          <Route path="/brands" element={<Brands />} />
           <Route path="/thinking" element={<Thinking />} />
           <Route path="/company" element={<Company />} />
           <Route path="/company/leadership" element={<Leadership />} />
