@@ -116,7 +116,7 @@ const articles: Article[] = [
     category: "Field Note",
     theme: "Launches & Activation",
     author: "Ajay Mohan",
-    authorRole: "Managing Partner, GTM Strategy",
+    authorRole: "Founder & Managing Partner",
     readTime: "6 min read",
     teaser: "Most events are not short on effort. They are short on clarity. An event should not be judged only by turnout or applause. It should be judged by what it makes easier afterwards.",
     date: "December 2025",
