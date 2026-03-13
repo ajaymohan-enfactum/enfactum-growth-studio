@@ -14,6 +14,7 @@ import CTABand from "@/components/shared/CTABand";
 import TopologyBackground from "@/components/shared/TopologyBackground";
 import AuroraBackground from "@/components/shared/AuroraBackground";
 import NoiseTextureBackground from "@/components/shared/NoiseTextureBackground";
+import HybridBackground from "@/components/shared/HybridBackground";
 import BrandLogo from "@/components/shared/BrandLogo";
 import CaseCard from "@/components/shared/CaseCard";
 import SEOHead, { organizationSchema, webSiteSchema } from "@/components/shared/SEOHead";
