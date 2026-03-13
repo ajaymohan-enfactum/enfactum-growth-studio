@@ -331,8 +331,8 @@ const sectorClusters = [
     caption: "Growth infrastructure, innovation ecosystems, and partner programmes for global technology leaders entering and expanding across ASEAN.",
     logos: [
       { name: "HP", domain: "hp.com", capability: "AI Ecosystems · Innovation" },
-      { name: "Dell EMC", domain: "dell.com", capability: "Growth Infrastructure" },
-      { name: "Seagate", domain: "seagate.com", capability: "Global Performance" },
+      { name: "Lenovo", domain: "lenovo.com", capability: "Growth Infrastructure" },
+      { name: "Oracle", domain: "oracle.com", capability: "Global Performance" },
       { name: "Redington", domain: "redingtongroup.com", capability: "Content & Platforms" },
     ],
   },
