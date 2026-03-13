@@ -249,7 +249,7 @@ export const allCaseStudies: CaseStudy[] = [
       { metric: "Pay-per-sale", label: "Zero upfront risk model" },
       { metric: "Predictable", label: "CAC across all channels" },
       { metric: "Scalable", label: "Partnership network" },
-      { metric: "End-to-end", label: "Hands-off management" },
+      { metric: "Full scope", label: "Hands-off management" },
     ],
     region: "Singapore",
     insight: "Performance marketing becomes strategic when you absorb the risk and prove the economics first.",
