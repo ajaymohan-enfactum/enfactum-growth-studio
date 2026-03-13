@@ -56,6 +56,20 @@ const capabilities = [
   },
 ];
 
+const engagementModels = [
+  { title: "Consulting", duration: "4–12 weeks", desc: "Strategic advisory and growth diagnostics for a specific challenge. Deliverable-led, time-bound." },
+  { title: "Projects", duration: "2–6 months", desc: "Scoped programmes with defined outcomes — market entry, campaign launches, ecosystem builds." },
+  { title: "Embedded Teams", duration: "6–18 months", desc: "Enfactum operators working inside your organisation for sustained execution and capability building." },
+  { title: "Build-Operate-Transfer", duration: "12–24 months", desc: "We build and run the capability, then transfer full ownership and knowledge to your team." },
+];
+
+const systemConnections = [
+  { from: "Growth Infrastructure", to: "Brand & Demand", link: "GTM architecture feeds integrated demand programmes" },
+  { from: "Brand & Demand", to: "Live Experiences", link: "Demand strategy shapes commercially designed activations" },
+  { from: "AI Ecosystems", to: "Growth Infrastructure", link: "Innovation partnerships feed new growth channels" },
+  { from: "Live Experiences", to: "AI Ecosystems", link: "Events surface ecosystem opportunities and startup deal flow" },
+];
+
 const HorizontalScrollShowcase = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
