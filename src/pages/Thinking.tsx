@@ -24,7 +24,7 @@ const articles: Article[] = [
     category: "Operator View",
     theme: "Southeast Asia Growth",
     author: "Ajay Mohan",
-    authorRole: "Managing Partner, GTM Strategy",
+    authorRole: "Founder & Managing Partner",
     readTime: "8 min read",
     teaser: "Nearly 700 million people, ten countries, and a digital economy past $300 billion — but that aggregate figure conceals as much as it reveals. The companies that win treat Southeast Asia as a connected set of very different realities.",
     featured: true,
