@@ -73,7 +73,7 @@ const Capabilities = () => (
         <RevealSection>
           <p className="eyebrow mb-2">Capability overview</p>
           <p className="text-[13px] text-muted-foreground max-w-lg">
-            Each capability page explains the business challenge, what we build, how it works, proof, and who it's for.
+            Each capability page explains the business challenge, what we build, how it works, selected outcomes, and who it's for.
           </p>
         </RevealSection>
 
