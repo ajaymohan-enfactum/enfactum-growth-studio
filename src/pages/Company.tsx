@@ -12,10 +12,10 @@ import { ArrowRight } from "lucide-react";
    ═══════════════════════════════════════════════ */
 
 const companyMetrics = [
-  { metric: "200+", label: "Operating bench across the region" },
-  { metric: "6+", label: "Markets with active presence" },
-  { metric: "4", label: "Operating nodes" },
-  { metric: "50+", label: "Enterprise programmes delivered" },
+  { metric: "40+", label: "Global enterprise clients served" },
+  { metric: "15+", label: "Markets with active presence" },
+  { metric: "100+", label: "Technology programmes delivered" },
+  { metric: "5+", label: "Year average client tenure" },
 ];
 
 const leaders = [
