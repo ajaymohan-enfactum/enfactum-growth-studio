@@ -234,7 +234,7 @@ const Capabilities = () => (
 
         <div className="space-y-0">
           {engagementModels.map((model, i) => (
-            <RevealSection key={i} delay={i * 0.05}>
+            <RevealSection key={i} delay={i * 0.05} scale>
               <div className="grid md:grid-cols-12 gap-4 py-8 border-b border-border/20 hover:border-primary/10 transition-colors duration-700">
                 <div className="md:col-span-3">
                   <h3 className="font-display text-[15px] font-semibold text-foreground">{model.title}</h3>
