@@ -105,7 +105,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Optimisation & scaling", desc: "Continuous optimisation based on commercial outcomes. Scale what works. Kill what doesn't. Expand to new markets." },
       { step: "Capability transfer", desc: "Build internal capability. Transfer playbooks, vendor relationships, and operational knowledge to your team." },
     ],
-    proofCaseIds: ["economist-affiliate", "myrepublic", "loose-moose", "jshealth", "tiktok-pharma"],
+    outcomeCaseIds: ["economist-affiliate", "myrepublic", "loose-moose", "jshealth", "tiktok-pharma"],
     team: {
       heading: "Led by creative and performance specialists.",
       body: "The Brand & Demand capability is led by specialists who've run integrated demand programmes across ASEAN — people who bridge brand strategy and commercial performance, not just media buying.",
