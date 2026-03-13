@@ -309,7 +309,7 @@ const Partnerships = () => (
     <section className="py-20 md:py-28">
       <div className="section-container">
         <RevealSection>
-          <p className="eyebrow mb-4">Our lens</p>
+          <p className="eyebrow mb-4">What makes a strong partnership</p>
           <h2 className="headline-lg max-w-3xl">What makes a strong partnership.</h2>
         </RevealSection>
         <div className="mt-14 space-y-0">
