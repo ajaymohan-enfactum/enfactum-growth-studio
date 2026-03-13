@@ -91,7 +91,7 @@ const Company = () => (
       <div className="section-container">
         <div className="grid md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-5">
-            <RevealSection>
+            <RevealSection blur>
               <p className="eyebrow mb-6">Our story</p>
               <h2 className="headline-lg">From execution gap to operating partner.</h2>
             </RevealSection>
