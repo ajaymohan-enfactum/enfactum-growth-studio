@@ -27,7 +27,7 @@ const sectorClusters = [
       { name: "Lenovo", domain: "lenovo.com", cue: "Field Marketing" },
       { name: "Oracle", domain: "oracle.com", cue: "Enterprise Programmes" },
       { name: "Lexmark", domain: "lexmark.com", cue: "Channel Activation" },
-      { name: "Fujifilm", domain: "fujifilm.com", cue: "Market Programmes" },
+      { name: "Lexmark", domain: "lexmark.com", cue: "Channel Activation" },
     ],
   },
   {
