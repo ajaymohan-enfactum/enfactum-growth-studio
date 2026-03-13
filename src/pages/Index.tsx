@@ -573,11 +573,17 @@ const Index = () => (
 
     <StickySectionLabel sections={sectionLabels} />
     <Hero />
+    <ParallaxDivider variant="mist" />
     <WhySEA />
+    <ParallaxDivider variant="glow" />
     <GrowthBreaks />
+    <ParallaxDivider variant="gradient" />
     <WhatWeBuilds />
+    <ParallaxDivider variant="mist" flip />
     <HowWeWork />
+    <ParallaxDivider variant="glow" />
     <SectorExperience />
+    <ParallaxDivider variant="gradient" flip />
     <FeaturedWork />
     {/* Insight ticker between work and depth */}
     <div className="py-12 border-y border-border/20 overflow-hidden">
