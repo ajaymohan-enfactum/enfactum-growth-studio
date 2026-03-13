@@ -13,8 +13,6 @@ import irfanPhoto from "@/assets/team/irfan-mulla.png";
 import sanjayPhoto from "@/assets/team/sanjay-chankranth.png";
 import rakhiPhoto from "@/assets/team/rakhi-sachdeva.png";
 import trevorPhoto from "@/assets/team/trevor-wingert.png";
-import leenaPhoto from "@/assets/team/leena-gandhi.png";
-import sinchanPhoto from "@/assets/team/sinchan-namdeo.png";
 
 const leadershipTeam: TeamMemberFull[] = [
   {
