@@ -124,7 +124,7 @@ export const allCaseStudies: CaseStudy[] = [
     role: "Enfactum built the full digital growth architecture — from market entry strategy and competitive analysis through digital acquisition, content systems, and performance optimisation.",
     results: [
       { metric: "+42%", label: "Site traffic uplift" },
-      { metric: "360°", label: "Growth strategy deployed" },
+      { metric: "Full scope", label: "Growth strategy deployed" },
       { metric: "SEA", label: "Market entry established" },
     ],
     region: "Regional SEA",
