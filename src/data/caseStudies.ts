@@ -222,6 +222,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Channel Engagement", "Revenue Growth", "Sales Enablement"],
+    challengeTypes: ["Channel & Partner Activation"],
     challenge: "Lexmark needed to grow market share in a competitive landscape by activating its MPC (Managed Print Channel) partner segment more effectively.",
     role: "Enfactum designed a segmented channel engagement strategy with structured loyalty architecture, tiered activation, and revenue coverage expansion.",
     results: [
