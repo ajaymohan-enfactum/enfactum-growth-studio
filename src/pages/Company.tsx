@@ -382,7 +382,7 @@ const Company = () => (
     <CTABand
       headline="Want to work with us — or join us?"
       description="Whether you're an enterprise brand, a potential partner, or exceptional talent."
-      primaryLabel="Get in touch"
+      primaryLabel="Start a conversation"
       secondaryLabel="View careers"
       secondaryHref="/company/careers"
     />
