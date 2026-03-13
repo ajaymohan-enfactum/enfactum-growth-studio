@@ -294,10 +294,10 @@ const proofClusters = [
     num: "01",
     caption: "Growth infrastructure, innovation ecosystems, and partner programmes for global technology leaders entering and expanding across ASEAN.",
     logos: [
-      { name: "HP", capability: "AI Ecosystems · Innovation" },
-      { name: "Dell EMC", capability: "Growth Infrastructure" },
-      { name: "Seagate", capability: "Global Performance" },
-      { name: "Redington", capability: "Content & Platforms" },
+      { name: "HP", domain: "hp.com", capability: "AI Ecosystems · Innovation" },
+      { name: "Dell EMC", domain: "dell.com", capability: "Growth Infrastructure" },
+      { name: "Seagate", domain: "seagate.com", capability: "Global Performance" },
+      { name: "Redington", domain: "redingtongroup.com", capability: "Content & Platforms" },
     ],
   },
   {
@@ -305,10 +305,10 @@ const proofClusters = [
     num: "02",
     caption: "Integrated brand-to-demand strategies and market entry for consumer brands scaling across Southeast Asia's diverse retail landscape.",
     logos: [
-      { name: "Brands For Less", capability: "Market Entry · Digital Growth" },
-      { name: "Sephora", capability: "Live Experiences · Launch" },
-      { name: "L'Oréal", capability: "Brand & Demand" },
-      { name: "Decathlon", capability: "Retail Activation" },
+      { name: "Brands For Less", domain: "brandsforless.com", capability: "Market Entry · Digital Growth" },
+      { name: "Sephora", domain: "sephora.com", capability: "Live Experiences · Launch" },
+      { name: "L'Oréal", domain: "loreal.com", capability: "Brand & Demand" },
+      { name: "Decathlon", domain: "decathlon.com", capability: "Retail Activation" },
     ],
   },
   {
@@ -316,10 +316,10 @@ const proofClusters = [
     num: "03",
     caption: "Build-Operate-Transfer growth programmes, subscription strategy, and market re-entry for global media and publishing brands.",
     logos: [
-      { name: "The Economist", capability: "BOT · Growth Operations" },
-      { name: "Dscoop", capability: "Community & Events" },
-      { name: "Abbott", capability: "Brand & Demand" },
-      { name: "Fujifilm", capability: "Channel Activation" },
+      { name: "The Economist", domain: "economist.com", capability: "BOT · Growth Operations" },
+      { name: "Dscoop", domain: "dscoop.org", capability: "Community & Events" },
+      { name: "Abbott", domain: "abbott.com", capability: "Brand & Demand" },
+      { name: "Fujifilm", domain: "fujifilm.com", capability: "Channel Activation" },
     ],
   },
   {
@@ -327,10 +327,10 @@ const proofClusters = [
     num: "04",
     caption: "Creator-led commerce, affiliate ecosystems, and digital marketplace activation for brands scaling across new channels.",
     logos: [
-      { name: "JSHealth Vitamins", capability: "Affiliate · Global Growth" },
-      { name: "Lazada", capability: "E-Commerce Activation" },
-      { name: "VIP Industries", capability: "Dealer Enablement" },
-      { name: "Delsey", capability: "Retail Distribution" },
+      { name: "JSHealth Vitamins", domain: "jshealthvitamins.com", capability: "Affiliate · Global Growth" },
+      { name: "Lazada", domain: "lazada.com", capability: "E-Commerce Activation" },
+      { name: "VIP Industries", domain: "vipindustries.co.in", capability: "Dealer Enablement" },
+      { name: "Delsey", domain: "delsey.com", capability: "Retail Distribution" },
     ],
   },
 ];
