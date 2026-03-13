@@ -464,6 +464,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Live Experiences"],
     sectors: ["Digital Commerce"],
     outcomes: ["Customer Acquisition", "Revenue Growth"],
+    challengeTypes: ["Digital Commerce & Acquisition"],
     challenge: "Lazada needed to break engagement records across SEA markets for its flagship 11.11 shopping festival.",
     role: "Enfactum designed and executed multi-market festival activation with record-breaking engagement and commercial outcomes.",
     results: [
