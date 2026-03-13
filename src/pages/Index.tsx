@@ -347,7 +347,7 @@ const SectorExperience = () => (
       />
 
       <div className="mt-24 space-y-0">
-        {proofClusters.map((cluster, ci) => (
+        {sectorClusters.map((cluster, ci) => (
           <RevealSection key={ci} delay={ci * 0.06}>
             <div className="border-t border-border/30 py-14 md:py-16">
               <div className="grid md:grid-cols-12 gap-8">
