@@ -592,7 +592,7 @@ const Index = () => (
       secondaryHref="/capabilities"
     />
   </PageLayout>
-  );
-};
+);
+
 
 export default Index;
