@@ -5,6 +5,7 @@ import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import CaseCard from "@/components/shared/CaseCard";
+import SEOHead from "@/components/shared/SEOHead";
 import {
   allCaseStudies,
   outcomeFilters,
