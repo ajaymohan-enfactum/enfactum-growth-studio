@@ -242,6 +242,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Digital Commerce"],
     outcomes: ["Customer Acquisition", "Cost Efficiency"],
+    challengeTypes: ["Cost & Operational Efficiency", "Digital Commerce & Acquisition"],
     challenge: "MyRepublic needed a scalable acquisition model with zero upfront risk — paying only for verified sales, not clicks or impressions.",
     role: "Enfactum built and operated a pay-for-results performance model with end-to-end management, predictable CAC, and a scalable partnership network.",
     results: [
