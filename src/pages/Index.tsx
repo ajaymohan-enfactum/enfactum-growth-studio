@@ -288,10 +288,10 @@ const HowWeWork = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   SECTION 6 — SECTOR PROOF
-   Architectural proof clusters — editorial, not logo-wall
+   SECTION 6 — SECTOR EXPERIENCE
+   Architectural experience clusters — editorial, not logo-wall
    ═══════════════════════════════════════════════ */
-const proofClusters = [
+const sectorClusters = [
   {
     sector: "Enterprise Technology",
     num: "01",
