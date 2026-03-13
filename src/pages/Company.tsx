@@ -4,6 +4,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
+import ParallaxDivider from "@/components/shared/ParallaxDivider";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
@@ -90,13 +91,13 @@ const Company = () => (
       <div className="section-container">
         <div className="grid md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-5">
-            <RevealSection>
+            <RevealSection blur>
               <p className="eyebrow mb-6">Our story</p>
               <h2 className="headline-lg">From execution gap to operating partner.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-6 md:col-start-7">
-            <RevealSection delay={0.1}>
+            <RevealSection delay={0.1} blur>
               <div className="space-y-6">
               <p className="body-lg">
                   Since 2010, Enfactum has bridged the gap between strategic intent and operational reality.
@@ -120,7 +121,7 @@ const Company = () => (
         <div className="mt-24 border-t border-border/30 pt-14">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             {companyMetrics.map((m, i) => (
-              <RevealSection key={i} delay={i * 0.08}>
+              <RevealSection key={i} delay={i * 0.08} scale>
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -142,6 +143,7 @@ const Company = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="gradient" />
     {/* ═══ SECTION 2 — LEADERSHIP ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
@@ -166,7 +168,7 @@ const Company = () => (
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
           {leaders.map((leader, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
+            <RevealSection key={i} delay={i * 0.08} blur>
               <div className="group">
                 {/* Portrait placeholder — restrained monochrome */}
                 <div className="w-full aspect-[3/4] rounded-sm bg-gradient-to-b from-secondary/80 to-secondary/40 border border-border/30 mb-6 overflow-hidden relative">
@@ -184,6 +186,7 @@ const Company = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="mist" flip />
     {/* ═══ SECTION 3 — OPERATING BENCH ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
@@ -207,7 +210,7 @@ const Company = () => (
 
         <div className="space-y-0">
           {benchCapabilities.map((bench, i) => (
-            <RevealSection key={i} delay={i * 0.04}>
+            <RevealSection key={i} delay={i * 0.04} scale>
               <div className="grid md:grid-cols-12 gap-4 py-6 border-b border-border/20 hover:border-primary/10 transition-colors duration-700 group">
                 <div className="md:col-span-3">
                   <h3 className="font-display text-[15px] font-semibold text-foreground group-hover:text-primary/90 transition-colors duration-500">
@@ -227,6 +230,7 @@ const Company = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="glow" />
     {/* ═══ SECTION 4 — REGIONAL NODES ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
@@ -252,7 +256,7 @@ const Company = () => (
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {regionalNodes.map((node, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
+            <RevealSection key={i} delay={i * 0.08} blur>
               <div className="border-t border-border/30 pt-8 h-full">
                 <span className="text-[10px] text-dim uppercase tracking-[0.15em] font-body">{node.role}</span>
                 <h3 className="font-display text-2xl font-bold text-foreground mt-2">{node.city}</h3>
@@ -264,6 +268,7 @@ const Company = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="gradient" flip />
     {/* ═══ SECTION 5 — DOMAIN SPECIALISTS ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
@@ -290,6 +295,7 @@ const Company = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="mist" />
     {/* ═══ SECTION 6 — CAPABILITY OWNERSHIP ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
@@ -300,7 +306,7 @@ const Company = () => (
         />
         <div className="mt-20 grid sm:grid-cols-2 gap-x-12 gap-y-10">
           {capabilityOwnership.map((co, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
+            <RevealSection key={i} delay={i * 0.08} scale>
               <div className="border-t border-border/30 pt-8">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />

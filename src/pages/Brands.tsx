@@ -4,6 +4,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
+import ParallaxDivider from "@/components/shared/ParallaxDivider";
 import CTABand from "@/components/shared/CTABand";
 import BrandLogo from "@/components/shared/BrandLogo";
 import SEOHead from "@/components/shared/SEOHead";
@@ -127,13 +128,13 @@ const Brands = () => (
       <div className="section-container">
         <div className="grid md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-5">
-            <RevealSection>
+            <RevealSection blur>
               <p className="eyebrow mb-6">Why this matters</p>
               <h2 className="headline-lg">Breadth as experience, not vanity.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-6 md:col-start-7">
-            <RevealSection delay={0.1}>
+            <RevealSection delay={0.1} blur>
               <div className="space-y-6">
                 <p className="body-lg">
                   Enfactum works across the systems that shape growth in Southeast Asia — from
@@ -151,6 +152,8 @@ const Brands = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="gradient" />
+
     {/* ═══ SECTION 3 — SECTOR EXPERIENCE ARCHITECTURE ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
@@ -162,7 +165,7 @@ const Brands = () => (
 
         <div className="mt-24 space-y-0">
           {sectorClusters.map((cluster, ci) => (
-            <RevealSection key={ci} delay={ci * 0.06}>
+            <RevealSection key={ci} delay={ci * 0.06} scale>
               <div className="border-t border-border/30 py-14 md:py-16">
                 <div className="grid md:grid-cols-12 gap-8">
                   {/* Left — Cluster label */}
@@ -200,6 +203,8 @@ const Brands = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="mist" />
+
     {/* ═══ SECTION 4 — SELECTED OUTCOMES ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
@@ -212,7 +217,7 @@ const Brands = () => (
 
         <div className="mt-20 grid sm:grid-cols-2 gap-8">
           {outcomeCapsules.map((capsule, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
+            <RevealSection key={i} delay={i * 0.08} blur>
               <div className="card-premium h-full">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
@@ -232,6 +237,8 @@ const Brands = () => (
         </div>
       </div>
     </section>
+
+    <ParallaxDivider variant="glow" flip />
 
     {/* ═══ SECTION 5 — BRIDGE TO WORK + CROSS-LINKS ═══ */}
     <section className="section-alt py-24 md:py-32">

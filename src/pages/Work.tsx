@@ -3,6 +3,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
+import ParallaxDivider from "@/components/shared/ParallaxDivider";
 import CTABand from "@/components/shared/CTABand";
 import CaseCard from "@/components/shared/CaseCard";
 import SEOHead from "@/components/shared/SEOHead";
@@ -170,7 +171,7 @@ const Work = () => {
       {/* ─── Featured Cases (full cards) ─── */}
       <section className="py-16 md:py-24">
         <div className="section-container">
-          <RevealSection>
+          <RevealSection blur>
             <p className="eyebrow mb-2">
               {activeFilter !== "All" ? activeFilter : "All programmes"}
             </p>
@@ -188,6 +189,8 @@ const Work = () => {
         </div>
       </section>
 
+      <ParallaxDivider variant="mist" />
+
       {/* ─── Additional Cases (compact rows) ─── */}
       {additionalCases.length > 0 && (
         <section className="section-alt py-24 md:py-32">
@@ -204,6 +207,8 @@ const Work = () => {
           </div>
         </section>
       )}
+
+      <ParallaxDivider variant="glow" />
 
       <CTABand
         headline="Have a growth challenge to discuss?"

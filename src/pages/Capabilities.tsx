@@ -4,6 +4,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
+import ParallaxDivider from "@/components/shared/ParallaxDivider";
 import CapabilityGraph from "@/components/shared/CapabilityGraph";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead from "@/components/shared/SEOHead";
@@ -193,6 +194,7 @@ const Capabilities = () => (
 
     {/* ═══ HORIZONTAL SCROLL CAPABILITY SHOWCASE ═══ */}
     <HorizontalScrollShowcase />
+    <ParallaxDivider variant="gradient" />
     {/* ═══ HOW CAPABILITIES CONNECT ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
@@ -208,19 +210,20 @@ const Capabilities = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="mist" flip />
     {/* ═══ ENGAGEMENT MODELS ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
         <div className="section-divider mb-20" />
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-5">
-            <RevealSection>
+            <RevealSection blur>
               <p className="eyebrow mb-6">How we engage</p>
               <h2 className="headline-lg">Four ways to work with us.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-5 md:col-start-7 flex items-end">
-            <RevealSection delay={0.1}>
+            <RevealSection delay={0.1} blur>
               <p className="body-md text-muted-foreground">
                 We structure engagements around your context — not a fixed service menu.
                 Every model is designed to deliver measurable outcomes and build lasting capability.
@@ -231,7 +234,7 @@ const Capabilities = () => (
 
         <div className="space-y-0">
           {engagementModels.map((model, i) => (
-            <RevealSection key={i} delay={i * 0.05}>
+            <RevealSection key={i} delay={i * 0.05} scale>
               <div className="grid md:grid-cols-12 gap-4 py-8 border-b border-border/20 hover:border-primary/10 transition-colors duration-700">
                 <div className="md:col-span-3">
                   <h3 className="font-display text-[15px] font-semibold text-foreground">{model.title}</h3>
