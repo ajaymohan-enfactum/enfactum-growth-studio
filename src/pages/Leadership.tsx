@@ -1,16 +1,17 @@
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
-import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 
-const leaders = [
-  { name: "Placeholder Name", role: "CEO & Founder", focus: "Strategy · Growth · Southeast Asia", bio: "20+ years building growth infrastructure for enterprise brands across Asia Pacific.", philosophy: "Growth without infrastructure is just activity." },
-  { name: "Placeholder Name", role: "Managing Partner", focus: "Ecosystems · Innovation · AI", bio: "Former enterprise innovation lead at a global tech company. Deep startup ecosystem experience across ASEAN.", philosophy: "The best innovations come from the edges of ecosystems." },
-  { name: "Placeholder Name", role: "Partner, Growth Infrastructure", focus: "GTM · Revenue Operations · Channels", bio: "Specialist in scaling B2B go-to-market architectures across fragmented ASEAN markets.", philosophy: "Distribution is strategy." },
-  { name: "Placeholder Name", role: "Partner, Brand & Demand", focus: "Creative · Performance · Social", bio: "Award-winning creative leader bridging brand strategy and commercial performance.", philosophy: "Brand and demand are not separate conversations." },
-  { name: "Placeholder Name", role: "Partner, Live Experiences", focus: "Events · Activations · Production", bio: "15+ years producing enterprise events and market activations across Southeast Asia.", philosophy: "Every event should move a business number." },
-  { name: "Placeholder Name", role: "VP, Operations", focus: "Delivery · India Operations · Scale", bio: "Leads Enfactum's operating bench and delivery infrastructure across the region.", philosophy: "Scale is an operations problem, not a strategy problem." },
+const leadershipTeam = [
+  { name: "Ajay Mohan", role: "Founder & Strategy Lead", category: "Leadership", focus: "Strategy · Growth · Southeast Asia", bio: "15+ years building growth infrastructure for enterprise brands across Asia Pacific. Leads Enfactum's strategic vision, client partnerships, and regional expansion.", philosophy: "Growth without infrastructure is just activity." },
+  { name: "William Gaultier", role: "Partner", category: "Leadership", focus: "Ecosystems · Innovation · Partnerships", bio: "Deep enterprise and ecosystem experience across ASEAN, driving innovation programmes, strategic partnerships, and ecosystem architecture.", philosophy: "The best innovations come from the edges of ecosystems." },
+  { name: "Pooja Mohan", role: "Operations Lead", category: "Operations", focus: "Operations · Delivery · Scale", bio: "Leads Enfactum's operational backbone — managing delivery infrastructure, team coordination, and programme execution across the region.", philosophy: "Scale is an operations problem, not a strategy problem." },
+  { name: "Sumit Ramchandani", role: "Adtech & Martech Lead", category: "Martech", focus: "Martech · Performance · Data", bio: "Specialist in marketing technology, performance infrastructure, and data-driven growth architectures for enterprise clients.", philosophy: "Distribution is strategy." },
+  { name: "Anuchida Kawashima", role: "Account Director", category: "Client Success", focus: "Client Success · Account Strategy", bio: "Drives client engagement and programme success, ensuring every Enfactum engagement delivers measurable commercial outcomes.", philosophy: "Every engagement should move a business number." },
+  { name: "Sanjay Chankranth", role: "Head of Malaysia", category: "Regional", focus: "Malaysia · Market Execution · Events", bio: "Leads Enfactum's Malaysia operations, overseeing market execution, events & activations, and partner management across the market.", philosophy: "Local depth creates regional strength." },
+  { name: "Irfan Mulla", role: "Managing Director, Indonesia", category: "Regional", focus: "Indonesia · Market Growth · Partnerships", bio: "Leads Enfactum's Indonesia presence, driving local partnerships, consumer insights, and market growth strategies across the archipelago.", philosophy: "Market entry in Southeast Asia is an ecosystem play." },
+  { name: "Rakhi Sachdeva", role: "India Operations Lead", category: "Regional", focus: "India · Operations · Delivery at Scale", bio: "Oversees Enfactum's India operating bench — managing creative production, technology delivery, and demand operations at scale.", philosophy: "Operational excellence enables creative ambition." },
 ];
 
 const Leadership = () => (
@@ -24,7 +25,7 @@ const Leadership = () => (
     <section className="py-20 md:py-28">
       <div className="section-container">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {leaders.map((leader, i) => (
+          {leadershipTeam.map((leader, i) => (
             <RevealSection key={i} delay={i * 0.08}>
               <div className="card-premium h-full">
                 <div className="w-full aspect-[4/5] rounded-md bg-secondary/60 border border-border mb-5" />

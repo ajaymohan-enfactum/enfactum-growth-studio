@@ -12,17 +12,17 @@ import { ArrowRight } from "lucide-react";
    ═══════════════════════════════════════════════ */
 
 const companyMetrics = [
-  { metric: "200+", label: "Operating bench across the region" },
-  { metric: "6+", label: "Markets with active presence" },
-  { metric: "4", label: "Operating nodes" },
-  { metric: "50+", label: "Enterprise programmes delivered" },
+  { metric: "40+", label: "Global enterprise clients served" },
+  { metric: "15+", label: "Markets with active presence" },
+  { metric: "100+", label: "Technology programmes delivered" },
+  { metric: "5+", label: "Year average client tenure" },
 ];
 
 const leaders = [
-  { name: "Placeholder Name", role: "CEO & Founder", focus: "Strategy · Growth · Southeast Asia", bio: "20+ years building growth infrastructure for enterprise brands across Asia Pacific. Former regional leader at a global technology company." },
-  { name: "Placeholder Name", role: "Managing Partner", focus: "Ecosystems · Innovation · AI", bio: "Former enterprise innovation lead with deep startup ecosystem experience across ASEAN and India." },
-  { name: "Placeholder Name", role: "Partner, Growth Infrastructure", focus: "GTM · Revenue · Channels", bio: "Specialist in scaling B2B go-to-market architectures across fragmented ASEAN markets." },
-  { name: "Placeholder Name", role: "Partner, Brand & Demand", focus: "Creative · Performance · Social", bio: "Award-winning creative leader bridging brand strategy and commercial performance." },
+  { name: "Ajay Mohan", role: "Founder & Strategy Lead", focus: "Strategy · Growth · Southeast Asia", bio: "15+ years building growth infrastructure for enterprise brands across Asia Pacific. Leads Enfactum's strategic vision and client partnerships." },
+  { name: "William Gaultier", role: "Partner", focus: "Ecosystems · Innovation · Partnerships", bio: "Deep enterprise and ecosystem experience across ASEAN, driving innovation programmes and strategic partnerships." },
+  { name: "Pooja Mohan", role: "Operations Lead", focus: "Operations · Delivery · Scale", bio: "Leads Enfactum's operational backbone — managing delivery, team coordination, and programme execution across the region." },
+  { name: "Sumit Ramchandani", role: "Adtech & Martech Lead", focus: "Martech · Performance · Data", bio: "Specialist in marketing technology, performance infrastructure, and data-driven growth architectures." },
 ];
 
 const benchCapabilities = [
@@ -39,6 +39,7 @@ const regionalNodes = [
   { city: "India", role: "Scale & Execution Engine", desc: "Creative production, technology, demand operations, programme delivery at scale." },
   { city: "Malaysia", role: "Market Node", desc: "Local market execution, events & activations, partner management." },
   { city: "Indonesia", role: "Market Node", desc: "Indonesia market presence, local partnerships, consumer insights." },
+  { city: "USA", role: "Strategic Bridge", desc: "Global client bridge, US market access, cross-border partnership development." },
 ];
 
 const domainSpecialists = [
@@ -90,17 +91,18 @@ const Company = () => (
           <div className="md:col-span-6 md:col-start-7">
             <RevealSection delay={0.1}>
               <div className="space-y-6">
-                <p className="body-lg">
-                  Enfactum was founded on a simple observation: the best strategies in Southeast Asia
-                  fail not for lack of ambition, but for lack of execution infrastructure.
+              <p className="body-lg">
+                  Since 2010, Enfactum has bridged the gap between strategic intent and operational reality.
+                  We are not just consultants — we are operators. For over a decade, we have helped global
+                  brands navigate complex markets with precision.
                 </p>
                 <p className="body-lg">
-                  We built Enfactum to be the operating partner that enterprise brands actually need —
-                  one that understands ecosystems, builds real infrastructure, and stays until growth
-                  has genuine momentum.
+                  Our Build-Operate-Transfer model replaces siloed teams and short-term projects with
+                  integrated operations, hands-on execution, and 5+ year partnerships that build lasting
+                  capability.
                 </p>
                 <p className="body-md text-muted-foreground italic">
-                  Headquartered in Singapore. Operating across India, Malaysia, Indonesia, and broader Southeast Asia.
+                  Headquartered in Singapore. Operating across India, Malaysia, Indonesia, the USA, and broader Southeast Asia.
                 </p>
               </div>
             </RevealSection>
@@ -231,7 +233,7 @@ const Company = () => (
             <RevealSection delay={0.1}>
               <p className="body-md text-muted-foreground">
                 Each node has a distinct role — strategy from Singapore, scale through India,
-                market presence in Malaysia and Indonesia.
+                market presence in Malaysia and Indonesia, with the USA as a global bridge.
               </p>
               <Link to="/company/regional-nodes" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-6">
                 Explore regional nodes <ArrowRight className="w-4 h-4" />
