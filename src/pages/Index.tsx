@@ -176,6 +176,7 @@ const GrowthBreaks = () => (
           <RevealSection
             key={i}
             delay={i * 0.08}
+            blur
             className={`md:col-span-4 ${i >= 3 ? "md:col-start-" + (i === 3 ? "3" : "7") : ""}`}
           >
             <div className="pr-8">
