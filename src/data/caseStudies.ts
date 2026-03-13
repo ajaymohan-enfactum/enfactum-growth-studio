@@ -140,6 +140,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Media & Publishing"],
     outcomes: ["Revenue Growth", "Market Entry", "Customer Acquisition"],
+    challengeTypes: ["Market Launch & Expansion"],
     challenge: "The Economist needed to re-enter the India market with a commercially sustainable model — not a standalone local operation.",
     role: "Enfactum architected the partnership with Hindustan Times, designing a digital-first distribution model that achieved immediate GTM results and sustained growth.",
     results: [
