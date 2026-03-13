@@ -6,6 +6,7 @@ import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import CaseCard from "@/components/shared/CaseCard";
+import SEOHead, { makeServiceSchema, makeFAQSchema, makeBreadcrumbSchema } from "@/components/shared/SEOHead";
 import { getCasesByIds } from "@/data/caseStudies";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
