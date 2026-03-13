@@ -82,7 +82,7 @@ const articles: Article[] = [
   },
   {
     title: "The Urgency of Now: Why B2B Brands Must Act",
-    category: "Growth Strategy",
+    category: "Field Note",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "5 min read",
