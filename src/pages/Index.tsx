@@ -64,7 +64,7 @@ const Hero = () => (
           <Button variant="hero" size="xl">Start a conversation</Button>
         </Link>
         <Link to="/work">
-          <Button variant="hero-outline" size="xl">See the proof</Button>
+          <Button variant="hero-outline" size="xl">See our work</Button>
         </Link>
       </motion.div>
     </div>
