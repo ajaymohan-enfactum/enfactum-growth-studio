@@ -134,7 +134,7 @@ const Brands = () => (
             </RevealSection>
           </div>
           <div className="md:col-span-6 md:col-start-7">
-            <RevealSection delay={0.1}>
+            <RevealSection delay={0.1} blur>
               <div className="space-y-6">
                 <p className="body-lg">
                   Enfactum works across the systems that shape growth in Southeast Asia — from
