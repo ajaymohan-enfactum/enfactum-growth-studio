@@ -65,12 +65,13 @@ const Footer = () => {
         <div className="line-glow mt-12 mb-8" />
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-dim">
           <span>© {new Date().getFullYear()} Enfactum. All rights reserved.</span>
-          <div className="flex gap-6">
-            <a href="https://linkedin.com/company/enfactum" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
-              LinkedIn
-            </a>
-            <Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link>
-          </div>
+            <div className="flex gap-6">
+              <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-foreground transition-colors">Terms of Use</Link>
+              <a href="https://linkedin.com/company/enfactum" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+                LinkedIn
+              </a>
+            </div>
         </div>
       </div>
     </footer>

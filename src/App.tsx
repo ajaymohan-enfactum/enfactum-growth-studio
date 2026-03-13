@@ -18,6 +18,8 @@ import RegionalNodes from "./pages/RegionalNodes";
 import Careers from "./pages/Careers";
 import Partnerships from "./pages/Partnerships";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +46,8 @@ const App = () => (
           <Route path="/company/regional-nodes" element={<RegionalNodes />} />
           <Route path="/company/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfUse />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
