@@ -80,7 +80,7 @@ const Company = () => (
     {/* ─── HERO ─── */}
     <HeroSection
       eyebrow="Company"
-      headline="Built to turn strategy into movement."
+      headline={<>Built to turn strategy into <span className="text-primary">movement.</span></>}
       description="Enfactum is a growth and innovation operating partner — combining strategy, ecosystems, and execution to help enterprise brands scale with clarity and momentum across the region."
     />
 

@@ -165,7 +165,7 @@ const Contact = () => {
       />
       <HeroSection
         eyebrow="Contact"
-        headline="Start a conversation with Enfactum."
+        headline={<>Start a conversation <span className="text-primary">with Enfactum.</span></>}
         description="Whether you're exploring growth in Southeast Asia, evaluating a partnership, or considering a role — every conversation starts here."
       />
 
