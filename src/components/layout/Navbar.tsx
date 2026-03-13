@@ -206,7 +206,7 @@ const Navbar = () => {
           <div className="px-6 py-6 border-t border-border/40">
             <Link to="/contact" className="block">
               <Button variant="hero" className="w-full gap-2">
-                Get in touch
+                Start a conversation
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
