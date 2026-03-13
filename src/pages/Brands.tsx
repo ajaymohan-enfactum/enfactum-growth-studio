@@ -152,6 +152,8 @@ const Brands = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="gradient" />
+
     {/* ═══ SECTION 3 — SECTOR EXPERIENCE ARCHITECTURE ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
