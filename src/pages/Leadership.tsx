@@ -15,6 +15,8 @@ import irfanPhoto from "@/assets/team/irfan-mulla.png";
 import sanjayPhoto from "@/assets/team/sanjay-chankranth.png";
 import rakhiPhoto from "@/assets/team/rakhi-sachdeva.png";
 import trevorPhoto from "@/assets/team/trevor-wingert.png";
+import sinchanPhoto from "@/assets/team/sinchan-namdeo.png";
+import leenaPhoto from "@/assets/team/leena-gandhi.png";
 
 const leadershipTeam: TeamMemberFull[] = [
   {
@@ -166,6 +168,38 @@ Before Enfactum, Rakhi led marketing operations at enterprise technology compani
     expertise: ["Marketing operations", "Campaign management", "Martech integration", "Process optimisation"],
     linkedin: "https://linkedin.com/in/rakhisachdeva",
     photo: rakhiPhoto,
+  },
+  {
+    name: "Sinchan Namdeo",
+    role: "Creative Lead",
+    category: "Operations",
+    focus: "Creative Direction · Visual Design · Brand Systems",
+    location: "India",
+    bio: "Leads creative execution across Enfactum's client programmes, translating strategy into compelling visual narratives.",
+    fullBio: `Sinchan leads creative direction and visual design across Enfactum's client programmes. She specialises in translating complex strategic narratives into compelling visual systems — from brand identities and campaign creative to digital experiences and event design.
+
+Her approach bridges strategic intent with creative craft, ensuring that every visual touchpoint reinforces the commercial objectives behind it. Sinchan works across the full creative spectrum: brand systems, campaign assets, digital design, and experiential graphics.
+
+At Enfactum, Sinchan ensures that creative output isn't just beautiful — it's commercially purposeful and culturally attuned to Southeast Asian markets.`,
+    philosophy: "Design should make strategy visible.",
+    expertise: ["Creative direction", "Visual design", "Brand systems", "Campaign creative", "Digital experience design"],
+    photo: sinchanPhoto,
+  },
+  {
+    name: "Leena Gandhi",
+    role: "Programme Manager",
+    category: "Operations",
+    focus: "Programme Delivery · Client Coordination · Operations",
+    location: "India",
+    bio: "Manages cross-functional programme delivery, ensuring complex engagements run on time and on target.",
+    fullBio: `Leena brings rigorous programme management expertise to Enfactum's most complex client engagements. She coordinates cross-functional teams across strategy, creative, technology, and operations — ensuring that ambitious programmes are delivered on time, on budget, and on brief.
+
+Her background spans project and programme management across enterprise technology and marketing services, where she developed the operational frameworks that keep multi-market, multi-stakeholder programmes on track.
+
+At Enfactum, Leena is the operational anchor for key client programmes — managing timelines, dependencies, and stakeholder communication with precision.`,
+    philosophy: "Complexity is manageable when the system is clear.",
+    expertise: ["Programme management", "Cross-functional coordination", "Stakeholder management", "Operational planning"],
+    photo: leenaPhoto,
   },
 ];
 

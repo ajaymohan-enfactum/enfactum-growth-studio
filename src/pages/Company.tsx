@@ -10,6 +10,10 @@ import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
 import AnimatedCounter from "@/components/shared/AnimatedCounter";
 
+import ajayPhoto from "@/assets/team/ajay-mohan.png";
+import williamPhoto from "@/assets/team/william-gaultier.png";
+import poojaPhoto from "@/assets/team/pooja-mohan.png";
+
 /* ═══════════════════════════════════════════════
    DATA
    ═══════════════════════════════════════════════ */
@@ -22,9 +26,9 @@ const companyMetrics = [
 ];
 
 const leaders = [
-  { name: "Ajay Mohan", role: "Founder & Managing Partner", focus: "Strategy · Growth · Southeast Asia", bio: "15+ years building growth infrastructure for enterprise brands across Asia Pacific. Leads Enfactum's strategic vision and client partnerships." },
-  { name: "William Gaultier", role: "Partner", focus: "Ecosystems · Innovation · Partnerships", bio: "Deep enterprise and ecosystem experience across ASEAN, driving innovation programmes and strategic partnerships." },
-  { name: "Pooja Mohan", role: "Operations Lead", focus: "Operations · Delivery · Scale", bio: "Leads Enfactum's operational backbone — managing delivery, team coordination, and programme execution across the region." },
+  { name: "Ajay Mohan", role: "Founder & Managing Partner", focus: "Strategy · Growth · Southeast Asia", bio: "15+ years building growth infrastructure for enterprise brands across Asia Pacific. Leads Enfactum's strategic vision and client partnerships.", photo: ajayPhoto },
+  { name: "William Gaultier", role: "Partner", focus: "Ecosystems · Innovation · Partnerships", bio: "Deep enterprise and ecosystem experience across ASEAN, driving innovation programmes and strategic partnerships.", photo: williamPhoto },
+  { name: "Pooja Mohan", role: "Director / Co-Founder", focus: "Operations · Creative Strategy · Scale", bio: "Leads Enfactum's operational backbone — managing delivery, team coordination, and programme execution across the region.", photo: poojaPhoto },
   { name: "Sumit Ramchandani", role: "Adtech & Martech Lead", focus: "Martech · Performance · Data", bio: "Specialist in marketing technology, performance infrastructure, and data-driven growth architectures." },
 ];
 
@@ -170,11 +174,22 @@ const Company = () => (
           {leaders.map((leader, i) => (
             <RevealSection key={i} delay={i * 0.08} blur>
               <div className="group">
-                {/* Portrait placeholder — restrained monochrome */}
-                <div className="w-full aspect-[3/4] rounded-sm bg-gradient-to-b from-secondary/80 to-secondary/40 border border-border/30 mb-6 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent group-hover:via-primary/30 transition-all duration-700" />
-                </div>
+                {leader.photo ? (
+                  <div className="w-full aspect-[3/4] rounded-sm overflow-hidden mb-6 relative">
+                    <img
+                      src={leader.photo}
+                      alt={leader.name}
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent group-hover:via-primary/30 transition-all duration-700" />
+                  </div>
+                ) : (
+                  <div className="w-full aspect-[3/4] rounded-sm bg-gradient-to-b from-secondary/80 to-secondary/40 border border-border/30 mb-6 overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent group-hover:via-primary/30 transition-all duration-700" />
+                  </div>
+                )}
                 <h3 className="font-display text-base font-semibold text-foreground tracking-tight">{leader.name}</h3>
                 <p className="text-[13px] text-primary/70 font-medium mt-0.5">{leader.role}</p>
                 <p className="text-[10px] text-dim uppercase tracking-[0.15em] font-body mt-2">{leader.focus}</p>
