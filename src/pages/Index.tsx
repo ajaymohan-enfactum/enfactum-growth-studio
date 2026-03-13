@@ -353,7 +353,7 @@ const sectorClusters = [
     caption: "Working with publishers, institutions, and ecosystem builders where trust, reach, and stakeholder alignment matter.",
     logos: [
       { name: "The Economist", domain: "economist.com", capability: "BOT · Growth Operations" },
-      { name: "Dscoop", domain: "dscoop.org", capability: "Community & Events" },
+      { name: "AICB", domain: "aicb.org.my", capability: "Community & Events" },
       { name: "Abbott", domain: "abbott.com", capability: "Brand & Demand" },
       { name: "Fujifilm", domain: "fujifilm.com", capability: "Channel Activation" },
     ],
