@@ -473,7 +473,7 @@ const DepthSection = () => (
       />
       <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {depthBlocks.map((block, i) => (
-          <RevealSection key={i} delay={i * 0.08}>
+          <RevealSection key={i} delay={i * 0.08} scale>
             <Link to={block.href} className="group block h-full">
               <div className="h-full border-t border-border/40 pt-8 group-hover:border-primary/25 transition-colors duration-700">
                 <span className="text-[10px] font-body text-dim">{block.num}</span>
