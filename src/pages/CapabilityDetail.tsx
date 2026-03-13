@@ -63,30 +63,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Operations build", desc: "Embed within the business to build pipeline infrastructure, sales processes, and demand operations." },
       { step: "Scale & transfer", desc: "Expand to new markets using proven playbooks. Transfer operations, knowledge, and ownership to internal teams." },
     ],
-    proof: [
-      {
-        title: "Brands For Less Digital Growth",
-        capability: "Digital Acquisition · Market Presence",
-        region: "Regional",
-        outcomes: [
-          { metric: "+42%", label: "Site traffic uplift achieved" },
-          { metric: "360°", label: "Growth strategy deployed" },
-          { metric: "High", label: "Impact on competitive position" },
-        ],
-        insight: "Market entry in Southeast Asia is an ecosystem play, not a distribution deal.",
-      },
-      {
-        title: "HP SMB Pipeline Acceleration",
-        capability: "Digital + Channel Activation",
-        region: "Malaysia",
-        outcomes: [
-          { metric: "60%", label: "Lower cost per lead" },
-          { metric: "2,000+", label: "Unique leads delivered" },
-          { metric: "9", label: "Partner channels activated" },
-        ],
-        insight: "Integrated digital and partner programmes outperform siloed execution.",
-      },
-    ],
+    proofCaseIds: ["economist-bot", "economist-ht", "lexmark-mpc", "hp-whatsapp", "bfl-sea", "hp-smb"],
     team: {
       heading: "Led by GTM and channel specialists.",
       body: "The Growth Infrastructure capability is led by principals with deep experience in enterprise sales, channel programme design, and regional GTM architecture — people who have built and operated these systems across ASEAN markets.",
