@@ -43,10 +43,7 @@ const Hero = () => {
       onMouseLeave={() => setHovering(false)}
       className="relative min-h-screen flex items-end overflow-hidden"
     >
-      {bgStyle === "topology" && <TopologyBackground />}
-      {bgStyle === "aurora" && <AuroraBackground />}
-      {bgStyle === "noise" && <NoiseTextureBackground />}
-      {bgStyle === "hybrid" && <HybridBackground />}
+      <HybridBackground />
       {/* Cursor spotlight */}
       <div
         className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-700"
