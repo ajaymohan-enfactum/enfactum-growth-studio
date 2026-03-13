@@ -114,7 +114,7 @@ const WhySEA = () => (
     <div className="section-container">
       <div className="grid md:grid-cols-12 gap-12 md:gap-8">
         <div className="md:col-span-5">
-          <RevealSection>
+          <RevealSection blur>
             <p className="eyebrow mb-6">Why Southeast Asia moves differently</p>
             <h2 className="headline-lg">
               Not one market.<br />
