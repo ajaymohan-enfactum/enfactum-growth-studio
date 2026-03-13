@@ -27,7 +27,6 @@ const sectorClusters = [
       { name: "Lenovo", domain: "lenovo.com", cue: "Field Marketing" },
       { name: "Oracle", domain: "oracle.com", cue: "Enterprise Programmes" },
       { name: "Lexmark", domain: "lexmark.com", cue: "Channel Activation" },
-      { name: "Fujifilm", domain: "fujifilm.com", cue: "Market Programmes" },
     ],
   },
   {
@@ -50,7 +49,8 @@ const sectorClusters = [
     brands: [
       { name: "The Economist", domain: "economist.com", cue: "BOT · Growth Operations · Affiliate" },
       { name: "Abbott", domain: "abbott.com", cue: "Brand & Demand" },
-      { name: "Dscoop", domain: "dscoop.org", cue: "Community & Events" },
+      { name: "AICB", domain: "aicb.org.my", cue: "Community & Events" },
+      { name: "DSCOOP", domain: "dscoop.org", cue: "Community & Events" },
       { name: "Guntner", domain: "guntner.com", cue: "Enterprise Programmes" },
     ],
   },
