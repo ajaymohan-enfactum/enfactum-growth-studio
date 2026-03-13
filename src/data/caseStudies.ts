@@ -386,6 +386,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Consumer & Retail"],
     outcomes: ["Revenue Growth", "Channel Engagement", "Sales Enablement"],
+    challengeTypes: ["Channel & Partner Activation"],
     challenge: "VIP Industries needed to activate its dealer network and drive measurable quarterly sales targets across India.",
     role: "Enfactum built a dealer enablement programme with structured activation, microsite traffic generation, and quarterly target management.",
     results: [
