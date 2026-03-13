@@ -81,8 +81,9 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
 
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
     >
       <article className="py-12 md:py-14 border-b border-border/30 hover:border-primary/15 transition-colors duration-700 group">
