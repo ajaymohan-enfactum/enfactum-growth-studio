@@ -10,6 +10,7 @@ import CapabilityDetail from "./pages/CapabilityDetail";
 import Work from "./pages/Work";
 import Brands from "./pages/Brands";
 import Thinking from "./pages/Thinking";
+import ThinkingArticle from "./pages/ThinkingArticle";
 import Company from "./pages/Company";
 import Leadership from "./pages/Leadership";
 import OperatingModel from "./pages/OperatingModel";
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/brands" element={<Brands />} />
           <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/thinking" element={<Thinking />} />
+          <Route path="/thinking/:slug" element={<ThinkingArticle />} />
           <Route path="/company" element={<Company />} />
           <Route path="/company/leadership" element={<Leadership />} />
           <Route path="/company/operating-model" element={<OperatingModel />} />
