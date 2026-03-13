@@ -140,9 +140,10 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
             <div className="space-y-4">
               {cs.results.slice(0, 4).map((r, ri) => (
                 <div key={ri}>
-                  <span className="font-display text-2xl font-extrabold text-primary/85 tracking-tight block leading-none">
-                    {r.metric}
-                  </span>
+                  <AnimatedCounter
+                    value={r.metric}
+                    className="font-display text-2xl font-extrabold text-primary/85 tracking-tight block leading-none"
+                  />
                   <span className="text-[11px] text-muted-foreground mt-1 block leading-snug font-body">
                     {r.label}
                   </span>
