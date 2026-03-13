@@ -295,6 +295,7 @@ const Company = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="mist" />
     {/* ═══ SECTION 6 — CAPABILITY OWNERSHIP ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
