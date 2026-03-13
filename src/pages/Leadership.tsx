@@ -13,8 +13,6 @@ import irfanPhoto from "@/assets/team/irfan-mulla.png";
 import sanjayPhoto from "@/assets/team/sanjay-chankranth.png";
 import rakhiPhoto from "@/assets/team/rakhi-sachdeva.png";
 import trevorPhoto from "@/assets/team/trevor-wingert.png";
-import leenaPhoto from "@/assets/team/leena-gandhi.png";
-import sinchanPhoto from "@/assets/team/sinchan-namdeo.png";
 
 const leadershipTeam: TeamMemberFull[] = [
   {
@@ -166,40 +164,6 @@ Before Enfactum, Rakhi led marketing operations at enterprise technology compani
     expertise: ["Marketing operations", "Campaign management", "Martech integration", "Process optimisation"],
     linkedin: "https://linkedin.com/in/rakhisachdeva",
     photo: rakhiPhoto,
-  },
-  {
-    name: "Sinchan Namdeo",
-    role: "Performance Marketing Lead",
-    category: "Brand & Demand",
-    focus: "Performance Marketing · Demand Generation · ROI",
-    location: "India",
-    bio: "Performance marketing specialist with proven results across 10+ APAC markets.",
-    fullBio: `Sinchan is a performance marketing specialist with proven results across 10+ APAC markets. He leads Enfactum's performance marketing execution — demand generation campaigns, paid media optimisation, and the measurement infrastructure that proves ROI.
-
-His approach combines analytical rigour with creative testing. Sinchan doesn't just run campaigns; he builds the optimisation systems that compound performance over time.
-
-At Enfactum, Sinchan works with clients on demand generation, performance media, conversion optimisation, and marketing effectiveness measurement.`,
-    philosophy: "Performance is a system, not a campaign.",
-    expertise: ["Performance marketing", "Demand generation", "Paid media", "Campaign optimisation", "Marketing analytics"],
-    linkedin: "https://linkedin.com/in/sinchannamdeo",
-    photo: sinchanPhoto,
-  },
-  {
-    name: "Leena Gandhi",
-    role: "Brand Experience Lead",
-    category: "Brand & Demand",
-    focus: "Brand Identity · Digital Experience · Visual Design",
-    location: "India",
-    bio: "Specialises in brand identity and digital experiences across APAC markets.",
-    fullBio: `Leena specialises in brand identity and digital experiences — the visual and interactive touchpoints where brands come to life. She leads Enfactum's work on brand identity systems, website experiences, and the design elements that shape how audiences perceive and engage with brands.
-
-Her background spans graphic design, digital experience design, and brand implementation across diverse APAC markets. Leena brings both creative vision and practical understanding of how design works across cultures and contexts.
-
-At Enfactum, Leena works with clients on visual identity, digital experience design, brand guidelines, and the design systems that ensure consistency across touchpoints.`,
-    philosophy: "Design is how strategy becomes visible.",
-    expertise: ["Brand identity", "Digital experience design", "Visual communication", "Cultural design adaptation"],
-    linkedin: "https://linkedin.com/in/leenagandhi",
-    photo: leenaPhoto,
   },
 ];
 
