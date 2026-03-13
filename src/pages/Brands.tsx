@@ -99,6 +99,11 @@ const outcomeCapsules = [
    ═══════════════════════════════════════════════ */
 const Brands = () => (
   <PageLayout>
+    <SEOHead
+      title="Brands — Enterprise Experience Across Southeast Asia"
+      description="Enfactum has worked with 40+ enterprise brands across enterprise technology, consumer growth, institutions, and innovation sectors in Southeast Asia. HP, The Economist, Sephora, L'Oréal, and more."
+      path="/brands"
+    />
     {/* ─── HERO ─── */}
     <HeroSection
       eyebrow="Brands"
