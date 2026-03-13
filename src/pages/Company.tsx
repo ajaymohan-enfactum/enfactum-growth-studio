@@ -74,7 +74,7 @@ const Company = () => (
     {/* ─── HERO ─── */}
     <HeroSection
       eyebrow="Company"
-      headline="Built for how Southeast Asia actually works."
+      headline="Built to turn strategy into movement."
       description="Enfactum is a growth and innovation operating partner — combining strategy, ecosystems, and execution to help enterprise brands scale with clarity and momentum across the region."
     />
 

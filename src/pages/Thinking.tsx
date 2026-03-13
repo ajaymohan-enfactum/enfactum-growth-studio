@@ -108,7 +108,7 @@ const Thinking = () => (
   <PageLayout>
     <HeroSection
       eyebrow="Thinking"
-      headline="Field intelligence from the front lines of Southeast Asian growth."
+      headline="Perspectives from inside the work."
       description="Original perspectives on growth, marketing, AI, and the APAC market — from people who operate in it every day."
     />
 

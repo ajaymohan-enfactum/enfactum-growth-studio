@@ -185,7 +185,7 @@ const capabilityData: Record<string, CapData> = {
     howItWorks: [
       { step: "Commercial objectives", desc: "Define business outcomes — pipeline targets, partner activation goals, audience composition, and success metrics." },
       { step: "Experience architecture", desc: "Design the experience around commercial objectives — format, content, audience journey, and engagement mechanics." },
-      { step: "Production & logistics", desc: "End-to-end production management — venue, AV, staging, catering, technology, and on-ground logistics." },
+      { step: "Production & logistics", desc: "Full production management — venue, AV, staging, catering, technology, and on-ground logistics." },
       { step: "Activation & engagement", desc: "Execute the experience. Manage real-time engagement, audience interaction, and partner activation." },
       { step: "Measurement & follow-through", desc: "Post-event pipeline tracking, lead handoff, partner follow-up, and commercial impact reporting." },
     ],

@@ -77,7 +77,7 @@ const Careers = () => (
       </div>
     </section>
 
-    <CTABand headline="Ready to build something meaningful?" primaryLabel="Apply now" primaryHref="/contact" />
+    <CTABand headline="Ready to build something meaningful?" primaryLabel="Start a conversation" primaryHref="/contact" />
   </PageLayout>
 );
 

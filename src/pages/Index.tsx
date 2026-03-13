@@ -476,7 +476,7 @@ const Perspectives = () => (
             <p className="eyebrow mb-6">Thinking</p>
             <h2 className="headline-lg">Perspectives from inside the work.</h2>
             <Link to="/thinking" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-8">
-              All perspectives <ArrowRight className="w-4 h-4" />
+              All thinking <ArrowRight className="w-4 h-4" />
             </Link>
           </RevealSection>
         </div>

@@ -56,7 +56,7 @@ const OperatingModel = () => (
     {/* Engagement Types */}
     <section className="py-20 md:py-28 bg-secondary/20">
       <div className="section-container">
-        <SectionHeader eyebrow="Engagement types" headline="Structured for your needs." centered />
+        <SectionHeader eyebrow="How we engage" headline="Structured for your needs." centered />
         <div className="grid sm:grid-cols-2 gap-5 mt-14">
           {engagementTypes.map((type, i) => (
             <RevealSection key={i} delay={i * 0.08}>
