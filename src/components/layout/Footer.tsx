@@ -40,7 +40,7 @@ const Footer = () => {
               <p>7 Straits View, #05-01</p>
               <p>Marina One East Tower</p>
               <p>Singapore 018936</p>
-              <a href="mailto:hello@enfactum.com" className="block hover:text-foreground transition-colors">hello@enfactum.com</a>
+              <a href="mailto:info@enfactum.com" className="block hover:text-foreground transition-colors">info@enfactum.com</a>
             </div>
           </div>
           {Object.entries(footerLinks).map(([category, links]) => (

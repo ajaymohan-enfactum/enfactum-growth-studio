@@ -319,8 +319,8 @@ const Contact = () => {
                   <div className="space-y-5">
                     <div>
                       <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground/50 font-body mb-1.5">Email</p>
-                      <a href="mailto:hello@enfactum.com" className="text-[15px] text-foreground hover:text-primary transition-colors duration-300">
-                        hello@enfactum.com
+                      <a href="mailto:info@enfactum.com" className="text-[15px] text-foreground hover:text-primary transition-colors duration-300">
+                        info@enfactum.com
                       </a>
                     </div>
                     <div>

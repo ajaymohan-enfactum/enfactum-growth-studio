@@ -88,7 +88,7 @@ const TermsOfUse = () => (
             <h2 className="font-display text-xl font-bold text-foreground">9. Contact</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
               For questions about these Terms, please contact us at:<br />
-              <a href="mailto:hello@enfactum.com" className="text-primary hover:underline">hello@enfactum.com</a><br />
+              <a href="mailto:info@enfactum.com" className="text-primary hover:underline">info@enfactum.com</a><br />
               7 Straits View, #05-01, Marina One East Tower, Singapore 018936
             </p>
           </div>
