@@ -23,7 +23,7 @@ interface CapData {
   challenge: { heading: string; body: string; bullets: string[] };
   whatWeBuild: { heading: string; body: string; deliverables: { title: string; desc: string }[] };
   howItWorks: { step: string; desc: string }[];
-  proofCaseIds: string[];       // references to central case study data
+  outcomeCaseIds: string[];     // references to central case study data
   team: { heading: string; body: string };
   nextCapability: { title: string; href: string };
 }
