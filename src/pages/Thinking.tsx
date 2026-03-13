@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
+import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
 
 interface Article {
