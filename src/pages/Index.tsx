@@ -11,9 +11,6 @@ import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import CTABand from "@/components/shared/CTABand";
-import TopologyBackground from "@/components/shared/TopologyBackground";
-import AuroraBackground from "@/components/shared/AuroraBackground";
-import NoiseTextureBackground from "@/components/shared/NoiseTextureBackground";
 import HybridBackground from "@/components/shared/HybridBackground";
 import BrandLogo from "@/components/shared/BrandLogo";
 import CaseCard from "@/components/shared/CaseCard";
@@ -23,20 +20,11 @@ import { ArrowRight, Crosshair, Network, Unlink, FlaskConical, Rocket } from "lu
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-type BgStyle = "topology" | "aurora" | "noise" | "hybrid";
-const bgLabels: Record<BgStyle, string> = {
-  topology: "Topology Mesh",
-  aurora: "Aurora Waves",
-  noise: "Noise + Depth",
-  hybrid: "Hybrid",
-};
-const bgOptions: BgStyle[] = ["topology", "aurora", "noise", "hybrid"];
-
 /* ═══════════════════════════════════════════════
    SECTION 1 — HERO
    Full-viewport cinematic opening
    ═══════════════════════════════════════════════ */
-const Hero = ({ bgStyle = "topology" }: { bgStyle?: BgStyle }) => {
+const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
   const [hovering, setHovering] = useState(false);
@@ -55,10 +43,7 @@ const Hero = ({ bgStyle = "topology" }: { bgStyle?: BgStyle }) => {
       onMouseLeave={() => setHovering(false)}
       className="relative min-h-screen flex items-end overflow-hidden"
     >
-      {bgStyle === "topology" && <TopologyBackground />}
-      {bgStyle === "aurora" && <AuroraBackground />}
-      {bgStyle === "noise" && <NoiseTextureBackground />}
-      {bgStyle === "hybrid" && <HybridBackground />}
+      <HybridBackground />
       {/* Cursor spotlight */}
       <div
         className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-700"
@@ -575,10 +560,7 @@ const sectionLabels = [
 /* ═══════════════════════════════════════════════
    PAGE ASSEMBLY
    ═══════════════════════════════════════════════ */
-const Index = () => {
-  const [bgStyle, setBgStyle] = useState<BgStyle>("hybrid");
-
-  return (
+const Index = () => (
   <PageLayout>
     <SEOHead
       title="Growth & Innovation Operating Partner for Southeast Asia"
@@ -587,25 +569,8 @@ const Index = () => {
       jsonLd={{ ...organizationSchema, ...webSiteSchema }}
     />
 
-    {/* Background style toggle — floating pill */}
-    <div className="fixed bottom-6 right-6 z-50 flex gap-1 bg-card/90 backdrop-blur-md border border-border/60 rounded-full p-1 shadow-lg">
-      {bgOptions.map((opt) => (
-        <button
-          key={opt}
-          onClick={() => setBgStyle(opt)}
-          className={`px-3 py-1.5 text-[11px] font-medium rounded-full transition-all duration-300 ${
-            bgStyle === opt
-              ? "bg-primary text-primary-foreground shadow-sm"
-              : "text-muted-foreground hover:text-foreground"
-          }`}
-        >
-          {bgLabels[opt]}
-        </button>
-      ))}
-    </div>
-
     <StickySectionLabel sections={sectionLabels} />
-    <Hero bgStyle={bgStyle} />
+    <Hero />
     <WhySEA />
     <GrowthBreaks />
     <WhatWeBuilds />
@@ -627,7 +592,7 @@ const Index = () => {
       secondaryHref="/capabilities"
     />
   </PageLayout>
-  );
-};
+);
+
 
 export default Index;

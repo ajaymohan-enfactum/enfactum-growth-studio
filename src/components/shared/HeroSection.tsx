@@ -1,5 +1,6 @@
 import { ReactNode, Children, isValidElement, Fragment, useRef, useCallback, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import HybridBackground from "@/components/shared/HybridBackground";
 
 interface HeroSectionProps {
   eyebrow?: string;
@@ -76,6 +77,7 @@ const HeroSection = ({ eyebrow, headline, description, children, compact = false
           background: `radial-gradient(500px circle at ${cursorPos.x}px ${cursorPos.y}px, hsl(210 100% 50% / 0.06), transparent 60%)`,
         }}
       />
+      <HybridBackground />
       <motion.div className="absolute inset-0 topology-grid opacity-[0.03]" style={{ y: bgY }} />
       <motion.div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-background" style={{ y: bgY, opacity: bgOpacity }} />
       <div className="section-container relative z-10">
