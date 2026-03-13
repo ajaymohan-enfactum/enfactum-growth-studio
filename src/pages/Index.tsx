@@ -10,7 +10,7 @@ import BrandLogo from "@/components/shared/BrandLogo";
 import CaseCard from "@/components/shared/CaseCard";
 import SEOHead, { organizationSchema, webSiteSchema } from "@/components/shared/SEOHead";
 import { getFlagshipCases } from "@/data/caseStudies";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Crosshair, Network, Unlink, FlaskConical, Rocket } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -123,11 +123,11 @@ const WhySEA = () => (
    Restrained problem framing
    ═══════════════════════════════════════════════ */
 const frictionPoints = [
-  { title: "Strategy-execution gap", body: "Brilliant plans that die in local implementation." },
-  { title: "Ecosystem underbuilt", body: "Partners and channels without structure or activation." },
-  { title: "Brand-demand disconnect", body: "Creative that doesn't connect to commercial outcomes." },
-  { title: "Innovation in pilot limbo", body: "AI and ventures stuck between demo and scale." },
-  { title: "Launch without momentum", body: "Events and activations without lasting market impact." },
+  { title: "Strategy-execution gap", body: "Brilliant plans that die in local implementation.", icon: Crosshair },
+  { title: "Ecosystem underbuilt", body: "Partners and channels without structure or activation.", icon: Network },
+  { title: "Brand-demand disconnect", body: "Creative that doesn't connect to commercial outcomes.", icon: Unlink },
+  { title: "Innovation in pilot limbo", body: "AI and ventures stuck between demo and scale.", icon: FlaskConical },
+  { title: "Launch without momentum", body: "Events and activations without lasting market impact.", icon: Rocket },
 ];
 
 const GrowthBreaks = () => (
@@ -146,7 +146,7 @@ const GrowthBreaks = () => (
             className={`md:col-span-4 ${i >= 3 ? "md:col-start-" + (i === 3 ? "3" : "7") : ""}`}
           >
             <div className="pr-8">
-              <div className="w-6 h-px bg-primary/50 mb-6" />
+              <point.icon className="w-5 h-5 text-primary/70 mb-5" strokeWidth={1.5} />
               <h3 className="font-display text-lg font-semibold text-foreground leading-snug">
                 {point.title}
               </h3>
