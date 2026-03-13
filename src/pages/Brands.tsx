@@ -84,7 +84,7 @@ const outcomeCapsules = [
   {
     brand: "JSHealth Vitamins",
     label: "Brand & Demand / Affiliate",
-    proof: "Built a performance-led affiliate and demand engine delivering +411% ROAS and +311% ROI through 190+ partnership channels across AU, EU, UK & US.",
+    outcome: "Built a performance-led affiliate and demand engine delivering +411% ROAS and +311% ROI through 190+ partnership channels across AU, EU, UK & US.",
   },
   {
     brand: "Brands For Less",
