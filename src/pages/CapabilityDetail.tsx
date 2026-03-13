@@ -37,6 +37,8 @@ const capabilityData: Record<string, CapData> = {
     eyebrow: "Growth Infrastructure",
     headline: "Build the go-to-market architecture your Southeast Asia expansion actually needs.",
     description: "GTM strategy, partner and channel programmes, revenue operations, and market-entry infrastructure — designed for multi-market scale, not single-country experiments.",
+    seoTitle: "Growth Infrastructure for Southeast Asia — GTM Strategy & Partner Ecosystems",
+    seoDescription: "Go-to-market strategy, partner and channel programmes, revenue operations, and market-entry infrastructure for enterprise brands expanding across Southeast Asia.",
     forWhom: "Enterprise brands entering or expanding across Southeast Asia who need GTM infrastructure and partner ecosystems — not just a market-entry plan or a local distributor.",
     typicalClients: ["Global technology companies expanding into ASEAN", "Consumer brands launching in new Southeast Asian markets", "Enterprise SaaS companies building regional channel programmes", "Retail brands activating multi-market partner ecosystems"],
     challenge: {
