@@ -126,10 +126,9 @@ const Capabilities = () => (
                     </div>
                   </div>
                 </div>
-              </Link>
-            </RevealSection>
+            </Link>
           ))}
-        </div>
+        </StaggerGrid>
       </div>
     </section>
 
