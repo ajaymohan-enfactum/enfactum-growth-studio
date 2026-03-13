@@ -39,6 +39,7 @@ const regionalNodes = [
   { city: "India", role: "Scale & Execution Engine", desc: "Creative production, technology, demand operations, programme delivery at scale." },
   { city: "Malaysia", role: "Market Node", desc: "Local market execution, events & activations, partner management." },
   { city: "Indonesia", role: "Market Node", desc: "Indonesia market presence, local partnerships, consumer insights." },
+  { city: "USA", role: "Strategic Bridge", desc: "Global client bridge, US market access, cross-border partnership development." },
 ];
 
 const domainSpecialists = [
