@@ -326,7 +326,7 @@ const Contact = () => {
                     <div>
                       <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground/50 font-body mb-1.5">LinkedIn</p>
                       <a
-                        href="https://linkedin.com"
+                        href="https://www.linkedin.com/company/995805"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-[15px] text-foreground hover:text-primary transition-colors duration-300"
