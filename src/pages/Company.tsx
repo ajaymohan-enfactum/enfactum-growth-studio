@@ -256,7 +256,7 @@ const Company = () => (
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {regionalNodes.map((node, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
+            <RevealSection key={i} delay={i * 0.08} blur>
               <div className="border-t border-border/30 pt-8 h-full">
                 <span className="text-[10px] text-dim uppercase tracking-[0.15em] font-body">{node.role}</span>
                 <h3 className="font-display text-2xl font-bold text-foreground mt-2">{node.city}</h3>
