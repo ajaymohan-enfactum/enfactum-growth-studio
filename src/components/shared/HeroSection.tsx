@@ -45,13 +45,16 @@ const wordVariants = {
 
 const HeroSection = ({ eyebrow, headline, description, children, compact = false }: HeroSectionProps) => {
   const parts = flattenChildren(headline);
-  // Count only non-whitespace parts for stagger indexing
   let wordIndex = 0;
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.3]);
 
   return (
-    <section className={`relative ${compact ? "pt-28 pb-16 md:pt-36 md:pb-20" : "pt-32 pb-20 md:pt-44 md:pb-28"} overflow-hidden`}>
-      <div className="absolute inset-0 topology-grid opacity-[0.03]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-background" />
+    <section ref={sectionRef} className={`relative ${compact ? "pt-28 pb-16 md:pt-36 md:pb-20" : "pt-32 pb-20 md:pt-44 md:pb-28"} overflow-hidden`}>
+      <motion.div className="absolute inset-0 topology-grid opacity-[0.03]" style={{ y: bgY }} />
+      <motion.div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-background" style={{ y: bgY, opacity: bgOpacity }} />
       <div className="section-container relative z-10">
         <div className="max-w-4xl">
           {eyebrow && (
