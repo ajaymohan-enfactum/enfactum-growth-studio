@@ -91,17 +91,18 @@ const Company = () => (
           <div className="md:col-span-6 md:col-start-7">
             <RevealSection delay={0.1}>
               <div className="space-y-6">
-                <p className="body-lg">
-                  Enfactum was founded on a simple observation: the best strategies in Southeast Asia
-                  fail not for lack of ambition, but for lack of execution infrastructure.
+              <p className="body-lg">
+                  Since 2010, Enfactum has bridged the gap between strategic intent and operational reality.
+                  We are not just consultants — we are operators. For over a decade, we have helped global
+                  brands navigate complex markets with precision.
                 </p>
                 <p className="body-lg">
-                  We built Enfactum to be the operating partner that enterprise brands actually need —
-                  one that understands ecosystems, builds real infrastructure, and stays until growth
-                  has genuine momentum.
+                  Our Build-Operate-Transfer model replaces siloed teams and short-term projects with
+                  integrated operations, hands-on execution, and 5+ year partnerships that build lasting
+                  capability.
                 </p>
                 <p className="body-md text-muted-foreground italic">
-                  Headquartered in Singapore. Operating across India, Malaysia, Indonesia, and broader Southeast Asia.
+                  Headquartered in Singapore. Operating across India, Malaysia, Indonesia, the USA, and broader Southeast Asia.
                 </p>
               </div>
             </RevealSection>

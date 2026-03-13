@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
@@ -9,63 +8,63 @@ import CTABand from "@/components/shared/CTABand";
 import { ArrowRight } from "lucide-react";
 
 /* ═══════════════════════════════════════════════
-   FLAGSHIP CASE STUDIES — narrative chapters
+   FLAGSHIP CASE STUDIES
    ═══════════════════════════════════════════════ */
 const flagshipCases = [
   {
     num: "01",
     title: "HP Garage 2.0",
-    subtitle: "Rebuilding HP's innovation ecosystem across Asia Pacific",
+    subtitle: "Building an AI incubation ecosystem across Asia Pacific",
     capabilities: ["AI Ecosystems", "Innovation Programmes", "Partnership Architecture"],
     region: "Singapore · Malaysia · Indonesia · India",
     sector: "Enterprise Technology",
     challenge:
-      "HP needed to reignite its innovation engine across Asia Pacific — moving beyond one-off hackathons to build a scalable, repeatable startup engagement platform that could identify, evaluate, and integrate emerging technologies into HP's enterprise portfolio.",
+      "HP needed to build a robust AI innovation program to drive adoption across key verticals and support startups, requiring deep collaboration with government, universities, and ecosystem partners.",
     role:
       "Enfactum designed and operated the full programme — from innovation mandate definition and ecosystem mapping through startup scouting, curation, enterprise-startup matchmaking, pilot design, and regional expansion architecture.",
     outcomes: [
-      { metric: "200+", label: "Startups evaluated" },
-      { metric: "12", label: "Enterprise pilots launched" },
-      { metric: "4", label: "Markets expanded" },
-      { metric: "3", label: "Production integrations" },
+      { metric: "30+", label: "AI startups delivering solutions in GA" },
+      { metric: "15+", label: "Key verticals empowered with AI" },
+      { metric: "9", label: "Companies scaled to production" },
+      { metric: "Q3 FY25", label: "Effective co-selling date" },
     ],
     insight: "Innovation programmes succeed when they're designed as operating systems, not events.",
   },
   {
     num: "02",
-    title: "The Economist BOT",
-    subtitle: "A landmark thought-leadership experience for Southeast Asia's senior business community",
-    capabilities: ["Live Experiences", "Brand & Demand", "Audience Strategy"],
-    region: "Singapore · Regional ASEAN",
-    sector: "Media & Institutions",
+    title: "The Economist APAC",
+    subtitle: "Reintroducing a global brand to the Asia Pacific market through Build-Operate-Transfer",
+    capabilities: ["Growth Infrastructure", "Brand & Demand", "Build-Operate-Transfer"],
+    region: "Singapore · India · Regional APAC",
+    sector: "Media & Publishing",
     challenge:
-      "The Economist sought to create its most impactful regional experience — one that would engage Southeast Asia's most senior business leaders, drive measurable subscription pipeline, and position the brand as the essential voice on Asian economics and policy.",
+      "The Economist needed a comprehensive strategy to grow its business in the APAC region, requiring an overhaul of local marketing capabilities to drive subscriptions — including India market re-entry via strategic partnership.",
     role:
-      "Enfactum led concept development, experience architecture, production management, audience strategy, and integrated demand generation — building a programme that connected editorial credibility to commercial outcomes.",
+      "Enfactum led the full Build-Operate-Transfer engagement — from team assessment and rapid deployment through integrated growth operations, affiliate engine build-out, and India re-entry via partnership with Hindustan Times.",
     outcomes: [
-      { metric: "2,000+", label: "Senior leaders engaged" },
-      { metric: "40%", label: "Subscription pipeline lift" },
-      { metric: "92%", label: "Audience satisfaction" },
-      { metric: "3x", label: "ROI vs. prior events" },
+      { metric: "47%", label: "Cost savings vs. traditional model" },
+      { metric: "50%", label: "Reduction in agency fees" },
+      { metric: "6 wks", label: "Rapid deployment for full team" },
+      { metric: "3-digit %", label: "Subscription growth in India" },
     ],
     insight: "The most powerful brand experiences are commercially designed from day one.",
   },
   {
     num: "03",
-    title: "Brands For Less SEA Launch",
-    subtitle: "From zero presence to multi-market retail expansion across Southeast Asia",
-    capabilities: ["Growth Infrastructure", "Market Entry", "Partner Ecosystems"],
-    region: "Malaysia · Indonesia · Thailand",
-    sector: "Consumer & Retail",
+    title: "TikTok Shop Pharma",
+    subtitle: "Dominating digital marketplaces in Indonesia through creator-led commerce",
+    capabilities: ["Brand & Demand", "Growth Infrastructure", "Digital Commerce"],
+    region: "Indonesia",
+    sector: "Consumer & Pharma",
     challenge:
-      "Brands For Less — a leading Middle East value retailer — wanted to enter Southeast Asia but had zero existing presence, no local partnerships, and no regional infrastructure. The market was unfamiliar, fragmented, and required a fundamentally different operating approach.",
+      "A traditional pharmaceutical brand needed to establish a foothold in digital commerce, specifically targeting revenue growth through TikTok Shop across the Indonesian market.",
     role:
-      "Enfactum built the full market entry architecture — from country prioritisation and regulatory navigation through partner identification, commercial negotiation, retail partnership activation, and launch operations across three markets simultaneously.",
+      "Enfactum built the full digital commerce architecture — from creator recruitment and content strategy through TikTok Shop operations, performance optimisation, and massive scale activation with 220+ creators.",
     outcomes: [
-      { metric: "3", label: "Markets entered in 18 months" },
-      { metric: "50+", label: "Retail partnerships activated" },
-      { metric: "18mo", label: "Zero to operational" },
-      { metric: "$4M+", label: "First-year revenue pipeline" },
+      { metric: "1B+", label: "IDR monthly revenue on TikTok Shop" },
+      { metric: "10M+", label: "Total reach across creator network" },
+      { metric: "410K+", label: "Engagements from 3,400+ posts" },
+      { metric: "4.1%", label: "Engagement rate (above industry avg)" },
     ],
     insight: "Market entry in Southeast Asia is an ecosystem play, not a distribution deal.",
   },
@@ -75,21 +74,27 @@ const flagshipCases = [
    ADDITIONAL PROOF
    ═══════════════════════════════════════════════ */
 const additionalCases = [
-  { title: "Enterprise SaaS ASEAN Expansion", capabilities: ["Growth Infrastructure"], sector: "Enterprise Technology", outcome: "4x pipeline growth across 5 ASEAN markets", region: "Regional" },
-  { title: "Consumer Electronics Campaign", capabilities: ["Brand & Demand"], sector: "Consumer & Brand Growth", outcome: "320% ROAS improvement across 3 markets", region: "SG · MY · ID" },
-  { title: "Regional Partner Summit Series", capabilities: ["Live Experiences"], sector: "Enterprise Technology", outcome: "$2M pipeline generated per event", region: "Singapore" },
-  { title: "DTC Brand Launch SEA", capabilities: ["Brand & Demand"], sector: "Consumer & Brand Growth", outcome: "40K customers acquired in first quarter", region: "MY · TH" },
-  { title: "Enterprise AI Programme", capabilities: ["AI Ecosystems"], sector: "New Economy & Innovation", outcome: "6 production-ready AI implementations", region: "SG · IN" },
-  { title: "GovTech Innovation Lab", capabilities: ["AI Ecosystems"], sector: "Institutions & Ecosystems", outcome: "3 national pilot programmes launched", region: "Singapore" },
+  { title: "HP SMB Pipeline Acceleration", capabilities: ["Growth Infrastructure"], sector: "Enterprise Technology", outcome: "60% lower cost per lead, 2,000+ unique leads", region: "Malaysia" },
+  { title: "HP Large Format Product Launch", capabilities: ["Live Experiences"], sector: "Enterprise Technology", outcome: "US$3M product funnel from launch event", region: "Regional APAC" },
+  { title: "JSHealth Vitamins Global Growth", capabilities: ["Brand & Demand"], sector: "Consumer & Wellness", outcome: "+411% ROAS via partnership channels", region: "AU · EU · UK · US" },
+  { title: "Seagate Global Performance", capabilities: ["Brand & Demand"], sector: "Enterprise Technology", outcome: "+43% qualified traffic, -27% cost per lead", region: "APAC · EU · US" },
+  { title: "Brands For Less Digital Growth", capabilities: ["Growth Infrastructure"], sector: "Consumer & Retail", outcome: "+42% site traffic uplift achieved", region: "Regional" },
+  { title: "Enterprise AI Portfolio", capabilities: ["AI Ecosystems"], sector: "Enterprise Technology", outcome: "5+ major AI implementations, 100K+ records enriched", region: "SG · IN" },
+  { title: "Delsey Asia Distribution", capabilities: ["Growth Infrastructure"], sector: "Consumer & Retail", outcome: "200K+ units sold across Asian markets", region: "Regional Asia" },
+  { title: "VIP Industries Dealer Network", capabilities: ["Growth Infrastructure"], sector: "Consumer & Retail", outcome: "120% quarterly target, 3x microsite traffic", region: "India" },
+  { title: "Lazada 11.11 Festival Activation", capabilities: ["Live Experiences"], sector: "E-Commerce", outcome: "Multi-market record-breaking engagement", region: "SEA" },
+  { title: "Sephora Malaysia Re-Launch", capabilities: ["Live Experiences"], sector: "Consumer & Retail", outcome: "Record store opening attendance", region: "Malaysia" },
+  { title: "HP WhatsApp Partner Programme", capabilities: ["Growth Infrastructure"], sector: "Enterprise Technology", outcome: "1,300+ partners enrolled, 5+ years running", region: "India · SEA" },
+  { title: "Redington Content Platform", capabilities: ["Brand & Demand"], sector: "Enterprise Technology", outcome: "50+ video assets, 100% strategy deployed", region: "Regional" },
 ];
 
 const impactCategories = [
-  { label: "Pipeline", metric: "$12M+", desc: "Revenue pipeline generated and accelerated across client programmes." },
-  { label: "Partner Activation", metric: "200+", desc: "Ecosystem partners activated and commercially engaged." },
-  { label: "Market Entry", metric: "8", desc: "New markets entered and established for enterprise clients." },
-  { label: "Innovation Scale", metric: "18", desc: "Pilots moved from sandbox to production and scale." },
-  { label: "Launch Momentum", metric: "35+", desc: "Market activations delivered with measurable commercial impact." },
-  { label: "Efficiency", metric: "3.2x", desc: "Average ROI improvement across operated programmes." },
+  { label: "Cost Efficiency", metric: "47%", desc: "Cost savings on headcount vs. traditional agency models." },
+  { label: "ROAS Uplift", metric: "+411%", desc: "Return on ad spend achieved through partnership-driven growth channels." },
+  { label: "Market Reach", metric: "15+", desc: "Global markets served with active programme delivery." },
+  { label: "Pipeline Generated", metric: "$3M+", desc: "Product funnel generated from a single launch event." },
+  { label: "Digital Commerce", metric: "1B+", desc: "IDR monthly revenue achieved on TikTok Shop for pharma client." },
+  { label: "Client Tenure", metric: "5+ yrs", desc: "Average engagement length — built for long-term partnership, not projects." },
 ];
 
 const capFilters = ["All", "Growth Infrastructure", "Brand & Demand", "AI Ecosystems", "Live Experiences"];
@@ -97,7 +102,7 @@ const capFilters = ["All", "Growth Infrastructure", "Brand & Demand", "AI Ecosys
 /* ═══════════════════════════════════════════════
    FLAGSHIP CASE COMPONENT
    ═══════════════════════════════════════════════ */
-const FlagshipCase = ({ cs, index }: { cs: typeof flagshipCases[0]; index: number }) => (
+const FlagshipCase = ({ cs }: { cs: typeof flagshipCases[0] }) => (
   <RevealSection delay={0.05} distance={50}>
     <div className="border-t border-border/30 pt-16 pb-20 md:pt-20 md:pb-28">
       {/* Header row */}
@@ -203,12 +208,12 @@ const Work = () => {
           <RevealSection>
             <p className="eyebrow mb-2">Flagship programmes</p>
             <p className="text-[13px] text-muted-foreground max-w-md">
-              Three programmes that demonstrate how Enfactum operates — from ecosystem design to market launch to innovation infrastructure.
+              Programmes that demonstrate how Enfactum operates — from AI incubation to market re-entry to digital commerce at scale.
             </p>
           </RevealSection>
 
-          {flagshipCases.map((cs, i) => (
-            <FlagshipCase key={cs.title} cs={cs} index={i} />
+          {flagshipCases.map((cs) => (
+            <FlagshipCase key={cs.title} cs={cs} />
           ))}
         </div>
       </section>
