@@ -202,6 +202,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Media & Publishing"],
     outcomes: ["Customer Acquisition", "Cost Efficiency", "Revenue Growth"],
+    challengeTypes: ["Digital Commerce & Acquisition"],
     challenge: "The Economist needed a cost-efficient subscription acquisition channel that could scale globally without proportional cost increases.",
     role: "Enfactum built and operated a global affiliate engine — from partner recruitment and onboarding through performance management and continuous optimisation.",
     results: [
