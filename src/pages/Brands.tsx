@@ -128,7 +128,7 @@ const Brands = () => (
       <div className="section-container">
         <div className="grid md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-5">
-            <RevealSection>
+            <RevealSection blur>
               <p className="eyebrow mb-6">Why this matters</p>
               <h2 className="headline-lg">Breadth as experience, not vanity.</h2>
             </RevealSection>
