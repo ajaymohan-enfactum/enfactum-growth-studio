@@ -18,7 +18,7 @@ const engagementTypes = [
   { title: "Consulting", desc: "Strategic advisory for specific growth challenges. Diagnostics, strategy, and recommendations.", duration: "4–12 weeks" },
   { title: "Embedded Team", desc: "Enfactum operators embedded within your organisation for sustained execution and capability building.", duration: "6–18 months" },
   { title: "Build-Operate-Transfer", desc: "We build the capability, operate it until proven, then transfer full ownership to your team.", duration: "12–24 months" },
-  { title: "Programme Build", desc: "End-to-end design and launch of growth programmes — partner ecosystems, innovation labs, market activations.", duration: "3–12 months" },
+  { title: "Programme Build", desc: "Full design and launch of growth programmes — partner ecosystems, innovation labs, market activations.", duration: "3–12 months" },
 ];
 
 const OperatingModel = () => (
