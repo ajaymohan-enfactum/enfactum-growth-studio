@@ -7,27 +7,38 @@ import CTABand from "@/components/shared/CTABand";
 const nodes = [
   {
     city: "Singapore",
-    type: "Strategic Hub",
+    type: "Head Office",
     desc: "Headquarters and strategic centre. Client relationships, capability leadership, and regional oversight.",
     capabilities: ["Strategy", "Client leadership", "Innovation", "Regional coordination"],
+    address: ["Enfactum Pte. Ltd.", "7 Straits View, #05-01", "Marina One East Tower", "Singapore 018936"],
   },
   {
     city: "India",
     type: "Scale & Execution Engine",
     desc: "Deep operations and delivery talent. Creative production, technology, demand operations, and programme management.",
     capabilities: ["Creative production", "Technology", "Demand ops", "Programme management"],
+    address: ["304, 3rd Floor, Tower T1", "Assotech Business, Cresterra", "Plot No. 22, Sector 135 Expressway", "Noida 201304, India"],
   },
   {
     city: "Malaysia",
     type: "Market & Delivery Node",
     desc: "Local market expertise and execution capability for Malaysia and broader ASEAN.",
     capabilities: ["Market execution", "Events & activations", "Partner management"],
+    address: ["498-3-7, 3rd Floor", "Wisma Indah", "Jalan Tun Razak", "Kuala Lumpur, Malaysia"],
   },
   {
     city: "Indonesia",
     type: "Market & Delivery Node",
     desc: "Indonesia market presence and local execution for Southeast Asia's largest economy.",
     capabilities: ["Market entry", "Local partnerships", "Consumer insights"],
+    address: ["Enfactum Indonesia", "Cyber 2 Tower, 17th Floor", "Jl. H. R. Rasuna Said, Kuningan", "Selatan, Jakarta 12950, Indonesia"],
+  },
+  {
+    city: "United States",
+    type: "Strategic Node",
+    desc: "US market bridge for enterprise brands expanding between North America and Southeast Asia.",
+    capabilities: ["Strategic partnerships", "Client development", "Global bridge"],
+    address: ["Rockefeller Center", "45 Rockefeller Plaza, Suite #2000", "New York, NY 10111", "United States"],
   },
 ];
 
@@ -56,6 +67,11 @@ const RegionalNodes = () => (
                 </div>
                 <h3 className="font-display text-2xl font-bold text-foreground">{node.city}</h3>
                 <p className="text-sm text-muted-foreground mt-3">{node.desc}</p>
+                <div className="mt-4 space-y-0.5">
+                  {node.address.map((line, li) => (
+                    <p key={li} className="text-[12px] text-muted-foreground/70 font-body leading-relaxed">{line}</p>
+                  ))}
+                </div>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {node.capabilities.map((cap) => (
                     <span key={cap} className="text-xs px-2.5 py-1 rounded-full bg-secondary text-muted-foreground border border-border">{cap}</span>

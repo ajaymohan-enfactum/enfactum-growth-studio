@@ -59,10 +59,11 @@ const trustPoints = [
 ];
 
 const officeNodes = [
-  { city: "Singapore", role: "HQ & ASEAN operations" },
-  { city: "India", role: "Delivery & technology" },
-  { city: "Malaysia", role: "Regional coverage" },
-  { city: "Indonesia", role: "Market operations" },
+  { city: "Singapore", role: "Head Office", address: "7 Straits View, #05-01, Marina One East Tower, 018936" },
+  { city: "India", role: "Scale & Execution", address: "304, Tower T1, Assotech Business Cresterra, Noida 201304" },
+  { city: "Malaysia", role: "Market Node", address: "498-3-7, Wisma Indah, Jalan Tun Razak, Kuala Lumpur" },
+  { city: "Indonesia", role: "Market Node", address: "Cyber 2 Tower, 17th Floor, Jl. Rasuna Said, Jakarta 12950" },
+  { city: "United States", role: "Strategic Node", address: "45 Rockefeller Plaza, Suite #2000, New York, NY 10111" },
 ];
 
 /* ── Input component ── */
@@ -333,9 +334,12 @@ const Contact = () => {
                   <p className="eyebrow mb-6">Regional nodes</p>
                   <div className="space-y-4">
                     {officeNodes.map((node) => (
-                      <div key={node.city} className="flex items-baseline justify-between">
-                        <span className="font-display text-[14px] font-medium text-foreground">{node.city}</span>
-                        <span className="text-[12px] text-muted-foreground">{node.role}</span>
+                      <div key={node.city} className="mb-1">
+                        <div className="flex items-baseline justify-between">
+                          <span className="font-display text-[14px] font-medium text-foreground">{node.city}</span>
+                          <span className="text-[12px] text-muted-foreground">{node.role}</span>
+                        </div>
+                        <p className="text-[11px] text-muted-foreground/50 mt-0.5">{node.address}</p>
                       </div>
                     ))}
                   </div>
@@ -359,7 +363,7 @@ const Contact = () => {
             </div>
             <div className="md:col-span-5 md:col-start-8 flex items-end justify-end">
               <p className="text-[11px] text-muted-foreground/40">
-                Singapore · India · Malaysia · Indonesia
+                Singapore · India · Malaysia · Indonesia · USA
               </p>
             </div>
           </div>
