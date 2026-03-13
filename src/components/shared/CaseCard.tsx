@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import type { CaseStudy } from "@/data/caseStudies";
 import { ArrowRight } from "lucide-react";
