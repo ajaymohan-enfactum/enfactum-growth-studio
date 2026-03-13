@@ -194,6 +194,7 @@ const Capabilities = () => (
 
     {/* ═══ HORIZONTAL SCROLL CAPABILITY SHOWCASE ═══ */}
     <HorizontalScrollShowcase />
+    <ParallaxDivider variant="gradient" />
     {/* ═══ HOW CAPABILITIES CONNECT ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
