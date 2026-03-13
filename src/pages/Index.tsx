@@ -24,7 +24,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
    SECTION 1 — HERO
    Full-viewport cinematic opening
    ═══════════════════════════════════════════════ */
-const Hero = ({ bgStyle = "topology" }: { bgStyle?: BgStyle }) => {
+const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
   const [hovering, setHovering] = useState(false);
