@@ -365,8 +365,8 @@ const sectorClusters = [
     logos: [
       { name: "JSHealth Vitamins", domain: "jshealthvitamins.com", capability: "Affiliate · Global Growth" },
       { name: "Lazada", domain: "lazada.com", capability: "E-Commerce Activation" },
-      { name: "VIP Industries", domain: "vipindustries.co.in", capability: "Dealer Enablement" },
-      { name: "Delsey", domain: "delsey.com", capability: "Retail Distribution" },
+      { name: "InsureMO", domain: "insuremo.com", capability: "Dealer Enablement" },
+      { name: "Integrate", domain: "integrateevents.com", capability: "Retail Distribution" },
     ],
   },
 ];
