@@ -186,6 +186,7 @@ const Company = () => (
       </div>
     </section>
 
+    <ParallaxDivider variant="mist" flip />
     {/* ═══ SECTION 3 — OPERATING BENCH ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
