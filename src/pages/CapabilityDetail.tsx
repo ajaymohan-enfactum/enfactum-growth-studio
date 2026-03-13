@@ -147,30 +147,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Pilot & partnership", desc: "Design and manage pilot programmes. Structure partnerships. Operate sandboxes. Evaluate outcomes." },
       { step: "Scale & transfer", desc: "Move successful pilots to production. Build procurement pathways. Transfer programme ownership and methodology." },
     ],
-    proof: [
-      {
-        title: "HP Garage 2.0",
-        capability: "AI Incubation · Ecosystem Architecture",
-        region: "Singapore · Malaysia · Indonesia · India",
-        outcomes: [
-          { metric: "30+", label: "AI startups delivering in GA" },
-          { metric: "15+", label: "Key verticals empowered" },
-          { metric: "9", label: "Companies scaled to production" },
-        ],
-        insight: "Innovation programmes succeed when they're designed as operating systems, not events.",
-      },
-      {
-        title: "Enterprise AI Portfolio",
-        capability: "AI Solutions · Data Enrichment",
-        region: "Singapore · India",
-        outcomes: [
-          { metric: "5+", label: "Major enterprise AI implementations" },
-          { metric: "100K+", label: "Records enriched via AI for HP" },
-          { metric: "9", label: "Multi-lingual voice & text agents" },
-        ],
-        insight: "Enterprise AI scales when there's architecture between the lab and the business.",
-      },
-    ],
+    proofCaseIds: ["hp-garage", "enterprise-ai", "oracle-dha"],
     team: {
       heading: "Led by innovation operators, not consultants.",
       body: "The AI Ecosystems capability is led by people who've built and operated corporate innovation programmes — who understand both enterprise procurement cycles and startup velocity, and know how to bridge the two.",
