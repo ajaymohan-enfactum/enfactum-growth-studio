@@ -69,7 +69,7 @@ const Footer = () => {
             <div className="flex gap-6">
               <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
               <Link to="/terms" className="hover:text-foreground transition-colors">Terms of Use</Link>
-              <a href="https://linkedin.com/company/enfactum" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+              <a href="https://www.linkedin.com/company/995805" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
                 LinkedIn
               </a>
             </div>
