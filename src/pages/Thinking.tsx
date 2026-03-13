@@ -65,7 +65,7 @@ const articles: Article[] = [
   },
   {
     title: "GEO: The New SEO for AI-First Discovery",
-    category: "AI & Innovation",
+    category: "Market Signal",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
     readTime: "7 min read",
