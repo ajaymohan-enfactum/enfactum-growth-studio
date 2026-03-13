@@ -5,6 +5,7 @@ import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
+import BrandLogo from "@/components/shared/BrandLogo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -17,14 +18,14 @@ const sectorClusters = [
     num: "01",
     narrative: "Helping technology brands build market entry, partner momentum, and commercial infrastructure across Southeast Asia.",
     brands: [
-      { name: "HP", cue: "AI Ecosystems · Innovation · Channel" },
-      { name: "Dell EMC", cue: "Growth Infrastructure" },
-      { name: "Seagate", cue: "Global Performance Marketing" },
-      { name: "Redington", cue: "Content & Partner Platforms" },
-      { name: "Lenovo", cue: "Field Marketing" },
-      { name: "Oracle", cue: "Enterprise Programmes" },
-      { name: "Lexmark", cue: "Channel Activation" },
-      { name: "Fujifilm", cue: "Market Programmes" },
+      { name: "HP", domain: "hp.com", cue: "AI Ecosystems · Innovation · Channel" },
+      { name: "Dell EMC", domain: "dell.com", cue: "Growth Infrastructure" },
+      { name: "Seagate", domain: "seagate.com", cue: "Global Performance Marketing" },
+      { name: "Redington", domain: "redingtongroup.com", cue: "Content & Partner Platforms" },
+      { name: "Lenovo", domain: "lenovo.com", cue: "Field Marketing" },
+      { name: "Oracle", domain: "oracle.com", cue: "Enterprise Programmes" },
+      { name: "Lexmark", domain: "lexmark.com", cue: "Channel Activation" },
+      { name: "Fujifilm", domain: "fujifilm.com", cue: "Market Programmes" },
     ],
   },
   {
@@ -32,12 +33,12 @@ const sectorClusters = [
     num: "02",
     narrative: "Supporting brands that need market activation, demand generation, and regional growth with commercial discipline.",
     brands: [
-      { name: "Brands For Less", cue: "Market Entry · Digital Growth" },
-      { name: "Sephora", cue: "Experiential Launch" },
-      { name: "L'Oréal", cue: "Brand & Demand" },
-      { name: "Decathlon", cue: "Retail Activation" },
-      { name: "Delsey", cue: "Distribution & Scale" },
-      { name: "VIP Industries", cue: "Dealer Enablement" },
+      { name: "Brands For Less", domain: "brandsforless.com", cue: "Market Entry · Digital Growth" },
+      { name: "Sephora", domain: "sephora.com", cue: "Experiential Launch" },
+      { name: "L'Oréal", domain: "loreal.com", cue: "Brand & Demand" },
+      { name: "Decathlon", domain: "decathlon.com", cue: "Retail Activation" },
+      { name: "Delsey", domain: "delsey.com", cue: "Distribution & Scale" },
+      { name: "VIP Industries", domain: "vipindustries.co.in", cue: "Dealer Enablement" },
     ],
   },
   {
@@ -45,10 +46,10 @@ const sectorClusters = [
     num: "03",
     narrative: "Working with publishers, institutions, and ecosystem builders where trust, reach, and stakeholder alignment matter.",
     brands: [
-      { name: "The Economist", cue: "BOT · Growth Operations · Affiliate" },
-      { name: "Abbott", cue: "Brand & Demand" },
-      { name: "Dscoop", cue: "Community & Events" },
-      { name: "Guntner", cue: "Enterprise Programmes" },
+      { name: "The Economist", domain: "economist.com", cue: "BOT · Growth Operations · Affiliate" },
+      { name: "Abbott", domain: "abbott.com", cue: "Brand & Demand" },
+      { name: "Dscoop", domain: "dscoop.org", cue: "Community & Events" },
+      { name: "Guntner", domain: "guntner.com", cue: "Enterprise Programmes" },
     ],
   },
   {
@@ -56,12 +57,12 @@ const sectorClusters = [
     num: "04",
     narrative: "Partnering with emerging and innovation-led companies shaping new categories across the region.",
     brands: [
-      { name: "JSHealth Vitamins", cue: "Affiliate · Global Growth" },
-      { name: "Lazada", cue: "E-Commerce Activation" },
-      { name: "Syfe", cue: "Fintech Growth" },
-      { name: "SingX", cue: "Market Expansion" },
-      { name: "insureMO", cue: "Enterprise Technology" },
-      { name: "eBaoTech", cue: "Digital Platforms" },
+      { name: "JSHealth Vitamins", domain: "jshealthvitamins.com", cue: "Affiliate · Global Growth" },
+      { name: "Lazada", domain: "lazada.com", cue: "E-Commerce Activation" },
+      { name: "Syfe", domain: "syfe.com", cue: "Fintech Growth" },
+      { name: "SingX", domain: "singx.co", cue: "Market Expansion" },
+      { name: "insureMO", domain: "insuremo.com", cue: "Enterprise Technology" },
+      { name: "eBaoTech", domain: "ebaotech.com", cue: "Digital Platforms" },
     ],
   },
 ];
@@ -171,16 +172,14 @@ const Brands = () => (
 
                   {/* Right — Brand entries */}
                   <div className="md:col-span-7 md:col-start-6">
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-0">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8 gap-y-0">
                       {cluster.brands.map((brand, bi) => (
                         <div
                           key={bi}
-                          className="group py-5 border-b border-border/20 last:border-b-0 cursor-default"
+                          className="group py-6 border-b border-border/20 last:border-b-0 cursor-default flex flex-col items-start gap-2"
                         >
-                          <span className="font-display text-[15px] font-semibold text-foreground/40 group-hover:text-foreground/80 transition-colors duration-700 tracking-tight">
-                            {brand.name}
-                          </span>
-                          <span className="block text-[10px] text-dim/0 group-hover:text-dim transition-all duration-700 mt-1 uppercase tracking-[0.15em] font-body overflow-hidden max-h-0 group-hover:max-h-6">
+                          <BrandLogo name={brand.name} domain={brand.domain} />
+                          <span className="block text-[10px] text-dim/0 group-hover:text-dim transition-all duration-700 uppercase tracking-[0.15em] font-body overflow-hidden max-h-0 group-hover:max-h-6">
                             {brand.cue}
                           </span>
                         </div>

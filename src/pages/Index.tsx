@@ -6,6 +6,7 @@ import RevealSection from "@/components/shared/RevealSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import CTABand from "@/components/shared/CTABand";
 import TopologyBackground from "@/components/shared/TopologyBackground";
+import BrandLogo from "@/components/shared/BrandLogo";
 import { ArrowRight } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -294,10 +295,10 @@ const proofClusters = [
     num: "01",
     caption: "Growth infrastructure, innovation ecosystems, and partner programmes for global technology leaders entering and expanding across ASEAN.",
     logos: [
-      { name: "HP", capability: "AI Ecosystems · Innovation" },
-      { name: "Dell EMC", capability: "Growth Infrastructure" },
-      { name: "Seagate", capability: "Global Performance" },
-      { name: "Redington", capability: "Content & Platforms" },
+      { name: "HP", domain: "hp.com", capability: "AI Ecosystems · Innovation" },
+      { name: "Dell EMC", domain: "dell.com", capability: "Growth Infrastructure" },
+      { name: "Seagate", domain: "seagate.com", capability: "Global Performance" },
+      { name: "Redington", domain: "redingtongroup.com", capability: "Content & Platforms" },
     ],
   },
   {
@@ -305,10 +306,10 @@ const proofClusters = [
     num: "02",
     caption: "Integrated brand-to-demand strategies and market entry for consumer brands scaling across Southeast Asia's diverse retail landscape.",
     logos: [
-      { name: "Brands For Less", capability: "Market Entry · Digital Growth" },
-      { name: "Sephora", capability: "Live Experiences · Launch" },
-      { name: "L'Oréal", capability: "Brand & Demand" },
-      { name: "Decathlon", capability: "Retail Activation" },
+      { name: "Brands For Less", domain: "brandsforless.com", capability: "Market Entry · Digital Growth" },
+      { name: "Sephora", domain: "sephora.com", capability: "Live Experiences · Launch" },
+      { name: "L'Oréal", domain: "loreal.com", capability: "Brand & Demand" },
+      { name: "Decathlon", domain: "decathlon.com", capability: "Retail Activation" },
     ],
   },
   {
@@ -316,10 +317,10 @@ const proofClusters = [
     num: "03",
     caption: "Build-Operate-Transfer growth programmes, subscription strategy, and market re-entry for global media and publishing brands.",
     logos: [
-      { name: "The Economist", capability: "BOT · Growth Operations" },
-      { name: "Dscoop", capability: "Community & Events" },
-      { name: "Abbott", capability: "Brand & Demand" },
-      { name: "Fujifilm", capability: "Channel Activation" },
+      { name: "The Economist", domain: "economist.com", capability: "BOT · Growth Operations" },
+      { name: "Dscoop", domain: "dscoop.org", capability: "Community & Events" },
+      { name: "Abbott", domain: "abbott.com", capability: "Brand & Demand" },
+      { name: "Fujifilm", domain: "fujifilm.com", capability: "Channel Activation" },
     ],
   },
   {
@@ -327,10 +328,10 @@ const proofClusters = [
     num: "04",
     caption: "Creator-led commerce, affiliate ecosystems, and digital marketplace activation for brands scaling across new channels.",
     logos: [
-      { name: "JSHealth Vitamins", capability: "Affiliate · Global Growth" },
-      { name: "Lazada", capability: "E-Commerce Activation" },
-      { name: "VIP Industries", capability: "Dealer Enablement" },
-      { name: "Delsey", capability: "Retail Distribution" },
+      { name: "JSHealth Vitamins", domain: "jshealthvitamins.com", capability: "Affiliate · Global Growth" },
+      { name: "Lazada", domain: "lazada.com", capability: "E-Commerce Activation" },
+      { name: "VIP Industries", domain: "vipindustries.co.in", capability: "Dealer Enablement" },
+      { name: "Delsey", domain: "delsey.com", capability: "Retail Distribution" },
     ],
   },
 ];
@@ -365,12 +366,10 @@ const SectorProof = () => (
                     {cluster.logos.map((logo, li) => (
                       <div
                         key={li}
-                        className="group py-5 border-b border-border/20 last:border-b-0 cursor-default"
+                        className="group py-6 border-b border-border/20 last:border-b-0 cursor-default flex flex-col items-start gap-2"
                       >
-                        <span className="font-display text-[15px] font-semibold text-foreground/40 group-hover:text-foreground/80 transition-colors duration-700 tracking-tight">
-                          {logo.name}
-                        </span>
-                        <span className="block text-[10px] text-dim/0 group-hover:text-dim transition-all duration-700 mt-1 uppercase tracking-[0.15em] font-body overflow-hidden max-h-0 group-hover:max-h-6">
+                        <BrandLogo name={logo.name} domain={logo.domain} />
+                        <span className="block text-[10px] text-dim/0 group-hover:text-dim transition-all duration-700 uppercase tracking-[0.15em] font-body overflow-hidden max-h-0 group-hover:max-h-6">
                           {logo.capability}
                         </span>
                       </div>
