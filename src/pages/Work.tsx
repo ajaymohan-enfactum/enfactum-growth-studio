@@ -9,6 +9,8 @@ import {
   allCaseStudies,
   outcomeFilters,
   capabilityFilters,
+  sectorFilters,
+  challengeFilters,
 } from "@/data/caseStudies";
 
 /* ─── Prioritised case order for the proof engine ─── */
@@ -46,7 +48,21 @@ const sortedCases = [
 /* ═══════════════════════════════════════════════
    FILTER BAR
    ═══════════════════════════════════════════════ */
-type FilterDimension = "outcome" | "capability";
+type FilterDimension = "outcome" | "capability" | "sector" | "challenge";
+
+const dimensionLabels: Record<FilterDimension, string> = {
+  outcome: "By outcome",
+  capability: "By capability",
+  sector: "By sector",
+  challenge: "By challenge",
+};
+
+const dimensionFilters: Record<FilterDimension, readonly string[]> = {
+  outcome: outcomeFilters,
+  capability: capabilityFilters,
+  sector: sectorFilters,
+  challenge: challengeFilters,
+};
 
 const FilterChip = ({
   label,
@@ -73,22 +89,35 @@ const FilterChip = ({
    PAGE
    ═══════════════════════════════════════════════ */
 const Work = () => {
-  const [activeOutcome, setActiveOutcome] = useState("All");
-  const [activeCapability, setActiveCapability] = useState("All");
   const [activeDimension, setActiveDimension] = useState<FilterDimension>("outcome");
+  const [activeFilter, setActiveFilter] = useState("All");
 
   const filteredCases = useMemo(() => {
+    if (activeFilter === "All") return sortedCases;
+
     return sortedCases.filter((c) => {
-      const outcomeMatch =
-        activeOutcome === "All" || c.outcomes.includes(activeOutcome);
-      const capMatch =
-        activeCapability === "All" || c.capabilities.includes(activeCapability);
-      return outcomeMatch && capMatch;
+      switch (activeDimension) {
+        case "outcome":
+          return c.outcomes.includes(activeFilter);
+        case "capability":
+          return c.capabilities.includes(activeFilter);
+        case "sector":
+          return c.sectors.includes(activeFilter);
+        case "challenge":
+          return c.challengeTypes.includes(activeFilter);
+        default:
+          return true;
+      }
     });
-  }, [activeOutcome, activeCapability]);
+  }, [activeDimension, activeFilter]);
 
   const featuredCases = filteredCases.slice(0, 10);
   const additionalCases = filteredCases.slice(10);
+
+  const handleDimensionSwitch = (dim: FilterDimension) => {
+    setActiveDimension(dim);
+    setActiveFilter("All");
+  };
 
   return (
     <PageLayout>
@@ -102,55 +131,32 @@ const Work = () => {
       <section className="py-8 md:py-12 sticky top-16 z-30 bg-background/95 backdrop-blur-sm border-b border-border/20">
         <div className="section-container">
           {/* Dimension switcher */}
-          <div className="flex gap-6 mb-4">
-            <button
-              onClick={() => setActiveDimension("outcome")}
-              className={`text-[11px] uppercase tracking-[0.2em] font-body font-medium transition-colors ${
-                activeDimension === "outcome"
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              By outcome
-            </button>
-            <button
-              onClick={() => setActiveDimension("capability")}
-              className={`text-[11px] uppercase tracking-[0.2em] font-body font-medium transition-colors ${
-                activeDimension === "capability"
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              By capability
-            </button>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4">
+            {(Object.keys(dimensionLabels) as FilterDimension[]).map((dim) => (
+              <button
+                key={dim}
+                onClick={() => handleDimensionSwitch(dim)}
+                className={`text-[11px] uppercase tracking-[0.2em] font-body font-medium transition-colors ${
+                  activeDimension === dim
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {dimensionLabels[dim]}
+              </button>
+            ))}
           </div>
 
           {/* Filter chips */}
           <div className="flex flex-wrap gap-2">
-            {activeDimension === "outcome" &&
-              outcomeFilters.map((f) => (
-                <FilterChip
-                  key={f}
-                  label={f}
-                  active={activeOutcome === f}
-                  onClick={() => {
-                    setActiveOutcome(f);
-                    setActiveCapability("All");
-                  }}
-                />
-              ))}
-            {activeDimension === "capability" &&
-              capabilityFilters.map((f) => (
-                <FilterChip
-                  key={f}
-                  label={f}
-                  active={activeCapability === f}
-                  onClick={() => {
-                    setActiveCapability(f);
-                    setActiveOutcome("All");
-                  }}
-                />
-              ))}
+            {dimensionFilters[activeDimension].map((f) => (
+              <FilterChip
+                key={f}
+                label={f}
+                active={activeFilter === f}
+                onClick={() => setActiveFilter(f)}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -160,11 +166,7 @@ const Work = () => {
         <div className="section-container">
           <RevealSection>
             <p className="eyebrow mb-2">
-              {activeOutcome !== "All"
-                ? activeOutcome
-                : activeCapability !== "All"
-                ? activeCapability
-                : "All programmes"}
+              {activeFilter !== "All" ? activeFilter : "All programmes"}
             </p>
             <p className="text-[13px] text-muted-foreground max-w-md">
               {filteredCases.length} programme{filteredCases.length !== 1 ? "s" : ""} with

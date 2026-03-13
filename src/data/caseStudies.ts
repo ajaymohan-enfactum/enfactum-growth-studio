@@ -15,6 +15,7 @@ export interface CaseStudy {
   capabilities: string[];
   sectors: string[];
   outcomes: string[];         // outcome category tags for filtering
+  challengeTypes: string[];   // challenge category tags for filtering
   challenge: string;          // 1-sentence
   role: string;               // 1-sentence Enfactum role
   results: CaseOutcome[];
@@ -53,6 +54,16 @@ export const sectorFilters = [
   "Fintech",
 ] as const;
 
+export const challengeFilters = [
+  "All",
+  "Market Launch & Expansion",
+  "Channel & Partner Activation",
+  "Cost & Operational Efficiency",
+  "Pipeline & Revenue Growth",
+  "Innovation & AI Deployment",
+  "Digital Commerce & Acquisition",
+] as const;
+
 /* ─── ALL CASES ─── */
 export const allCaseStudies: CaseStudy[] = [
   /* ── 1. HP Garage 2.0 ── */
@@ -63,6 +74,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["AI Ecosystems", "Growth Infrastructure"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Ecosystem Scale", "Revenue Growth", "Channel Engagement"],
+    challengeTypes: ["Innovation & AI Deployment"],
     challenge: "HP needed to build a regional AI innovation programme that would go beyond startup scouting to create enterprise differentiation and recurring revenue.",
     role: "Enfactum designed and operated the full programme — from mandate definition and ecosystem mapping through startup curation, enterprise matchmaking, pilot management, and commercialisation architecture.",
     results: [
@@ -85,6 +97,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure", "Brand & Demand"],
     sectors: ["Media & Publishing"],
     outcomes: ["Cost Efficiency", "Revenue Growth", "Customer Acquisition"],
+    challengeTypes: ["Cost & Operational Efficiency"],
     challenge: "The Economist needed to overhaul its APAC marketing capabilities to drive subscription growth — fast — without the cost and timeline of a traditional agency build.",
     role: "Enfactum led the full Build-Operate-Transfer engagement — team assessment, rapid deployment, integrated growth operations, and capability transfer.",
     results: [
@@ -106,6 +119,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure", "Brand & Demand"],
     sectors: ["Consumer & Retail"],
     outcomes: ["Market Entry", "Revenue Growth", "Customer Acquisition"],
+    challengeTypes: ["Market Launch & Expansion"],
     challenge: "Brands For Less needed a structured go-to-market strategy and digital infrastructure to launch in Southeast Asia from scratch.",
     role: "Enfactum built the full digital growth architecture — from market entry strategy and competitive analysis through digital acquisition, content systems, and performance optimisation.",
     results: [
@@ -126,6 +140,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Media & Publishing"],
     outcomes: ["Revenue Growth", "Market Entry", "Customer Acquisition"],
+    challengeTypes: ["Market Launch & Expansion"],
     challenge: "The Economist needed to re-enter the India market with a commercially sustainable model — not a standalone local operation.",
     role: "Enfactum architected the partnership with Hindustan Times, designing a digital-first distribution model that achieved immediate GTM results and sustained growth.",
     results: [
@@ -145,6 +160,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Live Experiences"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Pipeline Generation", "Revenue Growth"],
+    challengeTypes: ["Pipeline & Revenue Growth"],
     challenge: "HP needed a product launch that would generate measurable pipeline — not just industry buzz — for its large format printing ecosystem.",
     role: "Enfactum designed and produced an immersive launch experience built backward from commercial objectives, with integrated follow-through into pipeline.",
     results: [
@@ -165,6 +181,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Channel Engagement", "Cost Efficiency", "Sales Enablement"],
+    challengeTypes: ["Channel & Partner Activation"],
     challenge: "HP needed a scalable, low-cost way to engage and activate its graphics partner network across India and SEA — beyond traditional email and events.",
     role: "Enfactum built a WhatsApp-based partner engagement programme with structured communications, enablement content, and partner activation workflows.",
     results: [
@@ -185,6 +202,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Media & Publishing"],
     outcomes: ["Customer Acquisition", "Cost Efficiency", "Revenue Growth"],
+    challengeTypes: ["Digital Commerce & Acquisition"],
     challenge: "The Economist needed a cost-efficient subscription acquisition channel that could scale globally without proportional cost increases.",
     role: "Enfactum built and operated a global affiliate engine — from partner recruitment and onboarding through performance management and continuous optimisation.",
     results: [
@@ -204,6 +222,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Channel Engagement", "Revenue Growth", "Sales Enablement"],
+    challengeTypes: ["Channel & Partner Activation"],
     challenge: "Lexmark needed to grow market share in a competitive landscape by activating its MPC (Managed Print Channel) partner segment more effectively.",
     role: "Enfactum designed a segmented channel engagement strategy with structured loyalty architecture, tiered activation, and revenue coverage expansion.",
     results: [
@@ -223,6 +242,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Digital Commerce"],
     outcomes: ["Customer Acquisition", "Cost Efficiency"],
+    challengeTypes: ["Cost & Operational Efficiency", "Digital Commerce & Acquisition"],
     challenge: "MyRepublic needed a scalable acquisition model with zero upfront risk — paying only for verified sales, not clicks or impressions.",
     role: "Enfactum built and operated a pay-for-results performance model with end-to-end management, predictable CAC, and a scalable partnership network.",
     results: [
@@ -243,6 +263,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Pipeline Generation", "Sales Enablement"],
+    challengeTypes: ["Pipeline & Revenue Growth"],
     challenge: "Oracle needed a consultative sales framework that could generate qualified pipeline from diagnostic engagements — not cold outreach.",
     role: "Enfactum designed and deployed a Digital Health Assessment framework — an insight-led selling model deployed across major accounts to create qualified pipeline.",
     results: [
@@ -263,6 +284,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Consumer & Retail"],
     outcomes: ["Market Entry", "Revenue Growth", "Customer Acquisition"],
+    challengeTypes: ["Market Launch & Expansion"],
     challenge: "Loose Moose Wine needed to launch across Singapore, Malaysia, and Australia simultaneously with measurable revenue from day one.",
     role: "Enfactum built a performance-led expansion strategy — affiliate recruitment, retail distribution partnerships, and digital revenue generation across all three markets.",
     results: [
@@ -283,6 +305,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Consumer & Retail", "Digital Commerce"],
     outcomes: ["Revenue Growth", "Customer Acquisition"],
+    challengeTypes: ["Digital Commerce & Acquisition"],
     challenge: "A traditional pharmaceutical brand needed to establish digital commerce dominance on TikTok Shop across Indonesia.",
     role: "Enfactum built the full commerce architecture — creator recruitment, content strategy, TikTok Shop operations, and massive-scale activation with 220+ creators.",
     results: [
@@ -303,6 +326,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Consumer & Retail"],
     outcomes: ["Revenue Growth", "Customer Acquisition", "Cost Efficiency"],
+    challengeTypes: ["Cost & Operational Efficiency", "Digital Commerce & Acquisition"],
     challenge: "JSHealth needed scalable, cost-efficient acquisition channels across multiple global markets without proportional ad spend increases.",
     role: "Enfactum built and managed a partnership-driven growth engine — affiliate recruitment, performance optimisation, and cross-market scaling.",
     results: [
@@ -322,6 +346,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Customer Acquisition", "Cost Efficiency", "Pipeline Generation"],
+    challengeTypes: ["Pipeline & Revenue Growth"],
     challenge: "Seagate needed to improve global digital performance — driving more qualified traffic while reducing cost per lead across multiple regions.",
     role: "Enfactum optimised the full performance marketing stack — audience targeting, creative strategy, and conversion architecture across APAC, EU, and US.",
     results: [
@@ -341,6 +366,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Pipeline Generation", "Cost Efficiency", "Customer Acquisition"],
+    challengeTypes: ["Pipeline & Revenue Growth"],
     challenge: "HP needed to accelerate SMB pipeline generation in Malaysia through integrated digital and channel activation.",
     role: "Enfactum designed and operated an integrated pipeline programme — digital acquisition, partner co-marketing, and lead management across 9 partner channels.",
     results: [
@@ -360,6 +386,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Consumer & Retail"],
     outcomes: ["Revenue Growth", "Channel Engagement", "Sales Enablement"],
+    challengeTypes: ["Channel & Partner Activation"],
     challenge: "VIP Industries needed to activate its dealer network and drive measurable quarterly sales targets across India.",
     role: "Enfactum built a dealer enablement programme with structured activation, microsite traffic generation, and quarterly target management.",
     results: [
@@ -379,6 +406,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Live Experiences"],
     sectors: ["Consumer & Retail"],
     outcomes: ["Market Entry", "Customer Acquisition"],
+    challengeTypes: ["Market Launch & Expansion"],
     challenge: "Sephora needed a Malaysia re-launch that would generate record attendance and establish cultural relevance beyond a standard store opening.",
     role: "Enfactum designed and produced an experiential launch that created a cultural moment — driving record attendance and sustained social conversation.",
     results: [
@@ -398,6 +426,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Growth Infrastructure"],
     sectors: ["Consumer & Retail"],
     outcomes: ["Revenue Growth", "Market Entry"],
+    challengeTypes: ["Market Launch & Expansion"],
     challenge: "Delsey needed structured distribution and market activation across Asian markets to reach volume at scale.",
     role: "Enfactum built distribution infrastructure and market activation programmes across multiple Asian markets.",
     results: [
@@ -415,6 +444,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["AI Ecosystems"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Ecosystem Scale", "Revenue Growth"],
+    challengeTypes: ["Innovation & AI Deployment"],
     challenge: "HP's enterprise customers needed practical AI implementations — not innovation theatre — with measurable data and operational outcomes.",
     role: "Enfactum delivered enterprise AI solutions across multiple use cases — from data enrichment to multi-lingual voice agents — moving each from pilot to production.",
     results: [
@@ -434,6 +464,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Live Experiences"],
     sectors: ["Digital Commerce"],
     outcomes: ["Customer Acquisition", "Revenue Growth"],
+    challengeTypes: ["Digital Commerce & Acquisition"],
     challenge: "Lazada needed to break engagement records across SEA markets for its flagship 11.11 shopping festival.",
     role: "Enfactum designed and executed multi-market festival activation with record-breaking engagement and commercial outcomes.",
     results: [
@@ -451,6 +482,7 @@ export const allCaseStudies: CaseStudy[] = [
     capabilities: ["Brand & Demand"],
     sectors: ["Enterprise Technology"],
     outcomes: ["Channel Engagement", "Sales Enablement"],
+    challengeTypes: ["Channel & Partner Activation"],
     challenge: "Redington needed a scalable content platform to support partner engagement and channel enablement across the region.",
     role: "Enfactum built a content production platform delivering 50+ video assets with full strategy deployment across Redington's partner network.",
     results: [
