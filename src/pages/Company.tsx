@@ -168,7 +168,7 @@ const Company = () => (
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
           {leaders.map((leader, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
+            <RevealSection key={i} delay={i * 0.08} blur>
               <div className="group">
                 {/* Portrait placeholder — restrained monochrome */}
                 <div className="w-full aspect-[3/4] rounded-sm bg-gradient-to-b from-secondary/80 to-secondary/40 border border-border/30 mb-6 overflow-hidden relative">
