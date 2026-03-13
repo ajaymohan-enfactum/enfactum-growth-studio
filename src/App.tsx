@@ -46,6 +46,8 @@ const App = () => (
           <Route path="/company/regional-nodes" element={<RegionalNodes />} />
           <Route path="/company/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfUse />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
