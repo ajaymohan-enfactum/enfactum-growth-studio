@@ -194,24 +194,23 @@ const capabilityData: Record<string, CapData> = {
     proof: [
       {
         title: "HP Garage 2.0",
-        capability: "Innovation Ecosystems · Startup Partnerships",
+        capability: "AI Incubation · Ecosystem Architecture",
         region: "Singapore · Malaysia · Indonesia · India",
         outcomes: [
-          { metric: "200+", label: "Startups evaluated" },
-          { metric: "12", label: "Enterprise pilots launched" },
-          { metric: "4", label: "Markets expanded" },
-          { metric: "3", label: "Production integrations" },
+          { metric: "30+", label: "AI startups delivering in GA" },
+          { metric: "15+", label: "Key verticals empowered" },
+          { metric: "9", label: "Companies scaled to production" },
         ],
         insight: "Innovation programmes succeed when they're designed as operating systems, not events.",
       },
       {
-        title: "Enterprise AI Programme",
-        capability: "AI/ML Implementation · Ecosystem Design",
+        title: "Enterprise AI Portfolio",
+        capability: "AI Solutions · Data Enrichment",
         region: "Singapore · India",
         outcomes: [
-          { metric: "6", label: "Production-ready implementations" },
-          { metric: "12mo", label: "From mandate to deployment" },
-          { metric: "8", label: "Startup partnerships structured" },
+          { metric: "5+", label: "Major enterprise AI implementations" },
+          { metric: "100K+", label: "Records enriched via AI for HP" },
+          { metric: "9", label: "Multi-lingual voice & text agents" },
         ],
         insight: "Enterprise AI scales when there's architecture between the lab and the business.",
       },
