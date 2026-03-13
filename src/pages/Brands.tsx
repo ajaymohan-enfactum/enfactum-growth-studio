@@ -74,7 +74,7 @@ const outcomeCapsules = [
   {
     brand: "HP",
     label: "AI Ecosystems / Growth Infrastructure",
-    proof: "Built regional innovation and ecosystem architecture across multiple markets and business units — from AI incubation to SMB pipeline to large format product launches.",
+    outcome: "Built regional innovation and ecosystem architecture across multiple markets and business units — from AI incubation to SMB pipeline to large format product launches.",
   },
   {
     brand: "The Economist",
