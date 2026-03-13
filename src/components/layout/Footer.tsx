@@ -17,6 +17,7 @@ const footerLinks = {
   ],
   Resources: [
     { label: "Work", href: "/work" },
+    { label: "Brands", href: "/brands" },
     { label: "Thinking", href: "/thinking" },
     { label: "Contact", href: "/contact" },
   ],
