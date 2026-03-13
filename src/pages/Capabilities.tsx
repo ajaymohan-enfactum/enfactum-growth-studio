@@ -69,7 +69,7 @@ const Capabilities = () => (
     />
     <HeroSection
       eyebrow="Capabilities"
-      headline="An integrated growth operating system for Southeast Asia."
+      headline={<>An integrated growth operating system for <span className="text-primary">Southeast Asia.</span></>}
       description="Each capability solves a specific growth challenge. Together, they form an integrated operating model — strategy connected to ecosystems connected to execution."
     />
 

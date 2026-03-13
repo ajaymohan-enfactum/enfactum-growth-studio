@@ -174,7 +174,7 @@ const Partnerships = () => (
     {/* ── SECTION 1: HERO ── */}
     <HeroSection
       eyebrow="Partnerships"
-      headline="Partnerships that move markets."
+      headline={<>Partnerships that <span className="text-primary">move markets.</span></>}
       description="Enfactum partners with enterprise platforms, distributors, startups, media properties, and ecosystem builders to create growth, capability, and commercial momentum across Southeast Asia."
     >
       <div className="flex flex-col sm:flex-row gap-4">

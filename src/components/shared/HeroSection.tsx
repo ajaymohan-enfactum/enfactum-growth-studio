@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 interface HeroSectionProps {
   eyebrow?: string;
-  headline: string;
+  headline: ReactNode;
   description?: string;
   children?: ReactNode;
   compact?: boolean;
