@@ -358,7 +358,7 @@ const CapabilityDetail = () => {
           </RevealSection>
 
           <div className="mt-8 space-y-0">
-            {getCasesByIds(data.proofCaseIds).map((cs, i) => (
+            {getCasesByIds(data.outcomeCaseIds).map((cs, i) => (
               <CaseCard key={cs.id} cs={cs} index={i} />
             ))}
           </div>
