@@ -173,6 +173,11 @@ const capabilityData: Record<string, CapData> = {
       body: "The AI Ecosystems capability is led by people who've built and operated corporate innovation programmes — who understand both enterprise procurement cycles and startup velocity, and know how to bridge the two.",
     },
     nextCapability: { title: "Live Experiences", href: "/capabilities/live-experiences" },
+    faqs: [
+      { question: "What is an AI ecosystem programme?", answer: "An AI ecosystem programme connects enterprise innovation mandates with external capability — startups, AI partners, research institutions — through structured scouting, pilot management, and scale-up architecture. It moves beyond demo days to create production-ready implementations." },
+      { question: "How does Enfactum help enterprises scale AI beyond pilots?", answer: "Enfactum builds the operating architecture between pilot and production: business sponsorship, technical integration, procurement pathways, and clear success criteria — so good ideas don't die in sandbox environments." },
+      { question: "What regions does Enfactum cover for innovation programmes?", answer: "Enfactum operates AI and innovation ecosystem programmes across Singapore, India, Malaysia, Indonesia, and broader APAC — with startup ecosystem access across 21 countries." },
+    ],
   },
 
   "live-experiences": {
