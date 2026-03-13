@@ -7,6 +7,8 @@ import SectionHeader from "@/components/shared/SectionHeader";
 import CTABand from "@/components/shared/CTABand";
 import TopologyBackground from "@/components/shared/TopologyBackground";
 import BrandLogo from "@/components/shared/BrandLogo";
+import CaseCard from "@/components/shared/CaseCard";
+import { getFlagshipCases } from "@/data/caseStudies";
 import { ArrowRight } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -387,80 +389,34 @@ const SectorProof = () => (
 
 /* ═══════════════════════════════════════════════
    SECTION 7 — FEATURED WORK
-   Large editorial case cards
+   Result-oriented flagship proof
    ═══════════════════════════════════════════════ */
-const featuredWork = [
-  {
-    title: "HP Garage 2.0",
-    tags: ["AI Ecosystems", "Innovation"],
-    challenge: "Build a robust AI innovation program driving adoption across key verticals with government, university, and startup partners.",
-    role: "End-to-end programme design, startup scouting, and ecosystem architecture.",
-    outcome: "30+ AI startups in GA · 15+ verticals · 9 companies scaled",
-  },
-  {
-    title: "The Economist APAC",
-    tags: ["Growth Infrastructure", "Build-Operate-Transfer"],
-    challenge: "Overhaul local marketing capabilities to drive subscriptions and re-enter the India market.",
-    role: "Full BOT engagement — team build, growth operations, affiliate engine, India re-entry.",
-    outcome: "47% cost savings · 50% agency fee reduction · 6-week deployment",
-  },
-  {
-    title: "TikTok Shop Pharma",
-    tags: ["Brand & Demand", "Digital Commerce"],
-    challenge: "Establish a traditional pharma brand as a digital-first leader on TikTok Shop Indonesia.",
-    role: "Creator recruitment, content strategy, TikTok Shop operations, and scale activation.",
-    outcome: "1B+ IDR monthly revenue · 10M+ reach · 220+ creators",
-  },
-];
-
-const FeaturedWork = () => (
-  <section className="py-32 md:py-44">
-    <div className="section-container">
-      <SectionHeader
-        eyebrow="Featured work"
-        headline="Proof in practice."
-      />
-      <div className="mt-20 space-y-0">
-        {featuredWork.map((work, i) => (
-          <RevealSection key={i} delay={i * 0.08}>
-            <Link to="/work" className="group block">
-              <div className="py-12 border-b border-border/30 group-hover:border-primary/15 transition-colors duration-700">
-                <div className="grid md:grid-cols-12 gap-6 md:gap-8">
-                  <div className="md:col-span-5">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {work.tags.map((tag) => (
-                        <span key={tag} className="text-[11px] px-2.5 py-1 rounded-sm bg-primary/8 text-primary/70 font-medium tracking-wide uppercase">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-500">
-                      {work.title}
-                    </h3>
-                  </div>
-                  <div className="md:col-span-5">
-                    <p className="body-md text-muted-foreground">{work.challenge}</p>
-                    <p className="text-[13px] text-dim mt-3">{work.role}</p>
-                  </div>
-                  <div className="md:col-span-2 flex md:flex-col md:items-end md:justify-end">
-                    <p className="text-sm font-medium text-primary/80 leading-snug text-right">
-                      {work.outcome}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </RevealSection>
-        ))}
+const FeaturedWork = () => {
+  const flagships = getFlagshipCases();
+  return (
+    <section className="py-32 md:py-44">
+      <div className="section-container">
+        <SectionHeader
+          eyebrow="Featured work"
+          headline="Proof in practice."
+        />
+        <p className="text-[13px] text-muted-foreground mt-4 max-w-lg">
+          Selected work with measurable commercial, operational, and ecosystem outcomes.
+        </p>
+        <div className="mt-16 space-y-0">
+          {flagships.map((cs, i) => (
+            <CaseCard key={cs.id} cs={cs} index={i} />
+          ))}
+        </div>
+        <RevealSection delay={0.3} className="mt-12">
+          <Link to="/work" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors">
+            View all work <ArrowRight className="w-4 h-4" />
+          </Link>
+        </RevealSection>
       </div>
-      <RevealSection delay={0.3} className="mt-12">
-        <Link to="/work" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors">
-          View all work <ArrowRight className="w-4 h-4" />
-        </Link>
-      </RevealSection>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 /* ═══════════════════════════════════════════════
    SECTION 8 — DEPTH BEHIND THE WORK

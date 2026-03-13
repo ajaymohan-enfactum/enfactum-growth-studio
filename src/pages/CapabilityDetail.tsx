@@ -1,10 +1,12 @@
 import { Link, useParams } from "react-router-dom";
-import { motion } from "framer-motion";
+
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
+import CaseCard from "@/components/shared/CaseCard";
+import { getCasesByIds } from "@/data/caseStudies";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -21,7 +23,7 @@ interface CapData {
   challenge: { heading: string; body: string; bullets: string[] };
   whatWeBuild: { heading: string; body: string; deliverables: { title: string; desc: string }[] };
   howItWorks: { step: string; desc: string }[];
-  proof: { title: string; capability: string; region: string; outcomes: { metric: string; label: string }[]; insight: string }[];
+  proofCaseIds: string[];       // references to central case study data
   team: { heading: string; body: string };
   nextCapability: { title: string; href: string };
 }
@@ -61,30 +63,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Operations build", desc: "Embed within the business to build pipeline infrastructure, sales processes, and demand operations." },
       { step: "Scale & transfer", desc: "Expand to new markets using proven playbooks. Transfer operations, knowledge, and ownership to internal teams." },
     ],
-    proof: [
-      {
-        title: "Brands For Less Digital Growth",
-        capability: "Digital Acquisition · Market Presence",
-        region: "Regional",
-        outcomes: [
-          { metric: "+42%", label: "Site traffic uplift achieved" },
-          { metric: "360°", label: "Growth strategy deployed" },
-          { metric: "High", label: "Impact on competitive position" },
-        ],
-        insight: "Market entry in Southeast Asia is an ecosystem play, not a distribution deal.",
-      },
-      {
-        title: "HP SMB Pipeline Acceleration",
-        capability: "Digital + Channel Activation",
-        region: "Malaysia",
-        outcomes: [
-          { metric: "60%", label: "Lower cost per lead" },
-          { metric: "2,000+", label: "Unique leads delivered" },
-          { metric: "9", label: "Partner channels activated" },
-        ],
-        insight: "Integrated digital and partner programmes outperform siloed execution.",
-      },
-    ],
+    proofCaseIds: ["economist-bot", "economist-ht", "lexmark-mpc", "hp-whatsapp", "bfl-sea", "hp-smb"],
     team: {
       heading: "Led by GTM and channel specialists.",
       body: "The Growth Infrastructure capability is led by principals with deep experience in enterprise sales, channel programme design, and regional GTM architecture — people who have built and operated these systems across ASEAN markets.",
@@ -126,30 +105,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Optimisation & scaling", desc: "Continuous optimisation based on commercial outcomes. Scale what works. Kill what doesn't. Expand to new markets." },
       { step: "Capability transfer", desc: "Build internal capability. Transfer playbooks, vendor relationships, and operational knowledge to your team." },
     ],
-    proof: [
-      {
-        title: "JSHealth Vitamins Global Growth",
-        capability: "Affiliate · Partnership Channels",
-        region: "AU · EU · UK · US",
-        outcomes: [
-          { metric: "+411%", label: "ROAS via partnerships" },
-          { metric: "+311%", label: "Total ROI delivered" },
-          { metric: "190+", label: "Active affiliate partners" },
-        ],
-        insight: "Affiliate partnerships can transform into a scalable, high-ROI growth channel.",
-      },
-      {
-        title: "TikTok Shop Pharma",
-        capability: "Creator Marketing · Digital Commerce",
-        region: "Indonesia",
-        outcomes: [
-          { metric: "1B+", label: "IDR monthly revenue" },
-          { metric: "10M+", label: "Total reach generated" },
-          { metric: "4.1%", label: "Engagement rate (above avg)" },
-        ],
-        insight: "Creator-led commerce at scale requires operational infrastructure, not just influencer lists.",
-      },
-    ],
+    proofCaseIds: ["economist-affiliate", "myrepublic", "loose-moose", "jshealth", "tiktok-pharma"],
     team: {
       heading: "Led by creative and performance specialists.",
       body: "The Brand & Demand capability is led by specialists who've run integrated demand programmes across ASEAN — people who bridge brand strategy and commercial performance, not just media buying.",
@@ -191,30 +147,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Pilot & partnership", desc: "Design and manage pilot programmes. Structure partnerships. Operate sandboxes. Evaluate outcomes." },
       { step: "Scale & transfer", desc: "Move successful pilots to production. Build procurement pathways. Transfer programme ownership and methodology." },
     ],
-    proof: [
-      {
-        title: "HP Garage 2.0",
-        capability: "AI Incubation · Ecosystem Architecture",
-        region: "Singapore · Malaysia · Indonesia · India",
-        outcomes: [
-          { metric: "30+", label: "AI startups delivering in GA" },
-          { metric: "15+", label: "Key verticals empowered" },
-          { metric: "9", label: "Companies scaled to production" },
-        ],
-        insight: "Innovation programmes succeed when they're designed as operating systems, not events.",
-      },
-      {
-        title: "Enterprise AI Portfolio",
-        capability: "AI Solutions · Data Enrichment",
-        region: "Singapore · India",
-        outcomes: [
-          { metric: "5+", label: "Major enterprise AI implementations" },
-          { metric: "100K+", label: "Records enriched via AI for HP" },
-          { metric: "9", label: "Multi-lingual voice & text agents" },
-        ],
-        insight: "Enterprise AI scales when there's architecture between the lab and the business.",
-      },
-    ],
+    proofCaseIds: ["hp-garage", "enterprise-ai", "oracle-dha"],
     team: {
       heading: "Led by innovation operators, not consultants.",
       body: "The AI Ecosystems capability is led by people who've built and operated corporate innovation programmes — who understand both enterprise procurement cycles and startup velocity, and know how to bridge the two.",
@@ -256,30 +189,7 @@ const capabilityData: Record<string, CapData> = {
       { step: "Activation & engagement", desc: "Execute the experience. Manage real-time engagement, audience interaction, and partner activation." },
       { step: "Measurement & follow-through", desc: "Post-event pipeline tracking, lead handoff, partner follow-up, and commercial impact reporting." },
     ],
-    proof: [
-      {
-        title: "HP Large Format Product Launch",
-        capability: "Immersive Launch · Product Ecosystem",
-        region: "Regional APAC",
-        outcomes: [
-          { metric: "US$3M", label: "Product funnel from launch" },
-          { metric: "$12K+", label: "Immediate art sales at event" },
-          { metric: "50+", label: "Press & media articles generated" },
-        ],
-        insight: "The most powerful brand experiences are commercially designed from day one.",
-      },
-      {
-        title: "Sephora Malaysia Re-Launch",
-        capability: "Experiential · Retail Launch",
-        region: "Malaysia",
-        outcomes: [
-          { metric: "Record", label: "Store opening attendance" },
-          { metric: "High", label: "Social media virality achieved" },
-          { metric: "Cultural", label: "Moment created, not just a store" },
-        ],
-        insight: "Retail launches succeed when they create cultural moments, not just store openings.",
-      },
-    ],
+    proofCaseIds: ["hp-lf-launch", "bfl-sea", "sephora-my", "lazada-1111"],
     team: {
       heading: "Led by event strategists who think in commercial outcomes.",
       body: "The Live Experiences capability is led by people who've produced hundreds of enterprise events across Southeast Asia — and who measure success by pipeline generated, not applause volume.",
@@ -447,43 +357,11 @@ const CapabilityDetail = () => {
             </p>
           </RevealSection>
 
-          {data.proof.map((p, pi) => (
-            <RevealSection key={pi} delay={0.05}>
-              <div className="border-t border-border/30 py-14 md:py-16 mt-8 first:mt-14">
-                <div className="grid md:grid-cols-12 gap-8">
-                  <div className="md:col-span-5">
-                    <span className="text-[10px] text-dim uppercase tracking-[0.15em] font-body block mb-3">{p.capability}</span>
-                    <h3 className="font-display text-2xl font-bold text-foreground">{p.title}</h3>
-                    <span className="text-[12px] text-muted-foreground block mt-2">{p.region}</span>
-                    <p className="text-[13px] text-foreground/50 italic mt-8 border-l-2 border-primary/20 pl-4 leading-relaxed">
-                      "{p.insight}"
-                    </p>
-                  </div>
-                  <div className="md:col-span-5 md:col-start-7">
-                    <h4 className="text-[11px] uppercase tracking-[0.2em] text-foreground/40 font-body mb-8">Outcomes</h4>
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-8">
-                      {p.outcomes.map((o, oi) => (
-                        <motion.div
-                          key={oi}
-                          initial={{ opacity: 0, y: 15 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.7, delay: 0.15 + oi * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                        >
-                          <span className="font-display text-3xl font-extrabold text-primary/85 tracking-tight block">
-                            {o.metric}
-                          </span>
-                          <span className="text-[12px] text-muted-foreground mt-1.5 block leading-snug font-body">
-                            {o.label}
-                          </span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </RevealSection>
-          ))}
+          <div className="mt-8 space-y-0">
+            {getCasesByIds(data.proofCaseIds).map((cs, i) => (
+              <CaseCard key={cs.id} cs={cs} index={i} />
+            ))}
+          </div>
         </div>
       </section>
 
