@@ -22,6 +22,7 @@ const articles: Article[] = [
   {
     title: "Southeast Asia Is Not One Market. Stop Planning It Like One.",
     category: "Operator View",
+    theme: "Southeast Asia Growth",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "8 min read",
@@ -32,6 +33,7 @@ const articles: Article[] = [
   {
     title: "In B2B, Your Buyer Already Trusts Someone Else.",
     category: "Operator View",
+    theme: "Ecosystems & Partnerships",
     author: "William Gaultier",
     authorRole: "Partner",
     readTime: "7 min read",
@@ -42,6 +44,7 @@ const articles: Article[] = [
   {
     title: "Imported Playbooks Break Fast in Southeast Asia.",
     category: "Field Note",
+    theme: "Southeast Asia Growth",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "7 min read",
@@ -51,6 +54,7 @@ const articles: Article[] = [
   {
     title: "Most Enterprise AI Programs Don't Have an AI Problem. They Have an Operating Model Problem.",
     category: "Operator View",
+    theme: "AI & Innovation",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "7 min read",
@@ -60,6 +64,7 @@ const articles: Article[] = [
   {
     title: "Partner Programs Don't Fail from Lack of Intent. They Fail from Lack of Design.",
     category: "Operator View",
+    theme: "Ecosystems & Partnerships",
     author: "William Gaultier",
     authorRole: "Partner",
     readTime: "7 min read",
@@ -69,6 +74,7 @@ const articles: Article[] = [
   {
     title: "Market Entry in Southeast Asia Is Really a System Design Problem.",
     category: "Operator View",
+    theme: "Southeast Asia Growth",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
     readTime: "7 min read",
@@ -78,6 +84,7 @@ const articles: Article[] = [
   {
     title: "AI Ecosystems Matter More Than AI Pilots.",
     category: "Operator View",
+    theme: "AI & Innovation",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "7 min read",
@@ -87,6 +94,7 @@ const articles: Article[] = [
   {
     title: "Distribution Is Not a Channel. It Is a Strategic Capability.",
     category: "Operator View",
+    theme: "Southeast Asia Growth",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
     readTime: "7 min read",
@@ -96,6 +104,7 @@ const articles: Article[] = [
   {
     title: "Stop Choosing Between Brand and Performance.",
     category: "Operator View",
+    theme: "Brand & Demand",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
     readTime: "6 min read",
@@ -105,6 +114,7 @@ const articles: Article[] = [
   {
     title: "Events Don't Need More Energy. They Need More Commercial Intent.",
     category: "Field Note",
+    theme: "Launches & Activation",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "6 min read",
@@ -114,6 +124,7 @@ const articles: Article[] = [
   {
     title: "The Real Value of Corporate Innovation Is Commercial, Not Cosmetic.",
     category: "Operator View",
+    theme: "AI & Innovation",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "7 min read",
@@ -123,6 +134,7 @@ const articles: Article[] = [
   {
     title: "CAC Looks Different When Trust Travels Through Ecosystems.",
     category: "Field Note",
+    theme: "Ecosystems & Partnerships",
     author: "William Gaultier",
     authorRole: "Partner",
     readTime: "7 min read",
@@ -132,6 +144,7 @@ const articles: Article[] = [
   {
     title: "A Product Launch Should Create Movement, Not Just Attention.",
     category: "Field Note",
+    theme: "Launches & Activation",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "6 min read",
@@ -141,6 +154,7 @@ const articles: Article[] = [
   {
     title: "In a Zero-Click World, Brands Must Become the Answer.",
     category: "Market Signal",
+    theme: "Brand & Demand",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
     readTime: "7 min read",
@@ -150,6 +164,7 @@ const articles: Article[] = [
   {
     title: "The Best Market Activations Don't Feel Like Campaigns. They Feel Like Entry Points.",
     category: "Field Note",
+    theme: "Launches & Activation",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "6 min read",
@@ -173,10 +188,15 @@ const orderedCategories = categoryOrder.filter((c) => groupedByCategory[c]);
 
 const Thinking = () => (
   <PageLayout>
+    <SEOHead
+      title="Thinking — Field Notes on Growth, Ecosystems, and Strategy in Southeast Asia"
+      description="Original operator-led perspectives on growth, market entry, AI ecosystems, partnerships, and commercial strategy across Southeast Asia — from the people who do the work."
+      path="/thinking"
+    />
     <HeroSection
       eyebrow="Thinking"
       headline="Perspectives from inside the work."
-      description="Original perspectives on growth, marketing, AI, and the APAC market — from people who operate in it every day."
+      description="Original perspectives on growth, ecosystems, AI, and commercial strategy across Southeast Asia — from people who operate in it every day."
     />
 
     {/* Featured articles */}
@@ -185,9 +205,12 @@ const Thinking = () => (
         <div className="grid md:grid-cols-2 gap-8">
           {featuredArticles.map((article, i) => (
             <RevealSection key={i} delay={i * 0.1}>
-              <div className="card-premium h-full group cursor-pointer transition-all duration-500 hover:border-primary/20">
-                <span className="eyebrow text-primary">{article.category}</span>
-                <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mt-3 leading-snug group-hover:text-primary transition-colors duration-500">
+              <article className="card-premium h-full group cursor-pointer transition-all duration-500 hover:border-primary/20">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="eyebrow text-primary">{article.category}</span>
+                  <span className="text-[10px] text-muted-foreground/60 uppercase tracking-wider font-body">{article.theme}</span>
+                </div>
+                <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mt-1 leading-snug group-hover:text-primary transition-colors duration-500">
                   {article.title}
                 </h2>
                 <p className="text-sm text-muted-foreground mt-4 leading-relaxed font-body">
@@ -209,7 +232,7 @@ const Thinking = () => (
                 <span className="inline-flex items-center gap-1 mt-4 text-[11px] text-primary/60 uppercase tracking-wider font-body group-hover:text-primary transition-colors duration-500">
                   Read article <ArrowRight className="w-3 h-3" />
                 </span>
-              </div>
+              </article>
             </RevealSection>
           ))}
         </div>
@@ -226,7 +249,10 @@ const Thinking = () => (
           <div className="grid md:grid-cols-2 gap-6">
             {groupedByCategory[category].map((article, ai) => (
               <RevealSection key={ai} delay={ai * 0.08}>
-                <div className="group cursor-pointer border-b border-border pb-6">
+                <article className="group cursor-pointer border-b border-border pb-6">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-[10px] text-primary/50 uppercase tracking-wider font-body">{article.theme}</span>
+                  </div>
                   <h4 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
                     {article.title}
                   </h4>
@@ -235,18 +261,49 @@ const Thinking = () => (
                   </p>
                   <div className="flex items-center gap-3 mt-3">
                     <span className="text-[12px] font-medium text-foreground/70 font-body">{article.author}</span>
+                    {article.authorRole && (
+                      <>
+                        <span className="text-xs text-dim">·</span>
+                        <span className="text-[11px] text-muted-foreground font-body">{article.authorRole}</span>
+                      </>
+                    )}
                     <span className="text-xs text-dim">·</span>
                     <span className="text-xs text-dim">{article.readTime}</span>
                     <span className="text-xs text-dim">·</span>
                     <span className="text-xs text-dim">{article.date}</span>
                   </div>
-                </div>
+                </article>
               </RevealSection>
             ))}
           </div>
         </div>
       </section>
     ))}
+
+    {/* Internal links section */}
+    <section className="py-16 md:py-20">
+      <div className="section-container">
+        <RevealSection>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link to="/capabilities" className="group block border-t border-border/30 pt-6">
+              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
+              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Explore capabilities</h4>
+              <p className="text-[13px] text-muted-foreground mt-1">See how Enfactum's four capabilities connect strategy to execution.</p>
+            </Link>
+            <Link to="/work" className="group block border-t border-border/30 pt-6">
+              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
+              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">View selected work</h4>
+              <p className="text-[13px] text-muted-foreground mt-1">Case studies with measurable outcomes across Southeast Asia.</p>
+            </Link>
+            <Link to="/partnerships" className="group block border-t border-border/30 pt-6">
+              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
+              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Partnership models</h4>
+              <p className="text-[13px] text-muted-foreground mt-1">How Enfactum designs and operates partnership-led growth.</p>
+            </Link>
+          </div>
+        </RevealSection>
+      </div>
+    </section>
 
     <CTABand headline="Have a growth challenge to discuss?" primaryLabel="Start a conversation" primaryHref="/contact" />
   </PageLayout>
