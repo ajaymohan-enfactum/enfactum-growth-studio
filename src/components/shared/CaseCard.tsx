@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import RevealSection from "@/components/shared/RevealSection";
 import type { CaseStudy } from "@/data/caseStudies";
 import { ArrowRight } from "lucide-react";
 
@@ -18,7 +17,11 @@ interface CaseCardProps {
 const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
   if (variant === "compact") {
     return (
-      <RevealSection delay={index * 0.04}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
+      >
         <Link to="/work" className="group block">
           <div className="grid md:grid-cols-12 gap-4 py-6 border-b border-border/20 hover:border-primary/10 transition-colors duration-700">
             <div className="md:col-span-3">
@@ -47,12 +50,16 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
             </div>
           </div>
         </Link>
-      </RevealSection>
+      </motion.div>
     );
   }
 
   return (
-    <RevealSection delay={index * 0.08}>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+    >
       <div className="py-12 md:py-14 border-b border-border/30 hover:border-primary/15 transition-colors duration-700 group">
         <div className="grid md:grid-cols-12 gap-6 md:gap-8">
           {/* Left: Client + headline + tags */}
@@ -89,20 +96,14 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
             <span className="text-[10px] text-dim uppercase tracking-[0.15em] font-body block mb-4">Outcomes</span>
             <div className="space-y-4">
               {cs.results.slice(0, 4).map((r, ri) => (
-                <motion.div
-                  key={ri}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.15 + ri * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                >
+                <div key={ri}>
                   <span className="font-display text-2xl font-extrabold text-primary/85 tracking-tight block leading-none">
                     {r.metric}
                   </span>
                   <span className="text-[11px] text-muted-foreground mt-1 block leading-snug font-body">
                     {r.label}
                   </span>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -117,7 +118,7 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
           </div>
         )}
       </div>
-    </RevealSection>
+    </motion.div>
   );
 };
 
