@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useRef, useCallback, useState } from "react";
 import { Button } from "@/components/ui/button";
+import MagneticButton from "@/components/shared/MagneticButton";
+import TextShimmer from "@/components/shared/TextShimmer";
+import InsightTicker from "@/components/shared/InsightTicker";
+import StickySectionLabel from "@/components/shared/StickySectionLabel";
+
 import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
 import SectionHeader from "@/components/shared/SectionHeader";
@@ -18,66 +24,92 @@ const ease = [0.22, 1, 0.36, 1] as const;
    SECTION 1 — HERO
    Full-viewport cinematic opening
    ═══════════════════════════════════════════════ */
-const Hero = () => (
-  <section className="relative min-h-screen flex items-end overflow-hidden">
-    <TopologyBackground />
-    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/60" />
-    <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
+const Hero = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
+  const [hovering, setHovering] = useState(false);
 
-    <div className="section-container relative z-10 pb-20 md:pb-28 lg:pb-36 pt-40">
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.2, ease }}
-        className="eyebrow mb-8"
-      >
-        Growth &amp; Innovation Operating Partner · Southeast Asia
-      </motion.p>
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  }, []);
 
-      <motion.h1
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.4, ease }}
-        className="headline-display max-w-[18ch]"
-      >
-        Where strategy, ecosystems, and execution{" "}
-        <span className="text-primary">move together.</span>
-      </motion.h1>
+  return (
+    <section
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+      className="relative min-h-screen flex items-end overflow-hidden"
+    >
+      <TopologyBackground />
+      {/* Cursor spotlight */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-700"
+        style={{
+          opacity: hovering ? 1 : 0,
+          background: `radial-gradient(600px circle at ${cursorPos.x}px ${cursorPos.y}px, hsl(210 100% 50% / 0.07), transparent 55%)`,
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/60" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
 
-      <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.7, ease }}
-        className="body-xl mt-8 max-w-[52ch]"
-      >
-        Built for how Southeast Asia actually works, Enfactum brings together
-        strategy, ecosystems, and execution to help enterprise brands scale
-        with clarity and momentum.
-      </motion.p>
+      <div className="section-container relative z-10 pb-20 md:pb-28 lg:pb-36 pt-40">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.2, ease }}
+          className="eyebrow mb-8"
+        >
+          Growth &amp; Innovation Operating Partner · Southeast Asia
+        </motion.p>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.0, ease }}
-        className="flex flex-col sm:flex-row gap-4 mt-14"
-      >
-        <Link to="/contact">
-          <Button variant="hero" size="xl">Start a conversation</Button>
-        </Link>
-        <Link to="/work">
-          <Button variant="hero-outline" size="xl">See our work</Button>
-        </Link>
-      </motion.div>
-    </div>
-  </section>
-);
+        <motion.h1
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.4, ease }}
+          className="headline-display max-w-[18ch]"
+        >
+          Where strategy, ecosystems, and execution{" "}
+          <TextShimmer><span className="text-primary">move together.</span></TextShimmer>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.7, ease }}
+          className="body-xl mt-8 max-w-[52ch]"
+        >
+          Built for how Southeast Asia actually works, Enfactum brings together
+          strategy, ecosystems, and execution to help enterprise brands scale
+          with clarity and momentum.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0, ease }}
+          className="flex flex-col sm:flex-row gap-4 mt-14"
+        >
+          <Link to="/contact">
+            <MagneticButton variant="hero" size="xl">Start a conversation</MagneticButton>
+          </Link>
+          <Link to="/work">
+            <MagneticButton variant="hero-outline" size="xl">See our work</MagneticButton>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 /* ═══════════════════════════════════════════════
    SECTION 2 — WHY SOUTHEAST ASIA
    Editorial split with generous breathing room
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section className="py-32 md:py-44">
+  <section id="why-sea" className="py-32 md:py-44">
     <div className="section-container">
       <div className="grid md:grid-cols-12 gap-12 md:gap-8">
         <div className="md:col-span-5">
@@ -131,7 +163,7 @@ const frictionPoints = [
 ];
 
 const GrowthBreaks = () => (
-  <section className="py-32 md:py-44">
+  <section id="growth-breaks" className="py-32 md:py-44">
     <div className="section-container">
       <div className="section-divider mb-20" />
       <SectionHeader
@@ -195,7 +227,7 @@ const capabilities = [
 ];
 
 const WhatWeBuilds = () => (
-  <section className="section-alt py-32 md:py-44">
+  <section id="capabilities" className="section-alt py-32 md:py-44">
     <div className="section-container">
       <SectionHeader
         eyebrow="What Enfactum builds"
@@ -244,7 +276,7 @@ const processSteps = [
 ];
 
 const HowWeWork = () => (
-  <section className="py-32 md:py-44">
+  <section id="how-we-work" className="py-32 md:py-44">
     <div className="section-container">
       <SectionHeader
         eyebrow="How we work"
@@ -395,7 +427,7 @@ const SectorExperience = () => (
 const FeaturedWork = () => {
   const flagships = getFlagshipCases();
   return (
-    <section className="py-32 md:py-44">
+    <section id="selected-work" className="py-32 md:py-44">
       <div className="section-container">
         <SectionHeader
           eyebrow="Selected work"
@@ -431,7 +463,7 @@ const depthBlocks = [
 ];
 
 const DepthSection = () => (
-  <section className="section-alt py-32 md:py-44">
+  <section id="depth" className="section-alt py-32 md:py-44">
     <div className="section-container">
       <SectionHeader
         eyebrow="Depth behind the work"
@@ -468,7 +500,7 @@ const articles = [
 ];
 
 const Perspectives = () => (
-  <section className="py-32 md:py-44">
+  <section id="thinking" className="py-32 md:py-44">
     <div className="section-container">
       <div className="section-divider mb-20" />
       <div className="grid md:grid-cols-12 gap-8">
@@ -504,6 +536,28 @@ const Perspectives = () => (
 );
 
 /* ═══════════════════════════════════════════════
+   INSIGHT TICKER DATA
+   ═══════════════════════════════════════════════ */
+const clientInsights = [
+  "Enterprise pipeline grows when you lead with diagnostics, not product demos.",
+  "Multi-market launch succeeds when you build distribution before awareness.",
+  "Channel engagement scales when you meet partners where they are.",
+  "The best innovation programs start with a commercial mandate, not a technology bet.",
+  "Growth in Southeast Asia requires operators, not just strategists.",
+  "Events become pipeline machines when designed backward from business objectives.",
+];
+
+const sectionLabels = [
+  { id: "why-sea", label: "Why Southeast Asia" },
+  { id: "growth-breaks", label: "Growth Challenges" },
+  { id: "capabilities", label: "Capabilities" },
+  { id: "how-we-work", label: "How We Work" },
+  { id: "selected-work", label: "Selected Work" },
+  { id: "depth", label: "Our Depth" },
+  { id: "thinking", label: "Thinking" },
+];
+
+/* ═══════════════════════════════════════════════
    PAGE ASSEMBLY
    ═══════════════════════════════════════════════ */
 const Index = () => (
@@ -514,6 +568,7 @@ const Index = () => (
       path="/"
       jsonLd={{ ...organizationSchema, ...webSiteSchema }}
     />
+    <StickySectionLabel sections={sectionLabels} />
     <Hero />
     <WhySEA />
     <GrowthBreaks />
@@ -521,6 +576,10 @@ const Index = () => (
     <HowWeWork />
     <SectorExperience />
     <FeaturedWork />
+    {/* Insight ticker between work and depth */}
+    <div className="py-12 border-y border-border/20 overflow-hidden">
+      <InsightTicker insights={clientInsights} speed={50} />
+    </div>
     <DepthSection />
     <Perspectives />
     <CTABand

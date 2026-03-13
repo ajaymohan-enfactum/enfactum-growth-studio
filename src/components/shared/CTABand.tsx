@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { useRef, useCallback, useState } from "react";
+import MagneticButton from "./MagneticButton";
 import RevealSection from "./RevealSection";
 
 interface CTABandProps {
@@ -19,8 +20,32 @@ const CTABand = ({
   secondaryLabel,
   secondaryHref,
 }: CTABandProps) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
+  const [hovering, setHovering] = useState(false);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  }, []);
+
   return (
-    <section className="relative py-32 md:py-44 overflow-hidden">
+    <section
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+      className="relative py-32 md:py-44 overflow-hidden"
+    >
+      {/* Cursor spotlight */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-700"
+        style={{
+          opacity: hovering ? 1 : 0,
+          background: `radial-gradient(500px circle at ${cursorPos.x}px ${cursorPos.y}px, hsl(210 100% 50% / 0.06), transparent 60%)`,
+        }}
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background" />
       <div className="absolute top-0 left-0 right-0 section-divider" />
       <div className="section-container relative z-10 text-center">
@@ -30,11 +55,11 @@ const CTABand = ({
           {description && <p className="body-lg mt-5 max-w-xl mx-auto">{description}</p>}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
             <Link to={primaryHref}>
-              <Button variant="hero" size="xl">{primaryLabel}</Button>
+              <MagneticButton variant="hero" size="xl">{primaryLabel}</MagneticButton>
             </Link>
             {secondaryLabel && secondaryHref && (
               <Link to={secondaryHref}>
-                <Button variant="hero-outline" size="xl">{secondaryLabel}</Button>
+                <MagneticButton variant="hero-outline" size="xl">{secondaryLabel}</MagneticButton>
               </Link>
             )}
           </div>

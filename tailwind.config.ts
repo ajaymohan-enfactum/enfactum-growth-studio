@@ -88,12 +88,27 @@ export default {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        shimmer: {
+          "0%": { backgroundPosition: "250% 0" },
+          "100%": { backgroundPosition: "-250% 0" },
+        },
+        ticker: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "curtain-reveal": {
+          "0%": { clipPath: "inset(100% 0 0 0)" },
+          "100%": { clipPath: "inset(0 0 0 0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.6s ease-out forwards",
         "fade-in": "fade-in 0.5s ease-out forwards",
+        shimmer: "shimmer 4s ease-in-out infinite",
+        ticker: "ticker linear infinite",
+        "curtain-reveal": "curtain-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards",
       },
     },
   },
