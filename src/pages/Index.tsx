@@ -536,6 +536,28 @@ const Perspectives = () => (
 );
 
 /* ═══════════════════════════════════════════════
+   INSIGHT TICKER DATA
+   ═══════════════════════════════════════════════ */
+const clientInsights = [
+  "Enterprise pipeline grows when you lead with diagnostics, not product demos.",
+  "Multi-market launch succeeds when you build distribution before awareness.",
+  "Channel engagement scales when you meet partners where they are.",
+  "The best innovation programs start with a commercial mandate, not a technology bet.",
+  "Growth in Southeast Asia requires operators, not just strategists.",
+  "Events become pipeline machines when designed backward from business objectives.",
+];
+
+const sectionLabels = [
+  { id: "why-sea", label: "Why Southeast Asia" },
+  { id: "growth-breaks", label: "Growth Challenges" },
+  { id: "capabilities", label: "Capabilities" },
+  { id: "how-we-work", label: "How We Work" },
+  { id: "selected-work", label: "Selected Work" },
+  { id: "depth", label: "Our Depth" },
+  { id: "thinking", label: "Thinking" },
+];
+
+/* ═══════════════════════════════════════════════
    PAGE ASSEMBLY
    ═══════════════════════════════════════════════ */
 const Index = () => (
@@ -546,6 +568,7 @@ const Index = () => (
       path="/"
       jsonLd={{ ...organizationSchema, ...webSiteSchema }}
     />
+    <StickySectionLabel sections={sectionLabels} />
     <Hero />
     <WhySEA />
     <GrowthBreaks />
@@ -553,6 +576,10 @@ const Index = () => (
     <HowWeWork />
     <SectorExperience />
     <FeaturedWork />
+    {/* Insight ticker between work and depth */}
+    <div className="py-12 border-y border-border/20 overflow-hidden">
+      <InsightTicker insights={clientInsights} speed={50} />
+    </div>
     <DepthSection />
     <Perspectives />
     <CTABand
