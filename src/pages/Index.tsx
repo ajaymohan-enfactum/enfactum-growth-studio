@@ -576,7 +576,7 @@ const sectionLabels = [
    PAGE ASSEMBLY
    ═══════════════════════════════════════════════ */
 const Index = () => {
-  const [bgStyle, setBgStyle] = useState<BgStyle>("aurora");
+  const [bgStyle, setBgStyle] = useState<BgStyle>("hybrid");
 
   return (
   <PageLayout>
