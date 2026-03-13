@@ -123,7 +123,7 @@ const WhySEA = () => (
           </RevealSection>
         </div>
         <div className="md:col-span-6 md:col-start-7">
-          <RevealSection delay={0.15}>
+          <RevealSection delay={0.15} blur>
             <div className="space-y-6">
               <p className="body-lg">
                 Southeast Asia is nearly 700 million people across diverse economies,
