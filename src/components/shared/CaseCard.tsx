@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import AnimatedCounter from "./AnimatedCounter";
 import type { CaseStudy } from "@/data/caseStudies";
 import { ArrowRight } from "lucide-react";
 
