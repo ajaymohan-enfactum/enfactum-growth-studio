@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ScrollProgress from "@/components/shared/ScrollProgress";
 
 interface PageLayoutProps {
   children: ReactNode;
