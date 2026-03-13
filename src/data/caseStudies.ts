@@ -15,6 +15,7 @@ export interface CaseStudy {
   capabilities: string[];
   sectors: string[];
   outcomes: string[];         // outcome category tags for filtering
+  challengeTypes: string[];   // challenge category tags for filtering
   challenge: string;          // 1-sentence
   role: string;               // 1-sentence Enfactum role
   results: CaseOutcome[];
