@@ -86,7 +86,7 @@ const articles: Article[] = [
     category: "Operator View",
     theme: "AI & Innovation",
     author: "Ajay Mohan",
-    authorRole: "Managing Partner, GTM Strategy",
+    authorRole: "Founder & Managing Partner",
     readTime: "7 min read",
     teaser: "What separates companies that move forward from the ones that stall is not the number of pilots they run. It is the quality of the system around those pilots.",
     date: "January 2026",
