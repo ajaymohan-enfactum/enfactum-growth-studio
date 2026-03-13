@@ -338,11 +338,11 @@ const sectorClusters = [
   },
 ];
 
-const SectorProof = () => (
+const SectorExperience = () => (
   <section className="section-alt py-32 md:py-44">
     <div className="section-container">
       <SectionHeader
-        eyebrow="Sector proof"
+        eyebrow="Experience"
         headline="Experience across the industries shaping Southeast Asia."
       />
 
