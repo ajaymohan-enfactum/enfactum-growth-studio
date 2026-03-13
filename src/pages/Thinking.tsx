@@ -74,7 +74,7 @@ const articles: Article[] = [
   },
   {
     title: "Southeast Asia Retail: The New Frontier",
-    category: "APAC Market",
+    category: "Market Signal",
     author: "Enfactum Team",
     readTime: "10 min read",
     teaser: "Why global brands are rethinking their SEA retail strategy—and what the winners are doing differently.",
