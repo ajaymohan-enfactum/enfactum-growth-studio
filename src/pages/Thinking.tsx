@@ -47,7 +47,7 @@ const articles: Article[] = [
   },
   {
     title: "The $3M Question: Why Your Events Aren't Generating Pipeline",
-    category: "Growth Strategy",
+    category: "Field Note",
     author: "Ajay Mohan",
     authorRole: "Managing Partner, GTM Strategy",
     readTime: "8 min read",
