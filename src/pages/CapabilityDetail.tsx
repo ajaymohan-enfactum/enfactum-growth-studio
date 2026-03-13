@@ -124,6 +124,11 @@ const capabilityData: Record<string, CapData> = {
       body: "The Brand & Demand capability is led by specialists who've run integrated demand programmes across ASEAN — people who bridge brand strategy and commercial performance, not just media buying.",
     },
     nextCapability: { title: "AI Ecosystems", href: "/capabilities/ai-ecosystems" },
+    faqs: [
+      { question: "How does Enfactum integrate brand and performance marketing?", answer: "Enfactum connects brand building and demand generation into a single commercial engine — shared goals, shared signals, shared learning — so creative, performance, social, influencer, and affiliate work together toward revenue." },
+      { question: "What affiliate and influencer programmes does Enfactum build?", answer: "Enfactum designs and operates structured affiliate ecosystems and influencer partnerships — recruited, managed, and measured for commercial impact, not just reach — across Southeast Asia's fragmented digital landscape." },
+      { question: "Does Enfactum operate as an agency?", answer: "Not a traditional agency. Enfactum operates as an embedded growth partner — building capability, running demand operations, and transferring methodology — rather than providing retainer-based agency services." },
+    ],
   },
 
   "ai-ecosystems": {
