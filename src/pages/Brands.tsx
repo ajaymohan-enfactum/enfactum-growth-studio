@@ -68,9 +68,9 @@ const sectorClusters = [
 ];
 
 /* ═══════════════════════════════════════════════
-   BRAND PROOF CAPSULES
+   SELECTED OUTCOMES
    ═══════════════════════════════════════════════ */
-const proofCapsules = [
+const outcomeCapsules = [
   {
     brand: "HP",
     label: "AI Ecosystems / Growth Infrastructure",
@@ -123,7 +123,7 @@ const Brands = () => (
           <div className="md:col-span-5">
             <RevealSection>
               <p className="eyebrow mb-6">Why this matters</p>
-              <h2 className="headline-lg">Breadth as proof, not vanity.</h2>
+              <h2 className="headline-lg">Breadth as experience, not vanity.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-6 md:col-start-7">
@@ -145,11 +145,11 @@ const Brands = () => (
       </div>
     </section>
 
-    {/* ═══ SECTION 3 — SECTOR PROOF ARCHITECTURE ═══ */}
+    {/* ═══ SECTION 3 — SECTOR EXPERIENCE ARCHITECTURE ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
         <SectionHeader
-          eyebrow="Sector proof"
+          eyebrow="Experience"
           headline="A portfolio that reflects the region's real complexity."
           description="From enterprise platforms to consumer brands and innovation-led companies, Enfactum has built experience across the environments that move Southeast Asia."
         />
@@ -194,18 +194,18 @@ const Brands = () => (
       </div>
     </section>
 
-    {/* ═══ SECTION 4 — PROOF CAPSULES ═══ */}
+    {/* ═══ SECTION 4 — SELECTED OUTCOMES ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
         <div className="section-divider mb-20" />
         <SectionHeader
-          eyebrow="Highlighted proof"
+          eyebrow="Selected outcomes"
           headline="Behind the logos."
           description="A few snapshots of how Enfactum has operated for brands across sectors."
         />
 
         <div className="mt-20 grid sm:grid-cols-2 gap-8">
-          {proofCapsules.map((capsule, i) => (
+          {outcomeCapsules.map((capsule, i) => (
             <RevealSection key={i} delay={i * 0.08}>
               <div className="card-premium h-full">
                 <div className="flex items-center gap-3 mb-5">

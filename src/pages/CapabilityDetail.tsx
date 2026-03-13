@@ -346,12 +346,12 @@ const CapabilityDetail = () => {
         </div>
       </section>
 
-      {/* ─── PROOF ─── */}
+      {/* ─── SELECTED OUTCOMES ─── */}
       <section className="py-32 md:py-44">
         <div className="section-container">
           <div className="section-divider mb-20" />
           <RevealSection>
-            <p className="eyebrow mb-2">Proof</p>
+            <p className="eyebrow mb-2">Selected outcomes</p>
             <p className="text-[13px] text-muted-foreground max-w-md">
               Programmes delivered. Outcomes measured. Infrastructure built.
             </p>

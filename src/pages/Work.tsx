@@ -13,7 +13,7 @@ import {
   challengeFilters,
 } from "@/data/caseStudies";
 
-/* ─── Prioritised case order for the proof engine ─── */
+/* ─── Prioritised case order ─── */
 const priorityOrder = [
   "hp-garage",
   "economist-bot",
@@ -123,8 +123,8 @@ const Work = () => {
     <PageLayout>
       <HeroSection
         eyebrow="Work"
-        headline="Proof in practice."
-        description="Enterprise programmes designed for commercial outcomes, operating leverage, and ecosystem scale. Strategy connected to execution. Results foregrounded."
+        headline="Selected work across the region."
+        description="A look at the work, systems, and outcomes Enfactum has built across Southeast Asia."
       />
 
       {/* ─── Filter Bar ─── */}
@@ -187,7 +187,7 @@ const Work = () => {
         <section className="section-alt py-24 md:py-32">
           <div className="section-container">
             <SectionHeader
-              eyebrow="Further proof"
+              eyebrow="Additional work"
               headline="More work across capabilities and sectors."
             />
             <div className="mt-12 space-y-0">

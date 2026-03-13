@@ -64,7 +64,7 @@ const Hero = () => (
           <Button variant="hero" size="xl">Start a conversation</Button>
         </Link>
         <Link to="/work">
-          <Button variant="hero-outline" size="xl">See the proof</Button>
+          <Button variant="hero-outline" size="xl">See our work</Button>
         </Link>
       </motion.div>
     </div>
@@ -288,10 +288,10 @@ const HowWeWork = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   SECTION 6 — SECTOR PROOF
-   Architectural proof clusters — editorial, not logo-wall
+   SECTION 6 — SECTOR EXPERIENCE
+   Architectural experience clusters — editorial, not logo-wall
    ═══════════════════════════════════════════════ */
-const proofClusters = [
+const sectorClusters = [
   {
     sector: "Enterprise Technology",
     num: "01",
@@ -338,16 +338,16 @@ const proofClusters = [
   },
 ];
 
-const SectorProof = () => (
+const SectorExperience = () => (
   <section className="section-alt py-32 md:py-44">
     <div className="section-container">
       <SectionHeader
-        eyebrow="Sector proof"
+        eyebrow="Experience"
         headline="Experience across the industries shaping Southeast Asia."
       />
 
       <div className="mt-24 space-y-0">
-        {proofClusters.map((cluster, ci) => (
+        {sectorClusters.map((cluster, ci) => (
           <RevealSection key={ci} delay={ci * 0.06}>
             <div className="border-t border-border/30 py-14 md:py-16">
               <div className="grid md:grid-cols-12 gap-8">
@@ -389,7 +389,7 @@ const SectorProof = () => (
 
 /* ═══════════════════════════════════════════════
    SECTION 7 — FEATURED WORK
-   Result-oriented flagship proof
+   Result-oriented selected work
    ═══════════════════════════════════════════════ */
 const FeaturedWork = () => {
   const flagships = getFlagshipCases();
@@ -398,7 +398,7 @@ const FeaturedWork = () => {
       <div className="section-container">
         <SectionHeader
           eyebrow="Featured work"
-          headline="Proof in practice."
+          headline="Selected outcomes."
         />
         <p className="text-[13px] text-muted-foreground mt-4 max-w-lg">
           Selected work with measurable commercial, operational, and ecosystem outcomes.
@@ -512,7 +512,7 @@ const Index = () => (
     <GrowthBreaks />
     <WhatWeBuilds />
     <HowWeWork />
-    <SectorProof />
+    <SectorExperience />
     <FeaturedWork />
     <DepthSection />
     <Perspectives />
