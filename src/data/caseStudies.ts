@@ -54,6 +54,16 @@ export const sectorFilters = [
   "Fintech",
 ] as const;
 
+export const challengeFilters = [
+  "All",
+  "Market Launch & Expansion",
+  "Channel & Partner Activation",
+  "Cost & Operational Efficiency",
+  "Pipeline & Revenue Growth",
+  "Innovation & AI Deployment",
+  "Digital Commerce & Acquisition",
+] as const;
+
 /* ─── ALL CASES ─── */
 export const allCaseStudies: CaseStudy[] = [
   /* ── 1. HP Garage 2.0 ── */
