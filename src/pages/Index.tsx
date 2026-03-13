@@ -238,7 +238,7 @@ const WhatWeBuilds = () => (
       />
       <div className="mt-20 space-y-0">
         {capabilities.map((cap, i) => (
-          <RevealSection key={i} delay={i * 0.06}>
+          <RevealSection key={i} delay={i * 0.06} scale>
             <Link to={cap.href} className="group block">
               <div className="grid md:grid-cols-12 gap-6 py-10 border-b border-border/40 group-hover:border-primary/20 transition-colors duration-700">
                 <div className="md:col-span-1">
