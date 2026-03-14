@@ -696,19 +696,12 @@ const Index = () => (
 
     <StickySectionLabel sections={sectionLabels} />
     <Hero />
-    <ParallaxDivider variant="mist" />
     <WhySEA />
-    <ParallaxDivider variant="glow" />
     <GrowthBreaks />
-    <ParallaxDivider variant="gradient" />
     <WhatWeBuilds />
-    <ParallaxDivider variant="mist" flip />
     <HowWeWork />
-    <ParallaxDivider variant="glow" />
     <SectorExperience />
-    <ParallaxDivider variant="gradient" flip />
     <FeaturedWork />
-    {/* Quote carousel */}
     <QuoteCarousel quotes={clientInsights} />
     <DepthSection />
     <Perspectives />
