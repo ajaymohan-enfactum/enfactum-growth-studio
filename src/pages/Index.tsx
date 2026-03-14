@@ -6,6 +6,7 @@ import MagneticButton from "@/components/shared/MagneticButton";
 import TextShimmer from "@/components/shared/TextShimmer";
 import InsightTicker from "@/components/shared/InsightTicker";
 import StickySectionLabel from "@/components/shared/StickySectionLabel";
+import { ChevronDown } from "lucide-react";
 
 import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
