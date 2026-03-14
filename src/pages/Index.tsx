@@ -241,6 +241,7 @@ const capabilities = [
     outcome: "Scalable go-to-market architecture",
     href: "/capabilities/growth-infrastructure",
     num: "01",
+    icon: BarChart3,
   },
   {
     title: "Brand & Demand",
@@ -248,6 +249,7 @@ const capabilities = [
     outcome: "Integrated demand generation",
     href: "/capabilities/brand-demand",
     num: "02",
+    icon: Megaphone,
   },
   {
     title: "AI Ecosystems",
@@ -255,6 +257,7 @@ const capabilities = [
     outcome: "Ecosystem-scale innovation",
     href: "/capabilities/ai-ecosystems",
     num: "03",
+    icon: Brain,
   },
   {
     title: "Live Experiences",
@@ -262,6 +265,7 @@ const capabilities = [
     outcome: "Commercially impactful activations",
     href: "/capabilities/live-experiences",
     num: "04",
+    icon: Sparkles,
   },
 ];
 
@@ -273,25 +277,28 @@ const WhatWeBuilds = () => (
         headline="Four capabilities. One operating model."
         description="Each capability connects. Together, they form a growth operating system for Southeast Asia."
       />
-      <div className="mt-20 space-y-0">
+      <div className="mt-20 grid md:grid-cols-2 gap-6">
         {capabilities.map((cap, i) => (
-          <RevealSection key={i} delay={i * 0.15} scale>
-            <Link to={cap.href} className="group block">
-              <div className="grid md:grid-cols-12 gap-6 py-10 border-b border-border/40 group-hover:border-primary/20 group-hover:bg-white/[0.05] transition-all duration-300 -mx-4 px-4 rounded-lg">
-                <div className="md:col-span-1">
-                  <span className="text-xs font-body text-dim">{cap.num}</span>
-                </div>
-                <div className="md:col-span-4">
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                    {cap.title}
-                  </h3>
-                </div>
-                <div className="md:col-span-5">
-                  <p className="body-md text-muted-foreground">{cap.desc}</p>
-                  <p className="eyebrow mt-4 transition-opacity duration-300 opacity-60 group-hover:opacity-100">{cap.outcome}</p>
-                </div>
-                <div className="md:col-span-2 flex items-center justify-end">
-                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-2 transition-all duration-300" />
+          <RevealSection key={i} delay={i * 0.1} scale>
+            <Link to={cap.href} className="group block h-full">
+              <div className="relative h-full rounded-xl bg-white/[0.05] border border-white/10 p-8 md:p-10 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
+                {/* Number top-right */}
+                <span className="absolute top-6 right-6 text-xs font-body text-dim">{cap.num}</span>
+                {/* Icon */}
+                <cap.icon
+                  className="w-12 h-12 text-primary mb-6 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.4)]"
+                  strokeWidth={1.5}
+                />
+                {/* Title */}
+                <h3 className="font-display text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                  {cap.title}
+                </h3>
+                {/* Description */}
+                <p className="body-md text-muted-foreground mt-3">{cap.desc}</p>
+                {/* Outcome tag + arrow */}
+                <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/[0.06]">
+                  <p className="eyebrow opacity-60 group-hover:opacity-100 transition-opacity duration-300">{cap.outcome}</p>
+                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-2 transition-all duration-300" />
                 </div>
               </div>
             </Link>
