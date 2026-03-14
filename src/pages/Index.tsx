@@ -12,7 +12,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import CTABand from "@/components/shared/CTABand";
-import ParallaxDivider from "@/components/shared/ParallaxDivider";
+
 import HybridBackground from "@/components/shared/HybridBackground";
 import BrandLogo from "@/components/shared/BrandLogo";
 import CaseCard from "@/components/shared/CaseCard";
