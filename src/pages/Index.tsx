@@ -417,6 +417,12 @@ const sectorClusters = [
   },
 ];
 
+const brandMarqueeNames = [
+  "HP", "Lenovo", "Oracle", "Redington", "Brands For Less", "Lancôme",
+  "L'Oréal", "Kiehl's", "The Economist", "Abbott", "DSCOOP",
+  "JSHealth Vitamins", "Lazada", "InsureMO", "Integrate",
+];
+
 const SectorExperience = () => (
   <section className="py-20 md:py-28 bg-white/[0.02]">
     <div className="section-container">
@@ -424,6 +430,24 @@ const SectorExperience = () => (
         eyebrow="Experience"
         headline="Experience across the industries shaping Southeast Asia."
       />
+
+      {/* Brand marquee */}
+      <div className="relative mt-16 mb-8 overflow-hidden group/marquee">
+        {/* Edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+        <div
+          className="flex whitespace-nowrap group-hover/marquee:[animation-play-state:paused]"
+          style={{ animation: 'brand-marquee 40s linear infinite' }}
+        >
+          {[...brandMarqueeNames, ...brandMarqueeNames].map((name, i) => (
+            <span key={i} className="inline-flex items-center shrink-0">
+              <span className="text-2xl font-semibold text-white/30 px-4 transition-opacity duration-500">{name}</span>
+              <span className="text-primary/50 text-lg">·</span>
+            </span>
+          ))}
+        </div>
+      </div>
 
       <div className="mt-24 space-y-0">
         {sectorClusters.map((cluster, ci) => (
