@@ -156,7 +156,7 @@ const Brands = () => (
     {/* ═══ SECTION 4 — SELECTED OUTCOMES ═══ */}
     <section className="py-16 md:py-20">
       <div className="section-container">
-        <div className="section-divider mb-20" />
+        <div className="section-divider mb-12" />
         <SectionHeader
           eyebrow="Selected outcomes"
           headline="Behind the logos."
