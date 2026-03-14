@@ -18,7 +18,7 @@ import BrandLogo from "@/components/shared/BrandLogo";
 import CaseCard from "@/components/shared/CaseCard";
 import SEOHead, { organizationSchema, webSiteSchema } from "@/components/shared/SEOHead";
 import { getFlagshipCases } from "@/data/caseStudies";
-import { ArrowRight, Crosshair, Network, Unlink, FlaskConical, Rocket } from "lucide-react";
+import { ArrowRight, Crosshair, Network, Unlink, FlaskConical, Rocket, BarChart3, Megaphone, Brain, Sparkles } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
