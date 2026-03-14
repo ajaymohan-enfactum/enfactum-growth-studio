@@ -180,7 +180,7 @@ const WhySEA = () => (
               </div>
               <p className="body-md text-muted-foreground italic">
                 Enfactum exists because the gap between global ambition and
-                regional reality needed an operator — not another advisor.
+                regional reality needed a Growth Architect — not another advisor.
               </p>
             </div>
           </RevealSection>
