@@ -208,7 +208,7 @@ const GrowthBreaks = () => (
         eyebrow="Where growth breaks"
         headline="The friction points we're built to solve."
       />
-      <div className="mt-20 grid md:grid-cols-12 gap-y-12">
+      <div className="mt-12 grid md:grid-cols-12 gap-y-12">
         {frictionPoints.map((point, i) => (
           <RevealSection
             key={i}
