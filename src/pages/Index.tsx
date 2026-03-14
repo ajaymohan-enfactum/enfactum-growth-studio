@@ -330,7 +330,7 @@ const HowWeWork = () => (
         description="We embed within the business and stay until growth has real infrastructure."
         centered
       />
-      <div className="mt-24 relative">
+      <div className="mt-14 relative">
         {/* Desktop */}
         <div className="hidden md:block">
           <div className="flex items-start justify-between relative">
