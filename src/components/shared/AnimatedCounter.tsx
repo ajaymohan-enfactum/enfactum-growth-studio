@@ -24,7 +24,7 @@ const parseMetric = (value: string): { prefix: string; number: number; decimals:
   return { prefix, number, decimals, suffix };
 };
 
-const AnimatedCounter = ({ value, className = "", duration = 1.6 }: AnimatedCounterProps) => {
+const AnimatedCounter = ({ value, className = "", duration = 1.5 }: AnimatedCounterProps) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   const [display, setDisplay] = useState(value);
