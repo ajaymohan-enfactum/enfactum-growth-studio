@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useRef, useCallback, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useCallback, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import MagneticButton from "@/components/shared/MagneticButton";
 import TextShimmer from "@/components/shared/TextShimmer";
