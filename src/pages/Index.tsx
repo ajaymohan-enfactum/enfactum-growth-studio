@@ -8,6 +8,7 @@ import InsightTicker from "@/components/shared/InsightTicker";
 import StickySectionLabel from "@/components/shared/StickySectionLabel";
 import { ChevronDown } from "lucide-react";
 import BrandLogo from "@/components/shared/BrandLogo";
+import { sectorClusters as brandSectorClusters, allMarqueeBrands } from "@/data/brands";
 
 import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
