@@ -574,6 +574,7 @@ const clientInsights = [
 
 const QuoteCarousel = ({ quotes }: { quotes: string[] }) => {
   const [active, setActive] = useState(0);
+  const touchStart = useRef<number | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -582,9 +583,28 @@ const QuoteCarousel = ({ quotes }: { quotes: string[] }) => {
     return () => clearInterval(timer);
   }, [quotes.length]);
 
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStart.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (touchStart.current === null) return;
+    const diff = touchStart.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      setActive((prev) =>
+        diff > 0 ? (prev + 1) % quotes.length : (prev - 1 + quotes.length) % quotes.length
+      );
+    }
+    touchStart.current = null;
+  }, [quotes.length]);
+
   return (
     <section className="py-16 md:py-20 border-y border-border/20 overflow-hidden bg-[#080E1A]">
-      <div className="section-container relative flex flex-col items-center text-center">
+      <div
+        className="section-container relative flex flex-col items-center text-center"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Decorative quote mark */}
         <span className="absolute top-0 left-1/2 -translate-x-1/2 text-[12rem] leading-none font-display font-bold text-primary/[0.08] select-none pointer-events-none" aria-hidden>
           &ldquo;
