@@ -48,7 +48,7 @@ const ParallaxDivider = ({ variant = "glow", flip = false, className = "" }: Par
 
   if (variant === "mist") {
     return (
-      <div ref={ref} className={`relative h-40 md:h-56 overflow-hidden ${className}`}>
+      <div ref={ref} className={`relative h-20 md:h-28 overflow-hidden ${className}`}>
         <motion.div
           className="absolute inset-0"
           style={{ y: y1, opacity }}
