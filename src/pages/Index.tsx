@@ -110,7 +110,7 @@ const Hero = () => {
    Editorial split with generous breathing room
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section id="why-sea" className="py-32 md:py-44">
+  <section id="why-sea" className="py-20 md:py-28" style={{ backgroundColor: '#080E1A' }}>
     <div className="section-container">
       <div className="grid md:grid-cols-12 gap-12 md:gap-8">
         <div className="md:col-span-5">
