@@ -39,7 +39,7 @@ const capabilities = [
     title: "AI Ecosystems",
     problem: "Your innovation program generates pilots and press releases, not production implementations.",
     what: "We build innovation ecosystem architecture — venture strategy, startup scouting, partnership design, and pilot-to-scale programmes.",
-    for: "Enterprises with innovation mandates that need an operator to move from scouting to scaling, not another accelerator programme.",
+    for: "Enterprises with innovation mandates that need a Growth Architect to move from scouting to scaling, not another accelerator programme.",
     outcomes: ["Enterprise-startup partnerships", "Pilot-to-platform pathways", "Innovation programme architecture"],
     href: "/capabilities/ai-ecosystems",
     icon: Brain,

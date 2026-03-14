@@ -34,9 +34,9 @@ const OperatingModel = () => (
       ])}
     />
     <HeroSection
-      eyebrow="Operating Model"
+      eyebrow="Growth Architecture"
       headline="From strategy to scale. Structured for real outcomes."
-      description="Enfactum's operating model is designed for execution, not just advice. We embed, build, operate, and transfer — so growth has lasting infrastructure."
+      description="Enfactum's growth architecture is designed for execution, not just advice. We embed, build, operate, and transfer — so growth has lasting infrastructure."
     >
       <Link to="/contact"><Button variant="hero" size="xl">Discuss engagement</Button></Link>
     </HeroSection>

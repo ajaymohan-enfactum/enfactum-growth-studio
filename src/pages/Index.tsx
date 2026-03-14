@@ -328,7 +328,7 @@ const HowWeWork = () => (
     <div className="section-container">
       <SectionHeader
         eyebrow="How we work"
-        headline="Operators, not just advisors."
+        headline="Growth Architects, not just advisors."
         description="We embed within the business and stay until growth has real infrastructure."
         centered
       />

@@ -151,7 +151,7 @@ const RegionalNodes = () => (
             <Link to="/company/leadership" className="group block border-t border-border/30 pt-6">
               <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Explore</p>
               <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Leadership team</h4>
-              <p className="text-[13px] text-muted-foreground mt-1">Meet the operators behind Enfactum's capabilities.</p>
+              <p className="text-[13px] text-muted-foreground mt-1">Meet the Growth Architects behind Enfactum's capabilities.</p>
             </Link>
             <Link to="/contact" className="group block border-t border-border/30 pt-6">
               <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Explore</p>

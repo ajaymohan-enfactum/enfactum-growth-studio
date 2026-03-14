@@ -31,7 +31,7 @@ const partnerTypes = [
   },
   {
     title: "Specialist collaborators",
-    description: "We work with specialist operators, creators, strategists, and delivery partners who add depth, speed, or market-specific capability to the work.",
+    description: "We work with specialist Growth Architects, creators, strategists, and delivery partners who add depth, speed, or market-specific capability to the work.",
   },
 ];
 

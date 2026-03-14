@@ -111,7 +111,7 @@ export const allCaseStudies: CaseStudy[] = [
       { metric: "2 Qtrs", label: "Revenue ahead of plan" },
     ],
     region: "Singapore · Regional APAC",
-    insight: "Build-Operate-Transfer works when you deploy operators who run the work — not consultants who advise on it.",
+    insight: "Build-Operate-Transfer works when you deploy Growth Architects who run the work — not consultants who advise on it.",
     flagship: true,
   },
 

@@ -169,7 +169,7 @@ const capabilityData: Record<string, CapData> = {
     ],
     outcomeCaseIds: ["hp-garage", "enterprise-ai", "oracle-dha"],
     team: {
-      heading: "Led by innovation operators, not consultants.",
+      heading: "Led by innovation Growth Architects, not consultants.",
       body: "The AI Ecosystems capability is led by people who've built and operated corporate innovation programmes — who understand both enterprise procurement cycles and startup velocity, and know how to bridge the two.",
     },
     nextCapability: { title: "Live Experiences", href: "/capabilities/live-experiences" },

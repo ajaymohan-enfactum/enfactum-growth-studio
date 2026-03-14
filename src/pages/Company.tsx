@@ -382,7 +382,7 @@ const Company = () => (
         <div className="space-y-0">
           {[
             { title: "Leadership", desc: "Meet the full leadership team.", href: "/company/leadership" },
-            { title: "Operating Model", desc: "How we structure and deliver programmes.", href: "/company/operating-model" },
+            { title: "Growth Architecture", desc: "How we structure and deliver programmes.", href: "/company/operating-model" },
             { title: "Regional Nodes", desc: "Our operating network across Southeast Asia.", href: "/company/regional-nodes" },
             { title: "Careers", desc: "Build something meaningful with us.", href: "/company/careers" },
           ].map((link, i) => (
