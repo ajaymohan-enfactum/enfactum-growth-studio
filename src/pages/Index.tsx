@@ -309,7 +309,7 @@ const HowWeWork = () => (
           <div className="absolute left-[14px] top-2 bottom-2 w-px bg-border/30" />
           {processSteps.map((step, i) => (
             <RevealSection key={i} delay={i * 0.06} className="relative">
-              <div className="absolute -left-10 top-0 w-7 h-7 rounded-full border border-border bg-background flex items-center justify-center">
+              <div className="absolute -left-10 top-0 w-7 h-7 rounded-full border border-border bg-background flex items-center justify-center" style={{ boxShadow: '0 0 16px 4px hsl(210 100% 50% / 0.08)' }}>
                 <span className="text-[9px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <h3 className="font-display font-semibold text-foreground">{step.step}</h3>
