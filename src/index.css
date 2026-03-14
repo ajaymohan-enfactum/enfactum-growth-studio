@@ -154,10 +154,16 @@
       linear-gradient(hsl(var(--line-subtle)) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--line-subtle)) 1px, transparent 1px);
     background-size: 80px 80px;
+    animation: topology-drift 30s ease-in-out infinite alternate;
   }
   .section-alt {
     background-color: hsl(var(--section-alt));
   }
+}
+
+@keyframes topology-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(20px, 20px); }
 }
 
 /* Smooth scrolling */

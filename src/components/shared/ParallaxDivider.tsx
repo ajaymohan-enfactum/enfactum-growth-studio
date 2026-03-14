@@ -22,7 +22,7 @@ const ParallaxDivider = ({ variant = "glow", flip = false, className = "" }: Par
 
   if (variant === "gradient") {
     return (
-      <div ref={ref} className={`relative h-32 md:h-48 overflow-hidden ${className}`}>
+      <div ref={ref} className={`relative h-16 md:h-24 overflow-hidden ${className}`}>
         <motion.div
           className="absolute inset-0"
           style={{
@@ -48,7 +48,7 @@ const ParallaxDivider = ({ variant = "glow", flip = false, className = "" }: Par
 
   if (variant === "mist") {
     return (
-      <div ref={ref} className={`relative h-40 md:h-56 overflow-hidden ${className}`}>
+      <div ref={ref} className={`relative h-20 md:h-28 overflow-hidden ${className}`}>
         <motion.div
           className="absolute inset-0"
           style={{ y: y1, opacity }}
@@ -85,7 +85,7 @@ const ParallaxDivider = ({ variant = "glow", flip = false, className = "" }: Par
 
   // Default: glow
   return (
-    <div ref={ref} className={`relative h-24 md:h-32 overflow-hidden ${className}`}>
+    <div ref={ref} className={`relative h-12 md:h-16 overflow-hidden ${className}`}>
       <motion.div
         className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full"
         style={{

@@ -42,7 +42,7 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
-      className="relative min-h-screen flex items-end overflow-hidden"
+      className="relative min-h-[85vh] flex items-end overflow-hidden"
     >
       <HybridBackground />
       {/* Cursor spotlight */}
@@ -56,7 +56,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/60" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
 
-      <div className="section-container relative z-10 pb-20 md:pb-28 lg:pb-36 pt-40">
+      <div className="section-container relative z-10 pb-14 md:pb-20 lg:pb-24 pt-40">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -110,7 +110,7 @@ const Hero = () => {
    Editorial split with generous breathing room
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section id="why-sea" className="py-32 md:py-44">
+  <section id="why-sea" className="py-20 md:py-28" style={{ backgroundColor: '#080E1A' }}>
     <div className="section-container">
       <div className="grid md:grid-cols-12 gap-12 md:gap-8">
         <div className="md:col-span-5">
@@ -164,7 +164,7 @@ const frictionPoints = [
 ];
 
 const GrowthBreaks = () => (
-  <section id="growth-breaks" className="py-32 md:py-44">
+  <section id="growth-breaks" className="py-20 md:py-28">
     <div className="section-container">
       <div className="section-divider mb-20" />
       <SectionHeader
@@ -179,7 +179,7 @@ const GrowthBreaks = () => (
             blur
             className={`md:col-span-4 ${i >= 3 ? "md:col-start-" + (i === 3 ? "3" : "7") : ""}`}
           >
-            <div className="pr-8">
+            <div className="pr-8 rounded-xl bg-white/[0.05] border border-white/10 p-6">
               <point.icon className="w-5 h-5 text-primary/70 mb-5" strokeWidth={1.5} />
               <h3 className="font-display text-lg font-semibold text-foreground leading-snug">
                 {point.title}
@@ -229,7 +229,7 @@ const capabilities = [
 ];
 
 const WhatWeBuilds = () => (
-  <section id="capabilities" className="section-alt py-32 md:py-44">
+  <section id="capabilities" className="section-alt py-20 md:py-28">
     <div className="section-container">
       <SectionHeader
         eyebrow="What Enfactum builds"
@@ -278,7 +278,7 @@ const processSteps = [
 ];
 
 const HowWeWork = () => (
-  <section id="how-we-work" className="py-32 md:py-44">
+  <section id="how-we-work" className="py-20 md:py-28">
     <div className="section-container">
       <SectionHeader
         eyebrow="How we work"
@@ -295,7 +295,7 @@ const HowWeWork = () => (
             <div className="absolute top-[18px] left-[10%] right-[10%] h-px bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0" />
             {processSteps.map((step, i) => (
               <RevealSection key={i} delay={i * 0.1} className="flex-1 relative px-4 text-center">
-                <div className="w-9 h-9 rounded-full border border-border bg-background flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:border-primary/40 transition-colors">
+                <div className="w-9 h-9 rounded-full border border-border bg-background flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:border-primary/40 transition-colors" style={{ boxShadow: '0 0 20px 6px hsl(210 100% 50% / 0.08)' }}>
                   <span className="text-[10px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
                 </div>
                 <h3 className="font-display font-bold text-foreground text-base tracking-tight">{step.step}</h3>
@@ -309,7 +309,7 @@ const HowWeWork = () => (
           <div className="absolute left-[14px] top-2 bottom-2 w-px bg-border/30" />
           {processSteps.map((step, i) => (
             <RevealSection key={i} delay={i * 0.06} className="relative">
-              <div className="absolute -left-10 top-0 w-7 h-7 rounded-full border border-border bg-background flex items-center justify-center">
+              <div className="absolute -left-10 top-0 w-7 h-7 rounded-full border border-border bg-background flex items-center justify-center" style={{ boxShadow: '0 0 16px 4px hsl(210 100% 50% / 0.08)' }}>
                 <span className="text-[9px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <h3 className="font-display font-semibold text-foreground">{step.step}</h3>
@@ -374,7 +374,7 @@ const sectorClusters = [
 ];
 
 const SectorExperience = () => (
-  <section className="section-alt py-32 md:py-44">
+  <section className="py-20 md:py-28 bg-white/[0.02]">
     <div className="section-container">
       <SectionHeader
         eyebrow="Experience"
@@ -429,7 +429,7 @@ const SectorExperience = () => (
 const FeaturedWork = () => {
   const flagships = getFlagshipCases();
   return (
-    <section id="selected-work" className="py-32 md:py-44">
+    <section id="selected-work" className="py-20 md:py-28 border-t border-white/10">
       <div className="section-container">
         <SectionHeader
           eyebrow="Selected work"
@@ -465,7 +465,7 @@ const depthBlocks = [
 ];
 
 const DepthSection = () => (
-  <section id="depth" className="section-alt py-32 md:py-44">
+  <section id="depth" className="section-alt py-20 md:py-28">
     <div className="section-container">
       <SectionHeader
         eyebrow="Depth behind the work"
@@ -502,7 +502,7 @@ const articles = [
 ];
 
 const Perspectives = () => (
-  <section id="thinking" className="py-32 md:py-44">
+  <section id="thinking" className="py-20 md:py-28">
     <div className="section-container">
       <div className="section-divider mb-20" />
       <div className="grid md:grid-cols-12 gap-8">

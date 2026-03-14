@@ -91,7 +91,7 @@ const TopologyBackground = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.5 }}
+      style={{ opacity: 0.5, animation: 'topology-drift 30s ease-in-out infinite alternate' }}
     />
   );
 };

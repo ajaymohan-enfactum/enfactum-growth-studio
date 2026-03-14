@@ -78,7 +78,7 @@ const HeroSection = ({ eyebrow, headline, description, children, compact = false
         }}
       />
       <HybridBackground />
-      <motion.div className="absolute inset-0 topology-grid opacity-[0.03]" style={{ y: bgY }} />
+      <motion.div className="absolute inset-0 topology-grid opacity-[0.08]" style={{ y: bgY }} />
       <motion.div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-background" style={{ y: bgY, opacity: bgOpacity }} />
       <div className="section-container relative z-10">
         <div className="max-w-4xl">
