@@ -210,15 +210,15 @@ const GrowthBreaks = () => (
         eyebrow="Where growth breaks"
         headline="The friction points we're built to solve."
       />
-      <div className="mt-12 grid md:grid-cols-12 gap-y-12">
+      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {frictionPoints.map((point, i) => (
           <RevealSection
             key={i}
             delay={i * 0.1}
             blur
-            className={`md:col-span-4 ${i >= 3 ? "md:col-start-" + (i === 3 ? "3" : "7") : ""}`}
+            className={i >= 3 ? "sm:col-span-1" : ""}
           >
-            <div className="pr-8 rounded-xl bg-white/[0.05] border border-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)] group/card">
+            <div className="h-full rounded-xl bg-white/[0.05] border border-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)] group/card">
               <point.icon className="w-5 h-5 text-primary/70 mb-5 transition-transform duration-300 group-hover/card:scale-110" strokeWidth={1.5} />
               <h3 className="font-display text-lg font-semibold text-foreground leading-snug">
                 {point.title}
