@@ -90,7 +90,7 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
     >
       <article
-        className="relative py-12 md:py-14 border-b border-border/30 hover:border-primary/15 transition-colors duration-700 group"
+        className="relative py-12 md:py-14 border-b border-border/30 border-l-2 border-l-transparent hover:border-l-primary hover:border-b-primary/15 transition-all duration-300 group pl-0 hover:pl-4"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
