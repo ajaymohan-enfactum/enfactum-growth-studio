@@ -539,7 +539,7 @@ const DepthSection = () => (
         eyebrow="Depth behind the work"
         headline="Real teams. Real infrastructure."
       />
-      <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {depthBlocks.map((block, i) => (
           <RevealSection key={i} delay={i * 0.08} scale>
             <Link to={block.href} className="group block h-full">
