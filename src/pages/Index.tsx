@@ -277,7 +277,7 @@ const WhatWeBuilds = () => (
         headline="Four capabilities. One operating model."
         description="Each capability connects. Together, they form a growth operating system for Southeast Asia."
       />
-      <div className="mt-20 grid md:grid-cols-2 gap-6">
+      <div className="mt-12 grid md:grid-cols-2 gap-6">
         {capabilities.map((cap, i) => (
           <RevealSection key={i} delay={i * 0.1} scale>
             <Link to={cap.href} className="group block h-full">
