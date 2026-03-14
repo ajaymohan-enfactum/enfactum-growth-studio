@@ -201,9 +201,9 @@ const frictionPoints = [
 ];
 
 const GrowthBreaks = () => (
-  <section id="growth-breaks" className="py-20 md:py-28">
+  <section id="growth-breaks" className="py-16 md:py-20">
     <div className="section-container">
-      <div className="section-divider mb-20" />
+      <div className="section-divider mb-12" />
       <SectionHeader
         eyebrow="Where growth breaks"
         headline="The friction points we're built to solve."
