@@ -56,7 +56,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/60" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
 
-      <div className="section-container relative z-10 pb-20 md:pb-28 lg:pb-36 pt-40">
+      <div className="section-container relative z-10 pb-14 md:pb-20 lg:pb-24 pt-40">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
