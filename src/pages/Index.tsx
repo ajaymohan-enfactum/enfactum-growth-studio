@@ -295,7 +295,7 @@ const HowWeWork = () => (
             <div className="absolute top-[18px] left-[10%] right-[10%] h-px bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0" />
             {processSteps.map((step, i) => (
               <RevealSection key={i} delay={i * 0.1} className="flex-1 relative px-4 text-center">
-                <div className="w-9 h-9 rounded-full border border-border bg-background flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:border-primary/40 transition-colors">
+                <div className="w-9 h-9 rounded-full border border-border bg-background flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:border-primary/40 transition-colors" style={{ boxShadow: '0 0 20px 6px hsl(210 100% 50% / 0.08)' }}>
                   <span className="text-[10px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
                 </div>
                 <h3 className="font-display font-bold text-foreground text-base tracking-tight">{step.step}</h3>
