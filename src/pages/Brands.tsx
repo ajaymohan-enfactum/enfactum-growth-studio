@@ -163,7 +163,7 @@ const Brands = () => (
           description="A few snapshots of how Enfactum has operated for brands across sectors."
         />
 
-        <div className="mt-20 grid sm:grid-cols-2 gap-8">
+        <div className="mt-12 grid sm:grid-cols-2 gap-6">
           {outcomeCapsules.map((capsule, i) => (
             <RevealSection key={i} delay={i * 0.08} blur>
               <div className="card-premium h-full">
