@@ -10,64 +10,7 @@ import BrandLogo from "@/components/shared/BrandLogo";
 import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-/* ═══════════════════════════════════════════════
-   SECTOR CLUSTERS — real brands from creds deck
-   ═══════════════════════════════════════════════ */
-const sectorClusters = [
-  {
-    sector: "Enterprise Technology",
-    num: "01",
-    narrative: "Helping technology brands build market entry, partner momentum, and commercial infrastructure across Southeast Asia.",
-    brands: [
-      { name: "HP", domain: "hp.com", cue: "AI Ecosystems · Innovation · Channel" },
-      { name: "Dell EMC", domain: "dell.com", cue: "Growth Infrastructure" },
-      { name: "Seagate", domain: "seagate.com", cue: "Global Performance Marketing" },
-      { name: "Redington", domain: "redingtongroup.com", cue: "Content & Partner Platforms" },
-      { name: "Lenovo", domain: "lenovo.com", cue: "Field Marketing" },
-      { name: "Oracle", domain: "oracle.com", cue: "Enterprise Programmes" },
-      { name: "Lexmark", domain: "lexmark.com", cue: "Channel Activation" },
-    ],
-  },
-  {
-    sector: "Consumer & Brand Growth",
-    num: "02",
-    narrative: "Supporting brands that need market activation, demand generation, and regional growth with commercial discipline.",
-    brands: [
-      { name: "Brands For Less", domain: "brandsforless.com", cue: "Market Entry · Digital Growth" },
-      { name: "Sephora", domain: "sephora.com", cue: "Experiential Launch" },
-      { name: "L'Oréal", domain: "loreal.com", cue: "Brand & Demand" },
-      { name: "Decathlon", domain: "decathlon.com", cue: "Retail Activation" },
-      { name: "Delsey", domain: "delsey.com", cue: "Distribution & Scale" },
-      { name: "VIP Industries", domain: "vipindustries.co.in", cue: "Dealer Enablement" },
-    ],
-  },
-  {
-    sector: "Institutions & Ecosystems",
-    num: "03",
-    narrative: "Working with publishers, institutions, and ecosystem builders where trust, reach, and stakeholder alignment matter.",
-    brands: [
-      { name: "The Economist", domain: "economist.com", cue: "BOT · Growth Operations · Affiliate" },
-      { name: "Abbott", domain: "abbott.com", cue: "Brand & Demand" },
-      { name: "AICB", domain: "aicb.org.my", cue: "Community & Events" },
-      { name: "DSCOOP", domain: "dscoop.org", cue: "Community & Events" },
-      { name: "Guntner", domain: "guntner.com", cue: "Enterprise Programmes" },
-    ],
-  },
-  {
-    sector: "New Economy & Innovation",
-    num: "04",
-    narrative: "Partnering with emerging and innovation-led companies shaping new categories across the region.",
-    brands: [
-      { name: "JSHealth Vitamins", domain: "jshealthvitamins.com", cue: "Affiliate · Global Growth" },
-      { name: "Lazada", domain: "lazada.com", cue: "E-Commerce Activation" },
-      { name: "Syfe", domain: "syfe.com", cue: "Fintech Growth" },
-      { name: "SingX", domain: "singx.co", cue: "Market Expansion" },
-      { name: "insureMO", domain: "insuremo.com", cue: "Enterprise Technology" },
-      { name: "eBaoTech", domain: "ebaotech.com", cue: "Digital Platforms" },
-    ],
-  },
-];
+import { sectorClusters } from "@/data/brands";
 
 /* ═══════════════════════════════════════════════
    SELECTED OUTCOMES
@@ -102,7 +45,7 @@ const Brands = () => (
   <PageLayout>
     <SEOHead
       title="Brands — Enterprise Experience Across Southeast Asia"
-      description="Enfactum has worked with 40+ enterprise brands across enterprise technology, consumer growth, institutions, and innovation sectors in Southeast Asia. HP, The Economist, Sephora, L'Oréal, and more."
+      description="Enfactum has worked with 40+ enterprise brands across enterprise technology, consumer growth, institutions, and innovation sectors in Southeast Asia. HP, The Economist, L'Oréal, and more."
       path="/brands"
     />
     {/* ─── HERO ─── */}
@@ -154,7 +97,7 @@ const Brands = () => (
 
     <ParallaxDivider variant="gradient" />
 
-    {/* ═══ SECTION 3 — SECTOR EXPERIENCE ARCHITECTURE ═══ */}
+    {/* ═══ SECTION 3 — SECTOR LOGO GRID ═══ */}
     <section className="section-alt py-32 md:py-44">
       <div className="section-container">
         <SectionHeader
@@ -179,24 +122,23 @@ const Brands = () => (
                     </p>
                   </div>
 
+                  {/* Right — Logo grid */}
                   <div className="md:col-span-7 md:col-start-6">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8 gap-y-6">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                       {cluster.brands.map((brand, bi) => (
                         <div
                           key={bi}
-                          className="group py-4 cursor-default flex flex-col items-start gap-2"
+                          className="group flex items-center justify-center rounded-xl bg-white/[0.05] border border-white/10 p-6 transition-all duration-300 hover:border-white/20"
                         >
                           <BrandLogo
                             name={brand.name}
                             domain={brand.domain}
+                            localLogo={brand.localLogo}
                             height={36}
                             opacity={0.6}
                             hoverOpacity={1.0}
                             scaleOnHover
                           />
-                          <span className="block text-[10px] text-dim/0 group-hover:text-dim transition-all duration-700 uppercase tracking-[0.15em] font-body overflow-hidden max-h-0 group-hover:max-h-6">
-                            {brand.cue}
-                          </span>
                         </div>
                       ))}
                     </div>
