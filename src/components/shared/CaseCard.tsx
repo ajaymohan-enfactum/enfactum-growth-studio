@@ -116,6 +116,19 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
                 </span>
               )}
             </div>
+            {/* Brand logo */}
+            {brandLookup[cs.client] && (
+              <div className="mb-2 mt-1">
+                <BrandLogo
+                  name={brandLookup[cs.client].name}
+                  domain={brandLookup[cs.client].domain}
+                  localLogo={brandLookup[cs.client].localLogo}
+                  height={20}
+                  opacity={0.6}
+                  hoverOpacity={0.9}
+                />
+              </div>
+            )}
             <span className="text-[11px] text-dim font-body block mb-2">{cs.client}</span>
             <h3 className="font-display text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-500 leading-tight">
               {cs.headline}
