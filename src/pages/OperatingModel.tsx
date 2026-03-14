@@ -25,12 +25,12 @@ const engagementTypes = [
 const OperatingModel = () => (
   <PageLayout>
     <SEOHead
-      title="Operating Model — Define, Build, Operate, Transfer, Scale"
-      description="Enfactum's operating model is designed for execution: Define, Build, Operate, Transfer, Scale. Consulting, embedded teams, and Build-Operate-Transfer engagements for enterprise brands in Southeast Asia."
+      title="Growth Architecture — Define, Build, Operate, Transfer, Scale"
+      description="Enfactum's growth architecture is designed for execution: Define, Build, Operate, Transfer, Scale. Consulting, embedded teams, and Build-Operate-Transfer engagements for enterprise brands in Southeast Asia."
       path="/company/operating-model"
       jsonLd={makeBreadcrumbSchema([
         { name: "Company", url: "/company" },
-        { name: "Operating Model", url: "/company/operating-model" },
+        { name: "Growth Architecture", url: "/company/operating-model" },
       ])}
     />
     <HeroSection
