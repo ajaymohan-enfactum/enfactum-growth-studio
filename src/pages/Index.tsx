@@ -179,7 +179,7 @@ const GrowthBreaks = () => (
             blur
             className={`md:col-span-4 ${i >= 3 ? "md:col-start-" + (i === 3 ? "3" : "7") : ""}`}
           >
-            <div className="pr-8">
+            <div className="pr-8 rounded-xl bg-white/[0.05] border border-white/10 p-6">
               <point.icon className="w-5 h-5 text-primary/70 mb-5" strokeWidth={1.5} />
               <h3 className="font-display text-lg font-semibold text-foreground leading-snug">
                 {point.title}
