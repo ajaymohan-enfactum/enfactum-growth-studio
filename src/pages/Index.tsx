@@ -375,45 +375,21 @@ const sectorClusters = [
     sector: "Enterprise Technology",
     num: "01",
     caption: "Growth infrastructure, innovation ecosystems, and partner programmes for global technology leaders entering and expanding across ASEAN.",
-    logos: [
-      { name: "HP", domain: "hp.com", capability: "AI Ecosystems · Innovation" },
-      { name: "Lenovo", domain: "lenovo.com", capability: "Growth Infrastructure" },
-      { name: "Oracle", domain: "oracle.com", capability: "Global Performance" },
-      { name: "Redington", domain: "redingtongroup.com", capability: "Content & Platforms" },
-    ],
   },
   {
     sector: "Consumer & Brand Growth",
     num: "02",
     caption: "Integrated brand-to-demand strategies and market entry for consumer brands scaling across Southeast Asia's diverse retail landscape.",
-    logos: [
-      { name: "Brands For Less", domain: "brandsforless.com", capability: "Market Entry · Digital Growth" },
-      { name: "Lancôme", domain: "lancome.com", capability: "Live Experiences · Launch" },
-      { name: "L'Oréal", domain: "loreal.com", capability: "Brand & Demand" },
-      { name: "Kiehl's", domain: "kiehls.com", capability: "Retail Activation" },
-    ],
   },
   {
     sector: "Institutions & Ecosystems",
     num: "03",
     caption: "Working with publishers, institutions, and ecosystem builders where trust, reach, and stakeholder alignment matter.",
-    logos: [
-      { name: "The Economist", domain: "economist.com", capability: "BOT · Growth Operations" },
-      { name: "AICB", domain: "aicb.org.my", capability: "Community & Events" },
-      { name: "Abbott", domain: "abbott.com", capability: "Brand & Demand" },
-      { name: "DSCOOP", domain: "dscoop.org", capability: "Channel Activation" },
-    ],
   },
   {
     sector: "New Economy & Innovation",
     num: "04",
     caption: "Partnering with emerging and innovation-led companies shaping new categories across the region.",
-    logos: [
-      { name: "JSHealth Vitamins", domain: "jshealthvitamins.com", capability: "Affiliate · Global Growth" },
-      { name: "Lazada", domain: "lazada.com", capability: "E-Commerce Activation" },
-      { name: "InsureMO", domain: "insuremo.com", capability: "Dealer Enablement" },
-      { name: "Integrate", domain: "integrateevents.com", capability: "Retail Distribution" },
-    ],
   },
 ];
 
@@ -432,56 +408,35 @@ const SectorExperience = () => (
       />
 
       {/* Brand marquee */}
-      <div className="relative mt-16 mb-8 overflow-hidden group/marquee">
+      <div className="relative mt-12 mb-10 overflow-hidden group/marquee">
         {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-background to-transparent pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #080E1A, transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #080E1A, transparent)' }} />
         <div
           className="flex whitespace-nowrap group-hover/marquee:[animation-play-state:paused]"
           style={{ animation: 'brand-marquee 40s linear infinite' }}
         >
           {[...brandMarqueeNames, ...brandMarqueeNames].map((name, i) => (
             <span key={i} className="inline-flex items-center shrink-0">
-              <span className="text-2xl font-semibold text-white/30 px-4 transition-opacity duration-500">{name}</span>
+              <span className="text-xl font-semibold text-white/40 px-4">{name}</span>
               <span className="text-primary/50 text-lg">·</span>
             </span>
           ))}
         </div>
       </div>
 
-      <div className="mt-14 space-y-0">
+      {/* Sector descriptions — no brand names */}
+      <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {sectorClusters.map((cluster, ci) => (
           <RevealSection key={ci} delay={ci * 0.06}>
-            <div className="border-t border-border/30 py-14 md:py-16">
-              <div className="grid md:grid-cols-12 gap-8">
-                {/* Left — Cluster label */}
-                <div className="md:col-span-4">
-                  <span className="text-[10px] font-body text-dim block mb-3">{cluster.num}</span>
-                  <h3 className="font-display text-xl md:text-2xl font-bold text-foreground leading-tight">
-                    {cluster.sector}
-                  </h3>
-                  <p className="text-[13px] text-muted-foreground leading-relaxed mt-4 max-w-xs">
-                    {cluster.caption}
-                  </p>
-                </div>
-
-                {/* Right — Logo entries */}
-                <div className="md:col-span-7 md:col-start-6">
-                  <div className="grid grid-cols-2 gap-x-8 gap-y-0">
-                    {cluster.logos.map((logo, li) => (
-                      <div
-                        key={li}
-                        className="group py-6 border-b border-border/20 last:border-b-0 cursor-default flex flex-col items-start gap-2"
-                      >
-                        <BrandLogo name={logo.name} domain={logo.domain} />
-                        <span className="block text-[10px] text-dim/0 group-hover:text-dim transition-all duration-700 uppercase tracking-[0.15em] font-body overflow-hidden max-h-0 group-hover:max-h-6">
-                          {logo.capability}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+            <div className="border-t border-border/30 pt-6">
+              <span className="text-[10px] font-body text-dim block mb-3">{cluster.num}</span>
+              <h3 className="font-display text-lg font-bold text-foreground leading-tight">
+                {cluster.sector}
+              </h3>
+              <p className="text-[13px] text-muted-foreground leading-relaxed mt-3">
+                {cluster.caption}
+              </p>
             </div>
           </RevealSection>
         ))}
