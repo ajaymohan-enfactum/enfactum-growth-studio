@@ -424,7 +424,7 @@ const brandMarqueeNames = [
 ];
 
 const SectorExperience = () => (
-  <section className="py-20 md:py-28 bg-white/[0.02]">
+  <section className="py-16 md:py-20 bg-[#080E1A]">
     <div className="section-container">
       <SectionHeader
         eyebrow="Experience"
