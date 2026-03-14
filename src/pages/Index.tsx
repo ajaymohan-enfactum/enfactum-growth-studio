@@ -270,7 +270,7 @@ const capabilities = [
 ];
 
 const WhatWeBuilds = () => (
-  <section id="capabilities" className="section-alt py-20 md:py-28">
+  <section id="capabilities" className="py-16 md:py-20 bg-[#080E1A]">
     <div className="section-container">
       <SectionHeader
         eyebrow="What Enfactum builds"
