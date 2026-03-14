@@ -446,25 +446,24 @@ const SectorExperience = () => (
         headline="Experience across the industries shaping Southeast Asia."
       />
 
-      {/* Brand marquee */}
+      {/* Brand logo marquee */}
       <div className="relative mt-12 mb-10 overflow-hidden group/marquee">
         {/* Edge fades */}
         <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #080E1A, transparent)' }} />
         <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #080E1A, transparent)' }} />
         <div
-          className="flex whitespace-nowrap group-hover/marquee:[animation-play-state:paused]"
+          className="flex items-center group-hover/marquee:[animation-play-state:paused]"
           style={{ animation: 'brand-marquee 40s linear infinite' }}
         >
-          {[...brandMarqueeNames, ...brandMarqueeNames].map((name, i) => (
-            <span key={i} className="inline-flex items-center shrink-0">
-              <span className="text-xl font-semibold text-white/40 px-4">{name}</span>
-              <span className="text-primary/50 text-lg">·</span>
+          {[...brandMarqueeItems, ...brandMarqueeItems].map((brand, i) => (
+            <span key={i} className="inline-flex items-center shrink-0 gap-12 px-6">
+              <BrandLogo name={brand.name} domain={brand.domain} height={28} opacity={0.5} hoverOpacity={0.85} />
             </span>
           ))}
         </div>
       </div>
 
-      {/* Sector descriptions — no brand names */}
+      {/* Sector descriptions with brand logos */}
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {sectorClusters.map((cluster, ci) => (
           <RevealSection key={ci} delay={ci * 0.06}>
@@ -476,6 +475,13 @@ const SectorExperience = () => (
               <p className="text-[13px] text-muted-foreground leading-relaxed mt-3">
                 {cluster.caption}
               </p>
+              {sectorBrands[cluster.sector] && (
+                <div className="flex flex-wrap items-center gap-4 mt-4">
+                  {sectorBrands[cluster.sector].map((brand, bi) => (
+                    <BrandLogo key={bi} name={brand.name} domain={brand.domain} height={24} opacity={0.4} hoverOpacity={0.7} />
+                  ))}
+                </div>
+              )}
             </div>
           </RevealSection>
         ))}
