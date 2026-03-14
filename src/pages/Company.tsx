@@ -202,21 +202,21 @@ const Company = () => (
     </section>
 
     <ParallaxDivider variant="mist" flip />
-    {/* ═══ SECTION 3 — OPERATING BENCH ═══ */}
+    {/* ═══ SECTION 3 — ARCHITECT BENCH ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
         <div className="section-divider mb-20" />
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-5">
             <RevealSection>
-              <p className="eyebrow mb-6">Operating bench</p>
+              <p className="eyebrow mb-6">Architect bench</p>
               <h2 className="headline-lg">200+ specialists. Six disciplines.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-5 md:col-start-7 flex items-end">
             <RevealSection delay={0.1}>
               <p className="body-md text-muted-foreground">
-                Behind every programme is a deep operating bench — specialists across strategy, creative,
+                Behind every programme is a deep architect bench — specialists across strategy, creative,
                 technology, demand, programme management, and events.
               </p>
             </RevealSection>
