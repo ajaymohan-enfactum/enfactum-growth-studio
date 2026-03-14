@@ -170,7 +170,7 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
         {/* Insight */}
         {cs.insight && (
           <div className="mt-8 md:ml-[calc(100%/12*5+2rem)] max-w-lg">
-            <p className="text-[12px] text-foreground/40 italic leading-relaxed border-l-2 border-primary/15 pl-4">
+            <p className="text-[12px] text-foreground/30 group-hover:text-foreground/50 italic leading-relaxed border-l-2 border-primary/15 pl-4 transition-colors duration-300">
               "{cs.insight}"
             </p>
           </div>

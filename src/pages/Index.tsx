@@ -275,23 +275,23 @@ const WhatWeBuilds = () => (
       />
       <div className="mt-20 space-y-0">
         {capabilities.map((cap, i) => (
-          <RevealSection key={i} delay={i * 0.06} scale>
+          <RevealSection key={i} delay={i * 0.15} scale>
             <Link to={cap.href} className="group block">
-              <div className="grid md:grid-cols-12 gap-6 py-10 border-b border-border/40 group-hover:border-primary/20 transition-colors duration-700">
+              <div className="grid md:grid-cols-12 gap-6 py-10 border-b border-border/40 group-hover:border-primary/20 group-hover:bg-white/[0.05] transition-all duration-300 -mx-4 px-4 rounded-lg">
                 <div className="md:col-span-1">
                   <span className="text-xs font-body text-dim">{cap.num}</span>
                 </div>
                 <div className="md:col-span-4">
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-500">
+                  <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                     {cap.title}
                   </h3>
                 </div>
                 <div className="md:col-span-5">
                   <p className="body-md text-muted-foreground">{cap.desc}</p>
-                  <p className="eyebrow mt-4">{cap.outcome}</p>
+                  <p className="eyebrow mt-4 transition-opacity duration-300 opacity-60 group-hover:opacity-100">{cap.outcome}</p>
                 </div>
                 <div className="md:col-span-2 flex items-center justify-end">
-                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all duration-500" />
+                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-2 transition-all duration-300" />
                 </div>
               </div>
             </Link>
