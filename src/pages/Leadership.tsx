@@ -237,8 +237,8 @@ const Leadership = () => {
   return (
     <PageLayout>
       <SEOHead
-        title="Leadership — Operators Across Strategy, Growth, and Technology"
-        description="The Enfactum leadership team brings decades of experience across strategy, growth, technology, and creative — operators who have built and run growth programmes across Southeast Asia."
+        title="Leadership — Growth Architects Across Strategy, Growth, and Technology"
+        description="The Enfactum leadership team brings decades of experience across strategy, growth, technology, and creative — Growth Architects who have built and run growth programmes across Southeast Asia."
         path="/company/leadership"
         jsonLd={makeBreadcrumbSchema([
           { name: "Company", url: "/company" },
