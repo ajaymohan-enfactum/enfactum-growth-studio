@@ -189,7 +189,7 @@ const Brands = () => (
     <ParallaxDivider variant="glow" flip />
 
     {/* ═══ SECTION 5 — BRIDGE TO WORK + CROSS-LINKS ═══ */}
-    <section className="section-alt py-24 md:py-32">
+    <section className="section-alt py-16 md:py-20">
       <div className="section-container">
         <RevealSection>
           <div className="grid md:grid-cols-12 gap-8 items-center mb-16">
