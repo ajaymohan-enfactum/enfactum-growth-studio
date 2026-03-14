@@ -39,7 +39,7 @@ const capabilities = [
     title: "AI Ecosystems",
     problem: "Your innovation program generates pilots and press releases, not production implementations.",
     what: "We build innovation ecosystem architecture — venture strategy, startup scouting, partnership design, and pilot-to-scale programmes.",
-    for: "Enterprises with innovation mandates that need an operator to move from scouting to scaling, not another accelerator programme.",
+    for: "Enterprises with innovation mandates that need a Growth Architect to move from scouting to scaling, not another accelerator programme.",
     outcomes: ["Enterprise-startup partnerships", "Pilot-to-platform pathways", "Innovation programme architecture"],
     href: "/capabilities/ai-ecosystems",
     icon: Brain,
@@ -61,7 +61,7 @@ const capabilities = [
 const engagementModels = [
   { title: "Consulting", duration: "4–12 weeks", desc: "Strategic advisory and growth diagnostics for a specific challenge. Deliverable-led, time-bound." },
   { title: "Projects", duration: "2–6 months", desc: "Scoped programmes with defined outcomes — market entry, campaign launches, ecosystem builds." },
-  { title: "Embedded Teams", duration: "6–18 months", desc: "Enfactum operators working inside your organisation for sustained execution and capability building." },
+  { title: "Embedded Teams", duration: "6–18 months", desc: "Enfactum Growth Architects working inside your organisation for sustained execution and capability building." },
   { title: "Build-Operate-Transfer", duration: "12–24 months", desc: "We build and run the capability, then transfer full ownership and knowledge to your team." },
 ];
 

@@ -32,7 +32,7 @@ const capabilityItems = [
 const companyItems = [
   { label: "Company", href: "/company" },
   { label: "Leadership", href: "/company/leadership" },
-  { label: "Operating Model", href: "/company/operating-model" },
+  { label: "Growth Architecture", href: "/company/operating-model" },
   { label: "Regional Nodes", href: "/company/regional-nodes" },
   { label: "Careers", href: "/company/careers" },
 ];

@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 
 const whyEnfactum = [
   { title: "Real work, real impact", desc: "You'll work on live enterprise programmes across Southeast Asia — not internal busy-work." },
-  { title: "Operator culture", desc: "We build things. Strategy is the starting point, not the end product." },
+  { title: "Growth Architect culture", desc: "We build things. Strategy is the starting point, not the end product." },
   { title: "Multi-market exposure", desc: "Work across Singapore, India, Malaysia, Indonesia, and beyond." },
   { title: "Growth trajectory", desc: "Fast-growing company with clear capability leadership paths." },
 ];

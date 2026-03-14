@@ -123,7 +123,7 @@ const RegionalNodes = () => (
       <div className="section-container">
         <RevealSection>
           <p className="eyebrow mb-6">Common questions</p>
-          <h2 className="headline-md max-w-2xl">About Enfactum's regional operating model.</h2>
+          <h2 className="headline-md max-w-2xl">About Enfactum's regional growth architecture.</h2>
         </RevealSection>
         <div className="mt-12 space-y-0 max-w-3xl">
           {faqs.map((faq, i) => (
@@ -146,12 +146,12 @@ const RegionalNodes = () => (
             <Link to="/company" className="group block border-t border-border/30 pt-6">
               <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Explore</p>
               <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">About Enfactum</h4>
-              <p className="text-[13px] text-muted-foreground mt-1">Our story, leadership, and operating bench.</p>
+              <p className="text-[13px] text-muted-foreground mt-1">Our story, leadership, and architect bench.</p>
             </Link>
             <Link to="/company/leadership" className="group block border-t border-border/30 pt-6">
               <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Explore</p>
               <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Leadership team</h4>
-              <p className="text-[13px] text-muted-foreground mt-1">Meet the operators behind Enfactum's capabilities.</p>
+              <p className="text-[13px] text-muted-foreground mt-1">Meet the Growth Architects behind Enfactum's capabilities.</p>
             </Link>
             <Link to="/contact" className="group block border-t border-border/30 pt-6">
               <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Explore</p>

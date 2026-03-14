@@ -124,7 +124,7 @@ const Thinking = () => {
     <PageLayout>
       <SEOHead
         title="Thinking — Field Notes on Growth, Ecosystems, and Strategy in Southeast Asia"
-        description="Original operator-led perspectives on growth, market entry, AI ecosystems, partnerships, and commercial strategy across Southeast Asia — from the people who do the work."
+        description="Original Growth Architect-led perspectives on growth, market entry, AI ecosystems, partnerships, and commercial strategy across Southeast Asia — from the people who do the work."
         path="/thinking"
       />
       <HeroSection

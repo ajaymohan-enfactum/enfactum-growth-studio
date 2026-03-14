@@ -41,8 +41,8 @@ const pathways = [
   {
     id: "talent",
     title: "Talent & Careers",
-    desc: "You're interested in joining the Enfactum operating bench as a principal or specialist.",
-    detail: "We hire operators with domain depth and regional experience.",
+    desc: "You're interested in joining the Enfactum architect bench as a principal or specialist.",
+    detail: "We hire Growth Architects with domain depth and regional experience.",
   },
   {
     id: "general",

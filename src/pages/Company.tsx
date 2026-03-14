@@ -64,7 +64,7 @@ const capabilityOwnership = [
 ];
 
 const operatingPrinciples = [
-  { title: "Operator mindset", desc: "We don't advise from the outside. We embed within the business and stay until the work has real infrastructure." },
+  { title: "Growth Architect mindset", desc: "We don't advise from the outside. We embed within the business and stay until the work has real infrastructure." },
   { title: "Ecosystem intelligence", desc: "We understand how growth moves through partnerships, channels, and local trust — not just marketing funnels." },
   { title: "Outcome obsession", desc: "Every programme is designed around commercial outcomes. We measure what matters to the business, not vanity metrics." },
   { title: "Regional depth", desc: "We're built for Southeast Asia. Our teams, partners, and operating model are designed for this region's complexity." },
@@ -105,7 +105,7 @@ const Company = () => (
               <div className="space-y-6">
               <p className="body-lg">
                   Since 2010, Enfactum has bridged the gap between strategic intent and operational reality.
-                  We are not just consultants — we are operators. For over a decade, we have helped global
+                  We are not just consultants — we are Growth Architects. For over a decade, we have helped global
                   brands navigate complex markets with precision.
                 </p>
                 <p className="body-lg">
@@ -155,7 +155,7 @@ const Company = () => (
           <div className="md:col-span-5">
             <RevealSection>
               <p className="eyebrow mb-6">Leadership</p>
-              <h2 className="headline-lg">Experienced operators, not career advisors.</h2>
+              <h2 className="headline-lg">Experienced Growth Architects, not career advisors.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-5 md:col-start-7 flex items-end">
@@ -202,21 +202,21 @@ const Company = () => (
     </section>
 
     <ParallaxDivider variant="mist" flip />
-    {/* ═══ SECTION 3 — OPERATING BENCH ═══ */}
+    {/* ═══ SECTION 3 — ARCHITECT BENCH ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
         <div className="section-divider mb-20" />
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-5">
             <RevealSection>
-              <p className="eyebrow mb-6">Operating bench</p>
+              <p className="eyebrow mb-6">Architect bench</p>
               <h2 className="headline-lg">200+ specialists. Six disciplines.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-5 md:col-start-7 flex items-end">
             <RevealSection delay={0.1}>
               <p className="body-md text-muted-foreground">
-                Behind every programme is a deep operating bench — specialists across strategy, creative,
+                Behind every programme is a deep architect bench — specialists across strategy, creative,
                 technology, demand, programme management, and events.
               </p>
             </RevealSection>
@@ -336,7 +336,7 @@ const Company = () => (
       </div>
     </section>
 
-    {/* ═══ SECTION 7 — OPERATING PRINCIPLES ═══ */}
+    {/* ═══ SECTION 7 — GROWTH ARCHITECTURE PRINCIPLES ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
         <div className="section-divider mb-20" />
@@ -354,7 +354,7 @@ const Company = () => (
                 that shape how we build teams, design programmes, and deliver outcomes.
               </p>
               <Link to="/company/operating-model" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-6">
-                View operating model <ArrowRight className="w-4 h-4" />
+                View Growth Architecture <ArrowRight className="w-4 h-4" />
               </Link>
             </RevealSection>
           </div>
@@ -382,7 +382,7 @@ const Company = () => (
         <div className="space-y-0">
           {[
             { title: "Leadership", desc: "Meet the full leadership team.", href: "/company/leadership" },
-            { title: "Operating Model", desc: "How we structure and deliver programmes.", href: "/company/operating-model" },
+            { title: "Growth Architecture", desc: "How we structure and deliver programmes.", href: "/company/operating-model" },
             { title: "Regional Nodes", desc: "Our operating network across Southeast Asia.", href: "/company/regional-nodes" },
             { title: "Careers", desc: "Build something meaningful with us.", href: "/company/careers" },
           ].map((link, i) => (

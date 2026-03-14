@@ -180,7 +180,7 @@ const WhySEA = () => (
               </div>
               <p className="body-md text-muted-foreground italic">
                 Enfactum exists because the gap between global ambition and
-                regional reality needed an operator — not another advisor.
+                regional reality needed a Growth Architect — not another advisor.
               </p>
             </div>
           </RevealSection>
@@ -328,7 +328,7 @@ const HowWeWork = () => (
     <div className="section-container">
       <SectionHeader
         eyebrow="How we work"
-        headline="Operators, not just advisors."
+        headline="Growth Architects, not just advisors."
         description="We embed within the business and stay until growth has real infrastructure."
         centered
       />
@@ -472,8 +472,8 @@ const FeaturedWork = () => {
    Architectural teaser blocks
    ═══════════════════════════════════════════════ */
 const depthBlocks = [
-  { title: "Leadership", desc: "Experienced operators across strategy, growth, and technology.", href: "/company/leadership", num: "01" },
-  { title: "Operating Bench", desc: "200+ specialists across Southeast Asia and India.", href: "/company", num: "02" },
+  { title: "Leadership", desc: "Experienced Growth Architects across strategy, growth, and technology.", href: "/company/leadership", num: "01" },
+  { title: "Architect Bench", desc: "200+ specialists across Southeast Asia and India.", href: "/company", num: "02" },
   { title: "Regional Nodes", desc: "Singapore, India, Malaysia, Indonesia — and expanding.", href: "/company/regional-nodes", num: "03" },
   { title: "Capability Ownership", desc: "Each capability led by domain-specialist principals.", href: "/capabilities", num: "04" },
 ];
@@ -559,7 +559,7 @@ const clientInsights = [
   "Multi-market launch succeeds when you build distribution before awareness.",
   "Channel engagement scales when you meet partners where they are.",
   "The best innovation programs start with a commercial mandate, not a technology bet.",
-  "Growth in Southeast Asia requires operators, not just strategists.",
+  "Growth in Southeast Asia requires Growth Architects, not just strategists.",
   "Events become pipeline machines when designed backward from business objectives.",
 ];
 

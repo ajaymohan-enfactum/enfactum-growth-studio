@@ -17,7 +17,7 @@ const processSteps = [
 
 const engagementTypes = [
   { title: "Consulting", desc: "Strategic advisory for specific growth challenges. Diagnostics, strategy, and recommendations.", duration: "4–12 weeks" },
-  { title: "Embedded Team", desc: "Enfactum operators embedded within your organisation for sustained execution and capability building.", duration: "6–18 months" },
+  { title: "Embedded Team", desc: "Enfactum Growth Architects embedded within your organisation for sustained execution and capability building.", duration: "6–18 months" },
   { title: "Build-Operate-Transfer", desc: "We build the capability, operate it until proven, then transfer full ownership to your team.", duration: "12–24 months" },
   { title: "Programme Build", desc: "Full design and launch of growth programmes — partner ecosystems, innovation labs, market activations.", duration: "3–12 months" },
 ];
@@ -25,18 +25,18 @@ const engagementTypes = [
 const OperatingModel = () => (
   <PageLayout>
     <SEOHead
-      title="Operating Model — Define, Build, Operate, Transfer, Scale"
-      description="Enfactum's operating model is designed for execution: Define, Build, Operate, Transfer, Scale. Consulting, embedded teams, and Build-Operate-Transfer engagements for enterprise brands in Southeast Asia."
+      title="Growth Architecture — Define, Build, Operate, Transfer, Scale"
+      description="Enfactum's growth architecture is designed for execution: Define, Build, Operate, Transfer, Scale. Consulting, embedded teams, and Build-Operate-Transfer engagements for enterprise brands in Southeast Asia."
       path="/company/operating-model"
       jsonLd={makeBreadcrumbSchema([
         { name: "Company", url: "/company" },
-        { name: "Operating Model", url: "/company/operating-model" },
+        { name: "Growth Architecture", url: "/company/operating-model" },
       ])}
     />
     <HeroSection
-      eyebrow="Operating Model"
+      eyebrow="Growth Architecture"
       headline="From strategy to scale. Structured for real outcomes."
-      description="Enfactum's operating model is designed for execution, not just advice. We embed, build, operate, and transfer — so growth has lasting infrastructure."
+      description="Enfactum's growth architecture is designed for execution, not just advice. We embed, build, operate, and transfer — so growth has lasting infrastructure."
     >
       <Link to="/contact"><Button variant="hero" size="xl">Discuss engagement</Button></Link>
     </HeroSection>
