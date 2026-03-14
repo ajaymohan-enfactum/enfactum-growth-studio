@@ -155,7 +155,7 @@ const Company = () => (
           <div className="md:col-span-5">
             <RevealSection>
               <p className="eyebrow mb-6">Leadership</p>
-              <h2 className="headline-lg">Experienced operators, not career advisors.</h2>
+              <h2 className="headline-lg">Experienced Growth Architects, not career advisors.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-5 md:col-start-7 flex items-end">
