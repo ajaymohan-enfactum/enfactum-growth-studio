@@ -559,7 +559,7 @@ const clientInsights = [
   "Multi-market launch succeeds when you build distribution before awareness.",
   "Channel engagement scales when you meet partners where they are.",
   "The best innovation programs start with a commercial mandate, not a technology bet.",
-  "Growth in Southeast Asia requires operators, not just strategists.",
+  "Growth in Southeast Asia requires Growth Architects, not just strategists.",
   "Events become pipeline machines when designed backward from business objectives.",
 ];
 
