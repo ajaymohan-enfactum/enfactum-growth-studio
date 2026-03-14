@@ -14,7 +14,7 @@ import SectionHeader from "@/components/shared/SectionHeader";
 import CTABand from "@/components/shared/CTABand";
 
 import HybridBackground from "@/components/shared/HybridBackground";
-import BrandLogo from "@/components/shared/BrandLogo";
+
 import CaseCard from "@/components/shared/CaseCard";
 import SEOHead, { organizationSchema, webSiteSchema } from "@/components/shared/SEOHead";
 import { getFlagshipCases } from "@/data/caseStudies";
