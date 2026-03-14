@@ -336,7 +336,7 @@ const Company = () => (
       </div>
     </section>
 
-    {/* ═══ SECTION 7 — OPERATING PRINCIPLES ═══ */}
+    {/* ═══ SECTION 7 — GROWTH ARCHITECTURE PRINCIPLES ═══ */}
     <section className="py-32 md:py-44">
       <div className="section-container">
         <div className="section-divider mb-20" />
