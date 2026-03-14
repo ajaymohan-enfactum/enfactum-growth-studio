@@ -105,7 +105,7 @@ const Company = () => (
               <div className="space-y-6">
               <p className="body-lg">
                   Since 2010, Enfactum has bridged the gap between strategic intent and operational reality.
-                  We are not just consultants — we are operators. For over a decade, we have helped global
+                  We are not just consultants — we are Growth Architects. For over a decade, we have helped global
                   brands navigate complex markets with precision.
                 </p>
                 <p className="body-lg">
