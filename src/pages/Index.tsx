@@ -383,52 +383,49 @@ const SectorExperience = () => (
       />
 
       {/* Brand logo marquee */}
-      <div className="relative mt-12 mb-10 overflow-hidden group/marquee">
-        {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #080E1A, transparent)' }} />
-        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #080E1A, transparent)' }} />
-        <div
-          className="flex items-center group-hover/marquee:[animation-play-state:paused]"
-          style={{ animation: 'brand-marquee 50s linear infinite' }}
-        >
-          {[...allMarqueeBrands, ...allMarqueeBrands].map((brand, i) => (
-            <span key={i} className="inline-flex items-center shrink-0 px-6">
-              <BrandLogo
-                name={brand.name}
-                domain={brand.domain}
-                localLogo={brand.localLogo}
-                height={28}
-                opacity={0.5}
-                hoverOpacity={0.9}
-              />
-            </span>
-          ))}
+      <RevealSection delay={0.1} className="mt-10 mb-12">
+        <div className="relative overflow-hidden group/marquee">
+          {/* Edge fades */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none bg-gradient-to-r from-[#080E1A] to-transparent" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none bg-gradient-to-l from-[#080E1A] to-transparent" />
+          <div
+            className="flex items-center gap-10 group-hover/marquee:[animation-play-state:paused]"
+            style={{ animation: 'brand-marquee 50s linear infinite', width: 'max-content' }}
+          >
+            {[...allMarqueeBrands, ...allMarqueeBrands].map((brand, i) => (
+              <span key={i} className="inline-flex items-center shrink-0">
+                <BrandLogo
+                  name={brand.name}
+                  domain={brand.domain}
+                  localLogo={brand.localLogo}
+                  height={24}
+                  opacity={0.35}
+                  hoverOpacity={0.8}
+                />
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
+      </RevealSection>
 
-      {/* Sector descriptions with brand logos */}
-      <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Sector clusters */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {brandSectorClusters.map((cluster, ci) => (
-          <RevealSection key={ci} delay={ci * 0.06}>
+          <RevealSection key={ci} delay={ci * 0.08}>
             <div className="border-t border-border/30 pt-6">
-              <span className="text-[10px] font-body text-dim block mb-3">{cluster.num}</span>
-              <h3 className="font-display text-lg font-bold text-foreground leading-tight">
+              <span className="text-[10px] font-body text-dim block mb-2">{cluster.num}</span>
+              <h3 className="font-display text-base font-bold text-foreground leading-tight">
                 {cluster.sector}
               </h3>
-              <p className="text-[13px] text-muted-foreground leading-relaxed mt-3">
+              <p className="text-[13px] text-muted-foreground leading-relaxed mt-2 line-clamp-3">
                 {cluster.narrative}
               </p>
-              <div className="flex flex-wrap items-center gap-4 mt-4">
+              {/* Brand names listed cleanly */}
+              <div className="mt-4 flex flex-wrap gap-x-1.5 gap-y-0.5">
                 {cluster.brands.map((brand, bi) => (
-                  <BrandLogo
-                    key={bi}
-                    name={brand.name}
-                    domain={brand.domain}
-                    localLogo={brand.localLogo}
-                    height={24}
-                    opacity={0.4}
-                    hoverOpacity={0.7}
-                  />
+                  <span key={bi} className="text-[11px] text-foreground/40 font-body">
+                    {brand.name}{bi < cluster.brands.length - 1 ? "," : ""}
+                  </span>
                 ))}
               </div>
             </div>

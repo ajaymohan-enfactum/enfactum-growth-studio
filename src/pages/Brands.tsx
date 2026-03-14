@@ -67,7 +67,7 @@ const Brands = () => (
     </HeroSection>
 
     {/* ═══ SECTION 2 — INTRO ═══ */}
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-20">
       <div className="section-container">
         <div className="grid md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-5">
@@ -98,7 +98,7 @@ const Brands = () => (
     <ParallaxDivider variant="gradient" />
 
     {/* ═══ SECTION 3 — SECTOR LOGO GRID ═══ */}
-    <section className="section-alt py-32 md:py-44">
+    <section className="section-alt py-16 md:py-20">
       <div className="section-container">
         <SectionHeader
           eyebrow="Experience"
@@ -106,7 +106,7 @@ const Brands = () => (
           description="From enterprise platforms to consumer brands and innovation-led companies, Enfactum has built experience across the environments that move Southeast Asia."
         />
 
-        <div className="mt-24 space-y-0">
+        <div className="mt-14 space-y-0">
           {sectorClusters.map((cluster, ci) => (
             <RevealSection key={ci} delay={ci * 0.06} scale>
               <div className="border-t border-border/30 py-14 md:py-16">
@@ -154,16 +154,16 @@ const Brands = () => (
     <ParallaxDivider variant="mist" />
 
     {/* ═══ SECTION 4 — SELECTED OUTCOMES ═══ */}
-    <section className="py-32 md:py-44">
+    <section className="py-16 md:py-20">
       <div className="section-container">
-        <div className="section-divider mb-20" />
+        <div className="section-divider mb-12" />
         <SectionHeader
           eyebrow="Selected outcomes"
           headline="Behind the logos."
           description="A few snapshots of how Enfactum has operated for brands across sectors."
         />
 
-        <div className="mt-20 grid sm:grid-cols-2 gap-8">
+        <div className="mt-12 grid sm:grid-cols-2 gap-6">
           {outcomeCapsules.map((capsule, i) => (
             <RevealSection key={i} delay={i * 0.08} blur>
               <div className="card-premium h-full">
@@ -189,7 +189,7 @@ const Brands = () => (
     <ParallaxDivider variant="glow" flip />
 
     {/* ═══ SECTION 5 — BRIDGE TO WORK + CROSS-LINKS ═══ */}
-    <section className="section-alt py-24 md:py-32">
+    <section className="section-alt py-16 md:py-20">
       <div className="section-container">
         <RevealSection>
           <div className="grid md:grid-cols-12 gap-8 items-center mb-16">
