@@ -2,7 +2,10 @@ import { useState } from "react";
 
 interface BrandLogoProps {
   name: string;
-  domain: string;
+  /** Clearbit domain for auto-fetch (e.g. "hp.com") */
+  domain?: string | null;
+  /** Local logo path relative to public/ (e.g. "/logos/redington.png") */
+  localLogo?: string | null;
   /** Logo height in pixels (default 28) */
   height?: number;
   /** Base opacity 0–1 (default 0.4) */
@@ -16,11 +19,12 @@ interface BrandLogoProps {
 
 /**
  * Premium brand logo component.
- * Loads logo from Clearbit CDN; falls back to styled text on error.
+ * Tries local logo first, then Clearbit CDN; falls back to styled text on error.
  */
 const BrandLogo = ({
   name,
   domain,
+  localLogo,
   height = 28,
   opacity = 0.4,
   hoverOpacity = 0.7,
@@ -28,33 +32,64 @@ const BrandLogo = ({
   className = "",
 }: BrandLogoProps) => {
   const [failed, setFailed] = useState(false);
+  const [clearbitFailed, setClearbitFailed] = useState(false);
 
-  const logoUrl = `https://logo.clearbit.com/${domain}?size=200`;
+  // Determine which URL to use
+  const localUrl = localLogo || null;
+  const clearbitUrl = domain ? `https://logo.clearbit.com/${domain}?size=200` : null;
 
-  if (failed) {
+  // If both sources failed or neither exists, show text
+  const showText =
+    failed ||
+    (!localUrl && !clearbitUrl) ||
+    (!localUrl && clearbitFailed) ||
+    (localUrl && failed && !clearbitUrl) ||
+    (localUrl && failed && clearbitFailed);
+
+  if (showText) {
     return (
       <span
-        className={`font-display font-semibold text-foreground/40 tracking-tight select-none ${className}`}
-        style={{ fontSize: `${Math.max(height * 0.5, 12)}px`, lineHeight: `${height}px` }}
+        className={`font-display font-semibold text-foreground/40 tracking-tight select-none text-sm ${className}`}
+        style={{ lineHeight: `${height}px` }}
       >
         {name}
       </span>
     );
   }
 
+  // Determine current src: prefer local, fall back to clearbit
+  const currentSrc = localUrl && !failed ? localUrl : clearbitUrl;
+
+  const handleError = () => {
+    if (localUrl && !failed) {
+      // Local failed, try clearbit
+      setFailed(true);
+      if (!clearbitUrl) setClearbitFailed(true);
+    } else {
+      // Clearbit failed too
+      setClearbitFailed(true);
+      setFailed(true);
+    }
+  };
+
   return (
     <img
-      src={logoUrl}
+      src={currentSrc!}
       alt={name}
-      onError={() => setFailed(true)}
+      onError={handleError}
       loading="lazy"
-      className={`w-auto object-contain brightness-0 invert transition-all duration-500 select-none ${scaleOnHover ? "hover:scale-105" : ""} ${className}`}
+      className={`w-auto object-contain brightness-0 invert transition-all duration-200 select-none ${scaleOnHover ? "hover:scale-105" : ""} ${className}`}
       style={{
         height: `${height}px`,
         opacity,
+        filter: "grayscale(100%) brightness(0) invert(1)",
       }}
-      onMouseEnter={(e) => { e.currentTarget.style.opacity = String(hoverOpacity); }}
-      onMouseLeave={(e) => { e.currentTarget.style.opacity = String(opacity); }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.opacity = String(hoverOpacity);
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.opacity = String(opacity);
+      }}
     />
   );
 };
