@@ -42,7 +42,7 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
-      className="relative min-h-screen flex items-end overflow-hidden"
+      className="relative min-h-[85vh] flex items-end overflow-hidden"
     >
       <HybridBackground />
       {/* Cursor spotlight */}
