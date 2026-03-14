@@ -628,7 +628,7 @@ const QuoteCarousel = ({ quotes }: { quotes: string[] }) => {
   }, [quotes.length]);
 
   return (
-    <section className="py-20 md:py-28 border-y border-border/20 overflow-hidden">
+    <section className="py-16 md:py-20 border-y border-border/20 overflow-hidden bg-[#080E1A]">
       <div className="section-container relative flex flex-col items-center text-center">
         {/* Decorative quote mark */}
         <span className="absolute top-0 left-1/2 -translate-x-1/2 text-[12rem] leading-none font-display font-bold text-primary/[0.08] select-none pointer-events-none" aria-hidden>
