@@ -570,9 +570,9 @@ const articles = [
 ];
 
 const Perspectives = () => (
-  <section id="thinking" className="py-20 md:py-28">
+  <section id="thinking" className="py-16 md:py-20">
     <div className="section-container">
-      <div className="section-divider mb-20" />
+      <div className="section-divider mb-12" />
       <div className="grid md:grid-cols-12 gap-8">
         <div className="md:col-span-4">
           <RevealSection>
