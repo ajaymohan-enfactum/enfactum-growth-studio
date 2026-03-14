@@ -653,10 +653,8 @@ const Index = () => (
     <SectorExperience />
     <ParallaxDivider variant="gradient" flip />
     <FeaturedWork />
-    {/* Insight ticker between work and depth */}
-    <div className="py-12 border-y border-border/20 overflow-hidden">
-      <InsightTicker insights={clientInsights} speed={50} />
-    </div>
+    {/* Quote carousel */}
+    <QuoteCarousel quotes={clientInsights} />
     <DepthSection />
     <Perspectives />
     <CTABand
