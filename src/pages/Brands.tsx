@@ -179,15 +179,21 @@ const Brands = () => (
                     </p>
                   </div>
 
-                  {/* Right — Brand entries */}
                   <div className="md:col-span-7 md:col-start-6">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8 gap-y-0">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8 gap-y-6">
                       {cluster.brands.map((brand, bi) => (
                         <div
                           key={bi}
-                          className="group py-6 border-b border-border/20 last:border-b-0 cursor-default flex flex-col items-start gap-2"
+                          className="group py-4 cursor-default flex flex-col items-start gap-2"
                         >
-                          <BrandLogo name={brand.name} domain={brand.domain} />
+                          <BrandLogo
+                            name={brand.name}
+                            domain={brand.domain}
+                            height={36}
+                            opacity={0.6}
+                            hoverOpacity={1.0}
+                            scaleOnHover
+                          />
                           <span className="block text-[10px] text-dim/0 group-hover:text-dim transition-all duration-700 uppercase tracking-[0.15em] font-body overflow-hidden max-h-0 group-hover:max-h-6">
                             {brand.cue}
                           </span>

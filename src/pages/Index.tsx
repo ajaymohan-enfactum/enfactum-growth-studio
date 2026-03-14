@@ -7,6 +7,7 @@ import TextShimmer from "@/components/shared/TextShimmer";
 import InsightTicker from "@/components/shared/InsightTicker";
 import StickySectionLabel from "@/components/shared/StickySectionLabel";
 import { ChevronDown } from "lucide-react";
+import BrandLogo from "@/components/shared/BrandLogo";
 
 import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
@@ -393,11 +394,49 @@ const sectorClusters = [
   },
 ];
 
-const brandMarqueeNames = [
-  "HP", "Lenovo", "Oracle", "Redington", "Brands For Less", "Lancôme",
-  "L'Oréal", "Kiehl's", "The Economist", "Abbott", "DSCOOP",
-  "JSHealth Vitamins", "Lazada", "InsureMO", "Integrate",
+const brandMarqueeItems = [
+  { name: "HP", domain: "hp.com" },
+  { name: "Lenovo", domain: "lenovo.com" },
+  { name: "Oracle", domain: "oracle.com" },
+  { name: "Redington", domain: "redingtongroup.com" },
+  { name: "Brands For Less", domain: "brandsforless.ae" },
+  { name: "Lancôme", domain: "lancome.com" },
+  { name: "L'Oréal", domain: "loreal.com" },
+  { name: "Kiehl's", domain: "kiehls.com" },
+  { name: "The Economist", domain: "economist.com" },
+  { name: "Abbott", domain: "abbott.com" },
+  { name: "DSCOOP", domain: "dscoop.com" },
+  { name: "JSHealth Vitamins", domain: "jshealth.com" },
+  { name: "Lazada", domain: "lazada.com" },
+  { name: "InsureMO", domain: "insuremo.com" },
+  { name: "Integrate", domain: "integrate.com" },
 ];
+
+const sectorBrands: Record<string, { name: string; domain: string }[]> = {
+  "Enterprise Technology": [
+    { name: "HP", domain: "hp.com" },
+    { name: "Lenovo", domain: "lenovo.com" },
+    { name: "Oracle", domain: "oracle.com" },
+    { name: "Redington", domain: "redingtongroup.com" },
+  ],
+  "Consumer & Brand Growth": [
+    { name: "Brands For Less", domain: "brandsforless.ae" },
+    { name: "Lancôme", domain: "lancome.com" },
+    { name: "L'Oréal", domain: "loreal.com" },
+    { name: "Kiehl's", domain: "kiehls.com" },
+  ],
+  "Institutions & Ecosystems": [
+    { name: "The Economist", domain: "economist.com" },
+    { name: "Abbott", domain: "abbott.com" },
+    { name: "DSCOOP", domain: "dscoop.com" },
+  ],
+  "New Economy & Innovation": [
+    { name: "JSHealth Vitamins", domain: "jshealth.com" },
+    { name: "Lazada", domain: "lazada.com" },
+    { name: "InsureMO", domain: "insuremo.com" },
+    { name: "Integrate", domain: "integrate.com" },
+  ],
+};
 
 const SectorExperience = () => (
   <section className="py-16 md:py-20 bg-[#080E1A]">
@@ -407,25 +446,24 @@ const SectorExperience = () => (
         headline="Experience across the industries shaping Southeast Asia."
       />
 
-      {/* Brand marquee */}
+      {/* Brand logo marquee */}
       <div className="relative mt-12 mb-10 overflow-hidden group/marquee">
         {/* Edge fades */}
         <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #080E1A, transparent)' }} />
         <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #080E1A, transparent)' }} />
         <div
-          className="flex whitespace-nowrap group-hover/marquee:[animation-play-state:paused]"
+          className="flex items-center group-hover/marquee:[animation-play-state:paused]"
           style={{ animation: 'brand-marquee 40s linear infinite' }}
         >
-          {[...brandMarqueeNames, ...brandMarqueeNames].map((name, i) => (
-            <span key={i} className="inline-flex items-center shrink-0">
-              <span className="text-xl font-semibold text-white/40 px-4">{name}</span>
-              <span className="text-primary/50 text-lg">·</span>
+          {[...brandMarqueeItems, ...brandMarqueeItems].map((brand, i) => (
+            <span key={i} className="inline-flex items-center shrink-0 gap-12 px-6">
+              <BrandLogo name={brand.name} domain={brand.domain} height={28} opacity={0.5} hoverOpacity={0.85} />
             </span>
           ))}
         </div>
       </div>
 
-      {/* Sector descriptions — no brand names */}
+      {/* Sector descriptions with brand logos */}
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {sectorClusters.map((cluster, ci) => (
           <RevealSection key={ci} delay={ci * 0.06}>
@@ -437,6 +475,13 @@ const SectorExperience = () => (
               <p className="text-[13px] text-muted-foreground leading-relaxed mt-3">
                 {cluster.caption}
               </p>
+              {sectorBrands[cluster.sector] && (
+                <div className="flex flex-wrap items-center gap-4 mt-4">
+                  {sectorBrands[cluster.sector].map((brand, bi) => (
+                    <BrandLogo key={bi} name={brand.name} domain={brand.domain} height={24} opacity={0.4} hoverOpacity={0.7} />
+                  ))}
+                </div>
+              )}
             </div>
           </RevealSection>
         ))}
