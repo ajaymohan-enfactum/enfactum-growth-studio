@@ -374,7 +374,7 @@ const sectorClusters = [
 ];
 
 const SectorExperience = () => (
-  <section className="section-alt py-32 md:py-44">
+  <section className="py-20 md:py-28 bg-white/[0.02]">
     <div className="section-container">
       <SectionHeader
         eyebrow="Experience"
