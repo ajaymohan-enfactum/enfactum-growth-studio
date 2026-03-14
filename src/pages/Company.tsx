@@ -64,7 +64,7 @@ const capabilityOwnership = [
 ];
 
 const operatingPrinciples = [
-  { title: "Operator mindset", desc: "We don't advise from the outside. We embed within the business and stay until the work has real infrastructure." },
+  { title: "Growth Architect mindset", desc: "We don't advise from the outside. We embed within the business and stay until the work has real infrastructure." },
   { title: "Ecosystem intelligence", desc: "We understand how growth moves through partnerships, channels, and local trust — not just marketing funnels." },
   { title: "Outcome obsession", desc: "Every programme is designed around commercial outcomes. We measure what matters to the business, not vanity metrics." },
   { title: "Regional depth", desc: "We're built for Southeast Asia. Our teams, partners, and operating model are designed for this region's complexity." },
