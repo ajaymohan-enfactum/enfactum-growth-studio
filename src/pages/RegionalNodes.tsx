@@ -123,7 +123,7 @@ const RegionalNodes = () => (
       <div className="section-container">
         <RevealSection>
           <p className="eyebrow mb-6">Common questions</p>
-          <h2 className="headline-md max-w-2xl">About Enfactum's regional operating model.</h2>
+          <h2 className="headline-md max-w-2xl">About Enfactum's regional growth architecture.</h2>
         </RevealSection>
         <div className="mt-12 space-y-0 max-w-3xl">
           {faqs.map((faq, i) => (
