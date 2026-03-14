@@ -354,7 +354,7 @@ const Company = () => (
                 that shape how we build teams, design programmes, and deliver outcomes.
               </p>
               <Link to="/company/operating-model" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-6">
-                View operating model <ArrowRight className="w-4 h-4" />
+                View Growth Architecture <ArrowRight className="w-4 h-4" />
               </Link>
             </RevealSection>
           </div>
