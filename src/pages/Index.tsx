@@ -371,7 +371,7 @@ const HowWeWork = () => (
    SECTION 6 — SECTOR EXPERIENCE
    Architectural experience clusters — editorial, not logo-wall
    ═══════════════════════════════════════════════ */
-import { sectorClusters as brandSectorClusters, allMarqueeBrands } from "@/data/brands";
+
 
 const SectorExperience = () => (
   <section className="py-16 md:py-20 bg-[#080E1A]">
