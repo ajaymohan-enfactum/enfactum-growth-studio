@@ -85,7 +85,7 @@ const ParallaxDivider = ({ variant = "glow", flip = false, className = "" }: Par
 
   // Default: glow
   return (
-    <div ref={ref} className={`relative h-24 md:h-32 overflow-hidden ${className}`}>
+    <div ref={ref} className={`relative h-12 md:h-16 overflow-hidden ${className}`}>
       <motion.div
         className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full"
         style={{

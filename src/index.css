@@ -161,6 +161,11 @@
   }
 }
 
+@keyframes topology-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(20px, 20px); }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
