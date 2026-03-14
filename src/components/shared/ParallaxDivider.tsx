@@ -22,7 +22,7 @@ const ParallaxDivider = ({ variant = "glow", flip = false, className = "" }: Par
 
   if (variant === "gradient") {
     return (
-      <div ref={ref} className={`relative h-32 md:h-48 overflow-hidden ${className}`}>
+      <div ref={ref} className={`relative h-16 md:h-24 overflow-hidden ${className}`}>
         <motion.div
           className="absolute inset-0"
           style={{
