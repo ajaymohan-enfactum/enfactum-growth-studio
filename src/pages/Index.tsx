@@ -12,7 +12,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import CTABand from "@/components/shared/CTABand";
-import ParallaxDivider from "@/components/shared/ParallaxDivider";
+
 import HybridBackground from "@/components/shared/HybridBackground";
 import BrandLogo from "@/components/shared/BrandLogo";
 import CaseCard from "@/components/shared/CaseCard";
@@ -43,7 +43,7 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
     >
       {/* Animated gradient background */}
       <div
@@ -147,7 +147,7 @@ const Hero = () => {
    Editorial split with generous breathing room
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section id="why-sea" className="py-20 md:py-28" style={{ backgroundColor: '#080E1A' }}>
+  <section id="why-sea" className="py-16 md:py-20 bg-[#080E1A]">
     <div className="section-container">
       <div className="grid md:grid-cols-12 gap-12 md:gap-8">
         <div className="md:col-span-5">
@@ -201,14 +201,14 @@ const frictionPoints = [
 ];
 
 const GrowthBreaks = () => (
-  <section id="growth-breaks" className="py-20 md:py-28">
+  <section id="growth-breaks" className="py-16 md:py-20">
     <div className="section-container">
-      <div className="section-divider mb-20" />
+      <div className="section-divider mb-12" />
       <SectionHeader
         eyebrow="Where growth breaks"
         headline="The friction points we're built to solve."
       />
-      <div className="mt-20 grid md:grid-cols-12 gap-y-12">
+      <div className="mt-12 grid md:grid-cols-12 gap-y-12">
         {frictionPoints.map((point, i) => (
           <RevealSection
             key={i}
@@ -270,14 +270,14 @@ const capabilities = [
 ];
 
 const WhatWeBuilds = () => (
-  <section id="capabilities" className="section-alt py-20 md:py-28">
+  <section id="capabilities" className="py-16 md:py-20 bg-[#080E1A]">
     <div className="section-container">
       <SectionHeader
         eyebrow="What Enfactum builds"
         headline="Four capabilities. One operating model."
         description="Each capability connects. Together, they form a growth operating system for Southeast Asia."
       />
-      <div className="mt-20 grid md:grid-cols-2 gap-6">
+      <div className="mt-12 grid md:grid-cols-2 gap-6">
         {capabilities.map((cap, i) => (
           <RevealSection key={i} delay={i * 0.1} scale>
             <Link to={cap.href} className="group block h-full">
@@ -322,7 +322,7 @@ const processSteps = [
 ];
 
 const HowWeWork = () => (
-  <section id="how-we-work" className="py-20 md:py-28">
+  <section id="how-we-work" className="py-16 md:py-20">
     <div className="section-container">
       <SectionHeader
         eyebrow="How we work"
@@ -330,7 +330,7 @@ const HowWeWork = () => (
         description="We embed within the business and stay until growth has real infrastructure."
         centered
       />
-      <div className="mt-24 relative">
+      <div className="mt-14 relative">
         {/* Desktop */}
         <div className="hidden md:block">
           <div className="flex items-start justify-between relative">
@@ -424,7 +424,7 @@ const brandMarqueeNames = [
 ];
 
 const SectorExperience = () => (
-  <section className="py-20 md:py-28 bg-white/[0.02]">
+  <section className="py-16 md:py-20 bg-[#080E1A]">
     <div className="section-container">
       <SectionHeader
         eyebrow="Experience"
@@ -449,7 +449,7 @@ const SectorExperience = () => (
         </div>
       </div>
 
-      <div className="mt-24 space-y-0">
+      <div className="mt-14 space-y-0">
         {sectorClusters.map((cluster, ci) => (
           <RevealSection key={ci} delay={ci * 0.06}>
             <div className="border-t border-border/30 py-14 md:py-16">
@@ -497,7 +497,7 @@ const SectorExperience = () => (
 const FeaturedWork = () => {
   const flagships = getFlagshipCases();
   return (
-    <section id="selected-work" className="py-20 md:py-28 border-t border-white/10">
+    <section id="selected-work" className="py-16 md:py-20 border-t border-white/10">
       <div className="section-container">
         <SectionHeader
           eyebrow="Selected work"
@@ -533,13 +533,13 @@ const depthBlocks = [
 ];
 
 const DepthSection = () => (
-  <section id="depth" className="section-alt py-20 md:py-28">
+  <section id="depth" className="py-16 md:py-20 bg-[#080E1A]">
     <div className="section-container">
       <SectionHeader
         eyebrow="Depth behind the work"
         headline="Real teams. Real infrastructure."
       />
-      <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {depthBlocks.map((block, i) => (
           <RevealSection key={i} delay={i * 0.08} scale>
             <Link to={block.href} className="group block h-full">
@@ -570,9 +570,9 @@ const articles = [
 ];
 
 const Perspectives = () => (
-  <section id="thinking" className="py-20 md:py-28">
+  <section id="thinking" className="py-16 md:py-20">
     <div className="section-container">
-      <div className="section-divider mb-20" />
+      <div className="section-divider mb-12" />
       <div className="grid md:grid-cols-12 gap-8">
         <div className="md:col-span-4">
           <RevealSection>
@@ -628,7 +628,7 @@ const QuoteCarousel = ({ quotes }: { quotes: string[] }) => {
   }, [quotes.length]);
 
   return (
-    <section className="py-20 md:py-28 border-y border-border/20 overflow-hidden">
+    <section className="py-16 md:py-20 border-y border-border/20 overflow-hidden bg-[#080E1A]">
       <div className="section-container relative flex flex-col items-center text-center">
         {/* Decorative quote mark */}
         <span className="absolute top-0 left-1/2 -translate-x-1/2 text-[12rem] leading-none font-display font-bold text-primary/[0.08] select-none pointer-events-none" aria-hidden>
@@ -696,19 +696,12 @@ const Index = () => (
 
     <StickySectionLabel sections={sectionLabels} />
     <Hero />
-    <ParallaxDivider variant="mist" />
     <WhySEA />
-    <ParallaxDivider variant="glow" />
     <GrowthBreaks />
-    <ParallaxDivider variant="gradient" />
     <WhatWeBuilds />
-    <ParallaxDivider variant="mist" flip />
     <HowWeWork />
-    <ParallaxDivider variant="glow" />
     <SectorExperience />
-    <ParallaxDivider variant="gradient" flip />
     <FeaturedWork />
-    {/* Quote carousel */}
     <QuoteCarousel quotes={clientInsights} />
     <DepthSection />
     <Perspectives />
