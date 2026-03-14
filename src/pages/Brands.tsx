@@ -98,7 +98,7 @@ const Brands = () => (
     <ParallaxDivider variant="gradient" />
 
     {/* ═══ SECTION 3 — SECTOR LOGO GRID ═══ */}
-    <section className="section-alt py-32 md:py-44">
+    <section className="section-alt py-16 md:py-20">
       <div className="section-container">
         <SectionHeader
           eyebrow="Experience"
