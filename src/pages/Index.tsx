@@ -164,7 +164,7 @@ const frictionPoints = [
 ];
 
 const GrowthBreaks = () => (
-  <section id="growth-breaks" className="py-32 md:py-44">
+  <section id="growth-breaks" className="py-20 md:py-28">
     <div className="section-container">
       <div className="section-divider mb-20" />
       <SectionHeader
