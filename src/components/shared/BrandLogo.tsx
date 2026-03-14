@@ -3,15 +3,30 @@ import { useState } from "react";
 interface BrandLogoProps {
   name: string;
   domain: string;
+  /** Logo height in pixels (default 28) */
+  height?: number;
+  /** Base opacity 0–1 (default 0.4) */
+  opacity?: number;
+  /** Hover opacity 0–1 (default 0.7) */
+  hoverOpacity?: number;
+  /** Whether to scale on hover */
+  scaleOnHover?: boolean;
   className?: string;
 }
 
 /**
  * Premium brand logo component.
- * Loads logo from CDN at runtime; falls back to styled text on dark bg.
- * Uses grayscale + brightness filter for monochrome treatment.
+ * Loads logo from Clearbit CDN; falls back to styled text on error.
  */
-const BrandLogo = ({ name, domain, className = "" }: BrandLogoProps) => {
+const BrandLogo = ({
+  name,
+  domain,
+  height = 28,
+  opacity = 0.4,
+  hoverOpacity = 0.7,
+  scaleOnHover = false,
+  className = "",
+}: BrandLogoProps) => {
   const [failed, setFailed] = useState(false);
 
   const logoUrl = `https://logo.clearbit.com/${domain}?size=200`;
@@ -19,7 +34,8 @@ const BrandLogo = ({ name, domain, className = "" }: BrandLogoProps) => {
   if (failed) {
     return (
       <span
-        className={`font-display text-[15px] font-semibold text-foreground/40 tracking-tight select-none ${className}`}
+        className={`font-display font-semibold text-foreground/40 tracking-tight select-none ${className}`}
+        style={{ fontSize: `${Math.max(height * 0.5, 12)}px`, lineHeight: `${height}px` }}
       >
         {name}
       </span>
@@ -32,7 +48,13 @@ const BrandLogo = ({ name, domain, className = "" }: BrandLogoProps) => {
       alt={name}
       onError={() => setFailed(true)}
       loading="lazy"
-      className={`h-7 md:h-8 w-auto object-contain brightness-0 invert opacity-40 group-hover:opacity-70 transition-all duration-700 select-none ${className}`}
+      className={`w-auto object-contain brightness-0 invert transition-all duration-500 select-none ${scaleOnHover ? "hover:scale-105" : ""} ${className}`}
+      style={{
+        height: `${height}px`,
+        opacity,
+      }}
+      onMouseEnter={(e) => { e.currentTarget.style.opacity = String(hoverOpacity); }}
+      onMouseLeave={(e) => { e.currentTarget.style.opacity = String(opacity); }}
     />
   );
 };

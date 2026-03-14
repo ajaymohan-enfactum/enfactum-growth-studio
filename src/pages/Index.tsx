@@ -393,11 +393,49 @@ const sectorClusters = [
   },
 ];
 
-const brandMarqueeNames = [
-  "HP", "Lenovo", "Oracle", "Redington", "Brands For Less", "Lancôme",
-  "L'Oréal", "Kiehl's", "The Economist", "Abbott", "DSCOOP",
-  "JSHealth Vitamins", "Lazada", "InsureMO", "Integrate",
+const brandMarqueeItems = [
+  { name: "HP", domain: "hp.com" },
+  { name: "Lenovo", domain: "lenovo.com" },
+  { name: "Oracle", domain: "oracle.com" },
+  { name: "Redington", domain: "redingtongroup.com" },
+  { name: "Brands For Less", domain: "brandsforless.ae" },
+  { name: "Lancôme", domain: "lancome.com" },
+  { name: "L'Oréal", domain: "loreal.com" },
+  { name: "Kiehl's", domain: "kiehls.com" },
+  { name: "The Economist", domain: "economist.com" },
+  { name: "Abbott", domain: "abbott.com" },
+  { name: "DSCOOP", domain: "dscoop.com" },
+  { name: "JSHealth Vitamins", domain: "jshealth.com" },
+  { name: "Lazada", domain: "lazada.com" },
+  { name: "InsureMO", domain: "insuremo.com" },
+  { name: "Integrate", domain: "integrate.com" },
 ];
+
+const sectorBrands: Record<string, { name: string; domain: string }[]> = {
+  "Enterprise Technology": [
+    { name: "HP", domain: "hp.com" },
+    { name: "Lenovo", domain: "lenovo.com" },
+    { name: "Oracle", domain: "oracle.com" },
+    { name: "Redington", domain: "redingtongroup.com" },
+  ],
+  "Consumer & Brand Growth": [
+    { name: "Brands For Less", domain: "brandsforless.ae" },
+    { name: "Lancôme", domain: "lancome.com" },
+    { name: "L'Oréal", domain: "loreal.com" },
+    { name: "Kiehl's", domain: "kiehls.com" },
+  ],
+  "Institutions & Ecosystems": [
+    { name: "The Economist", domain: "economist.com" },
+    { name: "Abbott", domain: "abbott.com" },
+    { name: "DSCOOP", domain: "dscoop.com" },
+  ],
+  "New Economy & Innovation": [
+    { name: "JSHealth Vitamins", domain: "jshealth.com" },
+    { name: "Lazada", domain: "lazada.com" },
+    { name: "InsureMO", domain: "insuremo.com" },
+    { name: "Integrate", domain: "integrate.com" },
+  ],
+};
 
 const SectorExperience = () => (
   <section className="py-16 md:py-20 bg-[#080E1A]">
