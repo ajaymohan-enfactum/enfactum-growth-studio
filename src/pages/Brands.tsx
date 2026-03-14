@@ -106,7 +106,7 @@ const Brands = () => (
           description="From enterprise platforms to consumer brands and innovation-led companies, Enfactum has built experience across the environments that move Southeast Asia."
         />
 
-        <div className="mt-24 space-y-0">
+        <div className="mt-14 space-y-0">
           {sectorClusters.map((cluster, ci) => (
             <RevealSection key={ci} delay={ci * 0.06} scale>
               <div className="border-t border-border/30 py-14 md:py-16">
