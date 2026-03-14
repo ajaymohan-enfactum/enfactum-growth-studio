@@ -6,6 +6,7 @@ import MagneticButton from "@/components/shared/MagneticButton";
 import TextShimmer from "@/components/shared/TextShimmer";
 import InsightTicker from "@/components/shared/InsightTicker";
 import StickySectionLabel from "@/components/shared/StickySectionLabel";
+import { ChevronDown } from "lucide-react";
 
 import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
@@ -42,8 +43,17 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
-      className="relative min-h-[85vh] flex items-end overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
+      {/* Animated gradient background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: 'radial-gradient(ellipse 120% 80% at 20% 50%, hsl(215 60% 8%) 0%, hsl(225 15% 8%) 40%, hsl(220 40% 6%) 70%, hsl(225 15% 8%) 100%)',
+          backgroundSize: '200% 200%',
+          animation: 'hero-gradient-shift 8s ease-in-out infinite alternate',
+        }}
+      />
       <HybridBackground />
       {/* Cursor spotlight */}
       <div
@@ -53,33 +63,45 @@ const Hero = () => {
           background: `radial-gradient(600px circle at ${cursorPos.x}px ${cursorPos.y}px, hsl(210 100% 50% / 0.07), transparent 55%)`,
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/60" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
 
-      <div className="section-container relative z-10 pb-14 md:pb-20 lg:pb-24 pt-40">
+      <div className="section-container relative z-10">
+        {/* Eyebrow — appears first */}
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.2, ease }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease }}
           className="eyebrow mb-8"
         >
           Growth &amp; Innovation Operating Partner · Southeast Asia
         </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.4, ease }}
-          className="headline-display max-w-[18ch]"
-        >
-          Where strategy, ecosystems, and execution{" "}
-          <TextShimmer><span className="text-primary">move together.</span></TextShimmer>
-        </motion.h1>
+        {/* Headline — line-by-line stagger */}
+        <h1 className="headline-display max-w-[18ch]">
+          <motion.span
+            className="block"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.6, ease }}
+          >
+            Where strategy, ecosystems, and execution{" "}
+          </motion.span>
+          <motion.span
+            className="block"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.8, ease }}
+          >
+            <TextShimmer><span className="text-primary">move together.</span></TextShimmer>
+          </motion.span>
+        </h1>
 
+        {/* Subtext — 400ms after headline completes */}
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.7, ease }}
+          transition={{ duration: 0.8, delay: 1.3, ease }}
           className="body-xl mt-8 max-w-[52ch]"
         >
           Built for how Southeast Asia actually works, Enfactum brings together
@@ -87,10 +109,11 @@ const Hero = () => {
           with clarity and momentum.
         </motion.p>
 
+        {/* CTAs — slide up 300ms after subtext */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0, ease }}
+          transition={{ duration: 0.7, delay: 1.6, ease }}
           className="flex flex-col sm:flex-row gap-4 mt-14"
         >
           <Link to="/contact">
@@ -101,6 +124,20 @@ const Hero = () => {
           </Link>
         </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 2.2, ease }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center"
+      >
+        <ChevronDown
+          className="w-5 h-5 text-primary/60"
+          strokeWidth={1.5}
+          style={{ animation: 'scroll-bounce 2s ease-in-out infinite' }}
+        />
+      </motion.div>
     </section>
   );
 };
