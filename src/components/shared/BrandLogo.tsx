@@ -49,7 +49,7 @@ const BrandLogo = ({
   if (showText) {
     return (
       <span
-        className={`font-display font-semibold text-foreground/40 tracking-tight select-none text-sm ${className}`}
+        className={`font-display font-medium text-foreground/30 tracking-tight select-none text-[13px] whitespace-nowrap ${className}`}
         style={{ lineHeight: `${height}px` }}
       >
         {name}
