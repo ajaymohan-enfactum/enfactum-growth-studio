@@ -322,7 +322,7 @@ const processSteps = [
 ];
 
 const HowWeWork = () => (
-  <section id="how-we-work" className="py-20 md:py-28">
+  <section id="how-we-work" className="py-16 md:py-20">
     <div className="section-container">
       <SectionHeader
         eyebrow="How we work"
