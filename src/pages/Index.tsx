@@ -472,8 +472,8 @@ const FeaturedWork = () => {
    Architectural teaser blocks
    ═══════════════════════════════════════════════ */
 const depthBlocks = [
-  { title: "Leadership", desc: "Experienced operators across strategy, growth, and technology.", href: "/company/leadership", num: "01" },
-  { title: "Operating Bench", desc: "200+ specialists across Southeast Asia and India.", href: "/company", num: "02" },
+  { title: "Leadership", desc: "Experienced Growth Architects across strategy, growth, and technology.", href: "/company/leadership", num: "01" },
+  { title: "Architect Bench", desc: "200+ specialists across Southeast Asia and India.", href: "/company", num: "02" },
   { title: "Regional Nodes", desc: "Singapore, India, Malaysia, Indonesia — and expanding.", href: "/company/regional-nodes", num: "03" },
   { title: "Capability Ownership", desc: "Each capability led by domain-specialist principals.", href: "/capabilities", num: "04" },
 ];
