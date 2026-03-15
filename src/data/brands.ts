@@ -104,7 +104,7 @@ export const allMarqueeBrands: BrandEntry[] = [
   b("Lancôme", "lancome.com"),
   b("L'Oréal", "loreal.com"),
   b("Kiehl's", "kiehls.com"),
-  b("JSHealth Vitamins", "jshealth.com"),
+  b("JSHealth Vitamins", "jshealth.com", "/logos/jshealth.png"),
   b("The Economist", "economist.com"),
   b("Abbott", "abbott.com"),
   b("NUS", "nus.edu.sg"),
