@@ -45,7 +45,7 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Animated gradient background */}
       <div
@@ -68,59 +68,81 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
 
-      <div className="section-container relative z-10">
-        {/* Eyebrow — appears first */}
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease }}
-          className="eyebrow mb-8"
-        >
-          Growth &amp; Innovation Operating Partner · Southeast Asia
-        </motion.p>
+      <div className="section-container relative z-10 w-full">
+        <div className="grid md:grid-cols-5 items-center">
+          {/* Left side — 60% */}
+          <div className="md:col-span-3">
+            {/* Vertical blue accent bar */}
+            <motion.div
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ duration: 0.6, delay: 0.3, ease }}
+              className="w-[3px] h-16 bg-primary mb-6 origin-top"
+            />
 
-        {/* Headline — line-by-line stagger */}
-        <h1 className="headline-display max-w-[18ch]">
-          <motion.span
-            className="block"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.6, ease }}
-          >
-            Where strategy, ecosystems, and execution{" "}
-          </motion.span>
-          <motion.span
-            className="block"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.8, ease }}
-          >
-            <TextShimmer><span className="text-primary">move together.</span></TextShimmer>
-          </motion.span>
-        </h1>
+            <h1 className="text-4xl md:text-6xl font-semibold text-foreground leading-tight">
+              <motion.span
+                className="block"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: 0.5, ease }}
+              >
+                Where strategy, ecosystems, and execution{" "}
+              </motion.span>
+              <motion.span
+                className="block"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: 0.7, ease }}
+              >
+                <TextShimmer><span className="text-primary">move together.</span></TextShimmer>
+              </motion.span>
+            </h1>
 
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0, ease }}
+              className="text-sm tracking-widest text-foreground/40 uppercase mt-4"
+            >
+              Growth &amp; Innovation Operating Partner · Southeast Asia
+            </motion.p>
 
-        {/* CTAs — slide up 300ms after subtext */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.6, ease }}
-          className="flex flex-col sm:flex-row gap-4 mt-14"
-        >
-          <Link to="/contact">
-            <MagneticButton variant="hero" size="xl">Start a conversation</MagneticButton>
-          </Link>
-          <Link to="/work">
-            <MagneticButton variant="hero-outline" size="xl">See our work</MagneticButton>
-          </Link>
-        </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 1.3, ease }}
+              className="flex flex-col sm:flex-row gap-4 mt-8"
+            >
+              <Link to="/contact">
+                <MagneticButton variant="hero" size="xl">Start a conversation</MagneticButton>
+              </Link>
+              <Link to="/work">
+                <MagneticButton variant="hero-outline" size="xl">See our work</MagneticButton>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Right side — 40% decorative accent */}
+          <div className="hidden md:flex md:col-span-2 items-center justify-end overflow-hidden">
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0.8, ease }}
+              className="text-[200px] font-black text-foreground/[0.03] leading-none select-none translate-x-12"
+              aria-hidden="true"
+            >
+              en
+            </motion.span>
+          </div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 2.2, ease }}
+        transition={{ duration: 0.8, delay: 2.0, ease }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center"
       >
         <ChevronDown
