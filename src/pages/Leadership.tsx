@@ -312,28 +312,20 @@ const Leadership = () => {
       <section className="py-20 md:py-28">
         <div className="section-container">
           <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
-            {leadershipTeam.map((leader, i) => (
+            {leadershipTeam.map((leader, i) => {
+                const initials = leader.name.split(" ").map((n) => n[0]).join("");
+                return (
                 <button
+                  key={i}
                   onClick={() => openProfile(i)}
                   className="card-premium h-full w-full text-left group cursor-pointer transition-all duration-500 hover:border-primary/20"
                   aria-label={`View profile for ${leader.name}`}
                 >
-                  {leader.photo ? (
-                    <div className="w-full aspect-[4/5] rounded-md overflow-hidden mb-5">
-                      <img
-                        src={leader.photo}
-                        alt={leader.name}
-                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                        loading="lazy"
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-full aspect-[4/5] rounded-md bg-secondary/60 border border-border mb-5 flex items-center justify-center">
-                      <span className="font-display text-3xl font-bold text-muted-foreground/30">
-                        {leader.name.split(" ").map((n) => n[0]).join("")}
-                      </span>
-                    </div>
-                  )}
+                  <div className="w-full aspect-[4/5] rounded-md bg-secondary/60 border border-border mb-5 flex items-center justify-center">
+                    <span className="font-display text-3xl font-bold text-primary/40">
+                      {initials}
+                    </span>
+                  </div>
                   <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-500">
                     {leader.name}
                   </h3>
@@ -344,7 +336,8 @@ const Leadership = () => {
                     View profile →
                   </span>
                 </button>
-            ))}
+                );
+            })}
           </StaggerGrid>
         </div>
       </section>
