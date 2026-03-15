@@ -43,7 +43,7 @@ export const articles: Article[] = [
   {
     title: "In B2B, Your Buyer Already Trusts Someone Else.",
     slug: "in-b2b-your-buyer-already-trusts-someone-else",
-    category: "Operator View",
+    category: "Architect View",
     theme: "Ecosystems & Partnerships",
     author: "William Gaultier",
     authorRole: "Partner",
