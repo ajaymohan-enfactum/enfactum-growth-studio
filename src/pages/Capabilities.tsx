@@ -196,21 +196,27 @@ const Capabilities = () => (
     {/* ═══ HORIZONTAL SCROLL CAPABILITY SHOWCASE ═══ */}
     <HorizontalScrollShowcase />
     {/* ═══ HOW CAPABILITIES CONNECT ═══ */}
-    <section className="section-alt py-16 md:py-20">
-      <div className="section-container">
-        <SectionHeader
-          eyebrow="How the capabilities connect"
-          headline="Each capability reinforces the others."
-          description="This isn't four separate offerings. It's one integrated architecture — each capability feeds outcomes to the next. Hover a node to explore."
-          centered
-        />
-        <div className="mt-16 md:mt-20">
-          <CapabilityGraph />
-        </div>
+    <section className="py-24 md:py-32 bg-[#060C1A] relative overflow-hidden">
+      {/* Systemic grid lines */}
+      <div className="absolute top-0 bottom-0 left-[25%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-[75%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent hidden md:block" />
+      <div className="absolute left-0 right-0 top-[50%] h-px bg-gradient-to-r from-transparent via-primary/[0.03] to-transparent hidden md:block" />
+
+      <div className="section-container relative z-10">
+        <RevealSection blur>
+          <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+            <p className="eyebrow mb-5">How the capabilities connect</p>
+            <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em]">
+              Each capability reinforces the others.
+            </h2>
+            <p className="text-[13px] text-foreground/30 mt-4 leading-relaxed max-w-md mx-auto">
+              This isn't four separate offerings. It's one integrated architecture — each capability feeds outcomes to the next.
+            </p>
+          </div>
+        </RevealSection>
+        <CapabilityGraph />
       </div>
     </section>
-
-    <ParallaxDivider variant="mist" flip />
     {/* ═══ ENGAGEMENT MODELS ═══ */}
     <section className="py-16 md:py-20">
       <div className="section-container">
