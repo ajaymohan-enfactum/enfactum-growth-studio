@@ -91,17 +91,41 @@ const FormInput = ({
   </div>
 );
 
+const pathwayIdToTitle: Record<string, string> = {
+  client: "Client Inquiry",
+  partner: "Partnership",
+  talent: "Talent & Careers",
+  general: "General",
+};
+
+const pathwayHeadings: Record<string, string> = {
+  "Client Inquiry": "Tell us about your challenge",
+  "Partnership": "Tell us about the partnership",
+  "Talent & Careers": "Tell us about your experience",
+  "General": "Tell us how we can help",
+};
+
 const Contact = () => {
+  const [searchParams] = useSearchParams();
+  const inquiryParam = searchParams.get("inquiry");
+  const initialType = (inquiryParam && pathwayIdToTitle[inquiryParam]) || "Client Inquiry";
+
   const [form, setForm] = useState<FormData>({
     name: "",
     email: "",
     company: "",
     role: "",
-    type: "Client Inquiry",
+    type: initialType,
     message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (inquiryParam && pathwayIdToTitle[inquiryParam]) {
+      setForm((prev) => ({ ...prev, type: pathwayIdToTitle[inquiryParam] }));
+    }
+  }, [inquiryParam]);
 
   const update = (field: keyof FormData, value: string) => {
     setForm({ ...form, [field]: value });
