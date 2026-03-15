@@ -92,7 +92,7 @@ const Company = () => (
     />
 
     {/* ═══ SECTION 1 — ORIGIN + METRICS ═══ */}
-    <section className="py-32 md:py-44">
+    <section className="py-16 md:py-20">
       <div className="section-container">
         <div className="grid md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-5">
