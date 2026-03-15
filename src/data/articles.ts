@@ -113,7 +113,7 @@ export const articles: Article[] = [
   {
     title: "Market Entry in Southeast Asia Is Really a System Design Problem.",
     slug: "market-entry-in-southeast-asia-is-really-a-system-design-problem",
-    category: "Operator View",
+    category: "Architect View",
     theme: "Southeast Asia Growth",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
