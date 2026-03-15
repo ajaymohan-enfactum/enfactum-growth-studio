@@ -17,14 +17,13 @@ import rakhiPhoto from "@/assets/team/rakhi-sachdeva.png";
 import trevorPhoto from "@/assets/team/trevor-wingert.png";
 
 
-
-import purwaPhoto from "@/assets/team/purwa-jain.png";
 import markGuerrierPhoto from "@/assets/team/mark-guerrier.png";
 
 import anuchidaPhoto from "@/assets/team/anuchida-kawashima.png";
 import idrisPhoto from "@/assets/team/idris-atalki.png";
 
 const leadershipTeam: TeamMemberFull[] = [
+  // Row 1: Ajay, William, Trevor
   {
     name: "Ajay Mohan",
     role: "Founder & Managing Partner",
@@ -41,39 +40,6 @@ At Enfactum, Ajay works with clients on their most complex growth challenges: en
     expertise: ["Go-to-market strategy", "Partner ecosystems", "APAC market entry", "Revenue operations"],
     linkedin: "https://linkedin.com/in/ajaymohan",
     photo: ajayPhoto,
-  },
-  {
-    name: "Jamshed Wadia",
-    role: "AI Strategy & Transformation",
-    category: "GTM Strategy",
-    focus: "AI Strategy · Digital Transformation · Enterprise Innovation",
-    location: "Singapore",
-    bio: "Drives AI strategy and transformation initiatives, helping enterprises harness AI for scalable growth.",
-    fullBio: `Jamshed leads AI strategy and transformation engagements at Enfactum, helping enterprise clients navigate the rapidly evolving AI landscape. He brings structured thinking to complex transformation challenges—connecting AI capabilities to business outcomes.
-
-His approach focuses on practical, commercially grounded AI adoption rather than speculative pilots, ensuring that transformation investments deliver measurable results.
-
-At Enfactum, Jamshed works with clients on AI strategy, digital transformation roadmaps, and the organisational change required to make AI initiatives succeed at scale.`,
-    philosophy: "AI transformation succeeds when it's anchored in business reality.",
-    expertise: ["AI strategy", "Digital transformation", "Enterprise innovation", "Change management"],
-    linkedin: "https://linkedin.com/in/jamshedwadia",
-  },
-  {
-    name: "Irfan Mulla",
-    role: "Indonesia Country Manager",
-    category: "Brand & Demand",
-    focus: "Indonesia · AI Discovery · Integrated Campaigns",
-    location: "Jakarta, Indonesia",
-    bio: "Leads Indonesia operations and Brand & Demand practice. Expert in AI discovery and integrated campaigns.",
-    fullBio: `Irfan leads Enfactum's Indonesia operations and serves as a practice lead for Brand & Demand work across the region. He's a strategist who thinks in integrated campaigns—combining brand building and performance marketing into unified growth systems.
-
-His expertise spans the full spectrum of modern marketing: AI-powered search and discovery (GEO), social and performance media, influencer programs, and content strategy. Irfan is particularly focused on how AI is reshaping brand visibility—and what companies need to do to show up when their customers are asking questions.
-
-Before Enfactum, Irfan built and led marketing teams at technology and media companies, developing the integrated campaign capabilities that drive both awareness and conversion.`,
-    philosophy: "Market entry in Southeast Asia is an ecosystem play.",
-    expertise: ["AI discovery & GEO", "Performance marketing", "Integrated campaigns", "Content strategy", "Indonesia market"],
-    linkedin: "https://linkedin.com/in/irfanmulla",
-    photo: irfanPhoto,
   },
   {
     name: "William Gaultier",
@@ -109,6 +75,23 @@ At Enfactum, Trevor advises clients on marketing technology architecture, automa
     linkedin: "https://linkedin.com/in/trevorwingert",
     photo: trevorPhoto,
   },
+  // Row 2: Jamshed, Sumit, Pooja
+  {
+    name: "Jamshed Wadia",
+    role: "AI Strategy & Transformation",
+    category: "GTM Strategy",
+    focus: "AI Strategy · Digital Transformation · Enterprise Innovation",
+    location: "Singapore",
+    bio: "Drives AI strategy and transformation initiatives, helping enterprises harness AI for scalable growth.",
+    fullBio: `Jamshed leads AI strategy and transformation engagements at Enfactum, helping enterprise clients navigate the rapidly evolving AI landscape. He brings structured thinking to complex transformation challenges—connecting AI capabilities to business outcomes.
+
+His approach focuses on practical, commercially grounded AI adoption rather than speculative pilots, ensuring that transformation investments deliver measurable results.
+
+At Enfactum, Jamshed works with clients on AI strategy, digital transformation roadmaps, and the organisational change required to make AI initiatives succeed at scale.`,
+    philosophy: "AI transformation succeeds when it's anchored in business reality.",
+    expertise: ["AI strategy", "Digital transformation", "Enterprise innovation", "Change management"],
+    linkedin: "https://linkedin.com/in/jamshedwadia",
+  },
   {
     name: "Sumit Ramchandani",
     role: "Adtech & Martech Lead",
@@ -124,40 +107,6 @@ At Enfactum, Sumit works with clients on growth strategy, demand generation, and
     philosophy: "Distribution is strategy.",
     expertise: ["Growth strategy", "Demand generation", "Pipeline development", "B2B marketing"],
     linkedin: "https://linkedin.com/in/sumitramchandani",
-  },
-  {
-    name: "Purwa Jain",
-    role: "Growth Strategist",
-    category: "GTM Strategy",
-    focus: "Growth Strategy · Market Analysis · GTM Planning",
-    location: "India",
-    bio: "Growth strategist with expertise in scaling technology companies across diverse markets.",
-    fullBio: `Purwa is a growth strategist focused on helping technology companies build scalable go-to-market capabilities. Her experience spans strategic planning, market analysis, and growth program development.
-
-She brings a structured, analytical approach to growth challenges—combining strategic thinking with practical execution to help clients move from planning to results.
-
-At Enfactum, Purwa works with clients on growth strategy, market analysis, and GTM program development.`,
-    philosophy: "Structured thinking drives scalable results.",
-    expertise: ["Growth strategy", "Market analysis", "GTM planning", "Strategic consulting"],
-    linkedin: "https://linkedin.com/in/purwajain",
-    photo: purwaPhoto,
-  },
-  {
-    name: "Mark Guerrier",
-    role: "Creative Director",
-    category: "Brand & Demand",
-    focus: "Brand Design · Creative Direction · Visual Identity",
-    location: "Singapore",
-    bio: "Brand design leader transforming brands across APAC with innovative creative strategies.",
-    fullBio: `Mark is a creative director with extensive experience transforming brands across APAC markets. He leads Enfactum's creative and brand design work—from visual identity development to campaign creative to brand experience design.
-
-His background spans advertising, brand consultancy, and in-house creative leadership, giving him perspective on both the creative vision and the practical realities of building brands that work across diverse markets and channels.
-
-At Enfactum, Mark works with clients on brand identity, creative strategy, visual design systems, and the creative execution that brings brand strategies to life.`,
-    philosophy: "Design is how strategy becomes tangible.",
-    expertise: ["Brand design", "Creative direction", "Visual identity", "Campaign creative", "APAC brands"],
-    linkedin: "https://linkedin.com/in/markguerrier",
-    photo: markGuerrierPhoto,
   },
   {
     name: "Pooja Mohan",
@@ -176,6 +125,57 @@ Pooja works with clients on brand positioning, creative development, and the vis
     linkedin: "https://linkedin.com/in/poojamohan",
     photo: poojaPhoto,
   },
+  // Row 3: Mark, Anuchida, Idris
+  {
+    name: "Mark Guerrier",
+    role: "Creative Director",
+    category: "Brand & Demand",
+    focus: "Brand Design · Creative Direction · Visual Identity",
+    location: "Singapore",
+    bio: "Brand design leader transforming brands across APAC with innovative creative strategies.",
+    fullBio: `Mark is a creative director with extensive experience transforming brands across APAC markets. He leads Enfactum's creative and brand design work—from visual identity development to campaign creative to brand experience design.
+
+His background spans advertising, brand consultancy, and in-house creative leadership, giving him perspective on both the creative vision and the practical realities of building brands that work across diverse markets and channels.
+
+At Enfactum, Mark works with clients on brand identity, creative strategy, visual design systems, and the creative execution that brings brand strategies to life.`,
+    philosophy: "Design is how strategy becomes tangible.",
+    expertise: ["Brand design", "Creative direction", "Visual identity", "Campaign creative", "APAC brands"],
+    linkedin: "https://linkedin.com/in/markguerrier",
+    photo: markGuerrierPhoto,
+  },
+  {
+    name: "Anuchida Kawashima",
+    role: "Account Director",
+    category: "Client Success",
+    focus: "Client Success · Account Strategy",
+    location: "Singapore",
+    bio: "Drives client engagement and programme success, ensuring measurable commercial outcomes.",
+    fullBio: `Anuchida drives client engagement and programme success at Enfactum, ensuring every engagement delivers measurable commercial outcomes. She brings deep experience in account management and client strategy across APAC markets.
+
+Her approach combines strategic thinking with operational rigour—understanding both what clients need strategically and what it takes to deliver results consistently.
+
+At Enfactum, Anuchida manages key client relationships and ensures that programme execution stays aligned with commercial objectives.`,
+    philosophy: "Every engagement should move a business number.",
+    expertise: ["Account strategy", "Client success", "Programme management", "APAC markets"],
+    photo: anuchidaPhoto,
+  },
+  {
+    name: "Idris Atalki",
+    role: "AI Projects Director",
+    category: "Operations",
+    focus: "AI Strategy · Project Delivery · Innovation Programmes",
+    location: "Singapore",
+    bio: "Directs AI-driven project delivery across Enfactum's client programmes, bridging innovation strategy with operational execution.",
+    fullBio: `Idris leads AI project delivery at Enfactum, ensuring that innovation programmes move from concept to commercial reality. He brings structured programme leadership to complex AI and technology engagements—managing scope, stakeholders, and delivery across multi-market initiatives.
+
+His approach centres on translating AI strategy into actionable project architectures, ensuring that technology investments are grounded in clear business outcomes rather than speculative pilots.
+
+At Enfactum, Idris ensures that AI programmes are commercially purposeful, operationally sound, and designed for scale across Southeast Asia.`,
+    philosophy: "Innovation scales when it's built on operational discipline.",
+    expertise: ["AI programme delivery", "Innovation strategy", "Project architecture", "Stakeholder management", "Technology operations"],
+    photo: idrisPhoto,
+  },
+  // Row 4: Sanjay, Rakhi, Irfan
   {
     name: "Sanjay Chankranth",
     role: "Malaysia Country Manager",
@@ -211,36 +211,21 @@ Before Enfactum, Rakhi led marketing operations at enterprise technology compani
     photo: rakhiPhoto,
   },
   {
-    name: "Anuchida Kawashima",
-    role: "Account Director",
-    category: "Client Success",
-    focus: "Client Success · Account Strategy",
-    location: "Singapore",
-    bio: "Drives client engagement and programme success, ensuring measurable commercial outcomes.",
-    fullBio: `Anuchida drives client engagement and programme success at Enfactum, ensuring every engagement delivers measurable commercial outcomes. She brings deep experience in account management and client strategy across APAC markets.
+    name: "Irfan Mulla",
+    role: "Indonesia Country Manager",
+    category: "Brand & Demand",
+    focus: "Indonesia · AI Discovery · Integrated Campaigns",
+    location: "Jakarta, Indonesia",
+    bio: "Leads Indonesia operations and Brand & Demand practice. Expert in AI discovery and integrated campaigns.",
+    fullBio: `Irfan leads Enfactum's Indonesia operations and serves as a practice lead for Brand & Demand work across the region. He's a strategist who thinks in integrated campaigns—combining brand building and performance marketing into unified growth systems.
 
-Her approach combines strategic thinking with operational rigour—understanding both what clients need strategically and what it takes to deliver results consistently.
+His expertise spans the full spectrum of modern marketing: AI-powered search and discovery (GEO), social and performance media, influencer programs, and content strategy. Irfan is particularly focused on how AI is reshaping brand visibility—and what companies need to do to show up when their customers are asking questions.
 
-At Enfactum, Anuchida manages key client relationships and ensures that programme execution stays aligned with commercial objectives.`,
-    philosophy: "Every engagement should move a business number.",
-    expertise: ["Account strategy", "Client success", "Programme management", "APAC markets"],
-    photo: anuchidaPhoto,
-  },
-  {
-    name: "Idris Atalki",
-    role: "AI Projects Director",
-    category: "Operations",
-    focus: "AI Strategy · Project Delivery · Innovation Programmes",
-    location: "Singapore",
-    bio: "Directs AI-driven project delivery across Enfactum's client programmes, bridging innovation strategy with operational execution.",
-    fullBio: `Idris leads AI project delivery at Enfactum, ensuring that innovation programmes move from concept to commercial reality. He brings structured programme leadership to complex AI and technology engagements—managing scope, stakeholders, and delivery across multi-market initiatives.
-
-His approach centres on translating AI strategy into actionable project architectures, ensuring that technology investments are grounded in clear business outcomes rather than speculative pilots.
-
-At Enfactum, Idris ensures that AI programmes are commercially purposeful, operationally sound, and designed for scale across Southeast Asia.`,
-    philosophy: "Innovation scales when it's built on operational discipline.",
-    expertise: ["AI programme delivery", "Innovation strategy", "Project architecture", "Stakeholder management", "Technology operations"],
-    photo: idrisPhoto,
+Before Enfactum, Irfan built and led marketing teams at technology and media companies, developing the integrated campaign capabilities that drive both awareness and conversion.`,
+    philosophy: "Market entry in Southeast Asia is an ecosystem play.",
+    expertise: ["AI discovery & GEO", "Performance marketing", "Integrated campaigns", "Content strategy", "Indonesia market"],
+    linkedin: "https://linkedin.com/in/irfanmulla",
+    photo: irfanPhoto,
   },
 ];
 
