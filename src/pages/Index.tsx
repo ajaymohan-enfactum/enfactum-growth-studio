@@ -652,23 +652,6 @@ const QuoteCarousel = ({ quotes }: { quotes: React.ReactNode[] }) => {
   );
 };
 
-        {/* Dots */}
-        <div className="flex items-center gap-2 mt-8">
-          {quotes.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                i === active ? "bg-primary scale-125" : "bg-white/30 hover:bg-white/50"
-              }`}
-              aria-label={`Go to quote ${i + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const sectionLabels = [
   { id: "why-sea", label: "Why Southeast Asia" },
