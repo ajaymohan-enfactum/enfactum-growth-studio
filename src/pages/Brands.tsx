@@ -42,29 +42,28 @@ const outcomeCapsules = [
 
 /* ═══════════════════════════════════════════════
    BRAND PLATE — elevated dark capsule with logo
+   High contrast, readable, premium
    ═══════════════════════════════════════════════ */
 const BrandPlate = ({
   brand,
   size = "md",
   delay = 0,
-  heightOverride,
 }: {
   brand: BrandEntry;
   size?: "lg" | "md" | "sm";
   delay?: number;
-  heightOverride?: number;
 }) => {
-  const heights = { lg: 29, md: 21, sm: 16 };
-  const paddings = { lg: "px-7 py-5", md: "px-5 py-4", sm: "px-4 py-3" };
-  const h = heightOverride ?? heights[size];
+  const heights = { lg: 40, md: 30, sm: 22 };
+  const paddings = { lg: "px-8 py-6", md: "px-6 py-5", sm: "px-5 py-4" };
+  const h = heights[size];
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={`group relative ${paddings[size]} rounded-lg bg-white/[0.03] border border-white/[0.06] hover:border-primary/20 hover:bg-white/[0.05] transition-all duration-500 cursor-default`}
+      className={`group relative ${paddings[size]} rounded-lg bg-white/[0.045] border border-white/[0.08] hover:border-primary/25 hover:bg-white/[0.07] transition-all duration-500 cursor-default`}
     >
       <BrandLogo
         name={brand.name}
