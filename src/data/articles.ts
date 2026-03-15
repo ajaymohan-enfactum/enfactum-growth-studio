@@ -23,7 +23,7 @@ export const articles: Article[] = [
   {
     title: "Southeast Asia Is Not One Market. Stop Planning It Like One.",
     slug: "southeast-asia-is-not-one-market",
-    category: "Operator View",
+    category: "Architect View",
     theme: "Southeast Asia Growth",
     author: "Ajay Mohan",
     authorRole: "Founder & Managing Partner",

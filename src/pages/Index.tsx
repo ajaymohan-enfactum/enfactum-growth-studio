@@ -531,8 +531,8 @@ const DepthSection = () => (
    Editorial journal preview
    ═══════════════════════════════════════════════ */
 const articles = [
-  { title: "Southeast Asia Is Not One Market. Stop Planning It Like One.", category: "Operator View", date: "March 2026" },
-  { title: "In B2B, Your Buyer Already Trusts Someone Else.", category: "Operator View", date: "March 2026" },
+  { title: "Southeast Asia Is Not One Market. Stop Planning It Like One.", category: "Architect View", date: "March 2026" },
+  { title: "In B2B, Your Buyer Already Trusts Someone Else.", category: "Architect View", date: "March 2026" },
   { title: "Imported Playbooks Break Fast in Southeast Asia.", category: "Field Note", date: "February 2026" },
 ];
 
