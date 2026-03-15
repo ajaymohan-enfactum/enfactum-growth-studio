@@ -374,6 +374,8 @@ const HowWeWork = () => (
    ═══════════════════════════════════════════════ */
 
 
+const marqueeNames = allMarqueeBrands.map((b) => b.name);
+
 const SectorExperience = () => (
   <section className="py-16 md:py-20 bg-[#080E1A]">
     <div className="section-container">
@@ -382,15 +384,34 @@ const SectorExperience = () => (
         headline="Experience across the industries shaping Southeast Asia."
       />
 
-      {/* Brand logo marquee */}
+      {/* Brand name text marquee */}
       <RevealSection delay={0.1} className="mt-10 mb-12">
         <div className="relative overflow-hidden group/marquee">
           {/* Edge fades */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-r from-[#080E1A] to-transparent" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-l from-[#080E1A] to-transparent" />
+          <div
+            className="flex items-center gap-8 group-hover/marquee:[animation-play-state:paused] whitespace-nowrap"
+            style={{ animation: 'brand-marquee 50s linear infinite', width: 'max-content' }}
+          >
+            {[...marqueeNames, ...marqueeNames].map((name, i) => (
+              <span key={i} className="inline-flex items-center gap-8 shrink-0">
+                <span className="text-2xl font-semibold font-display text-white/40 select-none">{name}</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-primary/30 shrink-0" />
+              </span>
+            ))}
+          </div>
+        </div>
+      </RevealSection>
+
+      {/* Logo row */}
+      <RevealSection delay={0.15} className="mb-12">
+        <div className="relative overflow-hidden group/logos">
           <div className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none bg-gradient-to-r from-[#080E1A] to-transparent" />
           <div className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none bg-gradient-to-l from-[#080E1A] to-transparent" />
           <div
-            className="flex items-center gap-10 group-hover/marquee:[animation-play-state:paused]"
-            style={{ animation: 'brand-marquee 50s linear infinite', width: 'max-content' }}
+            className="flex items-center gap-10 group-hover/logos:[animation-play-state:paused]"
+            style={{ animation: 'brand-marquee 60s linear infinite', width: 'max-content' }}
           >
             {[...allMarqueeBrands, ...allMarqueeBrands].map((brand, i) => (
               <span key={i} className="inline-flex items-center shrink-0">
@@ -398,9 +419,9 @@ const SectorExperience = () => (
                   name={brand.name}
                   domain={brand.domain}
                   localLogo={brand.localLogo}
-                  height={24}
-                  opacity={0.35}
-                  hoverOpacity={0.8}
+                  height={22}
+                  opacity={0.3}
+                  hoverOpacity={0.7}
                 />
               </span>
             ))}
