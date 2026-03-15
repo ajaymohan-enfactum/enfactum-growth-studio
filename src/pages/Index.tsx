@@ -160,41 +160,20 @@ const Hero = () => {
    Editorial split with generous breathing room
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section id="why-sea" className="py-16 md:py-20 bg-[#0c1629]">
+  <section id="why-sea" className="py-20 md:py-28 bg-[#0c1629]">
     <div className="section-container">
-      <div className="grid md:grid-cols-12 gap-12 md:gap-8">
-        <div className="md:col-span-5">
-          <RevealSection blur>
-            <h2 className="headline-lg">
-              Not one market.<br />
-              An interconnected web of ecosystems.
-            </h2>
-          </RevealSection>
+      <RevealSection blur>
+        <p className="text-3xl md:text-4xl font-light text-foreground leading-relaxed max-w-4xl">
+          Growth here moves through ecosystems, local trust, and execution nuance. Imported playbooks break.
+        </p>
+      </RevealSection>
+      <RevealSection delay={0.2} blur>
+        <div className="mt-8 space-y-3">
+          <p className="text-base text-foreground/50">Nearly 700 million people across ten countries.</p>
+          <p className="text-base text-foreground/50">A digital economy past $300 billion — and accelerating.</p>
+          <p className="text-base text-foreground/60 font-medium">No single playbook covers it. That is why Enfactum exists.</p>
         </div>
-        <div className="md:col-span-6 md:col-start-7">
-          <RevealSection delay={0.15} blur>
-            <div className="space-y-6">
-              <p className="body-lg">
-                Southeast Asia is nearly 700 million people across diverse economies,
-                languages, and regulatory environments — bound together by trade
-                corridors, digital infrastructure, and rapidly evolving consumer
-                behaviour.
-              </p>
-              <p className="body-lg">
-                Growth here moves through ecosystems, local trust, and execution
-                nuance.
-              </p>
-              <div className="pt-4">
-                <div className="h-px w-20 bg-primary/30" />
-              </div>
-              <p className="body-md text-muted-foreground italic">
-                Enfactum exists because the gap between global ambition and
-                regional reality needed a Growth Architect — not another advisor.
-              </p>
-            </div>
-          </RevealSection>
-        </div>
-      </div>
+      </RevealSection>
     </div>
   </section>
 );
