@@ -254,7 +254,7 @@ const buyerCapData: Record<string, BuyerCapData> = {
     eyebrow: "Growth Infrastructure",
     headline: "Build the go-to-market architecture your Southeast Asia expansion actually needs.",
     challengeBody: "Most companies enter Southeast Asia with a strategy deck and a channel plan. Six months in, pipeline stalls, partners disengage, and the GTM model built for another market fails to convert. The gap is not ambition. It is infrastructure.",
-    seoTitle: "Growth Infrastructure for Southeast Asia — GTM Strategy & Partner Ecosystems",
+    seoTitle: "Growth Infrastructure",
     seoDescription: "Go-to-market strategy, partner and channel programmes, revenue operations, and market-entry infrastructure for enterprise brands expanding across Southeast Asia.",
     whatWeBuild: [
       { title: "GTM Architecture", desc: "Market entry design, positioning, competitive mapping, and go-to-market sequencing for complex regional launches." },
