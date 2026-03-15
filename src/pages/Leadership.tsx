@@ -170,22 +170,6 @@ Before Enfactum, Rakhi led marketing operations at enterprise technology compani
     photo: rakhiPhoto,
   },
   {
-    name: "Sinchan Namdeo",
-    role: "Creative Lead",
-    category: "Operations",
-    focus: "Creative Direction · Visual Design · Brand Systems",
-    location: "India",
-    bio: "Leads creative execution across Enfactum's client programmes, translating strategy into compelling visual narratives.",
-    fullBio: `Sinchan leads creative direction and visual design across Enfactum's client programmes. She specialises in translating complex strategic narratives into compelling visual systems — from brand identities and campaign creative to digital experiences and event design.
-
-Her approach bridges strategic intent with creative craft, ensuring that every visual touchpoint reinforces the commercial objectives behind it. Sinchan works across the full creative spectrum: brand systems, campaign assets, digital design, and experiential graphics.
-
-At Enfactum, Sinchan ensures that creative output isn't just beautiful — it's commercially purposeful and culturally attuned to Southeast Asian markets.`,
-    philosophy: "Design should make strategy visible.",
-    expertise: ["Creative direction", "Visual design", "Brand systems", "Campaign creative", "Digital experience design"],
-    photo: sinchanPhoto,
-  },
-  {
     name: "Leena Gandhi",
     role: "Programme Manager",
     category: "Operations",
