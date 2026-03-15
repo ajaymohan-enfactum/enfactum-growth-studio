@@ -36,7 +36,7 @@ const CTABand = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
-      className="relative py-32 md:py-44 overflow-hidden"
+      className="relative py-16 md:py-20 overflow-hidden"
     >
       {/* Cursor spotlight */}
       <div
