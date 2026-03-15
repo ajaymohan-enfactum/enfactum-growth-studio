@@ -20,7 +20,7 @@ import trevorPhoto from "@/assets/team/trevor-wingert.png";
 
 import purwaPhoto from "@/assets/team/purwa-jain.png";
 import markGuerrierPhoto from "@/assets/team/mark-guerrier.png";
-import navonilPhoto from "@/assets/team/navonil-roy.png";
+
 import anuchidaPhoto from "@/assets/team/anuchida-kawashima.png";
 import idrisPhoto from "@/assets/team/idris-atalki.png";
 
@@ -193,23 +193,6 @@ Before Enfactum, Rakhi led marketing operations at enterprise technology compani
     expertise: ["Marketing operations", "Campaign management", "Martech integration", "Process optimization"],
     linkedin: "https://linkedin.com/in/rakhisachdeva",
     photo: rakhiPhoto,
-  },
-  {
-    name: "Navonil Roy",
-    role: "Director, Marketing Analytics",
-    category: "Analytics & Data",
-    focus: "Marketing Analytics · Data Strategy · Martech",
-    location: "India",
-    bio: "Leads Analytics & Data practice. Marketing measurement and data-driven decision making.",
-    fullBio: `Navonil leads Enfactum's analytics and data practice—bringing scientific rigor to marketing decisions. His expertise spans marketing technology, automation, data strategy, and the measurement frameworks that connect marketing investment to business outcomes.
-
-Before Enfactum, Navonil built analytics and marketing technology capabilities at enterprise companies, developing the data infrastructure and reporting systems that enabled data-driven marketing at scale.
-
-At Enfactum, Navonil works with clients on marketing analytics, technology stack optimization, data strategy, and the measurement systems that prove (and improve) marketing ROI.`,
-    philosophy: "What gets measured gets optimized.",
-    expertise: ["Marketing analytics", "Data strategy", "Martech optimization", "Performance measurement", "Automation"],
-    linkedin: "https://linkedin.com/in/navonilroy",
-    photo: navonilPhoto,
   },
   {
     name: "Anuchida Kawashima",
