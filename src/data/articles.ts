@@ -84,7 +84,7 @@ export const articles: Article[] = [
     author: "Ajay Mohan",
     authorRole: "Founder & Managing Partner",
     readTime: "7 min read",
-    teaser: "Southeast Asia is not short of AI investment or intent. And yet enterprise AI adoption sits at 59% — well behind North America and Europe. The gap is not a technology gap. It is an operating model gap.",
+    teaser: "Southeast Asia is not short of AI investment or intent. And yet enterprise AI adoption continues to lag significantly behind North America and Europe. The gap is not a technology gap. It is an operating model gap.",
     date: "February 2026",
     body: [
       "Southeast Asia is not short of AI investment or intent. And yet enterprise AI adoption sits at 59% — well behind North America and Europe. The gap is not a technology gap. It is an operating model gap.",
