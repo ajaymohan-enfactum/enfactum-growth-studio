@@ -248,44 +248,82 @@ const WhySEA = () => (
 
 /* ═══════════════════════════════════════════════
    SECTION 3 — WHERE GROWTH BREAKS
-   Systemic — tight 2-col layout, label left, problems right
+   Diagnostic framework — staggered tiles with connective tissue
    ═══════════════════════════════════════════════ */
 const frictionPoints = [
-  { title: "Strategy-execution gap", body: "Brilliant plans that die in local implementation.", icon: Crosshair },
-  { title: "Ecosystem underbuilt", body: "Partners and channels without structure or activation.", icon: Network },
-  { title: "Brand-demand disconnect", body: "Creative that doesn't connect to commercial outcomes.", icon: Unlink },
-  { title: "Innovation in pilot limbo", body: "AI and ventures stuck between demo and scale.", icon: FlaskConical },
-  { title: "Launch without momentum", body: "Events and activations without lasting market impact.", icon: Rocket },
+  { title: "Strategy-execution gap", body: "Brilliant plans that die in local implementation.", icon: Crosshair, num: "01" },
+  { title: "Ecosystem underbuilt", body: "Partners and channels without structure or activation.", icon: Network, num: "02" },
+  { title: "Brand-demand disconnect", body: "Creative that doesn't connect to commercial outcomes.", icon: Unlink, num: "03" },
+  { title: "Innovation in pilot limbo", body: "AI and ventures stuck between demo and scale.", icon: FlaskConical, num: "04" },
+  { title: "Launch without momentum", body: "Events and activations without lasting market impact.", icon: Rocket, num: "05" },
 ];
 
 const GrowthBreaks = () => (
-  <section id="growth-breaks" className="py-20 md:py-28">
-    <div className="section-container">
-      <div className="grid md:grid-cols-12 gap-8 md:gap-12">
-        {/* Left — sticky label */}
-        <div className="md:col-span-4">
-          <RevealSection blur>
-            <div className="md:sticky md:top-32">
-              <p className="eyebrow mb-5">Where growth breaks</p>
-              <h2 className="headline-md max-w-xs">The friction points we're built to solve.</h2>
-            </div>
-          </RevealSection>
+  <section id="growth-breaks" className="py-24 md:py-32 relative overflow-hidden">
+    {/* Background diagnostic atmosphere */}
+    <div className="absolute inset-0 pointer-events-none" style={{
+      background: "radial-gradient(ellipse 60% 50% at 70% 40%, hsla(215, 40%, 10%, 0.5) 0%, transparent 70%)"
+    }} />
+
+    <div className="section-container relative z-10">
+      {/* Header */}
+      <RevealSection blur>
+        <div className="max-w-2xl mb-16 md:mb-20">
+          <p className="eyebrow mb-5">Where growth breaks</p>
+          <h2 className="text-[clamp(1.5rem,2.8vw,2.5rem)] font-display font-semibold text-foreground leading-[1.12] tracking-[-0.02em]">
+            The friction points we're built to solve.
+          </h2>
+          <p className="text-sm text-foreground/35 mt-4 max-w-md leading-relaxed">
+            Five structural failures that repeat across Southeast Asia — and that no single vendor, agency, or consultant is built to address.
+          </p>
         </div>
-        {/* Right — tight problem list */}
-        <div className="md:col-span-7 md:col-start-6">
-          {frictionPoints.map((point, i) => (
-            <RevealSection key={i} delay={i * 0.08} blur>
-              <div className={`flex items-start gap-5 py-7 ${i < frictionPoints.length - 1 ? 'border-b border-border/20' : ''} group`}>
-                <point.icon className="w-4 h-4 text-primary/50 mt-1 shrink-0 transition-colors duration-300 group-hover:text-primary/80" strokeWidth={1.5} />
-                <div>
-                  <h3 className="font-display text-base font-semibold text-foreground leading-snug group-hover:text-primary/90 transition-colors duration-300">
-                    {point.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{point.body}</p>
+      </RevealSection>
+
+      {/* Diagnostic grid — staggered 2-column with connective line */}
+      <div className="relative">
+        {/* Vertical connective line — runs through the center on desktop */}
+        <div className="absolute top-0 bottom-0 left-6 md:left-1/2 w-px bg-gradient-to-b from-transparent via-primary/[0.08] to-transparent hidden md:block" />
+
+        <div className="space-y-0">
+          {frictionPoints.map((point, i) => {
+            const isLeft = i % 2 === 0;
+            return (
+              <RevealSection key={i} delay={i * 0.1} blur>
+                <div className={`grid md:grid-cols-2 gap-6 md:gap-0 ${i > 0 ? 'mt-6 md:mt-0' : ''}`}>
+                  {/* Spacer or content — alternating sides */}
+                  {!isLeft && <div className="hidden md:block" />}
+
+                  <div className={`relative ${isLeft ? 'md:pr-16' : 'md:pl-16'} py-6 md:py-10 group`}>
+                    {/* Connection node on the center line */}
+                    <div className={`absolute top-1/2 -translate-y-1/2 hidden md:block ${isLeft ? 'right-0 translate-x-1/2' : 'left-0 -translate-x-1/2'} z-10`}>
+                      <div className="w-2 h-2 rounded-full bg-primary/20 group-hover:bg-primary/50 transition-colors duration-500 ring-4 ring-background" />
+                    </div>
+
+                    {/* Tile content */}
+                    <div className="relative p-6 md:p-8 rounded-sm border border-border/10 group-hover:border-primary/15 transition-all duration-500 bg-background/40 backdrop-blur-sm">
+                      {/* Diagnostic number */}
+                      <div className="flex items-start justify-between mb-5">
+                        <point.icon className="w-[18px] h-[18px] text-primary/40 group-hover:text-primary/70 transition-colors duration-500" strokeWidth={1.5} />
+                        <span className="text-[10px] tracking-[0.3em] text-foreground/10 font-display font-bold uppercase">
+                          {point.num}
+                        </span>
+                      </div>
+
+                      <h3 className="font-display text-lg font-semibold text-foreground leading-snug group-hover:text-foreground transition-colors duration-300">
+                        {point.title}
+                      </h3>
+                      <p className="text-sm text-foreground/35 mt-2.5 leading-relaxed">{point.body}</p>
+
+                      {/* Bottom accent line */}
+                      <div className="mt-6 h-px w-12 bg-gradient-to-r from-primary/20 to-transparent group-hover:w-20 transition-all duration-500" />
+                    </div>
+                  </div>
+
+                  {isLeft && <div className="hidden md:block" />}
                 </div>
-              </div>
-            </RevealSection>
-          ))}
+              </RevealSection>
+            );
+          })}
         </div>
       </div>
     </div>
