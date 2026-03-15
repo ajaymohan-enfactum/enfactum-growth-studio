@@ -481,7 +481,7 @@ const FeaturedWork = () => {
         </div>
         <RevealSection delay={0.3} className="mt-12">
           <Link to="/work" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors">
-            View all work <ArrowRight className="w-4 h-4" />
+            View recent work <ArrowRight className="w-4 h-4" />
           </Link>
         </RevealSection>
       </div>
