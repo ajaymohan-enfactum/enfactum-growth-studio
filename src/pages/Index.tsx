@@ -266,33 +266,31 @@ const WhatWeBuilds = () => (
         headline="Four capabilities. One growth architecture."
         description="Each capability connects. Together, they form a growth operating system for Southeast Asia."
       />
-      <div className="mt-12 grid md:grid-cols-2 gap-6">
+      <div className="mt-12">
         {capabilities.map((cap, i) => (
-          <RevealSection key={i} delay={i * 0.1} scale>
-            <Link to={cap.href} className="group block h-full">
-              <div className="relative h-full rounded-xl bg-white/[0.05] border border-white/10 p-8 md:p-10 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
-                {/* Number top-right */}
-                <span className="absolute top-6 right-6 text-xs font-body text-dim">{cap.num}</span>
-                {/* Icon */}
-                <cap.icon
-                  className="w-12 h-12 text-primary mb-6 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.4)]"
-                  strokeWidth={1.5}
-                />
-                {/* Title */}
-                <h3 className="font-display text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                  {cap.title}
-                </h3>
-                {/* Description */}
-                <p className="body-md text-muted-foreground mt-3">{cap.desc}</p>
-                {/* Outcome tag + arrow */}
-                <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/[0.06]">
-                  <p className="eyebrow opacity-60 group-hover:opacity-100 transition-opacity duration-300">{cap.outcome}</p>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-2 transition-all duration-300" />
+          <RevealSection key={i} delay={i * 0.08}>
+            <Link to={cap.href} className="group block">
+              <div className="flex items-center gap-6 md:gap-10 py-8 border-t border-border/10">
+                {/* Number */}
+                <span className="text-7xl font-display font-black text-foreground/[0.08] leading-none select-none shrink-0 w-20 text-right">
+                  {cap.num}
+                </span>
+                {/* Title + desc */}
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-2xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                    {cap.title}
+                  </h3>
+                  <p className="text-sm text-foreground/50 mt-1">{cap.desc}</p>
                 </div>
+                {/* Outcome tag */}
+                <p className="hidden md:block text-xs tracking-widest text-primary uppercase text-right shrink-0 max-w-[220px]">
+                  {cap.outcome}
+                </p>
               </div>
             </Link>
           </RevealSection>
         ))}
+        <div className="border-t border-border/10" />
       </div>
     </div>
   </section>
