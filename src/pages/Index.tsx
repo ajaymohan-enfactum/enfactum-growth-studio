@@ -491,43 +491,52 @@ const DepthSection = () => (
    Editorial journal preview
    ═══════════════════════════════════════════════ */
 const articles = [
-  { title: "Southeast Asia Is Not One Market. Stop Planning It Like One.", category: "Architect View", date: "March 2026" },
-  { title: "In B2B, Your Buyer Already Trusts Someone Else.", category: "Architect View", date: "March 2026" },
-  { title: "Imported Playbooks Break Fast in Southeast Asia.", category: "Field Note", date: "February 2026" },
+  { title: "Southeast Asia Is Not One Market. Stop Planning It Like One.", category: "Architect View", author: "Enfactum", readTime: "4 min" },
+  { title: "In B2B, Your Buyer Already Trusts Someone Else.", category: "Architect View", author: "Enfactum", readTime: "3 min" },
+  { title: "Imported Playbooks Break Fast in Southeast Asia.", category: "Field Note", author: "Enfactum", readTime: "5 min" },
+  { title: "Why Channel Partners Are Your Real Growth Engine in ASEAN.", category: "Field Note", author: "Enfactum", readTime: "4 min" },
 ];
 
 const Perspectives = () => (
   <section id="thinking" className="py-16 md:py-20">
     <div className="section-container">
       <div className="section-divider mb-12" />
-      <div className="grid md:grid-cols-12 gap-8">
-        <div className="md:col-span-4">
-          <RevealSection>
-            <p className="eyebrow mb-6">Thinking</p>
+      <RevealSection>
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <p className="eyebrow mb-4">Thinking</p>
             <h2 className="headline-lg">Perspectives from inside the work.</h2>
-            <Link to="/thinking" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-8">
-              All thinking <ArrowRight className="w-4 h-4" />
+          </div>
+          <Link to="/thinking" className="hidden md:inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors">
+            All thinking <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </RevealSection>
+      <div>
+        {articles.map((article, i) => (
+          <RevealSection key={i} delay={i * 0.08}>
+            <Link to="/thinking" className="group block">
+              <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-foreground/[0.08]">
+                {/* Category */}
+                <span className="text-xs text-primary tracking-widest uppercase shrink-0 w-[100px] hidden md:block">
+                  {article.category}
+                </span>
+                {/* Headline */}
+                <h3 className="flex-1 text-lg font-medium text-foreground group-hover:text-primary transition-colors duration-300">
+                  {article.title}
+                </h3>
+                {/* Meta */}
+                <span className="text-xs text-foreground/40 shrink-0 hidden md:block">
+                  {article.author} · {article.readTime}
+                </span>
+              </div>
             </Link>
           </RevealSection>
-        </div>
-        <div className="md:col-span-7 md:col-start-6">
-          {articles.map((article, i) => (
-            <RevealSection key={i} delay={i * 0.1}>
-              <Link to="/thinking" className="group block">
-                <div className="py-8 border-b border-border/30 group-hover:border-primary/15 transition-colors duration-700">
-                  <div className="flex items-center gap-4 mb-3">
-                    <span className="text-[11px] text-primary/60 font-medium uppercase tracking-wider">{article.category}</span>
-                    <span className="text-[11px] text-dim">{article.date}</span>
-                  </div>
-                  <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-500 leading-snug">
-                    {article.title}
-                  </h3>
-                </div>
-              </Link>
-            </RevealSection>
-          ))}
-        </div>
+        ))}
       </div>
+      <Link to="/thinking" className="md:hidden inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-6">
+        All thinking <ArrowRight className="w-4 h-4" />
+      </Link>
     </div>
   </section>
 );
