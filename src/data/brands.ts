@@ -78,7 +78,7 @@ export const sectorClusters: SectorCluster[] = [
     narrative:
       "Partnering with emerging and innovation-led companies shaping new categories across the region.",
     brands: [
-      b("JSHealth Vitamins", "jshealth.com"),
+      b("JSHealth Vitamins", "jshealth.com", "/logos/jshealth.png"),
       b("Lazada", "lazada.com"),
       b("InsureMO", null, "/logos/insuremo.png"),
       b("MyRepublic", "myrepublic.net"),
