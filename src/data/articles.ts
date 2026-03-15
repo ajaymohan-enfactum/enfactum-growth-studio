@@ -163,7 +163,7 @@ export const articles: Article[] = [
   {
     title: "Stop Choosing Between Brand and Performance.",
     slug: "stop-choosing-between-brand-and-performance",
-    category: "Operator View",
+    category: "Architect View",
     theme: "Brand & Demand",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
