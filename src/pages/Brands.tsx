@@ -202,19 +202,19 @@ const Brands = () => {
           {/* Row 1 — flagship brands, larger */}
           <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
             {c01.brands.slice(0, 3).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} size="lg" delay={0.1 + i * 0.08} heightOverride={brand.name === "Oracle" ? 36 : 72} />
+              <BrandPlate key={brand.name} brand={brand} size="lg" delay={0.1 + i * 0.08} heightOverride={24} />
             ))}
           </div>
           {/* Row 2 — mid tier */}
           <div className="flex flex-wrap gap-4 md:gap-5 mb-5 md:pl-6">
             {c01.brands.slice(3, 7).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} size="md" delay={0.3 + i * 0.06} heightOverride={52} />
+              <BrandPlate key={brand.name} brand={brand} size="md" delay={0.3 + i * 0.06} heightOverride={17} />
             ))}
           </div>
           {/* Row 3 — supporting */}
           <div className="flex flex-wrap gap-3 md:gap-4 md:pl-2">
             {c01.brands.slice(7).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} size="sm" delay={0.5 + i * 0.05} heightOverride={40} />
+              <BrandPlate key={brand.name} brand={brand} size="sm" delay={0.5 + i * 0.05} heightOverride={13} />
             ))}
           </div>
         </div>
