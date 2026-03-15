@@ -473,7 +473,7 @@ const FeaturedWork = () => {
         <p className="text-[13px] text-muted-foreground mt-4 max-w-lg">
           Selected work with measurable commercial, operational, and ecosystem outcomes.
         </p>
-        <div className="mt-16 space-y-0">
+        <div className="mt-10 space-y-0">
           {flagships.map((cs, i) => (
             <CaseCard key={cs.id} cs={cs} index={i} />
           ))}
