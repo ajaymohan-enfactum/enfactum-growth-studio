@@ -350,7 +350,7 @@ const buyerCapData: Record<string, BuyerCapData> = {
     eyebrow: "Live Experiences",
     headline: "Create market moments designed for commercial impact, not just attendance.",
     challengeBody: "Most product launches and corporate events are measured by attendance and applause. Rarely by pipeline. The events that create commercial momentum are the ones designed backward from a business outcome — not forward from a creative brief.",
-    seoTitle: "Live Experiences — Product Launches & Event Activation in Southeast Asia",
+    seoTitle: "Live Experiences",
     seoDescription: "Product launches, partner summits, roadshows, and experiential activations for enterprise brands across Southeast Asia — commercially designed events tied to pipeline, partner activation, and market momentum.",
     whatWeBuild: [
       { title: "Product Launches", desc: "Immersive launch experiences designed to generate measurable pipeline, press coverage, and channel activation." },
