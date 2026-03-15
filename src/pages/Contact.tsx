@@ -170,7 +170,7 @@ const Contact = () => {
       />
 
       {/* ═══ INQUIRY TYPE SELECTION ═══ */}
-      <section className="py-24 md:py-32">
+      <section className="py-16 md:py-20">
         <div className="section-container">
           <RevealSection>
             <p className="eyebrow mb-6">Contact pathways</p>
