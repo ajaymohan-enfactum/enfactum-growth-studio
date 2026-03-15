@@ -266,33 +266,31 @@ const WhatWeBuilds = () => (
         headline="Four capabilities. One growth architecture."
         description="Each capability connects. Together, they form a growth operating system for Southeast Asia."
       />
-      <div className="mt-12 grid md:grid-cols-2 gap-6">
+      <div className="mt-12">
         {capabilities.map((cap, i) => (
-          <RevealSection key={i} delay={i * 0.1} scale>
-            <Link to={cap.href} className="group block h-full">
-              <div className="relative h-full rounded-xl bg-white/[0.05] border border-white/10 p-8 md:p-10 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
-                {/* Number top-right */}
-                <span className="absolute top-6 right-6 text-xs font-body text-dim">{cap.num}</span>
-                {/* Icon */}
-                <cap.icon
-                  className="w-12 h-12 text-primary mb-6 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.4)]"
-                  strokeWidth={1.5}
-                />
-                {/* Title */}
-                <h3 className="font-display text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                  {cap.title}
-                </h3>
-                {/* Description */}
-                <p className="body-md text-muted-foreground mt-3">{cap.desc}</p>
-                {/* Outcome tag + arrow */}
-                <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/[0.06]">
-                  <p className="eyebrow opacity-60 group-hover:opacity-100 transition-opacity duration-300">{cap.outcome}</p>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-2 transition-all duration-300" />
+          <RevealSection key={i} delay={i * 0.08}>
+            <Link to={cap.href} className="group block">
+              <div className="flex items-center gap-6 md:gap-10 py-8 border-t border-border/10">
+                {/* Number */}
+                <span className="text-7xl font-display font-black text-foreground/[0.08] leading-none select-none shrink-0 w-20 text-right">
+                  {cap.num}
+                </span>
+                {/* Title + desc */}
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-2xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                    {cap.title}
+                  </h3>
+                  <p className="text-sm text-foreground/50 mt-1">{cap.desc}</p>
                 </div>
+                {/* Outcome tag */}
+                <p className="hidden md:block text-xs tracking-widest text-primary uppercase text-right shrink-0 max-w-[220px]">
+                  {cap.outcome}
+                </p>
               </div>
             </Link>
           </RevealSection>
         ))}
+        <div className="border-t border-border/10" />
       </div>
     </div>
   </section>
@@ -303,26 +301,31 @@ const WhatWeBuilds = () => (
    Horizontal process with cinematic linework
    ═══════════════════════════════════════════════ */
 const processSteps = [
-  { step: "Define" },
-  { step: "Build" },
-  { step: "Operate" },
-  { step: "Transfer" },
-  { step: "Scale" },
+  { step: "Define", desc: "Diagnose the growth challenge and map the ecosystem landscape before committing resources." },
+  { step: "Build", desc: "Architect the GTM infrastructure, partnerships, and demand engine from the ground up." },
+  { step: "Operate", desc: "Run the growth architecture with embedded teams, not external advisors." },
+  { step: "Transfer", desc: "Hand over operational ownership with documented playbooks and trained internal teams." },
+  { step: "Scale", desc: "Expand across markets with proven architecture, not replicated guesswork." },
 ];
 
 const HowWeWork = () => (
   <section id="how-we-work" className="py-16 md:py-20">
     <div className="section-container">
       <h2 className="headline-lg max-w-xl">Growth Architects, not just advisors.</h2>
-      <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+      <div className="mt-14">
         {processSteps.map((step, i) => (
           <RevealSection key={i} delay={i * 0.08}>
-            <div className="flex gap-6 items-start">
-              <span className="text-8xl font-display font-black text-white/[0.07] leading-none select-none shrink-0">
+            <div className="flex gap-8 md:gap-12 mb-16 last:mb-0">
+              {/* Number */}
+              <span className="text-[120px] font-display font-black leading-none text-foreground/[0.05] select-none shrink-0 hidden md:block" style={{ width: '30%', textAlign: 'right', paddingRight: '2rem' }}>
                 {String(i + 1)}
               </span>
-              <div className="pt-4">
-                <h3 className="font-display text-xl font-bold text-foreground">{step.step}</h3>
+              {/* Content */}
+              <div style={{ width: '70%' }} className="pt-4 md:pt-8">
+                <span className="text-5xl font-display font-black text-foreground/[0.05] leading-none select-none md:hidden mb-2 block">{String(i + 1)}</span>
+                <h3 className="text-2xl font-display font-semibold text-foreground">{step.step}</h3>
+                <div className="border-t border-border/10 my-3" />
+                <p className="text-base text-foreground/50">{step.desc}</p>
               </div>
             </div>
           </RevealSection>
@@ -444,34 +447,40 @@ const FeaturedWork = () => {
    Architectural teaser blocks
    ═══════════════════════════════════════════════ */
 const depthBlocks = [
-  { title: "Leadership", desc: "Experienced Growth Architects across strategy, growth, and technology.", href: "/company/leadership", num: "01" },
-  { title: "Architect Bench", desc: "Over 35 specialists across Southeast Asia and India.", href: "/company", num: "02" },
-  { title: "Regional Nodes", desc: "Singapore, India, Malaysia, Indonesia — and expanding.", href: "/company/regional-nodes", num: "03" },
-  { title: "Capability Ownership", desc: "Each capability led by domain-specialist principals.", href: "/capabilities", num: "04" },
+  { title: "Leadership", desc: "Experienced Growth Architects across strategy, growth, and technology.", href: "/company/leadership" },
+  { title: "Architect Bench", desc: "Over 35 specialists across Southeast Asia and India.", href: "/company" },
+  { title: "Regional Nodes", desc: "Singapore, India, Malaysia, Indonesia — and expanding.", href: "/company/regional-nodes" },
+  { title: "Capability Ownership", desc: "Each capability led by domain-specialist principals.", href: "/capabilities" },
 ];
 
 const DepthSection = () => (
   <section id="depth" className="py-16 md:py-20 bg-[#0c1629]">
     <div className="section-container">
-      <SectionHeader
-        eyebrow="Depth behind the work"
-        headline="Real teams. Real infrastructure."
-      />
-      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {depthBlocks.map((block, i) => (
-          <RevealSection key={i} delay={i * 0.08} scale>
-            <Link to={block.href} className="group block h-full">
-              <div className="h-full border-t border-border/40 pt-8 group-hover:border-primary/25 transition-colors duration-700">
-                <span className="text-[10px] font-body text-dim">{block.num}</span>
-                <h3 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-500 mt-3">
-                  {block.title}
-                </h3>
-                <p className="text-[13px] text-muted-foreground mt-2 leading-relaxed">{block.desc}</p>
-                <ArrowRight className="w-4 h-4 text-dim group-hover:text-primary mt-6 group-hover:translate-x-1 transition-all duration-500" />
-              </div>
-            </Link>
+      <div className="grid md:grid-cols-5 gap-12 md:gap-16">
+        {/* Left — heading */}
+        <div className="md:col-span-2">
+          <RevealSection blur>
+            <h2 className="text-3xl font-display font-semibold text-foreground">Real Teams. Real Accountability.</h2>
+            <p className="text-base text-foreground/50 mt-4">
+              Every engagement is led by named principals with domain expertise — not rotated junior consultants.
+            </p>
           </RevealSection>
-        ))}
+        </div>
+        {/* Right — items */}
+        <div className="md:col-span-3">
+          {depthBlocks.map((block, i) => (
+            <RevealSection key={i} delay={i * 0.08}>
+              <Link to={block.href} className="group block">
+                <div className={`py-5 ${i < depthBlocks.length - 1 ? 'border-b border-foreground/[0.08]' : ''}`}>
+                  <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                    {block.title}
+                  </h3>
+                  <p className="text-sm text-foreground/40 mt-1">{block.desc}</p>
+                </div>
+              </Link>
+            </RevealSection>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -482,43 +491,52 @@ const DepthSection = () => (
    Editorial journal preview
    ═══════════════════════════════════════════════ */
 const articles = [
-  { title: "Southeast Asia Is Not One Market. Stop Planning It Like One.", category: "Architect View", date: "March 2026" },
-  { title: "In B2B, Your Buyer Already Trusts Someone Else.", category: "Architect View", date: "March 2026" },
-  { title: "Imported Playbooks Break Fast in Southeast Asia.", category: "Field Note", date: "February 2026" },
+  { title: "Southeast Asia Is Not One Market. Stop Planning It Like One.", category: "Architect View", author: "Enfactum", readTime: "4 min" },
+  { title: "In B2B, Your Buyer Already Trusts Someone Else.", category: "Architect View", author: "Enfactum", readTime: "3 min" },
+  { title: "Imported Playbooks Break Fast in Southeast Asia.", category: "Field Note", author: "Enfactum", readTime: "5 min" },
+  { title: "Why Channel Partners Are Your Real Growth Engine in ASEAN.", category: "Field Note", author: "Enfactum", readTime: "4 min" },
 ];
 
 const Perspectives = () => (
   <section id="thinking" className="py-16 md:py-20">
     <div className="section-container">
       <div className="section-divider mb-12" />
-      <div className="grid md:grid-cols-12 gap-8">
-        <div className="md:col-span-4">
-          <RevealSection>
-            <p className="eyebrow mb-6">Thinking</p>
+      <RevealSection>
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <p className="eyebrow mb-4">Thinking</p>
             <h2 className="headline-lg">Perspectives from inside the work.</h2>
-            <Link to="/thinking" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-8">
-              All thinking <ArrowRight className="w-4 h-4" />
+          </div>
+          <Link to="/thinking" className="hidden md:inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors">
+            All thinking <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </RevealSection>
+      <div>
+        {articles.map((article, i) => (
+          <RevealSection key={i} delay={i * 0.08}>
+            <Link to="/thinking" className="group block">
+              <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-foreground/[0.08]">
+                {/* Category */}
+                <span className="text-xs text-primary tracking-widest uppercase shrink-0 w-[100px] hidden md:block">
+                  {article.category}
+                </span>
+                {/* Headline */}
+                <h3 className="flex-1 text-lg font-medium text-foreground group-hover:text-primary transition-colors duration-300">
+                  {article.title}
+                </h3>
+                {/* Meta */}
+                <span className="text-xs text-foreground/40 shrink-0 hidden md:block">
+                  {article.author} · {article.readTime}
+                </span>
+              </div>
             </Link>
           </RevealSection>
-        </div>
-        <div className="md:col-span-7 md:col-start-6">
-          {articles.map((article, i) => (
-            <RevealSection key={i} delay={i * 0.1}>
-              <Link to="/thinking" className="group block">
-                <div className="py-8 border-b border-border/30 group-hover:border-primary/15 transition-colors duration-700">
-                  <div className="flex items-center gap-4 mb-3">
-                    <span className="text-[11px] text-primary/60 font-medium uppercase tracking-wider">{article.category}</span>
-                    <span className="text-[11px] text-dim">{article.date}</span>
-                  </div>
-                  <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-500 leading-snug">
-                    {article.title}
-                  </h3>
-                </div>
-              </Link>
-            </RevealSection>
-          ))}
-        </div>
+        ))}
       </div>
+      <Link to="/thinking" className="md:hidden inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-6">
+        All thinking <ArrowRight className="w-4 h-4" />
+      </Link>
     </div>
   </section>
 );
