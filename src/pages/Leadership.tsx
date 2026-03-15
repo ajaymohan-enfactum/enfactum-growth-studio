@@ -44,7 +44,7 @@ At Enfactum, Ajay works with clients on their most complex growth challenges: en
   },
   {
     name: "William Gaultier",
-    role: "GTM Growth Strategist",
+    role: "Partner",
     category: "GTM Strategy",
     focus: "GTM Transformation · Market Entry · Growth Acceleration",
     location: "Singapore",
