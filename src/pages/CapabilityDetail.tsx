@@ -318,7 +318,7 @@ const buyerCapData: Record<string, BuyerCapData> = {
     eyebrow: "AI Ecosystems",
     headline: "Move innovation from pilot to production. Build ecosystem architecture that scales.",
     challengeBody: "Most enterprise AI programmes start with pilots. Eighteen months later, the pilot count has grown but production deployments haven't. The gap is not technology or talent — it is the absence of a commercial operating model around innovation.",
-    seoTitle: "AI Ecosystems & Innovation Programs in APAC",
+    seoTitle: "AI Ecosystems",
     seoDescription: "Enterprise AI and innovation ecosystem programmes across Southeast Asia and APAC: venture strategy, startup scouting, pilot-to-production pathways, and commercialisation architecture for corporate innovation mandates.",
     whatWeBuild: [
       { title: "Ecosystem Mapping & Curation", desc: "Identify, evaluate, and shortlist startups and technology partners aligned to enterprise innovation mandates." },
