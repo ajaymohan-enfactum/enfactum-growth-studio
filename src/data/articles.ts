@@ -87,7 +87,7 @@ export const articles: Article[] = [
     teaser: "Southeast Asia is not short of AI investment or intent. And yet enterprise AI adoption continues to lag significantly behind North America and Europe. The gap is not a technology gap. It is an operating model gap.",
     date: "February 2026",
     body: [
-      "Southeast Asia is not short of AI investment or intent. And yet enterprise AI adoption sits at 59% — well behind North America and Europe. The gap is not a technology gap. It is an operating model gap.",
+      "Southeast Asia is not short of AI investment or intent. And yet enterprise AI adoption continues to lag significantly behind North America and Europe. The gap is not a technology gap. It is an operating model gap.",
       "Most enterprise AI programmes stall not because the technology does not work, but because the organisation around it is not designed to absorb what the technology produces.",
       "Pilots succeed in isolation. But when it comes time to integrate AI into workflows, decision-making, and commercial operations, the organisation hits friction — approval loops, data governance gaps, unclear ownership, and misaligned incentives.",
       "The companies that move from pilot to scale are the ones that treat AI adoption as an operating model challenge, not just a technology deployment.",
