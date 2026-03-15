@@ -24,11 +24,11 @@ const BrandLogo = ({
   if (!localLogo || imgError) {
     return (
       <span
-        className={`font-display font-semibold tracking-[0.06em] select-none whitespace-nowrap uppercase text-foreground/70 ${className}`}
+        className={`font-display font-bold tracking-[0.04em] select-none whitespace-nowrap uppercase text-foreground/80 ${className}`}
         style={{
-          fontSize: Math.max(11, height * 0.45),
+          fontSize: Math.max(12, height * 0.5),
           lineHeight: `${height}px`,
-          letterSpacing: "0.08em",
+          letterSpacing: "0.06em",
         }}
       >
         {name}
@@ -48,7 +48,7 @@ const BrandLogo = ({
         width: "auto",
         objectFit: "contain",
         filter: "brightness(0) invert(1)",
-        opacity: 0.85,
+        opacity: 0.92,
       }}
     />
   );
