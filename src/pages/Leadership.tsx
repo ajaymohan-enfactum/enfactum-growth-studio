@@ -291,6 +291,7 @@ His approach centres on translating AI strategy into actionable project architec
 At Enfactum, Idris ensures that AI programmes are commercially purposeful, operationally sound, and designed for scale across Southeast Asia.`,
     philosophy: "Innovation scales when it's built on operational discipline.",
     expertise: ["AI programme delivery", "Innovation strategy", "Project architecture", "Stakeholder management", "Technology operations"],
+    photo: idrisPhoto,
   },
 ];
 
