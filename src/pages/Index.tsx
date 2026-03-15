@@ -485,7 +485,7 @@ const PullQuote = () => (
 
 /* ═══════════════════════════════════════════════
    SECTION 5 — HOW WE WORK
-   Horizontal compact timeline — dense, systemic
+   Progressive sequence with momentum
    ═══════════════════════════════════════════════ */
 const processSteps = [
   { step: "Define", desc: "Diagnose the growth challenge and map the ecosystem landscape before committing resources." },
@@ -496,28 +496,89 @@ const processSteps = [
 ];
 
 const HowWeWork = () => (
-  <section id="how-we-work" className="py-20 md:py-28 bg-[#0B1121]">
-    <div className="section-container">
-      <div className="grid md:grid-cols-12 gap-8 md:gap-12">
-        {/* Left — headline */}
-        <div className="md:col-span-4">
-          <RevealSection blur>
-            <p className="eyebrow mb-5">How we work</p>
-            <h2 className="headline-md">Growth Architects, not just advisors.</h2>
-          </RevealSection>
+  <section id="how-we-work" className="py-28 md:py-36 bg-[#0B1121] relative overflow-hidden">
+    {/* Horizontal momentum line */}
+    <div className="absolute top-[52%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/[0.06] to-transparent hidden md:block pointer-events-none" />
+
+    <div className="section-container relative z-10">
+      {/* Header */}
+      <RevealSection blur>
+        <div className="max-w-xl mb-16 md:mb-20">
+          <p className="eyebrow mb-5">How we work</p>
+          <h2 className="text-[clamp(1.5rem,2.8vw,2.5rem)] font-display font-semibold text-foreground leading-[1.12] tracking-[-0.02em]">
+            From strategy to operating momentum.
+          </h2>
+          <p className="text-sm text-foreground/30 mt-4 leading-relaxed max-w-md">
+            Five phases. Each one builds on the last. No phase exists in isolation.
+          </p>
         </div>
-        {/* Right — compact timeline */}
-        <div className="md:col-span-7 md:col-start-6">
+      </RevealSection>
+
+      {/* Horizontal sequence — desktop */}
+      <div className="hidden md:block">
+        {/* Progress track */}
+        <div className="relative mb-14">
+          <div className="absolute top-4 left-0 right-0 h-px bg-border/15" />
+          <div className="flex justify-between relative">
+            {processSteps.map((_, i) => (
+              <RevealSection key={i} delay={i * 0.12} blur>
+                <div className="relative flex flex-col items-center" style={{ width: '1px' }}>
+                  {/* Node */}
+                  <div className="w-[9px] h-[9px] rounded-full bg-primary/25 ring-[3px] ring-[#0B1121] relative z-10" />
+                  {/* Connecting dash after node */}
+                  {i < processSteps.length - 1 && (
+                    <div className="absolute top-[4px] left-[9px] h-px bg-gradient-to-r from-primary/15 to-primary/5" style={{ width: 'calc((100vw - 8rem) / 5 - 9px)' }} />
+                  )}
+                </div>
+              </RevealSection>
+            ))}
+          </div>
+        </div>
+
+        {/* Step cards — horizontal row */}
+        <div className="grid grid-cols-5 gap-4">
           {processSteps.map((step, i) => (
-            <RevealSection key={i} delay={i * 0.06}>
-              <div className="flex items-start gap-6 py-6 border-b border-border/10 last:border-b-0 group">
-                {/* Step number */}
-                <span className="text-3xl font-display font-bold text-primary/15 leading-none shrink-0 w-10 text-right tabular-nums group-hover:text-primary/30 transition-colors duration-300">
-                  {String(i + 1).padStart(2, '0')}
+            <RevealSection key={i} delay={0.1 + i * 0.12} blur>
+              <div className="group">
+                {/* Phase number */}
+                <span className="text-[10px] tracking-[0.3em] text-primary/30 uppercase font-display block mb-3 group-hover:text-primary/50 transition-colors duration-500">
+                  Phase {String(i + 1).padStart(2, '0')}
                 </span>
+                {/* Step name */}
+                <h3 className="text-xl font-display font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                  {step.step}
+                </h3>
+                {/* Accent bar */}
+                <div className="h-px w-8 bg-primary/15 mb-4 group-hover:w-12 group-hover:bg-primary/30 transition-all duration-500" />
+                {/* Description */}
+                <p className="text-[13px] text-foreground/30 leading-relaxed group-hover:text-foreground/45 transition-colors duration-500">
+                  {step.desc}
+                </p>
+              </div>
+            </RevealSection>
+          ))}
+        </div>
+      </div>
+
+      {/* Vertical sequence — mobile */}
+      <div className="md:hidden relative">
+        {/* Vertical track */}
+        <div className="absolute top-0 bottom-0 left-[14px] w-px bg-border/10" />
+        <div className="space-y-8">
+          {processSteps.map((step, i) => (
+            <RevealSection key={i} delay={i * 0.08}>
+              <div className="flex gap-6 relative group">
+                {/* Node */}
+                <div className="relative shrink-0 mt-1.5">
+                  <div className="w-[9px] h-[9px] rounded-full bg-primary/25 ring-[3px] ring-[#0B1121] relative z-10 ml-[10px]" />
+                </div>
                 <div>
+                  <span className="text-[10px] tracking-[0.3em] text-primary/30 uppercase font-display block mb-1">
+                    Phase {String(i + 1).padStart(2, '0')}
+                  </span>
                   <h3 className="text-lg font-display font-semibold text-foreground">{step.step}</h3>
-                  <p className="text-sm text-foreground/40 mt-1 leading-relaxed">{step.desc}</p>
+                  <div className="h-px w-8 bg-primary/15 my-2.5" />
+                  <p className="text-sm text-foreground/35 leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             </RevealSection>
