@@ -447,34 +447,40 @@ const FeaturedWork = () => {
    Architectural teaser blocks
    ═══════════════════════════════════════════════ */
 const depthBlocks = [
-  { title: "Leadership", desc: "Experienced Growth Architects across strategy, growth, and technology.", href: "/company/leadership", num: "01" },
-  { title: "Architect Bench", desc: "Over 35 specialists across Southeast Asia and India.", href: "/company", num: "02" },
-  { title: "Regional Nodes", desc: "Singapore, India, Malaysia, Indonesia — and expanding.", href: "/company/regional-nodes", num: "03" },
-  { title: "Capability Ownership", desc: "Each capability led by domain-specialist principals.", href: "/capabilities", num: "04" },
+  { title: "Leadership", desc: "Experienced Growth Architects across strategy, growth, and technology.", href: "/company/leadership" },
+  { title: "Architect Bench", desc: "Over 35 specialists across Southeast Asia and India.", href: "/company" },
+  { title: "Regional Nodes", desc: "Singapore, India, Malaysia, Indonesia — and expanding.", href: "/company/regional-nodes" },
+  { title: "Capability Ownership", desc: "Each capability led by domain-specialist principals.", href: "/capabilities" },
 ];
 
 const DepthSection = () => (
   <section id="depth" className="py-16 md:py-20 bg-[#0c1629]">
     <div className="section-container">
-      <SectionHeader
-        eyebrow="Depth behind the work"
-        headline="Real teams. Real infrastructure."
-      />
-      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {depthBlocks.map((block, i) => (
-          <RevealSection key={i} delay={i * 0.08} scale>
-            <Link to={block.href} className="group block h-full">
-              <div className="h-full border-t border-border/40 pt-8 group-hover:border-primary/25 transition-colors duration-700">
-                <span className="text-[10px] font-body text-dim">{block.num}</span>
-                <h3 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-500 mt-3">
-                  {block.title}
-                </h3>
-                <p className="text-[13px] text-muted-foreground mt-2 leading-relaxed">{block.desc}</p>
-                <ArrowRight className="w-4 h-4 text-dim group-hover:text-primary mt-6 group-hover:translate-x-1 transition-all duration-500" />
-              </div>
-            </Link>
+      <div className="grid md:grid-cols-5 gap-12 md:gap-16">
+        {/* Left — heading */}
+        <div className="md:col-span-2">
+          <RevealSection blur>
+            <h2 className="text-3xl font-display font-semibold text-foreground">Real Teams. Real Accountability.</h2>
+            <p className="text-base text-foreground/50 mt-4">
+              Every engagement is led by named principals with domain expertise — not rotated junior consultants.
+            </p>
           </RevealSection>
-        ))}
+        </div>
+        {/* Right — items */}
+        <div className="md:col-span-3">
+          {depthBlocks.map((block, i) => (
+            <RevealSection key={i} delay={i * 0.08}>
+              <Link to={block.href} className="group block">
+                <div className={`py-5 ${i < depthBlocks.length - 1 ? 'border-b border-foreground/[0.08]' : ''}`}>
+                  <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                    {block.title}
+                  </h3>
+                  <p className="text-sm text-foreground/40 mt-1">{block.desc}</p>
+                </div>
+              </Link>
+            </RevealSection>
+          ))}
+        </div>
       </div>
     </div>
   </section>
