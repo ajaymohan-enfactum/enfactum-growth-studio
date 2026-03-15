@@ -294,12 +294,12 @@ const Brands = () => {
             <div className="md:col-span-7 md:col-start-6">
               <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
                 {c04.brands.slice(0, 2).map((brand, i) => (
-                  <BrandPlate key={brand.name} brand={brand} size="lg" delay={0.1 + i * 0.1} />
+                  <BrandPlate key={brand.name} brand={brand} size="lg" delay={0.1 + i * 0.1} heightOverride={108} />
                 ))}
               </div>
               <div className="flex flex-wrap gap-3 md:gap-4">
                 {c04.brands.slice(2).map((brand, i) => (
-                  <BrandPlate key={brand.name} brand={brand} size="md" delay={0.3 + i * 0.08} />
+                  <BrandPlate key={brand.name} brand={brand} size="md" delay={0.3 + i * 0.08} heightOverride={78} />
                 ))}
               </div>
             </div>
