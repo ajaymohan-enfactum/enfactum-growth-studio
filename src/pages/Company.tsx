@@ -63,11 +63,11 @@ const capabilityOwnership = [
   { capability: "Live Experiences", owner: "Led by an events and activation specialist", scope: "Launches · Summits · Roadshows · Experiential" },
 ];
 
-const operatingPrinciples = [
+const growthPrinciples = [
   { title: "Growth Architect mindset", desc: "We don't advise from the outside. We embed within the business and stay until the work has real infrastructure." },
   { title: "Ecosystem intelligence", desc: "We understand how growth moves through partnerships, channels, and local trust — not just marketing funnels." },
   { title: "Outcome obsession", desc: "Every programme is designed around commercial outcomes. We measure what matters to the business, not vanity metrics." },
-  { title: "Regional depth", desc: "We're built for Southeast Asia. Our teams, partners, and operating model are designed for this region's complexity." },
+  { title: "Regional depth", desc: "We're built for Southeast Asia. Our teams, partners, and growth architecture are designed for this region's complexity." },
   { title: "Capability ownership", desc: "Each capability is led by a domain-specialist principal who owns quality, methodology, and client outcomes." },
   { title: "Structured transfer", desc: "We build to transfer. Every engagement is designed to leave the client with lasting capability, not dependency." },
 ];
@@ -253,7 +253,7 @@ const Company = () => (
           <div className="md:col-span-5">
             <RevealSection>
               <p className="eyebrow mb-6">Regional nodes</p>
-              <h2 className="headline-lg">An operating network, not an office list.</h2>
+              <h2 className="headline-lg">A growth network, not an office list.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-5 md:col-start-7 flex items-end">
@@ -361,7 +361,7 @@ const Company = () => (
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
-          {operatingPrinciples.map((p, i) => (
+          {growthPrinciples.map((p, i) => (
             <RevealSection key={i} delay={i * 0.06}>
               <div>
                 <h3 className="font-display text-base font-semibold text-foreground">{p.title}</h3>

@@ -189,7 +189,7 @@ const Capabilities = () => (
     <HeroSection
       eyebrow="Capabilities"
       headline={<>An integrated growth operating system for <span className="text-primary">Southeast Asia.</span></>}
-      description="Each capability solves a specific growth challenge. Together, they form an integrated operating model — strategy connected to ecosystems connected to execution."
+      description="Each capability solves a specific growth challenge. Together, they form an integrated growth architecture — strategy connected to ecosystems connected to execution."
     />
 
     {/* ═══ HORIZONTAL SCROLL CAPABILITY SHOWCASE ═══ */}
@@ -201,7 +201,7 @@ const Capabilities = () => (
         <SectionHeader
           eyebrow="How the capabilities connect"
           headline="Each capability reinforces the others."
-          description="This isn't four separate offerings. It's one operating system — each capability feeds outcomes to the next. Hover a node to explore."
+          description="This isn't four separate offerings. It's one integrated architecture — each capability feeds outcomes to the next. Hover a node to explore."
           centered
         />
         <div className="mt-16 md:mt-20">

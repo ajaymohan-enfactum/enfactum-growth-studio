@@ -276,7 +276,7 @@ const WhatWeBuilds = () => (
     <div className="section-container">
       <SectionHeader
         eyebrow="What Enfactum builds"
-        headline="Four capabilities. One operating model."
+        headline="Four capabilities. One growth architecture."
         description="Each capability connects. Together, they form a growth operating system for Southeast Asia."
       />
       <div className="mt-12 grid md:grid-cols-2 gap-6">
@@ -618,7 +618,7 @@ const QuoteCarousel = ({ quotes }: { quotes: string[] }) => {
         </div>
 
         {/* Attribution */}
-        <p className="text-sm text-muted-foreground mt-6">— Enfactum operating perspective</p>
+        <p className="text-sm text-muted-foreground mt-6">— Enfactum growth perspective</p>
 
         {/* Dots */}
         <div className="flex items-center gap-2 mt-8">
