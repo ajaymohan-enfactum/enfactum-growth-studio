@@ -370,41 +370,88 @@ const capabilities = [
 ];
 
 const WhatWeBuilds = () => (
-  <section id="capabilities" className="py-24 md:py-32 bg-[#080E1A] relative">
-    {/* Architectural background number */}
-    <div className="absolute top-12 right-8 md:right-16 text-[12rem] md:text-[18rem] font-display font-black text-foreground/[0.015] leading-none select-none pointer-events-none">
-      04
+  <section id="capabilities" className="py-28 md:py-36 bg-[#080E1A] relative overflow-hidden">
+    {/* Faint architectural grid lines */}
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute top-0 bottom-0 left-1/2 w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent hidden md:block" />
+      <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-primary/[0.03] to-transparent hidden md:block" />
     </div>
-    <div className="section-container relative">
+
+    <div className="section-container relative z-10">
+      {/* Header — centered, systemic */}
       <RevealSection>
-        <p className="eyebrow mb-4">Capabilities</p>
-        <h2 className="headline-lg max-w-2xl">Four capabilities. One growth architecture.</h2>
-        <p className="text-sm text-foreground/40 mt-3 max-w-lg">Each capability connects. Together, they form a growth operating system for Southeast Asia.</p>
+        <div className="text-center max-w-2xl mx-auto mb-20 md:mb-24">
+          <p className="eyebrow mb-5">Growth Architecture</p>
+          <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em]">
+            Four capabilities. One growth architecture.
+          </h2>
+          <p className="text-sm text-foreground/35 mt-4 leading-relaxed max-w-md mx-auto">
+            Each capability connects. Together, they form a growth operating system for Southeast Asia.
+          </p>
+        </div>
       </RevealSection>
-      <div className="mt-16">
-        {capabilities.map((cap, i) => (
-          <RevealSection key={i} delay={i * 0.08}>
-            <Link to={cap.href} className="group block">
-              <div className="grid md:grid-cols-12 items-baseline gap-4 md:gap-8 py-8 border-t border-border/10">
-                {/* Number */}
-                <span className="md:col-span-1 text-5xl md:text-6xl font-display font-black text-foreground/[0.06] leading-none select-none">
-                  {cap.num}
-                </span>
-                {/* Title */}
-                <h3 className="md:col-span-3 text-xl md:text-2xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                  {cap.title}
-                </h3>
-                {/* Desc */}
-                <p className="md:col-span-5 text-sm text-foreground/45 leading-relaxed">{cap.desc}</p>
-                {/* Outcome tag */}
-                <p className="md:col-span-3 text-[10px] tracking-[0.2em] text-primary/60 uppercase text-right">
-                  {cap.outcome}
-                </p>
-              </div>
-            </Link>
-          </RevealSection>
-        ))}
-        <div className="border-t border-border/10" />
+
+      {/* Architecture grid — 2×2 with connective tissue */}
+      <div className="relative">
+        {/* Central node — the connective anchor */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center">
+          <div className="w-14 h-14 rounded-full border border-primary/15 bg-[#080E1A] flex items-center justify-center">
+            <div className="w-3 h-3 rounded-full bg-primary/30" />
+          </div>
+        </div>
+
+        {/* Connector lines from center to each quadrant */}
+        <div className="absolute inset-0 hidden md:block pointer-events-none z-10">
+          {/* Top-left */}
+          <div className="absolute top-1/2 left-1/2 w-[calc(25%-1rem)] h-px bg-gradient-to-l from-primary/10 to-transparent -translate-y-1/2 -translate-x-full" />
+          <div className="absolute top-1/2 left-[calc(25%+1rem)] h-[calc(25%-1rem)] w-px bg-gradient-to-t from-primary/10 to-transparent -translate-y-full" />
+          {/* Top-right */}
+          <div className="absolute top-1/2 left-1/2 w-[calc(25%-1rem)] h-px bg-gradient-to-r from-primary/10 to-transparent -translate-y-1/2" />
+          <div className="absolute top-1/2 right-[calc(25%+1rem)] h-[calc(25%-1rem)] w-px bg-gradient-to-t from-primary/10 to-transparent -translate-y-full" />
+          {/* Bottom-left */}
+          <div className="absolute top-1/2 left-[calc(25%+1rem)] h-[calc(25%-1rem)] w-px bg-gradient-to-b from-primary/10 to-transparent" />
+          {/* Bottom-right */}
+          <div className="absolute top-1/2 right-[calc(25%+1rem)] h-[calc(25%-1rem)] w-px bg-gradient-to-b from-primary/10 to-transparent" />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+          {capabilities.map((cap, i) => (
+            <RevealSection key={i} delay={i * 0.12} blur>
+              <Link to={cap.href} className="group block h-full">
+                <div className="relative h-full p-8 md:p-10 rounded-sm border border-border/10 group-hover:border-primary/15 bg-background/30 backdrop-blur-sm transition-all duration-500 group-hover:bg-background/50">
+                  {/* Top row — number + outcome */}
+                  <div className="flex items-start justify-between mb-8">
+                    <span className="text-4xl font-display font-bold text-foreground/[0.06] leading-none select-none">
+                      {cap.num}
+                    </span>
+                    <span className="text-[9px] tracking-[0.25em] text-primary/40 uppercase text-right max-w-[160px] leading-snug group-hover:text-primary/60 transition-colors duration-500">
+                      {cap.outcome}
+                    </span>
+                  </div>
+
+                  {/* Icon + Title */}
+                  <div className="flex items-center gap-3.5 mb-4">
+                    <div className="w-8 h-8 rounded-full border border-primary/10 flex items-center justify-center group-hover:border-primary/25 transition-colors duration-500">
+                      <cap.icon className="w-3.5 h-3.5 text-primary/50 group-hover:text-primary/80 transition-colors duration-500" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                      {cap.title}
+                    </h3>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-sm text-foreground/35 leading-relaxed max-w-sm">{cap.desc}</p>
+
+                  {/* Bottom accent */}
+                  <div className="mt-8 flex items-center gap-3">
+                    <div className="h-px flex-1 bg-gradient-to-r from-primary/10 to-transparent group-hover:from-primary/20 transition-colors duration-500" />
+                    <ArrowRight className="w-3.5 h-3.5 text-foreground/10 group-hover:text-primary/50 transition-all duration-500 group-hover:translate-x-0.5" />
+                  </div>
+                </div>
+              </Link>
+            </RevealSection>
+          ))}
+        </div>
       </div>
     </div>
   </section>
