@@ -169,7 +169,7 @@ const Work = () => {
       </section>
 
       {/* ─── Featured Cases (full cards) ─── */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="section-container">
           <RevealSection blur>
             <p className="eyebrow mb-2">
