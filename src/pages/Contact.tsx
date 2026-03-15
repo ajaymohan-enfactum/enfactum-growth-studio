@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { z } from "zod";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
@@ -91,17 +91,41 @@ const FormInput = ({
   </div>
 );
 
+const pathwayIdToTitle: Record<string, string> = {
+  client: "Client Inquiry",
+  partner: "Partnership",
+  talent: "Talent & Careers",
+  general: "General",
+};
+
+const pathwayHeadings: Record<string, string> = {
+  "Client Inquiry": "Tell us about your challenge",
+  "Partnership": "Tell us about the partnership",
+  "Talent & Careers": "Tell us about your experience",
+  "General": "Tell us how we can help",
+};
+
 const Contact = () => {
+  const [searchParams] = useSearchParams();
+  const inquiryParam = searchParams.get("inquiry");
+  const initialType = (inquiryParam && pathwayIdToTitle[inquiryParam]) || "Client Inquiry";
+
   const [form, setForm] = useState<FormData>({
     name: "",
     email: "",
     company: "",
     role: "",
-    type: "Client Inquiry",
+    type: initialType,
     message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (inquiryParam && pathwayIdToTitle[inquiryParam]) {
+      setForm((prev) => ({ ...prev, type: pathwayIdToTitle[inquiryParam] }));
+    }
+  }, [inquiryParam]);
 
   const update = (field: keyof FormData, value: string) => {
     setForm({ ...form, [field]: value });
@@ -184,10 +208,10 @@ const Contact = () => {
               <RevealSection key={p.id} delay={i * 0.05}>
                 <button
                   onClick={() => update("type", p.title)}
-                  className={`w-full text-left p-8 md:p-9 border-t border-r border-border/30 transition-all duration-500 group h-full ${
+                  className={`w-full text-left p-8 md:p-9 border transition-all duration-500 group h-full ${
                     form.type === p.title
-                      ? "bg-primary/[0.04] border-t-primary/40"
-                      : "hover:bg-secondary/30"
+                      ? "bg-primary/10 border-primary"
+                      : "border-foreground/10 hover:bg-secondary/30"
                   }`}
                 >
                   <div className="flex items-start justify-between mb-4">
@@ -222,7 +246,8 @@ const Contact = () => {
               <RevealSection>
                 <div className="section-divider mb-16" />
                 <p className="eyebrow mb-4">Your details</p>
-                <h2 className="headline-lg mb-4">Tell us about your challenge.</h2>
+                <h2 className="headline-lg mb-4">{pathwayHeadings[form.type] || "Tell us about your challenge"}.</h2>
+                <input type="hidden" name="inquiry_type" value={form.type} />
                 <p className="body-md text-muted-foreground mb-12 max-w-lg">
                   The more context you provide, the more relevant our initial response will be.
                 </p>

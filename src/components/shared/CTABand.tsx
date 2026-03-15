@@ -53,15 +53,13 @@ const CTABand = ({
           <p className="eyebrow mb-8">Next step</p>
           <h2 className="headline-xl max-w-3xl mx-auto">{headline}</h2>
           {description && <p className="body-lg mt-5 max-w-xl mx-auto">{description}</p>}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+          <div className="flex flex-col items-center gap-4 mt-12">
             <Link to={primaryHref}>
               <MagneticButton variant="hero" size="xl">{primaryLabel}</MagneticButton>
             </Link>
-            {secondaryLabel && secondaryHref && (
-              <Link to={secondaryHref}>
-                <MagneticButton variant="hero-outline" size="xl">{secondaryLabel}</MagneticButton>
-              </Link>
-            )}
+            <a href="mailto:info@enfactum.com" className="text-sm text-foreground/40 hover:text-foreground/60 transition-colors duration-300">
+              Or email us directly at info@enfactum.com
+            </a>
           </div>
         </RevealSection>
       </div>

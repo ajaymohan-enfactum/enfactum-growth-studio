@@ -482,6 +482,18 @@ const BuyerCapabilityPage = ({ data }: { data: BuyerCapData }) => (
       </div>
     </section>
 
+    {/* ─── CTA BAND ─── */}
+    <section className="py-12">
+      <div className="section-container">
+        <RevealSection>
+          <h3 className="text-xl font-semibold text-foreground">Ready to build this capability?</h3>
+          <Link to="/contact?inquiry=client" className="text-sm text-primary hover:text-primary/80 transition-colors duration-300 mt-2 inline-block">
+            Talk to a principal →
+          </Link>
+        </RevealSection>
+      </div>
+    </section>
+
     {/* ─── S6: RELATED WORK ─── */}
     <section className="py-16 md:py-20">
       <div className="section-container">
