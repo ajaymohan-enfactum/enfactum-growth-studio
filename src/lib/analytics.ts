@@ -1,7 +1,7 @@
 import posthog from 'posthog-js'
 
 export const initAnalytics = () => {
-  posthog.init('YOUR_POSTHOG_API_KEY', {
+  posthog.init('phc_C0roMVCpRCtVAu94QSdV21RlxqHDfmAkN2XC3smD1VV', {
     api_host: 'https://app.posthog.com',
     capture_pageview: false,
     persistence: 'localStorage',
