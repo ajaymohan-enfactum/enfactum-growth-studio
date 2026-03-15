@@ -208,10 +208,10 @@ const Contact = () => {
               <RevealSection key={p.id} delay={i * 0.05}>
                 <button
                   onClick={() => update("type", p.title)}
-                  className={`w-full text-left p-8 md:p-9 border-t border-r border-border/30 transition-all duration-500 group h-full ${
+                  className={`w-full text-left p-8 md:p-9 border transition-all duration-500 group h-full ${
                     form.type === p.title
-                      ? "bg-primary/[0.04] border-t-primary/40"
-                      : "hover:bg-secondary/30"
+                      ? "bg-primary/10 border-primary"
+                      : "border-foreground/10 hover:bg-secondary/30"
                   }`}
                 >
                   <div className="flex items-start justify-between mb-4">
