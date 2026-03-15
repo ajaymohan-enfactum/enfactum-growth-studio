@@ -416,7 +416,7 @@ const SectorExperience = () => (
                     name={brand.name}
                     domain={brand.domain}
                     localLogo={brand.localLogo}
-                    height={24}
+                    height={32}
                     opacity={0.45}
                     hoverOpacity={0.85}
                   />
