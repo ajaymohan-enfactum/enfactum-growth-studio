@@ -15,7 +15,7 @@ import irfanPhoto from "@/assets/team/irfan-mulla.png";
 import sanjayPhoto from "@/assets/team/sanjay-chankranth.png";
 import rakhiPhoto from "@/assets/team/rakhi-sachdeva.png";
 import trevorPhoto from "@/assets/team/trevor-wingert.png";
-import sinchanPhoto from "@/assets/team/sinchan-namdeo.png";
+
 
 import markRandallPhoto from "@/assets/team/mark-randall.png";
 import purwaPhoto from "@/assets/team/purwa-jain.png";
@@ -210,23 +210,6 @@ Before Enfactum, Rakhi led marketing operations at enterprise technology compani
     expertise: ["Marketing operations", "Campaign management", "Martech integration", "Process optimization"],
     linkedin: "https://linkedin.com/in/rakhisachdeva",
     photo: rakhiPhoto,
-  },
-  {
-    name: "Sinchan Namdeo",
-    role: "Performance Marketing Lead",
-    category: "Brand & Demand",
-    focus: "Performance Marketing · Demand Generation · ROI",
-    location: "India",
-    bio: "Performance marketing across 10+ APAC markets. Demand generation and ROI optimization.",
-    fullBio: `Sinchan is a performance marketing specialist with proven results across 10+ APAC markets. He leads Enfactum's performance marketing execution—demand generation campaigns, paid media optimization, and the measurement infrastructure that proves ROI.
-
-His approach combines analytical rigor with creative testing. Sinchan doesn't just run campaigns; he builds the optimization systems that compound performance over time.
-
-At Enfactum, Sinchan works with clients on demand generation, performance media, conversion optimization, and marketing effectiveness measurement.`,
-    philosophy: "Optimization is a system, not an event.",
-    expertise: ["Performance marketing", "Demand generation", "Paid media", "Campaign optimization", "Marketing analytics"],
-    linkedin: "https://linkedin.com/in/sinchannamdeo",
-    photo: sinchanPhoto,
   },
   {
     name: "Navonil Roy",
