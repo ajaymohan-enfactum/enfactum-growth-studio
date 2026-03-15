@@ -33,7 +33,7 @@ export const sectorClusters: SectorCluster[] = [
     narrative:
       "Helping technology brands build market entry, partner momentum, and commercial infrastructure across Southeast Asia.",
     brands: [
-      b("HP", "hp.com"),
+      b("HP", "hp.com", "/logos/hp.png"),
       b("Lenovo", "lenovo.com"),
       b("Oracle", "oracle.com"),
       b("Dell EMC", "dell.com"),
@@ -56,7 +56,7 @@ export const sectorClusters: SectorCluster[] = [
       b("Lancôme", "lancome.com"),
       b("L'Oréal", "loreal.com"),
       b("Kiehl's", "kiehls.com"),
-      b("JSHealth Vitamins", "jshealth.com"),
+      b("JSHealth Vitamins", "jshealth.com", "/logos/jshealth.png"),
     ],
   },
   {
@@ -78,7 +78,7 @@ export const sectorClusters: SectorCluster[] = [
     narrative:
       "Partnering with emerging and innovation-led companies shaping new categories across the region.",
     brands: [
-      b("JSHealth Vitamins", "jshealth.com"),
+      b("JSHealth Vitamins", "jshealth.com", "/logos/jshealth.png"),
       b("Lazada", "lazada.com"),
       b("InsureMO", null, "/logos/insuremo.png"),
       b("MyRepublic", "myrepublic.net"),
@@ -89,7 +89,7 @@ export const sectorClusters: SectorCluster[] = [
 
 /** Flat list of all unique brands for marquee */
 export const allMarqueeBrands: BrandEntry[] = [
-  b("HP", "hp.com"),
+  b("HP", "hp.com", "/logos/hp.png"),
   b("Lenovo", "lenovo.com"),
   b("Oracle", "oracle.com"),
   b("Dell EMC", "dell.com"),
@@ -104,7 +104,7 @@ export const allMarqueeBrands: BrandEntry[] = [
   b("Lancôme", "lancome.com"),
   b("L'Oréal", "loreal.com"),
   b("Kiehl's", "kiehls.com"),
-  b("JSHealth Vitamins", "jshealth.com"),
+  b("JSHealth Vitamins", "jshealth.com", "/logos/jshealth.png"),
   b("The Economist", "economist.com"),
   b("Abbott", "abbott.com"),
   b("NUS", "nus.edu.sg"),
