@@ -79,7 +79,7 @@ export const articles: Article[] = [
   {
     title: "Most Enterprise AI Programs Don't Have an AI Problem. They Have an Operating Model Problem.",
     slug: "most-enterprise-ai-programs-dont-have-an-ai-problem",
-    category: "Operator View",
+    category: "Architect View",
     theme: "AI & Innovation",
     author: "Ajay Mohan",
     authorRole: "Founder & Managing Partner",
