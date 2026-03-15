@@ -43,6 +43,39 @@ At Enfactum, Ajay works with clients on their most complex growth challenges: en
     photo: ajayPhoto,
   },
   {
+    name: "Jamshed Wadia",
+    role: "AI Strategy & Transformation",
+    category: "GTM Strategy",
+    focus: "AI Strategy · Digital Transformation · Enterprise Innovation",
+    location: "Singapore",
+    bio: "Drives AI strategy and transformation initiatives, helping enterprises harness AI for scalable growth.",
+    fullBio: `Jamshed leads AI strategy and transformation engagements at Enfactum, helping enterprise clients navigate the rapidly evolving AI landscape. He brings structured thinking to complex transformation challenges—connecting AI capabilities to business outcomes.
+
+His approach focuses on practical, commercially grounded AI adoption rather than speculative pilots, ensuring that transformation investments deliver measurable results.
+
+At Enfactum, Jamshed works with clients on AI strategy, digital transformation roadmaps, and the organisational change required to make AI initiatives succeed at scale.`,
+    philosophy: "AI transformation succeeds when it's anchored in business reality.",
+    expertise: ["AI strategy", "Digital transformation", "Enterprise innovation", "Change management"],
+    linkedin: "https://linkedin.com/in/jamshedwadia",
+  },
+  {
+    name: "Irfan Mulla",
+    role: "Indonesia Country Manager",
+    category: "Brand & Demand",
+    focus: "Indonesia · AI Discovery · Integrated Campaigns",
+    location: "Jakarta, Indonesia",
+    bio: "Leads Indonesia operations and Brand & Demand practice. Expert in AI discovery and integrated campaigns.",
+    fullBio: `Irfan leads Enfactum's Indonesia operations and serves as a practice lead for Brand & Demand work across the region. He's a strategist who thinks in integrated campaigns—combining brand building and performance marketing into unified growth systems.
+
+His expertise spans the full spectrum of modern marketing: AI-powered search and discovery (GEO), social and performance media, influencer programs, and content strategy. Irfan is particularly focused on how AI is reshaping brand visibility—and what companies need to do to show up when their customers are asking questions.
+
+Before Enfactum, Irfan built and led marketing teams at technology and media companies, developing the integrated campaign capabilities that drive both awareness and conversion.`,
+    philosophy: "Market entry in Southeast Asia is an ecosystem play.",
+    expertise: ["AI discovery & GEO", "Performance marketing", "Integrated campaigns", "Content strategy", "Indonesia market"],
+    linkedin: "https://linkedin.com/in/irfanmulla",
+    photo: irfanPhoto,
+  },
+  {
     name: "William Gaultier",
     role: "Partner",
     category: "GTM Strategy",
@@ -108,23 +141,6 @@ At Enfactum, Purwa works with clients on growth strategy, market analysis, and G
     expertise: ["Growth strategy", "Market analysis", "GTM planning", "Strategic consulting"],
     linkedin: "https://linkedin.com/in/purwajain",
     photo: purwaPhoto,
-  },
-  {
-    name: "Irfan Mulla",
-    role: "Indonesia Country Manager",
-    category: "Brand & Demand",
-    focus: "Indonesia · AI Discovery · Integrated Campaigns",
-    location: "Jakarta, Indonesia",
-    bio: "Leads Indonesia operations and Brand & Demand practice. Expert in AI discovery and integrated campaigns.",
-    fullBio: `Irfan leads Enfactum's Indonesia operations and serves as a practice lead for Brand & Demand work across the region. He's a strategist who thinks in integrated campaigns—combining brand building and performance marketing into unified growth systems.
-
-His expertise spans the full spectrum of modern marketing: AI-powered search and discovery (GEO), social and performance media, influencer programs, and content strategy. Irfan is particularly focused on how AI is reshaping brand visibility—and what companies need to do to show up when their customers are asking questions.
-
-Before Enfactum, Irfan built and led marketing teams at technology and media companies, developing the integrated campaign capabilities that drive both awareness and conversion.`,
-    philosophy: "Market entry in Southeast Asia is an ecosystem play.",
-    expertise: ["AI discovery & GEO", "Performance marketing", "Integrated campaigns", "Content strategy", "Indonesia market"],
-    linkedin: "https://linkedin.com/in/irfanmulla",
-    photo: irfanPhoto,
   },
   {
     name: "Mark Guerrier",
@@ -225,22 +241,6 @@ At Enfactum, Idris ensures that AI programmes are commercially purposeful, opera
     philosophy: "Innovation scales when it's built on operational discipline.",
     expertise: ["AI programme delivery", "Innovation strategy", "Project architecture", "Stakeholder management", "Technology operations"],
     photo: idrisPhoto,
-  },
-  {
-    name: "Jamshed Wadia",
-    role: "AI Strategy & Transformation",
-    category: "GTM Strategy",
-    focus: "AI Strategy · Digital Transformation · Enterprise Innovation",
-    location: "Singapore",
-    bio: "Drives AI strategy and transformation initiatives, helping enterprises harness AI for scalable growth.",
-    fullBio: `Jamshed leads AI strategy and transformation engagements at Enfactum, helping enterprise clients navigate the rapidly evolving AI landscape. He brings structured thinking to complex transformation challenges—connecting AI capabilities to business outcomes.
-
-His approach focuses on practical, commercially grounded AI adoption rather than speculative pilots, ensuring that transformation investments deliver measurable results.
-
-At Enfactum, Jamshed works with clients on AI strategy, digital transformation roadmaps, and the organisational change required to make AI initiatives succeed at scale.`,
-    philosophy: "AI transformation succeeds when it's anchored in business reality.",
-    expertise: ["AI strategy", "Digital transformation", "Enterprise innovation", "Change management"],
-    linkedin: "https://linkedin.com/in/jamshedwadia",
   },
 ];
 
