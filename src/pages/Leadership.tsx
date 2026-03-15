@@ -275,6 +275,7 @@ Her approach combines strategic thinking with operational rigour—understanding
 At Enfactum, Anuchida manages key client relationships and ensures that programme execution stays aligned with commercial objectives.`,
     philosophy: "Every engagement should move a business number.",
     expertise: ["Account strategy", "Client success", "Programme management", "APAC markets"],
+    photo: anuchidaPhoto,
   },
   {
     name: "Idris Atalki",
