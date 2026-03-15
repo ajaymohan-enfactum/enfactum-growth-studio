@@ -54,7 +54,7 @@ const BrandPlate = ({
   delay?: number;
   heightOverride?: number;
 }) => {
-  const heights = { lg: 36, md: 26, sm: 20 };
+  const heights = { lg: 29, md: 21, sm: 16 };
   const paddings = { lg: "px-7 py-5", md: "px-5 py-4", sm: "px-4 py-3" };
   const h = heightOverride ?? heights[size];
 
