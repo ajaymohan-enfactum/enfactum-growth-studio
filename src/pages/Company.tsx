@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
-import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
-import ParallaxDivider from "@/components/shared/ParallaxDivider";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead from "@/components/shared/SEOHead";
 import RegionalNodesMap from "@/components/shared/RegionalNodesMap";
@@ -20,9 +18,9 @@ import poojaPhoto from "@/assets/team/pooja-mohan.png";
    ═══════════════════════════════════════════════ */
 
 const companyMetrics = [
-  { metric: "40+", label: "Global enterprise clients served" },
+  { metric: "40+", label: "Enterprise clients served" },
   { metric: "15+", label: "Markets with active presence" },
-  { metric: "100+", label: "Technology programmes delivered" },
+  { metric: "100+", label: "Programmes delivered" },
   { metric: "5+", label: "Year average client tenure" },
 ];
 
@@ -31,23 +29,6 @@ const leaders = [
   { name: "William Gaultier", role: "Partner", focus: "Ecosystems · Innovation · Partnerships", bio: "Deep enterprise and ecosystem experience across ASEAN, driving innovation programmes and strategic partnerships.", photo: williamPhoto },
   { name: "Pooja Mohan", role: "Director / Co-Founder", focus: "Operations · Creative Strategy · Scale", bio: "Leads Enfactum's operational backbone — managing delivery, team coordination, and programme execution across the region.", photo: poojaPhoto },
   { name: "Sumit Ramchandani", role: "Adtech & Martech Lead", focus: "Martech · Performance · Data", bio: "Specialist in marketing technology, performance infrastructure, and data-driven growth architectures." },
-];
-
-const benchCapabilities = [
-  { area: "Strategy & Growth", count: "25+", desc: "Growth strategists, market analysts, GTM architects" },
-  { area: "Creative & Production", count: "60+", desc: "Creative directors, designers, producers, content specialists" },
-  { area: "Technology & Data", count: "40+", desc: "Engineers, data analysts, platform specialists, AI/ML practitioners" },
-  { area: "Demand & Marketing Ops", count: "35+", desc: "Performance marketers, social strategists, demand operations" },
-  { area: "Programme & Project Ops", count: "30+", desc: "Programme managers, operations leads, delivery coordinators" },
-  { area: "Events & Experiences", count: "15+", desc: "Event strategists, producers, logistics, experiential designers" },
-];
-
-const regionalNodes = [
-  { city: "Singapore", role: "Strategic Hub", desc: "Client leadership, strategy, capability oversight, regional coordination." },
-  { city: "India", role: "Scale & Execution Engine", desc: "Creative production, technology, demand operations, programme delivery at scale." },
-  { city: "Malaysia", role: "Market Node", desc: "Local market execution, events & activations, partner management." },
-  { city: "Indonesia", role: "Market Node", desc: "Indonesia market presence, local partnerships, consumer insights." },
-  { city: "USA", role: "Strategic Bridge", desc: "Global client bridge, US market access, cross-border partnership development." },
 ];
 
 const domainSpecialists = [
@@ -81,9 +62,10 @@ const Company = () => (
   <PageLayout>
     <SEOHead
       title="Company"
-      description="Enfactum is a Singapore-headquartered growth and innovation operating partner for enterprise brands in Southeast Asia. 40+ clients, 15+ markets, 35+ specialists across strategy, creative, technology, and operations."
+      description="Enfactum is a Singapore-headquartered growth and innovation operating partner for enterprise brands in Southeast Asia. 40+ clients, 15+ markets, 200+ specialists across strategy, creative, technology, and operations."
       path="/company"
     />
+
     {/* ─── HERO ─── */}
     <HeroSection
       eyebrow="Company"
@@ -91,56 +73,65 @@ const Company = () => (
       description="Enfactum is a growth and innovation operating partner — combining strategy, ecosystems, and execution to help enterprise brands scale with clarity and momentum across the region."
     />
 
-    {/* ═══ SECTION 1 — ORIGIN + METRICS ═══ */}
-    <section className="py-16 md:py-20">
+    {/* ═══ SECTION 1 — ORIGIN STATEMENT ═══ */}
+    <section className="py-24 md:py-32">
       <div className="section-container">
-        <div className="grid md:grid-cols-12 gap-12 md:gap-8">
-          <div className="md:col-span-5">
-            <RevealSection blur>
-              <p className="eyebrow mb-6">Our story</p>
-              <h2 className="headline-lg">From execution gap to operating partner.</h2>
+        {/* Large editorial statement */}
+        <RevealSection blur>
+          <div className="max-w-3xl mb-20">
+            <p className="eyebrow mb-6">Our story</p>
+            <h2 className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em]">
+              From execution gap to operating partner.
+            </h2>
+          </div>
+        </RevealSection>
+
+        <div className="grid md:grid-cols-12 gap-12 md:gap-16">
+          <div className="md:col-span-6">
+            <RevealSection delay={0.1} blur>
+              <p className="text-[clamp(1rem,1.15vw,1.125rem)] text-foreground/70 leading-[1.75] font-body">
+                Since 2010, Enfactum has bridged the gap between strategic intent and operational reality.
+                We are not just consultants — we are Growth Architects. For over a decade, we have helped global
+                brands navigate complex markets with precision.
+              </p>
             </RevealSection>
           </div>
-          <div className="md:col-span-6 md:col-start-7">
-            <RevealSection delay={0.1} blur>
-              <div className="space-y-6">
-              <p className="body-lg">
-                  Since 2010, Enfactum has bridged the gap between strategic intent and operational reality.
-                  We are not just consultants — we are Growth Architects. For over a decade, we have helped global
-                  brands navigate complex markets with precision.
-                </p>
-                <p className="body-lg">
-                  Our Build-Operate-Transfer model replaces siloed teams and short-term projects with
-                  integrated operations, hands-on execution, and 5+ year partnerships that build lasting
-                  capability.
-                </p>
-                <p className="body-md text-muted-foreground italic">
-                  Headquartered in Singapore. Operating across India, Malaysia, Indonesia, the USA, and broader Southeast Asia.
-                </p>
-              </div>
+          <div className="md:col-span-5 md:col-start-8">
+            <RevealSection delay={0.15} blur>
+              <p className="text-[clamp(1rem,1.15vw,1.125rem)] text-foreground/70 leading-[1.75] font-body">
+                Our Build-Operate-Transfer model replaces siloed teams and short-term projects with
+                integrated operations, hands-on execution, and 5+ year partnerships that build lasting
+                capability.
+              </p>
+              <p className="text-[13px] text-foreground/25 mt-8 leading-relaxed italic font-body">
+                Headquartered in Singapore. Operating across India, Malaysia, Indonesia, the USA, and broader Southeast Asia.
+              </p>
             </RevealSection>
           </div>
         </div>
 
-        {/* Metrics bar */}
-        <div className="mt-24 border-t border-border/30 pt-14">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+        {/* ── Metrics — monumental integrated stats ── */}
+        <div className="mt-28 md:mt-36 relative">
+          {/* Architectural line */}
+          <div className="h-px w-full bg-gradient-to-r from-border/40 via-border/20 to-transparent mb-16" />
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-14 gap-x-8">
             {companyMetrics.map((m, i) => (
-              <RevealSection key={i} delay={i * 0.08} scale>
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                >
+              <RevealSection key={i} delay={i * 0.08} blur>
+                <div className="relative">
+                  {/* Faint architectural number */}
+                  <span className="absolute -top-2 right-0 text-[80px] md:text-[100px] font-display font-bold text-foreground/[0.02] leading-none select-none pointer-events-none">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
                   <AnimatedCounter
                     value={m.metric}
-                    className="font-display text-4xl md:text-5xl font-extrabold text-primary/85 tracking-tight block"
+                    className="font-display text-[clamp(2.5rem,4vw,3.5rem)] font-bold text-foreground/90 tracking-tight block leading-none"
                   />
-                  <span className="text-[12px] text-muted-foreground mt-2 block leading-snug font-body">
+                  <div className="w-8 h-px bg-primary/30 mt-5 mb-4" />
+                  <span className="text-[11px] text-foreground/30 block leading-snug font-body tracking-wide">
                     {m.label}
                   </span>
-                </motion.div>
+                </div>
               </RevealSection>
             ))}
           </div>
@@ -148,80 +139,103 @@ const Company = () => (
       </div>
     </section>
 
-    <ParallaxDivider variant="gradient" />
     {/* ═══ SECTION 2 — LEADERSHIP ═══ */}
-    <section className="section-alt py-16 md:py-20">
+    <section className="py-24 md:py-32 bg-[hsl(var(--section-alt))]">
       <div className="section-container">
-        <div className="grid md:grid-cols-12 gap-8 mb-20">
-          <div className="md:col-span-5">
-            <RevealSection>
+        <div className="grid md:grid-cols-12 gap-8 mb-24">
+          <div className="md:col-span-6">
+            <RevealSection blur>
               <p className="eyebrow mb-6">Leadership</p>
-              <h2 className="headline-lg">Experienced Growth Architects, not career advisors.</h2>
+              <h2 className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em]">
+                Experienced Growth Architects,<br className="hidden md:block" /> not career advisors.
+              </h2>
             </RevealSection>
           </div>
-          <div className="md:col-span-5 md:col-start-7 flex items-end">
+          <div className="md:col-span-4 md:col-start-8 flex items-end">
             <RevealSection delay={0.1}>
-              <p className="body-md text-muted-foreground">
+              <p className="text-[13px] text-foreground/35 leading-relaxed font-body">
                 The Enfactum leadership team has built and operated growth programmes across Asia Pacific for decades — inside enterprises, agencies, and venture ecosystems.
               </p>
-              <Link to="/company/leadership" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-6">
-                Full leadership team <ArrowRight className="w-4 h-4" />
+              <Link to="/company/leadership" className="inline-flex items-center gap-2 text-sm text-primary/60 hover:text-primary font-medium transition-colors duration-500 mt-6">
+                Full leadership team <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </RevealSection>
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
-          {leaders.map((leader, i) => (
-            <RevealSection key={i} delay={i * 0.08} blur>
+        {/* Leader grid — first leader prominent */}
+        <div className="grid md:grid-cols-12 gap-8">
+          {/* Ajay — featured leader */}
+          <div className="md:col-span-5">
+            <RevealSection blur>
               <div className="group">
-                {leader.photo ? (
-                  <div className="w-full aspect-[3/4] rounded-sm overflow-hidden mb-6 relative">
-                    <img
-                      src={leader.photo}
-                      alt={leader.name}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent group-hover:via-primary/30 transition-all duration-700" />
-                  </div>
-                ) : (
-                  <div className="w-full aspect-[3/4] rounded-sm bg-gradient-to-b from-secondary/80 to-secondary/40 border border-border/30 mb-6 overflow-hidden relative">
-                    <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent group-hover:via-primary/30 transition-all duration-700" />
-                  </div>
-                )}
-                <h3 className="font-display text-base font-semibold text-foreground tracking-tight">{leader.name}</h3>
-                <p className="text-[13px] text-primary/70 font-medium mt-0.5">{leader.role}</p>
-                <p className="text-[10px] text-dim uppercase tracking-[0.15em] font-body mt-2">{leader.focus}</p>
-                <p className="text-[13px] text-muted-foreground mt-4 leading-relaxed">{leader.bio}</p>
+                <div className="w-full aspect-[3/4] rounded-sm overflow-hidden mb-8 relative">
+                  <img
+                    src={leaders[0].photo}
+                    alt={leaders[0].name}
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent group-hover:via-primary/30 transition-all duration-700" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-foreground tracking-tight">{leaders[0].name}</h3>
+                <p className="text-sm text-primary/60 font-medium mt-1">{leaders[0].role}</p>
+                <p className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body mt-3">{leaders[0].focus}</p>
+                <p className="text-[13px] text-foreground/35 mt-5 leading-relaxed max-w-sm">{leaders[0].bio}</p>
               </div>
             </RevealSection>
-          ))}
+          </div>
+
+          {/* Supporting leaders */}
+          <div className="md:col-span-6 md:col-start-7 grid sm:grid-cols-3 gap-6">
+            {leaders.slice(1).map((leader, i) => (
+              <RevealSection key={i} delay={0.1 + i * 0.08} blur>
+                <div className="group">
+                  {leader.photo ? (
+                    <div className="w-full aspect-[3/4] rounded-sm overflow-hidden mb-5 relative">
+                      <img
+                        src={leader.photo}
+                        alt={leader.name}
+                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+                    </div>
+                  ) : (
+                    <div className="w-full aspect-[3/4] rounded-sm bg-gradient-to-b from-secondary/60 to-secondary/20 border border-border/20 mb-5 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+                    </div>
+                  )}
+                  <h3 className="font-display text-sm font-semibold text-foreground tracking-tight">{leader.name}</h3>
+                  <p className="text-[12px] text-primary/50 font-medium mt-0.5">{leader.role}</p>
+                  <p className="text-[10px] text-foreground/20 uppercase tracking-[0.15em] font-body mt-2">{leader.focus}</p>
+                </div>
+              </RevealSection>
+            ))}
+          </div>
         </div>
       </div>
     </section>
 
-
-
-    {/* ═══ SECTION 4 — REGIONAL NODES ═══ */}
-    <section className="section-alt py-16 md:py-20">
+    {/* ═══ SECTION 3 — REGIONAL NODES ═══ */}
+    <section className="py-24 md:py-32">
       <div className="section-container">
-        <div className="grid md:grid-cols-12 gap-8 mb-12">
-          <div className="md:col-span-5">
-            <RevealSection>
+        <div className="grid md:grid-cols-12 gap-8 mb-16">
+          <div className="md:col-span-6">
+            <RevealSection blur>
               <p className="eyebrow mb-6">Regional nodes</p>
-              <h2 className="headline-lg">A growth network, not an office list.</h2>
+              <h2 className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em]">
+                A growth network,<br className="hidden md:block" /> not an office list.
+              </h2>
             </RevealSection>
           </div>
-          <div className="md:col-span-5 md:col-start-7 flex items-end">
+          <div className="md:col-span-4 md:col-start-8 flex items-end">
             <RevealSection delay={0.1}>
-              <p className="body-md text-muted-foreground">
+              <p className="text-[13px] text-foreground/35 leading-relaxed font-body">
                 Each node has a distinct role — strategy from Singapore, scale through India,
                 market presence in Malaysia and Indonesia, with the USA as a global bridge.
               </p>
-              <Link to="/company/regional-nodes" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-6">
-                Explore regional nodes <ArrowRight className="w-4 h-4" />
+              <Link to="/company/regional-nodes" className="inline-flex items-center gap-2 text-sm text-primary/60 hover:text-primary font-medium transition-colors duration-500 mt-6">
+                Explore regional nodes <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </RevealSection>
           </div>
@@ -231,56 +245,39 @@ const Company = () => (
       </div>
     </section>
 
-    <ParallaxDivider variant="gradient" flip />
-    {/* ═══ SECTION 5 — DOMAIN SPECIALISTS (VERTICALS) ═══ */}
-    <section className="py-16 md:py-20">
+    {/* ═══ SECTION 4 — DOMAIN SPECIALISTS ═══ */}
+    <section className="py-24 md:py-32 bg-[hsl(var(--section-alt))]">
       <div className="section-container">
-        <div className="section-divider mb-12" />
-        <SectionHeader
-          eyebrow="Verticals"
-          headline="Industry depth across key sectors."
-          description="Beyond functional capability, Enfactum maintains sector-specific expertise through dedicated domain specialists."
-        />
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <RevealSection blur>
+          <div className="max-w-xl mb-16">
+            <p className="eyebrow mb-6">Verticals</p>
+            <h2 className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em]">
+              Industry depth across key sectors.
+            </h2>
+            <p className="text-[13px] text-foreground/30 mt-5 leading-relaxed font-body max-w-md">
+              Beyond functional capability, Enfactum maintains sector-specific expertise through dedicated domain specialists.
+            </p>
+          </div>
+        </RevealSection>
+
+        {/* 2×2 editorial grid with numbering and accent */}
+        <div className="grid md:grid-cols-2 gap-x-16 gap-y-0">
           {domainSpecialists.map((ds, i) => (
-            <RevealSection key={i} delay={i * 0.08} scale>
-              <div className="relative h-full rounded-xl bg-white/[0.05] border border-white/10 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 group">
-                {/* Number */}
-                <span className="text-[10px] font-body text-dim">{String(i + 1).padStart(2, '0')}</span>
-                {/* Vertical accent line */}
-                <div className="w-6 h-px bg-primary/40 mt-4 mb-5 group-hover:w-10 transition-all duration-500" />
-                <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 leading-snug">
-                  {ds.domain}
-                </h3>
-                <p className="text-[13px] text-muted-foreground mt-3 leading-relaxed font-body">
-                  {ds.focus}
-                </p>
-              </div>
-            </RevealSection>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <ParallaxDivider variant="mist" />
-    {/* ═══ SECTION 6 — CAPABILITY OWNERSHIP ═══ */}
-    <section className="section-alt py-16 md:py-20">
-      <div className="section-container">
-        <SectionHeader
-          eyebrow="Capability ownership"
-          headline="Each capability led by a dedicated principal."
-          description="Capability owners are accountable for methodology, quality, talent, and client outcomes within their domain."
-        />
-        <div className="mt-20 grid sm:grid-cols-2 gap-x-12 gap-y-10">
-          {capabilityOwnership.map((co, i) => (
-            <RevealSection key={i} delay={i * 0.08} scale>
-              <div className="border-t border-border/30 pt-8">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                  <span className="text-[10px] text-dim uppercase tracking-[0.15em] font-body">{co.scope}</span>
+            <RevealSection key={i} delay={i * 0.08} blur>
+              <div className="py-10 border-t border-border/15 group">
+                <div className="flex items-start gap-6">
+                  <span className="text-[40px] md:text-[56px] font-display font-bold text-foreground/[0.04] leading-none shrink-0 select-none">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div className="pt-2">
+                    <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 leading-snug">
+                      {ds.domain}
+                    </h3>
+                    <p className="text-[13px] text-foreground/30 mt-3 leading-relaxed font-body">
+                      {ds.focus}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="font-display text-xl font-bold text-foreground">{co.capability}</h3>
-                <p className="text-[13px] text-muted-foreground mt-3 leading-relaxed">{co.owner}</p>
               </div>
             </RevealSection>
           ))}
@@ -288,36 +285,76 @@ const Company = () => (
       </div>
     </section>
 
-    {/* ═══ SECTION 7 — GROWTH ARCHITECTURE PRINCIPLES ═══ */}
-    <section className="py-16 md:py-20">
+    {/* ═══ SECTION 5 — CAPABILITY OWNERSHIP ═══ */}
+    <section className="py-24 md:py-32">
       <div className="section-container">
-        <div className="section-divider mb-20" />
         <div className="grid md:grid-cols-12 gap-8 mb-20">
-          <div className="md:col-span-5">
-            <RevealSection>
-              <p className="eyebrow mb-6">What we value</p>
-              <h2 className="headline-lg">How we work. What we believe.</h2>
+          <div className="md:col-span-6">
+            <RevealSection blur>
+              <p className="eyebrow mb-6">Capability ownership</p>
+              <h2 className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em]">
+                Each capability led by<br className="hidden md:block" /> a dedicated principal.
+              </h2>
             </RevealSection>
           </div>
-          <div className="md:col-span-5 md:col-start-7 flex items-end">
+          <div className="md:col-span-4 md:col-start-8 flex items-end">
             <RevealSection delay={0.1}>
-              <p className="body-md text-muted-foreground">
+              <p className="text-[13px] text-foreground/30 leading-relaxed font-body">
+                Capability owners are accountable for methodology, quality, talent, and client outcomes within their domain.
+              </p>
+            </RevealSection>
+          </div>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-x-16 gap-y-0">
+          {capabilityOwnership.map((co, i) => (
+            <RevealSection key={i} delay={i * 0.08} blur>
+              <div className="py-10 border-t border-border/15">
+                <span className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body">{co.scope}</span>
+                <h3 className="font-display text-xl font-bold text-foreground mt-4">{co.capability}</h3>
+                <p className="text-[13px] text-foreground/30 mt-3 leading-relaxed">{co.owner}</p>
+              </div>
+            </RevealSection>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ═══ SECTION 6 — GROWTH ARCHITECTURE PRINCIPLES ═══ */}
+    <section className="py-24 md:py-32 bg-[#0B1121] relative overflow-hidden">
+      {/* Architectural vertical line */}
+      <div className="absolute top-0 bottom-0 left-[33.33%] w-px bg-gradient-to-b from-transparent via-foreground/[0.03] to-transparent hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-[66.66%] w-px bg-gradient-to-b from-transparent via-foreground/[0.03] to-transparent hidden md:block" />
+
+      <div className="section-container relative z-10">
+        <div className="grid md:grid-cols-12 gap-8 mb-24">
+          <div className="md:col-span-6">
+            <RevealSection blur>
+              <p className="eyebrow mb-6">What we value</p>
+              <h2 className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em]">
+                How we work.<br /> What we believe.
+              </h2>
+            </RevealSection>
+          </div>
+          <div className="md:col-span-4 md:col-start-8 flex items-end">
+            <RevealSection delay={0.1}>
+              <p className="text-[13px] text-foreground/30 leading-relaxed font-body">
                 These aren't aspirational values. They're operational commitments
                 that shape how we build teams, design programmes, and deliver outcomes.
               </p>
-              <Link to="/company/operating-model" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-6">
-                View Growth Architecture <ArrowRight className="w-4 h-4" />
+              <Link to="/company/operating-model" className="inline-flex items-center gap-2 text-sm text-primary/60 hover:text-primary font-medium transition-colors duration-500 mt-6">
+                View Growth Architecture <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </RevealSection>
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-0">
           {growthPrinciples.map((p, i) => (
-            <RevealSection key={i} delay={i * 0.06}>
-              <div>
-                <h3 className="font-display text-base font-semibold text-foreground">{p.title}</h3>
-                <p className="text-[13px] text-muted-foreground mt-3 leading-relaxed">{p.desc}</p>
+            <RevealSection key={i} delay={i * 0.05} blur>
+              <div className="py-10 border-t border-foreground/[0.06]">
+                <h3 className="font-display text-[15px] font-semibold text-foreground">{p.title}</h3>
+                <p className="text-[13px] text-foreground/25 mt-4 leading-[1.8]">{p.desc}</p>
               </div>
             </RevealSection>
           ))}
@@ -325,11 +362,11 @@ const Company = () => (
       </div>
     </section>
 
-    {/* ═══ SECTION 8 — NAVIGATION LINKS ═══ */}
-    <section className="section-alt py-20">
+    {/* ═══ SECTION 7 — NAVIGATION LINKS ═══ */}
+    <section className="py-24 md:py-28">
       <div className="section-container">
-        <RevealSection>
-          <p className="eyebrow mb-10">Explore further</p>
+        <RevealSection blur>
+          <p className="eyebrow mb-14">Explore further</p>
         </RevealSection>
         <div className="space-y-0">
           {[
@@ -340,17 +377,17 @@ const Company = () => (
           ].map((link, i) => (
             <RevealSection key={i} delay={i * 0.04}>
               <Link to={link.href} className="group block">
-                <div className="grid md:grid-cols-12 gap-4 py-6 border-b border-border/20 group-hover:border-primary/15 transition-colors duration-700">
+                <div className="grid md:grid-cols-12 gap-4 py-7 border-b border-border/15 group-hover:border-primary/15 transition-colors duration-700">
                   <div className="md:col-span-3">
                     <span className="font-display text-[15px] font-semibold text-foreground group-hover:text-primary transition-colors duration-500">
                       {link.title}
                     </span>
                   </div>
                   <div className="md:col-span-7">
-                    <span className="text-[13px] text-muted-foreground">{link.desc}</span>
+                    <span className="text-[13px] text-foreground/30">{link.desc}</span>
                   </div>
                   <div className="md:col-span-2 flex items-center justify-end">
-                    <ArrowRight className="w-4 h-4 text-dim group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-500" />
+                    <ArrowRight className="w-3.5 h-3.5 text-foreground/10 group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-500" />
                   </div>
                 </div>
               </Link>
