@@ -77,23 +77,6 @@ At Enfactum, Trevor advises clients on marketing technology architecture, automa
     photo: trevorPhoto,
   },
   {
-    name: "Mark Randall",
-    role: "GTM Strategist",
-    category: "GTM Strategy",
-    focus: "APAC Market Entry · Competitive Positioning",
-    location: "Singapore",
-    bio: "APAC GTM expert. Helps technology companies build market entry and expansion strategies.",
-    fullBio: `Mark is a GTM strategist with deep expertise in helping technology companies enter and expand across APAC markets. His experience spans market assessment, competitive positioning, and go-to-market planning for enterprise technology companies.
-
-He brings a practical, execution-oriented approach to strategy—understanding that plans only matter if they can be implemented effectively in complex, diverse markets.
-
-At Enfactum, Mark works with clients on market entry strategy, competitive analysis, and GTM planning across Southeast Asia and broader APAC.`,
-    philosophy: "Strategy without execution is just a document.",
-    expertise: ["APAC market entry", "GTM strategy", "Competitive positioning", "Market assessment"],
-    linkedin: "https://linkedin.com/in/markrandall",
-    photo: markRandallPhoto,
-  },
-  {
     name: "Sumit Ramchandani",
     role: "Growth Strategist",
     category: "GTM Strategy",
