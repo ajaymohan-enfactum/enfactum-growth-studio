@@ -423,16 +423,16 @@ const SectorExperience = () => (
                 {cluster.narrative}
               </p>
               {/* Brand logos */}
-              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-3">
+              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-4">
                 {cluster.brands.map((brand, bi) => (
                   <BrandLogo
                     key={bi}
                     name={brand.name}
                     domain={brand.domain}
                     localLogo={brand.localLogo}
-                    height={18}
-                    opacity={0.4}
-                    hoverOpacity={0.8}
+                    height={24}
+                    opacity={0.45}
+                    hoverOpacity={0.85}
                   />
                 ))}
               </div>
