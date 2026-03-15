@@ -99,17 +99,6 @@ const Hero = () => {
           </motion.span>
         </h1>
 
-        {/* Subtext — 400ms after headline completes */}
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.3, ease }}
-          className="body-xl mt-8 max-w-[52ch]"
-        >
-          Built for how Southeast Asia actually works, Enfactum brings together
-          strategy, ecosystems, and execution to help enterprise brands scale
-          with clarity and momentum.
-        </motion.p>
 
         {/* CTAs — slide up 300ms after subtext */}
         <motion.div
@@ -172,8 +161,7 @@ const WhySEA = () => (
               </p>
               <p className="body-lg">
                 Growth here moves through ecosystems, local trust, and execution
-                nuance. Imported playbooks break. Opportunity exists, but it
-                requires a fundamentally different operating model.
+                nuance.
               </p>
               <div className="pt-4">
                 <div className="h-px w-20 bg-primary/30" />
@@ -316,11 +304,11 @@ const WhatWeBuilds = () => (
    Horizontal process with cinematic linework
    ═══════════════════════════════════════════════ */
 const processSteps = [
-  { step: "Define", desc: "Diagnose the challenge. Align stakeholders. Set commercial objectives." },
-  { step: "Build", desc: "Design infrastructure, partnerships, and go-to-market architecture." },
-  { step: "Operate", desc: "Execute embedded — hands on the work, not just the plan." },
-  { step: "Transfer", desc: "Build internal capability. Transition ownership to client teams." },
-  { step: "Scale", desc: "Expand across markets, partners, and channels with proven playbooks." },
+  { step: "Define" },
+  { step: "Build" },
+  { step: "Operate" },
+  { step: "Transfer" },
+  { step: "Scale" },
 ];
 
 const HowWeWork = () => (
@@ -345,7 +333,6 @@ const HowWeWork = () => (
                   <span className="text-[10px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
                 </div>
                 <h3 className="font-display font-bold text-foreground text-base tracking-tight">{step.step}</h3>
-                <p className="text-[13px] text-muted-foreground mt-3 leading-relaxed max-w-[160px] mx-auto">{step.desc}</p>
               </RevealSection>
             ))}
           </div>
@@ -359,7 +346,6 @@ const HowWeWork = () => (
                 <span className="text-[9px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <h3 className="font-display font-semibold text-foreground">{step.step}</h3>
-              <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{step.desc}</p>
             </RevealSection>
           ))}
         </div>
