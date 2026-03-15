@@ -161,30 +161,41 @@ const Hero = () => {
 
 /* ═══════════════════════════════════════════════
    SECTION 2 — WHY SOUTHEAST ASIA
-   Editorial split with generous breathing room
+   Asymmetric conviction statement — editorial, spacious
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section id="why-sea" className="py-20 md:py-28 bg-[#0c1629]">
+  <section id="why-sea" className="py-28 md:py-40 bg-[#0c1629] relative overflow-hidden">
+    {/* Faint vertical rule for architectural tension */}
+    <div className="absolute top-0 bottom-0 left-[8%] md:left-[12%] w-px bg-gradient-to-b from-transparent via-primary/[0.06] to-transparent" />
     <div className="section-container">
-      <RevealSection blur>
-        <p className="text-3xl md:text-4xl font-light text-foreground leading-relaxed max-w-4xl">
-          Growth here moves through ecosystems, local trust, and execution nuance. Imported playbooks break.
-        </p>
-      </RevealSection>
-      <RevealSection delay={0.2} blur>
-        <div className="mt-8 space-y-3">
-          <p className="text-base text-foreground/50">Nearly 700 million people across ten countries.</p>
-          <p className="text-base text-foreground/50">A digital economy past $300 billion — and accelerating.</p>
-          <p className="text-base text-foreground/60 font-medium">No single playbook covers it. That is why Enfactum exists.</p>
+      <div className="grid md:grid-cols-12 gap-8 md:gap-0">
+        {/* Left — oversized conviction */}
+        <div className="md:col-span-8 md:col-start-2">
+          <RevealSection blur>
+            <p className="text-[clamp(1.75rem,3.8vw,3.5rem)] font-display font-light text-foreground leading-[1.2] tracking-[-0.02em]">
+              Growth here moves through ecosystems, local trust, and execution nuance.{" "}
+              <span className="text-foreground/30">Imported playbooks break.</span>
+            </p>
+          </RevealSection>
         </div>
-      </RevealSection>
+        {/* Right — supporting data, offset lower */}
+        <div className="md:col-span-3 md:col-start-9 md:pt-20">
+          <RevealSection delay={0.3} blur>
+            <div className="space-y-4 md:border-l md:border-primary/10 md:pl-6">
+              <p className="text-sm text-foreground/40 leading-relaxed">Nearly 700 million people across ten countries.</p>
+              <p className="text-sm text-foreground/40 leading-relaxed">A digital economy past $300 billion — and accelerating.</p>
+              <p className="text-sm text-foreground/55 font-medium leading-relaxed">No single playbook covers it. That is why Enfactum exists.</p>
+            </div>
+          </RevealSection>
+        </div>
+      </div>
     </div>
   </section>
 );
 
 /* ═══════════════════════════════════════════════
    SECTION 3 — WHERE GROWTH BREAKS
-   Restrained problem framing
+   Systemic — tight 2-col layout, label left, problems right
    ═══════════════════════════════════════════════ */
 const frictionPoints = [
   { title: "Strategy-execution gap", body: "Brilliant plans that die in local implementation.", icon: Crosshair },
@@ -195,30 +206,34 @@ const frictionPoints = [
 ];
 
 const GrowthBreaks = () => (
-  <section id="growth-breaks" className="py-16 md:py-20">
+  <section id="growth-breaks" className="py-20 md:py-28">
     <div className="section-container">
-      <div className="section-divider mb-12" />
-      <SectionHeader
-        eyebrow="Where growth breaks"
-        headline="The friction points we're built to solve."
-      />
-      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {frictionPoints.map((point, i) => (
-          <RevealSection
-            key={i}
-            delay={i * 0.1}
-            blur
-            className={i >= 3 ? "sm:col-span-1" : ""}
-          >
-            <div className="h-full rounded-xl bg-white/[0.05] border border-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)] group/card">
-              <point.icon className="w-5 h-5 text-primary/70 mb-5 transition-transform duration-300 group-hover/card:scale-110" strokeWidth={1.5} />
-              <h3 className="font-display text-lg font-semibold text-foreground leading-snug">
-                {point.title}
-              </h3>
-              <p className="body-md mt-3 text-muted-foreground">{point.body}</p>
+      <div className="grid md:grid-cols-12 gap-8 md:gap-12">
+        {/* Left — sticky label */}
+        <div className="md:col-span-4">
+          <RevealSection blur>
+            <div className="md:sticky md:top-32">
+              <p className="eyebrow mb-5">Where growth breaks</p>
+              <h2 className="headline-md max-w-xs">The friction points we're built to solve.</h2>
             </div>
           </RevealSection>
-        ))}
+        </div>
+        {/* Right — tight problem list */}
+        <div className="md:col-span-7 md:col-start-6">
+          {frictionPoints.map((point, i) => (
+            <RevealSection key={i} delay={i * 0.08} blur>
+              <div className={`flex items-start gap-5 py-7 ${i < frictionPoints.length - 1 ? 'border-b border-border/20' : ''} group`}>
+                <point.icon className="w-4 h-4 text-primary/50 mt-1 shrink-0 transition-colors duration-300 group-hover:text-primary/80" strokeWidth={1.5} />
+                <div>
+                  <h3 className="font-display text-base font-semibold text-foreground leading-snug group-hover:text-primary/90 transition-colors duration-300">
+                    {point.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{point.body}</p>
+                </div>
+              </div>
+            </RevealSection>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -226,7 +241,7 @@ const GrowthBreaks = () => (
 
 /* ═══════════════════════════════════════════════
    SECTION 4 — WHAT ENFACTUM BUILDS
-   Capability cards with editorial spacing
+   Architecture-led — full-width numbered editorial list
    ═══════════════════════════════════════════════ */
 const capabilities = [
   {
@@ -264,30 +279,34 @@ const capabilities = [
 ];
 
 const WhatWeBuilds = () => (
-  <section id="capabilities" className="py-16 md:py-20 bg-[#080E1A]">
-    <div className="section-container">
-      <SectionHeader
-        headline="Four capabilities. One growth architecture."
-        description="Each capability connects. Together, they form a growth operating system for Southeast Asia."
-      />
-      <div className="mt-12">
+  <section id="capabilities" className="py-24 md:py-32 bg-[#080E1A] relative">
+    {/* Architectural background number */}
+    <div className="absolute top-12 right-8 md:right-16 text-[12rem] md:text-[18rem] font-display font-black text-foreground/[0.015] leading-none select-none pointer-events-none">
+      04
+    </div>
+    <div className="section-container relative">
+      <RevealSection>
+        <p className="eyebrow mb-4">Capabilities</p>
+        <h2 className="headline-lg max-w-2xl">Four capabilities. One growth architecture.</h2>
+        <p className="text-sm text-foreground/40 mt-3 max-w-lg">Each capability connects. Together, they form a growth operating system for Southeast Asia.</p>
+      </RevealSection>
+      <div className="mt-16">
         {capabilities.map((cap, i) => (
           <RevealSection key={i} delay={i * 0.08}>
             <Link to={cap.href} className="group block">
-              <div className="flex items-center gap-6 md:gap-10 py-8 border-t border-border/10">
+              <div className="grid md:grid-cols-12 items-baseline gap-4 md:gap-8 py-8 border-t border-border/10">
                 {/* Number */}
-                <span className="text-7xl font-display font-black text-foreground/[0.08] leading-none select-none shrink-0 w-20 text-right">
+                <span className="md:col-span-1 text-5xl md:text-6xl font-display font-black text-foreground/[0.06] leading-none select-none">
                   {cap.num}
                 </span>
-                {/* Title + desc */}
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-2xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                    {cap.title}
-                  </h3>
-                  <p className="text-sm text-foreground/50 mt-1">{cap.desc}</p>
-                </div>
+                {/* Title */}
+                <h3 className="md:col-span-3 text-xl md:text-2xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                  {cap.title}
+                </h3>
+                {/* Desc */}
+                <p className="md:col-span-5 text-sm text-foreground/45 leading-relaxed">{cap.desc}</p>
                 {/* Outcome tag */}
-                <p className="hidden md:block text-xs tracking-widest text-primary uppercase text-right shrink-0 max-w-[220px]">
+                <p className="md:col-span-3 text-[10px] tracking-[0.2em] text-primary/60 uppercase text-right">
                   {cap.outcome}
                 </p>
               </div>
@@ -301,8 +320,34 @@ const WhatWeBuilds = () => (
 );
 
 /* ═══════════════════════════════════════════════
+   INTERLUDE — CINEMATIC PULL QUOTE
+   Full-bleed typographic moment, visual peak
+   ═══════════════════════════════════════════════ */
+const PullQuote = () => (
+  <section className="relative py-24 md:py-36 overflow-hidden">
+    {/* Gradient atmosphere */}
+    <div className="absolute inset-0" style={{
+      background: "radial-gradient(ellipse 80% 60% at 50% 50%, hsla(215, 60%, 12%, 0.6) 0%, hsl(225 15% 8%) 70%)"
+    }} />
+    {/* Horizontal accent lines */}
+    <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/[0.08] to-transparent -translate-y-1/2" />
+    <div className="section-container relative z-10">
+      <RevealSection distance={40}>
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="w-8 h-px bg-primary/40 mx-auto mb-10" />
+          <p className="font-display font-bold text-foreground/85 leading-[1.12] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.75rem, 4.2vw, 3.5rem)' }}>
+            Growth here moves through <span className="text-primary">ecosystems</span>, <span className="text-primary">local trust</span>, and <span className="text-primary">execution nuance</span>. Imported playbooks break.
+          </p>
+          <div className="w-8 h-px bg-primary/40 mx-auto mt-10" />
+        </div>
+      </RevealSection>
+    </div>
+  </section>
+);
+
+/* ═══════════════════════════════════════════════
    SECTION 5 — HOW WE WORK
-   Horizontal process with cinematic linework
+   Horizontal compact timeline — dense, systemic
    ═══════════════════════════════════════════════ */
 const processSteps = [
   { step: "Define", desc: "Diagnose the growth challenge and map the ecosystem landscape before committing resources." },
@@ -313,27 +358,33 @@ const processSteps = [
 ];
 
 const HowWeWork = () => (
-  <section id="how-we-work" className="py-16 md:py-20">
+  <section id="how-we-work" className="py-20 md:py-28 bg-[#0B1121]">
     <div className="section-container">
-      <h2 className="headline-lg max-w-xl">Growth Architects, not just advisors.</h2>
-      <div className="mt-14">
-        {processSteps.map((step, i) => (
-          <RevealSection key={i} delay={i * 0.08}>
-            <div className="flex gap-8 md:gap-12 mb-16 last:mb-0">
-              {/* Number */}
-              <span className="text-[120px] font-display font-black leading-none text-foreground/[0.05] select-none shrink-0 hidden md:block" style={{ width: '30%', textAlign: 'right', paddingRight: '2rem' }}>
-                {String(i + 1)}
-              </span>
-              {/* Content */}
-              <div style={{ width: '70%' }} className="pt-4 md:pt-8">
-                <span className="text-5xl font-display font-black text-foreground/[0.05] leading-none select-none md:hidden mb-2 block">{String(i + 1)}</span>
-                <h3 className="text-2xl font-display font-semibold text-foreground">{step.step}</h3>
-                <div className="border-t border-border/10 my-3" />
-                <p className="text-base text-foreground/50">{step.desc}</p>
-              </div>
-            </div>
+      <div className="grid md:grid-cols-12 gap-8 md:gap-12">
+        {/* Left — headline */}
+        <div className="md:col-span-4">
+          <RevealSection blur>
+            <p className="eyebrow mb-5">How we work</p>
+            <h2 className="headline-md">Growth Architects, not just advisors.</h2>
           </RevealSection>
-        ))}
+        </div>
+        {/* Right — compact timeline */}
+        <div className="md:col-span-7 md:col-start-6">
+          {processSteps.map((step, i) => (
+            <RevealSection key={i} delay={i * 0.06}>
+              <div className="flex items-start gap-6 py-6 border-b border-border/10 last:border-b-0 group">
+                {/* Step number */}
+                <span className="text-3xl font-display font-bold text-primary/15 leading-none shrink-0 w-10 text-right tabular-nums group-hover:text-primary/30 transition-colors duration-300">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 className="text-lg font-display font-semibold text-foreground">{step.step}</h3>
+                  <p className="text-sm text-foreground/40 mt-1 leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+            </RevealSection>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -341,7 +392,7 @@ const HowWeWork = () => (
 
 /* ═══════════════════════════════════════════════
    SECTION 6 — CLIENTS & SECTORS
-   Static text-only sector clusters
+   Institutional — single-column, compressed, proof-led
    ═══════════════════════════════════════════════ */
 const sectorClusters = [
   { label: "Enterprise Technology", names: "HP · Oracle · Lexmark · Dell EMC · Commvault · Seagate · Redington · element14 · markem-imaje" },
@@ -351,28 +402,51 @@ const sectorClusters = [
 ];
 
 const SectorExperience = () => (
-  <section className="py-20 bg-[#0B1121]">
+  <section className="py-16 md:py-20 relative">
+    {/* Top divider */}
+    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
     <div className="section-container">
-      <p className="text-xs tracking-[0.3em] text-foreground/30 uppercase mb-16 text-center">
-        Clients &amp; Sectors
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-20 max-w-5xl mx-auto">
-        {sectorClusters.map((cluster, i) => (
-          <RevealSection key={i} delay={i * 0.08}>
-            <div className="border-b border-foreground/[0.08] pb-6">
-              <p className="text-xs tracking-widest text-primary uppercase mb-3">
-                {cluster.label}
-              </p>
-              <p className="text-sm text-foreground/50 leading-relaxed">
-                {cluster.names}
-              </p>
+      <div className="grid md:grid-cols-12 gap-6">
+        {/* Left — label + stats */}
+        <div className="md:col-span-3">
+          <RevealSection blur>
+            <p className="text-[10px] tracking-[0.3em] text-foreground/25 uppercase mb-6">Experience</p>
+            <div className="space-y-5">
+              {[
+                { num: "40+", label: "Enterprise clients" },
+                { num: "100+", label: "Programmes" },
+                { num: "15+", label: "Markets" },
+                { num: "5+", label: "Year avg. partnerships" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <p className="text-3xl md:text-4xl font-display font-bold text-foreground leading-none">{stat.num}</p>
+                  <p className="text-[10px] text-foreground/30 uppercase tracking-[0.15em] mt-1">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </RevealSection>
-        ))}
+        </div>
+        {/* Right — sector clusters in a single flowing column */}
+        <div className="md:col-span-8 md:col-start-5">
+          {sectorClusters.map((cluster, i) => (
+            <RevealSection key={i} delay={i * 0.06}>
+              <div className={`py-5 ${i < sectorClusters.length - 1 ? 'border-b border-border/10' : ''}`}>
+                <p className="text-[10px] tracking-[0.2em] text-primary/60 uppercase mb-2">
+                  {cluster.label}
+                </p>
+                <p className="text-[15px] text-foreground/40 leading-relaxed tracking-wide">
+                  {cluster.names}
+                </p>
+              </div>
+            </RevealSection>
+          ))}
+          <RevealSection delay={0.3}>
+            <p className="text-[10px] text-foreground/15 tracking-[0.25em] uppercase mt-8">
+              Singapore · India · Malaysia · Indonesia · USA · APAC
+            </p>
+          </RevealSection>
+        </div>
       </div>
-      <p className="text-xs text-foreground/20 tracking-[0.2em] uppercase mt-16 text-center">
-        Singapore · India · Malaysia · Indonesia · USA · APAC
-      </p>
     </div>
   </section>
 );
@@ -384,16 +458,24 @@ const SectorExperience = () => (
 const FeaturedWork = () => {
   const flagships = getFlagshipCases();
   return (
-    <section id="selected-work" className="py-16 md:py-20 border-t border-white/10">
+    <section id="selected-work" className="py-24 md:py-32 bg-[#080E1A]">
       <div className="section-container">
-        <SectionHeader
-          eyebrow="Selected work"
-          headline="Selected outcomes."
-        />
-        <p className="text-[13px] text-muted-foreground mt-4 max-w-lg">
-          Selected work with measurable commercial, operational, and ecosystem outcomes.
-        </p>
-        <div className="mt-10 space-y-0">
+        <div className="grid md:grid-cols-12 gap-6 mb-14">
+          <div className="md:col-span-6">
+            <RevealSection>
+              <p className="eyebrow mb-4">Selected work</p>
+              <h2 className="headline-lg">Selected outcomes.</h2>
+            </RevealSection>
+          </div>
+          <div className="md:col-span-4 md:col-start-8 flex items-end">
+            <RevealSection delay={0.2}>
+              <p className="text-[13px] text-muted-foreground leading-relaxed">
+                Selected work with measurable commercial, operational, and ecosystem outcomes.
+              </p>
+            </RevealSection>
+          </div>
+        </div>
+        <div className="space-y-0">
           {flagships.map((cs, i) => (
             <CaseCard key={cs.id} cs={cs} index={i} />
           ))}
@@ -410,7 +492,7 @@ const FeaturedWork = () => {
 
 /* ═══════════════════════════════════════════════
    SECTION 8 — DEPTH BEHIND THE WORK
-   Architectural teaser blocks
+   Asymmetric split — text-led, institutional
    ═══════════════════════════════════════════════ */
 const depthBlocks = [
   { title: "Leadership", desc: "Experienced Growth Architects across strategy, growth, and technology.", href: "/company/leadership" },
@@ -420,28 +502,29 @@ const depthBlocks = [
 ];
 
 const DepthSection = () => (
-  <section id="depth" className="py-16 md:py-20 bg-[#0c1629]">
+  <section id="depth" className="py-20 md:py-28 relative">
+    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/30 to-transparent" />
     <div className="section-container">
-      <div className="grid md:grid-cols-5 gap-12 md:gap-16">
-        {/* Left — heading */}
-        <div className="md:col-span-2">
+      <div className="grid md:grid-cols-12 gap-10 md:gap-16">
+        {/* Left — heading, wider */}
+        <div className="md:col-span-5">
           <RevealSection blur>
-            <h2 className="text-3xl font-display font-semibold text-foreground">Real Teams. Real Accountability.</h2>
-            <p className="text-base text-foreground/50 mt-4">
+            <h2 className="text-[clamp(1.5rem,2.5vw,2.25rem)] font-display font-semibold text-foreground leading-tight">Real Teams. Real Accountability.</h2>
+            <p className="text-sm text-foreground/40 mt-5 leading-relaxed">
               Every engagement is led by named principals with domain expertise — not rotated junior consultants.
             </p>
           </RevealSection>
         </div>
         {/* Right — items */}
-        <div className="md:col-span-3">
+        <div className="md:col-span-5 md:col-start-8">
           {depthBlocks.map((block, i) => (
             <RevealSection key={i} delay={i * 0.08}>
               <Link to={block.href} className="group block">
-                <div className={`py-5 ${i < depthBlocks.length - 1 ? 'border-b border-foreground/[0.08]' : ''}`}>
-                  <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                <div className={`py-5 ${i < depthBlocks.length - 1 ? 'border-b border-foreground/[0.06]' : ''}`}>
+                  <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                     {block.title}
                   </h3>
-                  <p className="text-sm text-foreground/40 mt-1">{block.desc}</p>
+                  <p className="text-[13px] text-foreground/35 mt-1">{block.desc}</p>
                 </div>
               </Link>
             </RevealSection>
@@ -454,7 +537,7 @@ const DepthSection = () => (
 
 /* ═══════════════════════════════════════════════
    SECTION 9 — PERSPECTIVES
-   Editorial journal preview
+   Editorial journal preview — tighter, more refined
    ═══════════════════════════════════════════════ */
 const articles = [
   { title: "Southeast Asia Is Not One Market. Stop Planning It Like One.", category: "Architect View", author: "Enfactum", readTime: "4 min" },
@@ -464,14 +547,13 @@ const articles = [
 ];
 
 const Perspectives = () => (
-  <section id="thinking" className="py-16 md:py-20">
+  <section id="thinking" className="py-20 md:py-28 bg-[#0c1629]">
     <div className="section-container">
-      <div className="section-divider mb-12" />
       <RevealSection>
-        <div className="flex items-end justify-between mb-10">
+        <div className="flex items-end justify-between mb-12">
           <div>
             <p className="eyebrow mb-4">Thinking</p>
-            <h2 className="headline-lg">Perspectives from inside the work.</h2>
+            <h2 className="headline-md">Perspectives from inside the work.</h2>
           </div>
           <Link to="/thinking" className="hidden md:inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors">
             All thinking <ArrowRight className="w-4 h-4" />
@@ -480,20 +562,17 @@ const Perspectives = () => (
       </RevealSection>
       <div>
         {articles.map((article, i) => (
-          <RevealSection key={i} delay={i * 0.08}>
+          <RevealSection key={i} delay={i * 0.06}>
             <Link to="/thinking" className="group block">
-              <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-foreground/[0.08]">
-                {/* Category */}
-                <span className="text-xs text-primary tracking-widest uppercase shrink-0 w-[100px] hidden md:block">
+              <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-foreground/[0.06]">
+                <span className="text-[10px] text-primary/50 tracking-[0.2em] uppercase shrink-0 w-[90px] hidden md:block">
                   {article.category}
                 </span>
-                {/* Headline */}
-                <h3 className="flex-1 text-lg font-medium text-foreground group-hover:text-primary transition-colors duration-300">
+                <h3 className="flex-1 text-base md:text-lg font-medium text-foreground group-hover:text-primary transition-colors duration-300 leading-snug">
                   {article.title}
                 </h3>
-                {/* Meta */}
-                <span className="text-xs text-foreground/40 shrink-0 hidden md:block">
-                  {article.author} · {article.readTime}
+                <span className="text-[11px] text-foreground/25 shrink-0 hidden md:block">
+                  {article.readTime}
                 </span>
               </div>
             </Link>
@@ -611,37 +690,12 @@ const Index = () => (
 
     <StickySectionLabel sections={sectionLabels} />
     <Hero />
-    {/* Break 1 — Stat strip */}
-    <div className="bg-[#0d1526] py-14">
-      <div className="section-container flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16">
-        {[
-          { num: "40+", label: "Enterprise clients" },
-          { num: "100+", label: "Programmes" },
-          { num: "15+", label: "Markets" },
-          { num: "5+", label: "Year average partnerships" },
-        ].map((stat) => (
-          <div key={stat.label} className="text-center">
-            <p className="text-6xl md:text-7xl font-display font-bold text-foreground leading-none">{stat.num}</p>
-            <p className="text-xs text-foreground/40 uppercase tracking-widest mt-2">{stat.label}</p>
-          </div>
-        ))}
-      </div>
-    </div>
     <WhySEA />
     <GrowthBreaks />
     <WhatWeBuilds />
-    {/* Break 2 — Pull quote */}
-    <section className="py-16">
-      <div className="section-container">
-        <p className="text-center font-bold text-white/80 font-display leading-snug max-w-4xl mx-auto" style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}>
-          Growth here moves through <span className="text-primary">ecosystems</span>, <span className="text-primary">local trust</span>, and <span className="text-primary">execution nuance</span>. Imported playbooks break.
-        </p>
-      </div>
-    </section>
+    <PullQuote />
     <HowWeWork />
     <SectorExperience />
-    {/* Break 5 — Silent divider */}
-    <div className="py-2"><div className="w-full h-px border-t border-white/10" /></div>
     <FeaturedWork />
     <DepthSection />
     <Perspectives />
