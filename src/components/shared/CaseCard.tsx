@@ -239,8 +239,6 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
                   domain={brandLookup[cs.client].domain}
                   localLogo={brandLookup[cs.client].localLogo}
                   height={18}
-                  opacity={0.5}
-                  hoverOpacity={0.8}
                 />
               </div>
             )}
