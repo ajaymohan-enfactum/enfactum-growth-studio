@@ -15,8 +15,8 @@ const capabilities = [
   {
     num: "01",
     title: "Growth Infrastructure",
-    problem: "Your GTM strategy doesn't survive contact with Southeast Asia's fragmented market reality.",
-    what: "We design and operate go-to-market architecture — partner programs, channel strategies, and demand operations — built for multi-market scale.",
+    problem: "GTM strategy that doesn't survive contact with Southeast Asia's fragmented market reality.",
+    what: "Go-to-market architecture — partner programs, channel strategies, and demand operations — built for multi-market scale.",
     for: "Enterprise brands entering or expanding across Southeast Asia who need GTM infrastructure, not just a market-entry plan.",
     outcomes: ["Scalable partner ecosystems", "Revenue operations", "Multi-market playbooks"],
     href: "/capabilities/growth-infrastructure",
@@ -26,8 +26,8 @@ const capabilities = [
   {
     num: "02",
     title: "Brand & Demand",
-    problem: "Your brand and performance teams operate in silos. Creative doesn't convert. Demand doesn't compound.",
-    what: "We integrate performance marketing, social, influencer, affiliate, and creative into a single commercial engine with measurable ROI.",
+    problem: "Brand and performance teams operating in silos — creative doesn't convert, demand doesn't compound.",
+    what: "Integrated performance marketing, social, influencer, affiliate, and creative as a single commercial engine with measurable ROI.",
     for: "Brands that need commercially accountable demand generation across Southeast Asia's digital channels — not another agency retainer.",
     outcomes: ["Integrated demand generation", "Creative-to-conversion pipelines", "Measurable brand impact"],
     href: "/capabilities/brand-demand",
@@ -37,8 +37,8 @@ const capabilities = [
   {
     num: "03",
     title: "AI Ecosystems",
-    problem: "Your innovation program generates pilots and press releases, not production implementations.",
-    what: "We build innovation ecosystem architecture — venture strategy, startup scouting, partnership design, and pilot-to-scale programmes.",
+    problem: "Innovation programs that generate pilots and press releases, not production implementations.",
+    what: "Innovation ecosystem architecture — venture strategy, startup scouting, partnership design, and pilot-to-scale programmes.",
     for: "Enterprises with innovation mandates that need a Growth Architect to move from scouting to scaling, not another accelerator programme.",
     outcomes: ["Enterprise-startup partnerships", "Pilot-to-platform pathways", "Innovation programme architecture"],
     href: "/capabilities/ai-ecosystems",
@@ -48,8 +48,8 @@ const capabilities = [
   {
     num: "04",
     title: "Live Experiences",
-    problem: "Your events are cost centres. Launches create buzz but no lasting commercial momentum.",
-    what: "We design and produce product launches, partner summits, roadshows, and experiential activations — all tied to measurable business outcomes.",
+    problem: "Events as cost centres — launches create buzz but no lasting commercial momentum.",
+    what: "Product launches, partner summits, roadshows, and experiential activations — all tied to measurable business outcomes.",
     for: "Brands that need market moments designed for pipeline, partner activation, and commercial impact — not just attendance.",
     outcomes: ["Pipeline-driving events", "Partner activation summits", "Market-entry launches"],
     href: "/capabilities/live-experiences",

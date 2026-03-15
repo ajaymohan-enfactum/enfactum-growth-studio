@@ -82,9 +82,6 @@ const ArticleCard = ({ article }: { article: Article }) => (
       <h4 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
         {article.title}
       </h4>
-      <p className="text-sm text-muted-foreground mt-2 font-body leading-relaxed">
-        {article.teaser}
-      </p>
       <div className="flex items-center gap-3 mt-3">
         <span className="text-[12px] font-medium text-foreground/70 font-body">{article.author}</span>
         {article.authorRole && (

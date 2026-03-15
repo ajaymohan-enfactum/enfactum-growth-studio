@@ -346,7 +346,6 @@ const HowWeWork = () => (
                 <span className="text-[9px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <h3 className="font-display font-semibold text-foreground">{step.step}</h3>
-              <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{step.desc}</p>
             </RevealSection>
           ))}
         </div>
