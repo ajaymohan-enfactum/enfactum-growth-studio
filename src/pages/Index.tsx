@@ -649,10 +649,19 @@ const Index = () => (
     <StickySectionLabel sections={sectionLabels} />
     <Hero />
     {/* Break 1 — Stat strip */}
-    <div className="bg-[#0d1526] py-10">
-      <p className="text-center text-sm text-white/50 tracking-widest uppercase font-medium">
-        40+ enterprise clients · 18 programmes · 15+ markets
-      </p>
+    <div className="bg-[#0d1526] py-14">
+      <div className="section-container flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16">
+        {[
+          { num: "40+", label: "Enterprise clients" },
+          { num: "100+", label: "Programmes" },
+          { num: "15+", label: "Markets" },
+        ].map((stat) => (
+          <div key={stat.label} className="text-center">
+            <p className="text-6xl md:text-7xl font-display font-bold text-white/90">{stat.num}</p>
+            <p className="text-xs text-white/50 uppercase tracking-widest mt-2">{stat.label}</p>
+          </div>
+        ))}
+      </div>
     </div>
     <WhySEA />
     <GrowthBreaks />
