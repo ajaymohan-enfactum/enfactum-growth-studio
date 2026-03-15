@@ -162,32 +162,84 @@ const Hero = () => {
 
 /* ═══════════════════════════════════════════════
    SECTION 2 — WHY SOUTHEAST ASIA
-   Asymmetric conviction statement — editorial, spacious
+   Thesis moment — editorial split with living system visual
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section id="why-sea" className="py-28 md:py-40 bg-[#0c1629] relative overflow-hidden">
-    {/* Faint vertical rule for architectural tension */}
-    <div className="absolute top-0 bottom-0 left-[8%] md:left-[12%] w-px bg-gradient-to-b from-transparent via-primary/[0.06] to-transparent" />
-    <div className="section-container">
-      <div className="grid md:grid-cols-12 gap-8 md:gap-0">
-        {/* Left — oversized conviction */}
-        <div className="md:col-span-8 md:col-start-2">
+  <section id="why-sea" className="relative overflow-hidden" style={{ background: "linear-gradient(180deg, #0a1328 0%, #0c1629 40%, #0e1830 100%)" }}>
+    {/* Faint architectural vertical rules */}
+    <div className="absolute top-0 bottom-0 left-[8%] md:left-[12%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent" />
+    <div className="absolute top-0 bottom-0 right-[8%] md:right-[38%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent hidden md:block" />
+
+    <div className="section-container relative z-10">
+      <div className="grid md:grid-cols-12 gap-0">
+        {/* Left — thesis text + integrated metrics */}
+        <div className="md:col-span-6 py-28 md:py-40 relative z-10">
+          {/* Eyebrow */}
           <RevealSection blur>
-            <p className="text-[clamp(1.75rem,3.8vw,3.5rem)] font-display font-light text-foreground leading-[1.2] tracking-[-0.02em]">
-              Growth here moves through ecosystems, local trust, and execution nuance.{" "}
-              <span className="text-foreground/30">Imported playbooks break.</span>
+            <p className="eyebrow mb-8">Why Southeast Asia moves differently</p>
+          </RevealSection>
+
+          {/* Conviction headline */}
+          <RevealSection blur delay={0.1}>
+            <p className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-semibold text-foreground leading-[1.15] tracking-[-0.02em]">
+              Growth here moves through ecosystems, local trust, and execution nuance.
             </p>
           </RevealSection>
-        </div>
-        {/* Right — supporting data, offset lower */}
-        <div className="md:col-span-3 md:col-start-9 md:pt-20">
-          <RevealSection delay={0.3} blur>
-            <div className="space-y-4 md:border-l md:border-primary/10 md:pl-6">
-              <p className="text-sm text-foreground/40 leading-relaxed">Nearly 700 million people across ten countries.</p>
-              <p className="text-sm text-foreground/40 leading-relaxed">A digital economy past $300 billion — and accelerating.</p>
+
+          <RevealSection blur delay={0.2}>
+            <p className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-semibold text-foreground/25 leading-[1.15] tracking-[-0.02em] mt-2">
+              Imported playbooks break.
+            </p>
+          </RevealSection>
+
+          {/* Supporting context — tighter, more embedded */}
+          <RevealSection blur delay={0.35}>
+            <div className="mt-12 space-y-3 max-w-md">
+              <p className="text-sm text-foreground/40 leading-relaxed">Nearly 700 million people across ten countries. A digital economy past $300 billion — and accelerating.</p>
               <p className="text-sm text-foreground/55 font-medium leading-relaxed">No single playbook covers it. That is why Enfactum exists.</p>
             </div>
           </RevealSection>
+
+          {/* Integrated metrics — strategic framing, not dashboard */}
+          <RevealSection blur delay={0.45}>
+            <div className="mt-14 pt-8 border-t border-primary/[0.08]">
+              <div className="grid grid-cols-2 gap-x-12 gap-y-8">
+                {[
+                  { num: "700M+", context: "People across ten countries" },
+                  { num: "$300B+", context: "Digital economy and accelerating" },
+                  { num: "10", context: "Markets, no single playbook" },
+                  { num: "15+", context: "Years of operating in-region" },
+                ].map((item, i) => (
+                  <div key={i}>
+                    <p className="text-2xl md:text-3xl font-display font-bold text-foreground/80 leading-none tracking-tight">
+                      {item.num}
+                    </p>
+                    <p className="text-[11px] text-foreground/25 mt-2 leading-snug tracking-wide uppercase">
+                      {item.context}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </RevealSection>
+        </div>
+
+        {/* Right — living system visual */}
+        <div className="md:col-span-6 relative min-h-[300px] md:min-h-0">
+          {/* Signal field canvas */}
+          <SEASignalField />
+
+          {/* Gradient overlay to blend into text side */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0c1629] via-transparent to-transparent md:w-1/3 pointer-events-none" />
+
+          {/* Top/bottom fade */}
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#0a1328] to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0e1830] to-transparent pointer-events-none" />
+
+          {/* Soft radial depth */}
+          <div className="absolute inset-0 pointer-events-none" style={{
+            background: "radial-gradient(ellipse 70% 60% at 60% 45%, hsla(215, 50%, 15%, 0.3) 0%, transparent 70%)"
+          }} />
         </div>
       </div>
     </div>
