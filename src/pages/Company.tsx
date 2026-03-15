@@ -205,9 +205,9 @@ const Company = () => (
 
 
     {/* ═══ SECTION 4 — REGIONAL NODES ═══ */}
-    <section className="section-alt py-32 md:py-44">
+    <section className="section-alt py-16 md:py-20">
       <div className="section-container">
-        <div className="grid md:grid-cols-12 gap-8 mb-20">
+        <div className="grid md:grid-cols-12 gap-8 mb-12">
           <div className="md:col-span-5">
             <RevealSection>
               <p className="eyebrow mb-6">Regional nodes</p>
@@ -227,17 +227,7 @@ const Company = () => (
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {regionalNodes.map((node, i) => (
-            <RevealSection key={i} delay={i * 0.08} blur>
-              <div className="border-t border-border/30 pt-8 h-full">
-                <span className="text-[10px] text-dim uppercase tracking-[0.15em] font-body">{node.role}</span>
-                <h3 className="font-display text-2xl font-bold text-foreground mt-2">{node.city}</h3>
-                <p className="text-[13px] text-muted-foreground mt-4 leading-relaxed">{node.desc}</p>
-              </div>
-            </RevealSection>
-          ))}
-        </div>
+        <RegionalNodesMap />
       </div>
     </section>
 
