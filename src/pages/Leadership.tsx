@@ -170,20 +170,19 @@ Before Enfactum, Rakhi led marketing operations at enterprise technology compani
     photo: rakhiPhoto,
   },
   {
-    name: "Leena Gandhi",
-    role: "Programme Manager",
+    name: "Idris Atalki",
+    role: "AI Projects Director",
     category: "Operations",
-    focus: "Programme Delivery · Client Coordination · Operations",
-    location: "India",
-    bio: "Manages cross-functional programme delivery, ensuring complex engagements run on time and on target.",
-    fullBio: `Leena brings rigorous programme management expertise to Enfactum's most complex client engagements. She coordinates cross-functional teams across strategy, creative, technology, and operations — ensuring that ambitious programmes are delivered on time, on budget, and on brief.
+    focus: "AI Strategy · Project Delivery · Innovation Programmes",
+    location: "Singapore",
+    bio: "Directs AI-driven project delivery across Enfactum's client programmes, bridging innovation strategy with operational execution.",
+    fullBio: `Idris leads AI project delivery at Enfactum, ensuring that innovation programmes move from concept to commercial reality. He brings structured programme leadership to complex AI and technology engagements — managing scope, stakeholders, and delivery across multi-market initiatives.
 
-Her background spans project and programme management across enterprise technology and marketing services, where she developed the operational frameworks that keep multi-market, multi-stakeholder programmes on track.
+His approach centres on translating AI strategy into actionable project architectures, ensuring that technology investments are grounded in clear business outcomes rather than speculative pilots.
 
-At Enfactum, Leena is the operational anchor for key client programmes — managing timelines, dependencies, and stakeholder communication with precision.`,
-    philosophy: "Complexity is manageable when the system is clear.",
-    expertise: ["Programme management", "Cross-functional coordination", "Stakeholder management", "Operational planning"],
-    photo: leenaPhoto,
+At Enfactum, Idris ensures that AI programmes are commercially purposeful, operationally sound, and designed for scale across Southeast Asia.`,
+    philosophy: "Innovation scales when it's built on operational discipline.",
+    expertise: ["AI programme delivery", "Innovation strategy", "Project architecture", "Stakeholder management", "Technology operations"],
   },
 ];
 
