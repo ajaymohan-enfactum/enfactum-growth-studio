@@ -333,7 +333,6 @@ const HowWeWork = () => (
                   <span className="text-[10px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
                 </div>
                 <h3 className="font-display font-bold text-foreground text-base tracking-tight">{step.step}</h3>
-                <p className="text-[13px] text-muted-foreground mt-3 leading-relaxed max-w-[160px] mx-auto">{step.desc}</p>
               </RevealSection>
             ))}
           </div>
