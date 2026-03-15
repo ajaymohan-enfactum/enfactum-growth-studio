@@ -157,6 +157,7 @@ At Enfactum, Mark works with clients on brand identity, creative strategy, visua
     philosophy: "Design is how strategy becomes tangible.",
     expertise: ["Brand design", "Creative direction", "Visual identity", "Campaign creative", "APAC brands"],
     linkedin: "https://linkedin.com/in/markguerrier",
+    photo: markGuerrierPhoto,
   },
   {
     name: "Pooja Mohan",
