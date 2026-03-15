@@ -124,6 +124,7 @@ At Enfactum, Purwa works with clients on growth strategy, market analysis, and G
     philosophy: "Structured thinking drives scalable results.",
     expertise: ["Growth strategy", "Market analysis", "GTM planning", "Strategic consulting"],
     linkedin: "https://linkedin.com/in/purwajain",
+    photo: purwaPhoto,
   },
   {
     name: "Irfan Mulla",
