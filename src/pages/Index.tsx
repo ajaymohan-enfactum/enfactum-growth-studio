@@ -574,18 +574,18 @@ const Perspectives = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   INSIGHT QUOTES DATA + CAROUSEL
+   INSIGHT STATEMENTS DATA + CAROUSEL
    ═══════════════════════════════════════════════ */
-const clientInsights = [
-  "Enterprise pipeline grows when you lead with diagnostics, not product demos.",
-  "Multi-market launch succeeds when you build distribution before awareness.",
-  "Channel engagement scales when you meet partners where they are.",
-  "The best innovation programs start with a commercial mandate, not a technology bet.",
-  "Growth in Southeast Asia requires Growth Architects, not just strategists.",
-  "Events become pipeline machines when designed backward from business objectives.",
+const clientInsights: React.ReactNode[] = [
+  <>Enterprise pipeline grows when you lead with <span className="text-primary">diagnostics</span>, not product demos.</>,
+  <>Multi-market launch succeeds when you build <span className="text-primary">distribution before awareness</span>.</>,
+  <>Channel engagement scales when you meet <span className="text-primary">partners where they are</span>.</>,
+  <>The best innovation programs start with a <span className="text-primary">commercial mandate</span>, not a technology bet.</>,
+  <>Growth in Southeast Asia requires <span className="text-primary">Growth Architects</span>, not just strategists.</>,
+  <>Events become <span className="text-primary">pipeline machines</span> when designed backward from business objectives.</>,
 ];
 
-const QuoteCarousel = ({ quotes }: { quotes: string[] }) => {
+const QuoteCarousel = ({ quotes }: { quotes: React.ReactNode[] }) => {
   const [active, setActive] = useState(0);
   const touchStart = useRef<number | null>(null);
 
@@ -614,17 +614,12 @@ const QuoteCarousel = ({ quotes }: { quotes: string[] }) => {
   return (
     <section className="py-16 md:py-20 border-y border-border/20 overflow-hidden bg-[#080E1A]">
       <div
-        className="section-container relative flex flex-col items-center text-center"
+        className="section-container relative"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Decorative quote mark */}
-        <span className="absolute top-0 left-1/2 -translate-x-1/2 text-[12rem] leading-none font-display font-bold text-primary/[0.08] select-none pointer-events-none" aria-hidden>
-          &ldquo;
-        </span>
-
-        {/* Quote */}
-        <div className="relative min-h-[120px] flex items-center justify-center w-full max-w-3xl">
+        {/* Statement */}
+        <div className="relative min-h-[120px] flex items-center w-full max-w-4xl">
           <AnimatePresence mode="wait">
             <motion.p
               key={active}
@@ -632,17 +627,14 @@ const QuoteCarousel = ({ quotes }: { quotes: string[] }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl md:text-3xl lg:text-4xl italic text-foreground font-display font-semibold leading-snug tracking-tight"
+              className="text-2xl md:text-3xl lg:text-4xl text-foreground font-display font-bold leading-snug tracking-tight"
             >
-              &ldquo;{quotes[active]}&rdquo;
+              {quotes[active]}
             </motion.p>
           </AnimatePresence>
         </div>
 
-        {/* Attribution */}
-        <p className="text-sm text-muted-foreground mt-6">— Enfactum growth perspective</p>
-
-        {/* Dots */}
+        {/* Dots — left-aligned */}
         <div className="flex items-center gap-2 mt-8">
           {quotes.map((_, i) => (
             <button
@@ -651,7 +643,7 @@ const QuoteCarousel = ({ quotes }: { quotes: string[] }) => {
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 i === active ? "bg-primary scale-125" : "bg-white/30 hover:bg-white/50"
               }`}
-              aria-label={`Go to quote ${i + 1}`}
+              aria-label={`Go to statement ${i + 1}`}
             />
           ))}
         </div>
@@ -659,6 +651,7 @@ const QuoteCarousel = ({ quotes }: { quotes: string[] }) => {
     </section>
   );
 };
+
 
 const sectionLabels = [
   { id: "why-sea", label: "Why Southeast Asia" },
