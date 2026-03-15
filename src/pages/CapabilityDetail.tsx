@@ -314,6 +314,70 @@ const buyerCapData: Record<string, BuyerCapData> = {
     nextCapability: { title: "AI Ecosystems", href: "/capabilities/ai-ecosystems" },
     faqs: capabilityData["brand-demand"].faqs,
   },
+  "ai-ecosystems": {
+    eyebrow: "AI Ecosystems",
+    headline: "Move innovation from pilot to production. Build ecosystem architecture that scales.",
+    challengeBody: "Most enterprise AI programmes start with pilots. Eighteen months later, the pilot count has grown but production deployments haven't. The gap is not technology or talent — it is the absence of a commercial operating model around innovation.",
+    seoTitle: "AI Ecosystems & Innovation Programs in APAC",
+    seoDescription: "Enterprise AI and innovation ecosystem programmes across Southeast Asia and APAC: venture strategy, startup scouting, pilot-to-production pathways, and commercialisation architecture for corporate innovation mandates.",
+    whatWeBuild: [
+      { title: "Ecosystem Mapping & Curation", desc: "Identify, evaluate, and shortlist startups and technology partners aligned to enterprise innovation mandates." },
+      { title: "Pilot Design & Management", desc: "Structure pilots with clear commercial KPIs, enterprise integration plans, and defined scale-up criteria." },
+      { title: "Commercialisation Architecture", desc: "Design the operating model that moves innovation from pilot stage to recurring revenue and enterprise adoption." },
+    ],
+    process: [
+      { label: "Map", desc: "Landscape analysis — identify the ecosystem of startups, technologies, and partners relevant to the mandate." },
+      { label: "Curate", desc: "Evaluate, shortlist, and match startups to enterprise use cases with commercial fit." },
+      { label: "Pilot", desc: "Design and manage structured pilots with integration support and defined success criteria." },
+      { label: "Scale", desc: "Build the commercialisation architecture to move from pilot to production deployment." },
+    ],
+    outcomes: [
+      { num: "21", label: "Countries with ecosystem access", client: "HP" },
+      { num: "8,000+", label: "Enterprise customers reached" },
+      { num: "30+", label: "AI startups delivering in GA" },
+    ],
+    whoItsFor: [
+      "Enterprise technology companies with innovation mandates",
+      "Corporates seeking structured startup engagement",
+      "Organisations building AI capability beyond pilot stage",
+      "Companies needing ecosystem access across multiple markets",
+    ],
+    outcomeCaseIds: ["hp-garage", "enterprise-ai"],
+    nextCapability: { title: "Live Experiences", href: "/capabilities/live-experiences" },
+    faqs: capabilityData["ai-ecosystems"].faqs,
+  },
+  "live-experiences": {
+    eyebrow: "Live Experiences",
+    headline: "Create market moments designed for commercial impact, not just attendance.",
+    challengeBody: "Most product launches and corporate events are measured by attendance and applause. Rarely by pipeline. The events that create commercial momentum are the ones designed backward from a business outcome — not forward from a creative brief.",
+    seoTitle: "Live Experiences — Product Launches & Event Activation in Southeast Asia",
+    seoDescription: "Product launches, partner summits, roadshows, and experiential activations for enterprise brands across Southeast Asia — commercially designed events tied to pipeline, partner activation, and market momentum.",
+    whatWeBuild: [
+      { title: "Product Launches", desc: "Immersive launch experiences designed to generate measurable pipeline, press coverage, and channel activation." },
+      { title: "Summits & Roadshows", desc: "Multi-city programmes that build market presence, stakeholder relationships, and regional visibility at scale." },
+      { title: "Experiential Activations", desc: "Brand experiences, exhibitions, and activations engineered for commercial follow-through, not just engagement." },
+    ],
+    process: [
+      { label: "Brief", desc: "Define the commercial objectives, target audience, and measurable outcomes for the experience." },
+      { label: "Design", desc: "Create the experience concept, narrative, and production plan — built backward from pipeline goals." },
+      { label: "Produce", desc: "Execute end-to-end production — venue, content, speakers, logistics, and guest management." },
+      { label: "Activate", desc: "Post-event follow-through — lead capture, pipeline conversion, press outreach, and partner engagement." },
+    ],
+    outcomes: [
+      { num: "US$3M", label: "Product pipeline from launch", client: "HP" },
+      { num: "274+", label: "Attendees at experiential launch" },
+      { num: "30+", label: "Press articles generated" },
+    ],
+    whoItsFor: [
+      "Technology brands launching products across APAC",
+      "Companies running multi-city roadshows or partner summits",
+      "Brands needing pipeline-generating events, not awareness events",
+      "Organisations with experiential budgets and no commercial follow-through",
+    ],
+    outcomeCaseIds: ["hp-garage", "oracle-dha"],
+    nextCapability: { title: "Growth Infrastructure", href: "/capabilities/growth-infrastructure" },
+    faqs: capabilityData["live-experiences"].faqs,
+  },
 };
 
 /* ═══════════════════════════════════════════════
