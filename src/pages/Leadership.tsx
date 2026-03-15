@@ -15,7 +15,7 @@ import irfanPhoto from "@/assets/team/irfan-mulla.png";
 import sanjayPhoto from "@/assets/team/sanjay-chankranth.png";
 import rakhiPhoto from "@/assets/team/rakhi-sachdeva.png";
 import trevorPhoto from "@/assets/team/trevor-wingert.png";
-import sinchanPhoto from "@/assets/team/sinchan-namdeo.png";
+
 
 import markRandallPhoto from "@/assets/team/mark-randall.png";
 import purwaPhoto from "@/assets/team/purwa-jain.png";
