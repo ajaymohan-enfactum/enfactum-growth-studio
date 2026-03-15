@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useRef, useState, useCallback } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
@@ -42,42 +41,78 @@ const outcomeCapsules = [
 ];
 
 /* ═══════════════════════════════════════════════
-   FLOATING BRAND — no border, no box, just logo
+   BRAND PLATE — elevated dark capsule with logo
    ═══════════════════════════════════════════════ */
-const FloatingBrand = ({
+const BrandPlate = ({
   brand,
   size = "md",
   delay = 0,
-  drift = 0,
 }: {
   brand: BrandEntry;
-  size?: "hero" | "lg" | "md" | "sm";
+  size?: "lg" | "md" | "sm";
   delay?: number;
-  drift?: number;
 }) => {
-  const heights = { hero: 44, lg: 32, md: 24, sm: 18 };
+  const heights = { lg: 36, md: 26, sm: 20 };
+  const paddings = { lg: "px-7 py-5", md: "px-5 py-4", sm: "px-4 py-3" };
   const h = heights[size];
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 + drift }}
-      whileInView={{ opacity: 1, y: drift }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: drift - 4 }}
-      className="group relative cursor-default"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      className={`group relative ${paddings[size]} rounded-lg bg-white/[0.03] border border-white/[0.06] hover:border-primary/20 hover:bg-white/[0.05] transition-all duration-500 cursor-default`}
     >
-      {/* Subtle glow halo behind logo on hover */}
-      <div className="absolute inset-0 -m-4 rounded-full bg-primary/0 group-hover:bg-primary/[0.04] transition-all duration-700 blur-xl pointer-events-none" />
       <BrandLogo
         name={brand.name}
         domain={brand.domain}
         localLogo={brand.localLogo}
         height={h}
-        opacity={size === "hero" ? 0.55 : size === "lg" ? 0.4 : size === "md" ? 0.3 : 0.2}
-        hoverOpacity={0.9}
-        scaleOnHover
       />
+    </motion.div>
+  );
+};
+
+/* ═══════════════════════════════════════════════
+   SECTOR HEADER
+   ═══════════════════════════════════════════════ */
+const SectorHeader = ({
+  num,
+  title,
+  descriptor,
+  narrative,
+  align = "left",
+}: {
+  num: string;
+  title: string;
+  descriptor: string;
+  narrative: string;
+  align?: "left" | "center" | "right";
+}) => {
+  const alignClass = align === "center" ? "text-center mx-auto" : align === "right" ? "md:text-right md:ml-auto" : "";
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1 }}
+      className={`max-w-lg ${alignClass} mb-14 md:mb-20`}
+    >
+      <span className="text-[80px] md:text-[120px] font-display font-bold text-foreground/[0.025] leading-none select-none block">
+        {num}
+      </span>
+      <div className="mt-[-12px] md:mt-[-20px]">
+        <h3 className="text-[clamp(1.5rem,2.8vw,2.5rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.025em]">
+          {title}
+        </h3>
+        <p className="text-[11px] uppercase tracking-[0.25em] text-primary/40 font-body mt-2.5">
+          {descriptor}
+        </p>
+        <p className="text-[13px] text-foreground/30 leading-[1.8] font-body mt-5">
+          {narrative}
+        </p>
+      </div>
     </motion.div>
   );
 };
@@ -86,19 +121,10 @@ const FloatingBrand = ({
    PAGE
    ═══════════════════════════════════════════════ */
 const Brands = () => {
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const fieldRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!fieldRef.current) return;
-    const rect = fieldRef.current.getBoundingClientRect();
-    setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  }, []);
-
-  const c01 = sectorClusters[0]; // Enterprise Technology
-  const c02 = sectorClusters[1]; // Consumer & Brand Growth
-  const c03 = sectorClusters[2]; // Institutions & Ecosystems
-  const c04 = sectorClusters[3]; // New Economy & Innovation
+  const c01 = sectorClusters[0];
+  const c02 = sectorClusters[1];
+  const c03 = sectorClusters[2];
+  const c04 = sectorClusters[3];
 
   return (
     <PageLayout>
@@ -158,239 +184,130 @@ const Brands = () => {
         </div>
       </section>
 
-      {/* ═══ LIVING SECTOR CONSTELLATIONS ═══ */}
-      <div
-        ref={fieldRef}
-        onMouseMove={handleMouseMove}
-        className="relative"
-      >
-        {/* Ambient cursor glow */}
-        <div
-          className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-1000"
-          style={{
-            opacity: 0.4,
-            background: `radial-gradient(700px circle at ${cursorPos.x}px ${cursorPos.y}px, hsl(210 100% 50% / 0.025), transparent 60%)`,
-          }}
-        />
+      {/* ═══ SECTOR CONSTELLATIONS ═══ */}
 
-        {/* ── SECTOR 01 — Enterprise Technology ── */}
-        <section className="relative py-32 md:py-44 bg-[#070D1A] overflow-hidden">
-          {/* Faint architectural grid */}
-          <div className="absolute top-0 bottom-0 left-[18%] w-px bg-gradient-to-b from-transparent via-primary/[0.015] to-transparent hidden md:block" />
-          <div className="absolute top-0 bottom-0 right-[22%] w-px bg-gradient-to-b from-transparent via-primary/[0.015] to-transparent hidden md:block" />
-          <div className="absolute left-0 right-0 top-[55%] h-px bg-gradient-to-r from-transparent via-primary/[0.01] to-transparent hidden md:block" />
+      {/* ── SECTOR 01 — Enterprise Technology ── */}
+      <section className="relative py-28 md:py-36 bg-[hsl(var(--section-alt))] overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/30 to-transparent" />
+        <div className="section-container relative z-10">
+          <SectorHeader
+            num="01"
+            title={c01.sector}
+            descriptor="Structured · Platform-led · Systemic"
+            narrative={c01.narrative}
+          />
 
-          <div className="section-container relative z-10">
-            {/* Sector label — enormous, atmospheric */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2 }}
-              className="mb-20 md:mb-28"
-            >
-              <span className="text-[120px] md:text-[200px] font-display font-bold text-foreground/[0.018] leading-none select-none block">
-                01
-              </span>
-              <div className="mt-[-20px] md:mt-[-40px]">
-                <h3 className="text-[clamp(2rem,4vw,3.5rem)] font-display font-bold text-foreground leading-[1.05] tracking-[-0.03em]">
-                  {c01.sector}
-                </h3>
-                <p className="text-[11px] uppercase tracking-[0.25em] text-primary/30 font-body mt-3">
-                  Structured · Platform-led · Systemic
-                </p>
+          {/* Row 1 — flagship brands, larger */}
+          <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
+            {c01.brands.slice(0, 3).map((brand, i) => (
+              <BrandPlate key={brand.name} brand={brand} size="lg" delay={0.1 + i * 0.08} />
+            ))}
+          </div>
+          {/* Row 2 — mid tier */}
+          <div className="flex flex-wrap gap-4 md:gap-5 mb-5 md:pl-6">
+            {c01.brands.slice(3, 7).map((brand, i) => (
+              <BrandPlate key={brand.name} brand={brand} size="md" delay={0.3 + i * 0.06} />
+            ))}
+          </div>
+          {/* Row 3 — supporting */}
+          <div className="flex flex-wrap gap-3 md:gap-4 md:pl-2">
+            {c01.brands.slice(7).map((brand, i) => (
+              <BrandPlate key={brand.name} brand={brand} size="sm" delay={0.5 + i * 0.05} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTOR 02 — Consumer & Brand Growth ── */}
+      <section className="relative py-28 md:py-36 overflow-hidden">
+        <div className="section-container relative z-10">
+          <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
+            {/* Logos */}
+            <div className="md:col-span-7 md:order-1">
+              <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
+                {c02.brands.slice(0, 2).map((brand, i) => (
+                  <BrandPlate key={brand.name} brand={brand} size="lg" delay={0.1 + i * 0.1} />
+                ))}
               </div>
-            </motion.div>
-
-            {/* Constellation — scattered, not gridded */}
-            <div className="relative">
-              {/* Row 1 — hero scale, wide spacing */}
-              <div className="flex items-end gap-12 md:gap-20 mb-12 md:mb-16">
-                <FloatingBrand brand={c01.brands[0]} size="hero" delay={0.1} />
-                <FloatingBrand brand={c01.brands[1]} size="hero" delay={0.2} drift={-8} />
-                <div className="hidden md:block">
-                  <FloatingBrand brand={c01.brands[2]} size="lg" delay={0.3} drift={4} />
-                </div>
-              </div>
-
-              {/* Row 2 — offset, mixed sizes */}
-              <div className="flex items-center gap-10 md:gap-16 md:pl-24 mb-10 md:mb-14">
-                <div className="md:hidden">
-                  <FloatingBrand brand={c01.brands[2]} size="lg" delay={0.3} />
-                </div>
-                <FloatingBrand brand={c01.brands[3]} size="lg" delay={0.35} drift={-4} />
-                <FloatingBrand brand={c01.brands[4]} size="md" delay={0.4} drift={6} />
-                <FloatingBrand brand={c01.brands[5]} size="md" delay={0.45} />
-              </div>
-
-              {/* Row 3 — smaller, trailing off */}
-              <div className="flex items-center gap-8 md:gap-14 md:pl-8">
-                {c01.brands.slice(6).map((brand, i) => (
-                  <FloatingBrand key={brand.name} brand={brand} size="sm" delay={0.5 + i * 0.06} drift={i % 2 === 0 ? 3 : -3} />
+              <div className="flex flex-wrap gap-4 md:gap-5">
+                {c02.brands.slice(2).map((brand, i) => (
+                  <BrandPlate key={brand.name} brand={brand} size="md" delay={0.3 + i * 0.08} />
                 ))}
               </div>
             </div>
 
-            {/* Narrative — floats at bottom right */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-[13px] text-foreground/20 leading-[1.8] font-body mt-16 md:mt-24 max-w-md md:ml-auto md:text-right"
-            >
-              {c01.narrative}
-            </motion.p>
-          </div>
-        </section>
-
-        {/* ── SECTOR 02 — Consumer & Brand Growth ── */}
-        <section className="relative py-32 md:py-40 overflow-hidden">
-          <div className="section-container relative z-10">
-            <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
-              {/* Logos on the left — editorial vertical flow */}
-              <div className="md:col-span-7 md:order-1">
-                <div className="space-y-10 md:space-y-14">
-                  {/* Hero brand — dominant */}
-                  <div className="md:pl-8">
-                    <FloatingBrand brand={c02.brands[0]} size="hero" delay={0.1} drift={-6} />
-                  </div>
-                  {/* Mid tier — staggered horizontal */}
-                  <div className="flex items-end gap-10 md:gap-16 md:pl-20">
-                    <FloatingBrand brand={c02.brands[1]} size="lg" delay={0.2} />
-                    <FloatingBrand brand={c02.brands[2]} size="lg" delay={0.28} drift={8} />
-                  </div>
-                  {/* Supporting — smaller, offset */}
-                  <div className="flex items-center gap-8 md:gap-12 md:pl-4">
-                    {c02.brands.slice(3).map((brand, i) => (
-                      <FloatingBrand key={brand.name} brand={brand} size="md" delay={0.35 + i * 0.08} drift={i % 2 === 0 ? -4 : 5} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Copy on the right */}
-              <div className="md:col-span-4 md:col-start-9 md:order-2 md:sticky md:top-36">
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <span className="text-[80px] md:text-[120px] font-display font-bold text-foreground/[0.02] leading-none select-none block">
-                    02
-                  </span>
-                  <h3 className="text-[clamp(1.5rem,2.5vw,2.25rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em] mt-[-8px]">
-                    {c02.sector}
-                  </h3>
-                  <p className="text-[11px] uppercase tracking-[0.25em] text-primary/30 font-body mt-3">
-                    Fluid · Brand-led · Activation-oriented
-                  </p>
-                  <p className="text-[13px] text-foreground/20 leading-[1.8] font-body mt-5 max-w-sm">
-                    {c02.narrative}
-                  </p>
-                </motion.div>
-              </div>
+            {/* Copy */}
+            <div className="md:col-span-4 md:col-start-9 md:order-2 md:sticky md:top-36">
+              <SectorHeader
+                num="02"
+                title={c02.sector}
+                descriptor="Fluid · Brand-led · Activation-oriented"
+                narrative={c02.narrative}
+              />
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ── SECTOR 03 — Institutions & Ecosystems ── */}
-        <section className="relative py-32 md:py-40 bg-[#080E1C] overflow-hidden">
-          <div className="absolute left-0 right-0 top-[35%] h-px bg-gradient-to-r from-transparent via-primary/[0.015] to-transparent hidden md:block" />
+      {/* ── SECTOR 03 — Institutions & Ecosystems ── */}
+      <section className="relative py-28 md:py-36 bg-[hsl(var(--section-alt))] overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/30 to-transparent" />
+        <div className="section-container relative z-10">
+          <SectorHeader
+            num="03"
+            title={c03.sector}
+            descriptor="Stable · Networked · Trust-based"
+            narrative={c03.narrative}
+            align="center"
+          />
 
-          <div className="section-container relative z-10">
-            {/* Copy centered, logos orbiting */}
-            <div className="text-center max-w-lg mx-auto mb-20 md:mb-28">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-              >
-                <span className="text-[80px] md:text-[140px] font-display font-bold text-foreground/[0.018] leading-none select-none block">
-                  03
-                </span>
-                <h3 className="text-[clamp(1.5rem,2.5vw,2.25rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em] mt-[-8px]">
-                  {c03.sector}
-                </h3>
-                <p className="text-[11px] uppercase tracking-[0.25em] text-primary/30 font-body mt-3">
-                  Stable · Networked · Trust-based
-                </p>
-                <p className="text-[13px] text-foreground/20 leading-[1.8] font-body mt-5">
-                  {c03.narrative}
-                </p>
-              </motion.div>
-            </div>
-
-            {/* Logos — dispersed around center, asymmetric */}
-            <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
-              <FloatingBrand brand={c03.brands[0]} size="hero" delay={0.15} drift={-6} />
-              <FloatingBrand brand={c03.brands[1]} size="lg" delay={0.25} drift={10} />
-              <FloatingBrand brand={c03.brands[2]} size="lg" delay={0.3} drift={-3} />
-            </div>
-            <div className="flex items-center justify-center gap-10 md:gap-16 mt-10 md:mt-14">
-              {c03.brands.slice(3).map((brand, i) => (
-                <FloatingBrand key={brand.name} brand={brand} size="md" delay={0.4 + i * 0.08} drift={i % 2 === 0 ? 5 : -5} />
-              ))}
-            </div>
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-5 mb-5">
+            {c03.brands.slice(0, 3).map((brand, i) => (
+              <BrandPlate key={brand.name} brand={brand} size="lg" delay={0.15 + i * 0.1} />
+            ))}
           </div>
-        </section>
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+            {c03.brands.slice(3).map((brand, i) => (
+              <BrandPlate key={brand.name} brand={brand} size="md" delay={0.4 + i * 0.08} />
+            ))}
+          </div>
+        </div>
+      </section>
 
-        {/* ── SECTOR 04 — New Economy & Innovation ── */}
-        <section className="relative py-32 md:py-40 overflow-hidden">
-          <div className="section-container relative z-10">
-            <div className="grid md:grid-cols-12 gap-12 items-start">
-              {/* Copy left */}
-              <div className="md:col-span-4 md:sticky md:top-36">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <span className="text-[80px] md:text-[120px] font-display font-bold text-foreground/[0.02] leading-none select-none block">
-                    04
-                  </span>
-                  <h3 className="text-[clamp(1.5rem,2.5vw,2.25rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em] mt-[-8px]">
-                    {c04.sector}
-                  </h3>
-                  <p className="text-[11px] uppercase tracking-[0.25em] text-primary/30 font-body mt-3">
-                    Emergent · Innovation-led · Future-facing
-                  </p>
-                  <p className="text-[13px] text-foreground/20 leading-[1.8] font-body mt-5 max-w-sm">
-                    {c04.narrative}
-                  </p>
-                </motion.div>
+      {/* ── SECTOR 04 — New Economy & Innovation ── */}
+      <section className="relative py-28 md:py-36 overflow-hidden">
+        <div className="section-container relative z-10">
+          <div className="grid md:grid-cols-12 gap-12 items-start">
+            {/* Copy */}
+            <div className="md:col-span-4 md:sticky md:top-36">
+              <SectorHeader
+                num="04"
+                title={c04.sector}
+                descriptor="Emergent · Innovation-led · Future-facing"
+                narrative={c04.narrative}
+              />
+            </div>
+
+            {/* Logos */}
+            <div className="md:col-span-7 md:col-start-6">
+              <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
+                {c04.brands.slice(0, 2).map((brand, i) => (
+                  <BrandPlate key={brand.name} brand={brand} size="lg" delay={0.1 + i * 0.1} />
+                ))}
               </div>
-
-              {/* Logos — ascending diagonal */}
-              <div className="md:col-span-7 md:col-start-6">
-                <div className="space-y-12 md:space-y-16">
-                  <div className="md:pl-16">
-                    <FloatingBrand brand={c04.brands[0]} size="lg" delay={0.1} drift={-8} />
-                  </div>
-                  <div className="flex items-end gap-10 md:gap-14 md:pl-4">
-                    <FloatingBrand brand={c04.brands[1]} size="lg" delay={0.2} />
-                    <FloatingBrand brand={c04.brands[2]} size="md" delay={0.28} drift={6} />
-                  </div>
-                  <div className="flex items-center gap-8 md:gap-12 md:pl-24">
-                    {c04.brands.slice(3).map((brand, i) => (
-                      <FloatingBrand key={brand.name} brand={brand} size="md" delay={0.35 + i * 0.08} drift={i % 2 === 0 ? -4 : 4} />
-                    ))}
-                  </div>
-                </div>
+              <div className="flex flex-wrap gap-3 md:gap-4">
+                {c04.brands.slice(2).map((brand, i) => (
+                  <BrandPlate key={brand.name} brand={brand} size="md" delay={0.3 + i * 0.08} />
+                ))}
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       {/* ═══ BEHIND THE LOGOS ═══ */}
-      <section className="py-28 md:py-36 relative bg-[#060B18]">
+      <section className="py-28 md:py-36 relative bg-[hsl(var(--section-alt))]">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/[0.08] to-transparent" />
-        <div className="absolute top-0 bottom-0 left-[33%] w-px bg-gradient-to-b from-transparent via-primary/[0.015] to-transparent hidden md:block" />
-        <div className="absolute top-0 bottom-0 left-[66%] w-px bg-gradient-to-b from-transparent via-primary/[0.015] to-transparent hidden md:block" />
 
         <div className="section-container relative z-10">
           <RevealSection blur>
@@ -409,7 +326,7 @@ const Brands = () => {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8">
             {outcomeCapsules.filter(c => c.featured).map((capsule, i) => (
               <RevealSection key={i} delay={i * 0.12} blur>
-                <div className="group relative rounded-2xl border border-white/[0.04] bg-white/[0.015] p-8 md:p-10 hover:border-primary/15 transition-all duration-700 h-full flex flex-col justify-between">
+                <div className="group relative rounded-xl border border-white/[0.05] bg-white/[0.02] p-8 md:p-10 hover:border-primary/15 transition-all duration-700 h-full flex flex-col justify-between">
                   <span className="absolute top-6 right-8 text-[100px] font-display font-bold text-foreground/[0.02] leading-none select-none pointer-events-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -437,7 +354,7 @@ const Brands = () => {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {outcomeCapsules.filter(c => !c.featured).map((capsule, i) => (
               <RevealSection key={i} delay={0.3 + i * 0.08} blur>
-                <div className="group rounded-xl border border-white/[0.03] bg-white/[0.01] p-6 md:p-8 hover:border-primary/10 transition-all duration-700">
+                <div className="group rounded-xl border border-white/[0.04] bg-white/[0.01] p-6 md:p-8 hover:border-primary/10 transition-all duration-700">
                   <div className="flex items-baseline gap-4 mb-4">
                     <h4 className="text-lg font-display font-bold text-foreground leading-tight">{capsule.brand}</h4>
                     <span className="text-[9px] text-primary/25 uppercase tracking-[0.15em] font-body">{capsule.label}</span>
