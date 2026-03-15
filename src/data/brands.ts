@@ -52,7 +52,7 @@ export const sectorClusters: SectorCluster[] = [
     narrative:
       "Supporting brands that need market activation, demand generation, and regional growth with commercial discipline.",
     brands: [
-      b("Brands For Less", null, "/logos/brandsforless.png"),
+      b("Brands For Less", "brandsforless.com", "/logos/brandsforless.png"),
       b("Lancôme", "lancome.com", "/logos/lancome.png"),
       b("L'Oréal", "loreal.com", "/logos/loreal.png"),
       b("Kiehl's", "kiehls.com", "/logos/kiehls.png"),
