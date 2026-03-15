@@ -89,7 +89,7 @@ export const sectorClusters: SectorCluster[] = [
 
 /** Flat list of all unique brands for marquee */
 export const allMarqueeBrands: BrandEntry[] = [
-  b("HP", "hp.com"),
+  b("HP", "hp.com", "/logos/hp.png"),
   b("Lenovo", "lenovo.com"),
   b("Oracle", "oracle.com"),
   b("Dell EMC", "dell.com"),
