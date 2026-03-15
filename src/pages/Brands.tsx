@@ -366,14 +366,16 @@ const Brands = () => {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {outcomeCapsules.filter(c => !c.featured).map((capsule, i) => (
               <RevealSection key={i} delay={0.3 + i * 0.08} blur>
-                <div className="group rounded-lg border border-white/[0.04] bg-white/[0.015] px-8 py-7 md:px-9 md:py-8 hover:border-primary/15 hover:bg-white/[0.03] hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.08)] transition-all duration-700 cursor-pointer">
-                  <span className="text-[9px] text-primary/30 uppercase tracking-[0.2em] font-body block mb-3">{capsule.label}</span>
-                  <h4 className="text-base font-display font-semibold text-foreground/85 leading-tight mb-3">{capsule.brand}</h4>
-                  <p className="text-[13px] text-foreground/30 leading-[1.75] font-body">{capsule.outcome}</p>
-                  <span className="flex items-center gap-1.5 text-[10px] font-body text-primary/0 group-hover:text-primary/50 mt-4 translate-x-1 group-hover:translate-x-0 transition-all duration-500">
-                    View case study <ArrowRight className="w-3 h-3" />
-                  </span>
-                </div>
+                <Link to={`/work#${capsule.caseId}`} className="block">
+                  <div className="group rounded-lg border border-white/[0.04] bg-white/[0.015] px-8 py-7 md:px-9 md:py-8 hover:border-primary/15 hover:bg-white/[0.03] hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.08)] transition-all duration-700 cursor-pointer">
+                    <span className="text-[9px] text-primary/30 uppercase tracking-[0.2em] font-body block mb-3">{capsule.label}</span>
+                    <h4 className="text-base font-display font-semibold text-foreground/85 leading-tight mb-3">{capsule.brand}</h4>
+                    <p className="text-[13px] text-foreground/30 leading-[1.75] font-body">{capsule.outcome}</p>
+                    <span className="flex items-center gap-1.5 text-[10px] font-body text-primary/0 group-hover:text-primary/50 mt-4 translate-x-1 group-hover:translate-x-0 transition-all duration-500">
+                      View case study <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </div>
+                </Link>
               </RevealSection>
             ))}
           </div>
