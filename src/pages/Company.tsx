@@ -289,7 +289,7 @@ const Company = () => (
     </section>
 
     {/* ═══ SECTION 7 — GROWTH ARCHITECTURE PRINCIPLES ═══ */}
-    <section className="py-32 md:py-44">
+    <section className="py-16 md:py-20">
       <div className="section-container">
         <div className="section-divider mb-20" />
         <div className="grid md:grid-cols-12 gap-8 mb-20">

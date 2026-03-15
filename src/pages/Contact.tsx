@@ -214,7 +214,7 @@ const Contact = () => {
       </section>
 
       {/* ═══ FORM + TRUST PANEL ═══ */}
-      <section className="section-alt py-28 md:py-40">
+      <section className="section-alt py-16 md:py-20">
         <div className="section-container">
           <div className="grid md:grid-cols-12 gap-16 md:gap-20">
             {/* Left — Form */}

@@ -388,7 +388,7 @@ const CapabilityDetail = () => {
       </section>
 
       {/* ─── SELECTED OUTCOMES ─── */}
-      <section className="py-32 md:py-44">
+      <section className="py-16 md:py-20">
         <div className="section-container">
           <div className="section-divider mb-20" />
           <RevealSection>
