@@ -52,8 +52,8 @@ const BrandPlate = ({
   size?: "lg" | "md" | "sm";
   delay?: number;
 }) => {
-  const heights = { lg: 36, md: 26, sm: 20 };
-  const paddings = { lg: "px-7 py-5", md: "px-5 py-4", sm: "px-4 py-3" };
+  const heights = { lg: 54, md: 39, sm: 30 };
+  const paddings = { lg: "px-9 py-6", md: "px-7 py-5", sm: "px-5 py-4" };
   const h = heights[size];
 
   return (
