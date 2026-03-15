@@ -336,77 +336,39 @@ const HowWeWork = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   SECTION 6 — SECTOR EXPERIENCE
-   Architectural experience clusters — editorial, not logo-wall
+   SECTION 6 — CLIENTS & SECTORS
+   Static text-only sector clusters
    ═══════════════════════════════════════════════ */
-
-
-const marqueeNames = allMarqueeBrands.map((b) => b.name);
+const sectorClusters = [
+  { label: "Enterprise Technology", names: "HP · Oracle · Lexmark · Dell EMC · Commvault · Seagate · Redington · element14 · markem-imaje" },
+  { label: "Consumer & Brand Growth", names: "L'Oréal · Lancôme · Kiehl's · Brands For Less · Delsey · VIP Industries · JSHealth Vitamins · Loose Moose Wine" },
+  { label: "Media, Institutions & Ecosystems", names: "The Economist · NUS · Andaz · Abbott · InsureMO · eBaoTech · DSCOOP" },
+  { label: "New Economy & Platforms", names: "Lazada · MyRepublic · Singtel · Integrate" },
+];
 
 const SectorExperience = () => (
-  <section className="py-16 md:py-20 bg-[#080E1A]">
+  <section className="py-20 bg-[#0B1121]">
     <div className="section-container">
-      <SectionHeader
-        eyebrow="Experience"
-        headline="Experience across the industries shaping Southeast Asia."
-      />
-
-      {/* Logo marquee — single row */}
-      <RevealSection delay={0.1} className="mt-10 mb-12">
-        <div className="relative overflow-hidden py-4">
-          <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none bg-gradient-to-r from-[#080E1A] to-transparent" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none bg-gradient-to-l from-[#080E1A] to-transparent" />
-          <div className="flex whitespace-nowrap items-center" style={{ animation: 'marquee-left 45s linear infinite' }}>
-            {[0, 1].map((dup) => (
-              <div key={dup} className="flex items-center gap-12 shrink-0 pr-12">
-                {allMarqueeBrands.map((brand) => (
-                  <div key={`${dup}-${brand.name}`} className="shrink-0">
-                    <BrandLogo
-                      name={brand.name}
-                      domain={brand.domain}
-                      localLogo={brand.localLogo}
-                      height={56}
-                      opacity={0.5}
-                      hoverOpacity={0.85}
-                    />
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </RevealSection>
-
-      {/* Sector clusters */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {brandSectorClusters.map((cluster, ci) => (
-          <RevealSection key={ci} delay={ci * 0.08}>
-            <div className="border-t border-border/30 pt-6">
-              <span className="text-[10px] font-body text-dim block mb-2">{cluster.num}</span>
-              <h3 className="font-display text-base font-bold text-foreground leading-tight">
-                {cluster.sector}
-              </h3>
-              <p className="text-[13px] text-muted-foreground leading-relaxed mt-2 line-clamp-3">
-                {cluster.narrative}
+      <p className="text-xs tracking-[0.3em] text-foreground/30 uppercase mb-16 text-center">
+        Clients &amp; Sectors
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-20 max-w-5xl mx-auto">
+        {sectorClusters.map((cluster, i) => (
+          <RevealSection key={i} delay={i * 0.08}>
+            <div className="border-b border-foreground/[0.08] pb-6">
+              <p className="text-xs tracking-widest text-primary uppercase mb-3">
+                {cluster.label}
               </p>
-              {/* Brand logos */}
-              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-4">
-                {cluster.brands.map((brand, bi) => (
-                  <BrandLogo
-                    key={bi}
-                    name={brand.name}
-                    domain={brand.domain}
-                    localLogo={brand.localLogo}
-                    height={22}
-                    opacity={0.45}
-                    hoverOpacity={0.85}
-                  />
-                ))}
-              </div>
+              <p className="text-sm text-foreground/50 leading-relaxed">
+                {cluster.names}
+              </p>
             </div>
           </RevealSection>
         ))}
       </div>
+      <p className="text-xs text-foreground/20 tracking-[0.2em] uppercase mt-16 text-center">
+        Singapore · India · Malaysia · Indonesia · USA · APAC
+      </p>
     </div>
   </section>
 );
