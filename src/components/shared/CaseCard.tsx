@@ -10,7 +10,7 @@ import { ArrowRight } from "lucide-react";
 interface CaseCardProps {
   cs: CaseStudy;
   index?: number;
-  variant?: "full" | "compact";
+  variant?: "flagship" | "full" | "compact";
 }
 
 /** Map capability name to slug for internal linking */
@@ -23,14 +23,140 @@ const capabilitySlugMap: Record<string, string> = {
 
 /**
  * Premium case study card — result-oriented, enterprise-ready.
- * Full variant: detailed card with challenge/role/metrics + sector + geography + challenge tag.
- * Compact variant: single-row with outcome headline and key metric.
+ * Flagship: large editorial feature with dramatic headline and monumental metrics.
+ * Full: detailed card with challenge/role/metrics.
+ * Compact: single-row summary.
  */
 const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [hovered, setHovered] = useState(false);
 
+  const primaryCapHref = cs.capabilities[0] ? capabilitySlugMap[cs.capabilities[0]] : null;
+
+  /* ═══════════════════════════════════════════
+     FLAGSHIP — Large editorial feature
+     ═══════════════════════════════════════════ */
+  if (variant === "flagship") {
+    return (
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 40 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+        transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <article
+          className="relative py-16 md:py-20 border-b border-border/20 group"
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        >
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12">
+            {/* Left — Editorial content */}
+            <div className="md:col-span-7">
+              {/* Tags row */}
+              <div className="flex flex-wrap items-center gap-2 mb-6">
+                {cs.capabilities.map((tag) => (
+                  <span key={tag} className="text-[9px] px-2.5 py-1 rounded-sm bg-primary/[0.06] text-primary/60 font-medium tracking-[0.15em] uppercase">
+                    {tag}
+                  </span>
+                ))}
+                {cs.sectors[0] && (
+                  <span className="text-[9px] px-2.5 py-1 rounded-sm bg-secondary text-muted-foreground/60 font-medium tracking-[0.15em] uppercase">
+                    {cs.sectors[0]}
+                  </span>
+                )}
+              </div>
+
+              {/* Client */}
+              <div className="flex items-center gap-3 mb-4">
+                {brandLookup[cs.client] && (
+                  <BrandLogo
+                    name={brandLookup[cs.client].name}
+                    domain={brandLookup[cs.client].domain}
+                    localLogo={brandLookup[cs.client].localLogo}
+                    height={18}
+                    opacity={0.5}
+                    hoverOpacity={0.8}
+                  />
+                )}
+                <span className="text-[11px] text-foreground/30 tracking-[0.15em] uppercase font-body">{cs.client}</span>
+              </div>
+
+              {/* Headline — dramatic scale */}
+              <h3 className="text-2xl md:text-3xl lg:text-[2.25rem] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em] group-hover:text-primary/90 transition-colors duration-500 max-w-xl">
+                {cs.headline}
+              </h3>
+
+              {/* Challenge + Role */}
+              <div className="mt-8 grid sm:grid-cols-2 gap-6 max-w-xl">
+                <div>
+                  <span className="text-[9px] text-foreground/20 uppercase tracking-[0.2em] font-body block mb-2">Challenge</span>
+                  <p className="text-[13px] text-foreground/35 leading-relaxed">{cs.challenge}</p>
+                </div>
+                <div>
+                  <span className="text-[9px] text-foreground/20 uppercase tracking-[0.2em] font-body block mb-2">Enfactum's role</span>
+                  <p className="text-[13px] text-foreground/40 leading-relaxed">{cs.role}</p>
+                </div>
+              </div>
+
+              {/* Insight */}
+              {cs.insight && (
+                <div className="mt-8 max-w-md">
+                  <p className="text-[12px] text-foreground/25 italic leading-relaxed border-l-2 border-primary/15 pl-4">
+                    "{cs.insight}"
+                  </p>
+                </div>
+              )}
+
+              {/* Region + CTA */}
+              <div className="mt-8 flex items-center gap-6">
+                {cs.region && (
+                  <span className="text-[10px] text-foreground/20 uppercase tracking-[0.2em]">{cs.region}</span>
+                )}
+                <Link
+                  to="/contact?inquiry=client"
+                  className="text-[12px] text-primary/60 hover:text-primary transition-colors duration-300"
+                >
+                  Discuss a challenge like this →
+                </Link>
+              </div>
+            </div>
+
+            {/* Right — Monumental metrics */}
+            <div className="md:col-span-4 md:col-start-9 flex flex-col justify-center">
+              <div className="space-y-8">
+                {cs.results.slice(0, 4).map((r, ri) => (
+                  <div key={ri} className="group/metric">
+                    <AnimatedCounter
+                      value={r.metric}
+                      className="font-display text-3xl md:text-4xl font-bold text-primary/70 tracking-tight block leading-none"
+                    />
+                    <span className="text-[11px] text-foreground/25 mt-2 block leading-snug font-body">
+                      {r.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Capability link */}
+              {primaryCapHref && (
+                <Link
+                  to={primaryCapHref}
+                  className="inline-flex items-center gap-1.5 mt-10 text-[10px] text-primary/40 hover:text-primary uppercase tracking-[0.2em] font-body transition-colors duration-500"
+                >
+                  {cs.capabilities[0]} <ArrowRight className="w-3 h-3" />
+                </Link>
+              )}
+            </div>
+          </div>
+        </article>
+      </motion.div>
+    );
+  }
+
+  /* ═══════════════════════════════════════════
+     COMPACT — Single row summary
+     ═══════════════════════════════════════════ */
   if (variant === "compact") {
     return (
       <motion.div
@@ -82,39 +208,30 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
     );
   }
 
-  const primaryCapHref = cs.capabilities[0] ? capabilitySlugMap[cs.capabilities[0]] : null;
-
+  /* ═══════════════════════════════════════════
+     FULL — Standard detailed card
+     ═══════════════════════════════════════════ */
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
     >
       <article
-        className="relative py-12 md:py-14 border-b border-border/30 border-l-2 border-l-transparent hover:border-l-primary hover:border-b-primary/15 transition-all duration-300 group pl-0 hover:pl-4"
+        className="relative py-10 md:py-12 border-b border-border/15 group"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
         <div className="grid md:grid-cols-12 gap-6 md:gap-8">
-          {/* Left: Client + headline + tags */}
+          {/* Left: Client + headline */}
           <div className="md:col-span-5">
-            <div className="flex flex-wrap gap-2 mb-3">
+            <div className="flex flex-wrap gap-1.5 mb-3">
               {cs.capabilities.map((tag) => (
-                <span key={tag} className="text-[10px] px-2.5 py-1 rounded-sm bg-primary/8 text-primary/70 font-medium tracking-wide uppercase">
+                <span key={tag} className="text-[9px] px-2 py-0.5 rounded-sm bg-primary/[0.06] text-primary/60 font-medium tracking-[0.12em] uppercase">
                   {tag}
                 </span>
               ))}
-              {cs.sectors[0] && (
-                <span className="text-[10px] px-2.5 py-1 rounded-sm bg-secondary text-muted-foreground font-medium tracking-wide uppercase">
-                  {cs.sectors[0]}
-                </span>
-              )}
-              {cs.challengeTypes[0] && (
-                <span className="text-[10px] px-2.5 py-1 rounded-sm border border-border/40 text-muted-foreground/70 font-medium tracking-wide uppercase">
-                  {cs.challengeTypes[0]}
-                </span>
-              )}
             </div>
             {/* Brand logo */}
             {brandLookup[cs.client] && (
@@ -123,18 +240,18 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
                   name={brandLookup[cs.client].name}
                   domain={brandLookup[cs.client].domain}
                   localLogo={brandLookup[cs.client].localLogo}
-                  height={20}
-                  opacity={0.6}
-                  hoverOpacity={0.9}
+                  height={18}
+                  opacity={0.5}
+                  hoverOpacity={0.8}
                 />
               </div>
             )}
-            <span className="text-[11px] text-dim font-body block mb-2">{cs.client}</span>
-            <h3 className="font-display text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-500 leading-tight">
+            <span className="text-[10px] text-dim font-body block mb-2">{cs.client}</span>
+            <h3 className="font-display text-lg md:text-xl font-semibold text-foreground group-hover:text-primary/90 transition-colors duration-500 leading-tight">
               {cs.headline}
             </h3>
             {cs.region && (
-              <span className="text-[10px] text-muted-foreground/50 font-body block mt-3 uppercase tracking-wider">
+              <span className="text-[10px] text-muted-foreground/40 font-body block mt-2 uppercase tracking-wider">
                 {cs.region}
               </span>
             )}
@@ -142,39 +259,38 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
 
           {/* Middle: Challenge + Role */}
           <div className="md:col-span-4">
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div>
-                <span className="text-[10px] text-dim uppercase tracking-[0.15em] font-body block mb-1.5">Challenge</span>
-                <p className="text-[13px] text-muted-foreground leading-relaxed">{cs.challenge}</p>
+                <span className="text-[9px] text-dim uppercase tracking-[0.15em] font-body block mb-1">Challenge</span>
+                <p className="text-[12px] text-muted-foreground leading-relaxed">{cs.challenge}</p>
               </div>
               <div>
-                <span className="text-[10px] text-dim uppercase tracking-[0.15em] font-body block mb-1.5">Enfactum's role</span>
-                <p className="text-[13px] text-secondary-foreground leading-relaxed">{cs.role}</p>
+                <span className="text-[9px] text-dim uppercase tracking-[0.15em] font-body block mb-1">Enfactum's role</span>
+                <p className="text-[12px] text-secondary-foreground/70 leading-relaxed">{cs.role}</p>
               </div>
             </div>
           </div>
 
           {/* Right: Metrics */}
           <div className="md:col-span-3">
-            <span className="text-[10px] text-dim uppercase tracking-[0.15em] font-body block mb-4">Outcomes</span>
-            <div className="space-y-4">
-              {cs.results.slice(0, 4).map((r, ri) => (
+            <span className="text-[9px] text-dim uppercase tracking-[0.15em] font-body block mb-3">Outcomes</span>
+            <div className="space-y-3">
+              {cs.results.slice(0, 3).map((r, ri) => (
                 <div key={ri}>
                   <AnimatedCounter
                     value={r.metric}
-                    className="font-display text-2xl font-extrabold text-primary/85 tracking-tight block leading-none"
+                    className="font-display text-xl font-bold text-primary/75 tracking-tight block leading-none"
                   />
-                  <span className="text-[11px] text-muted-foreground mt-1 block leading-snug font-body">
+                  <span className="text-[10px] text-muted-foreground/60 mt-1 block leading-snug font-body">
                     {r.label}
                   </span>
                 </div>
               ))}
             </div>
-            {/* Capability link */}
             {primaryCapHref && (
               <Link
                 to={primaryCapHref}
-                className="inline-flex items-center gap-1.5 mt-6 text-[11px] text-primary/50 hover:text-primary uppercase tracking-wider font-body transition-colors duration-500"
+                className="inline-flex items-center gap-1.5 mt-5 text-[10px] text-primary/40 hover:text-primary uppercase tracking-[0.15em] font-body transition-colors duration-500"
               >
                 {cs.capabilities[0]} <ArrowRight className="w-3 h-3" />
               </Link>
@@ -184,86 +300,12 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
 
         {/* Insight */}
         {cs.insight && (
-          <div className="mt-8 md:ml-[calc(100%/12*5+2rem)] max-w-lg">
-            <p className="text-[12px] text-foreground/30 group-hover:text-foreground/50 italic leading-relaxed border-l-2 border-primary/15 pl-4 transition-colors duration-300">
+          <div className="mt-6 md:ml-[calc(100%/12*5+2rem)] max-w-md">
+            <p className="text-[11px] text-foreground/20 group-hover:text-foreground/35 italic leading-relaxed border-l border-primary/10 pl-3 transition-colors duration-300">
               "{cs.insight}"
             </p>
           </div>
         )}
-
-        {/* Contextual CTA */}
-        <div className="mt-6 md:ml-[calc(100%/12*5+2rem)]">
-          <Link
-            to="/contact?inquiry=client"
-            className="text-sm text-primary hover:text-primary/80 transition-colors duration-300"
-          >
-            Discuss a challenge like this →
-          </Link>
-        </div>
-
-        {/* ═══ Hover Micro-Preview ═══ */}
-        <AnimatePresence>
-          {hovered && (
-            <motion.div
-              initial={{ opacity: 0, y: 12, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 8, scale: 0.97 }}
-              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] as const }}
-              className="hidden md:block absolute right-0 top-4 z-20 w-[280px] pointer-events-none"
-            >
-              <div className="relative overflow-hidden rounded-xl border border-primary/20 bg-card shadow-2xl shadow-primary/5">
-                {/* Subtle dot pattern background */}
-                <div
-                  className="absolute inset-0 opacity-[0.04]"
-                  style={{
-                    backgroundImage: "radial-gradient(circle, hsl(210 100% 50%) 1px, transparent 1px)",
-                    backgroundSize: "12px 12px",
-                  }}
-                />
-                {/* Gradient accent bar */}
-                <div className="h-1 w-full bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
-
-                <div className="relative p-5">
-                  {/* Client badge */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-primary">
-                      {cs.client}
-                    </span>
-                    <span className="text-[9px] text-muted-foreground/50 uppercase tracking-wider">
-                      {cs.region}
-                    </span>
-                  </div>
-
-                  {/* Key metrics grid */}
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    {cs.results.slice(0, 4).map((r, ri) => (
-                      <div key={ri} className="bg-secondary/40 rounded-lg p-2.5">
-                        <span className="font-display text-lg font-bold text-primary block leading-none">
-                          {r.metric}
-                        </span>
-                        <span className="text-[9px] text-muted-foreground mt-1 block leading-tight">
-                          {r.label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Capability tags */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {cs.capabilities.map((cap) => (
-                      <span
-                        key={cap}
-                        className="text-[9px] px-2 py-0.5 rounded-full bg-primary/10 text-primary/70 font-medium"
-                      >
-                        {cap}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </article>
     </motion.div>
   );
