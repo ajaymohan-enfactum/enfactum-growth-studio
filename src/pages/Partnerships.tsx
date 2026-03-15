@@ -70,6 +70,7 @@ const Partnerships = () => (
       eyebrow="Partnerships"
       headline={<>Partnerships that <span className="text-primary">move markets.</span></>}
       description="Enfactum partners with enterprise platforms, distributors, startups, media properties, and ecosystem builders to create growth, capability, and commercial momentum across Southeast Asia."
+      variant="minimal"
     >
       <div className="flex flex-col sm:flex-row gap-4">
         <Link to="/contact">

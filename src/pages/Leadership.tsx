@@ -317,6 +317,7 @@ const Leadership = () => {
         eyebrow="Leadership"
         headline={<>Growth Architects who build, <span className="text-primary">not just advise.</span></>}
         description="The Enfactum leadership team brings decades of experience across strategy, growth, technology, and creative — all earned in the markets we serve."
+        variant="minimal"
       />
 
       {/* ═══ PRINCIPALS — Editorial feature layout ═══ */}

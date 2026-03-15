@@ -162,6 +162,7 @@ const Thinking = () => {
         eyebrow="Thinking"
         headline={<>Perspectives from <span className="text-primary">inside the work.</span></>}
         description="Original perspectives on growth, ecosystems, AI, and commercial strategy across Southeast Asia — from people who operate in it every day."
+        variant="editorial"
       />
 
       {/* ═══ FILTERS ═══ */}

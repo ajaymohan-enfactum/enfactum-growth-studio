@@ -71,6 +71,7 @@ const Company = () => (
       eyebrow="Company"
       headline={<>Built to turn strategy into <span className="text-primary">movement.</span></>}
       description="Enfactum is a growth and innovation operating partner — combining strategy, ecosystems, and execution to help enterprise brands scale with clarity and momentum across the region."
+      variant="institutional"
     />
 
     {/* ═══ SECTION 1 — ORIGIN STATEMENT ═══ */}
