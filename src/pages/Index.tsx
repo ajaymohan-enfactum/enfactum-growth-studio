@@ -370,39 +370,25 @@ const SectorExperience = () => (
         headline="Experience across the industries shaping Southeast Asia."
       />
 
-      {/* CSS-only brand text marquee — Row 1 (left) */}
-      <RevealSection delay={0.1} className="mt-10 mb-4">
-        <div className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-r from-[#080E1A] to-transparent" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-l from-[#080E1A] to-transparent" />
-          <div className="flex whitespace-nowrap" style={{ animation: 'marquee-left 30s linear infinite' }}>
+      {/* Logo marquee — single row */}
+      <RevealSection delay={0.1} className="mt-10 mb-12">
+        <div className="relative overflow-hidden py-4">
+          <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none bg-gradient-to-r from-[#080E1A] to-transparent" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none bg-gradient-to-l from-[#080E1A] to-transparent" />
+          <div className="flex whitespace-nowrap items-center" style={{ animation: 'marquee-left 45s linear infinite' }}>
             {[0, 1].map((dup) => (
-              <div key={dup} className="flex items-center gap-6 shrink-0 pr-6">
-                {['HP', 'Oracle', 'Lexmark', 'The Economist', 'Lenovo', 'Dell EMC', 'Commvault', 'Singtel', 'Redington'].map((name) => (
-                  <span key={`${dup}-${name}`} className="inline-flex items-center gap-6 shrink-0">
-                    <span className="text-[14px] font-medium tracking-[0.05em] text-white/60 select-none">{name}</span>
-                    <span className="w-1 h-1 rounded-full bg-white/20 shrink-0" />
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </RevealSection>
-
-      {/* CSS-only brand text marquee — Row 2 (right) */}
-      <RevealSection delay={0.15} className="mb-12">
-        <div className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-r from-[#080E1A] to-transparent" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-l from-[#080E1A] to-transparent" />
-          <div className="flex whitespace-nowrap" style={{ animation: 'marquee-right 35s linear infinite' }}>
-            {[0, 1].map((dup) => (
-              <div key={dup} className="flex items-center gap-6 shrink-0 pr-6">
-                {['MyRepublic', 'Lazada', "L'Oréal", 'Lancôme', 'Abbott', 'NUS', 'Andaz', 'eBaoTech', 'InsureMO', 'element14'].map((name) => (
-                  <span key={`${dup}-${name}`} className="inline-flex items-center gap-6 shrink-0">
-                    <span className="text-[14px] font-medium tracking-[0.05em] text-white/60 select-none">{name}</span>
-                    <span className="w-1 h-1 rounded-full bg-white/20 shrink-0" />
-                  </span>
+              <div key={dup} className="flex items-center gap-12 shrink-0 pr-12">
+                {allMarqueeBrands.map((brand) => (
+                  <div key={`${dup}-${brand.name}`} className="shrink-0">
+                    <BrandLogo
+                      name={brand.name}
+                      domain={brand.domain}
+                      localLogo={brand.localLogo}
+                      height={32}
+                      opacity={0.5}
+                      hoverOpacity={0.85}
+                    />
+                  </div>
                 ))}
               </div>
             ))}
