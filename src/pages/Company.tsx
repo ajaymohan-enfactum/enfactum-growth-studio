@@ -92,7 +92,7 @@ const Company = () => (
     />
 
     {/* ═══ SECTION 1 — ORIGIN + METRICS ═══ */}
-    <section className="py-32 md:py-44">
+    <section className="py-16 md:py-20">
       <div className="section-container">
         <div className="grid md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-5">
@@ -150,7 +150,7 @@ const Company = () => (
 
     <ParallaxDivider variant="gradient" />
     {/* ═══ SECTION 2 — LEADERSHIP ═══ */}
-    <section className="section-alt py-32 md:py-44">
+    <section className="section-alt py-16 md:py-20">
       <div className="section-container">
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-5">
@@ -264,7 +264,7 @@ const Company = () => (
 
     <ParallaxDivider variant="mist" />
     {/* ═══ SECTION 6 — CAPABILITY OWNERSHIP ═══ */}
-    <section className="section-alt py-32 md:py-44">
+    <section className="section-alt py-16 md:py-20">
       <div className="section-container">
         <SectionHeader
           eyebrow="Capability ownership"
@@ -289,7 +289,7 @@ const Company = () => (
     </section>
 
     {/* ═══ SECTION 7 — GROWTH ARCHITECTURE PRINCIPLES ═══ */}
-    <section className="py-32 md:py-44">
+    <section className="py-16 md:py-20">
       <div className="section-container">
         <div className="section-divider mb-20" />
         <div className="grid md:grid-cols-12 gap-8 mb-20">

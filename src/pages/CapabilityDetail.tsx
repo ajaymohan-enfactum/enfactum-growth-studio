@@ -257,7 +257,7 @@ const CapabilityDetail = () => {
       </HeroSection>
 
       {/* ─── WHO IT'S FOR ─── */}
-      <section className="py-24 md:py-32">
+      <section className="py-16 md:py-20">
         <div className="section-container">
           <div className="grid md:grid-cols-12 gap-8">
             <div className="md:col-span-4">
@@ -283,7 +283,7 @@ const CapabilityDetail = () => {
       </section>
 
       {/* ─── THE CHALLENGE ─── */}
-      <section className="section-alt py-32 md:py-44">
+      <section className="section-alt py-16 md:py-20">
         <div className="section-container">
           <div className="grid md:grid-cols-12 gap-8">
             <div className="md:col-span-5">
@@ -310,7 +310,7 @@ const CapabilityDetail = () => {
       </section>
 
       {/* ─── WHAT WE BUILD ─── */}
-      <section className="py-32 md:py-44">
+      <section className="py-16 md:py-20">
         <div className="section-container">
           <div className="section-divider mb-20" />
           <div className="grid md:grid-cols-12 gap-8 mb-20">
@@ -345,7 +345,7 @@ const CapabilityDetail = () => {
       </section>
 
       {/* ─── HOW IT WORKS ─── */}
-      <section className="section-alt py-32 md:py-44">
+      <section className="section-alt py-16 md:py-20">
         <div className="section-container">
           <SectionHeader
             eyebrow="How it works"
@@ -388,7 +388,7 @@ const CapabilityDetail = () => {
       </section>
 
       {/* ─── SELECTED OUTCOMES ─── */}
-      <section className="py-32 md:py-44">
+      <section className="py-16 md:py-20">
         <div className="section-container">
           <div className="section-divider mb-20" />
           <RevealSection>
