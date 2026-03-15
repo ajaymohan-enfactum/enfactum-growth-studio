@@ -3,17 +3,18 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
-import BrandLogo from "@/components/shared/BrandLogo";
 import SEOHead from "@/components/shared/SEOHead";
+import BrandPlate from "@/components/shared/BrandPlate";
+import SectorHeader from "@/components/shared/SectorHeader";
+import { FeaturedOutcome, SupportingOutcome, type OutcomeCapsuleData } from "@/components/shared/OutcomeCapsule";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { sectorClusters, type BrandEntry } from "@/data/brands";
-import { motion } from "framer-motion";
+import { sectorClusters } from "@/data/brands";
 
 /* ═══════════════════════════════════════════════
    SELECTED OUTCOMES
    ═══════════════════════════════════════════════ */
-const outcomeCapsules = [
+const outcomeCapsules: OutcomeCapsuleData[] = [
   {
     brand: "HP",
     caseId: "hp-garage",
@@ -43,94 +44,6 @@ const outcomeCapsules = [
     featured: false,
   },
 ];
-
-/* ═══════════════════════════════════════════════
-   BRAND PLATE — elevated dark capsule with logo
-   High contrast, readable, premium
-   ═══════════════════════════════════════════════ */
-const BrandPlate = ({
-  brand,
-  sector,
-  size = "md",
-  delay = 0,
-}: {
-  brand: BrandEntry;
-  sector: string;
-  size?: "lg" | "md" | "sm";
-  delay?: number;
-}) => {
-  const heights = { lg: 40, md: 30, sm: 22 };
-  const paddings = { lg: "px-8 py-6", md: "px-6 py-5", sm: "px-5 py-4" };
-  const h = heights[size];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-20px" }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={`group/plate relative ${paddings[size]} rounded-lg bg-white/[0.045] border border-white/[0.08] hover:border-primary/25 hover:bg-white/[0.07] transition-all duration-500 cursor-default`}
-    >
-      <BrandLogo
-        name={brand.name}
-        domain={brand.domain}
-        localLogo={brand.localLogo}
-        height={h}
-      />
-      {/* Tooltip */}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2.5 px-3.5 py-2 rounded-md bg-foreground/90 backdrop-blur-sm opacity-0 group-hover/plate:opacity-100 pointer-events-none transition-opacity duration-300 whitespace-nowrap z-20 shadow-lg">
-        <span className="block text-[11px] font-display font-semibold text-background leading-tight">{brand.name}</span>
-        <span className="block text-[9px] text-background/50 tracking-[0.1em] uppercase font-body mt-0.5">{sector}</span>
-        <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-[5px] border-r-[5px] border-t-[5px] border-l-transparent border-r-transparent border-t-foreground/90" />
-      </div>
-    </motion.div>
-  );
-};
-
-
-
-/* ═══════════════════════════════════════════════
-   SECTOR HEADER
-   ═══════════════════════════════════════════════ */
-const SectorHeader = ({
-  num,
-  title,
-  descriptor,
-  narrative,
-  align = "left",
-}: {
-  num: string;
-  title: string;
-  descriptor: string;
-  narrative: string;
-  align?: "left" | "center" | "right";
-}) => {
-  const alignClass = align === "center" ? "text-center mx-auto" : align === "right" ? "md:text-right md:ml-auto" : "";
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1 }}
-      className={`max-w-lg ${alignClass} mb-14 md:mb-20`}
-    >
-      <span className="text-[80px] md:text-[120px] font-display font-bold text-foreground/[0.025] leading-none select-none block">
-        {num}
-      </span>
-      <div className="mt-[-12px] md:mt-[-20px]">
-        <h3 className="text-[clamp(1.5rem,2.8vw,2.5rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.025em]">
-          {title}
-        </h3>
-        <p className="text-[11px] uppercase tracking-[0.25em] text-primary/40 font-body mt-2.5">
-          {descriptor}
-        </p>
-        <p className="text-[13px] text-foreground/30 leading-[1.8] font-body mt-5">
-          {narrative}
-        </p>
-      </div>
-    </motion.div>
-  );
-};
 
 /* ═══════════════════════════════════════════════
    PAGE
@@ -211,20 +124,16 @@ const Brands = () => {
             descriptor="Structured · Platform-led · Systemic"
             narrative={c01.narrative}
           />
-
-          {/* Row 1 — flagship brands, larger */}
           <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
             {c01.brands.slice(0, 3).map((brand, i) => (
               <BrandPlate key={brand.name} brand={brand} sector={c01.sector} size="lg" delay={0.1 + i * 0.08} />
             ))}
           </div>
-          {/* Row 2 — mid tier */}
           <div className="flex flex-wrap gap-4 md:gap-5 mb-5 md:pl-6">
             {c01.brands.slice(3, 7).map((brand, i) => (
               <BrandPlate key={brand.name} brand={brand} sector={c01.sector} size="md" delay={0.3 + i * 0.06} />
             ))}
           </div>
-          {/* Row 3 — supporting */}
           <div className="flex flex-wrap gap-3 md:gap-4 md:pl-2">
             {c01.brands.slice(7).map((brand, i) => (
               <BrandPlate key={brand.name} brand={brand} sector={c01.sector} size="sm" delay={0.5 + i * 0.05} />
@@ -237,7 +146,6 @@ const Brands = () => {
       <section className="relative py-28 md:py-36 overflow-hidden">
         <div className="section-container relative z-10">
           <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
-            {/* Logos */}
             <div className="md:col-span-7 md:order-1">
               <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
                 {c02.brands.slice(0, 2).map((brand, i) => (
@@ -250,8 +158,6 @@ const Brands = () => {
                 ))}
               </div>
             </div>
-
-            {/* Copy */}
             <div className="md:col-span-4 md:col-start-9 md:order-2 md:sticky md:top-36">
               <SectorHeader
                 num="02"
@@ -275,7 +181,6 @@ const Brands = () => {
             narrative={c03.narrative}
             align="center"
           />
-
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-5 mb-5">
             {c03.brands.slice(0, 3).map((brand, i) => (
               <BrandPlate key={brand.name} brand={brand} sector={c03.sector} size="lg" delay={0.15 + i * 0.1} />
@@ -293,7 +198,6 @@ const Brands = () => {
       <section className="relative py-28 md:py-36 overflow-hidden">
         <div className="section-container relative z-10">
           <div className="grid md:grid-cols-12 gap-12 items-start">
-            {/* Copy */}
             <div className="md:col-span-4 md:sticky md:top-36">
               <SectorHeader
                 num="04"
@@ -302,8 +206,6 @@ const Brands = () => {
                 narrative={c04.narrative}
               />
             </div>
-
-            {/* Logos */}
             <div className="md:col-span-7 md:col-start-6">
               <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
                 {c04.brands.slice(0, 2).map((brand, i) => (
@@ -323,7 +225,6 @@ const Brands = () => {
       {/* ═══ BEHIND THE LOGOS ═══ */}
       <section className="py-28 md:py-36 relative bg-[hsl(var(--section-alt))]">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/[0.08] to-transparent" />
-
         <div className="section-container relative z-10">
           <RevealSection blur>
             <div className="text-center max-w-2xl mx-auto mb-20">
@@ -337,56 +238,15 @@ const Brands = () => {
             </div>
           </RevealSection>
 
-          {/* Featured outcomes — flagship row */}
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-14">
             {outcomeCapsules.filter(c => c.featured).map((capsule, i) => (
-              <RevealSection key={i} delay={i * 0.12} blur>
-                <Link to={`/work#${capsule.caseId}`} className="block h-full">
-                  <div className="group relative rounded-xl border border-white/[0.06] bg-white/[0.025] p-10 md:p-12 lg:p-14 hover:border-primary/25 hover:bg-white/[0.04] hover:shadow-[0_0_40px_-12px_hsl(var(--primary)/0.12)] transition-all duration-700 h-full flex flex-col justify-between min-h-[320px] cursor-pointer">
-                    <span className="absolute top-8 right-10 text-[120px] font-display font-bold text-foreground/[0.02] leading-none select-none pointer-events-none">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div>
-                      <span className="text-[10px] tracking-[0.2em] text-primary/40 uppercase font-body block mb-4">
-                        {capsule.label}
-                      </span>
-                      <h3 className="text-[clamp(1.75rem,3vw,2.5rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em]">
-                        {capsule.brand}
-                      </h3>
-                      <p className="text-[14px] text-foreground/35 leading-[1.85] font-body mt-6 max-w-md">
-                        {capsule.outcome}
-                      </p>
-                    </div>
-                    <div className="mt-10 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-px bg-primary/20 group-hover:w-12 transition-all duration-500" />
-                        <span className="text-[10px] text-primary/30 group-hover:text-primary/50 uppercase tracking-[0.15em] font-body transition-colors duration-500">Case outcome</span>
-                      </div>
-                      <span className="flex items-center gap-1.5 text-[11px] font-body text-primary/0 group-hover:text-primary/60 translate-x-2 group-hover:translate-x-0 transition-all duration-500">
-                        View case study <ArrowRight className="w-3 h-3" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </RevealSection>
+              <FeaturedOutcome key={i} capsule={capsule} index={i} delay={i * 0.12} />
             ))}
           </div>
 
-          {/* Supporting outcomes — secondary row */}
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {outcomeCapsules.filter(c => !c.featured).map((capsule, i) => (
-              <RevealSection key={i} delay={0.3 + i * 0.08} blur>
-                <Link to={`/work#${capsule.caseId}`} className="block">
-                  <div className="group rounded-lg border border-white/[0.04] bg-white/[0.015] px-8 py-7 md:px-9 md:py-8 hover:border-primary/15 hover:bg-white/[0.03] hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.08)] transition-all duration-700 cursor-pointer">
-                    <span className="text-[9px] text-primary/30 uppercase tracking-[0.2em] font-body block mb-3">{capsule.label}</span>
-                    <h4 className="text-base font-display font-semibold text-foreground/85 leading-tight mb-3">{capsule.brand}</h4>
-                    <p className="text-[13px] text-foreground/30 leading-[1.75] font-body">{capsule.outcome}</p>
-                    <span className="flex items-center gap-1.5 text-[10px] font-body text-primary/0 group-hover:text-primary/50 mt-4 translate-x-1 group-hover:translate-x-0 transition-all duration-500">
-                      View case study <ArrowRight className="w-3 h-3" />
-                    </span>
-                  </div>
-                </Link>
-              </RevealSection>
+              <SupportingOutcome key={i} capsule={capsule} delay={0.3 + i * 0.08} />
             ))}
           </div>
         </div>
