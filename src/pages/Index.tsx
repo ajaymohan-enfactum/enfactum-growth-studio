@@ -313,41 +313,20 @@ const processSteps = [
 const HowWeWork = () => (
   <section id="how-we-work" className="py-16 md:py-20">
     <div className="section-container">
-      <SectionHeader
-        eyebrow="How we work"
-        headline="Growth Architects, not just advisors."
-        description="We embed within the business and stay until growth has real infrastructure."
-        centered
-      />
-      <div className="mt-14 relative">
-        {/* Desktop */}
-        <div className="hidden md:block">
-          <div className="flex items-start justify-between relative">
-            {/* Connecting line */}
-            <div className="absolute top-[18px] left-[10%] right-[10%] h-px bg-border/40" />
-            <div className="absolute top-[18px] left-[10%] right-[10%] h-px bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0" />
-            {processSteps.map((step, i) => (
-              <RevealSection key={i} delay={i * 0.1} className="flex-1 relative px-4 text-center">
-                <div className="w-9 h-9 rounded-full border border-border bg-background flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:border-primary/40 transition-colors" style={{ boxShadow: '0 0 20px 6px hsl(210 100% 50% / 0.08)' }}>
-                  <span className="text-[10px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
-                </div>
-                <h3 className="font-display font-bold text-foreground text-base tracking-tight">{step.step}</h3>
-              </RevealSection>
-            ))}
-          </div>
-        </div>
-        {/* Mobile */}
-        <div className="md:hidden space-y-10 relative pl-10">
-          <div className="absolute left-[14px] top-2 bottom-2 w-px bg-border/30" />
-          {processSteps.map((step, i) => (
-            <RevealSection key={i} delay={i * 0.06} className="relative">
-              <div className="absolute -left-10 top-0 w-7 h-7 rounded-full border border-border bg-background flex items-center justify-center" style={{ boxShadow: '0 0 16px 4px hsl(210 100% 50% / 0.08)' }}>
-                <span className="text-[9px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
+      <h2 className="headline-lg max-w-xl">Growth Architects, not just advisors.</h2>
+      <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+        {processSteps.map((step, i) => (
+          <RevealSection key={i} delay={i * 0.08}>
+            <div className="flex gap-6 items-start">
+              <span className="text-8xl font-display font-black text-white/[0.07] leading-none select-none shrink-0">
+                {String(i + 1)}
+              </span>
+              <div className="pt-4">
+                <h3 className="font-display text-xl font-bold text-foreground">{step.step}</h3>
               </div>
-              <h3 className="font-display font-semibold text-foreground">{step.step}</h3>
-            </RevealSection>
-          ))}
-        </div>
+            </div>
+          </RevealSection>
+        ))}
       </div>
     </div>
   </section>
