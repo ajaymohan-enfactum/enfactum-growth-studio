@@ -637,6 +637,7 @@ const Index = () => (
     {/* Break 5 — Silent divider */}
     <div className="py-2"><div className="w-full h-px border-t border-white/10" /></div>
     <FeaturedWork />
+    <DepthSection />
     {/* Break 3 — Divider line */}
     <div className="py-8">
       <p className="text-center text-xs text-blue-400 tracking-[0.3em] uppercase">
@@ -644,7 +645,6 @@ const Index = () => (
       </p>
     </div>
     <QuoteCarousel quotes={clientInsights} />
-    <DepthSection />
     <Perspectives />
     <CTABand
       headline="Let's move growth forward."
