@@ -20,7 +20,7 @@ import trevorPhoto from "@/assets/team/trevor-wingert.png";
 
 import purwaPhoto from "@/assets/team/purwa-jain.png";
 import markGuerrierPhoto from "@/assets/team/mark-guerrier.png";
-import navonilPhoto from "@/assets/team/navonil-roy.png";
+
 import anuchidaPhoto from "@/assets/team/anuchida-kawashima.png";
 import idrisPhoto from "@/assets/team/idris-atalki.png";
 
