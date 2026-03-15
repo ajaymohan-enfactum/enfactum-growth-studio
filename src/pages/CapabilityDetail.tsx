@@ -286,7 +286,7 @@ const buyerCapData: Record<string, BuyerCapData> = {
     eyebrow: "Brand & Demand",
     headline: "Connect brand to commercial outcomes. Make demand compound across Southeast Asia.",
     challengeBody: "Performance campaigns generate clicks. Brand campaigns build awareness. Neither builds commercial momentum on its own. In Southeast Asia, where trust and relevance are earned market by market, the brands that grow fastest connect brand to demand as a single system.",
-    seoTitle: "Brand & Demand — Performance Marketing & Growth in Southeast Asia",
+    seoTitle: "Brand & Demand",
     seoDescription: "Integrated brand and demand generation across Southeast Asia: performance marketing, affiliate programmes, influencer ecosystems, creative, and digital experience — connected to measurable commercial outcomes.",
     whatWeBuild: [
       { title: "Performance & Paid Media", desc: "Paid acquisition, programmatic, search, and retargeting — optimised for cost per outcome, not cost per click." },
