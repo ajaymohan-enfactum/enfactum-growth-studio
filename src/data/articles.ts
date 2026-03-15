@@ -196,7 +196,7 @@ export const articles: Article[] = [
   {
     title: "The Real Value of Corporate Innovation Is Commercial, Not Cosmetic.",
     slug: "the-real-value-of-corporate-innovation-is-commercial-not-cosmetic",
-    category: "Operator View",
+    category: "Architect View",
     theme: "AI & Innovation",
     author: "Ajay Mohan",
     authorRole: "Founder & Managing Partner",
