@@ -1,0 +1,42 @@
+import { motion } from "framer-motion";
+import BrandLogo from "@/components/shared/BrandLogo";
+import { type BrandEntry } from "@/data/brands";
+
+interface BrandPlateProps {
+  brand: BrandEntry;
+  sector: string;
+  size?: "lg" | "md" | "sm";
+  delay?: number;
+}
+
+const heights = { lg: 40, md: 30, sm: 22 };
+const paddings = { lg: "px-8 py-6", md: "px-6 py-5", sm: "px-5 py-4" };
+
+const BrandPlate = ({ brand, sector, size = "md", delay = 0 }: BrandPlateProps) => {
+  const h = heights[size];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      className={`group/plate relative ${paddings[size]} rounded-lg bg-white/[0.045] border border-white/[0.08] hover:border-primary/25 hover:bg-white/[0.07] transition-all duration-500 cursor-default`}
+    >
+      <BrandLogo
+        name={brand.name}
+        domain={brand.domain}
+        localLogo={brand.localLogo}
+        height={h}
+      />
+      {/* Tooltip */}
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2.5 px-3.5 py-2 rounded-md bg-foreground/90 backdrop-blur-sm opacity-0 group-hover/plate:opacity-100 pointer-events-none transition-opacity duration-300 whitespace-nowrap z-20 shadow-lg">
+        <span className="block text-[11px] font-display font-semibold text-background leading-tight">{brand.name}</span>
+        <span className="block text-[9px] text-background/50 tracking-[0.1em] uppercase font-body mt-0.5">{sector}</span>
+        <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-[5px] border-r-[5px] border-t-[5px] border-l-transparent border-r-transparent border-t-foreground/90" />
+      </div>
+    </motion.div>
+  );
+};
+
+export default BrandPlate;
