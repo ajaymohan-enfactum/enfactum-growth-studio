@@ -304,11 +304,11 @@ const WhatWeBuilds = () => (
    Horizontal process with cinematic linework
    ═══════════════════════════════════════════════ */
 const processSteps = [
-  { step: "Define", desc: "Diagnose the challenge. Align stakeholders. Set commercial objectives." },
-  { step: "Build", desc: "Design infrastructure, partnerships, and go-to-market architecture." },
-  { step: "Operate", desc: "Execute embedded — hands on the work, not just the plan." },
-  { step: "Transfer", desc: "Build internal capability. Transition ownership to client teams." },
-  { step: "Scale", desc: "Expand across markets, partners, and channels with proven playbooks." },
+  { step: "Define" },
+  { step: "Build" },
+  { step: "Operate" },
+  { step: "Transfer" },
+  { step: "Scale" },
 ];
 
 const HowWeWork = () => (
