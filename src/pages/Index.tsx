@@ -99,17 +99,6 @@ const Hero = () => {
           </motion.span>
         </h1>
 
-        {/* Subtext — 400ms after headline completes */}
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.3, ease }}
-          className="body-xl mt-8 max-w-[52ch]"
-        >
-          Built for how Southeast Asia actually works, Enfactum brings together
-          strategy, ecosystems, and execution to help enterprise brands scale
-          with clarity and momentum.
-        </motion.p>
 
         {/* CTAs — slide up 300ms after subtext */}
         <motion.div
