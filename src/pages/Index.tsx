@@ -652,10 +652,12 @@ const SectorExperience = () => (
 
 /* ═══════════════════════════════════════════════
    SECTION 7 — FEATURED WORK
-   Result-oriented selected work
+   Result-oriented selected work — flagship + supporting
    ═══════════════════════════════════════════════ */
 const FeaturedWork = () => {
   const flagships = getFlagshipCases();
+  const heroCase = flagships[0];
+  const supportingCases = flagships.slice(1);
   return (
     <section id="selected-work" className="py-24 md:py-32 bg-[#080E1A]">
       <div className="section-container">
@@ -663,25 +665,31 @@ const FeaturedWork = () => {
           <div className="md:col-span-6">
             <RevealSection>
               <p className="eyebrow mb-4">Selected work</p>
-              <h2 className="headline-lg">Selected outcomes.</h2>
+              <h2 className="headline-lg">Selected work across the region.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-4 md:col-start-8 flex items-end">
             <RevealSection delay={0.2}>
               <p className="text-[13px] text-muted-foreground leading-relaxed">
-                Selected work with measurable commercial, operational, and ecosystem outcomes.
+                Measurable commercial, operational, and ecosystem outcomes across Southeast Asia.
               </p>
             </RevealSection>
           </div>
         </div>
+
+        {/* Flagship feature */}
+        {heroCase && <CaseCard cs={heroCase} index={0} variant="flagship" />}
+
+        {/* Supporting cases */}
         <div className="space-y-0">
-          {flagships.map((cs, i) => (
-            <CaseCard key={cs.id} cs={cs} index={i} />
+          {supportingCases.map((cs, i) => (
+            <CaseCard key={cs.id} cs={cs} index={i + 1} />
           ))}
         </div>
+
         <RevealSection delay={0.3} className="mt-12">
           <Link to="/work" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors">
-            View recent work <ArrowRight className="w-4 h-4" />
+            View all work <ArrowRight className="w-4 h-4" />
           </Link>
         </RevealSection>
       </div>
