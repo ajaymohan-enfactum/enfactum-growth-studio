@@ -32,10 +32,10 @@ const leaders = [
 ];
 
 const domainSpecialists = [
-  { domain: "Enterprise SaaS & Technology", focus: "GTM strategy, channel programmes, partner ecosystems for technology companies" },
-  { domain: "Consumer & Brand Growth", focus: "Market entry, brand-to-demand, retail partnership activation" },
-  { domain: "Financial Services & Fintech", focus: "Ecosystem design, regulatory navigation, digital transformation" },
-  { domain: "Government & Institutions", focus: "Innovation programmes, public-sector engagement, ecosystem architecture" },
+  { domain: "Enterprise SaaS & Technology", focus: "GTM strategy, channel programmes, partner ecosystems for technology companies", clients: "HP · Oracle · Dell EMC · Commvault · Lenovo", featured: true },
+  { domain: "Consumer & Brand Growth", focus: "Market entry, brand-to-demand, retail partnership activation", clients: "L'Oréal · Lancôme · Kiehl's · JSHealth · Brands For Less", featured: false },
+  { domain: "Financial Services & Fintech", focus: "Ecosystem design, regulatory navigation, digital transformation", clients: "eBaoTech · Insuremo · Redington", featured: false },
+  { domain: "Government & Institutions", focus: "Innovation programmes, public-sector engagement, ecosystem architecture", clients: "The Economist · NUS · Abbott · DSCOOP", featured: false },
 ];
 
 const capabilityOwnership = [
@@ -248,36 +248,62 @@ const Company = () => (
     {/* ═══ SECTION 4 — DOMAIN SPECIALISTS ═══ */}
     <section className="py-24 md:py-32 bg-[hsl(var(--section-alt))]">
       <div className="section-container">
-        <RevealSection blur>
-          <div className="max-w-xl mb-16">
-            <p className="eyebrow mb-6">Verticals</p>
-            <h2 className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em]">
-              Industry depth across key sectors.
-            </h2>
-            <p className="text-[13px] text-foreground/30 mt-5 leading-relaxed font-body max-w-md">
-              Beyond functional capability, Enfactum maintains sector-specific expertise through dedicated domain specialists.
-            </p>
+        <div className="grid md:grid-cols-12 gap-8 mb-20">
+          <div className="md:col-span-6">
+            <RevealSection blur>
+              <p className="eyebrow mb-6">Verticals</p>
+              <h2 className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em]">
+                Industry depth across<br className="hidden md:block" /> key sectors.
+              </h2>
+            </RevealSection>
           </div>
-        </RevealSection>
+          <div className="md:col-span-4 md:col-start-8 flex items-end">
+            <RevealSection delay={0.1}>
+              <p className="text-[13px] text-foreground/30 leading-relaxed font-body">
+                Beyond functional capability, Enfactum maintains sector-specific expertise through dedicated domain specialists.
+              </p>
+            </RevealSection>
+          </div>
+        </div>
 
-        {/* 2×2 editorial grid with numbering and accent */}
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-0">
-          {domainSpecialists.map((ds, i) => (
-            <RevealSection key={i} delay={i * 0.08} blur>
-              <div className="py-10 border-t border-border/15 group">
-                <div className="flex items-start gap-6">
-                  <span className="text-[40px] md:text-[56px] font-display font-bold text-foreground/[0.04] leading-none shrink-0 select-none">
-                    {String(i + 1).padStart(2, '0')}
+        {/* Featured sector — Enterprise Technology */}
+        {domainSpecialists.filter(ds => ds.featured).map((ds, i) => (
+          <RevealSection key={i} blur>
+            <div className="relative p-8 md:p-12 rounded-sm border border-border/10 bg-background/20 backdrop-blur-sm mb-8">
+              <div className="grid md:grid-cols-12 gap-8">
+                <div className="md:col-span-7">
+                  <span className="text-[80px] md:text-[100px] font-display font-bold text-foreground/[0.025] leading-none select-none pointer-events-none absolute top-4 right-6 hidden md:block">
+                    01
                   </span>
-                  <div className="pt-2">
-                    <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 leading-snug">
-                      {ds.domain}
-                    </h3>
-                    <p className="text-[13px] text-foreground/30 mt-3 leading-relaxed font-body">
-                      {ds.focus}
-                    </p>
-                  </div>
+                  <span className="text-[10px] text-primary/40 uppercase tracking-[0.2em] font-body">Primary vertical</span>
+                  <h3 className="text-[clamp(1.25rem,2vw,1.75rem)] font-display font-bold text-foreground mt-3 leading-[1.15] tracking-[-0.01em]">
+                    {ds.domain}
+                  </h3>
+                  <div className="w-10 h-px bg-primary/15 my-5" />
+                  <p className="text-[14px] text-foreground/35 leading-[1.8] max-w-md">{ds.focus}</p>
                 </div>
+                <div className="md:col-span-4 md:col-start-9 flex flex-col justify-end">
+                  <span className="text-[10px] text-foreground/15 uppercase tracking-[0.2em] font-body mb-3">Select clients</span>
+                  <p className="text-[13px] text-foreground/25 leading-[1.8] font-body">{ds.clients}</p>
+                </div>
+              </div>
+            </div>
+          </RevealSection>
+        ))}
+
+        {/* Supporting sectors — horizontal lanes */}
+        <div className="grid md:grid-cols-3 gap-0">
+          {domainSpecialists.filter(ds => !ds.featured).map((ds, i) => (
+            <RevealSection key={i} delay={0.1 + i * 0.08} blur>
+              <div className={`py-8 md:py-10 md:px-8 ${i < 2 ? 'md:border-r border-border/8' : ''} border-t border-border/10`}>
+                <span className="text-[32px] font-display font-bold text-foreground/[0.03] leading-none select-none block mb-4">
+                  {String(i + 2).padStart(2, '0')}
+                </span>
+                <h3 className="font-display text-[15px] font-semibold text-foreground leading-snug">
+                  {ds.domain}
+                </h3>
+                <p className="text-[12px] text-foreground/25 mt-3 leading-relaxed font-body">{ds.focus}</p>
+                <p className="text-[10px] text-foreground/12 mt-4 font-body leading-relaxed">{ds.clients}</p>
               </div>
             </RevealSection>
           ))}
