@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { posthog } from "@/lib/analytics";
 import { Link, useSearchParams } from "react-router-dom";
 import { z } from "zod";
 import PageLayout from "@/components/layout/PageLayout";
