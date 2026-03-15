@@ -45,63 +45,66 @@ const Hero = () => {
       onMouseLeave={() => setHovering(false)}
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Animated gradient background */}
+      {/* Deep base gradient */}
       <div
         className="absolute inset-0 z-0"
         style={{
-          background: 'radial-gradient(ellipse 120% 80% at 20% 50%, hsl(215 60% 8%) 0%, hsl(225 15% 8%) 40%, hsl(220 40% 6%) 70%, hsl(225 15% 8%) 100%)',
-          backgroundSize: '200% 200%',
-          animation: 'hero-gradient-shift 8s ease-in-out infinite alternate',
+          background: 'radial-gradient(ellipse 130% 90% at 25% 45%, hsl(218 65% 7%) 0%, hsl(225 15% 8%) 35%, hsl(222 45% 5%) 65%, hsl(225 15% 8%) 100%)',
         }}
       />
-      <HybridBackground />
+
+      {/* Immersive atmosphere */}
+      <HeroAtmosphere />
+
       {/* Cursor spotlight */}
       <div
-        className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-700"
+        className="pointer-events-none absolute inset-0 z-[2] transition-opacity duration-700"
         style={{
           opacity: hovering ? 1 : 0,
-          background: `radial-gradient(600px circle at ${cursorPos.x}px ${cursorPos.y}px, hsl(210 100% 50% / 0.07), transparent 55%)`,
+          background: `radial-gradient(550px circle at ${cursorPos.x}px ${cursorPos.y}px, hsl(210 100% 50% / 0.08), transparent 55%)`,
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
+
+      {/* Bottom gradient fade to content */}
+      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-background via-background/80 to-transparent z-[3]" />
 
       <div className="section-container relative z-10 w-full">
-        <div className="grid md:grid-cols-5 items-center">
+        <div className="grid md:grid-cols-5 items-center min-h-[70vh]">
           {/* Left side — 60% */}
-          <div className="md:col-span-3">
-            {/* Vertical blue accent bar */}
+          <div className="md:col-span-3 flex flex-col justify-center">
+            {/* Vertical blue accent bar — taller, more deliberate */}
             <motion.div
-              initial={{ scaleY: 0 }}
-              animate={{ scaleY: 1 }}
-              transition={{ duration: 0.6, delay: 0.3, ease }}
-              className="w-[3px] h-16 bg-primary mb-6 origin-top"
+              initial={{ scaleY: 0, opacity: 0 }}
+              animate={{ scaleY: 1, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease }}
+              className="w-[2px] h-20 bg-gradient-to-b from-primary via-primary/60 to-transparent mb-8 origin-top"
             />
 
-            <h1 className="text-4xl md:text-6xl font-semibold text-foreground leading-tight">
+            <h1 className="text-[clamp(2.25rem,5.2vw,4.5rem)] font-bold text-foreground leading-[1.02] tracking-[-0.03em]">
               <motion.span
                 className="block"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 0.5, ease }}
+                initial={{ opacity: 0, y: 50, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 1, delay: 0.4, ease }}
               >
-                Where strategy, ecosystems, and execution{" "}
+                Where strategy, ecosystems,
               </motion.span>
               <motion.span
                 className="block"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 0.7, ease }}
+                initial={{ opacity: 0, y: 50, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 1, delay: 0.65, ease }}
               >
+                and execution{" "}
                 <TextShimmer><span className="text-primary">move together.</span></TextShimmer>
               </motion.span>
             </h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0, ease }}
-              className="text-sm tracking-widest text-foreground/40 uppercase mt-4"
+              transition={{ duration: 0.8, delay: 1.1, ease }}
+              className="text-[13px] tracking-[0.25em] text-foreground/35 uppercase mt-5 font-light"
             >
               Growth &amp; Innovation Operating Partner · Southeast Asia
             </motion.p>
@@ -109,8 +112,8 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1.3, ease }}
-              className="flex flex-col sm:flex-row gap-4 mt-8"
+              transition={{ duration: 0.7, delay: 1.4, ease }}
+              className="flex flex-col sm:flex-row gap-4 mt-10"
             >
               <Link to="/contact">
                 <MagneticButton variant="hero" size="xl">Start a conversation</MagneticButton>
@@ -121,8 +124,20 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right side — 40% */}
-          <div className="hidden md:flex md:col-span-2" />
+          {/* Right side — atmospheric space (visual tension) */}
+          <div className="hidden md:flex md:col-span-2 items-center justify-center relative">
+            {/* Soft radial anchor glow on right side */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2, delay: 0.8, ease }}
+              className="absolute w-[280px] h-[280px] rounded-full"
+              style={{
+                background: "radial-gradient(circle, hsla(210, 100%, 50%, 0.06) 0%, hsla(210, 80%, 40%, 0.02) 50%, transparent 70%)",
+                filter: "blur(40px)",
+              }}
+            />
+          </div>
         </div>
       </div>
 
@@ -130,11 +145,12 @@ const Hero = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 2.0, ease }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center"
+        transition={{ duration: 0.8, delay: 2.2, ease }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
+        <span className="text-[10px] tracking-[0.3em] text-foreground/20 uppercase">Scroll</span>
         <ChevronDown
-          className="w-5 h-5 text-primary/60"
+          className="w-4 h-4 text-primary/50"
           strokeWidth={1.5}
           style={{ animation: 'scroll-bounce 2s ease-in-out infinite' }}
         />
