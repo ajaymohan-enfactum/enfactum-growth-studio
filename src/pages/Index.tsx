@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SEASignalField from "@/components/shared/SEASignalField";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useCallback, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
