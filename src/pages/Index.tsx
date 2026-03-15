@@ -121,18 +121,8 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right side — 40% decorative accent */}
-          <div className="hidden md:flex md:col-span-2 items-center justify-end overflow-hidden">
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5, delay: 0.8, ease }}
-              className="text-[200px] font-black text-foreground/[0.03] leading-none select-none translate-x-12"
-              aria-hidden="true"
-            >
-              en
-            </motion.span>
-          </div>
+          {/* Right side — 40% */}
+          <div className="hidden md:flex md:col-span-2" />
         </div>
       </div>
 
