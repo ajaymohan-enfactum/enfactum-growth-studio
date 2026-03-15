@@ -96,7 +96,7 @@ export const articles: Article[] = [
   {
     title: "Partner Programs Don't Fail from Lack of Intent. They Fail from Lack of Design.",
     slug: "partner-programs-dont-fail-from-lack-of-intent",
-    category: "Operator View",
+    category: "Architect View",
     theme: "Ecosystems & Partnerships",
     author: "William Gaultier",
     authorRole: "Partner",
