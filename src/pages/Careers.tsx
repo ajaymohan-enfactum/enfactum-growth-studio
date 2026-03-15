@@ -27,7 +27,7 @@ const Careers = () => (
   <PageLayout>
     <SEOHead
       title="Careers — Build Growth Infrastructure in Southeast Asia"
-      description="Join Enfactum's operating bench. Open roles across strategy, creative, technology, demand operations, and programme management in Singapore, India, Malaysia, and Indonesia."
+      description="Join Enfactum's Architect Bench. Open roles across strategy, creative, technology, demand operations, and programme management in Singapore, India, Malaysia, and Indonesia."
       path="/company/careers"
       jsonLd={makeBreadcrumbSchema([
         { name: "Company", url: "/company" },
