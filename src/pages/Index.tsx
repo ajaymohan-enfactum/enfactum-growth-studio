@@ -276,7 +276,7 @@ const WhatWeBuilds = () => (
     <div className="section-container">
       <SectionHeader
         eyebrow="What Enfactum builds"
-        headline="Four capabilities. One operating model."
+        headline="Four capabilities. One growth architecture."
         description="Each capability connects. Together, they form a growth operating system for Southeast Asia."
       />
       <div className="mt-12 grid md:grid-cols-2 gap-6">
