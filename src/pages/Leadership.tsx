@@ -2,7 +2,6 @@ import { useState, useCallback } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
-import StaggerGrid from "@/components/shared/StaggerGrid";
 import CTABand from "@/components/shared/CTABand";
 import TeamProfilePanel from "@/components/shared/TeamProfilePanel";
 import SEOHead, { makeBreadcrumbSchema } from "@/components/shared/SEOHead";
@@ -15,15 +14,11 @@ import irfanPhoto from "@/assets/team/irfan-mulla.png";
 import sanjayPhoto from "@/assets/team/sanjay-chankranth.png";
 import rakhiPhoto from "@/assets/team/rakhi-sachdeva.png";
 import trevorPhoto from "@/assets/team/trevor-wingert.png";
-
-
 import markGuerrierPhoto from "@/assets/team/mark-guerrier.png";
-
 import anuchidaPhoto from "@/assets/team/anuchida-kawashima.png";
 import idrisPhoto from "@/assets/team/idris-atalki.png";
 
 const leadershipTeam: TeamMemberFull[] = [
-  // Row 1: Ajay, William, Trevor
   {
     name: "Ajay Mohan",
     role: "Founder & Managing Partner",
@@ -59,12 +54,29 @@ William works with clients on GTM strategy, market entry planning, and growth ac
     photo: williamPhoto,
   },
   {
+    name: "Pooja Mohan",
+    role: "Director & Co-Founder",
+    category: "Brand & Demand",
+    focus: "Brand Strategy · Creative Execution · Digital Experience",
+    location: "India",
+    bio: "15+ years in brand strategy and creative execution across APAC markets.",
+    fullBio: `Pooja has spent 15+ years transforming brand strategy into creative execution that works across APAC's diverse markets. She leads Enfactum's creative strategy work—connecting brand positioning to campaign creative to digital experience design.
+
+Her background combines advertising agency experience with in-house brand leadership, giving her perspective on both the creative vision and the operational realities of bringing brands to life across cultures and channels.
+
+Pooja works with clients on brand positioning, creative development, and the visual and verbal systems that make brands distinctive and memorable in crowded markets.`,
+    philosophy: "Scale is an operations problem, not a strategy problem.",
+    expertise: ["Brand strategy", "Creative direction", "Visual identity", "Digital experience design", "Cross-cultural adaptation"],
+    linkedin: "https://linkedin.com/in/poojamohan",
+    photo: poojaPhoto,
+  },
+  {
     name: "Trevor Wingert",
     role: "GTM Technology Advisor",
     category: "GTM Strategy",
     focus: "GTM Systems · Digital Transformation · Automation",
     location: "Singapore",
-    bio: "25+ years scaling technology platforms. Specializes in GTM technology and automation.",
+    bio: "25+ years scaling technology platforms. Specialises in GTM technology and automation.",
     fullBio: `Trevor brings 25+ years of experience scaling technology platforms, with $2B+ in transaction value across enterprise software, SaaS, and digital infrastructure. He specializes in GTM technology integration—helping clients modernize their marketing and sales technology stacks to support ambitious growth goals.
 
 His background spans enterprise technology leadership, digital transformation, and marketing technology implementation. Trevor understands both the strategic vision and the technical details required to make growth infrastructure actually work.
@@ -75,7 +87,6 @@ At Enfactum, Trevor advises clients on marketing technology architecture, automa
     linkedin: "https://linkedin.com/in/trevorwingert",
     photo: trevorPhoto,
   },
-  // Row 2: Jamshed, Sumit, Pooja
   {
     name: "Jamshed Wadia",
     role: "AI Strategy & Transformation",
@@ -108,24 +119,6 @@ At Enfactum, Sumit works with clients on growth strategy, demand generation, and
     expertise: ["Growth strategy", "Demand generation", "Pipeline development", "B2B marketing"],
     linkedin: "https://linkedin.com/in/sumitramchandani",
   },
-  {
-    name: "Pooja Mohan",
-    role: "Director & Co-Founder",
-    category: "Brand & Demand",
-    focus: "Brand Strategy · Creative Execution · Digital Experience",
-    location: "India",
-    bio: "15+ years in brand strategy and creative execution across APAC markets.",
-    fullBio: `Pooja has spent 15+ years transforming brand strategy into creative execution that works across APAC's diverse markets. She leads Enfactum's creative strategy work—connecting brand positioning to campaign creative to digital experience design.
-
-Her background combines advertising agency experience with in-house brand leadership, giving her perspective on both the creative vision and the operational realities of bringing brands to life across cultures and channels.
-
-Pooja works with clients on brand positioning, creative development, and the visual and verbal systems that make brands distinctive and memorable in crowded markets.`,
-    philosophy: "Scale is an operations problem, not a strategy problem.",
-    expertise: ["Brand strategy", "Creative direction", "Visual identity", "Digital experience design", "Cross-cultural adaptation"],
-    linkedin: "https://linkedin.com/in/poojamohan",
-    photo: poojaPhoto,
-  },
-  // Row 3: Mark, Anuchida, Idris
   {
     name: "Mark Guerrier",
     role: "Creative Director",
@@ -175,7 +168,6 @@ At Enfactum, Idris ensures that AI programmes are commercially purposeful, opera
     expertise: ["AI programme delivery", "Innovation strategy", "Project architecture", "Stakeholder management", "Technology operations"],
     photo: idrisPhoto,
   },
-  // Row 4: Sanjay, Rakhi, Irfan
   {
     name: "Sanjay Chankranth",
     role: "Malaysia Country Manager",
@@ -229,6 +221,56 @@ Before Enfactum, Irfan built and led marketing teams at technology and media com
   },
 ];
 
+/* Principals = first 3 (Ajay, William, Pooja) */
+const principals = leadershipTeam.slice(0, 3);
+const seniorTeam = leadershipTeam.slice(3);
+
+/* ═══════════════════════════════════════════════
+   PORTRAIT COMPONENT
+   ═══════════════════════════════════════════════ */
+const Portrait = ({
+  member,
+  size = "md",
+  onClick,
+}: {
+  member: TeamMemberFull;
+  size?: "lg" | "md" | "sm";
+  onClick?: () => void;
+}) => {
+  const initials = member.name.split(" ").map((n) => n[0]).join("");
+  const aspectClass = size === "lg" ? "aspect-[3/4]" : size === "md" ? "aspect-[3/4]" : "aspect-square";
+
+  return (
+    <button
+      onClick={onClick}
+      className="group w-full text-left cursor-pointer"
+      aria-label={`View profile for ${member.name}`}
+    >
+      <div className={`w-full ${aspectClass} rounded-sm overflow-hidden relative mb-5`}>
+        {member.photo ? (
+          <>
+            <img
+              src={member.photo}
+              alt={member.name}
+              className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+          </>
+        ) : (
+          <div className="w-full h-full bg-gradient-to-b from-secondary/50 to-secondary/20 flex items-center justify-center">
+            <span className="font-display text-2xl font-bold text-foreground/10">{initials}</span>
+          </div>
+        )}
+        {/* Hover accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent group-hover:via-primary/30 transition-all duration-700" />
+      </div>
+    </button>
+  );
+};
+
+/* ═══════════════════════════════════════════════
+   PAGE
+   ═══════════════════════════════════════════════ */
 const Leadership = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
@@ -277,36 +319,156 @@ const Leadership = () => {
         description="The Enfactum leadership team brings decades of experience across strategy, growth, technology, and creative — all earned in the markets we serve."
       />
 
-      <section className="py-20 md:py-28">
+      {/* ═══ PRINCIPALS — Editorial feature layout ═══ */}
+      <section className="py-24 md:py-32">
         <div className="section-container">
-          <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
-            {leadershipTeam.map((leader, i) => {
-                const initials = leader.name.split(" ").map((n) => n[0]).join("");
-                return (
-                <button
-                  key={i}
-                  onClick={() => openProfile(i)}
-                  className="card-premium h-full w-full text-left group cursor-pointer transition-all duration-500 hover:border-primary/20"
-                  aria-label={`View profile for ${leader.name}`}
-                >
-                  <div className="w-full aspect-[4/5] rounded-md bg-secondary/60 border border-border mb-5 flex items-center justify-center">
-                    <span className="font-display text-3xl font-bold text-primary/40">
-                      {initials}
-                    </span>
-                  </div>
-                  <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-500">
-                    {leader.name}
-                  </h3>
-                  <p className="text-sm text-primary font-medium">{leader.role}</p>
-                  <p className="text-xs text-dim mt-1">{leader.focus}</p>
-                  <p className="text-sm text-muted-foreground mt-4">{leader.bio}</p>
-                  <span className="inline-block mt-3 text-[11px] text-primary/60 uppercase tracking-wider font-body group-hover:text-primary transition-colors duration-500">
-                    View profile →
+          <RevealSection blur>
+            <p className="eyebrow mb-16">Principals</p>
+          </RevealSection>
+
+          {/* Ajay — Full-width editorial feature */}
+          <RevealSection blur>
+            <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-24 md:mb-32">
+              <div className="md:col-span-5">
+                <Portrait
+                  member={principals[0]}
+                  size="lg"
+                  onClick={() => openProfile(0)}
+                />
+              </div>
+              <div className="md:col-span-6 md:col-start-7 flex flex-col justify-center">
+                <button onClick={() => openProfile(0)} className="text-left group cursor-pointer">
+                  <span className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body">
+                    {principals[0].location}
+                  </span>
+                  <h2 className="text-[clamp(1.5rem,2.5vw,2.25rem)] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em] mt-3 group-hover:text-primary transition-colors duration-500">
+                    {principals[0].name}
+                  </h2>
+                  <p className="text-sm text-primary/50 font-medium mt-2">{principals[0].role}</p>
+                  <div className="w-10 h-px bg-border/20 my-6" />
+                  <p className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body mb-4">
+                    {principals[0].focus}
+                  </p>
+                  <p className="text-[15px] text-foreground/40 leading-[1.8] max-w-md">
+                    {principals[0].bio}
+                  </p>
+                  {principals[0].philosophy && (
+                    <p className="text-[13px] text-foreground/20 italic mt-6 border-l-2 border-primary/15 pl-4">
+                      "{principals[0].philosophy}"
+                    </p>
+                  )}
+                  <span className="inline-block mt-8 text-[11px] text-primary/40 uppercase tracking-[0.15em] font-body group-hover:text-primary/70 transition-colors duration-500">
+                    Full profile →
                   </span>
                 </button>
-                );
+              </div>
+            </div>
+          </RevealSection>
+
+          {/* William & Pooja — Side by side, slightly smaller */}
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+            {principals.slice(1).map((principal, i) => {
+              const globalIndex = i + 1;
+              return (
+                <RevealSection key={globalIndex} delay={i * 0.1} blur>
+                  <div>
+                    <Portrait
+                      member={principal}
+                      size="md"
+                      onClick={() => openProfile(globalIndex)}
+                    />
+                    <button onClick={() => openProfile(globalIndex)} className="text-left group cursor-pointer w-full">
+                      <span className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body">
+                        {principal.location}
+                      </span>
+                      <h3 className="text-xl font-display font-bold text-foreground leading-[1.15] tracking-[-0.01em] mt-2 group-hover:text-primary transition-colors duration-500">
+                        {principal.name}
+                      </h3>
+                      <p className="text-[13px] text-primary/50 font-medium mt-1">{principal.role}</p>
+                      <div className="w-8 h-px bg-border/15 my-5" />
+                      <p className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body mb-3">
+                        {principal.focus}
+                      </p>
+                      <p className="text-[13px] text-foreground/35 leading-[1.75] max-w-sm">
+                        {principal.bio}
+                      </p>
+                      {principal.philosophy && (
+                        <p className="text-[12px] text-foreground/15 italic mt-5 border-l border-primary/10 pl-3">
+                          "{principal.philosophy}"
+                        </p>
+                      )}
+                      <span className="inline-block mt-6 text-[11px] text-primary/40 uppercase tracking-[0.15em] font-body group-hover:text-primary/70 transition-colors duration-500">
+                        Full profile →
+                      </span>
+                    </button>
+                  </div>
+                </RevealSection>
+              );
             })}
-          </StaggerGrid>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SENIOR TEAM — Structured editorial rows ═══ */}
+      <section className="py-24 md:py-32 bg-[hsl(var(--section-alt))]">
+        <div className="section-container">
+          <RevealSection blur>
+            <div className="flex items-end justify-between mb-16">
+              <p className="eyebrow">Senior team</p>
+              <span className="text-[11px] text-foreground/15 font-body">{seniorTeam.length} leaders</span>
+            </div>
+          </RevealSection>
+
+          {/* Grid: 3-col for photo members, structured rows */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+            {seniorTeam.map((member, i) => {
+              const globalIndex = i + 3; // offset by principals count
+              const initials = member.name.split(" ").map((n) => n[0]).join("");
+              return (
+                <RevealSection key={globalIndex} delay={i * 0.06} blur>
+                  <button
+                    onClick={() => openProfile(globalIndex)}
+                    className="group w-full text-left cursor-pointer"
+                    aria-label={`View profile for ${member.name}`}
+                  >
+                    {/* Portrait */}
+                    <div className="w-full aspect-[3/4] rounded-sm overflow-hidden relative mb-5">
+                      {member.photo ? (
+                        <>
+                          <img
+                            src={member.photo}
+                            alt={member.name}
+                            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                        </>
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-b from-secondary/40 to-secondary/15 flex items-center justify-center">
+                          <span className="font-display text-xl font-bold text-foreground/[0.06]">{initials}</span>
+                        </div>
+                      )}
+                      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent group-hover:via-primary/25 transition-all duration-700" />
+                    </div>
+
+                    {/* Info */}
+                    <h3 className="font-display text-[15px] font-semibold text-foreground group-hover:text-primary transition-colors duration-500 tracking-tight">
+                      {member.name}
+                    </h3>
+                    <p className="text-[12px] text-primary/40 font-medium mt-0.5">{member.role}</p>
+                    <p className="text-[10px] text-foreground/15 uppercase tracking-[0.15em] font-body mt-2">
+                      {member.focus}
+                    </p>
+                    <p className="text-[12px] text-foreground/25 mt-3 leading-relaxed line-clamp-2">
+                      {member.bio}
+                    </p>
+                    <span className="inline-block mt-4 text-[10px] text-primary/30 uppercase tracking-[0.15em] font-body group-hover:text-primary/60 transition-colors duration-500">
+                      View profile →
+                    </span>
+                  </button>
+                </RevealSection>
+              );
+            })}
+          </div>
         </div>
       </section>
 
