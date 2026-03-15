@@ -287,7 +287,54 @@ const LeaderCard = ({
   );
 };
 
-// ... keep existing code
+const Leadership = () => {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const openProfile = useCallback((index: number) => {
+    setSelectedIndex(index);
+  }, []);
+
+  const closeProfile = useCallback(() => {
+    setSelectedIndex(null);
+  }, []);
+
+  const goToPrev = useCallback(() => {
+    setSelectedIndex((prev) =>
+      prev !== null ? (prev > 0 ? prev - 1 : leadershipTeam.length - 1) : null
+    );
+  }, []);
+
+  const goToNext = useCallback(() => {
+    setSelectedIndex((prev) =>
+      prev !== null ? (prev < leadershipTeam.length - 1 ? prev + 1 : 0) : null
+    );
+  }, []);
+
+  const selectedMember = selectedIndex !== null ? leadershipTeam[selectedIndex] : null;
+  const prevName = selectedIndex !== null
+    ? leadershipTeam[selectedIndex > 0 ? selectedIndex - 1 : leadershipTeam.length - 1].name
+    : undefined;
+  const nextName = selectedIndex !== null
+    ? leadershipTeam[selectedIndex < leadershipTeam.length - 1 ? selectedIndex + 1 : 0].name
+    : undefined;
+
+  return (
+    <PageLayout>
+      <SEOHead
+        title="Leadership"
+        description="The Enfactum leadership team brings decades of experience across strategy, growth, technology, and creative — Growth Architects who have built and run growth programmes across Southeast Asia."
+        path="/company/leadership"
+        jsonLd={makeBreadcrumbSchema([
+          { name: "Company", url: "/company" },
+          { name: "Leadership", url: "/company/leadership" },
+        ])}
+      />
+      <HeroSection
+        eyebrow="Leadership"
+        headline={<>Growth Architects who build, <span className="text-primary">not just advise.</span></>}
+        description="The Enfactum leadership team brings decades of experience across strategy, growth, technology, and creative — all earned in the markets we serve."
+        variant="minimal"
+      />
 
       {/* ═══ LEADERSHIP TEAM — Unified ensemble grid ═══ */}
       <section className="py-24 md:py-32">
