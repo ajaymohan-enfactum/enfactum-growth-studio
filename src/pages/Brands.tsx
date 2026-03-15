@@ -47,14 +47,16 @@ const BrandPlate = ({
   brand,
   size = "md",
   delay = 0,
+  heightOverride,
 }: {
   brand: BrandEntry;
   size?: "lg" | "md" | "sm";
   delay?: number;
+  heightOverride?: number;
 }) => {
-  const heights = { lg: 4050, md: 2925, sm: 2250 };
-  const paddings = { lg: "px-20 py-14", md: "px-16 py-10", sm: "px-12 py-8" };
-  const h = heights[size];
+  const heights = { lg: 36, md: 26, sm: 20 };
+  const paddings = { lg: "px-7 py-5", md: "px-5 py-4", sm: "px-4 py-3" };
+  const h = heightOverride ?? heights[size];
 
   return (
     <motion.div
