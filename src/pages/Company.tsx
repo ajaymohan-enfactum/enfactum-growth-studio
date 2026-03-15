@@ -63,7 +63,7 @@ const capabilityOwnership = [
   { capability: "Live Experiences", owner: "Led by an events and activation specialist", scope: "Launches · Summits · Roadshows · Experiential" },
 ];
 
-const operatingPrinciples = [
+const growthPrinciples = [
   { title: "Growth Architect mindset", desc: "We don't advise from the outside. We embed within the business and stay until the work has real infrastructure." },
   { title: "Ecosystem intelligence", desc: "We understand how growth moves through partnerships, channels, and local trust — not just marketing funnels." },
   { title: "Outcome obsession", desc: "Every programme is designed around commercial outcomes. We measure what matters to the business, not vanity metrics." },
