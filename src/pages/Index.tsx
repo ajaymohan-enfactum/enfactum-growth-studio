@@ -399,7 +399,7 @@ const FeaturedWork = () => {
 const depthBlocks = [
   { title: "Leadership", desc: "Experienced Growth Architects across strategy, growth, and technology.", href: "/company/leadership" },
   { title: "Architect Bench", desc: "200+ specialists across Southeast Asia and India.", href: "/company" },
-  { title: "Regional Nodes", desc: "Singapore, India, Malaysia, Indonesia — and expanding.", href: "/company/regional-nodes" },
+  { title: "Regional Nodes", desc: "Singapore · India · Malaysia · Indonesia · USA", href: "/company/regional-nodes" },
   { title: "Capability Ownership", desc: "Each capability led by domain-specialist principals.", href: "/capabilities" },
 ];
 
