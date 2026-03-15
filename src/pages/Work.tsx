@@ -133,6 +133,7 @@ const Work = () => {
         eyebrow="Work"
         headline={<>Selected work <span className="text-primary">across the region.</span></>}
         description="A look at the work, systems, and outcomes Enfactum has built across Southeast Asia."
+        variant="editorial"
       />
 
       {/* ─── Filter Bar ─── */}

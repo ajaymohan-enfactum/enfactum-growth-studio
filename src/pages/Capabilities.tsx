@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
-import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
-import ParallaxDivider from "@/components/shared/ParallaxDivider";
 import CapabilityGraph from "@/components/shared/CapabilityGraph";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead from "@/components/shared/SEOHead";
@@ -190,29 +188,35 @@ const Capabilities = () => (
       eyebrow="Capabilities"
       headline={<>An integrated growth operating system for <span className="text-primary">Southeast Asia.</span></>}
       description="Each capability solves a specific growth challenge. Together, they form an integrated growth architecture — strategy connected to ecosystems connected to execution."
+      variant="systemic"
     />
 
     {/* ═══ HORIZONTAL SCROLL CAPABILITY SHOWCASE ═══ */}
     <HorizontalScrollShowcase />
-    <ParallaxDivider variant="gradient" />
     {/* ═══ HOW CAPABILITIES CONNECT ═══ */}
-    <section className="section-alt py-16 md:py-20">
-      <div className="section-container">
-        <SectionHeader
-          eyebrow="How the capabilities connect"
-          headline="Each capability reinforces the others."
-          description="This isn't four separate offerings. It's one integrated architecture — each capability feeds outcomes to the next. Hover a node to explore."
-          centered
-        />
-        <div className="mt-16 md:mt-20">
-          <CapabilityGraph />
-        </div>
+    <section className="py-24 md:py-32 bg-[#060C1A] relative overflow-hidden">
+      {/* Systemic grid lines */}
+      <div className="absolute top-0 bottom-0 left-[25%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-[75%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent hidden md:block" />
+      <div className="absolute left-0 right-0 top-[50%] h-px bg-gradient-to-r from-transparent via-primary/[0.03] to-transparent hidden md:block" />
+
+      <div className="section-container relative z-10">
+        <RevealSection blur>
+          <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+            <p className="eyebrow mb-5">How the capabilities connect</p>
+            <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em]">
+              Each capability reinforces the others.
+            </h2>
+            <p className="text-[13px] text-foreground/30 mt-4 leading-relaxed max-w-md mx-auto">
+              This isn't four separate offerings. It's one integrated architecture — each capability feeds outcomes to the next.
+            </p>
+          </div>
+        </RevealSection>
+        <CapabilityGraph />
       </div>
     </section>
-
-    <ParallaxDivider variant="mist" flip />
     {/* ═══ ENGAGEMENT MODELS ═══ */}
-    <section className="py-16 md:py-20">
+    <section className="py-24 md:py-32">
       <div className="section-container">
         <div className="section-divider mb-20" />
         <div className="grid md:grid-cols-12 gap-8 mb-20">
@@ -253,27 +257,36 @@ const Capabilities = () => (
     </section>
 
     {/* Cross-links */}
-    <section className="py-16 md:py-20">
+    <section className="py-20">
       <div className="section-container">
-        <RevealSection>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Link to="/work" className="group block border-t border-border/30 pt-6">
-              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
-              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">View selected work</h4>
-              <p className="text-[13px] text-muted-foreground mt-1">Case studies with measurable outcomes across Southeast Asia.</p>
-            </Link>
-            <Link to="/brands" className="group block border-t border-border/30 pt-6">
-              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
-              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Brands we've worked with</h4>
-              <p className="text-[13px] text-muted-foreground mt-1">40+ enterprise brands across four sector clusters.</p>
-            </Link>
-            <Link to="/partnerships" className="group block border-t border-border/30 pt-6">
-              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
-              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Partnership models</h4>
-              <p className="text-[13px] text-muted-foreground mt-1">How Enfactum designs and operates partnership-led growth.</p>
-            </Link>
-          </div>
+        <RevealSection blur>
+          <p className="eyebrow mb-12">Explore further</p>
         </RevealSection>
+        <div className="space-y-0">
+          {[
+            { title: "Selected work", desc: "Case studies with measurable outcomes across Southeast Asia.", href: "/work" },
+            { title: "Brands we've worked with", desc: "40+ enterprise brands across four sector clusters.", href: "/brands" },
+            { title: "Partnership models", desc: "How Enfactum designs and operates partnership-led growth.", href: "/partnerships" },
+          ].map((link, i) => (
+            <RevealSection key={i} delay={i * 0.04}>
+              <Link to={link.href} className="group block">
+                <div className="grid md:grid-cols-12 gap-4 py-6 border-b border-border/10 group-hover:border-primary/10 transition-colors duration-700">
+                  <div className="md:col-span-3">
+                    <span className="font-display text-[14px] font-semibold text-foreground group-hover:text-primary transition-colors duration-500">
+                      {link.title}
+                    </span>
+                  </div>
+                  <div className="md:col-span-7">
+                    <span className="text-[12px] text-foreground/25">{link.desc}</span>
+                  </div>
+                  <div className="md:col-span-2 flex items-center justify-end">
+                    <ArrowRight className="w-3.5 h-3.5 text-foreground/8 group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-500" />
+                  </div>
+                </div>
+              </Link>
+            </RevealSection>
+          ))}
+        </div>
       </div>
     </section>
 

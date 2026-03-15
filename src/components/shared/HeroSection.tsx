@@ -2,12 +2,16 @@ import { ReactNode, Children, isValidElement, Fragment, useRef, useCallback, use
 import { motion, useScroll, useTransform } from "framer-motion";
 import HybridBackground from "@/components/shared/HybridBackground";
 
+type HeroVariant = "default" | "immersive" | "systemic" | "editorial" | "institutional" | "minimal";
+
 interface HeroSectionProps {
   eyebrow?: string;
   headline: ReactNode;
   description?: string;
   children?: ReactNode;
   compact?: boolean;
+  /** Visual identity variant — changes background and spacing per page type */
+  variant?: HeroVariant;
 }
 
 // Flatten ReactNode tree into an array of text strings and JSX elements
@@ -43,7 +47,40 @@ const wordVariants = {
   visible: { opacity: 1, y: 0, filter: "blur(0px)" },
 };
 
-const HeroSection = ({ eyebrow, headline, description, children, compact = false }: HeroSectionProps) => {
+const variantStyles: Record<HeroVariant, { bg: string; gridOpacity: string; spotlightColor: string }> = {
+  default: {
+    bg: "",
+    gridOpacity: "opacity-[0.08]",
+    spotlightColor: "hsl(210 100% 50% / 0.06)",
+  },
+  immersive: {
+    bg: "",
+    gridOpacity: "opacity-[0.06]",
+    spotlightColor: "hsl(210 100% 50% / 0.08)",
+  },
+  systemic: {
+    bg: "bg-[#060C1A]",
+    gridOpacity: "opacity-[0.12]",
+    spotlightColor: "hsl(210 100% 50% / 0.04)",
+  },
+  editorial: {
+    bg: "",
+    gridOpacity: "opacity-[0.04]",
+    spotlightColor: "hsl(210 80% 45% / 0.05)",
+  },
+  institutional: {
+    bg: "",
+    gridOpacity: "opacity-[0.05]",
+    spotlightColor: "hsl(210 60% 40% / 0.05)",
+  },
+  minimal: {
+    bg: "",
+    gridOpacity: "opacity-0",
+    spotlightColor: "hsl(210 100% 50% / 0.03)",
+  },
+};
+
+const HeroSection = ({ eyebrow, headline, description, children, compact = false, variant = "default" }: HeroSectionProps) => {
   const parts = flattenChildren(headline);
   let wordIndex = 0;
   const sectionRef = useRef<HTMLElement>(null);
@@ -51,7 +88,6 @@ const HeroSection = ({ eyebrow, headline, description, children, compact = false
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const bgOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.3]);
 
-  // Cursor spotlight
   const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
   const [hovering, setHovering] = useState(false);
 
@@ -61,25 +97,42 @@ const HeroSection = ({ eyebrow, headline, description, children, compact = false
     setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   }, []);
 
+  const vs = variantStyles[variant];
+
   return (
     <section
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
-      className={`relative ${compact ? "pt-28 pb-16 md:pt-36 md:pb-20" : "pt-32 pb-20 md:pt-44 md:pb-28"} overflow-hidden`}
+      className={`relative ${compact ? "pt-28 pb-16 md:pt-36 md:pb-20" : "pt-32 pb-20 md:pt-44 md:pb-28"} overflow-hidden ${vs.bg}`}
     >
       {/* Cursor spotlight glow */}
       <div
         className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-700"
         style={{
           opacity: hovering ? 1 : 0,
-          background: `radial-gradient(500px circle at ${cursorPos.x}px ${cursorPos.y}px, hsl(210 100% 50% / 0.06), transparent 60%)`,
+          background: `radial-gradient(500px circle at ${cursorPos.x}px ${cursorPos.y}px, ${vs.spotlightColor}, transparent 60%)`,
         }}
       />
       <HybridBackground />
-      <motion.div className="absolute inset-0 topology-grid opacity-[0.08]" style={{ y: bgY }} />
+      <motion.div className={`absolute inset-0 topology-grid ${vs.gridOpacity}`} style={{ y: bgY }} />
       <motion.div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-background" style={{ y: bgY, opacity: bgOpacity }} />
+
+      {/* Systemic variant — adds structural grid lines */}
+      {variant === "systemic" && (
+        <div className="absolute inset-0 pointer-events-none z-[1]">
+          <div className="absolute top-0 bottom-0 left-[25%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent" />
+          <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent" />
+          <div className="absolute top-0 bottom-0 left-[75%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent" />
+        </div>
+      )}
+
+      {/* Editorial variant — adds a left accent bar */}
+      {variant === "editorial" && (
+        <div className="absolute top-[20%] bottom-[20%] left-[6%] w-px bg-gradient-to-b from-transparent via-primary/[0.08] to-transparent hidden md:block z-[1]" />
+      )}
+
       <div className="section-container relative z-10">
         <div className="max-w-4xl">
           {eyebrow && (
