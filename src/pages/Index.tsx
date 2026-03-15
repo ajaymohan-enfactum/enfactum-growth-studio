@@ -161,8 +161,7 @@ const WhySEA = () => (
               </p>
               <p className="body-lg">
                 Growth here moves through ecosystems, local trust, and execution
-                nuance. Imported playbooks break. Opportunity exists, but it
-                requires a fundamentally different operating model.
+                nuance.
               </p>
               <div className="pt-4">
                 <div className="h-px w-20 bg-primary/30" />
