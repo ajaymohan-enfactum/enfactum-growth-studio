@@ -32,10 +32,10 @@ const leaders = [
 ];
 
 const domainSpecialists = [
-  { domain: "Enterprise SaaS & Technology", focus: "GTM strategy, channel programmes, partner ecosystems for technology companies" },
-  { domain: "Consumer & Brand Growth", focus: "Market entry, brand-to-demand, retail partnership activation" },
-  { domain: "Financial Services & Fintech", focus: "Ecosystem design, regulatory navigation, digital transformation" },
-  { domain: "Government & Institutions", focus: "Innovation programmes, public-sector engagement, ecosystem architecture" },
+  { domain: "Enterprise SaaS & Technology", focus: "GTM strategy, channel programmes, partner ecosystems for technology companies", clients: "HP · Oracle · Dell EMC · Commvault · Lenovo", featured: true },
+  { domain: "Consumer & Brand Growth", focus: "Market entry, brand-to-demand, retail partnership activation", clients: "L'Oréal · Lancôme · Kiehl's · JSHealth · Brands For Less", featured: false },
+  { domain: "Financial Services & Fintech", focus: "Ecosystem design, regulatory navigation, digital transformation", clients: "eBaoTech · Insuremo · Redington", featured: false },
+  { domain: "Government & Institutions", focus: "Innovation programmes, public-sector engagement, ecosystem architecture", clients: "The Economist · NUS · Abbott · DSCOOP", featured: false },
 ];
 
 const capabilityOwnership = [
