@@ -50,10 +50,12 @@ const outcomeCapsules = [
    ═══════════════════════════════════════════════ */
 const BrandPlate = ({
   brand,
+  sector,
   size = "md",
   delay = 0,
 }: {
   brand: BrandEntry;
+  sector: string;
   size?: "lg" | "md" | "sm";
   delay?: number;
 }) => {
@@ -67,7 +69,7 @@ const BrandPlate = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={`group relative ${paddings[size]} rounded-lg bg-white/[0.045] border border-white/[0.08] hover:border-primary/25 hover:bg-white/[0.07] transition-all duration-500 cursor-default`}
+      className={`group/plate relative ${paddings[size]} rounded-lg bg-white/[0.045] border border-white/[0.08] hover:border-primary/25 hover:bg-white/[0.07] transition-all duration-500 cursor-default`}
     >
       <BrandLogo
         name={brand.name}
@@ -75,9 +77,17 @@ const BrandPlate = ({
         localLogo={brand.localLogo}
         height={h}
       />
+      {/* Tooltip */}
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2.5 px-3.5 py-2 rounded-md bg-foreground/90 backdrop-blur-sm opacity-0 group-hover/plate:opacity-100 pointer-events-none transition-opacity duration-300 whitespace-nowrap z-20 shadow-lg">
+        <span className="block text-[11px] font-display font-semibold text-background leading-tight">{brand.name}</span>
+        <span className="block text-[9px] text-background/50 tracking-[0.1em] uppercase font-body mt-0.5">{sector}</span>
+        <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-[5px] border-r-[5px] border-t-[5px] border-l-transparent border-r-transparent border-t-foreground/90" />
+      </div>
     </motion.div>
   );
 };
+
+
 
 /* ═══════════════════════════════════════════════
    SECTOR HEADER
@@ -205,19 +215,19 @@ const Brands = () => {
           {/* Row 1 — flagship brands, larger */}
           <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
             {c01.brands.slice(0, 3).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} size="lg" delay={0.1 + i * 0.08} />
+              <BrandPlate key={brand.name} brand={brand} sector={c01.sector} size="lg" delay={0.1 + i * 0.08} />
             ))}
           </div>
           {/* Row 2 — mid tier */}
           <div className="flex flex-wrap gap-4 md:gap-5 mb-5 md:pl-6">
             {c01.brands.slice(3, 7).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} size="md" delay={0.3 + i * 0.06} />
+              <BrandPlate key={brand.name} brand={brand} sector={c01.sector} size="md" delay={0.3 + i * 0.06} />
             ))}
           </div>
           {/* Row 3 — supporting */}
           <div className="flex flex-wrap gap-3 md:gap-4 md:pl-2">
             {c01.brands.slice(7).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} size="sm" delay={0.5 + i * 0.05} />
+              <BrandPlate key={brand.name} brand={brand} sector={c01.sector} size="sm" delay={0.5 + i * 0.05} />
             ))}
           </div>
         </div>
@@ -231,12 +241,12 @@ const Brands = () => {
             <div className="md:col-span-7 md:order-1">
               <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
                 {c02.brands.slice(0, 2).map((brand, i) => (
-                  <BrandPlate key={brand.name} brand={brand} size="lg" delay={0.1 + i * 0.1} />
+                  <BrandPlate key={brand.name} brand={brand} sector={c02.sector} size="lg" delay={0.1 + i * 0.1} />
                 ))}
               </div>
               <div className="flex flex-wrap gap-4 md:gap-5">
                 {c02.brands.slice(2).map((brand, i) => (
-                  <BrandPlate key={brand.name} brand={brand} size="md" delay={0.3 + i * 0.08} />
+                  <BrandPlate key={brand.name} brand={brand} sector={c02.sector} size="md" delay={0.3 + i * 0.08} />
                 ))}
               </div>
             </div>
@@ -268,12 +278,12 @@ const Brands = () => {
 
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-5 mb-5">
             {c03.brands.slice(0, 3).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} size="lg" delay={0.15 + i * 0.1} />
+              <BrandPlate key={brand.name} brand={brand} sector={c03.sector} size="lg" delay={0.15 + i * 0.1} />
             ))}
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             {c03.brands.slice(3).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} size="md" delay={0.4 + i * 0.08} />
+              <BrandPlate key={brand.name} brand={brand} sector={c03.sector} size="md" delay={0.4 + i * 0.08} />
             ))}
           </div>
         </div>
@@ -297,12 +307,12 @@ const Brands = () => {
             <div className="md:col-span-7 md:col-start-6">
               <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
                 {c04.brands.slice(0, 2).map((brand, i) => (
-                  <BrandPlate key={brand.name} brand={brand} size="lg" delay={0.1 + i * 0.1} />
+                  <BrandPlate key={brand.name} brand={brand} sector={c04.sector} size="lg" delay={0.1 + i * 0.1} />
                 ))}
               </div>
               <div className="flex flex-wrap gap-3 md:gap-4">
                 {c04.brands.slice(2).map((brand, i) => (
-                  <BrandPlate key={brand.name} brand={brand} size="md" delay={0.3 + i * 0.08} />
+                  <BrandPlate key={brand.name} brand={brand} sector={c04.sector} size="md" delay={0.3 + i * 0.08} />
                 ))}
               </div>
             </div>
