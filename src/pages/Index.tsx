@@ -301,26 +301,31 @@ const WhatWeBuilds = () => (
    Horizontal process with cinematic linework
    ═══════════════════════════════════════════════ */
 const processSteps = [
-  { step: "Define" },
-  { step: "Build" },
-  { step: "Operate" },
-  { step: "Transfer" },
-  { step: "Scale" },
+  { step: "Define", desc: "Diagnose the growth challenge and map the ecosystem landscape before committing resources." },
+  { step: "Build", desc: "Architect the GTM infrastructure, partnerships, and demand engine from the ground up." },
+  { step: "Operate", desc: "Run the growth architecture with embedded teams, not external advisors." },
+  { step: "Transfer", desc: "Hand over operational ownership with documented playbooks and trained internal teams." },
+  { step: "Scale", desc: "Expand across markets with proven architecture, not replicated guesswork." },
 ];
 
 const HowWeWork = () => (
   <section id="how-we-work" className="py-16 md:py-20">
     <div className="section-container">
       <h2 className="headline-lg max-w-xl">Growth Architects, not just advisors.</h2>
-      <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+      <div className="mt-14">
         {processSteps.map((step, i) => (
           <RevealSection key={i} delay={i * 0.08}>
-            <div className="flex gap-6 items-start">
-              <span className="text-8xl font-display font-black text-white/[0.07] leading-none select-none shrink-0">
+            <div className="flex gap-8 md:gap-12 mb-16 last:mb-0">
+              {/* Number */}
+              <span className="text-[120px] font-display font-black leading-none text-foreground/[0.05] select-none shrink-0 hidden md:block" style={{ width: '30%', textAlign: 'right', paddingRight: '2rem' }}>
                 {String(i + 1)}
               </span>
-              <div className="pt-4">
-                <h3 className="font-display text-xl font-bold text-foreground">{step.step}</h3>
+              {/* Content */}
+              <div style={{ width: '70%' }} className="pt-4 md:pt-8">
+                <span className="text-5xl font-display font-black text-foreground/[0.05] leading-none select-none md:hidden mb-2 block">{String(i + 1)}</span>
+                <h3 className="text-2xl font-display font-semibold text-foreground">{step.step}</h3>
+                <div className="border-t border-border/10 my-3" />
+                <p className="text-base text-foreground/50">{step.desc}</p>
               </div>
             </div>
           </RevealSection>
