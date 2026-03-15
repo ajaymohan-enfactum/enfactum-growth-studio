@@ -221,7 +221,7 @@ const Brands = () => {
           {/* Row 2 — mid tier */}
           <div className="flex flex-wrap gap-4 md:gap-5 mb-5 md:pl-6">
             {c01.brands.slice(3, 7).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} size="md" delay={0.3 + i * 0.06} />
+              <BrandPlate key={brand.name} brand={brand} sector={c01.sector} size="md" delay={0.3 + i * 0.06} />
             ))}
           </div>
           {/* Row 3 — supporting */}
