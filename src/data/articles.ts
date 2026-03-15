@@ -130,7 +130,7 @@ export const articles: Article[] = [
   {
     title: "AI Ecosystems Matter More Than AI Pilots.",
     slug: "ai-ecosystems-matter-more-than-ai-pilots",
-    category: "Operator View",
+    category: "Architect View",
     theme: "AI & Innovation",
     author: "Ajay Mohan",
     authorRole: "Founder & Managing Partner",
