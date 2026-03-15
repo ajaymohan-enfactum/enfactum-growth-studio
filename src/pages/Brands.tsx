@@ -8,8 +8,8 @@ import BrandLogo from "@/components/shared/BrandLogo";
 import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { sectorClusters, type SectorCluster, type BrandEntry } from "@/data/brands";
-import { motion, useInView } from "framer-motion";
+import { sectorClusters, type BrandEntry } from "@/data/brands";
+import { motion } from "framer-motion";
 
 /* ═══════════════════════════════════════════════
    SELECTED OUTCOMES
@@ -42,146 +42,43 @@ const outcomeCapsules = [
 ];
 
 /* ═══════════════════════════════════════════════
-   SECTOR CLUSTER — living layout
+   FLOATING BRAND — no border, no box, just logo
    ═══════════════════════════════════════════════ */
-const sectorMeta: Record<string, { accent: string; descriptor: string }> = {
-  "Enterprise Technology": {
-    accent: "from-primary/8 via-primary/3 to-transparent",
-    descriptor: "Structured. Platform-led. Systemic.",
-  },
-  "Consumer & Brand Growth": {
-    accent: "from-cyan-500/6 via-cyan-500/2 to-transparent",
-    descriptor: "Fluid. Brand-led. Activation-oriented.",
-  },
-  "Institutions & Ecosystems": {
-    accent: "from-indigo-400/6 via-indigo-400/2 to-transparent",
-    descriptor: "Stable. Networked. Trust-based.",
-  },
-  "New Economy & Innovation": {
-    accent: "from-violet-400/6 via-violet-400/2 to-transparent",
-    descriptor: "Emergent. Innovation-led. Future-facing.",
-  },
-};
-
-/* ─── BRAND NODE ─── */
-const BrandNode = ({
+const FloatingBrand = ({
   brand,
   size = "md",
   delay = 0,
+  drift = 0,
 }: {
   brand: BrandEntry;
-  size?: "lg" | "md" | "sm";
+  size?: "hero" | "lg" | "md" | "sm";
   delay?: number;
+  drift?: number;
 }) => {
-  const [hovered, setHovered] = useState(false);
-  const dims = { lg: { h: 36, pad: "px-7 py-5" }, md: { h: 26, pad: "px-5 py-4" }, sm: { h: 20, pad: "px-4 py-3" } };
-  const d = dims[size];
+  const heights = { hero: 44, lg: 32, md: 24, sm: 18 };
+  const h = heights[size];
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className={`group relative flex items-center justify-center ${d.pad} rounded-xl
-        border border-white/[0.04] bg-white/[0.015]
-        hover:border-primary/20 hover:bg-white/[0.035]
-        transition-all duration-700 cursor-default`}
+      initial={{ opacity: 0, y: 20 + drift }}
+      whileInView={{ opacity: 1, y: drift }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: drift - 4 }}
+      className="group relative cursor-default"
     >
-      {/* Glow ring on hover */}
-      <div
-        className="absolute inset-0 rounded-xl transition-opacity duration-700 pointer-events-none"
-        style={{
-          opacity: hovered ? 1 : 0,
-          boxShadow: "0 0 30px -8px hsl(210 100% 50% / 0.12), inset 0 0 20px -10px hsl(210 100% 50% / 0.06)",
-        }}
-      />
+      {/* Subtle glow halo behind logo on hover */}
+      <div className="absolute inset-0 -m-4 rounded-full bg-primary/0 group-hover:bg-primary/[0.04] transition-all duration-700 blur-xl pointer-events-none" />
       <BrandLogo
         name={brand.name}
         domain={brand.domain}
         localLogo={brand.localLogo}
-        height={d.h}
-        opacity={0.45}
+        height={h}
+        opacity={size === "hero" ? 0.55 : size === "lg" ? 0.4 : size === "md" ? 0.3 : 0.2}
         hoverOpacity={0.9}
         scaleOnHover
       />
     </motion.div>
-  );
-};
-
-/* ─── SECTOR FIELD ─── */
-const SectorField = ({
-  cluster,
-  index,
-  reverse = false,
-}: {
-  cluster: SectorCluster;
-  index: number;
-  reverse?: boolean;
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const meta = sectorMeta[cluster.sector] || { accent: "from-primary/6 to-transparent", descriptor: "" };
-
-  // Create size hierarchy — first 3 brands get "lg", next 3 "md", rest "sm"
-  const getSize = (i: number): "lg" | "md" | "sm" => {
-    if (i < 2) return "lg";
-    if (i < 5) return "md";
-    return "sm";
-  };
-
-  return (
-    <div ref={ref} className="relative">
-      {/* Atmospheric gradient background */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${meta.accent} rounded-3xl opacity-0 transition-opacity duration-1000 ${isInView ? "opacity-100" : ""}`} />
-
-      <div className={`relative grid md:grid-cols-12 gap-8 md:gap-12 items-start ${reverse ? "" : ""}`}>
-        {/* Copy side */}
-        <div className={`${reverse ? "md:col-span-4 md:col-start-9 md:order-2" : "md:col-span-4"} sticky top-32`}>
-          <motion.div
-            initial={{ opacity: 0, x: reverse ? 20 : -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="flex items-baseline gap-3 mb-4">
-              <span className="text-[64px] md:text-[80px] font-display font-bold text-foreground/[0.03] leading-none select-none">
-                {cluster.num}
-              </span>
-            </div>
-            <h3 className="text-[clamp(1.5rem,2.5vw,2.25rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em]">
-              {cluster.sector}
-            </h3>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-primary/40 font-body mt-3">
-              {meta.descriptor}
-            </p>
-            <p className="text-[13px] text-foreground/25 leading-[1.8] mt-5 max-w-sm font-body">
-              {cluster.narrative}
-            </p>
-            <div className="mt-6 flex items-center gap-2">
-              <div className="w-8 h-px bg-primary/20" />
-              <span className="text-[11px] text-foreground/15 font-body">{cluster.brands.length} brands</span>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Logo constellation */}
-        <div className={`${reverse ? "md:col-span-7 md:order-1" : "md:col-span-7 md:col-start-6"}`}>
-          <div className="flex flex-wrap items-center gap-3 md:gap-4">
-            {cluster.brands.map((brand, bi) => (
-              <BrandNode
-                key={brand.name}
-                brand={brand}
-                size={getSize(bi)}
-                delay={bi * 0.08}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
   );
 };
 
@@ -190,19 +87,24 @@ const SectorField = ({
    ═══════════════════════════════════════════════ */
 const Brands = () => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const heroFieldRef = useRef<HTMLDivElement>(null);
+  const fieldRef = useRef<HTMLDivElement>(null);
 
-  const handleHeroMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!heroFieldRef.current) return;
-    const rect = heroFieldRef.current.getBoundingClientRect();
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!fieldRef.current) return;
+    const rect = fieldRef.current.getBoundingClientRect();
     setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   }, []);
+
+  const c01 = sectorClusters[0]; // Enterprise Technology
+  const c02 = sectorClusters[1]; // Consumer & Brand Growth
+  const c03 = sectorClusters[2]; // Institutions & Ecosystems
+  const c04 = sectorClusters[3]; // New Economy & Innovation
 
   return (
     <PageLayout>
       <SEOHead
         title="Brands & Clients — Enterprise Credibility Across Southeast Asia"
-        description="Enfactum has worked with 40+ enterprise brands across enterprise technology, consumer growth, institutions, and innovation sectors in Southeast Asia. HP, The Economist, L'Oréal, and more."
+        description="Enfactum has worked with 40+ enterprise brands across enterprise technology, consumer growth, institutions, and innovation sectors in Southeast Asia."
         path="/brands"
       />
 
@@ -256,64 +158,237 @@ const Brands = () => {
         </div>
       </section>
 
-      {/* ═══ LIVING SECTOR ARCHITECTURE ═══ */}
-      <section className="relative">
-        {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-primary/[0.08] to-transparent" />
-
-        {/* Brand universe ambient field */}
+      {/* ═══ LIVING SECTOR CONSTELLATIONS ═══ */}
+      <div
+        ref={fieldRef}
+        onMouseMove={handleMouseMove}
+        className="relative"
+      >
+        {/* Ambient cursor glow */}
         <div
-          ref={heroFieldRef}
-          onMouseMove={handleHeroMouseMove}
-          className="relative"
-        >
-          {/* Cursor glow for the whole sector region */}
-          <div
-            className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-1000"
-            style={{
-              opacity: 0.5,
-              background: `radial-gradient(600px circle at ${cursorPos.x}px ${cursorPos.y}px, hsl(210 100% 50% / 0.03), transparent 60%)`,
-            }}
-          />
+          className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-1000"
+          style={{
+            opacity: 0.4,
+            background: `radial-gradient(700px circle at ${cursorPos.x}px ${cursorPos.y}px, hsl(210 100% 50% / 0.025), transparent 60%)`,
+          }}
+        />
 
-          {/* Sector 01 — Enterprise Technology */}
-          <div className="py-24 md:py-32 bg-[#070D1A] relative overflow-hidden">
-            {/* Architectural grid lines */}
-            <div className="absolute top-0 bottom-0 left-[20%] w-px bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent hidden md:block" />
-            <div className="absolute top-0 bottom-0 right-[20%] w-px bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent hidden md:block" />
-            <div className="section-container relative z-10">
-              <SectorField cluster={sectorClusters[0]} index={0} />
+        {/* ── SECTOR 01 — Enterprise Technology ── */}
+        <section className="relative py-32 md:py-44 bg-[#070D1A] overflow-hidden">
+          {/* Faint architectural grid */}
+          <div className="absolute top-0 bottom-0 left-[18%] w-px bg-gradient-to-b from-transparent via-primary/[0.015] to-transparent hidden md:block" />
+          <div className="absolute top-0 bottom-0 right-[22%] w-px bg-gradient-to-b from-transparent via-primary/[0.015] to-transparent hidden md:block" />
+          <div className="absolute left-0 right-0 top-[55%] h-px bg-gradient-to-r from-transparent via-primary/[0.01] to-transparent hidden md:block" />
+
+          <div className="section-container relative z-10">
+            {/* Sector label — enormous, atmospheric */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2 }}
+              className="mb-20 md:mb-28"
+            >
+              <span className="text-[120px] md:text-[200px] font-display font-bold text-foreground/[0.018] leading-none select-none block">
+                01
+              </span>
+              <div className="mt-[-20px] md:mt-[-40px]">
+                <h3 className="text-[clamp(2rem,4vw,3.5rem)] font-display font-bold text-foreground leading-[1.05] tracking-[-0.03em]">
+                  {c01.sector}
+                </h3>
+                <p className="text-[11px] uppercase tracking-[0.25em] text-primary/30 font-body mt-3">
+                  Structured · Platform-led · Systemic
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Constellation — scattered, not gridded */}
+            <div className="relative">
+              {/* Row 1 — hero scale, wide spacing */}
+              <div className="flex items-end gap-12 md:gap-20 mb-12 md:mb-16">
+                <FloatingBrand brand={c01.brands[0]} size="hero" delay={0.1} />
+                <FloatingBrand brand={c01.brands[1]} size="hero" delay={0.2} drift={-8} />
+                <div className="hidden md:block">
+                  <FloatingBrand brand={c01.brands[2]} size="lg" delay={0.3} drift={4} />
+                </div>
+              </div>
+
+              {/* Row 2 — offset, mixed sizes */}
+              <div className="flex items-center gap-10 md:gap-16 md:pl-24 mb-10 md:mb-14">
+                <div className="md:hidden">
+                  <FloatingBrand brand={c01.brands[2]} size="lg" delay={0.3} />
+                </div>
+                <FloatingBrand brand={c01.brands[3]} size="lg" delay={0.35} drift={-4} />
+                <FloatingBrand brand={c01.brands[4]} size="md" delay={0.4} drift={6} />
+                <FloatingBrand brand={c01.brands[5]} size="md" delay={0.45} />
+              </div>
+
+              {/* Row 3 — smaller, trailing off */}
+              <div className="flex items-center gap-8 md:gap-14 md:pl-8">
+                {c01.brands.slice(6).map((brand, i) => (
+                  <FloatingBrand key={brand.name} brand={brand} size="sm" delay={0.5 + i * 0.06} drift={i % 2 === 0 ? 3 : -3} />
+                ))}
+              </div>
+            </div>
+
+            {/* Narrative — floats at bottom right */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-[13px] text-foreground/20 leading-[1.8] font-body mt-16 md:mt-24 max-w-md md:ml-auto md:text-right"
+            >
+              {c01.narrative}
+            </motion.p>
+          </div>
+        </section>
+
+        {/* ── SECTOR 02 — Consumer & Brand Growth ── */}
+        <section className="relative py-32 md:py-40 overflow-hidden">
+          <div className="section-container relative z-10">
+            <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
+              {/* Logos on the left — editorial vertical flow */}
+              <div className="md:col-span-7 md:order-1">
+                <div className="space-y-10 md:space-y-14">
+                  {/* Hero brand — dominant */}
+                  <div className="md:pl-8">
+                    <FloatingBrand brand={c02.brands[0]} size="hero" delay={0.1} drift={-6} />
+                  </div>
+                  {/* Mid tier — staggered horizontal */}
+                  <div className="flex items-end gap-10 md:gap-16 md:pl-20">
+                    <FloatingBrand brand={c02.brands[1]} size="lg" delay={0.2} />
+                    <FloatingBrand brand={c02.brands[2]} size="lg" delay={0.28} drift={8} />
+                  </div>
+                  {/* Supporting — smaller, offset */}
+                  <div className="flex items-center gap-8 md:gap-12 md:pl-4">
+                    {c02.brands.slice(3).map((brand, i) => (
+                      <FloatingBrand key={brand.name} brand={brand} size="md" delay={0.35 + i * 0.08} drift={i % 2 === 0 ? -4 : 5} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Copy on the right */}
+              <div className="md:col-span-4 md:col-start-9 md:order-2 md:sticky md:top-36">
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <span className="text-[80px] md:text-[120px] font-display font-bold text-foreground/[0.02] leading-none select-none block">
+                    02
+                  </span>
+                  <h3 className="text-[clamp(1.5rem,2.5vw,2.25rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em] mt-[-8px]">
+                    {c02.sector}
+                  </h3>
+                  <p className="text-[11px] uppercase tracking-[0.25em] text-primary/30 font-body mt-3">
+                    Fluid · Brand-led · Activation-oriented
+                  </p>
+                  <p className="text-[13px] text-foreground/20 leading-[1.8] font-body mt-5 max-w-sm">
+                    {c02.narrative}
+                  </p>
+                </motion.div>
+              </div>
             </div>
           </div>
+        </section>
 
-          {/* Sector 02 — Consumer & Brand Growth */}
-          <div className="py-24 md:py-32 relative overflow-hidden">
-            <div className="section-container relative z-10">
-              <SectorField cluster={sectorClusters[1]} index={1} reverse />
+        {/* ── SECTOR 03 — Institutions & Ecosystems ── */}
+        <section className="relative py-32 md:py-40 bg-[#080E1C] overflow-hidden">
+          <div className="absolute left-0 right-0 top-[35%] h-px bg-gradient-to-r from-transparent via-primary/[0.015] to-transparent hidden md:block" />
+
+          <div className="section-container relative z-10">
+            {/* Copy centered, logos orbiting */}
+            <div className="text-center max-w-lg mx-auto mb-20 md:mb-28">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+              >
+                <span className="text-[80px] md:text-[140px] font-display font-bold text-foreground/[0.018] leading-none select-none block">
+                  03
+                </span>
+                <h3 className="text-[clamp(1.5rem,2.5vw,2.25rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em] mt-[-8px]">
+                  {c03.sector}
+                </h3>
+                <p className="text-[11px] uppercase tracking-[0.25em] text-primary/30 font-body mt-3">
+                  Stable · Networked · Trust-based
+                </p>
+                <p className="text-[13px] text-foreground/20 leading-[1.8] font-body mt-5">
+                  {c03.narrative}
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Logos — dispersed around center, asymmetric */}
+            <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
+              <FloatingBrand brand={c03.brands[0]} size="hero" delay={0.15} drift={-6} />
+              <FloatingBrand brand={c03.brands[1]} size="lg" delay={0.25} drift={10} />
+              <FloatingBrand brand={c03.brands[2]} size="lg" delay={0.3} drift={-3} />
+            </div>
+            <div className="flex items-center justify-center gap-10 md:gap-16 mt-10 md:mt-14">
+              {c03.brands.slice(3).map((brand, i) => (
+                <FloatingBrand key={brand.name} brand={brand} size="md" delay={0.4 + i * 0.08} drift={i % 2 === 0 ? 5 : -5} />
+              ))}
             </div>
           </div>
+        </section>
 
-          {/* Sector 03 — Institutions & Ecosystems */}
-          <div className="py-24 md:py-32 bg-[#080E1C] relative overflow-hidden">
-            <div className="absolute left-0 right-0 top-[40%] h-px bg-gradient-to-r from-transparent via-primary/[0.02] to-transparent hidden md:block" />
-            <div className="section-container relative z-10">
-              <SectorField cluster={sectorClusters[2]} index={2} />
+        {/* ── SECTOR 04 — New Economy & Innovation ── */}
+        <section className="relative py-32 md:py-40 overflow-hidden">
+          <div className="section-container relative z-10">
+            <div className="grid md:grid-cols-12 gap-12 items-start">
+              {/* Copy left */}
+              <div className="md:col-span-4 md:sticky md:top-36">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <span className="text-[80px] md:text-[120px] font-display font-bold text-foreground/[0.02] leading-none select-none block">
+                    04
+                  </span>
+                  <h3 className="text-[clamp(1.5rem,2.5vw,2.25rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em] mt-[-8px]">
+                    {c04.sector}
+                  </h3>
+                  <p className="text-[11px] uppercase tracking-[0.25em] text-primary/30 font-body mt-3">
+                    Emergent · Innovation-led · Future-facing
+                  </p>
+                  <p className="text-[13px] text-foreground/20 leading-[1.8] font-body mt-5 max-w-sm">
+                    {c04.narrative}
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Logos — ascending diagonal */}
+              <div className="md:col-span-7 md:col-start-6">
+                <div className="space-y-12 md:space-y-16">
+                  <div className="md:pl-16">
+                    <FloatingBrand brand={c04.brands[0]} size="lg" delay={0.1} drift={-8} />
+                  </div>
+                  <div className="flex items-end gap-10 md:gap-14 md:pl-4">
+                    <FloatingBrand brand={c04.brands[1]} size="lg" delay={0.2} />
+                    <FloatingBrand brand={c04.brands[2]} size="md" delay={0.28} drift={6} />
+                  </div>
+                  <div className="flex items-center gap-8 md:gap-12 md:pl-24">
+                    {c04.brands.slice(3).map((brand, i) => (
+                      <FloatingBrand key={brand.name} brand={brand} size="md" delay={0.35 + i * 0.08} drift={i % 2 === 0 ? -4 : 4} />
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          {/* Sector 04 — New Economy & Innovation */}
-          <div className="py-24 md:py-32 relative overflow-hidden">
-            <div className="section-container relative z-10">
-              <SectorField cluster={sectorClusters[3]} index={3} reverse />
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* ═══ BEHIND THE LOGOS ═══ */}
       <section className="py-28 md:py-36 relative bg-[#060B18]">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/[0.08] to-transparent" />
-        {/* Atmospheric grid */}
         <div className="absolute top-0 bottom-0 left-[33%] w-px bg-gradient-to-b from-transparent via-primary/[0.015] to-transparent hidden md:block" />
         <div className="absolute top-0 bottom-0 left-[66%] w-px bg-gradient-to-b from-transparent via-primary/[0.015] to-transparent hidden md:block" />
 
@@ -330,16 +405,14 @@ const Brands = () => {
             </div>
           </RevealSection>
 
-          {/* Featured outcomes — large editorial panels */}
+          {/* Featured outcomes */}
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8">
             {outcomeCapsules.filter(c => c.featured).map((capsule, i) => (
               <RevealSection key={i} delay={i * 0.12} blur>
                 <div className="group relative rounded-2xl border border-white/[0.04] bg-white/[0.015] p-8 md:p-10 hover:border-primary/15 transition-all duration-700 h-full flex flex-col justify-between">
-                  {/* Background number */}
                   <span className="absolute top-6 right-8 text-[100px] font-display font-bold text-foreground/[0.02] leading-none select-none pointer-events-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-
                   <div>
                     <h3 className="text-[clamp(1.75rem,3vw,2.5rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em] mb-2">
                       {capsule.brand}
@@ -351,7 +424,6 @@ const Brands = () => {
                       {capsule.outcome}
                     </p>
                   </div>
-
                   <div className="mt-8 flex items-center gap-2">
                     <div className="w-6 h-px bg-primary/20 group-hover:w-10 transition-all duration-500" />
                     <span className="text-[10px] text-primary/30 uppercase tracking-[0.15em] font-body">Case outcome</span>
@@ -361,7 +433,7 @@ const Brands = () => {
             ))}
           </div>
 
-          {/* Supporting outcomes — compact row */}
+          {/* Supporting outcomes */}
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {outcomeCapsules.filter(c => !c.featured).map((capsule, i) => (
               <RevealSection key={i} delay={0.3 + i * 0.08} blur>
