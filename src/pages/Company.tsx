@@ -67,7 +67,7 @@ const growthPrinciples = [
   { title: "Growth Architect mindset", desc: "We don't advise from the outside. We embed within the business and stay until the work has real infrastructure." },
   { title: "Ecosystem intelligence", desc: "We understand how growth moves through partnerships, channels, and local trust — not just marketing funnels." },
   { title: "Outcome obsession", desc: "Every programme is designed around commercial outcomes. We measure what matters to the business, not vanity metrics." },
-  { title: "Regional depth", desc: "We're built for Southeast Asia. Our teams, partners, and operating model are designed for this region's complexity." },
+  { title: "Regional depth", desc: "We're built for Southeast Asia. Our teams, partners, and growth architecture are designed for this region's complexity." },
   { title: "Capability ownership", desc: "Each capability is led by a domain-specialist principal who owns quality, methodology, and client outcomes." },
   { title: "Structured transfer", desc: "We build to transfer. Every engagement is designed to leave the client with lasting capability, not dependency." },
 ];
