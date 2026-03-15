@@ -323,44 +323,42 @@ const Brands = () => {
             </div>
           </RevealSection>
 
-          {/* Featured outcomes */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8">
+          {/* Featured outcomes — flagship row */}
+          <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-14">
             {outcomeCapsules.filter(c => c.featured).map((capsule, i) => (
               <RevealSection key={i} delay={i * 0.12} blur>
-                <div className="group relative rounded-xl border border-white/[0.05] bg-white/[0.02] p-8 md:p-10 hover:border-primary/15 transition-all duration-700 h-full flex flex-col justify-between">
-                  <span className="absolute top-6 right-8 text-[100px] font-display font-bold text-foreground/[0.02] leading-none select-none pointer-events-none">
+                <div className="group relative rounded-xl border border-white/[0.06] bg-white/[0.025] p-10 md:p-12 lg:p-14 hover:border-primary/20 hover:bg-white/[0.035] transition-all duration-700 h-full flex flex-col justify-between min-h-[320px]">
+                  <span className="absolute top-8 right-10 text-[120px] font-display font-bold text-foreground/[0.02] leading-none select-none pointer-events-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="text-[clamp(1.75rem,3vw,2.5rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em] mb-2">
-                      {capsule.brand}
-                    </h3>
-                    <span className="text-[10px] tracking-[0.2em] text-primary/40 uppercase font-body">
+                    <span className="text-[10px] tracking-[0.2em] text-primary/40 uppercase font-body block mb-4">
                       {capsule.label}
                     </span>
-                    <p className="text-[14px] text-foreground/35 leading-[1.8] font-body mt-6">
+                    <h3 className="text-[clamp(1.75rem,3vw,2.5rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em]">
+                      {capsule.brand}
+                    </h3>
+                    <p className="text-[14px] text-foreground/35 leading-[1.85] font-body mt-6 max-w-md">
                       {capsule.outcome}
                     </p>
                   </div>
-                  <div className="mt-8 flex items-center gap-2">
-                    <div className="w-6 h-px bg-primary/20 group-hover:w-10 transition-all duration-500" />
-                    <span className="text-[10px] text-primary/30 uppercase tracking-[0.15em] font-body">Case outcome</span>
+                  <div className="mt-10 flex items-center gap-2">
+                    <div className="w-8 h-px bg-primary/20 group-hover:w-12 transition-all duration-500" />
+                    <span className="text-[10px] text-primary/30 group-hover:text-primary/50 uppercase tracking-[0.15em] font-body transition-colors duration-500">Case outcome</span>
                   </div>
                 </div>
               </RevealSection>
             ))}
           </div>
 
-          {/* Supporting outcomes */}
+          {/* Supporting outcomes — secondary row */}
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {outcomeCapsules.filter(c => !c.featured).map((capsule, i) => (
               <RevealSection key={i} delay={0.3 + i * 0.08} blur>
-                <div className="group rounded-xl border border-white/[0.04] bg-white/[0.01] p-6 md:p-8 hover:border-primary/10 transition-all duration-700">
-                  <div className="flex items-baseline gap-4 mb-4">
-                    <h4 className="text-lg font-display font-bold text-foreground leading-tight">{capsule.brand}</h4>
-                    <span className="text-[9px] text-primary/25 uppercase tracking-[0.15em] font-body">{capsule.label}</span>
-                  </div>
-                  <p className="text-[13px] text-foreground/25 leading-[1.7] font-body">{capsule.outcome}</p>
+                <div className="group rounded-lg border border-white/[0.04] bg-white/[0.015] px-8 py-7 md:px-9 md:py-8 hover:border-primary/12 hover:bg-white/[0.025] transition-all duration-700">
+                  <span className="text-[9px] text-primary/30 uppercase tracking-[0.2em] font-body block mb-3">{capsule.label}</span>
+                  <h4 className="text-base font-display font-semibold text-foreground/85 leading-tight mb-3">{capsule.brand}</h4>
+                  <p className="text-[13px] text-foreground/30 leading-[1.75] font-body">{capsule.outcome}</p>
                 </div>
               </RevealSection>
             ))}
