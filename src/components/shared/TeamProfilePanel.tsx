@@ -69,20 +69,12 @@ const TeamProfilePanel = ({
             <X className="h-5 w-5 text-muted-foreground" />
           </button>
 
-          {/* Photo */}
-          {member.photo ? (
-            <img
-              src={member.photo}
-              alt={member.name}
-              className="w-36 h-36 mx-auto mt-4 rounded-full object-cover object-top border-2 border-border"
-            />
-          ) : (
-            <div className="w-36 h-36 mx-auto mt-4 rounded-full bg-secondary/60 border-2 border-border flex items-center justify-center">
-              <span className="font-display text-4xl font-bold text-muted-foreground/40">
-                {member.name.split(" ").map((n) => n[0]).join("")}
-              </span>
-            </div>
-          )}
+          {/* Photo — initials avatar fallback */}
+          <div className="w-36 h-36 mx-auto mt-4 rounded-full bg-primary/20 border-2 border-primary/30 flex items-center justify-center">
+            <span className="font-display text-4xl font-bold text-primary">
+              {member.name.split(" ").map((n) => n[0]).join("")}
+            </span>
+          </div>
 
           {/* Name & Title */}
           <div className="text-center mt-6">
