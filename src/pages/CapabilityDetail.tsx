@@ -314,6 +314,70 @@ const buyerCapData: Record<string, BuyerCapData> = {
     nextCapability: { title: "AI Ecosystems", href: "/capabilities/ai-ecosystems" },
     faqs: capabilityData["brand-demand"].faqs,
   },
+  "ai-ecosystems": {
+    eyebrow: "AI Ecosystems",
+    headline: "Move innovation from pilot to production. Build ecosystem architecture that scales.",
+    challengeBody: "Most enterprise AI programmes start with pilots. Eighteen months later, the pilot count has grown but production deployments haven't. The gap is not technology or talent — it is the absence of a commercial operating model around innovation.",
+    seoTitle: "AI Ecosystems & Innovation Programs in APAC",
+    seoDescription: "Enterprise AI and innovation ecosystem programmes across Southeast Asia and APAC: venture strategy, startup scouting, pilot-to-production pathways, and commercialisation architecture for corporate innovation mandates.",
+    whatWeBuild: [
+      { title: "Ecosystem Mapping & Curation", desc: "Identify, evaluate, and shortlist startups and technology partners aligned to enterprise innovation mandates." },
+      { title: "Pilot Design & Management", desc: "Structure pilots with clear commercial KPIs, enterprise integration plans, and defined scale-up criteria." },
+      { title: "Commercialisation Architecture", desc: "Design the operating model that moves innovation from pilot stage to recurring revenue and enterprise adoption." },
+    ],
+    process: [
+      { label: "Map", desc: "Landscape analysis — identify the ecosystem of startups, technologies, and partners relevant to the mandate." },
+      { label: "Curate", desc: "Evaluate, shortlist, and match startups to enterprise use cases with commercial fit." },
+      { label: "Pilot", desc: "Design and manage structured pilots with integration support and defined success criteria." },
+      { label: "Scale", desc: "Build the commercialisation architecture to move from pilot to production deployment." },
+    ],
+    outcomes: [
+      { num: "21", label: "Countries with ecosystem access", client: "HP" },
+      { num: "8,000+", label: "Enterprise customers reached" },
+      { num: "30+", label: "AI startups delivering in GA" },
+    ],
+    whoItsFor: [
+      "Enterprise technology companies with innovation mandates",
+      "Corporates seeking structured startup engagement",
+      "Organisations building AI capability beyond pilot stage",
+      "Companies needing ecosystem access across multiple markets",
+    ],
+    outcomeCaseIds: ["hp-garage", "enterprise-ai"],
+    nextCapability: { title: "Live Experiences", href: "/capabilities/live-experiences" },
+    faqs: capabilityData["ai-ecosystems"].faqs,
+  },
+  "live-experiences": {
+    eyebrow: "Live Experiences",
+    headline: "Create market moments designed for commercial impact, not just attendance.",
+    challengeBody: "Most product launches and corporate events are measured by attendance and applause. Rarely by pipeline. The events that create commercial momentum are the ones designed backward from a business outcome — not forward from a creative brief.",
+    seoTitle: "Live Experiences — Product Launches & Event Activation in Southeast Asia",
+    seoDescription: "Product launches, partner summits, roadshows, and experiential activations for enterprise brands across Southeast Asia — commercially designed events tied to pipeline, partner activation, and market momentum.",
+    whatWeBuild: [
+      { title: "Product Launches", desc: "Immersive launch experiences designed to generate measurable pipeline, press coverage, and channel activation." },
+      { title: "Summits & Roadshows", desc: "Multi-city programmes that build market presence, stakeholder relationships, and regional visibility at scale." },
+      { title: "Experiential Activations", desc: "Brand experiences, exhibitions, and activations engineered for commercial follow-through, not just engagement." },
+    ],
+    process: [
+      { label: "Brief", desc: "Define the commercial objectives, target audience, and measurable outcomes for the experience." },
+      { label: "Design", desc: "Create the experience concept, narrative, and production plan — built backward from pipeline goals." },
+      { label: "Produce", desc: "Execute end-to-end production — venue, content, speakers, logistics, and guest management." },
+      { label: "Activate", desc: "Post-event follow-through — lead capture, pipeline conversion, press outreach, and partner engagement." },
+    ],
+    outcomes: [
+      { num: "US$3M", label: "Product pipeline from launch", client: "HP" },
+      { num: "274+", label: "Attendees at experiential launch" },
+      { num: "30+", label: "Press articles generated" },
+    ],
+    whoItsFor: [
+      "Technology brands launching products across APAC",
+      "Companies running multi-city roadshows or partner summits",
+      "Brands needing pipeline-generating events, not awareness events",
+      "Organisations with experiential budgets and no commercial follow-through",
+    ],
+    outcomeCaseIds: ["hp-garage", "oracle-dha"],
+    nextCapability: { title: "Growth Infrastructure", href: "/capabilities/growth-infrastructure" },
+    faqs: capabilityData["live-experiences"].faqs,
+  },
 };
 
 /* ═══════════════════════════════════════════════
@@ -480,264 +544,14 @@ const BuyerCapabilityPage = ({ data }: { data: BuyerCapData }) => (
 );
 
 /* ═══════════════════════════════════════════════
-   LEGACY PAGE LAYOUT — AI Ecosystems & Live Experiences
-   ═══════════════════════════════════════════════ */
-const LegacyCapabilityPage = ({ data, slug }: { data: CapData; slug: string }) => (
-  <PageLayout>
-    <SEOHead
-      title={data.seoTitle}
-      description={data.seoDescription}
-      path={`/capabilities/${slug}`}
-      jsonLd={{
-        ...makeServiceSchema(data.eyebrow, data.seoDescription, `/capabilities/${slug}`),
-        ...makeFAQSchema(data.faqs),
-      }}
-    />
-    <HeroSection eyebrow={data.eyebrow} headline={data.headline} description={data.description}>
-      <Link to="/contact">
-        <Button variant="hero" size="xl">Discuss {data.eyebrow}</Button>
-      </Link>
-    </HeroSection>
-
-    <section className="py-16 md:py-20">
-      <div className="section-container">
-        <div className="grid md:grid-cols-12 gap-8">
-          <div className="md:col-span-4">
-            <RevealSection>
-              <p className="eyebrow mb-6">Who this is for</p>
-              <p className="body-lg">{data.forWhom}</p>
-            </RevealSection>
-          </div>
-          <div className="md:col-span-6 md:col-start-7">
-            <RevealSection delay={0.1}>
-              <h4 className="text-[11px] uppercase tracking-[0.2em] text-foreground/40 font-body mb-6">Typical clients</h4>
-              <div className="space-y-0">
-                {data.typicalClients.map((client, i) => (
-                  <div key={i} className="py-3 border-b border-border/20 text-[14px] text-secondary-foreground">{client}</div>
-                ))}
-              </div>
-            </RevealSection>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section className="section-alt py-16 md:py-20">
-      <div className="section-container">
-        <div className="grid md:grid-cols-12 gap-8">
-          <div className="md:col-span-5">
-            <RevealSection>
-              <p className="eyebrow mb-6">The challenge</p>
-              <h2 className="headline-lg">{data.challenge.heading}</h2>
-            </RevealSection>
-          </div>
-          <div className="md:col-span-6 md:col-start-7">
-            <RevealSection delay={0.1}>
-              <p className="body-lg mb-8">{data.challenge.body}</p>
-              <div className="space-y-4">
-                {data.challenge.bullets.map((b, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="w-1 h-1 rounded-full bg-primary/50 mt-2.5 shrink-0" />
-                    <span className="text-[14px] text-muted-foreground leading-relaxed">{b}</span>
-                  </div>
-                ))}
-              </div>
-            </RevealSection>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section className="py-16 md:py-20">
-      <div className="section-container">
-        <div className="section-divider mb-20" />
-        <div className="grid md:grid-cols-12 gap-8 mb-20">
-          <div className="md:col-span-5">
-            <RevealSection>
-              <p className="eyebrow mb-6">What we build</p>
-              <h2 className="headline-lg">{data.whatWeBuild.heading}</h2>
-            </RevealSection>
-          </div>
-          <div className="md:col-span-5 md:col-start-7 flex items-end">
-            <RevealSection delay={0.1}>
-              <p className="body-md text-muted-foreground">{data.whatWeBuild.body}</p>
-            </RevealSection>
-          </div>
-        </div>
-        <div className="space-y-0">
-          {data.whatWeBuild.deliverables.map((d, i) => (
-            <RevealSection key={i} delay={i * 0.04}>
-              <div className="grid md:grid-cols-12 gap-4 py-8 border-b border-border/20">
-                <div className="md:col-span-4">
-                  <h3 className="font-display text-[15px] font-semibold text-foreground">{d.title}</h3>
-                </div>
-                <div className="md:col-span-7">
-                  <p className="text-[14px] text-muted-foreground leading-relaxed">{d.desc}</p>
-                </div>
-              </div>
-            </RevealSection>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section className="section-alt py-16 md:py-20">
-      <div className="section-container">
-        <SectionHeader eyebrow="How it works" headline="From diagnostic to scale." description="A structured process designed for clarity, accountability, and transfer of capability." centered />
-        <div className="mt-24 relative">
-          <div className="hidden md:block">
-            <div className="flex items-start justify-between relative">
-              <div className="absolute top-[18px] left-[10%] right-[10%] h-px bg-border/30" />
-              <div className="absolute top-[18px] left-[10%] right-[10%] h-px bg-gradient-to-r from-primary/0 via-primary/15 to-primary/0" />
-              {data.howItWorks.map((step, i) => (
-                <RevealSection key={i} delay={i * 0.08} className="flex-1 relative px-3 text-center">
-                  <div className="w-9 h-9 rounded-full border border-border bg-background flex items-center justify-center mx-auto mb-6 relative z-10">
-                    <span className="text-[10px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
-                  </div>
-                  <h3 className="font-display font-semibold text-foreground text-[14px] tracking-tight">{step.step}</h3>
-                  <p className="text-[12px] text-muted-foreground mt-2 leading-relaxed max-w-[150px] mx-auto">{step.desc}</p>
-                </RevealSection>
-              ))}
-            </div>
-          </div>
-          <div className="md:hidden space-y-8 relative pl-10">
-            <div className="absolute left-[14px] top-2 bottom-2 w-px bg-border/30" />
-            {data.howItWorks.map((step, i) => (
-              <RevealSection key={i} delay={i * 0.05} className="relative">
-                <div className="absolute -left-10 top-0 w-7 h-7 rounded-full border border-border bg-background flex items-center justify-center">
-                  <span className="text-[9px] font-display font-bold text-primary/70">{String(i + 1).padStart(2, '0')}</span>
-                </div>
-                <h3 className="font-display font-semibold text-foreground text-sm">{step.step}</h3>
-                <p className="text-[13px] text-muted-foreground mt-1 leading-relaxed">{step.desc}</p>
-              </RevealSection>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section className="py-16 md:py-20">
-      <div className="section-container">
-        <div className="section-divider mb-20" />
-        <RevealSection>
-          <p className="eyebrow mb-2">Selected outcomes</p>
-          <p className="text-[13px] text-muted-foreground max-w-md">Programmes delivered. Outcomes measured. Infrastructure built.</p>
-        </RevealSection>
-        <div className="mt-8 space-y-0">
-          {getCasesByIds(data.outcomeCaseIds).map((cs, i) => (
-            <CaseCard key={cs.id} cs={cs} index={i} />
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section className="section-alt py-20 md:py-24">
-      <div className="section-container">
-        <div className="grid md:grid-cols-12 gap-8">
-          <div className="md:col-span-4">
-            <RevealSection>
-              <p className="eyebrow mb-4">Capability leadership</p>
-              <h3 className="headline-md">{data.team.heading}</h3>
-            </RevealSection>
-          </div>
-          <div className="md:col-span-6 md:col-start-7 flex items-center">
-            <RevealSection delay={0.1}>
-              <p className="body-md text-muted-foreground">{data.team.body}</p>
-              <Link to="/company/leadership" className="inline-flex items-center gap-2 text-sm text-primary/70 hover:text-primary font-medium transition-colors mt-6">
-                Meet the leadership team <ArrowRight className="w-4 h-4" />
-              </Link>
-            </RevealSection>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {data.faqs.length > 0 && (
-      <section className="py-20 md:py-28">
-        <div className="section-container">
-          <div className="section-divider mb-16" />
-          <RevealSection>
-            <p className="eyebrow mb-6">Common questions</p>
-            <h2 className="headline-md max-w-2xl">Frequently asked about {data.eyebrow}.</h2>
-          </RevealSection>
-          <div className="mt-12 space-y-0 max-w-3xl">
-            {data.faqs.map((faq, i) => (
-              <RevealSection key={i} delay={i * 0.06}>
-                <div className="border-b border-border/20 py-8">
-                  <h3 className="font-display text-[15px] font-semibold text-foreground leading-snug">{faq.question}</h3>
-                  <p className="text-[14px] text-muted-foreground mt-3 leading-relaxed">{faq.answer}</p>
-                </div>
-              </RevealSection>
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
-
-    <section className="section-alt py-20 md:py-24">
-      <div className="section-container">
-        <div className="grid md:grid-cols-12 gap-8 mb-12">
-          <div className="md:col-span-5">
-            <RevealSection>
-              <p className="text-[11px] text-muted-foreground uppercase tracking-[0.15em] font-body mb-3">Next capability</p>
-              <Link to={data.nextCapability.href} className="group inline-flex items-center gap-3">
-                <span className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-500">{data.nextCapability.title}</span>
-                <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all duration-500" />
-              </Link>
-            </RevealSection>
-          </div>
-          <div className="md:col-span-5 md:col-start-7">
-            <RevealSection delay={0.1}>
-              <Link to="/capabilities" className="group inline-flex items-center gap-2">
-                <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">View all capabilities</span>
-                <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-foreground transition-all duration-300" />
-              </Link>
-            </RevealSection>
-          </div>
-        </div>
-        <div className="border-t border-border/30 pt-10">
-          <div className="grid md:grid-cols-3 gap-6">
-            <Link to="/work" className="group block">
-              <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-body mb-1">Related</p>
-              <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">View selected work →</span>
-            </Link>
-            <Link to="/brands" className="group block">
-              <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-body mb-1">Related</p>
-              <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Brands we've worked with →</span>
-            </Link>
-            <Link to="/thinking" className="group block">
-              <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-body mb-1">Related</p>
-              <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Read our thinking →</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <CTABand
-      headline={`Ready to discuss ${data.eyebrow}?`}
-      description="Tell us the problem. We'll explain how we'd approach it and what outcomes to expect."
-      primaryLabel="Start a conversation"
-    />
-  </PageLayout>
-);
-
-/* ═══════════════════════════════════════════════
-   PAGE COMPONENT — routes to buyer or legacy layout
+   PAGE COMPONENT
    ═══════════════════════════════════════════════ */
 
 const CapabilityDetail = () => {
   const { slug } = useParams();
   const key = slug || "growth-infrastructure";
-
-  // Buyer-facing layout for Growth Infrastructure & Brand & Demand
-  if (buyerCapData[key]) {
-    return <BuyerCapabilityPage data={buyerCapData[key]} />;
-  }
-
-  // Legacy layout for AI Ecosystems & Live Experiences
-  const data = capabilityData[key] || capabilityData["growth-infrastructure"];
-  return <LegacyCapabilityPage data={data} slug={key} />;
+  const data = buyerCapData[key] || buyerCapData["growth-infrastructure"];
+  return <BuyerCapabilityPage data={data} />;
 };
 
 export default CapabilityDetail;
