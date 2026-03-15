@@ -158,6 +158,9 @@
   }
   .section-alt {
     background-color: hsl(var(--section-alt));
+    background-image:
+      radial-gradient(ellipse 80% 50% at 30% 50%, hsl(210 60% 35% / 0.012), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 75% 60%, hsl(220 40% 25% / 0.008), transparent 60%);
   }
 }
 
