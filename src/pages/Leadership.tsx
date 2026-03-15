@@ -259,6 +259,7 @@ At Enfactum, Navonil works with clients on marketing analytics, technology stack
     philosophy: "What gets measured gets optimized.",
     expertise: ["Marketing analytics", "Data strategy", "Martech optimization", "Performance measurement", "Automation"],
     linkedin: "https://linkedin.com/in/navonilroy",
+    photo: navonilPhoto,
   },
   {
     name: "Anuchida Kawashima",
