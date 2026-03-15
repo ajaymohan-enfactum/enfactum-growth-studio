@@ -618,7 +618,7 @@ const QuoteCarousel = ({ quotes }: { quotes: string[] }) => {
         </div>
 
         {/* Attribution */}
-        <p className="text-sm text-muted-foreground mt-6">— Enfactum operating perspective</p>
+        <p className="text-sm text-muted-foreground mt-6">— Enfactum growth perspective</p>
 
         {/* Dots */}
         <div className="flex items-center gap-2 mt-8">

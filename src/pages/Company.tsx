@@ -361,7 +361,7 @@ const Company = () => (
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
-          {operatingPrinciples.map((p, i) => (
+          {growthPrinciples.map((p, i) => (
             <RevealSection key={i} delay={i * 0.06}>
               <div>
                 <h3 className="font-display text-base font-semibold text-foreground">{p.title}</h3>
