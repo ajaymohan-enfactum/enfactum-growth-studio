@@ -229,23 +229,6 @@ At Enfactum, Sinchan works with clients on demand generation, performance media,
     photo: sinchanPhoto,
   },
   {
-    name: "Leena Gandhi",
-    role: "Brand Experience Lead",
-    category: "Brand & Demand",
-    focus: "Brand Identity · Digital Experience · Visual Design",
-    location: "India",
-    bio: "Brand identity and digital experience design. Creates visual systems that work across cultures.",
-    fullBio: `Leena specializes in brand identity and digital experiences—the visual and interactive touchpoints where brands come to life. She leads Enfactum's work on brand identity systems, website experiences, and the design elements that shape how audiences perceive and engage with brands.
-
-Her background spans graphic design, digital experience design, and brand implementation across diverse APAC markets. Leena brings both creative vision and practical understanding of how design works across cultures and contexts.
-
-At Enfactum, Leena works with clients on visual identity, digital experience design, brand guidelines, and the design systems that ensure consistency across touchpoints.`,
-    philosophy: "Great design bridges cultures.",
-    expertise: ["Brand identity", "Digital experience design", "Visual communication", "Cultural design adaptation"],
-    linkedin: "https://linkedin.com/in/leenagandhi",
-    photo: leenaPhoto,
-  },
-  {
     name: "Navonil Roy",
     role: "Director, Marketing Analytics",
     category: "Analytics & Data",
