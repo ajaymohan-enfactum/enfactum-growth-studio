@@ -16,24 +16,28 @@ import { motion } from "framer-motion";
 const outcomeCapsules = [
   {
     brand: "HP",
+    caseId: "hp-garage",
     label: "AI Ecosystems / Growth Infrastructure",
     outcome: "Built regional innovation and ecosystem architecture across multiple markets and business units — from AI incubation to SMB pipeline to large format product launches.",
     featured: true,
   },
   {
     brand: "The Economist",
+    caseId: "economist-bot",
     label: "Growth Infrastructure / Build-Operate-Transfer",
     outcome: "Created an embedded build-operate-transfer model that delivered 47% cost savings, 50% agency fee reduction, and exceeded revenue expectations within two quarters.",
     featured: true,
   },
   {
     brand: "JSHealth Vitamins",
+    caseId: "jshealth",
     label: "Brand & Demand / Affiliate",
     outcome: "Built a performance-led affiliate and demand engine delivering +411% ROAS and +311% ROI through 190+ partnership channels across AU, EU, UK & US.",
     featured: false,
   },
   {
     brand: "Brands For Less",
+    caseId: "bfl-sea",
     label: "Growth Infrastructure / Market Entry",
     outcome: "Transformed digital acquisition channels to drive +42% site traffic uplift, strengthening competitive position in online retail.",
     featured: false,
