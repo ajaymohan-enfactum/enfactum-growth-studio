@@ -1,9 +1,12 @@
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ScrollToTop from "./components/ScrollToTop";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { posthog } from "./lib/analytics";
+import ConsentBanner from "./components/ConsentBanner";
 import Index from "./pages/Index";
 import Capabilities from "./pages/Capabilities";
 import CapabilityDetail from "./pages/CapabilityDetail";
@@ -24,6 +27,14 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const PageViewTracker = () => {
+  const location = useLocation();
+  useEffect(() => {
+    posthog.capture('$pageview');
+  }, [location]);
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -31,6 +42,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <PageViewTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/capabilities" element={<Capabilities />} />
@@ -50,6 +62,7 @@ const App = () => (
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ConsentBanner />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

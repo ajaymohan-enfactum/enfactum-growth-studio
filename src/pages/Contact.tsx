@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { posthog } from "@/lib/analytics";
 import { Link, useSearchParams } from "react-router-dom";
 import { z } from "zod";
 import PageLayout from "@/components/layout/PageLayout";
@@ -151,6 +152,10 @@ const Contact = () => {
     setErrors({});
     setSubmitted(true);
     toast.success("Message received. We'll be in touch within 48 hours.");
+
+    posthog.capture('contact_form_submitted', {
+      inquiry_type: form.type,
+    });
   };
 
   if (submitted) {
