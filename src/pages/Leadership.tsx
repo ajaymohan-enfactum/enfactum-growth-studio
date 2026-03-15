@@ -195,23 +195,6 @@ Before Enfactum, Rakhi led marketing operations at enterprise technology compani
     photo: rakhiPhoto,
   },
   {
-    name: "Navonil Roy",
-    role: "Director, Marketing Analytics",
-    category: "Analytics & Data",
-    focus: "Marketing Analytics · Data Strategy · Martech",
-    location: "India",
-    bio: "Leads Analytics & Data practice. Marketing measurement and data-driven decision making.",
-    fullBio: `Navonil leads Enfactum's analytics and data practice—bringing scientific rigor to marketing decisions. His expertise spans marketing technology, automation, data strategy, and the measurement frameworks that connect marketing investment to business outcomes.
-
-Before Enfactum, Navonil built analytics and marketing technology capabilities at enterprise companies, developing the data infrastructure and reporting systems that enabled data-driven marketing at scale.
-
-At Enfactum, Navonil works with clients on marketing analytics, technology stack optimization, data strategy, and the measurement systems that prove (and improve) marketing ROI.`,
-    philosophy: "What gets measured gets optimized.",
-    expertise: ["Marketing analytics", "Data strategy", "Martech optimization", "Performance measurement", "Automation"],
-    linkedin: "https://linkedin.com/in/navonilroy",
-    photo: navonilPhoto,
-  },
-  {
     name: "Anuchida Kawashima",
     role: "Account Director",
     category: "Client Success",
