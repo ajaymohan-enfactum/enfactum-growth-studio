@@ -637,7 +637,7 @@ const QuoteCarousel = ({ quotes }: { quotes: string[] }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="text-xl md:text-2xl italic text-foreground/80 leading-relaxed font-body"
+              className="text-2xl md:text-3xl lg:text-4xl italic text-foreground font-display font-semibold leading-snug tracking-tight"
             >
               &ldquo;{quotes[active]}&rdquo;
             </motion.p>
