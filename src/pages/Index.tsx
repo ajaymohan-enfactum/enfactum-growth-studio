@@ -663,12 +663,32 @@ const Index = () => (
 
     <StickySectionLabel sections={sectionLabels} />
     <Hero />
+    {/* Break 1 — Stat strip */}
+    <div className="bg-[#0d1526] py-10">
+      <p className="text-center text-sm text-white/50 tracking-widest uppercase font-medium">
+        40+ enterprise clients · 18 programmes · 15+ markets
+      </p>
+    </div>
     <WhySEA />
     <GrowthBreaks />
     <WhatWeBuilds />
+    {/* Break 2 — Pull quote */}
+    <section className="py-16">
+      <div className="section-container">
+        <p className="text-center italic text-white/80 font-display leading-snug max-w-4xl mx-auto" style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}>
+          "Growth here moves through ecosystems, local trust, and execution nuance. Imported playbooks break."
+        </p>
+      </div>
+    </section>
     <HowWeWork />
     <SectorExperience />
     <FeaturedWork />
+    {/* Break 3 — Divider line */}
+    <div className="py-8">
+      <p className="text-center text-xs text-blue-400 tracking-[0.3em] uppercase">
+        Southeast Asia · Since 2010
+      </p>
+    </div>
     <QuoteCarousel quotes={clientInsights} />
     <DepthSection />
     <Perspectives />
