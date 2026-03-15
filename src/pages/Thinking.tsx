@@ -8,7 +8,7 @@ import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight } from "lucide-react";
 import { articles, type Article } from "@/data/articles";
 
-const categoryFilters = ["All", "Operator View", "Field Note", "Market Signal"] as const;
+const categoryFilters = ["All", "Architect View", "Field Note", "Market Signal"] as const;
 const themeFilters = [
   "Southeast Asia Growth",
   "Ecosystems & Partnerships",

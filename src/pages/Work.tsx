@@ -169,7 +169,7 @@ const Work = () => {
       </section>
 
       {/* ─── Featured Cases (full cards) ─── */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="section-container">
           <RevealSection blur>
             <p className="eyebrow mb-2">
@@ -193,7 +193,7 @@ const Work = () => {
 
       {/* ─── Additional Cases (compact rows) ─── */}
       {additionalCases.length > 0 && (
-        <section className="section-alt py-24 md:py-32">
+        <section className="section-alt py-16 md:py-20">
           <div className="section-container">
             <SectionHeader
               eyebrow="Additional work"

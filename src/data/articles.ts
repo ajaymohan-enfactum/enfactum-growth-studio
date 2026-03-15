@@ -23,7 +23,7 @@ export const articles: Article[] = [
   {
     title: "Southeast Asia Is Not One Market. Stop Planning It Like One.",
     slug: "southeast-asia-is-not-one-market",
-    category: "Operator View",
+    category: "Architect View",
     theme: "Southeast Asia Growth",
     author: "Ajay Mohan",
     authorRole: "Founder & Managing Partner",
@@ -43,7 +43,7 @@ export const articles: Article[] = [
   {
     title: "In B2B, Your Buyer Already Trusts Someone Else.",
     slug: "in-b2b-your-buyer-already-trusts-someone-else",
-    category: "Operator View",
+    category: "Architect View",
     theme: "Ecosystems & Partnerships",
     author: "William Gaultier",
     authorRole: "Partner",
@@ -79,7 +79,7 @@ export const articles: Article[] = [
   {
     title: "Most Enterprise AI Programs Don't Have an AI Problem. They Have an Operating Model Problem.",
     slug: "most-enterprise-ai-programs-dont-have-an-ai-problem",
-    category: "Operator View",
+    category: "Architect View",
     theme: "AI & Innovation",
     author: "Ajay Mohan",
     authorRole: "Founder & Managing Partner",
@@ -96,7 +96,7 @@ export const articles: Article[] = [
   {
     title: "Partner Programs Don't Fail from Lack of Intent. They Fail from Lack of Design.",
     slug: "partner-programs-dont-fail-from-lack-of-intent",
-    category: "Operator View",
+    category: "Architect View",
     theme: "Ecosystems & Partnerships",
     author: "William Gaultier",
     authorRole: "Partner",
@@ -113,7 +113,7 @@ export const articles: Article[] = [
   {
     title: "Market Entry in Southeast Asia Is Really a System Design Problem.",
     slug: "market-entry-in-southeast-asia-is-really-a-system-design-problem",
-    category: "Operator View",
+    category: "Architect View",
     theme: "Southeast Asia Growth",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
@@ -130,7 +130,7 @@ export const articles: Article[] = [
   {
     title: "AI Ecosystems Matter More Than AI Pilots.",
     slug: "ai-ecosystems-matter-more-than-ai-pilots",
-    category: "Operator View",
+    category: "Architect View",
     theme: "AI & Innovation",
     author: "Ajay Mohan",
     authorRole: "Founder & Managing Partner",
@@ -147,7 +147,7 @@ export const articles: Article[] = [
   {
     title: "Distribution Is Not a Channel. It Is a Strategic Capability.",
     slug: "distribution-is-not-a-channel-it-is-a-strategic-capability",
-    category: "Operator View",
+    category: "Architect View",
     theme: "Southeast Asia Growth",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
@@ -163,7 +163,7 @@ export const articles: Article[] = [
   {
     title: "Stop Choosing Between Brand and Performance.",
     slug: "stop-choosing-between-brand-and-performance",
-    category: "Operator View",
+    category: "Architect View",
     theme: "Brand & Demand",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
@@ -196,7 +196,7 @@ export const articles: Article[] = [
   {
     title: "The Real Value of Corporate Innovation Is Commercial, Not Cosmetic.",
     slug: "the-real-value-of-corporate-innovation-is-commercial-not-cosmetic",
-    category: "Operator View",
+    category: "Architect View",
     theme: "AI & Innovation",
     author: "Ajay Mohan",
     authorRole: "Founder & Managing Partner",
