@@ -27,6 +27,14 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const PageViewTracker = () => {
+  const location = useLocation();
+  useEffect(() => {
+    posthog.capture('$pageview');
+  }, [location]);
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -34,6 +42,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <PageViewTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/capabilities" element={<Capabilities />} />
@@ -53,6 +62,7 @@ const App = () => (
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ConsentBanner />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
