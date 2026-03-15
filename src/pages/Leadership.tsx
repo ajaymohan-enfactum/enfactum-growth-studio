@@ -27,7 +27,7 @@ import idrisPhoto from "@/assets/team/idris-atalki.png";
 const leadershipTeam: TeamMemberFull[] = [
   {
     name: "Ajay Mohan",
-    role: "Managing Partner",
+    role: "Founder & Managing Partner",
     category: "Leadership",
     focus: "GTM Strategy · Growth · Southeast Asia",
     location: "Singapore",
