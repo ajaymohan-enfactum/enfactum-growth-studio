@@ -138,12 +138,11 @@ const Hero = () => {
    Editorial split with generous breathing room
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section id="why-sea" className="py-16 md:py-20 bg-[#080E1A]">
+  <section id="why-sea" className="py-16 md:py-20 bg-[#0c1629]">
     <div className="section-container">
       <div className="grid md:grid-cols-12 gap-12 md:gap-8">
         <div className="md:col-span-5">
           <RevealSection blur>
-            <p className="eyebrow mb-6">Why Southeast Asia moves differently</p>
             <h2 className="headline-lg">
               Not one market.<br />
               An interconnected web of ecosystems.
