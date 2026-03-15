@@ -13,7 +13,7 @@ import RevealSection from "@/components/shared/RevealSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import CTABand from "@/components/shared/CTABand";
 
-import HybridBackground from "@/components/shared/HybridBackground";
+import HeroAtmosphere from "@/components/shared/HeroAtmosphere";
 
 import CaseCard from "@/components/shared/CaseCard";
 import SEOHead, { organizationSchema, webSiteSchema } from "@/components/shared/SEOHead";
