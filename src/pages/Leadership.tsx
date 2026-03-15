@@ -91,6 +91,7 @@ At Enfactum, Mark works with clients on market entry strategy, competitive analy
     philosophy: "Strategy without execution is just a document.",
     expertise: ["APAC market entry", "GTM strategy", "Competitive positioning", "Market assessment"],
     linkedin: "https://linkedin.com/in/markrandall",
+    photo: markRandallPhoto,
   },
   {
     name: "Sumit Ramchandani",
