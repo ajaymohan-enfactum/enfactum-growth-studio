@@ -151,6 +151,10 @@ const Contact = () => {
     setErrors({});
     setSubmitted(true);
     toast.success("Message received. We'll be in touch within 48 hours.");
+
+    posthog.capture('contact_form_submitted', {
+      inquiry_type: form.type,
+    });
   };
 
   if (submitted) {
