@@ -33,7 +33,7 @@ export const sectorClusters: SectorCluster[] = [
     narrative:
       "Helping technology brands build market entry, partner momentum, and commercial infrastructure across Southeast Asia.",
     brands: [
-      b("HP", "hp.com"),
+      b("HP", "hp.com", "/logos/hp.png"),
       b("Lenovo", "lenovo.com"),
       b("Oracle", "oracle.com"),
       b("Dell EMC", "dell.com"),
