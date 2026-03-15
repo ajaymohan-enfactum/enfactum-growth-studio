@@ -150,7 +150,7 @@ const Company = () => (
 
     <ParallaxDivider variant="gradient" />
     {/* ═══ SECTION 2 — LEADERSHIP ═══ */}
-    <section className="section-alt py-32 md:py-44">
+    <section className="section-alt py-16 md:py-20">
       <div className="section-container">
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-5">
