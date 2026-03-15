@@ -441,12 +441,18 @@ const SectorExperience = () => (
               <p className="text-[13px] text-muted-foreground leading-relaxed mt-2 line-clamp-3">
                 {cluster.narrative}
               </p>
-              {/* Brand names listed cleanly */}
-              <div className="mt-4 flex flex-wrap gap-x-1.5 gap-y-0.5">
+              {/* Brand logos */}
+              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-3">
                 {cluster.brands.map((brand, bi) => (
-                  <span key={bi} className="text-[11px] text-foreground/40 font-body">
-                    {brand.name}{bi < cluster.brands.length - 1 ? "," : ""}
-                  </span>
+                  <BrandLogo
+                    key={bi}
+                    name={brand.name}
+                    domain={brand.domain}
+                    localLogo={brand.localLogo}
+                    height={18}
+                    opacity={0.4}
+                    hoverOpacity={0.8}
+                  />
                 ))}
               </div>
             </div>
