@@ -246,7 +246,8 @@ const Contact = () => {
               <RevealSection>
                 <div className="section-divider mb-16" />
                 <p className="eyebrow mb-4">Your details</p>
-                <h2 className="headline-lg mb-4">Tell us about your challenge.</h2>
+                <h2 className="headline-lg mb-4">{pathwayHeadings[form.type] || "Tell us about your challenge"}.</h2>
+                <input type="hidden" name="inquiry_type" value={form.type} />
                 <p className="body-md text-muted-foreground mb-12 max-w-lg">
                   The more context you provide, the more relevant our initial response will be.
                 </p>

@@ -191,6 +191,16 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
           </div>
         )}
 
+        {/* Contextual CTA */}
+        <div className="mt-6 md:ml-[calc(100%/12*5+2rem)]">
+          <Link
+            to="/contact?inquiry=client"
+            className="text-sm text-primary hover:text-primary/80 transition-colors duration-300"
+          >
+            Discuss a challenge like this →
+          </Link>
+        </div>
+
         {/* ═══ Hover Micro-Preview ═══ */}
         <AnimatePresence>
           {hovered && (
