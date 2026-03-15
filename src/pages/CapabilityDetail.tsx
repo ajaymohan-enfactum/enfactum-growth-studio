@@ -257,7 +257,7 @@ const CapabilityDetail = () => {
       </HeroSection>
 
       {/* ─── WHO IT'S FOR ─── */}
-      <section className="py-24 md:py-32">
+      <section className="py-16 md:py-20">
         <div className="section-container">
           <div className="grid md:grid-cols-12 gap-8">
             <div className="md:col-span-4">
