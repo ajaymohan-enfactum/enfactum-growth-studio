@@ -232,25 +232,29 @@ const Company = () => (
     </section>
 
     <ParallaxDivider variant="gradient" flip />
-    {/* ═══ SECTION 5 — DOMAIN SPECIALISTS ═══ */}
-    <section className="py-32 md:py-44">
+    {/* ═══ SECTION 5 — DOMAIN SPECIALISTS (VERTICALS) ═══ */}
+    <section className="py-16 md:py-20">
       <div className="section-container">
-        <div className="section-divider mb-20" />
+        <div className="section-divider mb-12" />
         <SectionHeader
-          eyebrow="Domain specialists"
+          eyebrow="Verticals"
           headline="Industry depth across key sectors."
           description="Beyond functional capability, Enfactum maintains sector-specific expertise through dedicated domain specialists."
         />
-        <div className="mt-20 space-y-0">
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {domainSpecialists.map((ds, i) => (
-            <RevealSection key={i} delay={i * 0.06}>
-              <div className="grid md:grid-cols-12 gap-4 py-8 border-b border-border/20">
-                <div className="md:col-span-4">
-                  <h3 className="font-display text-[15px] font-semibold text-foreground">{ds.domain}</h3>
-                </div>
-                <div className="md:col-span-7">
-                  <p className="text-[13px] text-muted-foreground leading-relaxed">{ds.focus}</p>
-                </div>
+            <RevealSection key={i} delay={i * 0.08} scale>
+              <div className="relative h-full rounded-xl bg-white/[0.05] border border-white/10 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 group">
+                {/* Number */}
+                <span className="text-[10px] font-body text-dim">{String(i + 1).padStart(2, '0')}</span>
+                {/* Vertical accent line */}
+                <div className="w-6 h-px bg-primary/40 mt-4 mb-5 group-hover:w-10 transition-all duration-500" />
+                <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 leading-snug">
+                  {ds.domain}
+                </h3>
+                <p className="text-[13px] text-muted-foreground mt-3 leading-relaxed font-body">
+                  {ds.focus}
+                </p>
               </div>
             </RevealSection>
           ))}
