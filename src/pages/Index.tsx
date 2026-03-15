@@ -634,10 +634,11 @@ const Index = () => (
           { num: "40+", label: "Enterprise clients" },
           { num: "100+", label: "Programmes" },
           { num: "15+", label: "Markets" },
+          { num: "5+", label: "Year average partnerships" },
         ].map((stat) => (
           <div key={stat.label} className="text-center">
-            <p className="text-6xl md:text-7xl font-display font-bold text-white/90">{stat.num}</p>
-            <p className="text-xs text-white/50 uppercase tracking-widest mt-2">{stat.label}</p>
+            <p className="text-6xl md:text-7xl font-display font-bold text-foreground leading-none">{stat.num}</p>
+            <p className="text-xs text-foreground/40 uppercase tracking-widest mt-2">{stat.label}</p>
           </div>
         ))}
       </div>
