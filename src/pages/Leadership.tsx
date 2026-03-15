@@ -320,92 +320,49 @@ const Leadership = () => {
         variant="minimal"
       />
 
-      {/* ═══ PRINCIPALS — Editorial feature layout ═══ */}
+      {/* ═══ PRINCIPALS — Balanced editorial ensemble ═══ */}
       <section className="py-24 md:py-32">
         <div className="section-container">
           <RevealSection blur>
             <p className="eyebrow mb-16">Principals</p>
           </RevealSection>
 
-          {/* Ajay — Full-width editorial feature */}
-          <RevealSection blur>
-            <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-24 md:mb-32">
-              <div className="md:col-span-5">
-                <Portrait
-                  member={principals[0]}
-                  size="lg"
-                  onClick={() => openProfile(0)}
-                />
-              </div>
-              <div className="md:col-span-6 md:col-start-7 flex flex-col justify-center">
-                <button onClick={() => openProfile(0)} className="text-left group cursor-pointer">
-                  <span className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body">
-                    {principals[0].location}
-                  </span>
-                  <h2 className="text-[clamp(1.5rem,2.5vw,2.25rem)] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em] mt-3 group-hover:text-primary transition-colors duration-500">
-                    {principals[0].name}
-                  </h2>
-                  <p className="text-sm text-primary/50 font-medium mt-2">{principals[0].role}</p>
-                  <div className="w-10 h-px bg-border/20 my-6" />
-                  <p className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body mb-4">
-                    {principals[0].focus}
-                  </p>
-                  <p className="text-[15px] text-foreground/40 leading-[1.8] max-w-md">
-                    {principals[0].bio}
-                  </p>
-                  {principals[0].philosophy && (
-                    <p className="text-[13px] text-foreground/20 italic mt-6 border-l-2 border-primary/15 pl-4">
-                      "{principals[0].philosophy}"
+          <div className="grid md:grid-cols-3 gap-10 md:gap-14">
+            {principals.map((principal, i) => (
+              <RevealSection key={i} delay={i * 0.1} blur>
+                <div>
+                  <Portrait
+                    member={principal}
+                    size="lg"
+                    onClick={() => openProfile(i)}
+                  />
+                  <button onClick={() => openProfile(i)} className="text-left group cursor-pointer w-full">
+                    <span className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body">
+                      {principal.location}
+                    </span>
+                    <h2 className="text-[clamp(1.25rem,1.8vw,1.5rem)] font-display font-bold text-foreground leading-[1.12] tracking-[-0.015em] mt-3 group-hover:text-primary transition-colors duration-500">
+                      {principal.name}
+                    </h2>
+                    <p className="text-[13px] text-primary/50 font-medium mt-1.5">{principal.role}</p>
+                    <div className="w-8 h-px bg-border/20 my-5" />
+                    <p className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body mb-3">
+                      {principal.focus}
                     </p>
-                  )}
-                  <span className="inline-block mt-8 text-[11px] text-primary/40 uppercase tracking-[0.15em] font-body group-hover:text-primary/70 transition-colors duration-500">
-                    Full profile →
-                  </span>
-                </button>
-              </div>
-            </div>
-          </RevealSection>
-
-          {/* William & Pooja — Side by side, slightly smaller */}
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-            {principals.slice(1).map((principal, i) => {
-              const globalIndex = i + 1;
-              return (
-                <RevealSection key={globalIndex} delay={i * 0.1} blur>
-                  <div>
-                    <Portrait
-                      member={principal}
-                      size="md"
-                      onClick={() => openProfile(globalIndex)}
-                    />
-                    <button onClick={() => openProfile(globalIndex)} className="text-left group cursor-pointer w-full">
-                      <span className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body">
-                        {principal.location}
-                      </span>
-                      <h3 className="text-xl font-display font-bold text-foreground leading-[1.15] tracking-[-0.01em] mt-2 group-hover:text-primary transition-colors duration-500">
-                        {principal.name}
-                      </h3>
-                      <p className="text-[13px] text-primary/50 font-medium mt-1">{principal.role}</p>
-                      <div className="w-8 h-px bg-border/15 my-5" />
-                      <p className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body mb-3">
-                        {principal.focus}
+                    <p className="text-[13px] text-foreground/35 leading-[1.75]">
+                      {principal.bio}
+                    </p>
+                    {principal.philosophy && (
+                      <p className="text-[12px] text-foreground/18 italic mt-5 border-l border-primary/12 pl-3">
+                        "{principal.philosophy}"
                       </p>
-                      <p className="text-[13px] text-foreground/35 leading-[1.75] max-w-sm">
-                        {principal.bio}
-                      </p>
-                      {principal.philosophy && (
-                        <p className="text-[12px] text-foreground/15 italic mt-5 border-l border-primary/10 pl-3">
-                          "{principal.philosophy}"
-                        </p>
-                      )}
-                      <span className="inline-block mt-6 text-[11px] text-primary/40 uppercase tracking-[0.15em] font-body group-hover:text-primary/70 transition-colors duration-500">
-                        Full profile →
-                      </span>
-                    </button>
-                  </div>
-                </RevealSection>
-              );
-            })}
+                    )}
+                    <span className="inline-block mt-6 text-[11px] text-primary/40 uppercase tracking-[0.15em] font-body group-hover:text-primary/70 transition-colors duration-500">
+                      Full profile →
+                    </span>
+                  </button>
+                </div>
+              </RevealSection>
+            ))}
           </div>
         </div>
       </section>
