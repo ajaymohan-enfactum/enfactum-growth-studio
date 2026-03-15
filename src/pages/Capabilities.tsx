@@ -190,11 +190,11 @@ const Capabilities = () => (
       eyebrow="Capabilities"
       headline={<>An integrated growth operating system for <span className="text-primary">Southeast Asia.</span></>}
       description="Each capability solves a specific growth challenge. Together, they form an integrated growth architecture — strategy connected to ecosystems connected to execution."
+      variant="systemic"
     />
 
     {/* ═══ HORIZONTAL SCROLL CAPABILITY SHOWCASE ═══ */}
     <HorizontalScrollShowcase />
-    <ParallaxDivider variant="gradient" />
     {/* ═══ HOW CAPABILITIES CONNECT ═══ */}
     <section className="section-alt py-16 md:py-20">
       <div className="section-container">
