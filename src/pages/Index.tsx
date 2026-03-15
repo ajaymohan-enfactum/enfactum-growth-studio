@@ -661,8 +661,8 @@ const Index = () => (
     {/* Break 2 — Pull quote */}
     <section className="py-16">
       <div className="section-container">
-        <p className="text-center italic text-white/80 font-display leading-snug max-w-4xl mx-auto" style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}>
-          "Growth here moves through ecosystems, local trust, and execution nuance. Imported playbooks break."
+        <p className="text-center font-bold text-white/80 font-display leading-snug max-w-4xl mx-auto" style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}>
+          Growth here moves through <span className="text-primary">ecosystems</span>, <span className="text-primary">local trust</span>, and <span className="text-primary">execution nuance</span>. Imported playbooks break.
         </p>
       </div>
     </section>
