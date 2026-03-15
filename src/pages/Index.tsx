@@ -587,7 +587,7 @@ const sectionLabels = [
 const Index = () => (
   <PageLayout>
     <SEOHead
-      title="Growth & Innovation Operating Partner for Southeast Asia"
+      title="Enfactum — Growth & Innovation Operating Partner for Southeast Asia"
       description="Enfactum brings together strategy, ecosystems, and execution to help enterprise brands scale across Southeast Asia. GTM strategy, partner ecosystems, AI innovation, brand and demand, and live experiences."
       path="/"
       jsonLd={{ ...organizationSchema, ...webSiteSchema }}

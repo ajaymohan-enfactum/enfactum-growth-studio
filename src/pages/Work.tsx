@@ -124,7 +124,7 @@ const Work = () => {
   return (
     <PageLayout>
       <SEOHead
-        title="Selected Work Across Southeast Asia"
+        title="Selected Work"
         description="Case studies and outcomes from Enfactum's work with enterprise brands across Southeast Asia. Growth infrastructure, brand and demand, AI ecosystems, and live experiences programmes with measurable commercial outcomes."
         path="/work"
       />

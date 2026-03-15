@@ -25,7 +25,7 @@ const engagementTypes = [
 const OperatingModel = () => (
   <PageLayout>
     <SEOHead
-      title="Growth Architecture — Define, Build, Operate, Transfer, Scale"
+      title="Growth Architecture"
       description="Enfactum's growth architecture is designed for execution: Define, Build, Operate, Transfer, Scale. Consulting, embedded teams, and Build-Operate-Transfer engagements for enterprise brands in Southeast Asia."
       path="/company/operating-model"
       jsonLd={makeBreadcrumbSchema([

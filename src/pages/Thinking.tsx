@@ -120,7 +120,7 @@ const Thinking = () => {
   return (
     <PageLayout>
       <SEOHead
-        title="Thinking — Field Notes on Growth, Ecosystems, and Strategy in Southeast Asia"
+        title="Thinking"
         description="Original Growth Architect-led perspectives on growth, market entry, AI ecosystems, partnerships, and commercial strategy across Southeast Asia — from the people who do the work."
         path="/thinking"
       />

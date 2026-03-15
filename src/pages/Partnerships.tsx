@@ -162,7 +162,7 @@ const principles = [
 const Partnerships = () => (
   <PageLayout>
     <SEOHead
-      title="Partnership-Led Growth in Southeast Asia"
+      title="Partnership Models"
       description="Enfactum designs, activates, and operates partnerships for enterprise brands across Southeast Asia — from channel and distributor activation to innovation ecosystems, strategic alliances, and Build-Operate-Transfer programmes."
       path="/partnerships"
       jsonLd={makeFAQSchema([

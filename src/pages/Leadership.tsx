@@ -78,7 +78,7 @@ At Enfactum, Trevor advises clients on marketing technology architecture, automa
   },
   {
     name: "Sumit Ramchandani",
-    role: "Growth Strategist",
+    role: "Adtech & Martech Lead",
     category: "GTM Strategy",
     focus: "Growth Strategy · Demand Generation · B2B Marketing",
     location: "Singapore",
