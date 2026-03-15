@@ -253,7 +253,7 @@ const Company = () => (
           <div className="md:col-span-5">
             <RevealSection>
               <p className="eyebrow mb-6">Regional nodes</p>
-              <h2 className="headline-lg">An operating network, not an office list.</h2>
+              <h2 className="headline-lg">A growth network, not an office list.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-5 md:col-start-7 flex items-end">
