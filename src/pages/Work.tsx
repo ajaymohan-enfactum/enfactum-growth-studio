@@ -113,7 +113,8 @@ const Work = () => {
     });
   }, [activeDimension, activeFilter]);
 
-  const featuredCases = filteredCases.slice(0, 10);
+  const flagshipCases = filteredCases.slice(0, 2);
+  const featuredCases = filteredCases.slice(2, 10);
   const additionalCases = filteredCases.slice(10);
 
   const handleDimensionSwitch = (dim: FilterDimension) => {
@@ -168,28 +169,43 @@ const Work = () => {
         </div>
       </section>
 
-      {/* ─── Featured Cases (full cards) ─── */}
-      <section className="py-16 md:py-20">
-        <div className="section-container">
-          <RevealSection blur>
-            <p className="eyebrow mb-2">
-              {activeFilter !== "All" ? activeFilter : "All programmes"}
-            </p>
-            <p className="text-[13px] text-muted-foreground max-w-md">
-              {filteredCases.length} programme{filteredCases.length !== 1 ? "s" : ""} with
-              measurable commercial, operational, or ecosystem outcomes.
-            </p>
-          </RevealSection>
+      {/* ─── Flagship Cases (large editorial features) ─── */}
+      {flagshipCases.length > 0 && (
+        <section className="py-20 md:py-28 bg-[#080E1A]">
+          <div className="section-container">
+            <RevealSection blur>
+              <div className="mb-14">
+                <p className="eyebrow mb-3">
+                  {activeFilter !== "All" ? activeFilter : "Featured programmes"}
+                </p>
+                <p className="text-[13px] text-muted-foreground max-w-md">
+                  {filteredCases.length} programme{filteredCases.length !== 1 ? "s" : ""} with
+                  measurable commercial, operational, or ecosystem outcomes.
+                </p>
+              </div>
+            </RevealSection>
 
-          <div className="mt-8 space-y-0">
-            {featuredCases.map((cs, i) => (
-              <CaseCard key={cs.id} cs={cs} index={i} />
-            ))}
+            <div className="space-y-0">
+              {flagshipCases.map((cs, i) => (
+                <CaseCard key={cs.id} cs={cs} index={i} variant="flagship" />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <ParallaxDivider variant="mist" />
+      {/* ─── Featured Cases (full cards) ─── */}
+      {featuredCases.length > 0 && (
+        <section className="py-16 md:py-20">
+          <div className="section-container">
+            <div className="space-y-0">
+              {featuredCases.map((cs, i) => (
+                <CaseCard key={cs.id} cs={cs} index={i} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ─── Additional Cases (compact rows) ─── */}
       {additionalCases.length > 0 && (
@@ -207,8 +223,6 @@ const Work = () => {
           </div>
         </section>
       )}
-
-      <ParallaxDivider variant="glow" />
 
       <CTABand
         headline="Have a growth challenge to discuss?"
