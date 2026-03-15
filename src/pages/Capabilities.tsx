@@ -259,27 +259,36 @@ const Capabilities = () => (
     </section>
 
     {/* Cross-links */}
-    <section className="py-16 md:py-20">
+    <section className="py-20">
       <div className="section-container">
-        <RevealSection>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Link to="/work" className="group block border-t border-border/30 pt-6">
-              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
-              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">View selected work</h4>
-              <p className="text-[13px] text-muted-foreground mt-1">Case studies with measurable outcomes across Southeast Asia.</p>
-            </Link>
-            <Link to="/brands" className="group block border-t border-border/30 pt-6">
-              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
-              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Brands we've worked with</h4>
-              <p className="text-[13px] text-muted-foreground mt-1">40+ enterprise brands across four sector clusters.</p>
-            </Link>
-            <Link to="/partnerships" className="group block border-t border-border/30 pt-6">
-              <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-2">Related</p>
-              <h4 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors">Partnership models</h4>
-              <p className="text-[13px] text-muted-foreground mt-1">How Enfactum designs and operates partnership-led growth.</p>
-            </Link>
-          </div>
+        <RevealSection blur>
+          <p className="eyebrow mb-12">Explore further</p>
         </RevealSection>
+        <div className="space-y-0">
+          {[
+            { title: "Selected work", desc: "Case studies with measurable outcomes across Southeast Asia.", href: "/work" },
+            { title: "Brands we've worked with", desc: "40+ enterprise brands across four sector clusters.", href: "/brands" },
+            { title: "Partnership models", desc: "How Enfactum designs and operates partnership-led growth.", href: "/partnerships" },
+          ].map((link, i) => (
+            <RevealSection key={i} delay={i * 0.04}>
+              <Link to={link.href} className="group block">
+                <div className="grid md:grid-cols-12 gap-4 py-6 border-b border-border/10 group-hover:border-primary/10 transition-colors duration-700">
+                  <div className="md:col-span-3">
+                    <span className="font-display text-[14px] font-semibold text-foreground group-hover:text-primary transition-colors duration-500">
+                      {link.title}
+                    </span>
+                  </div>
+                  <div className="md:col-span-7">
+                    <span className="text-[12px] text-foreground/25">{link.desc}</span>
+                  </div>
+                  <div className="md:col-span-2 flex items-center justify-end">
+                    <ArrowRight className="w-3.5 h-3.5 text-foreground/8 group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-500" />
+                  </div>
+                </div>
+              </Link>
+            </RevealSection>
+          ))}
+        </div>
       </div>
     </section>
 
