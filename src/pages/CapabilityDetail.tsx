@@ -283,7 +283,7 @@ const CapabilityDetail = () => {
       </section>
 
       {/* ─── THE CHALLENGE ─── */}
-      <section className="section-alt py-32 md:py-44">
+      <section className="section-alt py-16 md:py-20">
         <div className="section-container">
           <div className="grid md:grid-cols-12 gap-8">
             <div className="md:col-span-5">
