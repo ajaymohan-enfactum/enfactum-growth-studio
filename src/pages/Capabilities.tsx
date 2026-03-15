@@ -218,7 +218,7 @@ const Capabilities = () => (
       </div>
     </section>
     {/* ═══ ENGAGEMENT MODELS ═══ */}
-    <section className="py-16 md:py-20">
+    <section className="py-24 md:py-32">
       <div className="section-container">
         <div className="section-divider mb-20" />
         <div className="grid md:grid-cols-12 gap-8 mb-20">
