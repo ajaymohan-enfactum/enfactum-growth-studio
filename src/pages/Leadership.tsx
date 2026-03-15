@@ -145,7 +145,7 @@ At Enfactum, Mark works with clients on brand identity, creative strategy, visua
   },
   {
     name: "Pooja Mohan",
-    role: "Creative Strategy Director",
+    role: "Director & Co-Founder",
     category: "Brand & Demand",
     focus: "Brand Strategy · Creative Execution · Digital Experience",
     location: "India",
