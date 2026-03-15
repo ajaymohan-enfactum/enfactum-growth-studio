@@ -21,12 +21,12 @@ import leenaPhoto from "@/assets/team/leena-gandhi.png";
 const leadershipTeam: TeamMemberFull[] = [
   {
     name: "Ajay Mohan",
-    role: "Founder & Managing Partner",
+    role: "Managing Partner",
     category: "Leadership",
-    focus: "Strategy · Growth · Southeast Asia",
+    focus: "GTM Strategy · Growth · Southeast Asia",
     location: "Singapore",
-    bio: "20+ years building growth infrastructure for enterprise brands across Asia Pacific.",
-    fullBio: `Ajay leads Enfactum's GTM Strategy practice and serves as the firm's Managing Partner. Over 20+ years in enterprise technology, he's led initiatives generating $4B+ in revenue across 15 APAC markets — from building partner networks for global software companies to designing go-to-market engines for startups entering the region.
+    bio: "Leads Enfactum's GTM Strategy practice. 20+ years, $4B+ revenue generated across 15 APAC markets.",
+    fullBio: `Ajay leads Enfactum's GTM Strategy practice and serves as the firm's Managing Partner. Over 20+ years in enterprise technology, he's led initiatives generating $4B+ in revenue across 15 APAC markets—from building partner networks for global software companies to designing go-to-market engines for startups entering the region.
 
 Before Enfactum, Ajay held senior roles at leading technology distributors and enterprise software companies, where he built the partner programs and market entry playbooks that many APAC expansion strategies still reference today.
 
@@ -38,53 +38,20 @@ At Enfactum, Ajay works with clients on their most complex growth challenges: en
   },
   {
     name: "William Gaultier",
-    role: "Partner",
-    category: "Leadership",
-    focus: "Ecosystems · Innovation · Partnerships",
+    role: "GTM Growth Strategist",
+    category: "GTM Strategy",
+    focus: "GTM Transformation · Market Entry · Growth Acceleration",
     location: "Singapore",
-    bio: "Deep enterprise and ecosystem experience across ASEAN, driving innovation programmes and strategic partnerships.",
-    fullBio: `William has spent his career at the intersection of strategy and execution — scaling $2B+ in revenue across global markets, including deep experience in 8 APAC countries. He specialises in go-to-market transformation for technology companies, helping clients move from ad-hoc sales efforts to systematic, scalable growth engines.
+    bio: "GTM transformation specialist. Scaled $2B+ revenue across 8 APAC markets.",
+    fullBio: `William has spent his career at the intersection of strategy and execution—scaling $2B+ in revenue across global markets, including deep experience in 8 APAC countries. He specializes in go-to-market transformation for technology companies, helping clients move from ad-hoc sales efforts to systematic, scalable growth engines.
 
 Before joining Enfactum, William led growth initiatives at enterprise software and e-commerce companies, where he built the demand generation, sales enablement, and market expansion capabilities that drove sustained revenue growth.
 
-William works with clients on GTM strategy, market entry planning, and growth acceleration — always with an eye toward building infrastructure that outlasts any single campaign.`,
+William works with clients on GTM strategy, market entry planning, and growth acceleration—always with an eye toward building infrastructure that outlasts any single campaign.`,
     philosophy: "The best innovations come from the edges of ecosystems.",
     expertise: ["GTM transformation", "Market entry strategy", "Growth acceleration", "Sales enablement"],
     linkedin: "https://linkedin.com/in/williamgaultier",
     photo: williamPhoto,
-  },
-  {
-    name: "Pooja Mohan",
-    role: "Director/ Co Founder",
-    category: "Operations",
-    focus: "Operations · Creative Strategy · Scale",
-    location: "India",
-    bio: "15+ years transforming brand strategy into creative execution across APAC's diverse markets.",
-    fullBio: `Pooja has spent 15+ years transforming brand strategy into creative execution that works across APAC's diverse markets. She leads Enfactum's creative strategy work — connecting brand positioning to campaign creative to digital experience design.
-
-Her background combines advertising agency experience with in-house brand leadership, giving her perspective on both the creative vision and the operational realities of bringing brands to life across cultures and channels.
-
-Pooja works with clients on brand positioning, creative development, and the visual and verbal systems that make brands distinctive and memorable in crowded markets.`,
-    philosophy: "Scale is an operations problem, not a strategy problem.",
-    expertise: ["Brand strategy", "Creative direction", "Visual identity", "Digital experience design", "Cross-cultural adaptation"],
-    linkedin: "https://linkedin.com/in/poojamohan",
-    photo: poojaPhoto,
-  },
-  {
-    name: "Sumit Ramchandani",
-    role: "Adtech & Martech Practice Head",
-    category: "Martech",
-    focus: "Martech · Performance · Data",
-    location: "Singapore",
-    bio: "Specialist in marketing technology, performance infrastructure, and data-driven growth architectures.",
-    fullBio: `Sumit is a growth strategist who helps technology companies scale across APAC markets. His experience spans demand generation, pipeline development, and growth infrastructure for B2B technology companies.
-
-He takes a data-driven approach to growth, combining analytical rigour with practical execution experience to build strategies that actually deliver results.
-
-At Enfactum, Sumit works with clients on growth strategy, demand generation, and the operational systems that turn marketing investment into revenue.`,
-    philosophy: "Distribution is strategy.",
-    expertise: ["Growth strategy", "Demand generation", "Pipeline development", "B2B marketing", "Martech"],
-    linkedin: "https://linkedin.com/in/sumitramchandani",
   },
   {
     name: "Trevor Wingert",
@@ -92,8 +59,8 @@ At Enfactum, Sumit works with clients on growth strategy, demand generation, and
     category: "GTM Strategy",
     focus: "GTM Systems · Digital Transformation · Automation",
     location: "Singapore",
-    bio: "25+ years scaling technology platforms with $2B+ in transaction value.",
-    fullBio: `Trevor brings 25+ years of experience scaling technology platforms, with $2B+ in transaction value across enterprise software, SaaS, and digital infrastructure. He specialises in GTM technology integration — helping clients modernise their marketing and sales technology stacks to support ambitious growth goals.
+    bio: "25+ years scaling technology platforms. Specializes in GTM technology and automation.",
+    fullBio: `Trevor brings 25+ years of experience scaling technology platforms, with $2B+ in transaction value across enterprise software, SaaS, and digital infrastructure. He specializes in GTM technology integration—helping clients modernize their marketing and sales technology stacks to support ambitious growth goals.
 
 His background spans enterprise technology leadership, digital transformation, and marketing technology implementation. Trevor understands both the strategic vision and the technical details required to make growth infrastructure actually work.
 
@@ -104,30 +71,63 @@ At Enfactum, Trevor advises clients on marketing technology architecture, automa
     photo: trevorPhoto,
   },
   {
-    name: "Anuchida Kawashima",
-    role: "Account Director",
-    category: "Client Success",
-    focus: "Client Success · Account Strategy",
+    name: "Mark Randall",
+    role: "GTM Strategist",
+    category: "GTM Strategy",
+    focus: "APAC Market Entry · Competitive Positioning",
     location: "Singapore",
-    bio: "Drives client engagement and programme success, ensuring measurable commercial outcomes.",
-    fullBio: `Anuchida drives client engagement and programme success at Enfactum, ensuring every engagement delivers measurable commercial outcomes. She brings deep experience in account management and client strategy across APAC markets.
+    bio: "APAC GTM expert. Helps technology companies build market entry and expansion strategies.",
+    fullBio: `Mark is a GTM strategist with deep expertise in helping technology companies enter and expand across APAC markets. His experience spans market assessment, competitive positioning, and go-to-market planning for enterprise technology companies.
 
-Her approach combines strategic thinking with operational rigour — understanding both what clients need strategically and what it takes to deliver results consistently.
+He brings a practical, execution-oriented approach to strategy—understanding that plans only matter if they can be implemented effectively in complex, diverse markets.
 
-At Enfactum, Anuchida manages key client relationships and ensures that programme execution stays aligned with commercial objectives.`,
-    philosophy: "Every engagement should move a business number.",
-    expertise: ["Account strategy", "Client success", "Programme management", "APAC markets"],
+At Enfactum, Mark works with clients on market entry strategy, competitive analysis, and GTM planning across Southeast Asia and broader APAC.`,
+    philosophy: "Strategy without execution is just a document.",
+    expertise: ["APAC market entry", "GTM strategy", "Competitive positioning", "Market assessment"],
+    linkedin: "https://linkedin.com/in/markrandall",
+  },
+  {
+    name: "Sumit Ramchandani",
+    role: "Growth Strategist",
+    category: "GTM Strategy",
+    focus: "Growth Strategy · Demand Generation · B2B Marketing",
+    location: "Singapore",
+    bio: "Growth strategist focused on scaling technology companies across APAC markets.",
+    fullBio: `Sumit is a growth strategist who helps technology companies scale across APAC markets. His experience spans demand generation, pipeline development, and growth infrastructure for B2B technology companies.
+
+He takes a data-driven approach to growth, combining analytical rigor with practical execution experience to build strategies that actually deliver results.
+
+At Enfactum, Sumit works with clients on growth strategy, demand generation, and the operational systems that turn marketing investment into revenue.`,
+    philosophy: "Distribution is strategy.",
+    expertise: ["Growth strategy", "Demand generation", "Pipeline development", "B2B marketing"],
+    linkedin: "https://linkedin.com/in/sumitramchandani",
+  },
+  {
+    name: "Purwa Jain",
+    role: "Growth Strategist",
+    category: "GTM Strategy",
+    focus: "Growth Strategy · Market Analysis · GTM Planning",
+    location: "India",
+    bio: "Growth strategist with expertise in scaling technology companies across diverse markets.",
+    fullBio: `Purwa is a growth strategist focused on helping technology companies build scalable go-to-market capabilities. Her experience spans strategic planning, market analysis, and growth program development.
+
+She brings a structured, analytical approach to growth challenges—combining strategic thinking with practical execution to help clients move from planning to results.
+
+At Enfactum, Purwa works with clients on growth strategy, market analysis, and GTM program development.`,
+    philosophy: "Structured thinking drives scalable results.",
+    expertise: ["Growth strategy", "Market analysis", "GTM planning", "Strategic consulting"],
+    linkedin: "https://linkedin.com/in/purwajain",
   },
   {
     name: "Irfan Mulla",
-    role: "Managing Director, Indonesia",
-    category: "Regional",
-    focus: "Indonesia · Brand & Demand · AI Discovery",
+    role: "Indonesia Country Manager",
+    category: "Brand & Demand",
+    focus: "Indonesia · AI Discovery · Integrated Campaigns",
     location: "Jakarta, Indonesia",
-    bio: "Leads Enfactum's Indonesia operations and Brand & Demand practice.",
-    fullBio: `Irfan leads Enfactum's Indonesia operations and serves as a practice lead for Brand & Demand work across the region. He's a strategist who thinks in integrated campaigns — combining brand building and performance marketing into unified growth systems.
+    bio: "Leads Indonesia operations and Brand & Demand practice. Expert in AI discovery and integrated campaigns.",
+    fullBio: `Irfan leads Enfactum's Indonesia operations and serves as a practice lead for Brand & Demand work across the region. He's a strategist who thinks in integrated campaigns—combining brand building and performance marketing into unified growth systems.
 
-His expertise spans the full spectrum of modern marketing: AI-powered search and discovery (GEO), social and performance media, influencer programs, and content strategy. Irfan is particularly focused on how AI is reshaping brand visibility — and what companies need to do to show up when their customers are asking questions.
+His expertise spans the full spectrum of modern marketing: AI-powered search and discovery (GEO), social and performance media, influencer programs, and content strategy. Irfan is particularly focused on how AI is reshaping brand visibility—and what companies need to do to show up when their customers are asking questions.
 
 Before Enfactum, Irfan built and led marketing teams at technology and media companies, developing the integrated campaign capabilities that drive both awareness and conversion.`,
     philosophy: "Market entry in Southeast Asia is an ecosystem play.",
@@ -136,13 +136,46 @@ Before Enfactum, Irfan built and led marketing teams at technology and media com
     photo: irfanPhoto,
   },
   {
+    name: "Mark Guerrier",
+    role: "Creative Director",
+    category: "Brand & Demand",
+    focus: "Brand Design · Creative Direction · Visual Identity",
+    location: "Singapore",
+    bio: "Brand design leader transforming brands across APAC with innovative creative strategies.",
+    fullBio: `Mark is a creative director with extensive experience transforming brands across APAC markets. He leads Enfactum's creative and brand design work—from visual identity development to campaign creative to brand experience design.
+
+His background spans advertising, brand consultancy, and in-house creative leadership, giving him perspective on both the creative vision and the practical realities of building brands that work across diverse markets and channels.
+
+At Enfactum, Mark works with clients on brand identity, creative strategy, visual design systems, and the creative execution that brings brand strategies to life.`,
+    philosophy: "Design is how strategy becomes tangible.",
+    expertise: ["Brand design", "Creative direction", "Visual identity", "Campaign creative", "APAC brands"],
+    linkedin: "https://linkedin.com/in/markguerrier",
+  },
+  {
+    name: "Pooja Mohan",
+    role: "Creative Strategy Director",
+    category: "Brand & Demand",
+    focus: "Brand Strategy · Creative Execution · Digital Experience",
+    location: "India",
+    bio: "15+ years in brand strategy and creative execution across APAC markets.",
+    fullBio: `Pooja has spent 15+ years transforming brand strategy into creative execution that works across APAC's diverse markets. She leads Enfactum's creative strategy work—connecting brand positioning to campaign creative to digital experience design.
+
+Her background combines advertising agency experience with in-house brand leadership, giving her perspective on both the creative vision and the operational realities of bringing brands to life across cultures and channels.
+
+Pooja works with clients on brand positioning, creative development, and the visual and verbal systems that make brands distinctive and memorable in crowded markets.`,
+    philosophy: "Scale is an operations problem, not a strategy problem.",
+    expertise: ["Brand strategy", "Creative direction", "Visual identity", "Digital experience design", "Cross-cultural adaptation"],
+    linkedin: "https://linkedin.com/in/poojamohan",
+    photo: poojaPhoto,
+  },
+  {
     name: "Sanjay Chankranth",
-    role: "Managing Director, Malaysia",
-    category: "Regional",
+    role: "Malaysia Country Manager",
+    category: "Brand & Demand",
     focus: "Malaysia · Brand Positioning · Cultural Messaging",
     location: "Kuala Lumpur, Malaysia",
-    bio: "Leads Enfactum's Malaysia operations with deep expertise in brand positioning and cultural messaging.",
-    fullBio: `Sanjay leads Enfactum's Malaysia operations and brings deep expertise in brand positioning and messaging across diverse APAC markets. He specialises in cultural adaptation — ensuring that brand strategies resonate authentically in each market, not just translated but truly localised.
+    bio: "Leads Malaysia operations. Brand positioning and cultural messaging across Southeast Asia.",
+    fullBio: `Sanjay leads Enfactum's Malaysia operations and brings deep expertise in brand positioning and messaging across diverse APAC markets. He specializes in cultural adaptation—ensuring that brand strategies resonate authentically in each market, not just translated but truly localized.
 
 His background spans market research, brand strategy, and communications across Southeast Asian markets. Sanjay understands the nuances that make the difference between campaigns that connect and campaigns that miss.
 
@@ -155,19 +188,84 @@ At Enfactum, Sanjay works with clients on brand positioning, market research, me
   {
     name: "Rakhi Sachdeva",
     role: "Marketing Operations Director",
-    category: "Operations",
-    focus: "India · Operations · Delivery at Scale",
+    category: "Brand & Demand",
+    focus: "Operations · Campaign Management · Martech",
     location: "India",
-    bio: "12+ years in marketing operations. Builds the systems that turn strategy into executed campaigns.",
-    fullBio: `Rakhi brings 12+ years of operational excellence to Enfactum's client engagements. She leads marketing operations — the systems, processes, and coordination that turn strategy into executed campaigns and programs.
+    bio: "12+ years in marketing operations. Builds the systems that turn strategy into execution.",
+    fullBio: `Rakhi brings 12+ years of operational excellence to Enfactum's client engagements. She leads marketing operations—the systems, processes, and coordination that turn strategy into executed campaigns and programs.
 
-Her expertise spans campaign operations, martech integration, process optimisation, and the operational infrastructure that makes marketing scalable. Rakhi is the person who ensures that ambitious plans actually get implemented, on time and on budget.
+Her expertise spans campaign operations, martech integration, process optimization, and the operational infrastructure that makes marketing scalable. Rakhi is the person who ensures that ambitious plans actually get implemented, on time and on budget.
 
 Before Enfactum, Rakhi led marketing operations at enterprise technology companies, building the operational capabilities that supported multi-market, multi-channel programs.`,
     philosophy: "Operational excellence enables creative ambition.",
-    expertise: ["Marketing operations", "Campaign management", "Martech integration", "Process optimisation"],
+    expertise: ["Marketing operations", "Campaign management", "Martech integration", "Process optimization"],
     linkedin: "https://linkedin.com/in/rakhisachdeva",
     photo: rakhiPhoto,
+  },
+  {
+    name: "Sinchan Namdeo",
+    role: "Performance Marketing Lead",
+    category: "Brand & Demand",
+    focus: "Performance Marketing · Demand Generation · ROI",
+    location: "India",
+    bio: "Performance marketing across 10+ APAC markets. Demand generation and ROI optimization.",
+    fullBio: `Sinchan is a performance marketing specialist with proven results across 10+ APAC markets. He leads Enfactum's performance marketing execution—demand generation campaigns, paid media optimization, and the measurement infrastructure that proves ROI.
+
+His approach combines analytical rigor with creative testing. Sinchan doesn't just run campaigns; he builds the optimization systems that compound performance over time.
+
+At Enfactum, Sinchan works with clients on demand generation, performance media, conversion optimization, and marketing effectiveness measurement.`,
+    philosophy: "Optimization is a system, not an event.",
+    expertise: ["Performance marketing", "Demand generation", "Paid media", "Campaign optimization", "Marketing analytics"],
+    linkedin: "https://linkedin.com/in/sinchannamdeo",
+    photo: sinchanPhoto,
+  },
+  {
+    name: "Leena Gandhi",
+    role: "Brand Experience Lead",
+    category: "Brand & Demand",
+    focus: "Brand Identity · Digital Experience · Visual Design",
+    location: "India",
+    bio: "Brand identity and digital experience design. Creates visual systems that work across cultures.",
+    fullBio: `Leena specializes in brand identity and digital experiences—the visual and interactive touchpoints where brands come to life. She leads Enfactum's work on brand identity systems, website experiences, and the design elements that shape how audiences perceive and engage with brands.
+
+Her background spans graphic design, digital experience design, and brand implementation across diverse APAC markets. Leena brings both creative vision and practical understanding of how design works across cultures and contexts.
+
+At Enfactum, Leena works with clients on visual identity, digital experience design, brand guidelines, and the design systems that ensure consistency across touchpoints.`,
+    philosophy: "Great design bridges cultures.",
+    expertise: ["Brand identity", "Digital experience design", "Visual communication", "Cultural design adaptation"],
+    linkedin: "https://linkedin.com/in/leenagandhi",
+    photo: leenaPhoto,
+  },
+  {
+    name: "Navonil Roy",
+    role: "Director, Marketing Analytics",
+    category: "Analytics & Data",
+    focus: "Marketing Analytics · Data Strategy · Martech",
+    location: "India",
+    bio: "Leads Analytics & Data practice. Marketing measurement and data-driven decision making.",
+    fullBio: `Navonil leads Enfactum's analytics and data practice—bringing scientific rigor to marketing decisions. His expertise spans marketing technology, automation, data strategy, and the measurement frameworks that connect marketing investment to business outcomes.
+
+Before Enfactum, Navonil built analytics and marketing technology capabilities at enterprise companies, developing the data infrastructure and reporting systems that enabled data-driven marketing at scale.
+
+At Enfactum, Navonil works with clients on marketing analytics, technology stack optimization, data strategy, and the measurement systems that prove (and improve) marketing ROI.`,
+    philosophy: "What gets measured gets optimized.",
+    expertise: ["Marketing analytics", "Data strategy", "Martech optimization", "Performance measurement", "Automation"],
+    linkedin: "https://linkedin.com/in/navonilroy",
+  },
+  {
+    name: "Anuchida Kawashima",
+    role: "Account Director",
+    category: "Client Success",
+    focus: "Client Success · Account Strategy",
+    location: "Singapore",
+    bio: "Drives client engagement and programme success, ensuring measurable commercial outcomes.",
+    fullBio: `Anuchida drives client engagement and programme success at Enfactum, ensuring every engagement delivers measurable commercial outcomes. She brings deep experience in account management and client strategy across APAC markets.
+
+Her approach combines strategic thinking with operational rigour—understanding both what clients need strategically and what it takes to deliver results consistently.
+
+At Enfactum, Anuchida manages key client relationships and ensures that programme execution stays aligned with commercial objectives.`,
+    philosophy: "Every engagement should move a business number.",
+    expertise: ["Account strategy", "Client success", "Programme management", "APAC markets"],
   },
   {
     name: "Idris Atalki",
@@ -176,7 +274,7 @@ Before Enfactum, Rakhi led marketing operations at enterprise technology compani
     focus: "AI Strategy · Project Delivery · Innovation Programmes",
     location: "Singapore",
     bio: "Directs AI-driven project delivery across Enfactum's client programmes, bridging innovation strategy with operational execution.",
-    fullBio: `Idris leads AI project delivery at Enfactum, ensuring that innovation programmes move from concept to commercial reality. He brings structured programme leadership to complex AI and technology engagements — managing scope, stakeholders, and delivery across multi-market initiatives.
+    fullBio: `Idris leads AI project delivery at Enfactum, ensuring that innovation programmes move from concept to commercial reality. He brings structured programme leadership to complex AI and technology engagements—managing scope, stakeholders, and delivery across multi-market initiatives.
 
 His approach centres on translating AI strategy into actionable project architectures, ensuring that technology investments are grounded in clear business outcomes rather than speculative pilots.
 
