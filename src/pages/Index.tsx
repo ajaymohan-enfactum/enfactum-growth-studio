@@ -654,6 +654,8 @@ const Index = () => (
     </section>
     <HowWeWork />
     <SectorExperience />
+    {/* Break 5 — Silent divider */}
+    <div className="py-2"><div className="w-full h-px border-t border-white/10" /></div>
     <FeaturedWork />
     {/* Break 3 — Divider line */}
     <div className="py-8">
