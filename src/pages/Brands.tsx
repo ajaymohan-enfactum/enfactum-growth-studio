@@ -44,7 +44,7 @@ const outcomeCapsules = [
 const Brands = () => (
   <PageLayout>
     <SEOHead
-      title="Brands — Enterprise Experience Across Southeast Asia"
+      title="Brands & Clients"
       description="Enfactum has worked with 40+ enterprise brands across enterprise technology, consumer growth, institutions, and innovation sectors in Southeast Asia. HP, The Economist, L'Oréal, and more."
       path="/brands"
     />

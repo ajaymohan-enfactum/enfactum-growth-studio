@@ -19,7 +19,7 @@ const PrivacyPolicy = () => (
       <div className="section-container max-w-3xl">
         <div className="space-y-10">
           <div>
-            <p className="text-sm text-muted-foreground">Last updated: 27 November 2023</p>
+            <p className="text-sm text-muted-foreground">Last updated: March 2026</p>
           </div>
 
           <div className="space-y-4">

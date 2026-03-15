@@ -55,7 +55,7 @@ const faqs = [
 const RegionalNodes = () => (
   <PageLayout>
     <SEOHead
-      title="Regional Nodes — Operating Network Across Southeast Asia"
+      title="Regional Nodes"
       description="Enfactum's regional operating network spans Singapore, India, Malaysia, Indonesia, and the USA — each node with a distinct role in delivering growth programmes across Southeast Asia."
       path="/company/regional-nodes"
       jsonLd={{

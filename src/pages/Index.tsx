@@ -121,18 +121,8 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right side — 40% decorative accent */}
-          <div className="hidden md:flex md:col-span-2 items-center justify-end overflow-hidden">
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5, delay: 0.8, ease }}
-              className="text-[200px] font-black text-foreground/[0.03] leading-none select-none translate-x-12"
-              aria-hidden="true"
-            >
-              en
-            </motion.span>
-          </div>
+          {/* Right side — 40% */}
+          <div className="hidden md:flex md:col-span-2" />
         </div>
       </div>
 
@@ -408,8 +398,8 @@ const FeaturedWork = () => {
    ═══════════════════════════════════════════════ */
 const depthBlocks = [
   { title: "Leadership", desc: "Experienced Growth Architects across strategy, growth, and technology.", href: "/company/leadership" },
-  { title: "Architect Bench", desc: "Over 35 specialists across Southeast Asia and India.", href: "/company" },
-  { title: "Regional Nodes", desc: "Singapore, India, Malaysia, Indonesia — and expanding.", href: "/company/regional-nodes" },
+  { title: "Architect Bench", desc: "200+ specialists across Southeast Asia and India.", href: "/company" },
+  { title: "Regional Nodes", desc: "Singapore · India · Malaysia · Indonesia · USA", href: "/company/regional-nodes" },
   { title: "Capability Ownership", desc: "Each capability led by domain-specialist principals.", href: "/capabilities" },
 ];
 
@@ -597,7 +587,7 @@ const sectionLabels = [
 const Index = () => (
   <PageLayout>
     <SEOHead
-      title="Growth & Innovation Operating Partner for Southeast Asia"
+      title="Enfactum — Growth & Innovation Operating Partner for Southeast Asia"
       description="Enfactum brings together strategy, ecosystems, and execution to help enterprise brands scale across Southeast Asia. GTM strategy, partner ecosystems, AI innovation, brand and demand, and live experiences."
       path="/"
       jsonLd={{ ...organizationSchema, ...webSiteSchema }}
@@ -638,13 +628,6 @@ const Index = () => (
     <div className="py-2"><div className="w-full h-px border-t border-white/10" /></div>
     <FeaturedWork />
     <DepthSection />
-    {/* Break 3 — Divider line */}
-    <div className="py-8">
-      <p className="text-center text-xs text-blue-400 tracking-[0.3em] uppercase">
-        Southeast Asia · Since 2010
-      </p>
-    </div>
-    <QuoteCarousel quotes={clientInsights} />
     <Perspectives />
     <CTABand
       headline="Let's move growth forward."

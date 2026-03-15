@@ -23,7 +23,7 @@ const BASE_URL = "https://enfactum.com";
  * fully legible to search engines and AI systems.
  */
 const SEOHead = ({ title, description, path = "/", type = "website", article, jsonLd }: SEOHeadProps) => {
-  const fullTitle = `${title} | ${SITE_NAME}`;
+  const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
   const canonical = `${BASE_URL}${path}`;
 
   return (
