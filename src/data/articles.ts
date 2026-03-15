@@ -147,7 +147,7 @@ export const articles: Article[] = [
   {
     title: "Distribution Is Not a Channel. It Is a Strategic Capability.",
     slug: "distribution-is-not-a-channel-it-is-a-strategic-capability",
-    category: "Operator View",
+    category: "Architect View",
     theme: "Southeast Asia Growth",
     author: "Irfan Mulla",
     authorRole: "Managing Director, Indonesia",
