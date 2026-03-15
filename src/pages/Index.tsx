@@ -568,7 +568,7 @@ const QuoteCarousel = ({ quotes }: { quotes: React.ReactNode[] }) => {
         onTouchEnd={handleTouchEnd}
       >
         {/* Statement */}
-        <div className="relative min-h-[120px] flex items-center w-full max-w-4xl">
+        <div className="relative min-h-[200px] md:min-h-[240px] flex items-center w-full max-w-4xl">
           <AnimatePresence mode="wait">
             <motion.p
               key={active}
