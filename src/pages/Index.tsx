@@ -699,44 +699,114 @@ const FeaturedWork = () => {
 
 /* ═══════════════════════════════════════════════
    SECTION 8 — DEPTH BEHIND THE WORK
-   Asymmetric split — text-led, institutional
+   Institutional trust layer — architectural, weighted
    ═══════════════════════════════════════════════ */
-const depthBlocks = [
-  { title: "Leadership", desc: "Experienced Growth Architects across strategy, growth, and technology.", href: "/company/leadership" },
-  { title: "Architect Bench", desc: "200+ specialists across Southeast Asia and India.", href: "/company" },
-  { title: "Regional Nodes", desc: "Singapore · India · Malaysia · Indonesia · USA", href: "/company/regional-nodes" },
-  { title: "Capability Ownership", desc: "Each capability led by domain-specialist principals.", href: "/capabilities" },
+const depthItems = [
+  {
+    title: "Leadership",
+    stat: "12+",
+    statLabel: "Senior principals",
+    desc: "Named leaders across strategy, growth, technology, and creative — each with deep regional experience.",
+    href: "/company/leadership",
+    prominent: true,
+  },
+  {
+    title: "Operating Bench",
+    stat: "200+",
+    statLabel: "Specialists",
+    desc: "Execution depth across Southeast Asia and India — embedded, not outsourced.",
+    href: "/company",
+    prominent: true,
+  },
+  {
+    title: "Regional Nodes",
+    stat: "5",
+    statLabel: "Markets",
+    desc: "Singapore · India · Malaysia · Indonesia · USA",
+    href: "/company/regional-nodes",
+    prominent: false,
+  },
+  {
+    title: "Capability Ownership",
+    stat: "4",
+    statLabel: "Domains",
+    desc: "Each capability led by domain-specialist principals with operating accountability.",
+    href: "/capabilities",
+    prominent: false,
+  },
 ];
 
 const DepthSection = () => (
-  <section id="depth" className="py-20 md:py-28 relative">
-    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/30 to-transparent" />
-    <div className="section-container">
-      <div className="grid md:grid-cols-12 gap-10 md:gap-16">
-        {/* Left — heading, wider */}
-        <div className="md:col-span-5">
-          <RevealSection blur>
-            <h2 className="text-[clamp(1.5rem,2.5vw,2.25rem)] font-display font-semibold text-foreground leading-tight">Real Teams. Real Accountability.</h2>
-            <p className="text-sm text-foreground/40 mt-5 leading-relaxed">
-              Every engagement is led by named principals with domain expertise — not rotated junior consultants.
-            </p>
-          </RevealSection>
+  <section id="depth" className="py-24 md:py-32 bg-[#0B1121] relative overflow-hidden">
+    {/* Architectural vertical line */}
+    <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent hidden md:block" />
+
+    <div className="section-container relative z-10">
+      {/* Header */}
+      <RevealSection blur>
+        <div className="max-w-lg mb-16 md:mb-20">
+          <p className="eyebrow mb-5">Behind the work</p>
+          <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em]">
+            Depth where it matters.
+          </h2>
+          <p className="text-sm text-foreground/30 mt-4 leading-relaxed max-w-sm">
+            Every engagement is led by named principals with domain expertise — not rotated junior consultants.
+          </p>
         </div>
-        {/* Right — items */}
-        <div className="md:col-span-5 md:col-start-8">
-          {depthBlocks.map((block, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
-              <Link to={block.href} className="group block">
-                <div className={`py-5 ${i < depthBlocks.length - 1 ? 'border-b border-foreground/[0.06]' : ''}`}>
-                  <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                    {block.title}
-                  </h3>
-                  <p className="text-[13px] text-foreground/35 mt-1">{block.desc}</p>
+      </RevealSection>
+
+      {/* Prominent items — 2-col with stat anchors */}
+      <div className="grid md:grid-cols-2 gap-6 mb-6">
+        {depthItems.filter(d => d.prominent).map((item, i) => (
+          <RevealSection key={i} delay={i * 0.1} blur>
+            <Link to={item.href} className="group block h-full">
+              <div className="relative p-8 md:p-10 rounded-sm border border-border/10 bg-background/30 backdrop-blur-sm h-full group-hover:border-primary/15 transition-all duration-500">
+                {/* Stat anchor */}
+                <div className="flex items-end gap-3 mb-6">
+                  <span className="text-4xl md:text-5xl font-display font-bold text-foreground/80 leading-none tracking-tight">
+                    {item.stat}
+                  </span>
+                  <span className="text-[10px] tracking-[0.2em] text-foreground/25 uppercase pb-1">
+                    {item.statLabel}
+                  </span>
                 </div>
-              </Link>
-            </RevealSection>
-          ))}
-        </div>
+
+                <h3 className="text-lg font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300 mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-[13px] text-foreground/30 leading-relaxed max-w-xs">{item.desc}</p>
+
+                {/* Bottom accent */}
+                <div className="mt-8 flex items-center gap-3">
+                  <div className="h-px flex-1 bg-gradient-to-r from-primary/10 to-transparent group-hover:from-primary/20 transition-colors duration-500" />
+                  <ArrowRight className="w-3.5 h-3.5 text-foreground/10 group-hover:text-primary/50 transition-all duration-500" />
+                </div>
+              </div>
+            </Link>
+          </RevealSection>
+        ))}
+      </div>
+
+      {/* Supporting items — compact inline */}
+      <div className="grid md:grid-cols-2 gap-6">
+        {depthItems.filter(d => !d.prominent).map((item, i) => (
+          <RevealSection key={i} delay={0.25 + i * 0.08} blur>
+            <Link to={item.href} className="group block">
+              <div className="flex items-start gap-6 py-6 border-t border-border/10 group-hover:border-primary/10 transition-colors duration-500">
+                {/* Stat */}
+                <span className="text-2xl font-display font-bold text-foreground/60 leading-none shrink-0 w-12">
+                  {item.stat}
+                </span>
+                <div>
+                  <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-[12px] text-foreground/25 mt-1 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            </Link>
+          </RevealSection>
+        ))}
       </div>
     </div>
   </section>
