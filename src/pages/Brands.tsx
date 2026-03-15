@@ -86,10 +86,8 @@ const BrandPlate = ({
     </motion.div>
   );
 };
-      />
-    </motion.div>
-  );
-};
+
+
 
 /* ═══════════════════════════════════════════════
    SECTOR HEADER
