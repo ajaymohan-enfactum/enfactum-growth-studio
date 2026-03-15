@@ -221,211 +221,94 @@ Before Enfactum, Irfan built and led marketing teams at technology and media com
   },
 ];
 
-/* Principals = first 3 (Ajay, William, Pooja) */
-const principals = leadershipTeam.slice(0, 3);
-const seniorTeam = leadershipTeam.slice(3);
+/* ═══════════════════════════════════════════════
+   UNIFIED TEAM — no tier split
+   ═══════════════════════════════════════════════ */
 
 /* ═══════════════════════════════════════════════
-   PORTRAIT COMPONENT
+   PORTRAIT CARD — uniform for all members
    ═══════════════════════════════════════════════ */
-const Portrait = ({
+const LeaderCard = ({
   member,
-  size = "md",
+  index,
   onClick,
+  delay = 0,
 }: {
   member: TeamMemberFull;
-  size?: "lg" | "md" | "sm";
-  onClick?: () => void;
+  index: number;
+  onClick: () => void;
+  delay?: number;
 }) => {
   const initials = member.name.split(" ").map((n) => n[0]).join("");
-  const aspectClass = size === "lg" ? "aspect-[3/4]" : size === "md" ? "aspect-[3/4]" : "aspect-square";
-
   return (
-    <button
-      onClick={onClick}
-      className="group w-full text-left cursor-pointer"
-      aria-label={`View profile for ${member.name}`}
-    >
-      <div className={`w-full ${aspectClass} rounded-sm overflow-hidden relative mb-5`}>
-        {member.photo ? (
-          <>
-            <img
-              src={member.photo}
-              alt={member.name}
-              className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-          </>
-        ) : (
-          <div className="w-full h-full bg-gradient-to-b from-secondary/50 to-secondary/20 flex items-center justify-center">
-            <span className="font-display text-2xl font-bold text-foreground/10">{initials}</span>
-          </div>
-        )}
-        {/* Hover accent line */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent group-hover:via-primary/30 transition-all duration-700" />
-      </div>
-    </button>
+    <RevealSection delay={delay} blur>
+      <button
+        onClick={onClick}
+        className="group w-full text-left cursor-pointer"
+        aria-label={`View profile for ${member.name}`}
+      >
+        <div className="w-full aspect-[3/4] rounded-sm overflow-hidden relative mb-5">
+          {member.photo ? (
+            <>
+              <img
+                src={member.photo}
+                alt={member.name}
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+            </>
+          ) : (
+            <div className="w-full h-full bg-gradient-to-b from-secondary/40 to-secondary/15 flex items-center justify-center">
+              <span className="font-display text-xl font-bold text-foreground/[0.06]">{initials}</span>
+            </div>
+          )}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent group-hover:via-primary/30 transition-all duration-700" />
+        </div>
+
+        <span className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body">
+          {member.location}
+        </span>
+        <h3 className="font-display text-[clamp(1rem,1.3vw,1.15rem)] font-semibold text-foreground leading-[1.15] tracking-[-0.01em] mt-2 group-hover:text-primary transition-colors duration-500">
+          {member.name}
+        </h3>
+        <p className="text-[12px] text-primary/45 font-medium mt-1">{member.role}</p>
+        <div className="w-6 h-px bg-border/15 my-4" />
+        <p className="text-[10px] text-foreground/18 uppercase tracking-[0.18em] font-body mb-2.5">
+          {member.focus}
+        </p>
+        <p className="text-[12px] text-foreground/28 leading-[1.7] line-clamp-3">
+          {member.bio}
+        </p>
+        <span className="inline-block mt-5 text-[10px] text-primary/30 uppercase tracking-[0.15em] font-body group-hover:text-primary/60 transition-colors duration-500">
+          Full profile →
+        </span>
+      </button>
+    </RevealSection>
   );
 };
 
-/* ═══════════════════════════════════════════════
-   PAGE
-   ═══════════════════════════════════════════════ */
-const Leadership = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+// ... keep existing code
 
-  const openProfile = useCallback((index: number) => {
-    setSelectedIndex(index);
-  }, []);
-
-  const closeProfile = useCallback(() => {
-    setSelectedIndex(null);
-  }, []);
-
-  const goToPrev = useCallback(() => {
-    setSelectedIndex((prev) =>
-      prev !== null ? (prev > 0 ? prev - 1 : leadershipTeam.length - 1) : null
-    );
-  }, []);
-
-  const goToNext = useCallback(() => {
-    setSelectedIndex((prev) =>
-      prev !== null ? (prev < leadershipTeam.length - 1 ? prev + 1 : 0) : null
-    );
-  }, []);
-
-  const selectedMember = selectedIndex !== null ? leadershipTeam[selectedIndex] : null;
-  const prevName = selectedIndex !== null
-    ? leadershipTeam[selectedIndex > 0 ? selectedIndex - 1 : leadershipTeam.length - 1].name
-    : undefined;
-  const nextName = selectedIndex !== null
-    ? leadershipTeam[selectedIndex < leadershipTeam.length - 1 ? selectedIndex + 1 : 0].name
-    : undefined;
-
-  return (
-    <PageLayout>
-      <SEOHead
-        title="Leadership"
-        description="The Enfactum leadership team brings decades of experience across strategy, growth, technology, and creative — Growth Architects who have built and run growth programmes across Southeast Asia."
-        path="/company/leadership"
-        jsonLd={makeBreadcrumbSchema([
-          { name: "Company", url: "/company" },
-          { name: "Leadership", url: "/company/leadership" },
-        ])}
-      />
-      <HeroSection
-        eyebrow="Leadership"
-        headline={<>Growth Architects who build, <span className="text-primary">not just advise.</span></>}
-        description="The Enfactum leadership team brings decades of experience across strategy, growth, technology, and creative — all earned in the markets we serve."
-        variant="minimal"
-      />
-
-      {/* ═══ PRINCIPALS — Balanced editorial ensemble ═══ */}
+      {/* ═══ LEADERSHIP TEAM — Unified ensemble grid ═══ */}
       <section className="py-24 md:py-32">
         <div className="section-container">
           <RevealSection blur>
-            <p className="eyebrow mb-16">Principals</p>
-          </RevealSection>
-
-          <div className="grid md:grid-cols-3 gap-10 md:gap-14">
-            {principals.map((principal, i) => (
-              <RevealSection key={i} delay={i * 0.1} blur>
-                <div>
-                  <Portrait
-                    member={principal}
-                    size="lg"
-                    onClick={() => openProfile(i)}
-                  />
-                  <button onClick={() => openProfile(i)} className="text-left group cursor-pointer w-full">
-                    <span className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body">
-                      {principal.location}
-                    </span>
-                    <h2 className="text-[clamp(1.25rem,1.8vw,1.5rem)] font-display font-bold text-foreground leading-[1.12] tracking-[-0.015em] mt-3 group-hover:text-primary transition-colors duration-500">
-                      {principal.name}
-                    </h2>
-                    <p className="text-[13px] text-primary/50 font-medium mt-1.5">{principal.role}</p>
-                    <div className="w-8 h-px bg-border/20 my-5" />
-                    <p className="text-[10px] text-foreground/20 uppercase tracking-[0.2em] font-body mb-3">
-                      {principal.focus}
-                    </p>
-                    <p className="text-[13px] text-foreground/35 leading-[1.75]">
-                      {principal.bio}
-                    </p>
-                    {principal.philosophy && (
-                      <p className="text-[12px] text-foreground/18 italic mt-5 border-l border-primary/12 pl-3">
-                        "{principal.philosophy}"
-                      </p>
-                    )}
-                    <span className="inline-block mt-6 text-[11px] text-primary/40 uppercase tracking-[0.15em] font-body group-hover:text-primary/70 transition-colors duration-500">
-                      Full profile →
-                    </span>
-                  </button>
-                </div>
-              </RevealSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ SENIOR TEAM — Structured editorial rows ═══ */}
-      <section className="py-24 md:py-32 bg-[hsl(var(--section-alt))]">
-        <div className="section-container">
-          <RevealSection blur>
             <div className="flex items-end justify-between mb-16">
-              <p className="eyebrow">Senior team</p>
-              <span className="text-[11px] text-foreground/15 font-body">{seniorTeam.length} leaders</span>
+              <p className="eyebrow">Leadership team</p>
+              <span className="text-[11px] text-foreground/15 font-body">{leadershipTeam.length} leaders</span>
             </div>
           </RevealSection>
 
-          {/* Grid: 3-col for photo members, structured rows */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
-            {seniorTeam.map((member, i) => {
-              const globalIndex = i + 3; // offset by principals count
-              const initials = member.name.split(" ").map((n) => n[0]).join("");
-              return (
-                <RevealSection key={globalIndex} delay={i * 0.06} blur>
-                  <button
-                    onClick={() => openProfile(globalIndex)}
-                    className="group w-full text-left cursor-pointer"
-                    aria-label={`View profile for ${member.name}`}
-                  >
-                    {/* Portrait */}
-                    <div className="w-full aspect-[3/4] rounded-sm overflow-hidden relative mb-5">
-                      {member.photo ? (
-                        <>
-                          <img
-                            src={member.photo}
-                            alt={member.name}
-                            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-                        </>
-                      ) : (
-                        <div className="w-full h-full bg-gradient-to-b from-secondary/40 to-secondary/15 flex items-center justify-center">
-                          <span className="font-display text-xl font-bold text-foreground/[0.06]">{initials}</span>
-                        </div>
-                      )}
-                      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent group-hover:via-primary/25 transition-all duration-700" />
-                    </div>
-
-                    {/* Info */}
-                    <h3 className="font-display text-[15px] font-semibold text-foreground group-hover:text-primary transition-colors duration-500 tracking-tight">
-                      {member.name}
-                    </h3>
-                    <p className="text-[12px] text-primary/40 font-medium mt-0.5">{member.role}</p>
-                    <p className="text-[10px] text-foreground/15 uppercase tracking-[0.15em] font-body mt-2">
-                      {member.focus}
-                    </p>
-                    <p className="text-[12px] text-foreground/25 mt-3 leading-relaxed line-clamp-2">
-                      {member.bio}
-                    </p>
-                    <span className="inline-block mt-4 text-[10px] text-primary/30 uppercase tracking-[0.15em] font-body group-hover:text-primary/60 transition-colors duration-500">
-                      View profile →
-                    </span>
-                  </button>
-                </RevealSection>
-              );
-            })}
+            {leadershipTeam.map((member, i) => (
+              <LeaderCard
+                key={i}
+                member={member}
+                index={i}
+                onClick={() => openProfile(i)}
+                delay={i * 0.05}
+              />
+            ))}
           </div>
         </div>
       </section>
