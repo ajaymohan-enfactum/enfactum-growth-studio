@@ -243,6 +243,22 @@ At Enfactum, Idris ensures that AI programmes are commercially purposeful, opera
     expertise: ["AI programme delivery", "Innovation strategy", "Project architecture", "Stakeholder management", "Technology operations"],
     photo: idrisPhoto,
   },
+  {
+    name: "Jamshed Wadia",
+    role: "AI Strategy & Transformation",
+    category: "GTM Strategy",
+    focus: "AI Strategy · Digital Transformation · Enterprise Innovation",
+    location: "Singapore",
+    bio: "Drives AI strategy and transformation initiatives, helping enterprises harness AI for scalable growth.",
+    fullBio: `Jamshed leads AI strategy and transformation engagements at Enfactum, helping enterprise clients navigate the rapidly evolving AI landscape. He brings structured thinking to complex transformation challenges—connecting AI capabilities to business outcomes.
+
+His approach focuses on practical, commercially grounded AI adoption rather than speculative pilots, ensuring that transformation investments deliver measurable results.
+
+At Enfactum, Jamshed works with clients on AI strategy, digital transformation roadmaps, and the organisational change required to make AI initiatives succeed at scale.`,
+    philosophy: "AI transformation succeeds when it's anchored in business reality.",
+    expertise: ["AI strategy", "Digital transformation", "Enterprise innovation", "Change management"],
+    linkedin: "https://linkedin.com/in/jamshedwadia",
+  },
 ];
 
 const Leadership = () => {
