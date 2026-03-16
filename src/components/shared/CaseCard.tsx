@@ -83,10 +83,12 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
                 <span className="text-[11px] text-foreground/30 tracking-[0.15em] uppercase font-body">{cs.client}</span>
               </div>
 
-              {/* Headline — dramatic scale */}
-              <h3 className="text-2xl md:text-3xl lg:text-[2.25rem] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em] group-hover:text-primary/90 transition-colors duration-500 max-w-xl">
-                {cs.headline}
-              </h3>
+              {/* Headline — dramatic scale, links to work page */}
+              <Link to={`/work#${cs.id}`}>
+                <h3 className="text-2xl md:text-3xl lg:text-[2.25rem] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em] group-hover:text-primary/90 transition-colors duration-500 max-w-xl hover:text-primary/80">
+                  {cs.headline}
+                </h3>
+              </Link>
 
               {/* Challenge + Role */}
               <div className="mt-8 grid sm:grid-cols-2 gap-6 max-w-xl">
@@ -248,9 +250,11 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
               </div>
             )}
             <span className="text-[10px] text-dim font-body block mb-2">{cs.client}</span>
-            <h3 className="font-display text-lg md:text-xl font-semibold text-foreground group-hover:text-primary/90 transition-colors duration-500 leading-tight">
-              {cs.headline}
-            </h3>
+            <Link to={`/work#${cs.id}`}>
+              <h3 className="font-display text-lg md:text-xl font-semibold text-foreground group-hover:text-primary/90 transition-colors duration-500 leading-tight hover:text-primary/80">
+                {cs.headline}
+              </h3>
+            </Link>
             {cs.region && (
               <span className="text-[10px] text-muted-foreground/40 font-body block mt-2 uppercase tracking-wider">
                 {cs.region}
