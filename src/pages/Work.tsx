@@ -92,8 +92,23 @@ const FilterChip = ({
    PAGE
    ═══════════════════════════════════════════════ */
 const Work = () => {
+  const location = useLocation();
   const [activeDimension, setActiveDimension] = useState<FilterDimension>("outcome");
   const [activeFilter, setActiveFilter] = useState("All");
+
+  // Scroll to hash anchor (e.g. /work#hp-garage)
+  useEffect(() => {
+    const hash = location.hash.replace("#", "");
+    if (!hash) return;
+    // Delay to allow render + reveal animations
+    const timer = setTimeout(() => {
+      const el = document.getElementById(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [location.hash]);
 
   const filteredCases = useMemo(() => {
     if (activeFilter === "All") return sortedCases;
