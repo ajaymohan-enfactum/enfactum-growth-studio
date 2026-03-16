@@ -57,6 +57,7 @@ export const sectorClusters: SectorCluster[] = [
       b("L'Oréal", "loreal.com", "/logos/loreal.png"),
       b("Kiehl's", "kiehls.com", "/logos/kiehls.png"),
       b("JSHealth Vitamins", "jshealth.com", "/logos/jshealth.png"),
+      b("Castrol", "castrol.com", "/logos/castrol.png"),
     ],
   },
   {
