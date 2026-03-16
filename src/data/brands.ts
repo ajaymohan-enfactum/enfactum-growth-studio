@@ -115,6 +115,7 @@ export const allMarqueeBrands: BrandEntry[] = [
   b("InsureMO", null, "/logos/insuremo.png"),
   b("MyRepublic", "myrepublic.net", "/logos/myrepublic.png"),
   b("Integrate", "integrate.com", "/logos/integrate.png"),
+  b("Castrol", "castrol.com", "/logos/castrol.png"),
 ];
 
 /** Domain lookup for case study logo matching */
