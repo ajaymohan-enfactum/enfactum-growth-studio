@@ -17,10 +17,13 @@ interface BrandLogoProps {
 const BrandLogo = ({
   name,
   localLogo,
+  colorLogo,
   height = 28,
   className = "",
 }: BrandLogoProps) => {
   const [imgError, setImgError] = useState(false);
+  const useColor = !!colorLogo && !imgError;
+  const src = useColor ? colorLogo : localLogo;
 
   if (!localLogo || imgError) {
     return (
