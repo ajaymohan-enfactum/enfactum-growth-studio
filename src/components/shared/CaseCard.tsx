@@ -11,6 +11,7 @@ interface CaseCardProps {
   cs: CaseStudy;
   index?: number;
   variant?: "flagship" | "full" | "compact";
+  id?: string;
 }
 
 /** Map capability name to slug for internal linking */
@@ -27,7 +28,8 @@ const capabilitySlugMap: Record<string, string> = {
  * Full: detailed card with challenge/role/metrics.
  * Compact: single-row summary.
  */
-const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
+const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
+  const cardId = id || cs.id;
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [hovered, setHovered] = useState(false);
@@ -41,6 +43,7 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
     return (
       <motion.div
         ref={ref}
+        id={cardId}
         initial={{ opacity: 0, y: 40 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
         transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -159,6 +162,7 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
     return (
       <motion.div
         ref={ref}
+        id={cardId}
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.6, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
@@ -212,6 +216,7 @@ const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
   return (
     <motion.div
       ref={ref}
+      id={cardId}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
