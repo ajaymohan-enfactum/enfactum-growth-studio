@@ -57,6 +57,7 @@ export const sectorClusters: SectorCluster[] = [
       b("L'Oréal", "loreal.com", "/logos/loreal.png"),
       b("Kiehl's", "kiehls.com", "/logos/kiehls.png"),
       b("JSHealth Vitamins", "jshealth.com", "/logos/jshealth.png"),
+      b("Castrol", "castrol.com", "/logos/castrol.png"),
     ],
   },
   {
@@ -114,6 +115,7 @@ export const allMarqueeBrands: BrandEntry[] = [
   b("InsureMO", null, "/logos/insuremo.png"),
   b("MyRepublic", "myrepublic.net", "/logos/myrepublic.png"),
   b("Integrate", "integrate.com", "/logos/integrate.png"),
+  b("Castrol", "castrol.com", "/logos/castrol.png"),
 ];
 
 /** Domain lookup for case study logo matching */

@@ -10,10 +10,11 @@ interface BrandPlateProps {
 }
 
 const heights = { lg: 40, md: 30, sm: 22 };
-const paddings = { lg: "px-8 py-6", md: "px-6 py-5", sm: "px-5 py-4" };
+const widths = { lg: 180, md: 160, sm: 140 };
 
 const BrandPlate = ({ brand, sector, size = "md", delay = 0 }: BrandPlateProps) => {
   const h = heights[size];
+  const w = widths[size];
 
   return (
     <motion.div
@@ -21,7 +22,8 @@ const BrandPlate = ({ brand, sector, size = "md", delay = 0 }: BrandPlateProps) 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={`group/plate relative ${paddings[size]} rounded-lg bg-white/[0.045] border border-white/[0.08] hover:border-primary/25 hover:bg-white/[0.07] transition-all duration-500 cursor-default`}
+      style={{ width: w }}
+      className={`group/plate relative flex items-center justify-center py-5 px-4 rounded-lg bg-white/[0.045] border border-white/[0.08] hover:border-primary/25 hover:bg-white/[0.07] transition-all duration-500 cursor-default`}
     >
       <BrandLogo
         name={brand.name}
