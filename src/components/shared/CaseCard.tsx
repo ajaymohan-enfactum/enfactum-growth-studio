@@ -11,6 +11,7 @@ interface CaseCardProps {
   cs: CaseStudy;
   index?: number;
   variant?: "flagship" | "full" | "compact";
+  id?: string;
 }
 
 /** Map capability name to slug for internal linking */
