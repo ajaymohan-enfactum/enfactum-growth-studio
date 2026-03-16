@@ -9,6 +9,8 @@ export interface BrandEntry {
   domain: string | null;
   /** Local logo path (relative to public/), or null if Clearbit-only */
   localLogo: string | null;
+  /** If true, skip monochrome filter and show original colors */
+  colored?: boolean;
 }
 
 export interface SectorCluster {
