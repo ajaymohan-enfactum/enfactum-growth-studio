@@ -9,8 +9,8 @@ interface BrandPlateProps {
   delay?: number;
 }
 
-const heights = { lg: 48, md: 36, sm: 28 };
-const widths = { lg: 200, md: 180, sm: 160 };
+const heights = { lg: 72, md: 56, sm: 44 };
+const widths = { lg: 220, md: 200, sm: 170 };
 
 const BrandPlate = ({ brand, sector, size = "md", delay = 0 }: BrandPlateProps) => {
   const h = heights[size];
