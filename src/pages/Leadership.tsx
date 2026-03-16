@@ -17,6 +17,8 @@ import trevorPhoto from "@/assets/team/trevor-wingert.png";
 import markGuerrierPhoto from "@/assets/team/mark-guerrier.png";
 import anuchidaPhoto from "@/assets/team/anuchida-kawashima.png";
 import idrisPhoto from "@/assets/team/idris-atalki.png";
+import jamshedPhoto from "@/assets/team/jamshed-wadia.png";
+import sumitPhoto from "@/assets/team/sumit-ramchandani.png";
 
 const leadershipTeam: TeamMemberFull[] = [
   {
