@@ -250,9 +250,11 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
               </div>
             )}
             <span className="text-[10px] text-dim font-body block mb-2">{cs.client}</span>
-            <h3 className="font-display text-lg md:text-xl font-semibold text-foreground group-hover:text-primary/90 transition-colors duration-500 leading-tight">
-              {cs.headline}
-            </h3>
+            <Link to={`/work#${cs.id}`}>
+              <h3 className="font-display text-lg md:text-xl font-semibold text-foreground group-hover:text-primary/90 transition-colors duration-500 leading-tight hover:text-primary/80">
+                {cs.headline}
+              </h3>
+            </Link>
             {cs.region && (
               <span className="text-[10px] text-muted-foreground/40 font-body block mt-2 uppercase tracking-wider">
                 {cs.region}
