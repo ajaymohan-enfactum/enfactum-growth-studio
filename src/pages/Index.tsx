@@ -650,13 +650,12 @@ const SectorExperience = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   SECTION 7 — FEATURED WORK
-   Result-oriented selected work — flagship + supporting
+   SELECTED WORK — After Thinking
+   2 large featured case study cards
    ═══════════════════════════════════════════════ */
-const FeaturedWork = () => {
+const SelectedWorkAfterThinking = () => {
   const flagships = getFlagshipCases();
-  const heroCase = flagships[0];
-  const supportingCases = flagships.slice(1);
+  const featured = flagships.slice(0, 2);
   return (
     <section id="selected-work" className="py-24 md:py-32 bg-[#080E1A]">
       <div className="section-container">
@@ -676,13 +675,10 @@ const FeaturedWork = () => {
           </div>
         </div>
 
-        {/* Flagship feature */}
-        {heroCase && <CaseCard cs={heroCase} index={0} variant="flagship" />}
-
-        {/* Supporting cases */}
+        {/* 2 featured case study cards */}
         <div className="space-y-0">
-          {supportingCases.map((cs, i) => (
-            <CaseCard key={cs.id} cs={cs} index={i + 1} />
+          {featured.map((cs, i) => (
+            <CaseCard key={cs.id} cs={cs} index={i} variant="flagship" />
           ))}
         </div>
 
