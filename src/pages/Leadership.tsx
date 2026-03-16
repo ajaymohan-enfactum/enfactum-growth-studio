@@ -121,6 +121,7 @@ At Enfactum, Sumit works with clients on growth strategy, demand generation, and
     philosophy: "Distribution is strategy.",
     expertise: ["Growth strategy", "Demand generation", "Pipeline development", "B2B marketing"],
     linkedin: "https://linkedin.com/in/sumitramchandani",
+    photo: sumitPhoto,
   },
   {
     name: "Mark Guerrier",
