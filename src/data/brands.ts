@@ -9,8 +9,6 @@ export interface BrandEntry {
   domain: string | null;
   /** Local logo path (relative to public/), or null if Clearbit-only */
   localLogo: string | null;
-  /** If true, skip monochrome filter and show original colors */
-  colored?: boolean;
 }
 
 export interface SectorCluster {
@@ -21,11 +19,10 @@ export interface SectorCluster {
 }
 
 /* ─── BRAND REGISTRY ─── */
-const b = (name: string, domain: string | null, localLogo: string | null = null, colored = false): BrandEntry => ({
+const b = (name: string, domain: string | null, localLogo: string | null = null): BrandEntry => ({
   name,
   domain,
   localLogo,
-  colored,
 });
 
 /* ─── ALL BRANDS BY SECTOR ─── */
@@ -39,14 +36,14 @@ export const sectorClusters: SectorCluster[] = [
       b("HP", "hp.com", "/logos/hp.png"),
       b("Lenovo", "lenovo.com", "/logos/lenovo.png"),
       b("Oracle", "oracle.com", "/logos/oracle.png"),
-      b("Dell EMC", "dell.com", "/logos/dellemc.png", true),
+      b("Dell EMC", "dell.com", "/logos/dellemc.png"),
       b("Singtel", "singtel.com", "/logos/singtel.png"),
-      b("Redington", null, "/logos/redington.svg", true),
-      b("element14", null, "/logos/element14.png", true),
-      b("Güntner", null, "/logos/guntner.svg", true),
-      b("markem-imaje", null, "/logos/markem.svg", true),
-      b("Commvault", "commvault.com", "/logos/commvault.png", true),
-      b("DSCOOP", null, "/logos/dscoop.png", true),
+      b("Redington", null, "/logos/redington.png"),
+      b("element14", null, "/logos/element14.png"),
+      b("Güntner", null, "/logos/guntner.png"),
+      b("markem-imaje", null, "/logos/markem.png"),
+      b("Commvault", "commvault.com", "/logos/commvault.png"),
+      b("DSCOOP", null, "/logos/dscoop.png"),
     ],
   },
   {
@@ -96,14 +93,14 @@ export const allMarqueeBrands: BrandEntry[] = [
   b("HP", "hp.com", "/logos/hp.png"),
   b("Lenovo", "lenovo.com", "/logos/lenovo.png"),
   b("Oracle", "oracle.com", "/logos/oracle.png"),
-  b("Dell EMC", "dell.com", "/logos/dellemc.png", true),
+  b("Dell EMC", "dell.com", "/logos/dellemc.png"),
   b("Singtel", "singtel.com", "/logos/singtel.png"),
-  b("Redington", null, "/logos/redington.svg", true),
-  b("element14", null, "/logos/element14.png", true),
-  b("Güntner", null, "/logos/guntner.svg", true),
-  b("markem-imaje", null, "/logos/markem.svg", true),
-  b("Commvault", "commvault.com", "/logos/commvault.png", true),
-  b("DSCOOP", null, "/logos/dscoop.png", true),
+  b("Redington", null, "/logos/redington.png"),
+  b("element14", null, "/logos/element14.png"),
+  b("Güntner", null, "/logos/guntner.png"),
+  b("markem-imaje", null, "/logos/markem.png"),
+  b("Commvault", "commvault.com", "/logos/commvault.png"),
+  b("DSCOOP", null, "/logos/dscoop.png"),
   b("Brands For Less", null, "/logos/brandsforless.png"),
   b("Lancôme", "lancome.com", "/logos/lancome.png"),
   b("L'Oréal", "loreal.com", "/logos/loreal.png"),

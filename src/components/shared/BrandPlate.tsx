@@ -29,7 +29,6 @@ const BrandPlate = ({ brand, sector, size = "md", delay = 0 }: BrandPlateProps) 
         name={brand.name}
         domain={brand.domain}
         localLogo={brand.localLogo}
-        colored={brand.colored}
         height={h}
       />
       {/* Tooltip */}
