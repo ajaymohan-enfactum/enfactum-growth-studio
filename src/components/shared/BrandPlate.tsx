@@ -16,6 +16,8 @@ const BrandPlate = ({ brand, sector, size = "md", delay = 0 }: BrandPlateProps) 
   const h = heights[size];
   const w = widths[size];
 
+  const hasColor = !!brand.colorLogo;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 14 }}
@@ -23,7 +25,11 @@ const BrandPlate = ({ brand, sector, size = "md", delay = 0 }: BrandPlateProps) 
       viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
       style={{ width: w }}
-      className={`group/plate relative flex items-center justify-center py-5 px-4 rounded-lg bg-white/[0.045] border border-white/[0.08] hover:border-primary/25 hover:bg-white/[0.07] transition-all duration-500 cursor-default`}
+      className={`group/plate relative flex items-center justify-center py-5 px-4 rounded-lg transition-all duration-500 cursor-default ${
+        hasColor
+          ? "bg-white border border-white/20 hover:border-primary/25"
+          : "bg-white/[0.045] border border-white/[0.08] hover:border-primary/25 hover:bg-white/[0.07]"
+      }`}
     >
       <BrandLogo
         name={brand.name}
