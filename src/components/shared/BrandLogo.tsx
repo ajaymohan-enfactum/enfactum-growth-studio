@@ -4,6 +4,7 @@ interface BrandLogoProps {
   name: string;
   domain?: string | null;
   localLogo?: string | null;
+  colorLogo?: string | null;
   height?: number;
   className?: string;
 }
