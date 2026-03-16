@@ -972,9 +972,9 @@ const Index = () => (
     <PullQuote />
     <HowWeWork />
     <SectorExperience />
-    <FeaturedWork />
     <DepthSection />
     <Perspectives />
+    <SelectedWorkAfterThinking />
     <CTABand
       headline="Let's move growth forward."
       description="Tell us where growth needs to move next."
