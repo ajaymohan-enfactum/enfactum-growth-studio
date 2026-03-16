@@ -17,6 +17,7 @@ interface BrandLogoProps {
 const BrandLogo = ({
   name,
   localLogo,
+  colored = false,
   height = 28,
   className = "",
 }: BrandLogoProps) => {
