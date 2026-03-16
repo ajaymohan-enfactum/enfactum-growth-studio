@@ -88,7 +88,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 1, delay: 0.4, ease }}
               >
-                Where strategy, ecosystems,
+                Where strategy, ecosystems, and execution
               </motion.span>
               <motion.span
                 className="block"
@@ -96,7 +96,6 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 1, delay: 0.65, ease }}
               >
-                and execution{" "}
                 <TextShimmer><span className="text-primary">move together.</span></TextShimmer>
               </motion.span>
             </h1>
