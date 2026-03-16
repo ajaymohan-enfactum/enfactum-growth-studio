@@ -162,6 +162,7 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
     return (
       <motion.div
         ref={ref}
+        id={cardId}
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.6, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
