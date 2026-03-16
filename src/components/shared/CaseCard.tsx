@@ -28,7 +28,8 @@ const capabilitySlugMap: Record<string, string> = {
  * Full: detailed card with challenge/role/metrics.
  * Compact: single-row summary.
  */
-const CaseCard = ({ cs, index = 0, variant = "full" }: CaseCardProps) => {
+const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
+  const cardId = id || cs.id;
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [hovered, setHovered] = useState(false);
