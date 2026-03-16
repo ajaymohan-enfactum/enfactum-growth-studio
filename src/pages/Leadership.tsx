@@ -104,6 +104,7 @@ At Enfactum, Jamshed works with clients on AI strategy, digital transformation r
     philosophy: "AI transformation succeeds when it's anchored in business reality.",
     expertise: ["AI strategy", "Digital transformation", "Enterprise innovation", "Change management"],
     linkedin: "https://linkedin.com/in/jamshedwadia",
+    photo: jamshedPhoto,
   },
   {
     name: "Sumit Ramchandani",
