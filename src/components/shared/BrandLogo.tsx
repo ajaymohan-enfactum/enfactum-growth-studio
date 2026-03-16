@@ -48,8 +48,7 @@ const BrandLogo = ({
       style={{
         maxHeight: height,
         objectFit: "contain",
-        filter: "brightness(0) invert(1)",
-        opacity: 0.92,
+        ...(colored ? { opacity: 1 } : { filter: "brightness(0) invert(1)", opacity: 0.92 }),
       }}
     />
   );

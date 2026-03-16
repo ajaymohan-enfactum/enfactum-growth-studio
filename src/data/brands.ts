@@ -96,7 +96,7 @@ export const allMarqueeBrands: BrandEntry[] = [
   b("HP", "hp.com", "/logos/hp.png"),
   b("Lenovo", "lenovo.com", "/logos/lenovo.png"),
   b("Oracle", "oracle.com", "/logos/oracle.png"),
-  b("Dell EMC", "dell.com", "/logos/dellemc.png"),
+  b("Dell EMC", "dell.com", "/logos/dellemc.png", true),
   b("Singtel", "singtel.com", "/logos/singtel.png"),
   b("Redington", null, "/logos/redington.svg", true),
   b("element14", null, "/logos/element14.png", true),
