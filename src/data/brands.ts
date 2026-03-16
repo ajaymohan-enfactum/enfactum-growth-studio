@@ -21,10 +21,11 @@ export interface SectorCluster {
 }
 
 /* ─── BRAND REGISTRY ─── */
-const b = (name: string, domain: string | null, localLogo: string | null = null): BrandEntry => ({
+const b = (name: string, domain: string | null, localLogo: string | null = null, colorLogo: string | null = null): BrandEntry => ({
   name,
   domain,
   localLogo,
+  colorLogo,
 });
 
 /* ─── ALL BRANDS BY SECTOR ─── */
