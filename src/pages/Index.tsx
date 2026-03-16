@@ -50,9 +50,27 @@ const Hero = () => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          background: 'radial-gradient(ellipse 130% 90% at 25% 45%, hsl(218 65% 7%) 0%, hsl(225 15% 8%) 35%, hsl(222 45% 5%) 65%, hsl(225 15% 8%) 100%)',
+          background: 'linear-gradient(135deg, #0D1526 0%, #0B1121 50%, #060D18 100%)',
         }}
       />
+
+      {/* SEA watermark */}
+      <div
+        className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+      >
+        <span
+          className="font-display"
+          style={{
+            fontSize: 'clamp(200px, 35vw, 500px)',
+            fontWeight: 900,
+            color: 'rgba(59, 130, 246, 0.04)',
+            letterSpacing: '-0.05em',
+            lineHeight: 1,
+          }}
+        >
+          SEA
+        </span>
+      </div>
 
       {/* Immersive atmosphere */}
       <HeroAtmosphere />
