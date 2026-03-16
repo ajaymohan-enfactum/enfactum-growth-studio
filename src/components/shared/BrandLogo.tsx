@@ -42,10 +42,9 @@ const BrandLogo = ({
       alt={name}
       loading="lazy"
       onError={() => setImgError(true)}
-      className={`select-none ${className}`}
+      className={`select-none w-full ${className}`}
       style={{
-        height,
-        width: "auto",
+        maxHeight: height,
         objectFit: "contain",
         filter: "brightness(0) invert(1)",
         opacity: 0.92,
