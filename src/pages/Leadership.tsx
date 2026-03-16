@@ -17,6 +17,8 @@ import trevorPhoto from "@/assets/team/trevor-wingert.png";
 import markGuerrierPhoto from "@/assets/team/mark-guerrier.png";
 import anuchidaPhoto from "@/assets/team/anuchida-kawashima.png";
 import idrisPhoto from "@/assets/team/idris-atalki.png";
+import jamshedPhoto from "@/assets/team/jamshed-wadia.png";
+import sumitPhoto from "@/assets/team/sumit-ramchandani.png";
 
 const leadershipTeam: TeamMemberFull[] = [
   {
@@ -102,6 +104,7 @@ At Enfactum, Jamshed works with clients on AI strategy, digital transformation r
     philosophy: "AI transformation succeeds when it's anchored in business reality.",
     expertise: ["AI strategy", "Digital transformation", "Enterprise innovation", "Change management"],
     linkedin: "https://linkedin.com/in/jamshedwadia",
+    photo: jamshedPhoto,
   },
   {
     name: "Sumit Ramchandani",
@@ -118,6 +121,7 @@ At Enfactum, Sumit works with clients on growth strategy, demand generation, and
     philosophy: "Distribution is strategy.",
     expertise: ["Growth strategy", "Demand generation", "Pipeline development", "B2B marketing"],
     linkedin: "https://linkedin.com/in/sumitramchandani",
+    photo: sumitPhoto,
   },
   {
     name: "Mark Guerrier",
