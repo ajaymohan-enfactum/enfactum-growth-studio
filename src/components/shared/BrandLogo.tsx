@@ -4,6 +4,7 @@ interface BrandLogoProps {
   name: string;
   domain?: string | null;
   localLogo?: string | null;
+  colorLogo?: string | null;
   height?: number;
   className?: string;
 }
@@ -16,12 +17,15 @@ interface BrandLogoProps {
 const BrandLogo = ({
   name,
   localLogo,
+  colorLogo,
   height = 28,
   className = "",
 }: BrandLogoProps) => {
   const [imgError, setImgError] = useState(false);
+  const useColor = !!colorLogo && !imgError;
+  const src = useColor ? colorLogo : localLogo;
 
-  if (!localLogo || imgError) {
+  if (!src || (imgError && !localLogo)) {
     return (
       <span
         className={`font-display font-bold tracking-[0.04em] select-none whitespace-nowrap uppercase text-foreground/80 ${className}`}
@@ -38,7 +42,7 @@ const BrandLogo = ({
 
   return (
     <img
-      src={localLogo}
+      src={src!}
       alt={name}
       loading="lazy"
       onError={() => setImgError(true)}
@@ -46,8 +50,7 @@ const BrandLogo = ({
       style={{
         maxHeight: height,
         objectFit: "contain",
-        filter: "brightness(0) invert(1)",
-        opacity: 0.92,
+        ...(useColor ? { opacity: 1 } : { filter: "brightness(0) invert(1)", opacity: 0.92 }),
       }}
     />
   );
