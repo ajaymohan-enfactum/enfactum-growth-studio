@@ -4,6 +4,7 @@ interface BrandLogoProps {
   name: string;
   domain?: string | null;
   localLogo?: string | null;
+  colored?: boolean;
   height?: number;
   className?: string;
 }
@@ -16,6 +17,7 @@ interface BrandLogoProps {
 const BrandLogo = ({
   name,
   localLogo,
+  colored = false,
   height = 28,
   className = "",
 }: BrandLogoProps) => {
@@ -46,8 +48,7 @@ const BrandLogo = ({
       style={{
         maxHeight: height,
         objectFit: "contain",
-        filter: "brightness(0) invert(1)",
-        opacity: 0.92,
+        ...(colored ? { opacity: 1 } : { filter: "brightness(0) invert(1)", opacity: 0.92 }),
       }}
     />
   );
