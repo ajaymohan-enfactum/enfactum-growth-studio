@@ -516,7 +516,7 @@ const articles = [
 ];
 
 const Thinking = () => (
-  <section className="section-light py-24 md:py-32 relative overflow-hidden">
+  <section className="bg-background py-24 md:py-32 relative overflow-hidden">
     <AbstractDots className="top-10 right-20 text-primary" />
 
     <div className="section-container relative z-10">
@@ -526,7 +526,7 @@ const Thinking = () => (
             <p className="eyebrow mb-4">Insights</p>
             <h2 className="headline-md">Perspectives from inside the work<span className="text-primary">.</span></h2>
           </div>
-          <Link to="/thinking" className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }}>
+          <Link to="/thinking" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-300">
             All insights <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -535,15 +535,15 @@ const Thinking = () => (
       {articles.map((article, i) => (
         <RevealSection key={i} delay={i * 0.06}>
           <Link to="/thinking" className="group block">
-            <div className="flex items-center gap-6 md:gap-8 py-5 transition-all duration-300 group-hover:pl-2" style={{ borderBottom: '1px solid hsl(var(--light-card-border))' }}>
-              <span className="text-xs uppercase tracking-wider shrink-0 w-[90px] hidden md:block" style={{ color: 'hsl(var(--primary))' }}>
+            <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-border/40 transition-all duration-300 group-hover:pl-2">
+              <span className="text-xs uppercase tracking-wider text-primary shrink-0 w-[90px] hidden md:block">
                 {article.category}
               </span>
-              <h3 className="flex-1 text-base md:text-lg font-medium leading-snug group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
+              <h3 className="flex-1 text-base md:text-lg font-medium text-foreground leading-snug group-hover:text-primary transition-colors duration-300">
                 {article.title}
               </h3>
-              <span className="text-xs shrink-0 hidden md:block" style={{ color: 'hsl(var(--light-muted))' }}>{article.readTime}</span>
-              <ArrowUpRight className="w-4 h-4 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 shrink-0" style={{ color: 'hsl(var(--primary))' }} />
+              <span className="text-xs text-muted-foreground shrink-0 hidden md:block">{article.readTime}</span>
+              <ArrowUpRight className="w-4 h-4 text-primary opacity-30 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 shrink-0" />
             </div>
           </Link>
         </RevealSection>
