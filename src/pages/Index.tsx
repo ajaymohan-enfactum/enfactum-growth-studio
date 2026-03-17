@@ -240,9 +240,9 @@ const WhySEA = () => (
                     <p className="text-2xl md:text-3xl font-display font-bold text-foreground/80 leading-none tracking-tight">
                       {item.num}
                     </p>
-                    <p className="text-[11px] text-foreground/25 mt-2 leading-snug tracking-wide uppercase">
-                      {item.context}
-                    </p>
+                     <p className="text-foreground/30 mt-2 leading-snug tracking-wide uppercase" style={{ fontSize: '11px' }}>
+                       {item.context}
+                     </p>
                   </div>
                 ))}
               </div>
