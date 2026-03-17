@@ -583,10 +583,10 @@ const HowWeWork = () => {
    SECTORS — Curated breadth & credibility
    ═══════════════════════════════════════════════ */
 const sectorClusters = [
-  { label: "Enterprise Technology", names: "HP · Oracle · Dell EMC · Commvault · Redington · element14", num: "01", count: "6 clients" },
-  { label: "Consumer & Brand Growth", names: "L'Oréal · Lancôme · Kiehl's · Brands For Less · JSHealth", num: "02", count: "5 clients" },
-  { label: "Media & Institutions", names: "The Economist · NUS · Andaz · Abbott · InsureMO", num: "03", count: "5 clients" },
-  { label: "New Economy", names: "Lazada · MyRepublic · Singtel · Integrate", num: "04", count: "4 clients" },
+  { label: "Enterprise Technology", names: "HP · Oracle · Dell EMC · Commvault · Redington · element14", num: "01" },
+  { label: "Consumer & Brand Growth", names: "L'Oréal · Lancôme · Kiehl's · Brands For Less · JSHealth", num: "02" },
+  { label: "Media & Institutions", names: "The Economist · NUS · Andaz · Abbott · InsureMO", num: "03" },
+  { label: "New Economy", names: "Lazada · MyRepublic · Singtel · Integrate", num: "04" },
 ];
 
 const SectorExperience = () => (
