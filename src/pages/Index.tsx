@@ -331,7 +331,7 @@ const GrowthBreaks = () => (
                       {/* Diagnostic number */}
                       <div className="flex items-start justify-between mb-5">
                         <point.icon className="w-[18px] h-[18px] text-primary/40 group-hover:text-primary/70 transition-colors duration-500" strokeWidth={1.5} />
-                        <span className="text-[10px] tracking-[0.3em] text-foreground/10 font-display font-bold uppercase">
+                        <span className="text-[10px] tracking-[0.3em] text-foreground/20 font-display font-bold uppercase">
                           {point.num}
                         </span>
                       </div>
