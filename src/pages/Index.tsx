@@ -192,37 +192,21 @@ const WhySEA = () => (
 
         <div className="grid grid-cols-2 gap-4">
           {[
-            { market: "Singapore", role: "HQ & Strategy Hub", icon: "🇸🇬", size: "large" },
-            { market: "India", role: "Operating Bench", icon: "🇮🇳", size: "normal" },
+            { market: "Singapore", role: "HQ & Strategy Hub", icon: "🇸🇬" },
+            { market: "India", role: "Operating Bench", icon: "🇮🇳" },
+            { market: "Malaysia", role: "Regional Node", icon: "🇲🇾" },
+            { market: "Indonesia", role: "Growth Market", icon: "🇮🇩" },
           ].map((node, i) => (
-            <ParallaxLayer key={i} speed={0.03 + i * 0.04}>
-              <RevealSection delay={0.1 + i * 0.12} scale>
-                <div className={`jt-card-dark flex items-center gap-5 shadow-xl shadow-black/20 ${node.size === 'large' ? 'p-8 md:p-10' : 'p-6 md:p-8'}`}>
-                  <span className={node.size === 'large' ? 'text-4xl' : 'text-2xl'}>{node.icon}</span>
-                  <div>
-                    <p className={`font-bold text-foreground ${node.size === 'large' ? 'text-xl' : 'text-base'}`}>{node.market}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{node.role}</p>
-                  </div>
+            <ParallaxLayer key={i} speed={0.03 + i * 0.02}>
+              <RevealSection delay={0.1 + i * 0.1} scale>
+                <div className="jt-card-dark flex flex-col items-start min-h-[140px] shadow-lg shadow-black/15">
+                  <span className="text-2xl mb-3">{node.icon}</span>
+                  <p className="text-base font-bold text-foreground">{node.market}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{node.role}</p>
                 </div>
               </RevealSection>
             </ParallaxLayer>
           ))}
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { market: "Malaysia", role: "Regional Node", icon: "🇲🇾" },
-              { market: "Indonesia", role: "Growth Market", icon: "🇮🇩" },
-            ].map((node, i) => (
-              <ParallaxLayer key={i} speed={0.06}>
-                <RevealSection delay={0.3 + i * 0.1} scale>
-                  <div className="jt-card-dark flex flex-col items-start p-6 shadow-lg shadow-black/15 min-h-[120px]">
-                    <span className="text-xl mb-3">{node.icon}</span>
-                    <p className="text-sm font-bold text-foreground">{node.market}</p>
-                    <p className="text-[10px] text-muted-foreground mt-1">{node.role}</p>
-                  </div>
-                </RevealSection>
-              </ParallaxLayer>
-            ))}
-          </div>
         </div>
       </div>
     </div>
