@@ -472,7 +472,7 @@ const WhatWeBuilds = () => (
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-foreground/35 leading-relaxed max-w-sm">{cap.desc}</p>
+                  <p className="text-sm text-foreground/50 leading-relaxed max-w-sm">{cap.desc}</p>
 
                   {/* Bottom accent */}
                   <div className="mt-8 flex items-center gap-3">
