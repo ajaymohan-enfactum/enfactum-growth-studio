@@ -11,6 +11,8 @@ export interface BrandEntry {
   localLogo: string | null;
   /** Optional color logo path — rendered without monochrome filter */
   colorLogo?: string | null;
+  /** Optional plate background color for color-logo brands */
+  plateColor?: string | null;
 }
 
 export interface SectorCluster {
@@ -21,11 +23,12 @@ export interface SectorCluster {
 }
 
 /* ─── BRAND REGISTRY ─── */
-const b = (name: string, domain: string | null, localLogo: string | null = null, colorLogo: string | null = null): BrandEntry => ({
+const b = (name: string, domain: string | null, localLogo: string | null = null, colorLogo: string | null = null, plateColor: string | null = null): BrandEntry => ({
   name,
   domain,
   localLogo,
   colorLogo,
+  plateColor,
 });
 
 /* ─── ALL BRANDS BY SECTOR ─── */
@@ -36,10 +39,10 @@ export const sectorClusters: SectorCluster[] = [
     narrative:
       "Helping technology brands build market entry, partner momentum, and commercial infrastructure across Southeast Asia.",
     brands: [
-      b("HP", "hp.com", "/logos/hp.png", "/logos/hp-color.png"),
-      b("Lenovo", "lenovo.com", "/logos/lenovo.png", "/logos/lenovo-color.png"),
+      b("HP", "hp.com", "/logos/hp.png", "/logos/hp-color.png", "#d9d9d9"),
+      b("Lenovo", "lenovo.com", "/logos/lenovo.png", "/logos/lenovo-color.png", "#737373"),
       b("Oracle", "oracle.com", "/logos/oracle.png"),
-      b("Dell EMC", "dell.com", "/logos/dellemc.png", "/logos/dellemc-color.png"),
+      b("Dell EMC", "dell.com", "/logos/dellemc.png", "/logos/dellemc-color.png", "#a6a6a6"),
       b("Singtel", "singtel.com", "/logos/singtel.png"),
       b("Redington", null, "/logos/redington.png"),
       b("element14", null, "/logos/element14.png"),
