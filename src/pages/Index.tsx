@@ -169,7 +169,7 @@ const WhySEA = () => (
         <div className="md:col-span-6">
           <RevealSection blur>
             <p className="eyebrow mb-5">Why Southeast Asia</p>
-            <h2 className="headline-xl max-w-md">
+            <h2 className="headline-lg max-w-md">
               Growth here moves through ecosystems, local trust, and execution nuance<span className="text-primary">.</span>
             </h2>
           </RevealSection>
