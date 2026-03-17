@@ -286,10 +286,11 @@ const frictionPoints = [
 
 const GrowthBreaks = () => (
   <section id="growth-breaks" className="py-24 md:py-32 relative overflow-hidden">
-    {/* Background diagnostic atmosphere */}
-    <div className="absolute inset-0 pointer-events-none" style={{
-      background: "radial-gradient(ellipse 60% 50% at 70% 40%, hsla(215, 40%, 10%, 0.5) 0%, transparent 70%)"
-    }} />
+    {/* Background image — subtle */}
+    <div className="absolute inset-0 pointer-events-none">
+      <img src={networkAbstract} alt="" className="w-full h-full object-cover opacity-[0.07]" />
+      <div className="absolute inset-0 bg-background/80" />
+    </div>
 
     <div className="section-container relative z-10">
       {/* Header */}
