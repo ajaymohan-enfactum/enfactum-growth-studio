@@ -495,24 +495,6 @@ const SelectedWork = () => {
                 </div>
               </Link>
             </RevealSection>
-          ))}
-            {featured.slice(1).map((cs, i) => (
-              <RevealSection key={cs.id} delay={0.15 + i * 0.1} scale>
-                <Link to={`/work#${cs.id}`} className="group block h-full">
-                  <div className="jt-card h-full flex flex-col min-h-[165px] shadow-md shadow-black/[0.04]">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{cs.sectors?.[0] || 'Case Study'}</span>
-                      <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }} />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
-                      {cs.client}
-                    </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{cs.headline}</p>
-                  </div>
-                </Link>
-              </RevealSection>
-            ))}
-          </div>
         </div>
       </div>
     </section>
