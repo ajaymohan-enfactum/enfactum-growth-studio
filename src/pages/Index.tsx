@@ -829,7 +829,7 @@ const DepthSection = () => (
                   <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-[12px] text-foreground/25 mt-1 leading-relaxed">{item.desc}</p>
+                  <p className="text-[12px] text-foreground/45 mt-1 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             </Link>
