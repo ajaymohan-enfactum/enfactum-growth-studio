@@ -852,7 +852,7 @@ const articles = [
 ];
 
 const Perspectives = () => (
-  <section id="thinking" className="py-20 md:py-28 bg-[#0c1629]">
+  <section id="thinking" className="py-20 md:py-28 bg-[hsl(var(--section-alt))]">
     <div className="section-container">
       <RevealSection>
         <div className="flex items-end justify-between mb-12">
