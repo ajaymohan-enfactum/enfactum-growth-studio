@@ -583,10 +583,10 @@ const HowWeWork = () => {
    SECTORS — Curated breadth & credibility
    ═══════════════════════════════════════════════ */
 const sectorClusters = [
-  { label: "Enterprise Technology", names: "HP · Oracle · Dell EMC · Commvault · Redington · element14", num: "01", count: "6 clients" },
-  { label: "Consumer & Brand Growth", names: "L'Oréal · Lancôme · Kiehl's · Brands For Less · JSHealth", num: "02", count: "5 clients" },
-  { label: "Media & Institutions", names: "The Economist · NUS · Andaz · Abbott · InsureMO", num: "03", count: "5 clients" },
-  { label: "New Economy", names: "Lazada · MyRepublic · Singtel · Integrate", num: "04", count: "4 clients" },
+  { label: "Enterprise Technology", names: "HP · Oracle · Dell EMC · Commvault · Redington · element14", num: "01" },
+  { label: "Consumer & Brand Growth", names: "L'Oréal · Lancôme · Kiehl's · Brands For Less · JSHealth", num: "02" },
+  { label: "Media & Institutions", names: "The Economist · NUS · Andaz · Abbott · InsureMO", num: "03" },
+  { label: "New Economy", names: "Lazada · MyRepublic · Singtel · Integrate", num: "04" },
 ];
 
 const SectorExperience = () => (
@@ -660,9 +660,6 @@ const SectorExperience = () => (
                           <h3 className="text-[15px] md:text-base font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-400">
                             {cluster.label}
                           </h3>
-                          <span className="text-[9px] text-foreground/12 uppercase tracking-[0.15em] font-body hidden sm:inline">
-                            {cluster.count}
-                          </span>
                         </div>
                         <p className="text-[12px] text-foreground/25 leading-[1.8] font-body">{cluster.names}</p>
                       </div>
