@@ -34,7 +34,7 @@
     --input: 220 10% 15%;
     --ring: 210 100% 50%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     --sidebar-background: 220 16% 7%;
     --sidebar-foreground: 220 10% 92%;
@@ -51,6 +51,14 @@
     --text-dim: 220 8% 40%;
     --line-subtle: 220 8% 15%;
     --section-alt: 220 14% 9%;
+
+    /* Light section tokens */
+    --light-bg: 0 0% 98%;
+    --light-fg: 220 16% 12%;
+    --light-muted: 220 8% 46%;
+    --light-border: 220 10% 90%;
+    --light-card: 0 0% 100%;
+    --light-card-border: 220 10% 92%;
   }
 
   .dark {
@@ -133,6 +141,55 @@
     @apply text-[15px] leading-[1.75] text-secondary-foreground;
   }
 
+  /* Light section — inverts to white bg */
+  .section-light {
+    background-color: hsl(var(--light-bg));
+    color: hsl(var(--light-fg));
+  }
+  .section-light .eyebrow {
+    color: hsl(var(--primary));
+  }
+  .section-light .headline-display,
+  .section-light .headline-xl,
+  .section-light .headline-lg,
+  .section-light .headline-md,
+  .section-light h2,
+  .section-light h3,
+  .section-light h4 {
+    color: hsl(var(--light-fg));
+  }
+  .section-light p {
+    color: hsl(var(--light-muted));
+  }
+  .section-light .body-lg,
+  .section-light .body-xl,
+  .section-light .body-md {
+    color: hsl(var(--light-muted));
+  }
+
+  /* JoinTalent-style rounded cards */
+  .jt-card {
+    @apply rounded-2xl p-8 md:p-10 transition-all duration-500 ease-out;
+    background: hsl(var(--light-card));
+    border: 1px solid hsl(var(--light-card-border));
+  }
+  .jt-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px -15px hsl(220 16% 7% / 0.12);
+  }
+
+  /* Dark variant cards */
+  .jt-card-dark {
+    @apply rounded-2xl p-8 md:p-10 transition-all duration-500 ease-out;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+  }
+  .jt-card-dark:hover {
+    transform: translateY(-4px);
+    border-color: hsl(var(--primary) / 0.3);
+    box-shadow: 0 20px 60px -15px hsl(var(--primary) / 0.1);
+  }
+
   /* Bento grid cell */
   .bento-cell {
     @apply border border-border/60 p-8 md:p-10 transition-all duration-500;
@@ -177,6 +234,11 @@
   /* Stat accent — large numbers in primary */
   .stat-accent {
     @apply text-primary font-extrabold tracking-tight leading-none;
+  }
+
+  /* Light stat accent */
+  .section-light .stat-accent {
+    @apply text-primary;
   }
 }
 
