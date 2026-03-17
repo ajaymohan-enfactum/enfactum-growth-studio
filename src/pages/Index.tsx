@@ -413,9 +413,8 @@ const SectorExperience = () => (
     <AbstractDots className="top-20 right-20 text-foreground" />
 
     <div className="section-container relative z-10">
-      <div className="grid md:grid-cols-12 gap-16 md:gap-12">
-        {/* Left — 5 cols, stats */}
-        <div className="md:col-span-5">
+      <div className="grid md:grid-cols-2 gap-16 md:gap-12">
+        <div>
           <ParallaxLayer speed={0.06}>
             <RevealSection blur>
               <p className="eyebrow mb-10">Experience</p>
@@ -435,8 +434,7 @@ const SectorExperience = () => (
           </ParallaxLayer>
         </div>
 
-        {/* Right — 7 cols, sector cards */}
-        <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {sectorClusters.map((cluster, i) => (
             <RevealSection key={i} delay={i * 0.08} scale>
               <div className="jt-card-dark min-h-[150px] flex flex-col justify-end shadow-xl shadow-black/20">
