@@ -641,7 +641,7 @@ const SectorExperience = () => (
         {/* Left — label + stats */}
         <div className="md:col-span-3">
           <RevealSection blur>
-            <p className="text-[10px] tracking-[0.3em] text-foreground/25 uppercase mb-6">Experience</p>
+            <p className="text-[10px] tracking-[0.3em] text-foreground/40 uppercase mb-6">Experience</p>
             <div className="space-y-5">
               {[
                 { num: "40+", label: "Enterprise clients" },
