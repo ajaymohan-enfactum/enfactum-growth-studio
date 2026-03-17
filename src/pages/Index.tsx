@@ -245,31 +245,9 @@ const Capabilities = () => (
         </div>
       </RevealSection>
 
-      {/* Featured first card — full width */}
-      <RevealSection delay={0} scale>
-        <Link to={capabilities[0].href} className="group block mb-6">
-          <div className="jt-card flex flex-col md:flex-row md:items-center justify-between min-h-[200px] shadow-lg shadow-black/[0.06] relative overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(var(--light-card)), hsl(210 60% 97%))' }}>
-            <AbstractBlob className="w-[300px] h-[300px] top-[-30%] right-[-10%] !blur-[80px]" color="210 100% 50%" />
-            <div className="relative z-10 max-w-lg">
-              <span className="text-xs font-mono tracking-wider mb-4 block" style={{ color: 'hsl(var(--light-muted))' }}>{capabilities[0].num}</span>
-              <h3 className="text-3xl md:text-4xl font-bold mb-3 transition-colors duration-400 group-hover:text-primary" style={{ color: 'hsl(var(--light-fg))' }}>
-                {capabilities[0].title}
-              </h3>
-              <p className="text-base leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{capabilities[0].desc}</p>
-            </div>
-            <div className="relative z-10 mt-6 md:mt-0">
-              <div className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-white shadow-md" style={{ backgroundColor: 'hsl(var(--light-card-border))' }}>
-                <ArrowUpRight className="w-5 h-5 transition-transform duration-500 group-hover:rotate-45" />
-              </div>
-            </div>
-          </div>
-        </Link>
-      </RevealSection>
-
-      {/* Remaining 3 in unequal grid */}
-      <div className="grid md:grid-cols-3 gap-6">
-        {capabilities.slice(1).map((cap, i) => (
-          <RevealSection key={i} delay={0.1 + i * 0.1} scale>
+      <div className="grid md:grid-cols-2 gap-6">
+        {capabilities.map((cap, i) => (
+          <RevealSection key={i} delay={i * 0.1} scale>
             <Link to={cap.href} className="group block h-full">
               <div className="jt-card h-full flex flex-col justify-between min-h-[260px] relative overflow-hidden shadow-md shadow-black/[0.04]">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/[0.03] group-hover:to-primary/[0.06] transition-all duration-700 rounded-2xl" />
