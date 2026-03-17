@@ -239,7 +239,7 @@ const Capabilities = () => {
       <RevealSection>
         <div className="text-center mb-16 md:mb-20">
           <p className="eyebrow mb-5">Our Solutions</p>
-          <h2 className="headline-xl">Four capabilities<span className="text-primary">.</span><br className="hidden md:block" />One growth architecture<span className="text-primary">.</span></h2>
+          <h2 className="headline-lg">Four capabilities<span className="text-primary">.</span><br className="hidden md:block" />One growth architecture<span className="text-primary">.</span></h2>
           <p className="text-sm max-w-md mx-auto leading-relaxed text-muted-foreground mt-5">
             Each capability connects. Together, they form a growth operating system for Southeast Asia.
           </p>
