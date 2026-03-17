@@ -930,7 +930,7 @@ const QuoteCarousel = ({ quotes }: { quotes: React.ReactNode[] }) => {
   }, [quotes.length]);
 
   return (
-    <section className="py-16 md:py-20 border-y border-border/20 overflow-hidden bg-[#080E1A]">
+    <section className="py-16 md:py-20 border-y border-border/30 overflow-hidden bg-[hsl(var(--section-alt))]">
       <div
         className="section-container relative"
         onTouchStart={handleTouchStart}
