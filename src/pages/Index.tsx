@@ -384,30 +384,89 @@ const Capabilities = () => {
 };
 
 /* ═══════════════════════════════════════════════
-   PULL QUOTE — Cinematic, wide breathing space
+   PULL QUOTE — Brand statement with structural intelligence
    ═══════════════════════════════════════════════ */
 const PullQuote = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.95, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.3]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.96, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0.3]);
+  const lineWidth = useTransform(scrollYProgress, [0.1, 0.45], ["0%", "100%"]);
 
   return (
-    <section ref={ref} className="relative py-36 md:py-48 overflow-hidden">
+    <section ref={ref} className="relative py-32 md:py-44 overflow-hidden">
+      {/* Layered atmospheric background */}
       <div className="absolute inset-0" style={{
-        background: 'radial-gradient(ellipse 60% 50% at 50% 50%, hsl(210 80% 15% / 0.12), transparent 70%)',
+        background: 'linear-gradient(180deg, hsl(220 16% 7% / 0), hsl(215 30% 9% / 0.6) 30%, hsl(210 35% 10% / 0.8) 50%, hsl(215 30% 9% / 0.6) 70%, hsl(220 16% 7% / 0))',
       }} />
+      <div className="absolute inset-0" style={{
+        background: 'radial-gradient(ellipse 70% 50% at 50% 50%, hsl(210 80% 15% / 0.1), transparent 70%)',
+      }} />
+
+      {/* Structural underlay — architectural grid */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Vertical guides */}
+        <div className="absolute top-0 bottom-0 left-[15%] w-px bg-gradient-to-b from-transparent via-foreground/[0.02] to-transparent" />
+        <div className="absolute top-0 bottom-0 left-[85%] w-px bg-gradient-to-b from-transparent via-foreground/[0.02] to-transparent" />
+        <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent" />
+        {/* Horizontal guides */}
+        <div className="absolute left-[10%] right-[10%] top-[30%] h-px bg-gradient-to-r from-transparent via-foreground/[0.015] to-transparent" />
+        <div className="absolute left-[10%] right-[10%] bottom-[30%] h-px bg-gradient-to-r from-transparent via-foreground/[0.015] to-transparent" />
+        {/* Corner nodes */}
+        {[
+          { top: '30%', left: '15%' },
+          { top: '30%', left: '85%' },
+          { bottom: '30%', left: '15%' },
+          { bottom: '30%', left: '85%' },
+        ].map((pos, i) => (
+          <div key={i} className="absolute w-1.5 h-1.5 rounded-full bg-foreground/[0.04] -translate-x-1/2 -translate-y-1/2" style={pos} />
+        ))}
+        {/* Center crosshair accent */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6">
+          <div className="absolute top-1/2 left-0 right-0 h-px bg-primary/[0.06]" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-primary/[0.06]" />
+        </div>
+      </div>
+
+      {/* Large faint watermark — architectural depth */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+        <span className="font-display font-black text-foreground/[0.012] tracking-[-0.04em] hidden md:block" style={{ fontSize: 'clamp(8rem, 18vw, 16rem)' }}>
+          ARCHITECT
+        </span>
+      </div>
+
       <div className="section-container relative z-10">
         <motion.div style={{ scale, opacity }} className="max-w-4xl mx-auto text-center">
-          <div className="w-12 h-px bg-primary/30 mx-auto mb-10" />
+          {/* Top rule — animated width */}
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <motion.div className="h-px bg-primary/25" style={{ width: lineWidth }} />
+          </div>
+
+          {/* Eyebrow context */}
+          <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/15 font-body mb-8">
+            Our conviction
+          </p>
+
           <p className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.03em]" style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3.75rem)' }}>
             Growth in Southeast Asia requires{" "}
             <span className="text-primary">Growth Architects</span>
             , not just strategists<span className="text-primary">.</span>
           </p>
-          <div className="w-12 h-px bg-primary/30 mx-auto mt-10" />
+
+          {/* Supporting context line */}
+          <p className="text-[13px] text-foreground/20 mt-8 max-w-md mx-auto leading-relaxed font-body">
+            Strategy without execution infrastructure is a presentation. We build the systems that make growth move.
+          </p>
+
+          {/* Bottom rule — animated width */}
+          <div className="flex items-center justify-center gap-4 mt-12">
+            <motion.div className="h-px bg-primary/25" style={{ width: lineWidth }} />
+          </div>
         </motion.div>
       </div>
+
+      {/* Bottom transition gradient into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   );
 };
