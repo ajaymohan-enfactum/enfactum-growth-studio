@@ -794,7 +794,7 @@ const DepthSection = () => (
                   <span className="text-4xl md:text-5xl font-display font-bold text-foreground/80 leading-none tracking-tight">
                     {item.stat}
                   </span>
-                  <span className="text-[10px] tracking-[0.2em] text-foreground/25 uppercase pb-1">
+                  <span className="text-[10px] tracking-[0.2em] text-foreground/40 uppercase pb-1">
                     {item.statLabel}
                   </span>
                 </div>
