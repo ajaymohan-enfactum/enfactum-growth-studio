@@ -556,7 +556,7 @@ const HowWeWork = () => (
               <RevealSection key={i} delay={i * 0.12} blur>
                 <div className="relative flex flex-col items-center" style={{ width: '1px' }}>
                   {/* Node */}
-                  <div className="w-[9px] h-[9px] rounded-full bg-primary/25 ring-[3px] ring-[#0B1121] relative z-10" />
+                  <div className="w-[9px] h-[9px] rounded-full bg-primary/30 ring-[3px] ring-card relative z-10" />
                   {/* Connecting dash after node */}
                   {i < processSteps.length - 1 && (
                     <div className="absolute top-[4px] left-[9px] h-px bg-gradient-to-r from-primary/15 to-primary/5" style={{ width: 'calc((100vw - 8rem) / 5 - 9px)' }} />
