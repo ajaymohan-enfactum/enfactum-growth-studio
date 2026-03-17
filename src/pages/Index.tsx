@@ -217,8 +217,12 @@ const capData = [
   { title: "Live Experiences", desc: "Product launches, summits, roadshows, and activations that create market momentum.", href: "/capabilities/live-experiences", num: "04", icon: Sparkles },
 ];
 
-const Capabilities = () => (
-  <section className="relative py-28 md:py-36 overflow-hidden" style={{
+const Capabilities = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+
+  return (
+  <section ref={sectionRef} className="relative py-28 md:py-36 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 10%), hsl(220 18% 8%))',
   }}>
     {/* Structural grid lines suggesting architecture */}
@@ -240,23 +244,104 @@ const Capabilities = () => (
         </div>
       </RevealSection>
 
-      {/* Architecture grid — 2x2 with connecting lines */}
+      {/* Architecture grid — 2x2 with animated connecting lines */}
       <div className="relative">
-        {/* Center connection hub */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border border-primary/20 bg-primary/[0.04] backdrop-blur-sm z-10 hidden md:flex items-center justify-center">
-          <div className="w-3 h-3 rounded-full bg-primary/40 animate-pulse" />
-        </div>
+        {/* Center connection hub — animated */}
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border border-primary/20 bg-primary/[0.04] backdrop-blur-sm z-10 hidden md:flex items-center justify-center"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+          transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {/* Pulsing core */}
+          <motion.div
+            className="w-3 h-3 rounded-full bg-primary/60"
+            animate={isInView ? {
+              scale: [1, 1.4, 1],
+              opacity: [0.6, 1, 0.6],
+              boxShadow: [
+                '0 0 0 0 hsl(210 100% 50% / 0)',
+                '0 0 12px 4px hsl(210 100% 50% / 0.3)',
+                '0 0 0 0 hsl(210 100% 50% / 0)',
+              ],
+            } : {}}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+          />
+          {/* Outer ring pulse */}
+          <motion.div
+            className="absolute inset-0 rounded-full border border-primary/10"
+            animate={isInView ? {
+              scale: [1, 1.3, 1],
+              opacity: [0.2, 0, 0.2],
+            } : {}}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+          />
+        </motion.div>
 
-        {/* Connecting lines from center to each quadrant */}
+        {/* Connecting lines — animated draw-in */}
         <div className="absolute inset-0 hidden md:block pointer-events-none z-[5]">
-          {/* Top-left */}
-          <div className="absolute top-[calc(50%-1px)] left-[25%] w-[25%] h-px" style={{ background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.08), hsl(210 100% 50% / 0.2))' }} />
-          {/* Top-right */}
-          <div className="absolute top-[calc(50%-1px)] left-[50%] w-[25%] h-px" style={{ background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.2), hsl(210 100% 50% / 0.08))' }} />
-          {/* Left vertical */}
-          <div className="absolute left-[calc(50%-1px)] top-[25%] w-px h-[25%]" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.08), hsl(210 100% 50% / 0.2))' }} />
-          {/* Right vertical */}
-          <div className="absolute left-[calc(50%-1px)] top-[50%] w-px h-[25%]" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.2), hsl(210 100% 50% / 0.08))' }} />
+          {/* Left horizontal */}
+          <motion.div
+            className="absolute top-[calc(50%-1px)] left-[25%] h-px origin-right"
+            style={{ width: '25%', background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.06), hsl(210 100% 50% / 0.2))' }}
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 0.7, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          />
+          {/* Right horizontal */}
+          <motion.div
+            className="absolute top-[calc(50%-1px)] left-[50%] h-px origin-left"
+            style={{ width: '25%', background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.2), hsl(210 100% 50% / 0.06))' }}
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 0.7, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          />
+          {/* Top vertical */}
+          <motion.div
+            className="absolute left-[calc(50%-1px)] top-[25%] w-px origin-bottom"
+            style={{ height: '25%', background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.06), hsl(210 100% 50% / 0.2))' }}
+            initial={{ scaleY: 0 }}
+            animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+            transition={{ duration: 0.7, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+          />
+          {/* Bottom vertical */}
+          <motion.div
+            className="absolute left-[calc(50%-1px)] top-[50%] w-px origin-top"
+            style={{ height: '25%', background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.2), hsl(210 100% 50% / 0.06))' }}
+            initial={{ scaleY: 0 }}
+            animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+            transition={{ duration: 0.7, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          />
+
+          {/* Signal pulses traveling along lines — after lines draw in */}
+          {isInView && (
+            <>
+              <motion.div
+                className="absolute top-[calc(50%-2px)] w-1.5 h-1.5 rounded-full bg-primary/40"
+                initial={{ left: '25%', opacity: 0 }}
+                animate={{ left: '50%', opacity: [0, 0.8, 0] }}
+                transition={{ duration: 1.5, delay: 2, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute top-[calc(50%-2px)] w-1.5 h-1.5 rounded-full bg-primary/40"
+                initial={{ left: '75%', opacity: 0 }}
+                animate={{ left: '50%', opacity: [0, 0.8, 0] }}
+                transition={{ duration: 1.5, delay: 3.5, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute left-[calc(50%-2px)] w-1.5 h-1.5 rounded-full bg-primary/40"
+                initial={{ top: '25%', opacity: 0 }}
+                animate={{ top: '50%', opacity: [0, 0.8, 0] }}
+                transition={{ duration: 1.5, delay: 2.8, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute left-[calc(50%-2px)] w-1.5 h-1.5 rounded-full bg-primary/40"
+                initial={{ top: '75%', opacity: 0 }}
+                animate={{ top: '50%', opacity: [0, 0.8, 0] }}
+                transition={{ duration: 1.5, delay: 4.2, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
+              />
+            </>
+          )}
         </div>
 
         <div className="grid md:grid-cols-2 gap-4 md:gap-5">
@@ -295,7 +380,8 @@ const Capabilities = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 /* ═══════════════════════════════════════════════
    PULL QUOTE — Cinematic, wide breathing space
