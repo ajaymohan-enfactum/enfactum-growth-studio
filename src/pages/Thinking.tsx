@@ -41,38 +41,44 @@ const FilterChip = ({
 /* ═══ Lead article — editorial hero ═══ */
 const LeadArticle = ({ article }: { article: Article }) => (
   <Link to={`/thinking/${article.slug}`} className="block group">
-    <article className="grid md:grid-cols-12 gap-8 md:gap-12">
-      <div className="md:col-span-7">
-        <div className="flex items-center gap-3 mb-5">
-          <span className="text-[10px] text-primary/50 uppercase tracking-[0.2em] font-body font-medium">
-            {article.category}
-          </span>
-          <span className="text-foreground/10">—</span>
-          <span className="text-[10px] text-foreground/15 uppercase tracking-[0.15em] font-body">
-            {article.theme}
+    <article className="relative">
+      {/* Large decorative number */}
+      <span className="absolute -top-4 right-0 text-[120px] md:text-[180px] font-display font-bold text-foreground/[0.015] leading-none select-none pointer-events-none hidden md:block">
+        01
+      </span>
+      <div className="grid md:grid-cols-12 gap-8 md:gap-12 relative z-10">
+        <div className="md:col-span-7">
+          <div className="flex items-center gap-3 mb-5">
+            <span className="text-[10px] text-primary/50 uppercase tracking-[0.2em] font-body font-medium">
+              {article.category}
+            </span>
+            <span className="text-foreground/10">—</span>
+            <span className="text-[10px] text-foreground/15 uppercase tracking-[0.15em] font-body">
+              {article.theme}
+            </span>
+          </div>
+          <h2 className="text-[clamp(1.75rem,3.5vw,2.75rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.025em] group-hover:text-primary transition-colors duration-500">
+            {article.title}
+          </h2>
+          <p className="text-[15px] text-foreground/35 mt-6 leading-[1.8] max-w-lg font-body">
+            {article.teaser}
+          </p>
+          <span className="inline-flex items-center gap-1.5 mt-8 text-[11px] text-primary/50 uppercase tracking-[0.15em] font-body font-medium group-hover:text-primary/80 transition-colors duration-500">
+            Read article <ArrowRight className="w-3.5 h-3.5" />
           </span>
         </div>
-        <h2 className="text-[clamp(1.5rem,2.8vw,2.25rem)] font-display font-bold text-foreground leading-[1.12] tracking-[-0.02em] group-hover:text-primary transition-colors duration-500">
-          {article.title}
-        </h2>
-        <p className="text-[14px] text-foreground/30 mt-5 leading-[1.8] max-w-lg font-body">
-          {article.teaser}
-        </p>
-      </div>
-      <div className="md:col-span-4 md:col-start-9 flex flex-col justify-end">
-        <div className="border-t border-border/10 pt-5">
-          <p className="text-[13px] font-medium text-foreground/60 font-body">{article.author}</p>
-          {article.authorRole && (
-            <p className="text-[11px] text-foreground/20 font-body mt-0.5">{article.authorRole}</p>
-          )}
-          <div className="flex items-center gap-3 mt-4 text-[10px] text-foreground/15 font-body">
-            <span>{article.readTime}</span>
-            <span>·</span>
-            <span>{article.date}</span>
+        <div className="md:col-span-4 md:col-start-9 flex flex-col justify-end">
+          <div className="border-l-2 border-primary/10 pl-6">
+            <p className="text-[14px] font-medium text-foreground/60 font-body">{article.author}</p>
+            {article.authorRole && (
+              <p className="text-[11px] text-foreground/20 font-body mt-0.5">{article.authorRole}</p>
+            )}
+            <div className="flex items-center gap-3 mt-5 text-[10px] text-foreground/15 font-body">
+              <span>{article.readTime}</span>
+              <span>·</span>
+              <span>{article.date}</span>
+            </div>
           </div>
-          <span className="inline-flex items-center gap-1.5 mt-5 text-[10px] text-primary/40 uppercase tracking-[0.15em] font-body group-hover:text-primary/70 transition-colors duration-500">
-            Read article <ArrowRight className="w-3 h-3" />
-          </span>
         </div>
       </div>
     </article>
@@ -80,7 +86,7 @@ const LeadArticle = ({ article }: { article: Article }) => (
 );
 
 /* ═══ Secondary featured — mid-weight ═══ */
-const SecondaryArticle = ({ article }: { article: Article }) => (
+const SecondaryArticle = ({ article, index }: { article: Article; index: number }) => (
   <Link to={`/thinking/${article.slug}`} className="block group">
     <article className="py-8 border-t border-border/10">
       <div className="flex items-center gap-3 mb-3">
@@ -146,8 +152,6 @@ const Thinking = () => {
 
   const featured = filtered.filter((a) => a.featured);
   const regular = filtered.filter((a) => !a.featured);
-
-  // Lead = first featured, secondary = rest of featured
   const lead = featured[0] ?? null;
   const secondary = featured.slice(1);
 
@@ -155,7 +159,7 @@ const Thinking = () => {
     <PageLayout>
       <SEOHead
         title="Thinking"
-        description="Original Growth Architect-led perspectives on growth, market entry, AI ecosystems, partnerships, and commercial strategy across Southeast Asia — from the people who do the work."
+        description="Original Growth Architect-led perspectives on growth, market entry, AI ecosystems, partnerships, and commercial strategy across Southeast Asia."
         path="/thinking"
       />
       <HeroSection
@@ -193,10 +197,16 @@ const Thinking = () => {
         </div>
       </section>
 
-      {/* ═══ LEAD ARTICLE — editorial hero ═══ */}
+      {/* ═══ LEAD ARTICLE — dramatic editorial hero ═══ */}
       {lead && (
-        <section className="py-20 md:py-28">
-          <div className="section-container">
+        <section className="py-24 md:py-32 relative overflow-hidden">
+          {/* Journal-like atmosphere */}
+          <div className="absolute inset-0 pointer-events-none" style={{
+            background: 'radial-gradient(ellipse 50% 60% at 30% 50%, hsl(210 40% 10% / 0.08), transparent 70%)',
+          }} />
+          {/* Left editorial accent */}
+          <div className="absolute top-[15%] bottom-[15%] left-[5%] w-px bg-gradient-to-b from-transparent via-primary/[0.06] to-transparent hidden md:block" />
+          <div className="section-container relative z-10">
             <RevealSection blur>
               <LeadArticle article={lead} />
             </RevealSection>
@@ -204,17 +214,22 @@ const Thinking = () => {
         </section>
       )}
 
-      {/* ═══ SECONDARY FEATURED — mid-weight ═══ */}
+      {/* ═══ SECONDARY FEATURED — with visual separator ═══ */}
       {secondary.length > 0 && (
-        <section className="py-16 md:py-20 bg-[hsl(var(--section-alt))]">
+        <section className="py-16 md:py-24 bg-[hsl(var(--section-alt))] relative">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/[0.06] to-transparent" />
           <div className="section-container">
             <RevealSection blur>
-              <p className="eyebrow mb-10">Featured</p>
+              <div className="flex items-center gap-4 mb-12">
+                <p className="eyebrow">Featured</p>
+                <div className="flex-1 h-px bg-border/10" />
+                <span className="text-[10px] text-foreground/12 font-body">{secondary.length} articles</span>
+              </div>
             </RevealSection>
             <div className="grid md:grid-cols-2 gap-x-16 gap-y-0">
               {secondary.map((article, i) => (
                 <RevealSection key={article.slug} delay={i * 0.08} blur>
-                  <SecondaryArticle article={article} />
+                  <SecondaryArticle article={article} index={i} />
                 </RevealSection>
               ))}
             </div>
@@ -222,10 +237,13 @@ const Thinking = () => {
         </section>
       )}
 
-      {/* ═══ ARCHIVE — structured rows ═══ */}
+      {/* ═══ ARCHIVE — structured rows with atmosphere ═══ */}
       {regular.length > 0 && (
-        <section className="py-20 md:py-28">
-          <div className="section-container">
+        <section className="py-24 md:py-32 relative">
+          {/* Subtle vertical guides */}
+          <div className="absolute top-0 bottom-0 left-[16.66%] w-px bg-gradient-to-b from-transparent via-border/[0.03] to-transparent hidden lg:block" />
+          <div className="absolute top-0 bottom-0 left-[66.66%] w-px bg-gradient-to-b from-transparent via-border/[0.03] to-transparent hidden lg:block" />
+          <div className="section-container relative z-10">
             <RevealSection blur>
               <div className="flex items-end justify-between mb-12">
                 <p className="eyebrow">Archive</p>
@@ -269,7 +287,8 @@ const Thinking = () => {
       )}
 
       {/* ═══ CROSS-LINKS ═══ */}
-      <section className="py-20 bg-[hsl(var(--section-alt))]">
+      <section className="py-20 bg-[hsl(var(--section-alt))] relative">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
         <div className="section-container">
           <RevealSection blur>
             <p className="eyebrow mb-12">Explore further</p>
