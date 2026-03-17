@@ -874,7 +874,7 @@ const Perspectives = () => (
         {articles.map((article, i) => (
           <RevealSection key={i} delay={i * 0.06}>
             <Link to="/thinking" className="group block">
-              <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-foreground/[0.06]">
+              <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-foreground/[0.08]">
                 <span className="text-[10px] text-primary/50 tracking-[0.2em] uppercase shrink-0 w-[90px] hidden md:block">
                   {article.category}
                 </span>
