@@ -911,67 +911,107 @@ const Thinking = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   INSIGHT CAROUSEL
+   POINT OF VIEW — Editorial belief statements
    ═══════════════════════════════════════════════ */
-const clientInsights: React.ReactNode[] = [
-  <>Enterprise pipeline grows when you lead with <span className="text-primary">diagnostics</span>, not product demos.</>,
-  <>Multi-market launch succeeds when you build <span className="text-primary">distribution before awareness</span>.</>,
-  <>Channel engagement scales when you meet <span className="text-primary">partners where they are</span>.</>,
-  <>The best innovation programs start with a <span className="text-primary">commercial mandate</span>, not a technology bet.</>,
-  <>Growth in Southeast Asia requires <span className="text-primary">Growth Architects</span>, not just strategists.</>,
-  <>Events become <span className="text-primary">pipeline machines</span> when designed backward from business objectives.</>,
+const beliefs = [
+  { statement: <>Enterprise pipeline grows when you lead with <span className="text-primary">diagnostics</span>, not product demos.</>, domain: "Growth Infrastructure" },
+  { statement: <>Multi-market launch succeeds when you build <span className="text-primary">distribution before awareness</span>.</>, domain: "Brand & Demand" },
+  { statement: <>The best innovation programs start with a <span className="text-primary">commercial mandate</span>, not a technology bet.</>, domain: "AI Ecosystems" },
+  { statement: <>Events become <span className="text-primary">pipeline machines</span> when designed backward from business objectives.</>, domain: "Live Experiences" },
 ];
 
-const QuoteCarousel = ({ quotes }: { quotes: React.ReactNode[] }) => {
+const PointOfView = () => {
   const [active, setActive] = useState(0);
-  const touchStart = useRef<number | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const lineWidth = useTransform(scrollYProgress, [0.1, 0.4], ["0%", "100%"]);
 
   useEffect(() => {
-    const timer = setInterval(() => setActive((prev) => (prev + 1) % quotes.length), 5000);
+    const timer = setInterval(() => setActive((prev) => (prev + 1) % beliefs.length), 6000);
     return () => clearInterval(timer);
-  }, [quotes.length]);
-
-  const handleTouchStart = useCallback((e: React.TouchEvent) => { touchStart.current = e.touches[0].clientX; }, []);
-  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
-    if (touchStart.current === null) return;
-    const diff = touchStart.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) setActive((prev) => diff > 0 ? (prev + 1) % quotes.length : (prev - 1 + quotes.length) % quotes.length);
-    touchStart.current = null;
-  }, [quotes.length]);
+  }, []);
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0" style={{
-        background: 'radial-gradient(ellipse 50% 50% at 50% 50%, hsl(210 80% 15% / 0.08), transparent 70%)',
+    <section ref={ref} className="relative py-28 md:py-36 overflow-hidden bg-[hsl(var(--section-alt))]">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
+      {/* Subtle radial atmosphere */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse 50% 50% at 30% 50%, hsl(210 60% 12% / 0.08), transparent 70%)',
       }} />
 
-      <div className="section-container relative z-10" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-        <RevealSection>
-          <p className="eyebrow mb-10">What we believe</p>
-        </RevealSection>
-        <div className="relative min-h-[140px] md:min-h-[160px] flex items-center w-full max-w-4xl">
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={active}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.5, ease }}
-              className="text-2xl md:text-3xl lg:text-4xl text-foreground font-bold leading-snug tracking-tight"
-            >
-              {quotes[active]}
-            </motion.p>
-          </AnimatePresence>
-        </div>
-        <div className="flex items-center gap-3 mt-8">
-          {quotes.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              className={`h-1 rounded-full transition-all duration-500 ${i === active ? "bg-primary w-8" : "bg-foreground/15 hover:bg-foreground/30 w-4"}`}
-              aria-label={`Go to statement ${i + 1}`}
-            />
-          ))}
+      <div className="section-container relative z-10">
+        <div className="grid md:grid-cols-12 gap-12 md:gap-16">
+          {/* Left — Label + navigation */}
+          <div className="md:col-span-4">
+            <RevealSection blur>
+              <p className="eyebrow mb-8">What we believe</p>
+              <p className="text-[13px] text-foreground/20 leading-relaxed font-body mb-12 max-w-xs">
+                Convictions shaped by a decade of building growth architecture across Southeast Asia.
+              </p>
+
+              {/* Vertical belief navigator */}
+              <div className="space-y-0">
+                {beliefs.map((b, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActive(i)}
+                    className={`w-full text-left py-4 border-l-2 pl-5 transition-all duration-500 block ${
+                      i === active
+                        ? 'border-primary/50 bg-primary/[0.03]'
+                        : 'border-border/10 hover:border-border/30'
+                    }`}
+                  >
+                    <span className={`text-[11px] uppercase tracking-[0.15em] font-body transition-colors duration-400 ${
+                      i === active ? 'text-primary/70' : 'text-foreground/15 hover:text-foreground/30'
+                    }`}>
+                      {b.domain}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </RevealSection>
+          </div>
+
+          {/* Right — Statement display */}
+          <div className="md:col-span-7 md:col-start-6 flex items-center">
+            <div className="w-full">
+              {/* Animated rule */}
+              <motion.div className="h-px bg-primary/20 mb-10" style={{ width: lineWidth }} />
+
+              <div className="relative min-h-[160px] md:min-h-[200px] flex items-center">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={active}
+                    initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    exit={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <p className="font-display font-bold text-foreground leading-[1.12] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
+                      {beliefs[active].statement}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Progress indicator */}
+              <div className="flex items-center gap-6 mt-10">
+                <span className="text-[10px] text-foreground/10 font-mono tracking-wider">
+                  {String(active + 1).padStart(2, '0')} / {String(beliefs.length).padStart(2, '0')}
+                </span>
+                <div className="flex-1 h-px bg-border/10 relative overflow-hidden">
+                  <motion.div
+                    className="absolute top-0 left-0 h-full bg-primary/30"
+                    initial={{ width: '0%' }}
+                    animate={{ width: '100%' }}
+                    key={active}
+                    transition={{ duration: 6, ease: 'linear' }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1036,7 +1076,7 @@ const Index = () => (
     <SelectedWork />
     <DepthSection />
     <Thinking />
-    <QuoteCarousel quotes={clientInsights} />
+    <PointOfView />
     <CTASection />
   </PageLayout>
 );
