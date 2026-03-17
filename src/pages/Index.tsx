@@ -583,7 +583,7 @@ const HowWeWork = () => (
                 {/* Accent bar */}
                 <div className="h-px w-8 bg-primary/15 mb-4 group-hover:w-12 group-hover:bg-primary/30 transition-all duration-500" />
                 {/* Description */}
-                <p className="text-[13px] text-foreground/30 leading-relaxed group-hover:text-foreground/45 transition-colors duration-500">
+                <p className="text-[13px] text-foreground/45 leading-relaxed group-hover:text-foreground/60 transition-colors duration-500">
                   {step.desc}
                 </p>
               </div>
