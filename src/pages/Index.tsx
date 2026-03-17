@@ -309,9 +309,9 @@ const processSteps = [
 ];
 
 const HowWeWork = () => (
-  <section className="section-light py-24 md:py-32 relative overflow-hidden">
+  <section className="bg-background py-24 md:py-32 relative overflow-hidden">
     <div className="absolute inset-0 pointer-events-none" style={{
-      background: 'radial-gradient(ellipse 50% 60% at 20% 80%, hsl(210 100% 50% / 0.03), transparent 50%)',
+      background: 'radial-gradient(ellipse 50% 60% at 20% 80%, hsl(210 100% 50% / 0.05), transparent 50%)',
     }} />
 
     <div className="section-container relative z-10">
@@ -325,12 +325,12 @@ const HowWeWork = () => (
       <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
         {processSteps.map((step, i) => (
           <RevealSection key={i} delay={i * 0.08} scale>
-            <div className="jt-card flex flex-col min-h-[200px] group shadow-md shadow-black/[0.04]">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold mb-6 transition-all duration-500 group-hover:scale-110" style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', color: 'hsl(var(--primary))' }}>
+            <div className="jt-card-dark flex flex-col min-h-[200px] group shadow-xl shadow-black/20">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold mb-6 transition-all duration-500 group-hover:scale-110 bg-primary/10 text-primary">
                 {i + 1}
               </div>
-              <h3 className="text-lg font-bold mb-2" style={{ color: 'hsl(var(--light-fg))' }}>{step.step}</h3>
-              <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{step.desc}</p>
+              <h3 className="text-lg font-bold text-foreground mb-2">{step.step}</h3>
+              <p className="text-xs leading-relaxed text-muted-foreground">{step.desc}</p>
             </div>
           </RevealSection>
         ))}
