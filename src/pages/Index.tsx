@@ -349,7 +349,7 @@ const SelectedWork = () => {
               <Link to={`/work#${cs.id}`} className="group block h-full">
                 <div className="jt-card h-full flex flex-col min-h-[280px]">
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{cs.sector}</span>
+                    <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{cs.sectors?.[0] || 'Case Study'}</span>
                     <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }} />
                   </div>
                   <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
