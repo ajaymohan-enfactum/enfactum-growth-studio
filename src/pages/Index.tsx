@@ -427,7 +427,7 @@ const WhatWeBuilds = () => (
       <div className="relative">
         {/* Central node — the connective anchor */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center">
-          <div className="w-14 h-14 rounded-full border border-primary/15 bg-[#080E1A] flex items-center justify-center">
+          <div className="w-14 h-14 rounded-full border border-primary/20 bg-card flex items-center justify-center">
             <div className="w-3 h-3 rounded-full bg-primary/30" />
           </div>
         </div>
