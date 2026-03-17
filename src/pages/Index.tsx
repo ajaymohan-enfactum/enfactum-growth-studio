@@ -660,9 +660,6 @@ const SectorExperience = () => (
                           <h3 className="text-[15px] md:text-base font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-400">
                             {cluster.label}
                           </h3>
-                          <span className="text-[9px] text-foreground/12 uppercase tracking-[0.15em] font-body hidden sm:inline">
-                            {cluster.count}
-                          </span>
                         </div>
                         <p className="text-[12px] text-foreground/25 leading-[1.8] font-body">{cluster.names}</p>
                       </div>
