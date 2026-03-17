@@ -881,7 +881,7 @@ const Perspectives = () => (
                 <h3 className="flex-1 text-base md:text-lg font-medium text-foreground group-hover:text-primary transition-colors duration-300 leading-snug">
                   {article.title}
                 </h3>
-                <span className="text-[11px] text-foreground/25 shrink-0 hidden md:block">
+                <span className="text-[11px] text-foreground/40 shrink-0 hidden md:block">
                   {article.readTime}
                 </span>
               </div>
