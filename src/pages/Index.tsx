@@ -672,7 +672,7 @@ const SectorExperience = () => (
             </RevealSection>
           ))}
           <RevealSection delay={0.3}>
-            <p className="text-[10px] text-foreground/15 tracking-[0.25em] uppercase mt-8">
+            <p className="text-[10px] text-foreground/30 tracking-[0.25em] uppercase mt-8">
               Singapore · India · Malaysia · Indonesia · USA · APAC
             </p>
           </RevealSection>
