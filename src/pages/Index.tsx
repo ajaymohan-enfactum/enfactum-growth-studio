@@ -690,7 +690,7 @@ const SelectedWorkAfterThinking = () => {
   const flagships = getFlagshipCases();
   const featured = flagships.slice(0, 2);
   return (
-    <section id="selected-work" className="py-24 md:py-32 bg-[#080E1A]">
+    <section id="selected-work" className="py-24 md:py-32 bg-[hsl(var(--section-alt))]">
       <div className="section-container">
         <div className="grid md:grid-cols-12 gap-6 mb-14">
           <div className="md:col-span-6">
