@@ -397,11 +397,16 @@ const capabilities = [
 ];
 
 const WhatWeBuilds = () => (
-  <section id="capabilities" className="py-28 md:py-36 bg-[#080E1A] relative overflow-hidden">
+  <section id="capabilities" className="py-28 md:py-36 bg-[hsl(var(--section-alt))] relative overflow-hidden">
+    {/* Background visual */}
+    <div className="absolute inset-0 pointer-events-none">
+      <img src={growthArchitecture} alt="" className="w-full h-full object-cover opacity-[0.06]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--section-alt))] via-transparent to-[hsl(var(--section-alt))]" />
+    </div>
     {/* Faint architectural grid lines */}
     <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute top-0 bottom-0 left-1/2 w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent hidden md:block" />
-      <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-primary/[0.03] to-transparent hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-1/2 w-px bg-gradient-to-b from-transparent via-primary/[0.06] to-transparent hidden md:block" />
+      <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-primary/[0.05] to-transparent hidden md:block" />
     </div>
 
     <div className="section-container relative z-10">
