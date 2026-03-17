@@ -144,43 +144,20 @@ const Stats = () => (
         </div>
       </RevealSection>
 
-      {/* Unequal grid: 1 featured + 3 smaller */}
-      <div className="grid md:grid-cols-3 gap-5">
-        <RevealSection delay={0} scale>
-          <div className="jt-card md:row-span-2 flex flex-col justify-center items-center min-h-[240px] md:min-h-full shadow-lg shadow-primary/[0.06]" style={{ background: 'linear-gradient(135deg, hsl(var(--light-card)), hsl(210 100% 98%))' }}>
-            <p className="stat-accent text-[clamp(3rem,6vw,5rem)] mb-3">700M+</p>
-            <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>People across ten countries</p>
-          </div>
-        </RevealSection>
-
-        <RevealSection delay={0.1} scale>
-          <div className="jt-card flex flex-col justify-center items-center min-h-[160px] shadow-md shadow-black/[0.04]">
-            <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-2">$300B+</p>
-            <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>Digital economy</p>
-          </div>
-        </RevealSection>
-
-        <RevealSection delay={0.15} scale>
-          <div className="jt-card flex flex-col justify-center items-center min-h-[160px] shadow-md shadow-black/[0.04]">
-            <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-2">40+</p>
-            <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>Enterprise clients</p>
-          </div>
-        </RevealSection>
-
-        {/* Bottom row spans 2 cols */}
-        <RevealSection delay={0.2} scale className="md:col-span-2">
-          <div className="jt-card flex flex-row items-center justify-center gap-8 min-h-[120px] shadow-md shadow-black/[0.04]">
-            <div className="text-center">
-              <p className="stat-accent text-[clamp(1.75rem,3vw,2.5rem)] mb-1">15+</p>
-              <p className="text-xs font-medium" style={{ color: 'hsl(var(--light-muted))' }}>Years in-region</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        {[
+          { num: "700M+", label: "People across ten countries" },
+          { num: "$300B+", label: "Digital economy" },
+          { num: "40+", label: "Enterprise clients" },
+          { num: "15+", label: "Years in-region" },
+        ].map((stat, i) => (
+          <RevealSection key={i} delay={i * 0.1} scale>
+            <div className="jt-card text-center flex flex-col items-center justify-center min-h-[180px] shadow-md shadow-black/[0.04]">
+              <p className="stat-accent text-[clamp(2rem,4vw,3.5rem)] mb-3">{stat.num}</p>
+              <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>{stat.label}</p>
             </div>
-            <div className="w-px h-12" style={{ background: 'hsl(var(--light-card-border))' }} />
-            <div className="text-center">
-              <p className="stat-accent text-[clamp(1.75rem,3vw,2.5rem)] mb-1">100+</p>
-              <p className="text-xs font-medium" style={{ color: 'hsl(var(--light-muted))' }}>Programmes delivered</p>
-            </div>
-          </div>
-        </RevealSection>
+          </RevealSection>
+        ))}
       </div>
     </div>
   </section>
@@ -195,9 +172,8 @@ const WhySEA = () => (
     <AbstractRing className="w-[400px] h-[400px] bottom-[10%] left-[-5%]" />
 
     <div className="section-container relative z-10">
-      <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
-        {/* Left — 7 cols */}
-        <div className="md:col-span-7">
+      <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div>
           <ParallaxLayer speed={0.05}>
             <RevealSection blur>
               <p className="eyebrow mb-6">Why Southeast Asia</p>
@@ -214,40 +190,23 @@ const WhySEA = () => (
           </ParallaxLayer>
         </div>
 
-        {/* Right — 5 cols, stacked unequal cards */}
-        <div className="md:col-span-5 space-y-4">
+        <div className="grid grid-cols-2 gap-4">
           {[
-            { market: "Singapore", role: "HQ & Strategy Hub", icon: "🇸🇬", size: "large" },
-            { market: "India", role: "Operating Bench", icon: "🇮🇳", size: "normal" },
+            { market: "Singapore", role: "HQ & Strategy Hub", icon: "🇸🇬" },
+            { market: "India", role: "Operating Bench", icon: "🇮🇳" },
+            { market: "Malaysia", role: "Regional Node", icon: "🇲🇾" },
+            { market: "Indonesia", role: "Growth Market", icon: "🇮🇩" },
           ].map((node, i) => (
-            <ParallaxLayer key={i} speed={0.03 + i * 0.04}>
-              <RevealSection delay={0.1 + i * 0.12} scale>
-                <div className={`jt-card-dark flex items-center gap-5 shadow-xl shadow-black/20 ${node.size === 'large' ? 'p-8 md:p-10' : 'p-6 md:p-8'}`}>
-                  <span className={node.size === 'large' ? 'text-4xl' : 'text-2xl'}>{node.icon}</span>
-                  <div>
-                    <p className={`font-bold text-foreground ${node.size === 'large' ? 'text-xl' : 'text-base'}`}>{node.market}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{node.role}</p>
-                  </div>
+            <ParallaxLayer key={i} speed={0.03 + i * 0.02}>
+              <RevealSection delay={0.1 + i * 0.1} scale>
+                <div className="jt-card-dark flex flex-col items-start min-h-[140px] shadow-lg shadow-black/15">
+                  <span className="text-2xl mb-3">{node.icon}</span>
+                  <p className="text-base font-bold text-foreground">{node.market}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{node.role}</p>
                 </div>
               </RevealSection>
             </ParallaxLayer>
           ))}
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { market: "Malaysia", role: "Regional Node", icon: "🇲🇾" },
-              { market: "Indonesia", role: "Growth Market", icon: "🇮🇩" },
-            ].map((node, i) => (
-              <ParallaxLayer key={i} speed={0.06}>
-                <RevealSection delay={0.3 + i * 0.1} scale>
-                  <div className="jt-card-dark flex flex-col items-start p-6 shadow-lg shadow-black/15 min-h-[120px]">
-                    <span className="text-xl mb-3">{node.icon}</span>
-                    <p className="text-sm font-bold text-foreground">{node.market}</p>
-                    <p className="text-[10px] text-muted-foreground mt-1">{node.role}</p>
-                  </div>
-                </RevealSection>
-              </ParallaxLayer>
-            ))}
-          </div>
         </div>
       </div>
     </div>
@@ -286,31 +245,9 @@ const Capabilities = () => (
         </div>
       </RevealSection>
 
-      {/* Featured first card — full width */}
-      <RevealSection delay={0} scale>
-        <Link to={capabilities[0].href} className="group block mb-6">
-          <div className="jt-card flex flex-col md:flex-row md:items-center justify-between min-h-[200px] shadow-lg shadow-black/[0.06] relative overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(var(--light-card)), hsl(210 60% 97%))' }}>
-            <AbstractBlob className="w-[300px] h-[300px] top-[-30%] right-[-10%] !blur-[80px]" color="210 100% 50%" />
-            <div className="relative z-10 max-w-lg">
-              <span className="text-xs font-mono tracking-wider mb-4 block" style={{ color: 'hsl(var(--light-muted))' }}>{capabilities[0].num}</span>
-              <h3 className="text-3xl md:text-4xl font-bold mb-3 transition-colors duration-400 group-hover:text-primary" style={{ color: 'hsl(var(--light-fg))' }}>
-                {capabilities[0].title}
-              </h3>
-              <p className="text-base leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{capabilities[0].desc}</p>
-            </div>
-            <div className="relative z-10 mt-6 md:mt-0">
-              <div className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-white shadow-md" style={{ backgroundColor: 'hsl(var(--light-card-border))' }}>
-                <ArrowUpRight className="w-5 h-5 transition-transform duration-500 group-hover:rotate-45" />
-              </div>
-            </div>
-          </div>
-        </Link>
-      </RevealSection>
-
-      {/* Remaining 3 in unequal grid */}
-      <div className="grid md:grid-cols-3 gap-6">
-        {capabilities.slice(1).map((cap, i) => (
-          <RevealSection key={i} delay={0.1 + i * 0.1} scale>
+      <div className="grid md:grid-cols-2 gap-6">
+        {capabilities.map((cap, i) => (
+          <RevealSection key={i} delay={i * 0.1} scale>
             <Link to={cap.href} className="group block h-full">
               <div className="jt-card h-full flex flex-col justify-between min-h-[260px] relative overflow-hidden shadow-md shadow-black/[0.04]">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/[0.03] group-hover:to-primary/[0.06] transition-all duration-700 rounded-2xl" />
@@ -387,28 +324,12 @@ const HowWeWork = () => (
         </div>
       </RevealSection>
 
-      {/* Top row: 2 large steps */}
-      <div className="grid md:grid-cols-2 gap-6 mb-6">
-        {processSteps.slice(0, 2).map((step, i) => (
-          <RevealSection key={i} delay={i * 0.1} scale>
-            <div className="jt-card flex flex-col min-h-[220px] group shadow-md shadow-black/[0.04]">
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-bold mb-6 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg" style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', color: 'hsl(var(--primary))', boxShadow: '0 4px 20px -4px hsl(var(--primary) / 0.15)' }}>
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
+        {processSteps.map((step, i) => (
+          <RevealSection key={i} delay={i * 0.08} scale>
+            <div className="jt-card flex flex-col min-h-[200px] group shadow-md shadow-black/[0.04]">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold mb-6 transition-all duration-500 group-hover:scale-110" style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', color: 'hsl(var(--primary))' }}>
                 {i + 1}
-              </div>
-              <h3 className="text-2xl font-bold mb-3" style={{ color: 'hsl(var(--light-fg))' }}>{step.step}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{step.desc}</p>
-            </div>
-          </RevealSection>
-        ))}
-      </div>
-
-      {/* Bottom row: 3 smaller steps */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-        {processSteps.slice(2).map((step, i) => (
-          <RevealSection key={i} delay={0.2 + i * 0.08} scale>
-            <div className="jt-card flex flex-col min-h-[180px] group shadow-sm shadow-black/[0.03]">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold mb-5 transition-all duration-500 group-hover:scale-110" style={{ backgroundColor: 'hsl(var(--primary) / 0.08)', color: 'hsl(var(--primary))' }}>
-                {i + 3}
               </div>
               <h3 className="text-lg font-bold mb-2" style={{ color: 'hsl(var(--light-fg))' }}>{step.step}</h3>
               <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{step.desc}</p>
@@ -438,9 +359,8 @@ const SectorExperience = () => (
     <AbstractDots className="top-20 right-20 text-foreground" />
 
     <div className="section-container relative z-10">
-      <div className="grid md:grid-cols-12 gap-16 md:gap-12">
-        {/* Left — 5 cols, stats */}
-        <div className="md:col-span-5">
+      <div className="grid md:grid-cols-2 gap-16 md:gap-12">
+        <div>
           <ParallaxLayer speed={0.06}>
             <RevealSection blur>
               <p className="eyebrow mb-10">Experience</p>
@@ -460,8 +380,7 @@ const SectorExperience = () => (
           </ParallaxLayer>
         </div>
 
-        {/* Right — 7 cols, sector cards */}
-        <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {sectorClusters.map((cluster, i) => (
             <RevealSection key={i} delay={i * 0.08} scale>
               <div className="jt-card-dark min-h-[150px] flex flex-col justify-end shadow-xl shadow-black/20">
@@ -501,51 +420,28 @@ const SelectedWork = () => {
           </div>
         </RevealSection>
 
-        {/* Unequal: first card large, next 2 stacked */}
-        <div className="grid md:grid-cols-12 gap-6">
-          {featured[0] && (
-            <RevealSection delay={0} scale className="md:col-span-7">
-              <Link to={`/work#${featured[0].id}`} className="group block h-full">
-                <div className="jt-card h-full flex flex-col justify-between min-h-[360px] shadow-lg shadow-black/[0.06] relative overflow-hidden" style={{ background: 'linear-gradient(150deg, hsl(var(--light-card)), hsl(210 40% 97%))' }}>
-                  <AbstractBlob className="w-[250px] h-[250px] bottom-[-20%] right-[-10%] !blur-[60px]" color="210 100% 50%" />
-                  <div className="relative z-10 flex items-center justify-between mb-8">
-                    <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{featured[0].sectors?.[0] || 'Case Study'}</span>
-                    <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }} />
+        <div className="grid md:grid-cols-3 gap-6">
+          {featured.map((cs, i) => (
+            <RevealSection key={cs.id} delay={i * 0.1} scale>
+              <Link to={`/work#${cs.id}`} className="group block h-full">
+                <div className="jt-card h-full flex flex-col min-h-[280px] shadow-md shadow-black/[0.04]">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{cs.sectors?.[0] || 'Case Study'}</span>
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }} />
                   </div>
-                  <div className="relative z-10 mt-auto">
-                    <h3 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
-                      {featured[0].client}
-                    </h3>
-                    <p className="text-base leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{featured[0].headline}</p>
-                    {featured[0].outcomes?.[0] && (
-                      <div className="mt-6 pt-5" style={{ borderTop: '1px solid hsl(var(--light-card-border))' }}>
-                        <p className="text-sm font-semibold" style={{ color: 'hsl(var(--primary))' }}>{featured[0].outcomes[0]}</p>
-                      </div>
-                    )}
-                  </div>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
+                    {cs.client}
+                  </h3>
+                  <p className="text-sm leading-relaxed flex-1" style={{ color: 'hsl(var(--light-muted))' }}>{cs.headline}</p>
+                  {cs.outcomes?.[0] && (
+                    <div className="mt-6 pt-5" style={{ borderTop: '1px solid hsl(var(--light-card-border))' }}>
+                      <p className="text-sm font-semibold" style={{ color: 'hsl(var(--primary))' }}>{cs.outcomes[0]}</p>
+                    </div>
+                  )}
                 </div>
               </Link>
             </RevealSection>
-          )}
-
-          <div className="md:col-span-5 flex flex-col gap-6">
-            {featured.slice(1).map((cs, i) => (
-              <RevealSection key={cs.id} delay={0.15 + i * 0.1} scale>
-                <Link to={`/work#${cs.id}`} className="group block h-full">
-                  <div className="jt-card h-full flex flex-col min-h-[165px] shadow-md shadow-black/[0.04]">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{cs.sectors?.[0] || 'Case Study'}</span>
-                      <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }} />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
-                      {cs.client}
-                    </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{cs.headline}</p>
-                  </div>
-                </Link>
-              </RevealSection>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -569,21 +465,18 @@ const DepthSection = () => (
         </div>
       </RevealSection>
 
-      {/* Unequal: first card wide */}
-      <div className="grid md:grid-cols-12 gap-6">
-        <RevealSection delay={0} scale className="md:col-span-5">
+      <div className="grid md:grid-cols-3 gap-6">
+        <RevealSection delay={0} scale>
           <Link to="/company/leadership" className="group block h-full">
-            <div className="jt-card-dark h-full flex flex-col justify-between min-h-[280px] shadow-2xl shadow-primary/[0.08]" style={{ background: 'linear-gradient(135deg, hsl(var(--card)), hsl(220 18% 12%))' }}>
-              <p className="stat-accent text-7xl md:text-8xl">12+</p>
+            <div className="jt-card-dark h-full flex flex-col justify-between min-h-[280px] shadow-xl shadow-black/20">
+              <p className="stat-accent text-6xl md:text-7xl">12+</p>
               <div className="mt-auto">
-                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 mb-2">Senior Principals</h3>
+                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 mb-2">Senior Principals</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">Named leaders across strategy, growth, technology, and creative.</p>
               </div>
             </div>
           </Link>
         </RevealSection>
-
-        <div className="md:col-span-7 grid sm:grid-cols-2 gap-6">
           <RevealSection delay={0.1} scale>
             <Link to="/company" className="group block h-full">
               <div className="jt-card-dark h-full flex flex-col justify-between min-h-[280px] shadow-xl shadow-black/20">
@@ -609,8 +502,7 @@ const DepthSection = () => (
           </RevealSection>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 );
 
 /* ═══════════════════════════════════════════════
