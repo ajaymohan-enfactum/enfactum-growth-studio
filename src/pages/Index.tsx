@@ -472,52 +472,110 @@ const PullQuote = () => {
 };
 
 /* ═══════════════════════════════════════════════
-   HOW WE WORK — Horizontal timeline strip
+   HOW WE WORK — Authoritative operating sequence
    ═══════════════════════════════════════════════ */
 const processSteps = [
-  { step: "Define", desc: "Diagnose the growth challenge and map the ecosystem landscape." },
-  { step: "Build", desc: "Architect GTM infrastructure, partnerships, and demand engine." },
-  { step: "Operate", desc: "Run the growth architecture with embedded teams." },
-  { step: "Transfer", desc: "Hand over with documented playbooks and trained teams." },
-  { step: "Scale", desc: "Expand across markets with proven architecture." },
+  { step: "Define", desc: "Diagnose the growth challenge, map the ecosystem landscape, and align stakeholders around a shared growth thesis.", phase: "Strategy" },
+  { step: "Build", desc: "Architect GTM infrastructure, partnerships, demand engines, and the operating model that will carry it all.", phase: "Architecture" },
+  { step: "Operate", desc: "Run the growth architecture with embedded teams — executing, optimising, and owning outcomes alongside the client.", phase: "Execution" },
+  { step: "Transfer", desc: "Hand over documented playbooks, trained teams, and operational capability — not dependency.", phase: "Capability" },
+  { step: "Scale", desc: "Expand across markets, channels, and business units with proven, repeatable architecture.", phase: "Expansion" },
 ];
 
-const HowWeWork = () => (
-  <section className="relative py-24 md:py-32 overflow-hidden" style={{
-    background: 'linear-gradient(180deg, hsl(220 16% 7%), hsl(220 18% 9%), hsl(220 16% 7%))',
-  }}>
-    <div className="section-container relative z-10">
-      <RevealSection>
-        <div className="mb-16">
-          <p className="eyebrow mb-4">How We Work</p>
-          <h2 className="headline-lg max-w-lg">From strategy to operating momentum<span className="text-primary">.</span></h2>
-        </div>
-      </RevealSection>
+const HowWeWork = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-      {/* Timeline */}
-      <div className="relative">
-        {/* Connecting line */}
-        <div className="absolute top-6 left-0 right-0 h-px bg-border/20 hidden md:block" />
+  return (
+    <section ref={ref} className="relative py-28 md:py-36 overflow-hidden" style={{
+      background: 'linear-gradient(180deg, hsl(220 16% 7%), hsl(218 22% 9.5%), hsl(220 16% 7%))',
+    }}>
+      {/* Structural vertical guides */}
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
+        {[20, 40, 60, 80].map((pct) => (
+          <div key={pct} className="absolute top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-foreground/[0.015] to-transparent" style={{ left: `${pct}%` }} />
+        ))}
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-8">
-          {processSteps.map((step, i) => (
-            <RevealSection key={i} delay={i * 0.08}>
-              <div className="group">
-                {/* Step marker */}
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-3 h-3 rounded-full border-2 border-primary/40 bg-background group-hover:bg-primary/20 group-hover:border-primary transition-all duration-500 relative z-10" />
-                  <span className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase font-mono">{String(i + 1).padStart(2, '0')}</span>
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{step.step}</h3>
-                <p className="text-xs leading-relaxed text-muted-foreground">{step.desc}</p>
-              </div>
+      <div className="section-container relative z-10">
+        {/* Header — asymmetric with supporting context */}
+        <div className="grid md:grid-cols-12 gap-8 mb-20 md:mb-24">
+          <div className="md:col-span-6">
+            <RevealSection blur>
+              <p className="eyebrow mb-5">How We Work</p>
+              <h2 className="headline-lg max-w-lg">From strategy to operating momentum<span className="text-primary">.</span></h2>
             </RevealSection>
-          ))}
+          </div>
+          <div className="md:col-span-4 md:col-start-8 flex items-end">
+            <RevealSection delay={0.1}>
+              <p className="text-[13px] text-foreground/25 leading-relaxed font-body">
+                Five phases. One continuous operating sequence. Each phase builds on the last — designed to create lasting infrastructure, not short-term outputs.
+              </p>
+            </RevealSection>
+          </div>
+        </div>
+
+        {/* Process sequence — vertical on mobile, horizontal on desktop */}
+        <div className="relative">
+          {/* Horizontal connecting rail — desktop */}
+          <motion.div
+            className="absolute top-[28px] left-0 right-0 h-px hidden md:block origin-left"
+            style={{ background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.05), hsl(210 100% 50% / 0.15) 20%, hsl(210 100% 50% / 0.15) 80%, hsl(210 100% 50% / 0.05))' }}
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          />
+
+          <div className="grid md:grid-cols-5 gap-0">
+            {processSteps.map((step, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: 0.4 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                className={`relative group ${i < processSteps.length - 1 ? 'md:border-r md:border-border/8' : ''} border-b md:border-b-0 border-border/10`}
+              >
+                <div className="py-8 md:py-0 md:px-7 md:first:pl-0 md:last:pr-0">
+                  {/* Step node — on the rail */}
+                  <div className="flex items-center gap-3 mb-7 md:mb-8">
+                    <div className="relative">
+                      <motion.div
+                        className="w-[14px] h-[14px] rounded-full border-2 border-primary/30 bg-background relative z-10 group-hover:border-primary group-hover:bg-primary/10 transition-all duration-500"
+                        animate={isInView ? {
+                          borderColor: ['hsl(210 100% 50% / 0.3)', 'hsl(210 100% 50% / 0.5)', 'hsl(210 100% 50% / 0.3)'],
+                        } : {}}
+                        transition={{ duration: 3, delay: 1.5 + i * 0.3, repeat: Infinity, ease: "easeInOut" }}
+                      />
+                      {/* Glow behind node */}
+                      <div className="absolute inset-0 rounded-full bg-primary/10 blur-sm scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                    <span className="text-[10px] text-foreground/15 tracking-[0.2em] uppercase font-body">{step.phase}</span>
+                  </div>
+
+                  {/* Step number */}
+                  <span className="text-[40px] md:text-[48px] font-display font-bold text-foreground/[0.03] leading-none select-none block mb-3">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+
+                  {/* Step name */}
+                  <h3 className="text-xl md:text-[1.375rem] font-display font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-400 tracking-[-0.01em]">
+                    {step.step}
+                  </h3>
+
+                  {/* Accent line */}
+                  <div className="w-8 h-px bg-primary/15 mb-4 group-hover:w-12 group-hover:bg-primary/30 transition-all duration-500" />
+
+                  {/* Description */}
+                  <p className="text-[12px] leading-[1.75] text-foreground/30 font-body max-w-[200px]">{step.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 /* ═══════════════════════════════════════════════
    SECTORS — Editorial ledger layout
