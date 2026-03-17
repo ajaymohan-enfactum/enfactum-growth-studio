@@ -651,7 +651,7 @@ const SectorExperience = () => (
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-3xl md:text-4xl font-display font-bold text-foreground leading-none">{stat.num}</p>
-                  <p className="text-[10px] text-foreground/30 uppercase tracking-[0.15em] mt-1">{stat.label}</p>
+                  <p className="text-[10px] text-foreground/40 uppercase tracking-[0.15em] mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>
