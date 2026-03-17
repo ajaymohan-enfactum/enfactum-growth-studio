@@ -58,12 +58,12 @@ export const sectorClusters: SectorCluster[] = [
     narrative:
       "Supporting brands that need market activation, demand generation, and regional growth with commercial discipline.",
     brands: [
-      b("Brands For Less", "brandsforless.com", "/logos/brandsforless.png"),
+      b("Brands For Less", "brandsforless.com", "/logos/brandsforless.png", "/logos/brandsforless-color.png", "#1e1f23"),
       b("Lancôme", "lancome.com", "/logos/lancome.png"),
       b("L'Oréal", "loreal.com", "/logos/loreal.png"),
       b("Kiehl's", "kiehls.com", "/logos/kiehls.png"),
-      b("JSHealth Vitamins", "jshealth.com", "/logos/jshealth.png"),
-      b("Castrol", "castrol.com", "/logos/castrol.png"),
+      b("JSHealth Vitamins", "jshealth.com", "/logos/jshealth.png", "/logos/jshealth-color.png", "#1e1f23"),
+      b("Castrol", "castrol.com", "/logos/castrol.png", "/logos/castrol-color.png", "#1e1f23"),
     ],
   },
   {
