@@ -17,7 +17,7 @@ const BrandPlate = ({ brand, sector, size = "md", delay = 0 }: BrandPlateProps) 
   const w = widths[size];
 
   const hasColor = !!brand.colorLogo;
-  const plateColor = brand.plateColor || "#737373";
+  const plateColor = brand.plateColor || "#a6a6a6";
 
   return (
     <motion.div
