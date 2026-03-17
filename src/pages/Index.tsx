@@ -528,7 +528,7 @@ const processSteps = [
 ];
 
 const HowWeWork = () => (
-  <section id="how-we-work" className="py-28 md:py-36 bg-[#0B1121] relative overflow-hidden">
+  <section id="how-we-work" className="py-28 md:py-36 bg-[hsl(var(--section-alt))] relative overflow-hidden">
     {/* Horizontal momentum line */}
     <div className="absolute top-[52%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/[0.06] to-transparent hidden md:block pointer-events-none" />
 
