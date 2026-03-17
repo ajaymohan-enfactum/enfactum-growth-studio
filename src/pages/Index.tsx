@@ -477,7 +477,7 @@ const WhatWeBuilds = () => (
                   {/* Bottom accent */}
                   <div className="mt-8 flex items-center gap-3">
                     <div className="h-px flex-1 bg-gradient-to-r from-primary/10 to-transparent group-hover:from-primary/20 transition-colors duration-500" />
-                    <ArrowRight className="w-3.5 h-3.5 text-foreground/10 group-hover:text-primary/50 transition-all duration-500 group-hover:translate-x-0.5" />
+                    <ArrowRight className="w-3.5 h-3.5 text-foreground/20 group-hover:text-primary/50 transition-all duration-500 group-hover:translate-x-0.5" />
                   </div>
                 </div>
               </Link>
