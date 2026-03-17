@@ -21,6 +21,11 @@ import SEOHead, { organizationSchema, webSiteSchema } from "@/components/shared/
 import { getFlagshipCases } from "@/data/caseStudies";
 import { ArrowRight, Crosshair, Network, Unlink, FlaskConical, Rocket, BarChart3, Megaphone, Brain, Sparkles } from "lucide-react";
 
+import networkAbstract from "@/assets/visuals/network-abstract.png";
+import growthArchitecture from "@/assets/visuals/growth-architecture.png";
+import innovationParticles from "@/assets/visuals/innovation-particles.png";
+import seaTopography from "@/assets/visuals/sea-topography.png";
+
 const ease = [0.22, 1, 0.36, 1] as const;
 
 /* ═══════════════════════════════════════════════
