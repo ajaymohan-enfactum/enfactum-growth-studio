@@ -3,7 +3,6 @@ import { useRef } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
-import CapabilityGraph from "@/components/shared/CapabilityGraph";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead from "@/components/shared/SEOHead";
 import { ArrowRight, Layers, Megaphone, Brain, Sparkles } from "lucide-react";
@@ -19,7 +18,6 @@ const capabilities = [
     outcomes: ["Scalable partner ecosystems", "Revenue operations", "Multi-market playbooks"],
     href: "/capabilities/growth-infrastructure",
     icon: Layers,
-    accent: "from-primary/20 to-primary/5",
   },
   {
     num: "02",
@@ -30,7 +28,6 @@ const capabilities = [
     outcomes: ["Integrated demand generation", "Creative-to-conversion pipelines", "Measurable brand impact"],
     href: "/capabilities/brand-demand",
     icon: Megaphone,
-    accent: "from-blue-500/20 to-cyan-500/5",
   },
   {
     num: "03",
@@ -41,7 +38,6 @@ const capabilities = [
     outcomes: ["Enterprise-startup partnerships", "Pilot-to-platform pathways", "Innovation programme architecture"],
     href: "/capabilities/ai-ecosystems",
     icon: Brain,
-    accent: "from-violet-500/20 to-primary/5",
   },
   {
     num: "04",
@@ -52,7 +48,6 @@ const capabilities = [
     outcomes: ["Pipeline-driving events", "Partner activation summits", "Market-entry launches"],
     href: "/capabilities/live-experiences",
     icon: Sparkles,
-    accent: "from-amber-500/20 to-orange-500/5",
   },
 ];
 
@@ -63,6 +58,93 @@ const engagementModels = [
   { title: "Build-Operate-Transfer", duration: "12–24 months", desc: "We build and run the capability, then transfer full ownership and knowledge to your team." },
 ];
 
+/* ═══════════════════════════════════════════════
+   ARCHITECTURE SYSTEM — Connected capability display
+   ═══════════════════════════════════════════════ */
+const ArchitectureSystem = () => (
+  <section className="relative py-28 md:py-36 overflow-hidden" style={{
+    background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 10%), hsl(220 18% 8%))',
+  }}>
+    {/* Structural lines */}
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute top-0 bottom-0 left-[25%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-primary/[0.06] to-transparent hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-[75%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent hidden md:block" />
+    </div>
+
+    <div className="section-container relative z-10">
+      <RevealSection blur>
+        <div className="text-center mb-16 md:mb-20">
+          <p className="eyebrow mb-5">The architecture</p>
+          <h2 className="headline-xl">Four capabilities<span className="text-primary">.</span><br className="hidden md:block" />One growth architecture<span className="text-primary">.</span></h2>
+          <p className="text-sm max-w-md mx-auto leading-relaxed text-muted-foreground mt-5">
+            This isn't four separate offerings. It's one integrated system — each capability feeds outcomes to the next.
+          </p>
+        </div>
+      </RevealSection>
+
+      {/* Connected cards with central hub */}
+      <div className="relative">
+        {/* Center hub */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full border border-primary/20 bg-primary/[0.04] z-10 hidden md:flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-3 h-3 rounded-full bg-primary/40 mx-auto animate-pulse" />
+            <span className="text-[8px] uppercase tracking-[0.2em] text-primary/50 mt-1 block">System</span>
+          </div>
+        </div>
+
+        {/* Connection lines */}
+        <div className="absolute inset-0 hidden md:block pointer-events-none z-[5]">
+          <div className="absolute top-[calc(50%-1px)] left-[20%] w-[30%] h-px" style={{ background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.06), hsl(210 100% 50% / 0.2))' }} />
+          <div className="absolute top-[calc(50%-1px)] left-[50%] w-[30%] h-px" style={{ background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.2), hsl(210 100% 50% / 0.06))' }} />
+          <div className="absolute left-[calc(50%-1px)] top-[15%] w-px h-[35%]" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.06), hsl(210 100% 50% / 0.2))' }} />
+          <div className="absolute left-[calc(50%-1px)] top-[50%] w-px h-[35%]" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.2), hsl(210 100% 50% / 0.06))' }} />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4 md:gap-5">
+          {capabilities.map((cap, i) => (
+            <RevealSection key={i} delay={i * 0.1} scale>
+              <Link to={cap.href} className="group block h-full">
+                <div className="relative h-full rounded-xl border border-border/30 bg-card/30 backdrop-blur-sm p-8 md:p-10 flex flex-col justify-between min-h-[320px] overflow-hidden transition-all duration-700 hover:border-primary/25 hover:bg-card/50">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/[0.02] group-hover:to-primary/[0.05] transition-all duration-700 rounded-xl" />
+
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="p-2.5 rounded-lg bg-primary/10 text-primary">
+                        <cap.icon className="w-5 h-5" />
+                      </div>
+                      <span className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground uppercase">{cap.num}</span>
+                    </div>
+                    <h3 className="font-display text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-500 mb-3">
+                      {cap.title}
+                    </h3>
+                    <p className="text-[14px] text-muted-foreground leading-[1.7] max-w-sm">
+                      {cap.what}
+                    </p>
+                  </div>
+
+                  <div className="relative z-10 mt-6">
+                    <div className="flex flex-wrap gap-2">
+                      {cap.outcomes.map((o) => (
+                        <span key={o} className="text-[10px] uppercase tracking-[0.12em] text-primary/50 bg-primary/5 px-2 py-1 rounded">
+                          {o}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </RevealSection>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* ═══════════════════════════════════════════════
+   CONNECTION LOGIC — How capabilities feed each other
+   ═══════════════════════════════════════════════ */
 const systemConnections = [
   { from: "Growth Infrastructure", to: "Brand & Demand", link: "GTM architecture feeds integrated demand programmes" },
   { from: "Brand & Demand", to: "Live Experiences", link: "Demand strategy shapes commercially designed activations" },
@@ -70,118 +152,41 @@ const systemConnections = [
   { from: "Live Experiences", to: "AI Ecosystems", link: "Events surface ecosystem opportunities and startup deal flow" },
 ];
 
-const HorizontalScrollShowcase = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+const ConnectionsSection = () => (
+  <section className="py-24 md:py-32 relative overflow-hidden">
+    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
-
-  return (
-    <section ref={containerRef} className="relative h-[400vh]">
-      {/* Sticky viewport */}
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-        {/* Header */}
-        <div className="section-container mb-8 md:mb-12">
-          <p className="eyebrow mb-2">Capability overview</p>
-          <p className="text-[13px] text-muted-foreground max-w-lg">
-            Each capability solves a specific growth challenge. Scroll to explore.
-          </p>
+    <div className="section-container relative z-10">
+      <RevealSection blur>
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <p className="eyebrow mb-5">How the capabilities connect</p>
+          <h2 className="headline-lg">Each capability reinforces the others<span className="text-primary">.</span></h2>
         </div>
+      </RevealSection>
 
-        {/* Horizontal panels */}
-        <motion.div style={{ x }} className="flex gap-6 md:gap-8 pl-[max(1.5rem,calc((100vw-1280px)/2+1.5rem))]">
-          {capabilities.map((cap, i) => (
-            <Link
-              key={i}
-              to={cap.href}
-              className="group flex-shrink-0 w-[85vw] md:w-[42vw] lg:w-[36vw]"
-            >
-              <div className={`relative h-[60vh] md:h-[65vh] rounded-2xl border border-border/30 bg-gradient-to-br ${cap.accent} p-8 md:p-10 flex flex-col justify-between overflow-hidden group-hover:border-primary/30 transition-colors duration-500`}>
-                {/* Background number */}
-                <span className="absolute top-6 right-8 text-[120px] md:text-[180px] font-display font-black text-foreground/[0.03] leading-none select-none">
-                  {cap.num}
-                </span>
-
-                {/* Top — icon + number */}
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2.5 rounded-lg bg-primary/10 text-primary">
-                      <cap.icon className="w-5 h-5" />
-                    </div>
-                    <span className="text-[10px] font-body text-muted-foreground tracking-[0.2em] uppercase">{cap.num}</span>
-                  </div>
-                  <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground group-hover:text-primary transition-colors duration-500 mb-4">
-                    {cap.title}
-                  </h3>
-                  <p className="text-[15px] text-secondary-foreground leading-[1.7] max-w-md">
-                    {cap.problem}
-                  </p>
-                </div>
-
-                {/* Bottom — outcomes + arrow */}
-                <div>
-                  <div className="mb-6">
-                    <h4 className="text-[11px] uppercase tracking-[0.2em] text-foreground/40 font-body mb-3">What we build</h4>
-                    <p className="text-[13px] text-muted-foreground leading-relaxed max-w-sm line-clamp-3">
-                      {cap.what}
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-wrap gap-2">
-                      {cap.outcomes.map((o) => (
-                        <span key={o} className="text-[10px] uppercase tracking-[0.12em] text-primary/60 font-body bg-primary/5 px-2 py-1 rounded">
-                          {o}
-                        </span>
-                      ))}
-                    </div>
-                    <ArrowRight className="w-5 h-5 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all duration-500 shrink-0 ml-4" />
-                  </div>
-                </div>
+      <div className="max-w-2xl mx-auto space-y-0">
+        {systemConnections.map((conn, i) => (
+          <RevealSection key={i} delay={i * 0.08}>
+            <div className="py-6 border-b border-border/15">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-xs font-semibold text-primary">{conn.from}</span>
+                <ArrowRight className="w-3 h-3 text-primary/40" />
+                <span className="text-xs font-semibold text-primary">{conn.to}</span>
               </div>
-            </Link>
-          ))}
-        </motion.div>
-
-        {/* Scroll progress dots */}
-        <div className="section-container mt-8 flex items-center gap-3">
-          {capabilities.map((_, i) => (
-            <ScrollDot key={i} index={i} progress={scrollYProgress} />
-          ))}
-          <span className="text-[11px] text-muted-foreground ml-3 font-body">Scroll to explore</span>
-        </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{conn.link}</p>
+            </div>
+          </RevealSection>
+        ))}
       </div>
-    </section>
-  );
-};
-
-const ScrollDot = ({ index, progress }: { index: number; progress: ReturnType<typeof useScroll>["scrollYProgress"] }) => {
-  const opacity = useTransform(
-    progress,
-    [index * 0.25, index * 0.25 + 0.05, (index + 1) * 0.25, (index + 1) * 0.25 + 0.05],
-    [0.3, 1, 1, 0.3]
-  );
-  const scale = useTransform(
-    progress,
-    [index * 0.25, index * 0.25 + 0.05, (index + 1) * 0.25, (index + 1) * 0.25 + 0.05],
-    [1, 1.5, 1.5, 1]
-  );
-
-  return (
-    <motion.div
-      style={{ opacity, scale }}
-      className="w-2 h-2 rounded-full bg-primary"
-    />
-  );
-};
+    </div>
+  </section>
+);
 
 const Capabilities = () => (
   <PageLayout>
     <SEOHead
       title="Capabilities — Growth Infrastructure, Brand & Demand, AI Ecosystems, Live Experiences"
-      description="Enfactum's four integrated capabilities for enterprise brands in Southeast Asia: Growth Infrastructure, Brand & Demand, AI Ecosystems, and Live Experiences. An operating system for regional growth."
+      description="Enfactum's four integrated capabilities for enterprise brands in Southeast Asia: Growth Infrastructure, Brand & Demand, AI Ecosystems, and Live Experiences."
       path="/capabilities"
     />
     <HeroSection
@@ -191,34 +196,14 @@ const Capabilities = () => (
       variant="systemic"
     />
 
-    {/* ═══ HORIZONTAL SCROLL CAPABILITY SHOWCASE ═══ */}
-    <HorizontalScrollShowcase />
-    {/* ═══ HOW CAPABILITIES CONNECT ═══ */}
-    <section className="py-24 md:py-32 bg-[hsl(var(--section-alt))] relative overflow-hidden">
-      {/* Systemic grid lines */}
-      <div className="absolute top-0 bottom-0 left-[25%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent hidden md:block" />
-      <div className="absolute top-0 bottom-0 left-[75%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent hidden md:block" />
-      <div className="absolute left-0 right-0 top-[50%] h-px bg-gradient-to-r from-transparent via-primary/[0.03] to-transparent hidden md:block" />
+    <ArchitectureSystem />
+    <ConnectionsSection />
 
-      <div className="section-container relative z-10">
-        <RevealSection blur>
-          <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
-            <p className="eyebrow mb-5">How the capabilities connect</p>
-            <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em]">
-              Each capability reinforces the others.
-            </h2>
-            <p className="text-[13px] text-foreground/30 mt-4 leading-relaxed max-w-md mx-auto">
-              This isn't four separate offerings. It's one integrated architecture — each capability feeds outcomes to the next.
-            </p>
-          </div>
-        </RevealSection>
-        <CapabilityGraph />
-      </div>
-    </section>
     {/* ═══ ENGAGEMENT MODELS ═══ */}
-    <section className="py-24 md:py-32">
+    <section className="py-24 md:py-32" style={{
+      background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 9%), hsl(220 18% 8%))',
+    }}>
       <div className="section-container">
-        <div className="section-divider mb-20" />
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-5">
             <RevealSection blur>
@@ -230,7 +215,6 @@ const Capabilities = () => (
             <RevealSection delay={0.1} blur>
               <p className="body-md text-muted-foreground">
                 We structure engagements around your context — not a fixed service menu.
-                Every model is designed to deliver measurable outcomes and build lasting capability.
               </p>
             </RevealSection>
           </div>
@@ -238,8 +222,8 @@ const Capabilities = () => (
 
         <div className="space-y-0">
           {engagementModels.map((model, i) => (
-            <RevealSection key={i} delay={i * 0.05} scale>
-              <div className="grid md:grid-cols-12 gap-4 py-8 border-b border-border/20 hover:border-primary/10 transition-colors duration-700">
+            <RevealSection key={i} delay={i * 0.05}>
+              <div className="grid md:grid-cols-12 gap-4 py-8 border-b border-border/15 hover:border-primary/10 transition-colors duration-700">
                 <div className="md:col-span-3">
                   <h3 className="font-display text-[15px] font-semibold text-foreground">{model.title}</h3>
                 </div>
