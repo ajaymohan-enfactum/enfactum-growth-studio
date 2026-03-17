@@ -339,7 +339,7 @@ const GrowthBreaks = () => (
                       <h3 className="font-display text-lg font-semibold text-foreground leading-snug group-hover:text-foreground transition-colors duration-300">
                         {point.title}
                       </h3>
-                      <p className="text-sm text-foreground/35 mt-2.5 leading-relaxed">{point.body}</p>
+                      <p className="text-sm text-foreground/50 mt-2.5 leading-relaxed">{point.body}</p>
 
                       {/* Bottom accent line */}
                       <div className="mt-6 h-px w-12 bg-gradient-to-r from-primary/20 to-transparent group-hover:w-20 transition-all duration-500" />
