@@ -536,21 +536,18 @@ const DepthSection = () => (
         </div>
       </RevealSection>
 
-      {/* Unequal: first card wide */}
-      <div className="grid md:grid-cols-12 gap-6">
-        <RevealSection delay={0} scale className="md:col-span-5">
+      <div className="grid md:grid-cols-3 gap-6">
+        <RevealSection delay={0} scale>
           <Link to="/company/leadership" className="group block h-full">
-            <div className="jt-card-dark h-full flex flex-col justify-between min-h-[280px] shadow-2xl shadow-primary/[0.08]" style={{ background: 'linear-gradient(135deg, hsl(var(--card)), hsl(220 18% 12%))' }}>
-              <p className="stat-accent text-7xl md:text-8xl">12+</p>
+            <div className="jt-card-dark h-full flex flex-col justify-between min-h-[280px] shadow-xl shadow-black/20">
+              <p className="stat-accent text-6xl md:text-7xl">12+</p>
               <div className="mt-auto">
-                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 mb-2">Senior Principals</h3>
+                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 mb-2">Senior Principals</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">Named leaders across strategy, growth, technology, and creative.</p>
               </div>
             </div>
           </Link>
         </RevealSection>
-
-        <div className="md:col-span-7 grid sm:grid-cols-2 gap-6">
           <RevealSection delay={0.1} scale>
             <Link to="/company" className="group block h-full">
               <div className="jt-card-dark h-full flex flex-col justify-between min-h-[280px] shadow-xl shadow-black/20">
