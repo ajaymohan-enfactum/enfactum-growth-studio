@@ -624,9 +624,11 @@ const QuoteCarousel = ({ quotes }: { quotes: React.ReactNode[] }) => {
    CTA — White bg with gradient
    ═══════════════════════════════════════════════ */
 const CTASection = () => (
-  <section className="section-light py-24 md:py-32 relative overflow-hidden">
+  <section className="relative py-24 md:py-32 overflow-hidden" style={{
+    background: 'linear-gradient(160deg, hsl(220 16% 7%), hsl(220 20% 10%), hsl(220 16% 8%))',
+  }}>
     <div className="absolute inset-0 pointer-events-none" style={{
-      background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.04), transparent 60%)',
+      background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.06), transparent 60%)',
     }} />
     <AbstractRing className="w-[300px] h-[300px] top-[10%] left-[5%]" />
     <AbstractRing className="w-[200px] h-[200px] bottom-[15%] right-[10%]" />
@@ -636,7 +638,7 @@ const CTASection = () => (
         <div className="max-w-3xl mx-auto">
           <p className="eyebrow mb-6">Next step</p>
           <h2 className="headline-xl">Let's move growth forward<span className="text-primary">.</span></h2>
-          <p className="text-lg mt-5 max-w-xl mx-auto leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>
+          <p className="text-lg text-muted-foreground mt-5 max-w-xl mx-auto leading-relaxed">
             Tell us where growth needs to move next.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-10">
@@ -647,7 +649,7 @@ const CTASection = () => (
               <Button variant="hero-outline" size="xl">Explore capabilities</Button>
             </Link>
           </div>
-          <a href="mailto:info@enfactum.com" className="inline-block text-sm mt-6 transition-colors duration-300" style={{ color: 'hsl(var(--light-muted))' }}>
+          <a href="mailto:info@enfactum.com" className="inline-block text-sm text-muted-foreground mt-6 transition-colors duration-300 hover:text-foreground">
             Or email us directly at info@enfactum.com
           </a>
         </div>
