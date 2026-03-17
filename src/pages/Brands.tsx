@@ -4,12 +4,91 @@ import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead from "@/components/shared/SEOHead";
-import BrandPlate from "@/components/shared/BrandPlate";
-import SectorHeader from "@/components/shared/SectorHeader";
 import { FeaturedOutcome, SupportingOutcome, type OutcomeCapsuleData } from "@/components/shared/OutcomeCapsule";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { sectorClusters } from "@/data/brands";
+import { sectorClusters, type BrandEntry } from "@/data/brands";
+
+/* ═══════════════════════════════════════════════
+   BRAND GALLERY CELL — Normalized, equal-sized plates
+   ═══════════════════════════════════════════════ */
+const BrandCell = ({ brand, delay = 0 }: { brand: BrandEntry; delay?: number }) => {
+  const hasLogo = !!brand.localLogo;
+  const hasColor = !!brand.colorLogo;
+
+  return (
+    <RevealSection delay={delay} scale>
+      <div className="group relative flex items-center justify-center h-20 md:h-24 rounded-lg border border-border/25 bg-card/30 hover:border-primary/20 hover:bg-card/50 transition-all duration-500 px-5">
+        {hasLogo ? (
+          <img
+            src={hasColor ? brand.colorLogo! : brand.localLogo!}
+            alt={brand.name}
+            loading="lazy"
+            className="select-none max-h-[32px] md:max-h-[36px] w-auto object-contain"
+            style={hasColor ? { opacity: 0.85 } : { filter: "brightness(0) invert(1)", opacity: 0.7 }}
+            onError={(e) => {
+              const target = e.currentTarget;
+              target.style.display = 'none';
+              target.nextElementSibling?.classList.remove('hidden');
+            }}
+          />
+        ) : null}
+        <span className={`font-display font-bold text-foreground/60 text-sm tracking-[0.04em] uppercase select-none ${hasLogo ? 'hidden' : ''}`}>
+          {brand.name}
+        </span>
+
+        {/* Tooltip */}
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1.5 rounded-md bg-foreground/90 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200 whitespace-nowrap z-20 text-center">
+          <span className="text-[11px] font-semibold text-background">{brand.name}</span>
+          <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-foreground/90" />
+        </div>
+      </div>
+    </RevealSection>
+  );
+};
+
+/* ═══════════════════════════════════════════════
+   SECTOR GALLERY — Structured ledger-style display
+   ═══════════════════════════════════════════════ */
+const SectorGallery = ({ cluster, index }: { cluster: typeof sectorClusters[0]; index: number }) => {
+  const isAlt = index % 2 === 0;
+
+  return (
+    <section className={`relative py-20 md:py-28 ${isAlt ? '' : ''}`}>
+      {index > 0 && <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />}
+
+      <div className="section-container">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16">
+          {/* Sector header */}
+          <div className={`md:col-span-4 ${index % 2 !== 0 ? 'md:order-2 md:col-start-9' : ''}`}>
+            <RevealSection blur>
+              <span className="text-[64px] md:text-[80px] font-display font-bold text-foreground/[0.03] leading-none select-none block">
+                {cluster.num}
+              </span>
+              <div className="mt-[-8px]">
+                <h3 className="text-xl md:text-2xl font-display font-bold text-foreground leading-tight tracking-[-0.02em]">
+                  {cluster.sector}
+                </h3>
+                <p className="text-[13px] text-muted-foreground leading-[1.7] mt-4">
+                  {cluster.narrative}
+                </p>
+              </div>
+            </RevealSection>
+          </div>
+
+          {/* Logo grid — equal-sized cells */}
+          <div className={`md:col-span-7 ${index % 2 !== 0 ? 'md:order-1' : 'md:col-start-6'}`}>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {cluster.brands.map((brand, i) => (
+                <BrandCell key={brand.name} brand={brand} delay={0.05 + i * 0.04} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 /* ═══════════════════════════════════════════════
    SELECTED OUTCOMES
@@ -49,11 +128,6 @@ const outcomeCapsules: OutcomeCapsuleData[] = [
    PAGE
    ═══════════════════════════════════════════════ */
 const Brands = () => {
-  const c01 = sectorClusters[0];
-  const c02 = sectorClusters[1];
-  const c03 = sectorClusters[2];
-  const c04 = sectorClusters[3];
-
   return (
     <PageLayout>
       <SEOHead
@@ -112,127 +186,25 @@ const Brands = () => {
         </div>
       </section>
 
-      {/* ═══ SECTOR CONSTELLATIONS ═══ */}
-
-      {/* ── SECTOR 01 — Enterprise Technology ── */}
-      <section className="relative py-28 md:py-36 bg-[hsl(var(--section-alt))] overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/30 to-transparent" />
-        <div className="section-container relative z-10">
-          <SectorHeader
-            num="01"
-            title={c01.sector}
-            descriptor="Structured · Platform-led · Systemic"
-            narrative={c01.narrative}
-          />
-          <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
-            {c01.brands.slice(0, 3).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} sector={c01.sector} size="lg" delay={0.1 + i * 0.08} />
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-4 md:gap-5 mb-5 md:pl-6">
-            {c01.brands.slice(3, 7).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} sector={c01.sector} size="md" delay={0.3 + i * 0.06} />
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-3 md:gap-4 md:pl-2">
-            {c01.brands.slice(7).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} sector={c01.sector} size="sm" delay={0.5 + i * 0.05} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTOR 02 — Consumer & Brand Growth ── */}
-      <section className="relative py-28 md:py-36 overflow-hidden">
-        <div className="section-container relative z-10">
-          <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
-            <div className="md:col-span-7 md:order-1">
-              <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
-                {c02.brands.slice(0, 2).map((brand, i) => (
-                  <BrandPlate key={brand.name} brand={brand} sector={c02.sector} size="lg" delay={0.1 + i * 0.1} />
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-4 md:gap-5">
-                {c02.brands.slice(2).map((brand, i) => (
-                  <BrandPlate key={brand.name} brand={brand} sector={c02.sector} size="md" delay={0.3 + i * 0.08} />
-                ))}
-              </div>
-            </div>
-            <div className="md:col-span-4 md:col-start-9 md:order-2 md:sticky md:top-36">
-              <SectorHeader
-                num="02"
-                title={c02.sector}
-                descriptor="Fluid · Brand-led · Activation-oriented"
-                narrative={c02.narrative}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTOR 03 — Institutions & Ecosystems ── */}
-      <section className="relative py-28 md:py-36 bg-[hsl(var(--section-alt))] overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/30 to-transparent" />
-        <div className="section-container relative z-10">
-          <SectorHeader
-            num="03"
-            title={c03.sector}
-            descriptor="Stable · Networked · Trust-based"
-            narrative={c03.narrative}
-            align="center"
-          />
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-5 mb-5">
-            {c03.brands.slice(0, 3).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} sector={c03.sector} size="lg" delay={0.15 + i * 0.1} />
-            ))}
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
-            {c03.brands.slice(3).map((brand, i) => (
-              <BrandPlate key={brand.name} brand={brand} sector={c03.sector} size="md" delay={0.4 + i * 0.08} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTOR 04 — New Economy & Innovation ── */}
-      <section className="relative py-28 md:py-36 overflow-hidden">
-        <div className="section-container relative z-10">
-          <div className="grid md:grid-cols-12 gap-12 items-start">
-            <div className="md:col-span-4 md:sticky md:top-36">
-              <SectorHeader
-                num="04"
-                title={c04.sector}
-                descriptor="Emergent · Innovation-led · Future-facing"
-                narrative={c04.narrative}
-              />
-            </div>
-            <div className="md:col-span-7 md:col-start-6">
-              <div className="flex flex-wrap gap-4 md:gap-5 mb-5">
-                {c04.brands.slice(0, 2).map((brand, i) => (
-                  <BrandPlate key={brand.name} brand={brand} sector={c04.sector} size="lg" delay={0.1 + i * 0.1} />
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-3 md:gap-4">
-                {c04.brands.slice(2).map((brand, i) => (
-                  <BrandPlate key={brand.name} brand={brand} sector={c04.sector} size="md" delay={0.3 + i * 0.08} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ═══ SECTOR GALLERIES ═══ */}
+      {sectorClusters.map((cluster, i) => (
+        <SectorGallery key={cluster.sector} cluster={cluster} index={i} />
+      ))}
 
       {/* ═══ BEHIND THE LOGOS ═══ */}
-      <section className="py-28 md:py-36 relative bg-[hsl(var(--section-alt))]">
+      <section className="py-28 md:py-36 relative">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/[0.08] to-transparent" />
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(ellipse 50% 40% at 50% 50%, hsl(210 80% 15% / 0.06), transparent 70%)',
+        }} />
         <div className="section-container relative z-10">
           <RevealSection blur>
-            <div className="text-center max-w-2xl mx-auto mb-20">
+            <div className="max-w-2xl mb-20">
               <p className="eyebrow mb-6">Selected outcomes</p>
               <h2 className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em]">
                 Behind the logos.
               </h2>
-              <p className="text-[13px] text-foreground/25 mt-5 leading-relaxed font-body max-w-lg mx-auto">
+              <p className="text-[13px] text-foreground/25 mt-5 leading-relaxed font-body max-w-lg">
                 A few snapshots of how Enfactum has operated for brands across sectors — delivering outcomes, not just services.
               </p>
             </div>
