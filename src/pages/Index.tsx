@@ -155,27 +155,29 @@ const Stats = () => (
    WHY SEA — Editorial asymmetric layout
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section className="relative py-28 md:py-40 overflow-hidden">
+  <section className="relative py-20 md:py-28 overflow-hidden">
     <div className="absolute inset-0 pointer-events-none" style={{
       background: 'radial-gradient(ellipse 60% 50% at 70% 40%, hsl(210 80% 20% / 0.08), transparent 60%)',
     }} />
     {/* Subtle vertical structure line */}
     <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-border/15 to-transparent hidden md:block" />
+    {/* Bottom bleed line into capabilities */}
+    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/[0.06] to-transparent" />
 
     <div className="section-container relative z-10">
-      <div className="grid md:grid-cols-12 gap-12 md:gap-20">
+      <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
         <div className="md:col-span-6">
           <RevealSection blur>
-            <p className="eyebrow mb-6">Why Southeast Asia</p>
+            <p className="eyebrow mb-5">Why Southeast Asia</p>
             <h2 className="headline-xl max-w-md">
               Growth here moves through ecosystems, local trust, and execution nuance<span className="text-primary">.</span>
             </h2>
           </RevealSection>
           <RevealSection delay={0.15} blur>
-            <p className="text-muted-foreground mt-8 leading-[1.8] max-w-md text-[15px]">
+            <p className="text-muted-foreground mt-6 leading-[1.8] max-w-md text-[15px]">
               Nearly 700 million people across ten countries. A digital economy past $300 billion — and accelerating. No single playbook covers it. That is why Enfactum exists.
             </p>
-            <Link to="/company" className="inline-flex items-center gap-2 text-primary font-semibold text-sm mt-8 hover:gap-3 transition-all duration-300">
+            <Link to="/company" className="inline-flex items-center gap-2 text-primary font-semibold text-sm mt-6 hover:gap-3 transition-all duration-300">
               Learn more about us <ArrowRight className="w-4 h-4" />
             </Link>
           </RevealSection>
@@ -190,7 +192,7 @@ const WhySEA = () => (
                 { market: "Malaysia", role: "Regional Node", flag: "🇲🇾" },
                 { market: "Indonesia", role: "Growth Market", flag: "🇮🇩" },
               ].map((node, i) => (
-                <div key={i} className="flex items-center gap-5 py-5 border-b border-border/15 group hover:border-primary/15 transition-colors duration-500">
+                <div key={i} className="flex items-center gap-5 py-4 border-b border-border/15 group hover:border-primary/15 transition-colors duration-500">
                   <span className="text-xl">{node.flag}</span>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-foreground">{node.market}</p>
