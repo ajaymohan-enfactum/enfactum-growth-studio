@@ -144,43 +144,20 @@ const Stats = () => (
         </div>
       </RevealSection>
 
-      {/* Unequal grid: 1 featured + 3 smaller */}
-      <div className="grid md:grid-cols-3 gap-5">
-        <RevealSection delay={0} scale>
-          <div className="jt-card md:row-span-2 flex flex-col justify-center items-center min-h-[240px] md:min-h-full shadow-lg shadow-primary/[0.06]" style={{ background: 'linear-gradient(135deg, hsl(var(--light-card)), hsl(210 100% 98%))' }}>
-            <p className="stat-accent text-[clamp(3rem,6vw,5rem)] mb-3">700M+</p>
-            <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>People across ten countries</p>
-          </div>
-        </RevealSection>
-
-        <RevealSection delay={0.1} scale>
-          <div className="jt-card flex flex-col justify-center items-center min-h-[160px] shadow-md shadow-black/[0.04]">
-            <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-2">$300B+</p>
-            <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>Digital economy</p>
-          </div>
-        </RevealSection>
-
-        <RevealSection delay={0.15} scale>
-          <div className="jt-card flex flex-col justify-center items-center min-h-[160px] shadow-md shadow-black/[0.04]">
-            <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-2">40+</p>
-            <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>Enterprise clients</p>
-          </div>
-        </RevealSection>
-
-        {/* Bottom row spans 2 cols */}
-        <RevealSection delay={0.2} scale className="md:col-span-2">
-          <div className="jt-card flex flex-row items-center justify-center gap-8 min-h-[120px] shadow-md shadow-black/[0.04]">
-            <div className="text-center">
-              <p className="stat-accent text-[clamp(1.75rem,3vw,2.5rem)] mb-1">15+</p>
-              <p className="text-xs font-medium" style={{ color: 'hsl(var(--light-muted))' }}>Years in-region</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        {[
+          { num: "700M+", label: "People across ten countries" },
+          { num: "$300B+", label: "Digital economy" },
+          { num: "40+", label: "Enterprise clients" },
+          { num: "15+", label: "Years in-region" },
+        ].map((stat, i) => (
+          <RevealSection key={i} delay={i * 0.1} scale>
+            <div className="jt-card text-center flex flex-col items-center justify-center min-h-[180px] shadow-md shadow-black/[0.04]">
+              <p className="stat-accent text-[clamp(2rem,4vw,3.5rem)] mb-3">{stat.num}</p>
+              <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>{stat.label}</p>
             </div>
-            <div className="w-px h-12" style={{ background: 'hsl(var(--light-card-border))' }} />
-            <div className="text-center">
-              <p className="stat-accent text-[clamp(1.75rem,3vw,2.5rem)] mb-1">100+</p>
-              <p className="text-xs font-medium" style={{ color: 'hsl(var(--light-muted))' }}>Programmes delivered</p>
-            </div>
-          </div>
-        </RevealSection>
+          </RevealSection>
+        ))}
       </div>
     </div>
   </section>
