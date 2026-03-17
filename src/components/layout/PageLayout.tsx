@@ -122,7 +122,7 @@ const PageLayout = ({ children }: PageLayoutProps) => {
       <div
         className="fixed inset-0 pointer-events-none z-0"
         style={{
-          background: "linear-gradient(180deg, transparent 0%, hsl(225 15% 6% / 0.15) 50%, transparent 100%)",
+          background: "linear-gradient(180deg, transparent 0%, hsl(220 20% 8% / 0.12) 50%, transparent 100%)",
         }}
       />
 

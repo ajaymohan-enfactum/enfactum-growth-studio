@@ -194,7 +194,7 @@ const Capabilities = () => (
     {/* ═══ HORIZONTAL SCROLL CAPABILITY SHOWCASE ═══ */}
     <HorizontalScrollShowcase />
     {/* ═══ HOW CAPABILITIES CONNECT ═══ */}
-    <section className="py-24 md:py-32 bg-[#060C1A] relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-[hsl(var(--section-alt))] relative overflow-hidden">
       {/* Systemic grid lines */}
       <div className="absolute top-0 bottom-0 left-[25%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent hidden md:block" />
       <div className="absolute top-0 bottom-0 left-[75%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent hidden md:block" />

@@ -21,6 +21,11 @@ import SEOHead, { organizationSchema, webSiteSchema } from "@/components/shared/
 import { getFlagshipCases } from "@/data/caseStudies";
 import { ArrowRight, Crosshair, Network, Unlink, FlaskConical, Rocket, BarChart3, Megaphone, Brain, Sparkles } from "lucide-react";
 
+import networkAbstract from "@/assets/visuals/network-abstract.png";
+import growthArchitecture from "@/assets/visuals/growth-architecture.png";
+import innovationParticles from "@/assets/visuals/innovation-particles.png";
+import seaTopography from "@/assets/visuals/sea-topography.png";
+
 const ease = [0.22, 1, 0.36, 1] as const;
 
 /* ═══════════════════════════════════════════════
@@ -50,7 +55,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          background: 'linear-gradient(135deg, #0D1526 0%, #0B1121 50%, #060D18 100%)',
+          background: 'linear-gradient(135deg, #111827 0%, #0F172A 50%, #0B1120 100%)',
         }}
       />
 
@@ -122,7 +127,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.1, ease }}
-              className="text-[13px] tracking-[0.25em] text-foreground/35 uppercase mt-5 font-light"
+              className="text-[13px] tracking-[0.25em] text-foreground/50 uppercase mt-5 font-light"
             >
               Growth &amp; Innovation Operating Partner · Southeast Asia
             </motion.p>
@@ -142,19 +147,23 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right side — atmospheric space (visual tension) */}
+          {/* Right side — SEA topography visual */}
           <div className="hidden md:flex md:col-span-2 items-center justify-center relative">
-            {/* Soft radial anchor glow on right side */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 2, delay: 0.8, ease }}
-              className="absolute w-[280px] h-[280px] rounded-full"
-              style={{
-                background: "radial-gradient(circle, hsla(210, 100%, 50%, 0.06) 0%, hsla(210, 80%, 40%, 0.02) 50%, transparent 70%)",
-                filter: "blur(40px)",
-              }}
-            />
+              transition={{ duration: 1.5, delay: 0.8, ease }}
+              className="relative w-full"
+            >
+              <img
+                src={seaTopography}
+                alt=""
+                className="w-full h-auto opacity-30 mix-blend-screen"
+                style={{ filter: "blur(1px)" }}
+              />
+              {/* Glow overlay */}
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-primary/5 to-transparent" />
+            </motion.div>
           </div>
         </div>
       </div>
@@ -166,7 +175,7 @@ const Hero = () => {
         transition={{ duration: 0.8, delay: 2.2, ease }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] tracking-[0.3em] text-foreground/20 uppercase">Scroll</span>
+        <span className="text-[10px] tracking-[0.3em] text-foreground/35 uppercase">Scroll</span>
         <ChevronDown
           className="w-4 h-4 text-primary/50"
           strokeWidth={1.5}
@@ -182,7 +191,7 @@ const Hero = () => {
    Thesis moment — editorial split with living system visual
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section id="why-sea" className="relative overflow-hidden" style={{ background: "linear-gradient(180deg, #0a1328 0%, #0c1629 40%, #0e1830 100%)" }}>
+  <section id="why-sea" className="relative overflow-hidden" style={{ background: "linear-gradient(180deg, #0e1525 0%, #101828 40%, #111b2e 100%)" }}>
     {/* Faint architectural vertical rules */}
     <div className="absolute top-0 bottom-0 left-[8%] md:left-[12%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent" />
     <div className="absolute top-0 bottom-0 right-[8%] md:right-[38%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent hidden md:block" />
@@ -204,7 +213,7 @@ const WhySEA = () => (
           </RevealSection>
 
           <RevealSection blur delay={0.2}>
-            <p className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-semibold text-foreground/25 leading-[1.15] tracking-[-0.02em] mt-2">
+            <p className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-semibold text-foreground/40 leading-[1.15] tracking-[-0.02em] mt-2">
               Imported playbooks break.
             </p>
           </RevealSection>
@@ -212,8 +221,8 @@ const WhySEA = () => (
           {/* Supporting context — tighter, more embedded */}
           <RevealSection blur delay={0.35}>
             <div className="mt-12 space-y-3 max-w-md">
-              <p className="text-sm text-foreground/40 leading-relaxed">Nearly 700 million people across ten countries. A digital economy past $300 billion — and accelerating.</p>
-              <p className="text-sm text-foreground/55 font-medium leading-relaxed">No single playbook covers it. That is why Enfactum exists.</p>
+               <p className="text-sm text-foreground/50 leading-relaxed">Nearly 700 million people across ten countries. A digital economy past $300 billion — and accelerating.</p>
+               <p className="text-sm text-foreground/65 font-medium leading-relaxed">No single playbook covers it. That is why Enfactum exists.</p>
             </div>
           </RevealSection>
 
@@ -231,9 +240,9 @@ const WhySEA = () => (
                     <p className="text-2xl md:text-3xl font-display font-bold text-foreground/80 leading-none tracking-tight">
                       {item.num}
                     </p>
-                    <p className="text-[11px] text-foreground/25 mt-2 leading-snug tracking-wide uppercase">
-                      {item.context}
-                    </p>
+                     <p className="text-foreground/30 mt-2 leading-snug tracking-wide uppercase" style={{ fontSize: '11px' }}>
+                       {item.context}
+                     </p>
                   </div>
                 ))}
               </div>
@@ -247,11 +256,11 @@ const WhySEA = () => (
           <SEASignalField />
 
           {/* Gradient overlay to blend into text side */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0c1629] via-transparent to-transparent md:w-1/3 pointer-events-none" />
+           <div className="absolute inset-0 bg-gradient-to-r from-[#0e1525] via-transparent to-transparent md:w-1/3 pointer-events-none" />
 
-          {/* Top/bottom fade */}
-          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#0a1328] to-transparent pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0e1830] to-transparent pointer-events-none" />
+           {/* Top/bottom fade */}
+           <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#0e1525] to-transparent pointer-events-none" />
+           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#111b2e] to-transparent pointer-events-none" />
 
           {/* Soft radial depth */}
           <div className="absolute inset-0 pointer-events-none" style={{
@@ -277,10 +286,11 @@ const frictionPoints = [
 
 const GrowthBreaks = () => (
   <section id="growth-breaks" className="py-24 md:py-32 relative overflow-hidden">
-    {/* Background diagnostic atmosphere */}
-    <div className="absolute inset-0 pointer-events-none" style={{
-      background: "radial-gradient(ellipse 60% 50% at 70% 40%, hsla(215, 40%, 10%, 0.5) 0%, transparent 70%)"
-    }} />
+    {/* Background image — subtle */}
+    <div className="absolute inset-0 pointer-events-none">
+      <img src={networkAbstract} alt="" className="w-full h-full object-cover opacity-[0.07]" />
+      <div className="absolute inset-0 bg-background/80" />
+    </div>
 
     <div className="section-container relative z-10">
       {/* Header */}
@@ -290,7 +300,7 @@ const GrowthBreaks = () => (
           <h2 className="text-[clamp(1.5rem,2.8vw,2.5rem)] font-display font-semibold text-foreground leading-[1.12] tracking-[-0.02em]">
             The friction points we're built to solve.
           </h2>
-          <p className="text-sm text-foreground/35 mt-4 max-w-md leading-relaxed">
+          <p className="text-sm text-foreground/50 mt-4 max-w-md leading-relaxed">
             Five structural failures that repeat across Southeast Asia — and that no single vendor, agency, or consultant is built to address.
           </p>
         </div>
@@ -321,7 +331,7 @@ const GrowthBreaks = () => (
                       {/* Diagnostic number */}
                       <div className="flex items-start justify-between mb-5">
                         <point.icon className="w-[18px] h-[18px] text-primary/40 group-hover:text-primary/70 transition-colors duration-500" strokeWidth={1.5} />
-                        <span className="text-[10px] tracking-[0.3em] text-foreground/10 font-display font-bold uppercase">
+                        <span className="text-[10px] tracking-[0.3em] text-foreground/20 font-display font-bold uppercase">
                           {point.num}
                         </span>
                       </div>
@@ -329,7 +339,7 @@ const GrowthBreaks = () => (
                       <h3 className="font-display text-lg font-semibold text-foreground leading-snug group-hover:text-foreground transition-colors duration-300">
                         {point.title}
                       </h3>
-                      <p className="text-sm text-foreground/35 mt-2.5 leading-relaxed">{point.body}</p>
+                      <p className="text-sm text-foreground/50 mt-2.5 leading-relaxed">{point.body}</p>
 
                       {/* Bottom accent line */}
                       <div className="mt-6 h-px w-12 bg-gradient-to-r from-primary/20 to-transparent group-hover:w-20 transition-all duration-500" />
@@ -387,11 +397,16 @@ const capabilities = [
 ];
 
 const WhatWeBuilds = () => (
-  <section id="capabilities" className="py-28 md:py-36 bg-[#080E1A] relative overflow-hidden">
+  <section id="capabilities" className="py-28 md:py-36 bg-[hsl(var(--section-alt))] relative overflow-hidden">
+    {/* Background visual */}
+    <div className="absolute inset-0 pointer-events-none">
+      <img src={growthArchitecture} alt="" className="w-full h-full object-cover opacity-[0.06]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--section-alt))] via-transparent to-[hsl(var(--section-alt))]" />
+    </div>
     {/* Faint architectural grid lines */}
     <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute top-0 bottom-0 left-1/2 w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent hidden md:block" />
-      <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-primary/[0.03] to-transparent hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-1/2 w-px bg-gradient-to-b from-transparent via-primary/[0.06] to-transparent hidden md:block" />
+      <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-primary/[0.05] to-transparent hidden md:block" />
     </div>
 
     <div className="section-container relative z-10">
@@ -402,7 +417,7 @@ const WhatWeBuilds = () => (
           <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em]">
             Four capabilities. One growth architecture.
           </h2>
-          <p className="text-sm text-foreground/35 mt-4 leading-relaxed max-w-md mx-auto">
+          <p className="text-sm text-foreground/50 mt-4 leading-relaxed max-w-md mx-auto">
             Each capability connects. Together, they form a growth operating system for Southeast Asia.
           </p>
         </div>
@@ -412,7 +427,7 @@ const WhatWeBuilds = () => (
       <div className="relative">
         {/* Central node — the connective anchor */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center">
-          <div className="w-14 h-14 rounded-full border border-primary/15 bg-[#080E1A] flex items-center justify-center">
+          <div className="w-14 h-14 rounded-full border border-primary/20 bg-card flex items-center justify-center">
             <div className="w-3 h-3 rounded-full bg-primary/30" />
           </div>
         </div>
@@ -457,12 +472,12 @@ const WhatWeBuilds = () => (
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-foreground/35 leading-relaxed max-w-sm">{cap.desc}</p>
+                  <p className="text-sm text-foreground/50 leading-relaxed max-w-sm">{cap.desc}</p>
 
                   {/* Bottom accent */}
                   <div className="mt-8 flex items-center gap-3">
                     <div className="h-px flex-1 bg-gradient-to-r from-primary/10 to-transparent group-hover:from-primary/20 transition-colors duration-500" />
-                    <ArrowRight className="w-3.5 h-3.5 text-foreground/10 group-hover:text-primary/50 transition-all duration-500 group-hover:translate-x-0.5" />
+                    <ArrowRight className="w-3.5 h-3.5 text-foreground/20 group-hover:text-primary/50 transition-all duration-500 group-hover:translate-x-0.5" />
                   </div>
                 </div>
               </Link>
@@ -513,7 +528,7 @@ const processSteps = [
 ];
 
 const HowWeWork = () => (
-  <section id="how-we-work" className="py-28 md:py-36 bg-[#0B1121] relative overflow-hidden">
+  <section id="how-we-work" className="py-28 md:py-36 bg-[hsl(var(--section-alt))] relative overflow-hidden">
     {/* Horizontal momentum line */}
     <div className="absolute top-[52%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/[0.06] to-transparent hidden md:block pointer-events-none" />
 
@@ -525,7 +540,7 @@ const HowWeWork = () => (
           <h2 className="text-[clamp(1.5rem,2.8vw,2.5rem)] font-display font-semibold text-foreground leading-[1.12] tracking-[-0.02em]">
             From strategy to operating momentum.
           </h2>
-          <p className="text-sm text-foreground/30 mt-4 leading-relaxed max-w-md">
+          <p className="text-sm text-foreground/50 mt-4 leading-relaxed max-w-md">
             Five phases. Each one builds on the last. No phase exists in isolation.
           </p>
         </div>
@@ -541,7 +556,7 @@ const HowWeWork = () => (
               <RevealSection key={i} delay={i * 0.12} blur>
                 <div className="relative flex flex-col items-center" style={{ width: '1px' }}>
                   {/* Node */}
-                  <div className="w-[9px] h-[9px] rounded-full bg-primary/25 ring-[3px] ring-[#0B1121] relative z-10" />
+                  <div className="w-[9px] h-[9px] rounded-full bg-primary/30 ring-[3px] ring-card relative z-10" />
                   {/* Connecting dash after node */}
                   {i < processSteps.length - 1 && (
                     <div className="absolute top-[4px] left-[9px] h-px bg-gradient-to-r from-primary/15 to-primary/5" style={{ width: 'calc((100vw - 8rem) / 5 - 9px)' }} />
@@ -568,7 +583,7 @@ const HowWeWork = () => (
                 {/* Accent bar */}
                 <div className="h-px w-8 bg-primary/15 mb-4 group-hover:w-12 group-hover:bg-primary/30 transition-all duration-500" />
                 {/* Description */}
-                <p className="text-[13px] text-foreground/30 leading-relaxed group-hover:text-foreground/45 transition-colors duration-500">
+                <p className="text-[13px] text-foreground/45 leading-relaxed group-hover:text-foreground/60 transition-colors duration-500">
                   {step.desc}
                 </p>
               </div>
@@ -587,7 +602,7 @@ const HowWeWork = () => (
               <div className="flex gap-6 relative group">
                 {/* Node */}
                 <div className="relative shrink-0 mt-1.5">
-                  <div className="w-[9px] h-[9px] rounded-full bg-primary/25 ring-[3px] ring-[#0B1121] relative z-10 ml-[10px]" />
+                  <div className="w-[9px] h-[9px] rounded-full bg-primary/30 ring-[3px] ring-card relative z-10 ml-[10px]" />
                 </div>
                 <div>
                   <span className="text-[10px] tracking-[0.3em] text-primary/30 uppercase font-display block mb-1">
@@ -595,7 +610,7 @@ const HowWeWork = () => (
                   </span>
                   <h3 className="text-lg font-display font-semibold text-foreground">{step.step}</h3>
                   <div className="h-px w-8 bg-primary/15 my-2.5" />
-                  <p className="text-sm text-foreground/35 leading-relaxed">{step.desc}</p>
+                  <p className="text-sm text-foreground/50 leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             </RevealSection>
@@ -626,7 +641,7 @@ const SectorExperience = () => (
         {/* Left — label + stats */}
         <div className="md:col-span-3">
           <RevealSection blur>
-            <p className="text-[10px] tracking-[0.3em] text-foreground/25 uppercase mb-6">Experience</p>
+            <p className="text-[10px] tracking-[0.3em] text-foreground/40 uppercase mb-6">Experience</p>
             <div className="space-y-5">
               {[
                 { num: "40+", label: "Enterprise clients" },
@@ -636,7 +651,7 @@ const SectorExperience = () => (
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-3xl md:text-4xl font-display font-bold text-foreground leading-none">{stat.num}</p>
-                  <p className="text-[10px] text-foreground/30 uppercase tracking-[0.15em] mt-1">{stat.label}</p>
+                  <p className="text-[10px] text-foreground/40 uppercase tracking-[0.15em] mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -650,14 +665,14 @@ const SectorExperience = () => (
                 <p className="text-[10px] tracking-[0.2em] text-primary/60 uppercase mb-2">
                   {cluster.label}
                 </p>
-                <p className="text-[15px] text-foreground/40 leading-relaxed tracking-wide">
+                <p className="text-[15px] text-foreground/55 leading-relaxed tracking-wide">
                   {cluster.names}
                 </p>
               </div>
             </RevealSection>
           ))}
           <RevealSection delay={0.3}>
-            <p className="text-[10px] text-foreground/15 tracking-[0.25em] uppercase mt-8">
+            <p className="text-[10px] text-foreground/30 tracking-[0.25em] uppercase mt-8">
               Singapore · India · Malaysia · Indonesia · USA · APAC
             </p>
           </RevealSection>
@@ -675,7 +690,7 @@ const SelectedWorkAfterThinking = () => {
   const flagships = getFlagshipCases();
   const featured = flagships.slice(0, 2);
   return (
-    <section id="selected-work" className="py-24 md:py-32 bg-[#080E1A]">
+    <section id="selected-work" className="py-24 md:py-32 bg-[hsl(var(--section-alt))]">
       <div className="section-container">
         <div className="grid md:grid-cols-12 gap-6 mb-14">
           <div className="md:col-span-6">
@@ -750,9 +765,14 @@ const depthItems = [
 ];
 
 const DepthSection = () => (
-  <section id="depth" className="py-24 md:py-32 bg-[#0B1121] relative overflow-hidden">
+  <section id="depth" className="py-24 md:py-32 relative overflow-hidden">
+    {/* Background visual */}
+    <div className="absolute inset-0 pointer-events-none">
+      <img src={innovationParticles} alt="" className="w-full h-full object-cover opacity-[0.05]" />
+      <div className="absolute inset-0 bg-background/70" />
+    </div>
     {/* Architectural vertical line */}
-    <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent hidden md:block" />
+    <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-primary/[0.06] to-transparent hidden md:block" />
 
     <div className="section-container relative z-10">
       {/* Header */}
@@ -762,7 +782,7 @@ const DepthSection = () => (
           <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em]">
             Depth where it matters.
           </h2>
-          <p className="text-sm text-foreground/30 mt-4 leading-relaxed max-w-sm">
+          <p className="text-sm text-foreground/50 mt-4 leading-relaxed max-w-sm">
             Every engagement is led by named principals with domain expertise — not rotated junior consultants.
           </p>
         </div>
@@ -779,7 +799,7 @@ const DepthSection = () => (
                   <span className="text-4xl md:text-5xl font-display font-bold text-foreground/80 leading-none tracking-tight">
                     {item.stat}
                   </span>
-                  <span className="text-[10px] tracking-[0.2em] text-foreground/25 uppercase pb-1">
+                  <span className="text-[10px] tracking-[0.2em] text-foreground/40 uppercase pb-1">
                     {item.statLabel}
                   </span>
                 </div>
@@ -787,12 +807,12 @@ const DepthSection = () => (
                 <h3 className="text-lg font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300 mb-3">
                   {item.title}
                 </h3>
-                <p className="text-[13px] text-foreground/30 leading-relaxed max-w-xs">{item.desc}</p>
+                <p className="text-[13px] text-foreground/50 leading-relaxed max-w-xs">{item.desc}</p>
 
                 {/* Bottom accent */}
                 <div className="mt-8 flex items-center gap-3">
                   <div className="h-px flex-1 bg-gradient-to-r from-primary/10 to-transparent group-hover:from-primary/20 transition-colors duration-500" />
-                  <ArrowRight className="w-3.5 h-3.5 text-foreground/10 group-hover:text-primary/50 transition-all duration-500" />
+                  <ArrowRight className="w-3.5 h-3.5 text-foreground/20 group-hover:text-primary/50 transition-all duration-500" />
                 </div>
               </div>
             </Link>
@@ -814,7 +834,7 @@ const DepthSection = () => (
                   <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-[12px] text-foreground/25 mt-1 leading-relaxed">{item.desc}</p>
+                  <p className="text-[12px] text-foreground/45 mt-1 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             </Link>
@@ -837,7 +857,7 @@ const articles = [
 ];
 
 const Perspectives = () => (
-  <section id="thinking" className="py-20 md:py-28 bg-[#0c1629]">
+  <section id="thinking" className="py-20 md:py-28 bg-[hsl(var(--section-alt))]">
     <div className="section-container">
       <RevealSection>
         <div className="flex items-end justify-between mb-12">
@@ -854,14 +874,14 @@ const Perspectives = () => (
         {articles.map((article, i) => (
           <RevealSection key={i} delay={i * 0.06}>
             <Link to="/thinking" className="group block">
-              <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-foreground/[0.06]">
+              <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-foreground/[0.08]">
                 <span className="text-[10px] text-primary/50 tracking-[0.2em] uppercase shrink-0 w-[90px] hidden md:block">
                   {article.category}
                 </span>
                 <h3 className="flex-1 text-base md:text-lg font-medium text-foreground group-hover:text-primary transition-colors duration-300 leading-snug">
                   {article.title}
                 </h3>
-                <span className="text-[11px] text-foreground/25 shrink-0 hidden md:block">
+                <span className="text-[11px] text-foreground/40 shrink-0 hidden md:block">
                   {article.readTime}
                 </span>
               </div>
@@ -915,7 +935,7 @@ const QuoteCarousel = ({ quotes }: { quotes: React.ReactNode[] }) => {
   }, [quotes.length]);
 
   return (
-    <section className="py-16 md:py-20 border-y border-border/20 overflow-hidden bg-[#080E1A]">
+    <section className="py-16 md:py-20 border-y border-border/30 overflow-hidden bg-[hsl(var(--section-alt))]">
       <div
         className="section-container relative"
         onTouchStart={handleTouchStart}
