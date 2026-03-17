@@ -578,57 +578,102 @@ const HowWeWork = () => {
 };
 
 /* ═══════════════════════════════════════════════
-   SECTORS — Editorial ledger layout
+   SECTORS — Curated breadth & credibility
    ═══════════════════════════════════════════════ */
 const sectorClusters = [
-  { label: "Enterprise Technology", names: "HP · Oracle · Dell EMC · Commvault · Redington · element14" },
-  { label: "Consumer & Brand Growth", names: "L'Oréal · Lancôme · Kiehl's · Brands For Less · JSHealth" },
-  { label: "Media & Institutions", names: "The Economist · NUS · Andaz · Abbott · InsureMO" },
-  { label: "New Economy", names: "Lazada · MyRepublic · Singtel · Integrate" },
+  { label: "Enterprise Technology", names: "HP · Oracle · Dell EMC · Commvault · Redington · element14", num: "01", count: "6 clients" },
+  { label: "Consumer & Brand Growth", names: "L'Oréal · Lancôme · Kiehl's · Brands For Less · JSHealth", num: "02", count: "5 clients" },
+  { label: "Media & Institutions", names: "The Economist · NUS · Andaz · Abbott · InsureMO", num: "03", count: "5 clients" },
+  { label: "New Economy", names: "Lazada · MyRepublic · Singtel · Integrate", num: "04", count: "4 clients" },
 ];
 
 const SectorExperience = () => (
-  <section className="relative py-24 md:py-32 overflow-hidden">
+  <section className="relative py-28 md:py-36 overflow-hidden bg-[hsl(var(--section-alt))]">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
+    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
+    {/* Subtle vertical guide at the column split */}
+    <div className="absolute top-0 bottom-0 left-[38%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent hidden md:block" />
 
     <div className="section-container relative z-10">
-      <div className="grid md:grid-cols-12 gap-16">
-        {/* Left — stats as large editorial numbers */}
+      {/* Section header — full width, editorial */}
+      <RevealSection blur>
+        <div className="grid md:grid-cols-12 gap-8 mb-20 md:mb-24">
+          <div className="md:col-span-5">
+            <p className="eyebrow mb-5">Experience</p>
+            <h2 className="headline-lg">Credibility built across sectors<span className="text-primary">.</span></h2>
+          </div>
+          <div className="md:col-span-4 md:col-start-8 flex items-end">
+            <p className="text-[13px] text-foreground/25 leading-relaxed font-body">
+              A decade of operating across enterprise technology, consumer brands, institutions, and new-economy platforms — the breadth that builds pattern recognition.
+            </p>
+          </div>
+        </div>
+      </RevealSection>
+
+      <div className="grid md:grid-cols-12 gap-12 md:gap-16">
+        {/* Left — Monumental stats with architectural framing */}
         <div className="md:col-span-4">
           <RevealSection blur>
-            <p className="eyebrow mb-10">Experience</p>
-            <div className="space-y-12">
+            <div className="space-y-0">
               {[
-                { num: "40+", label: "Enterprise clients" },
-                { num: "100+", label: "Programmes delivered" },
-                { num: "5+", label: "Year avg. partnerships" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="stat-accent text-[clamp(2.5rem,4vw,4rem)]">{stat.num}</p>
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider mt-2">{stat.label}</p>
+                { num: "40+", label: "Enterprise clients", sub: "across Southeast Asia" },
+                { num: "100+", label: "Programmes delivered", sub: "strategy through execution" },
+                { num: "5+", label: "Year avg. partnerships", sub: "embedded, not project-based" },
+              ].map((stat, i) => (
+                <div key={stat.label} className={`py-8 ${i > 0 ? 'border-t border-border/10' : ''}`}>
+                  <div className="flex items-baseline gap-4">
+                    <p className="stat-accent text-[clamp(2.5rem,4vw,3.75rem)]">{stat.num}</p>
+                    <div className="w-6 h-px bg-primary/20 mt-1" />
+                  </div>
+                  <p className="text-[13px] font-medium text-foreground/60 mt-3 font-body">{stat.label}</p>
+                  <p className="text-[11px] text-foreground/15 mt-1 font-body">{stat.sub}</p>
                 </div>
               ))}
+            </div>
+            <div className="mt-6">
+              <Link to="/brands" className="inline-flex items-center gap-2 text-[11px] text-primary/50 hover:text-primary uppercase tracking-[0.2em] font-body transition-colors duration-500">
+                View all brands <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </RevealSection>
         </div>
 
-        {/* Right — sector list as editorial rows */}
+        {/* Right — Sector architecture as curated ledger */}
         <div className="md:col-span-7 md:col-start-6">
-          <RevealSection delay={0.1}>
-            <div className="space-y-0">
-              {sectorClusters.map((cluster, i) => (
-                <Link to="/brands" key={i} className="group block">
-                  <div className="py-6 border-b border-border/15 group-hover:border-primary/15 transition-all duration-500">
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-300">{cluster.label}</h3>
-                      <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/20 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
+          <div className="space-y-0">
+            {sectorClusters.map((cluster, i) => (
+              <RevealSection key={i} delay={0.1 + i * 0.08} blur>
+                <Link to="/brands" className="group block">
+                  <div className={`py-8 md:py-9 ${i > 0 ? 'border-t border-border/10' : ''} group-hover:border-primary/15 transition-colors duration-500`}>
+                    <div className="grid grid-cols-12 gap-4 items-start">
+                      {/* Number */}
+                      <div className="col-span-2 md:col-span-1">
+                        <span className="text-[28px] md:text-[32px] font-display font-bold text-foreground/[0.05] leading-none select-none block mt-1">
+                          {cluster.num}
+                        </span>
+                      </div>
+                      {/* Content */}
+                      <div className="col-span-8 md:col-span-9">
+                        <div className="flex items-center gap-3 mb-3">
+                          <h3 className="text-[15px] md:text-base font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-400">
+                            {cluster.label}
+                          </h3>
+                          <span className="text-[9px] text-foreground/12 uppercase tracking-[0.15em] font-body hidden sm:inline">
+                            {cluster.count}
+                          </span>
+                        </div>
+                        <p className="text-[12px] text-foreground/25 leading-[1.8] font-body">{cluster.names}</p>
+                      </div>
+                      {/* Arrow */}
+                      <div className="col-span-2 flex items-center justify-end mt-1">
+                        <ArrowRight className="w-3.5 h-3.5 text-foreground/8 group-hover:text-primary group-hover:translate-x-1 transition-all duration-400" />
+                      </div>
                     </div>
-                    <p className="text-sm text-muted-foreground/60 leading-relaxed">{cluster.names}</p>
                   </div>
                 </Link>
-              ))}
-            </div>
-          </RevealSection>
+              </RevealSection>
+            ))}
+          </div>
         </div>
       </div>
     </div>
