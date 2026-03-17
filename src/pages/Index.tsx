@@ -474,34 +474,28 @@ const SelectedWork = () => {
           </div>
         </RevealSection>
 
-        {/* Unequal: first card large, next 2 stacked */}
-        <div className="grid md:grid-cols-12 gap-6">
-          {featured[0] && (
-            <RevealSection delay={0} scale className="md:col-span-7">
-              <Link to={`/work#${featured[0].id}`} className="group block h-full">
-                <div className="jt-card h-full flex flex-col justify-between min-h-[360px] shadow-lg shadow-black/[0.06] relative overflow-hidden" style={{ background: 'linear-gradient(150deg, hsl(var(--light-card)), hsl(210 40% 97%))' }}>
-                  <AbstractBlob className="w-[250px] h-[250px] bottom-[-20%] right-[-10%] !blur-[60px]" color="210 100% 50%" />
-                  <div className="relative z-10 flex items-center justify-between mb-8">
-                    <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{featured[0].sectors?.[0] || 'Case Study'}</span>
-                    <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }} />
+        <div className="grid md:grid-cols-3 gap-6">
+          {featured.map((cs, i) => (
+            <RevealSection key={cs.id} delay={i * 0.1} scale>
+              <Link to={`/work#${cs.id}`} className="group block h-full">
+                <div className="jt-card h-full flex flex-col min-h-[280px] shadow-md shadow-black/[0.04]">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{cs.sectors?.[0] || 'Case Study'}</span>
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }} />
                   </div>
-                  <div className="relative z-10 mt-auto">
-                    <h3 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
-                      {featured[0].client}
-                    </h3>
-                    <p className="text-base leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{featured[0].headline}</p>
-                    {featured[0].outcomes?.[0] && (
-                      <div className="mt-6 pt-5" style={{ borderTop: '1px solid hsl(var(--light-card-border))' }}>
-                        <p className="text-sm font-semibold" style={{ color: 'hsl(var(--primary))' }}>{featured[0].outcomes[0]}</p>
-                      </div>
-                    )}
-                  </div>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
+                    {cs.client}
+                  </h3>
+                  <p className="text-sm leading-relaxed flex-1" style={{ color: 'hsl(var(--light-muted))' }}>{cs.headline}</p>
+                  {cs.outcomes?.[0] && (
+                    <div className="mt-6 pt-5" style={{ borderTop: '1px solid hsl(var(--light-card-border))' }}>
+                      <p className="text-sm font-semibold" style={{ color: 'hsl(var(--primary))' }}>{cs.outcomes[0]}</p>
+                    </div>
+                  )}
                 </div>
               </Link>
             </RevealSection>
-          )}
-
-          <div className="md:col-span-5 flex flex-col gap-6">
+          ))}
             {featured.slice(1).map((cs, i) => (
               <RevealSection key={cs.id} delay={0.15 + i * 0.1} scale>
                 <Link to={`/work#${cs.id}`} className="group block h-full">
