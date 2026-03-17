@@ -417,7 +417,7 @@ const WhatWeBuilds = () => (
           <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em]">
             Four capabilities. One growth architecture.
           </h2>
-          <p className="text-sm text-foreground/35 mt-4 leading-relaxed max-w-md mx-auto">
+          <p className="text-sm text-foreground/50 mt-4 leading-relaxed max-w-md mx-auto">
             Each capability connects. Together, they form a growth operating system for Southeast Asia.
           </p>
         </div>
