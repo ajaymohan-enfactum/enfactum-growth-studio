@@ -172,9 +172,8 @@ const WhySEA = () => (
     <AbstractRing className="w-[400px] h-[400px] bottom-[10%] left-[-5%]" />
 
     <div className="section-container relative z-10">
-      <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
-        {/* Left — 7 cols */}
-        <div className="md:col-span-7">
+      <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div>
           <ParallaxLayer speed={0.05}>
             <RevealSection blur>
               <p className="eyebrow mb-6">Why Southeast Asia</p>
@@ -191,8 +190,7 @@ const WhySEA = () => (
           </ParallaxLayer>
         </div>
 
-        {/* Right — 5 cols, stacked unequal cards */}
-        <div className="md:col-span-5 space-y-4">
+        <div className="grid grid-cols-2 gap-4">
           {[
             { market: "Singapore", role: "HQ & Strategy Hub", icon: "🇸🇬", size: "large" },
             { market: "India", role: "Operating Bench", icon: "🇮🇳", size: "normal" },
