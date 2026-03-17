@@ -681,11 +681,13 @@ const SectorExperience = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   SELECTED WORK — Featured case study cards
+   SELECTED WORK — Editorial proof moment
    ═══════════════════════════════════════════════ */
 const SelectedWork = () => {
   const flagships = getFlagshipCases();
-  const featured = flagships.slice(0, 3);
+  const lead = flagships[0]; // HP
+  const supporting = flagships.slice(1, 3); // Economist, BFL
+
   return (
     <section className="relative py-28 md:py-36 overflow-hidden" style={{
       background: 'linear-gradient(170deg, hsl(220 18% 8%), hsl(222 20% 10%), hsl(220 18% 8%))',
@@ -693,57 +695,132 @@ const SelectedWork = () => {
       <div className="absolute inset-0 pointer-events-none" style={{
         background: 'radial-gradient(ellipse 40% 50% at 80% 70%, hsl(210 100% 50% / 0.04), transparent 50%)',
       }} />
+      {/* Editorial left accent */}
+      <div className="absolute top-[10%] bottom-[10%] left-[5%] w-px bg-gradient-to-b from-transparent via-primary/[0.05] to-transparent hidden md:block" />
 
       <div className="section-container relative z-10">
         <RevealSection>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-            <div>
-              <p className="eyebrow mb-4">Case Studies</p>
+          <div className="grid md:grid-cols-12 gap-8 mb-20 md:mb-24">
+            <div className="md:col-span-6">
+              <p className="eyebrow mb-4">Selected Work</p>
               <h2 className="headline-lg">Proven outcomes<span className="text-primary">,</span> real change<span className="text-primary">.</span></h2>
             </div>
-            <Link to="/work" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-300">
-              View all work <ArrowRight className="w-4 h-4" />
-            </Link>
+            <div className="md:col-span-4 md:col-start-8 flex items-end">
+              <Link to="/work" className="inline-flex items-center gap-2 text-[11px] text-primary/50 hover:text-primary uppercase tracking-[0.2em] font-body transition-colors duration-500">
+                View all work <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
           </div>
         </RevealSection>
 
-        {/* Featured — first card large, rest smaller */}
-        <div className="grid md:grid-cols-12 gap-5">
-          {featured[0] && (
-            <RevealSection delay={0} scale className="md:col-span-7">
-              <Link to={`/work#${featured[0].id}`} className="group block h-full">
-                <div className="relative h-full rounded-xl border border-border/30 bg-card/30 p-8 md:p-10 flex flex-col justify-between min-h-[340px] overflow-hidden transition-all duration-700 hover:border-primary/20 hover:bg-card/50">
-                  <div>
-                    <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-primary/60">{featured[0].sectors?.[0] || 'Case Study'}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                      {featured[0].client}
+        {/* ─── LEAD CASE — HP — Full editorial feature ─── */}
+        {lead && (
+          <RevealSection blur>
+            <Link to={`/work#${lead.id}`} className="group block">
+              <article className="relative pb-16 md:pb-20 border-b border-border/15">
+                {/* Large faint client watermark */}
+                <span className="absolute top-0 right-0 text-[100px] md:text-[140px] font-display font-black text-foreground/[0.015] leading-none select-none pointer-events-none hidden md:block tracking-[-0.04em]">
+                  {lead.client}
+                </span>
+
+                <div className="grid md:grid-cols-12 gap-8 md:gap-12 relative z-10">
+                  <div className="md:col-span-7">
+                    {/* Tags */}
+                    <div className="flex flex-wrap items-center gap-2 mb-6">
+                      {lead.capabilities?.slice(0, 2).map((tag: string) => (
+                        <span key={tag} className="text-[9px] px-2.5 py-1 rounded-sm bg-primary/[0.06] text-primary/60 font-medium tracking-[0.15em] uppercase">
+                          {tag}
+                        </span>
+                      ))}
+                      {lead.sectors?.[0] && (
+                        <span className="text-[9px] px-2.5 py-1 rounded-sm bg-secondary text-muted-foreground/60 font-medium tracking-[0.15em] uppercase">
+                          {lead.sectors[0]}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Client */}
+                    <span className="text-[11px] text-foreground/20 uppercase tracking-[0.2em] font-body block mb-3">{lead.client}</span>
+
+                    {/* Headline — dramatic scale */}
+                    <h3 className="text-2xl md:text-3xl lg:text-[2.25rem] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em] group-hover:text-primary transition-colors duration-500 max-w-xl">
+                      {lead.headline}
                     </h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground max-w-md">{featured[0].headline}</p>
-                    {featured[0].outcomes?.[0] && (
-                      <p className="text-sm font-semibold text-primary mt-5">{featured[0].outcomes[0]}</p>
-                    )}
+
+                    {/* Challenge */}
+                    <p className="text-[13px] text-foreground/30 mt-6 leading-[1.8] max-w-md font-body">
+                      {lead.challenge}
+                    </p>
+
+                    {/* CTA */}
+                    <span className="inline-flex items-center gap-2 mt-8 text-[11px] text-primary/50 uppercase tracking-[0.15em] font-body group-hover:text-primary/80 transition-colors duration-500">
+                      Read case study <ArrowRight className="w-3 h-3" />
+                    </span>
                   </div>
-                </div>
-              </Link>
-            </RevealSection>
-          )}
-          <div className="md:col-span-5 flex flex-col gap-5">
-            {featured.slice(1).map((cs, i) => (
-              <RevealSection key={cs.id} delay={(i + 1) * 0.1} scale className="flex-1">
-                <Link to={`/work#${cs.id}`} className="group block h-full">
-                  <div className="h-full rounded-xl border border-border/30 bg-card/30 p-7 flex flex-col justify-between min-h-[160px] transition-all duration-700 hover:border-primary/20 hover:bg-card/50">
-                    <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-primary/60">{cs.sectors?.[0] || 'Case Study'}</span>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{cs.client}</h3>
-                      <p className="text-xs leading-relaxed text-muted-foreground line-clamp-2">{cs.headline}</p>
+
+                  {/* Right — Monumental metrics */}
+                  <div className="md:col-span-4 md:col-start-9 flex flex-col justify-end">
+                    <div className="space-y-8">
+                      {lead.results?.slice(0, 3).map((r: { metric: string; label: string }, ri: number) => (
+                        <div key={ri}>
+                          <p className="font-display text-3xl md:text-4xl font-bold text-primary/70 tracking-tight leading-none">
+                            {r.metric}
+                          </p>
+                          <span className="text-[11px] text-foreground/25 mt-2 block leading-snug font-body">
+                            {r.label}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                </Link>
-              </RevealSection>
-            ))}
-          </div>
+                </div>
+              </article>
+            </Link>
+          </RevealSection>
+        )}
+
+        {/* ─── SUPPORTING CASES — Editorial rows ─── */}
+        <div className="mt-0">
+          {supporting.map((cs, i) => (
+            <RevealSection key={cs.id} delay={0.1 + i * 0.08} blur>
+              <Link to={`/work#${cs.id}`} className="group block">
+                <article className="grid md:grid-cols-12 gap-6 md:gap-8 py-10 md:py-12 border-b border-border/10 group-hover:border-primary/10 transition-colors duration-500">
+                  {/* Number */}
+                  <div className="md:col-span-1 hidden md:block">
+                    <span className="text-[32px] font-display font-bold text-foreground/[0.04] leading-none select-none">
+                      {String(i + 2).padStart(2, '0')}
+                    </span>
+                  </div>
+                  {/* Client + Headline */}
+                  <div className="md:col-span-4">
+                    <span className="text-[10px] text-foreground/15 uppercase tracking-[0.2em] font-body block mb-2">{cs.client}</span>
+                    <h3 className="font-display text-lg font-bold text-foreground leading-[1.2] group-hover:text-primary transition-colors duration-400">
+                      {cs.headline}
+                    </h3>
+                  </div>
+                  {/* Challenge */}
+                  <div className="md:col-span-3">
+                    <p className="text-[12px] text-foreground/25 leading-[1.75] font-body">{cs.challenge}</p>
+                  </div>
+                  {/* Metrics */}
+                  <div className="md:col-span-3">
+                    <div className="flex flex-wrap gap-x-6 gap-y-3">
+                      {cs.results?.slice(0, 2).map((r: { metric: string; label: string }, ri: number) => (
+                        <div key={ri}>
+                          <p className="text-lg font-display font-bold text-primary/60 tracking-tight leading-none">{r.metric}</p>
+                          <span className="text-[10px] text-foreground/20 mt-1 block font-body">{r.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Arrow */}
+                  <div className="md:col-span-1 flex items-center justify-end">
+                    <ArrowRight className="w-3.5 h-3.5 text-foreground/8 group-hover:text-primary group-hover:translate-x-1 transition-all duration-400" />
+                  </div>
+                </article>
+              </Link>
+            </RevealSection>
+          ))}
         </div>
       </div>
     </section>
