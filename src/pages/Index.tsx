@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef, useCallback, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import MagneticButton from "@/components/shared/MagneticButton";
