@@ -129,10 +129,9 @@ const Hero = () => {
    STATS — White bg, UNEQUAL grid (1 large + 3 small)
    ═══════════════════════════════════════════════ */
 const Stats = () => (
-  <section className="section-light py-24 md:py-32 relative overflow-hidden">
-    {/* Subtle gradient wash */}
+  <section className="bg-background py-24 md:py-32 relative overflow-hidden">
     <div className="absolute inset-0 pointer-events-none" style={{
-      background: 'radial-gradient(ellipse 60% 50% at 70% 30%, hsl(210 100% 50% / 0.04), transparent 60%)',
+      background: 'radial-gradient(ellipse 60% 50% at 70% 30%, hsl(210 100% 50% / 0.06), transparent 60%)',
     }} />
     <AbstractDots className="top-10 left-10 text-primary" />
 
@@ -152,9 +151,9 @@ const Stats = () => (
           { num: "15+", label: "Years in-region" },
         ].map((stat, i) => (
           <RevealSection key={i} delay={i * 0.1} scale>
-            <div className="jt-card text-center flex flex-col items-center justify-center min-h-[180px] shadow-md shadow-black/[0.04]">
+            <div className="jt-card-dark text-center flex flex-col items-center justify-center min-h-[180px] shadow-xl shadow-black/20">
               <p className="stat-accent text-[clamp(2rem,4vw,3.5rem)] mb-3">{stat.num}</p>
-              <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>{stat.label}</p>
+              <p className="text-sm font-medium text-muted-foreground">{stat.label}</p>
             </div>
           </RevealSection>
         ))}
