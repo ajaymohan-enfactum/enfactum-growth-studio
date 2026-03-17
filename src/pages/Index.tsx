@@ -213,7 +213,7 @@ const WhySEA = () => (
           </RevealSection>
 
           <RevealSection blur delay={0.2}>
-            <p className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-semibold text-foreground/25 leading-[1.15] tracking-[-0.02em] mt-2">
+            <p className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-display font-semibold text-foreground/40 leading-[1.15] tracking-[-0.02em] mt-2">
               Imported playbooks break.
             </p>
           </RevealSection>
