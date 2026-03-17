@@ -27,8 +27,8 @@ const BrandPlate = ({ brand, sector, size = "md", delay = 0 }: BrandPlateProps) 
       style={{ width: w }}
       className={`group/plate relative flex items-center justify-center py-5 px-4 rounded-lg transition-all duration-500 cursor-default ${
         hasColor
-          ? "bg-[#d9d9d9] border border-[#d9d9d9]/40 hover:border-primary/25"
-          : "bg-white/[0.045] border border-white/[0.08] hover:border-primary/25 hover:bg-white/[0.07]"
+          ? "bg-[#545454] border border-[#545454]/40 hover:border-primary/25"
+           : "bg-white/[0.045] border border-white/[0.08] hover:border-primary/25 hover:bg-white/[0.07]"
       }`}
     >
       <BrandLogo
