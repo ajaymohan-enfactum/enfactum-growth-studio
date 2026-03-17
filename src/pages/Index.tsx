@@ -913,7 +913,7 @@ const Thinking = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   POINT OF VIEW — Editorial belief statements
+   POINT OF VIEW — Conviction moment
    ═══════════════════════════════════════════════ */
 const beliefs = [
   { statement: <>Enterprise pipeline grows when you lead with <span className="text-primary">diagnostics</span>, not product demos.</>, domain: "Growth Infrastructure" },
@@ -925,8 +925,6 @@ const beliefs = [
 const PointOfView = () => {
   const [active, setActive] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const lineWidth = useTransform(scrollYProgress, [0.1, 0.4], ["0%", "100%"]);
 
   useEffect(() => {
     const timer = setInterval(() => setActive((prev) => (prev + 1) % beliefs.length), 6000);
@@ -934,85 +932,92 @@ const PointOfView = () => {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-28 md:py-36 overflow-hidden bg-[hsl(var(--section-alt))]">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
-      {/* Subtle radial atmosphere */}
+    <section ref={ref} className="relative py-24 md:py-32 overflow-hidden">
+      {/* Continuous background — no alternate bg, just the default page tone */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 50% 50% at 30% 50%, hsl(210 60% 12% / 0.08), transparent 70%)',
+        background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 60% 12% / 0.05), transparent 70%)',
       }} />
 
       <div className="section-container relative z-10">
-        <div className="grid md:grid-cols-12 gap-12 md:gap-16">
-          {/* Left — Label + navigation */}
-          <div className="md:col-span-4">
-            <RevealSection blur>
-              <p className="eyebrow mb-8">What we believe</p>
-              <p className="text-[13px] text-foreground/20 leading-relaxed font-body mb-12 max-w-xs">
-                Convictions shaped by a decade of building growth architecture across Southeast Asia.
-              </p>
+        {/* Section intro — centered, editorial */}
+        <RevealSection blur>
+          <div className="flex items-center gap-4 mb-16 md:mb-20">
+            <div className="w-8 h-px bg-primary/30" />
+            <p className="eyebrow">What we believe</p>
+          </div>
+        </RevealSection>
 
-              {/* Vertical belief navigator */}
-              <div className="space-y-0">
-                {beliefs.map((b, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActive(i)}
-                    className={`w-full text-left py-4 border-l-2 pl-5 transition-all duration-500 block ${
-                      i === active
-                        ? 'border-primary/50 bg-primary/[0.03]'
-                        : 'border-border/10 hover:border-border/30'
-                    }`}
-                  >
-                    <span className={`text-[11px] uppercase tracking-[0.15em] font-body transition-colors duration-400 ${
-                      i === active ? 'text-primary/70' : 'text-foreground/15 hover:text-foreground/30'
-                    }`}>
-                      {b.domain}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </RevealSection>
+        {/* Main conviction area */}
+        <div className="max-w-4xl">
+          {/* Active statement */}
+          <div className="relative min-h-[120px] md:min-h-[160px]">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={active}
+                className="font-display font-bold text-foreground leading-[1.1] tracking-[-0.025em]"
+                style={{ fontSize: 'clamp(1.75rem, 3.5vw, 3rem)' }}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {beliefs[active].statement}
+              </motion.p>
+            </AnimatePresence>
           </div>
 
-          {/* Right — Statement display */}
-          <div className="md:col-span-7 md:col-start-6 flex items-center">
-            <div className="w-full">
-              {/* Animated rule */}
-              <motion.div className="h-px bg-primary/20 mb-10" style={{ width: lineWidth }} />
-
-              <div className="relative min-h-[160px] md:min-h-[200px] flex items-center">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={active}
-                    initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
-                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                    exit={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <p className="font-display font-bold text-foreground leading-[1.12] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
-                      {beliefs[active].statement}
-                    </p>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* Progress indicator */}
-              <div className="flex items-center gap-6 mt-10">
-                <span className="text-[10px] text-foreground/10 font-mono tracking-wider">
-                  {String(active + 1).padStart(2, '0')} / {String(beliefs.length).padStart(2, '0')}
-                </span>
-                <div className="flex-1 h-px bg-border/10 relative overflow-hidden">
-                  <motion.div
-                    className="absolute top-0 left-0 h-full bg-primary/30"
-                    initial={{ width: '0%' }}
-                    animate={{ width: '100%' }}
-                    key={active}
-                    transition={{ duration: 6, ease: 'linear' }}
-                  />
-                </div>
-              </div>
+          {/* Domain indicator + progress — inline, quiet */}
+          <div className="flex items-center gap-5 mt-10 md:mt-12">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={active}
+                className="text-[11px] uppercase tracking-[0.2em] text-primary/50 font-medium shrink-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {beliefs[active].domain}
+              </motion.span>
+            </AnimatePresence>
+            <div className="flex-1 h-px bg-border/10 relative overflow-hidden max-w-[120px]">
+              <motion.div
+                className="absolute top-0 left-0 h-full bg-primary/25"
+                initial={{ width: '0%' }}
+                animate={{ width: '100%' }}
+                key={active}
+                transition={{ duration: 6, ease: 'linear' }}
+              />
             </div>
+            <span className="text-[10px] text-foreground/10 font-mono tracking-wider">
+              {String(active + 1).padStart(2, '0')}<span className="text-foreground/[0.06]"> / </span>{String(beliefs.length).padStart(2, '0')}
+            </span>
+          </div>
+
+          {/* Domain tabs — horizontal, minimal */}
+          <div className="flex flex-wrap gap-0 mt-10 md:mt-14 border-t border-border/10 pt-0">
+            {beliefs.map((b, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                className={`py-4 pr-6 md:pr-8 text-left transition-all duration-400 relative ${
+                  i === active ? '' : 'opacity-30 hover:opacity-50'
+                }`}
+              >
+                <span className={`text-[11px] uppercase tracking-[0.15em] font-body transition-colors duration-400 ${
+                  i === active ? 'text-foreground/80' : 'text-foreground/40'
+                }`}>
+                  {b.domain}
+                </span>
+                {i === active && (
+                  <motion.div
+                    className="absolute top-0 left-0 right-6 md:right-8 h-px bg-primary/40"
+                    layoutId="beliefTab"
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  />
+                )}
+              </button>
+            ))}
           </div>
         </div>
       </div>
