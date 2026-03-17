@@ -765,7 +765,7 @@ const depthItems = [
 ];
 
 const DepthSection = () => (
-  <section id="depth" className="py-24 md:py-32 bg-[#0B1121] relative overflow-hidden">
+  <section id="depth" className="py-24 md:py-32 relative overflow-hidden">
     {/* Architectural vertical line */}
     <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent hidden md:block" />
 
