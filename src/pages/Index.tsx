@@ -1029,19 +1029,21 @@ const PointOfView = () => {
    CTA
    ═══════════════════════════════════════════════ */
 const CTASection = () => (
-  <section className="relative py-28 md:py-36 overflow-hidden" style={{
-    background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 11%), hsl(220 18% 8%))',
+  <section className="relative py-36 md:py-48 overflow-hidden" style={{
+    background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 11%) 50%, hsl(220 16% 7%))',
   }}>
     <div className="absolute inset-0 pointer-events-none" style={{
-      background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.06), transparent 60%)',
+      background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.05), transparent 60%)',
     }} />
+    {/* Top separator */}
+    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/15 to-transparent" />
 
     <div className="section-container text-center relative z-10">
       <RevealSection scale>
-        <div className="max-w-3xl mx-auto">
-          <div className="w-12 h-px bg-primary/30 mx-auto mb-8" />
-          <h2 className="headline-xl">Let's move growth forward<span className="text-primary">.</span></h2>
-          <p className="text-lg text-muted-foreground mt-5 max-w-xl mx-auto leading-relaxed">
+        <div className="max-w-2xl mx-auto">
+          <div className="w-10 h-px bg-primary/25 mx-auto mb-8" />
+          <h2 className="headline-lg">Let's move growth forward<span className="text-primary">.</span></h2>
+          <p className="text-[15px] text-muted-foreground mt-5 max-w-md mx-auto leading-relaxed">
             Tell us where growth needs to move next.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-10">
@@ -1058,6 +1060,9 @@ const CTASection = () => (
         </div>
       </RevealSection>
     </div>
+
+    {/* Bottom separator before footer */}
+    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
   </section>
 );
 
