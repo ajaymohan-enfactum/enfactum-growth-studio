@@ -147,19 +147,23 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right side — atmospheric space (visual tension) */}
+          {/* Right side — SEA topography visual */}
           <div className="hidden md:flex md:col-span-2 items-center justify-center relative">
-            {/* Soft radial anchor glow on right side */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 2, delay: 0.8, ease }}
-              className="absolute w-[280px] h-[280px] rounded-full"
-              style={{
-                background: "radial-gradient(circle, hsla(210, 100%, 50%, 0.06) 0%, hsla(210, 80%, 40%, 0.02) 50%, transparent 70%)",
-                filter: "blur(40px)",
-              }}
-            />
+              transition={{ duration: 1.5, delay: 0.8, ease }}
+              className="relative w-full"
+            >
+              <img
+                src={seaTopography}
+                alt=""
+                className="w-full h-auto opacity-30 mix-blend-screen"
+                style={{ filter: "blur(1px)" }}
+              />
+              {/* Glow overlay */}
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-primary/5 to-transparent" />
+            </motion.div>
           </div>
         </div>
       </div>
