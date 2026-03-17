@@ -85,11 +85,11 @@ export const sectorClusters: SectorCluster[] = [
     narrative:
       "Partnering with emerging and innovation-led companies shaping new categories across the region.",
     brands: [
-      b("JSHealth Vitamins", "jshealth.com", "/logos/jshealth.png"),
-      b("Lazada", "lazada.com", "/logos/lazada.png"),
-      b("InsureMO", null, "/logos/insuremo.png"),
-      b("MyRepublic", "myrepublic.net", "/logos/myrepublic.png"),
-      b("Integrate", "integrate.com", "/logos/integrate.png"),
+      b("JSHealth Vitamins", "jshealth.com", "/logos/jshealth.png", "/logos/jshealth-color2.png", "#1e1f23"),
+      b("Lazada", "lazada.com", "/logos/lazada.png", "/logos/lazada-color.png", "#1e1f23"),
+      b("InsureMO", null, "/logos/insuremo.png", "/logos/insuremo-color.png", "#1e1f23"),
+      b("MyRepublic", "myrepublic.net", "/logos/myrepublic.png", "/logos/myrepublic-color.png", "#1e1f23"),
+      b("Integrate", "integrate.com", "/logos/integrate.png", "/logos/integrate-color.png", "#1e1f23"),
     ],
   },
 ];
