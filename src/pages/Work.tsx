@@ -4,7 +4,6 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import SectionHeader from "@/components/shared/SectionHeader";
 import RevealSection from "@/components/shared/RevealSection";
-import ParallaxDivider from "@/components/shared/ParallaxDivider";
 import CTABand from "@/components/shared/CTABand";
 import CaseCard from "@/components/shared/CaseCard";
 import SEOHead from "@/components/shared/SEOHead";
@@ -96,11 +95,9 @@ const Work = () => {
   const [activeDimension, setActiveDimension] = useState<FilterDimension>("outcome");
   const [activeFilter, setActiveFilter] = useState("All");
 
-  // Scroll to hash anchor (e.g. /work#hp-garage)
   useEffect(() => {
     const hash = location.hash.replace("#", "");
     if (!hash) return;
-    // Delay to allow render + reveal animations
     const timer = setTimeout(() => {
       const el = document.getElementById(hash);
       if (el) {
@@ -112,19 +109,13 @@ const Work = () => {
 
   const filteredCases = useMemo(() => {
     if (activeFilter === "All") return sortedCases;
-
     return sortedCases.filter((c) => {
       switch (activeDimension) {
-        case "outcome":
-          return c.outcomes.includes(activeFilter);
-        case "capability":
-          return c.capabilities.includes(activeFilter);
-        case "sector":
-          return c.sectors.includes(activeFilter);
-        case "challenge":
-          return c.challengeTypes.includes(activeFilter);
-        default:
-          return true;
+        case "outcome": return c.outcomes.includes(activeFilter);
+        case "capability": return c.capabilities.includes(activeFilter);
+        case "sector": return c.sectors.includes(activeFilter);
+        case "challenge": return c.challengeTypes.includes(activeFilter);
+        default: return true;
       }
     });
   }, [activeDimension, activeFilter]);
@@ -142,7 +133,7 @@ const Work = () => {
     <PageLayout>
       <SEOHead
         title="Selected Work"
-        description="Case studies and outcomes from Enfactum's work with enterprise brands across Southeast Asia. Growth infrastructure, brand and demand, AI ecosystems, and live experiences programmes with measurable commercial outcomes."
+        description="Case studies and outcomes from Enfactum's work with enterprise brands across Southeast Asia."
         path="/work"
       />
       <HeroSection
@@ -155,7 +146,6 @@ const Work = () => {
       {/* ─── Filter Bar ─── */}
       <section className="py-8 md:py-12 sticky top-16 z-30 bg-background/95 backdrop-blur-sm border-b border-border/20">
         <div className="section-container">
-          {/* Dimension switcher */}
           <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4">
             {(Object.keys(dimensionLabels) as FilterDimension[]).map((dim) => (
               <button
@@ -171,8 +161,6 @@ const Work = () => {
               </button>
             ))}
           </div>
-
-          {/* Filter chips */}
           <div className="flex flex-wrap gap-2">
             {dimensionFilters[activeDimension].map((f) => (
               <FilterChip
@@ -186,19 +174,31 @@ const Work = () => {
         </div>
       </section>
 
-      {/* ─── Flagship Cases (large editorial features) ─── */}
+      {/* ─── Flagship Cases — editorial atmosphere ─── */}
       {flagshipCases.length > 0 && (
-        <section className="py-20 md:py-28 bg-[#080E1A]">
-          <div className="section-container">
+        <section className="py-20 md:py-28 relative overflow-hidden">
+          {/* Sharp editorial background */}
+          <div className="absolute inset-0 pointer-events-none" style={{
+            background: 'linear-gradient(180deg, hsl(220 20% 6%), hsl(215 25% 8%) 50%, hsl(220 16% 7%))',
+          }} />
+          {/* Left accent line */}
+          <div className="absolute top-0 bottom-0 left-[6%] w-px bg-gradient-to-b from-transparent via-primary/[0.06] to-transparent hidden md:block" />
+
+          <div className="section-container relative z-10">
             <RevealSection blur>
-              <div className="mb-14">
-                <p className="eyebrow mb-3">
-                  {activeFilter !== "All" ? activeFilter : "Featured programmes"}
-                </p>
-                <p className="text-[13px] text-muted-foreground max-w-md">
-                  {filteredCases.length} programme{filteredCases.length !== 1 ? "s" : ""} with
-                  measurable commercial, operational, or ecosystem outcomes.
-                </p>
+              <div className="mb-14 flex items-end justify-between">
+                <div>
+                  <p className="eyebrow mb-3">
+                    {activeFilter !== "All" ? activeFilter : "Featured programmes"}
+                  </p>
+                  <p className="text-[13px] text-muted-foreground max-w-md">
+                    {filteredCases.length} programme{filteredCases.length !== 1 ? "s" : ""} with
+                    measurable commercial, operational, or ecosystem outcomes.
+                  </p>
+                </div>
+                <span className="text-[80px] md:text-[100px] font-display font-bold text-foreground/[0.02] leading-none select-none pointer-events-none hidden md:block">
+                  W
+                </span>
               </div>
             </RevealSection>
 
@@ -211,10 +211,29 @@ const Work = () => {
         </section>
       )}
 
-      {/* ─── Featured Cases (full cards) ─── */}
+      {/* ─── Editorial bridge ─── */}
       {featuredCases.length > 0 && (
-        <section className="py-16 md:py-20">
-          <div className="section-container">
+        <div className="relative">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/[0.08] to-transparent" />
+          <div className="section-container py-10 md:py-14">
+            <RevealSection blur>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-px bg-border/30" />
+                <p className="text-[11px] text-foreground/20 uppercase tracking-[0.2em] font-body">
+                  More programmes across capabilities and sectors
+                </p>
+              </div>
+            </RevealSection>
+          </div>
+        </div>
+      )}
+
+      {/* ─── Featured Cases ─── */}
+      {featuredCases.length > 0 && (
+        <section className="py-8 md:py-12 relative">
+          {/* Subtle vertical guide */}
+          <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-border/[0.03] to-transparent hidden md:block" />
+          <div className="section-container relative z-10">
             <div className="space-y-0">
               {featuredCases.map((cs, i) => (
                 <CaseCard key={cs.id} cs={cs} index={i} />
@@ -224,9 +243,10 @@ const Work = () => {
         </section>
       )}
 
-      {/* ─── Additional Cases (compact rows) ─── */}
+      {/* ─── Additional Cases ─── */}
       {additionalCases.length > 0 && (
-        <section className="section-alt py-16 md:py-20">
+        <section className="py-16 md:py-20 bg-[hsl(var(--section-alt))] relative">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
           <div className="section-container">
             <SectionHeader
               eyebrow="Additional work"
