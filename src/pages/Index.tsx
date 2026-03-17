@@ -1076,7 +1076,7 @@ const Index = () => (
     <SelectedWork />
     <DepthSection />
     <Thinking />
-    <QuoteCarousel quotes={clientInsights} />
+    <PointOfView />
     <CTASection />
   </PageLayout>
 );
