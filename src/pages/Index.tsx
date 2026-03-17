@@ -400,9 +400,11 @@ const SelectedWork = () => {
   const flagships = getFlagshipCases();
   const featured = flagships.slice(0, 3);
   return (
-    <section className="section-light py-24 md:py-32 relative overflow-hidden">
+    <section className="relative py-24 md:py-32 overflow-hidden" style={{
+      background: 'linear-gradient(170deg, hsl(220 16% 7%), hsl(220 18% 9%), hsl(220 16% 7%))',
+    }}>
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 40% 50% at 80% 70%, hsl(210 100% 50% / 0.03), transparent 50%)',
+        background: 'radial-gradient(ellipse 40% 50% at 80% 70%, hsl(210 100% 50% / 0.05), transparent 50%)',
       }} />
 
       <div className="section-container relative z-10">
@@ -412,7 +414,7 @@ const SelectedWork = () => {
               <p className="eyebrow mb-4">Case Studies</p>
               <h2 className="headline-lg">Proven outcomes<span className="text-primary">,</span> real change<span className="text-primary">.</span></h2>
             </div>
-            <Link to="/work" className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }}>
+            <Link to="/work" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-300">
               View all work <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -422,18 +424,18 @@ const SelectedWork = () => {
           {featured.map((cs, i) => (
             <RevealSection key={cs.id} delay={i * 0.1} scale>
               <Link to={`/work#${cs.id}`} className="group block h-full">
-                <div className="jt-card h-full flex flex-col min-h-[280px] shadow-md shadow-black/[0.04]">
+                <div className="jt-card-dark h-full flex flex-col min-h-[280px] shadow-xl shadow-black/20">
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{cs.sectors?.[0] || 'Case Study'}</span>
-                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }} />
+                    <span className="text-xs font-medium uppercase tracking-wider text-primary">{cs.sectors?.[0] || 'Case Study'}</span>
+                    <ArrowUpRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                     {cs.client}
                   </h3>
-                  <p className="text-sm leading-relaxed flex-1" style={{ color: 'hsl(var(--light-muted))' }}>{cs.headline}</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground flex-1">{cs.headline}</p>
                   {cs.outcomes?.[0] && (
-                    <div className="mt-6 pt-5" style={{ borderTop: '1px solid hsl(var(--light-card-border))' }}>
-                      <p className="text-sm font-semibold" style={{ color: 'hsl(var(--primary))' }}>{cs.outcomes[0]}</p>
+                    <div className="mt-6 pt-5 border-t border-border">
+                      <p className="text-sm font-semibold text-primary">{cs.outcomes[0]}</p>
                     </div>
                   )}
                 </div>
