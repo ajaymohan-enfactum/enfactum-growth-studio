@@ -42,7 +42,7 @@ export const sectorClusters: SectorCluster[] = [
       b("HP", "hp.com", "/logos/hp.png", "/logos/hp-color.png"),
       b("Lenovo", "lenovo.com", "/logos/lenovo.png", "/logos/lenovo-color.png"),
       b("Oracle", "oracle.com", "/logos/oracle.png"),
-      b("Dell EMC", "dell.com", "/logos/dellemc.png", "/logos/dellemc-color.png"),
+      b("Dell EMC", "dell.com", "/logos/dellemc.png", "/logos/dellemc-color.png", "#737373"),
       b("Singtel", "singtel.com", "/logos/singtel.png"),
       b("Redington", null, "/logos/redington.png", "/logos/redington-color.png"),
       b("element14", null, "/logos/element14.png"),
