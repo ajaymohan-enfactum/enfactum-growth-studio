@@ -1,94 +1,142 @@
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useRef, useCallback, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import MagneticButton from "@/components/shared/MagneticButton";
 
 import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
-import CTABand from "@/components/shared/CTABand";
 import SEOHead, { organizationSchema, webSiteSchema } from "@/components/shared/SEOHead";
 import { getFlagshipCases } from "@/data/caseStudies";
 import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
+/* ─── Abstract floating shapes (reusable) ─── */
+const AbstractBlob = ({ className = "", color = "var(--primary)" }: { className?: string; color?: string }) => (
+  <div className={`absolute rounded-full blur-3xl pointer-events-none ${className}`} style={{ background: `hsl(${color} / 0.08)` }} />
+);
+
+const AbstractRing = ({ className = "" }: { className?: string }) => (
+  <div className={`absolute rounded-full border pointer-events-none ${className}`} style={{ borderColor: 'hsl(var(--primary) / 0.06)' }} />
+);
+
+const AbstractDots = ({ className = "" }: { className?: string }) => (
+  <svg className={`absolute pointer-events-none opacity-[0.04] ${className}`} width="200" height="200" viewBox="0 0 200 200">
+    {Array.from({ length: 100 }).map((_, i) => (
+      <circle key={i} cx={(i % 10) * 20 + 10} cy={Math.floor(i / 10) * 20 + 10} r="1.5" fill="currentColor" />
+    ))}
+  </svg>
+);
+
+/* ─── Parallax wrapper ─── */
+const ParallaxLayer = ({ children, speed = 0.1, className = "" }: { children: React.ReactNode; speed?: number; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [speed * -100, speed * 100]);
+  return (
+    <motion.div ref={ref} style={{ y }} className={className}>
+      {children}
+    </motion.div>
+  );
+};
+
 /* ═══════════════════════════════════════════════
    HERO — Dark, full-screen, bold typography
    ═══════════════════════════════════════════════ */
-const Hero = () => (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-    <div className="absolute inset-0 z-0" style={{
-      background: 'radial-gradient(ellipse 70% 50% at 50% 40%, hsl(210 80% 15% / 0.2), transparent 70%)',
-    }} />
+const Hero = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-    <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.1, ease }}
-        className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-border/60 bg-card/60 backdrop-blur-sm mb-10"
-      >
-        <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-        <span className="text-xs text-muted-foreground font-medium tracking-wide">Growth & Innovation Operating Partner</span>
+  return (
+    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      {/* Gradient background */}
+      <div className="absolute inset-0 z-0" style={{
+        background: 'radial-gradient(ellipse 80% 60% at 50% 35%, hsl(210 80% 15% / 0.25), transparent 70%), radial-gradient(ellipse 50% 40% at 80% 60%, hsl(260 60% 20% / 0.12), transparent 60%)',
+      }} />
+
+      {/* Abstract graphics */}
+      <AbstractBlob className="w-[500px] h-[500px] top-[10%] left-[-10%]" color="210 100% 50%" />
+      <AbstractBlob className="w-[400px] h-[400px] bottom-[5%] right-[-5%]" color="260 80% 50%" />
+      <AbstractRing className="w-[600px] h-[600px] top-[15%] right-[-15%]" />
+      <AbstractRing className="w-[300px] h-[300px] bottom-[20%] left-[5%]" />
+      <AbstractDots className="top-[20%] right-[10%] text-foreground" />
+
+      <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-border/60 bg-card/60 backdrop-blur-sm mb-10"
+        >
+          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span className="text-xs text-muted-foreground font-medium tracking-wide">Growth & Innovation Operating Partner</span>
+        </motion.div>
+
+        <motion.h1
+          className="text-[clamp(2.75rem,6vw,5.5rem)] font-extrabold text-foreground leading-[0.95] tracking-[-0.04em]"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.25, ease }}
+        >
+          Strategy, ecosystems,{" "}
+          <br className="hidden md:block" />
+          and execution{" "}
+          <span className="text-primary">move together</span>
+          <span className="text-primary">.</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7, ease }}
+          className="text-lg md:text-xl text-muted-foreground mt-8 max-w-2xl mx-auto leading-relaxed font-light"
+        >
+          Helping enterprise brands scale across Southeast Asia with embedded growth architecture.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.95, ease }}
+          className="flex flex-wrap justify-center gap-4 mt-12"
+        >
+          <Link to="/contact">
+            <MagneticButton variant="hero" size="xl">Start a conversation</MagneticButton>
+          </Link>
+          <Link to="/work">
+            <MagneticButton variant="hero-outline" size="xl">See our work</MagneticButton>
+          </Link>
+        </motion.div>
       </motion.div>
 
-      <motion.h1
-        className="text-[clamp(2.75rem,6vw,5.5rem)] font-extrabold text-foreground leading-[0.95] tracking-[-0.04em]"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.25, ease }}
-      >
-        Strategy, ecosystems,{" "}
-        <br className="hidden md:block" />
-        and execution{" "}
-        <span className="text-primary">move together</span>
-        <span className="text-primary">.</span>
-      </motion.h1>
-
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.7, ease }}
-        className="text-lg md:text-xl text-muted-foreground mt-8 max-w-2xl mx-auto leading-relaxed font-light"
-      >
-        Helping enterprise brands scale across Southeast Asia with embedded growth architecture.
-      </motion.p>
-
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.95, ease }}
-        className="flex flex-wrap justify-center gap-4 mt-12"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 1.6, ease }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
-        <Link to="/contact">
-          <MagneticButton variant="hero" size="xl">Start a conversation</MagneticButton>
-        </Link>
-        <Link to="/work">
-          <MagneticButton variant="hero-outline" size="xl">See our work</MagneticButton>
-        </Link>
+        <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase">Scroll</span>
+        <ChevronDown className="w-4 h-4 text-primary/50" strokeWidth={1.5} style={{ animation: 'scroll-bounce 2s ease-in-out infinite' }} />
       </motion.div>
-    </div>
-
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, delay: 1.6, ease }}
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
-    >
-      <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase">Scroll</span>
-      <ChevronDown className="w-4 h-4 text-primary/50" strokeWidth={1.5} style={{ animation: 'scroll-bounce 2s ease-in-out infinite' }} />
-    </motion.div>
-  </section>
-);
+    </section>
+  );
+};
 
 /* ═══════════════════════════════════════════════
-   STATS — White background, large numbers
-   JoinTalent-style clean cards on light bg
+   STATS — White bg, UNEQUAL grid (1 large + 3 small)
    ═══════════════════════════════════════════════ */
 const Stats = () => (
-  <section className="section-light py-24 md:py-32">
-    <div className="section-container">
+  <section className="section-light py-24 md:py-32 relative overflow-hidden">
+    {/* Subtle gradient wash */}
+    <div className="absolute inset-0 pointer-events-none" style={{
+      background: 'radial-gradient(ellipse 60% 50% at 70% 30%, hsl(210 100% 50% / 0.04), transparent 60%)',
+    }} />
+    <AbstractDots className="top-10 left-10 text-primary" />
+
+    <div className="section-container relative z-10">
       <RevealSection>
         <div className="text-center mb-16">
           <p className="eyebrow mb-5">By the numbers</p>
@@ -96,64 +144,110 @@ const Stats = () => (
         </div>
       </RevealSection>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-        {[
-          { num: "700M+", label: "People across ten countries" },
-          { num: "$300B+", label: "Digital economy" },
-          { num: "40+", label: "Enterprise clients" },
-          { num: "15+", label: "Years in-region" },
-        ].map((stat, i) => (
-          <RevealSection key={i} delay={i * 0.1}>
-            <div className="jt-card text-center flex flex-col items-center justify-center min-h-[180px]">
-              <p className="stat-accent text-[clamp(2rem,4vw,3.5rem)] mb-3">{stat.num}</p>
-              <p className="text-sm font-medium">{stat.label}</p>
+      {/* Unequal grid: 1 featured + 3 smaller */}
+      <div className="grid md:grid-cols-3 gap-5">
+        <RevealSection delay={0} scale>
+          <div className="jt-card md:row-span-2 flex flex-col justify-center items-center min-h-[240px] md:min-h-full shadow-lg shadow-primary/[0.06]" style={{ background: 'linear-gradient(135deg, hsl(var(--light-card)), hsl(210 100% 98%))' }}>
+            <p className="stat-accent text-[clamp(3rem,6vw,5rem)] mb-3">700M+</p>
+            <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>People across ten countries</p>
+          </div>
+        </RevealSection>
+
+        <RevealSection delay={0.1} scale>
+          <div className="jt-card flex flex-col justify-center items-center min-h-[160px] shadow-md shadow-black/[0.04]">
+            <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-2">$300B+</p>
+            <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>Digital economy</p>
+          </div>
+        </RevealSection>
+
+        <RevealSection delay={0.15} scale>
+          <div className="jt-card flex flex-col justify-center items-center min-h-[160px] shadow-md shadow-black/[0.04]">
+            <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-2">40+</p>
+            <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>Enterprise clients</p>
+          </div>
+        </RevealSection>
+
+        {/* Bottom row spans 2 cols */}
+        <RevealSection delay={0.2} scale className="md:col-span-2">
+          <div className="jt-card flex flex-row items-center justify-center gap-8 min-h-[120px] shadow-md shadow-black/[0.04]">
+            <div className="text-center">
+              <p className="stat-accent text-[clamp(1.75rem,3vw,2.5rem)] mb-1">15+</p>
+              <p className="text-xs font-medium" style={{ color: 'hsl(var(--light-muted))' }}>Years in-region</p>
             </div>
-          </RevealSection>
-        ))}
+            <div className="w-px h-12" style={{ background: 'hsl(var(--light-card-border))' }} />
+            <div className="text-center">
+              <p className="stat-accent text-[clamp(1.75rem,3vw,2.5rem)] mb-1">100+</p>
+              <p className="text-xs font-medium" style={{ color: 'hsl(var(--light-muted))' }}>Programmes delivered</p>
+            </div>
+          </div>
+        </RevealSection>
       </div>
     </div>
   </section>
 );
 
 /* ═══════════════════════════════════════════════
-   WHY SEA — Dark, split layout
+   WHY SEA — Dark, asymmetric 7/5 split
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section className="bg-background py-24 md:py-32">
-    <div className="section-container">
-      <div className="grid md:grid-cols-2 gap-16 md:gap-20 items-center">
-        <RevealSection blur>
-          <div>
-            <p className="eyebrow mb-6">Why Southeast Asia</p>
-            <h2 className="headline-lg">
-              Growth here moves through ecosystems, local trust, and execution nuance<span className="text-primary">.</span>
-            </h2>
-            <p className="text-muted-foreground mt-6 leading-relaxed max-w-md">
-              Nearly 700 million people across ten countries. A digital economy past $300 billion — and accelerating. No single playbook covers it. That is why Enfactum exists.
-            </p>
-            <Link to="/company" className="inline-flex items-center gap-2 text-primary font-semibold text-sm mt-8 hover:gap-3 transition-all duration-300">
-              Learn more about us <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </RevealSection>
+  <section className="bg-background py-24 md:py-36 relative overflow-hidden">
+    <AbstractBlob className="w-[500px] h-[500px] top-[-10%] right-[-10%]" color="210 100% 50%" />
+    <AbstractRing className="w-[400px] h-[400px] bottom-[10%] left-[-5%]" />
 
-        <div className="grid grid-cols-2 gap-4">
-          {[
-            { market: "Singapore", role: "HQ & Strategy Hub", icon: "🇸🇬" },
-            { market: "India", role: "Operating Bench", icon: "🇮🇳" },
-            { market: "Malaysia", role: "Regional Node", icon: "🇲🇾" },
-            { market: "Indonesia", role: "Growth Market", icon: "🇮🇩" },
-          ].map((node, i) => (
-            <RevealSection key={i} delay={0.1 + i * 0.1} scale>
-              <div className="jt-card-dark flex flex-col justify-between min-h-[160px]">
-                <span className="text-2xl">{node.icon}</span>
-                <div className="mt-auto">
-                  <p className="text-lg font-bold text-foreground">{node.market}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{node.role}</p>
-                </div>
-              </div>
+    <div className="section-container relative z-10">
+      <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+        {/* Left — 7 cols */}
+        <div className="md:col-span-7">
+          <ParallaxLayer speed={0.05}>
+            <RevealSection blur>
+              <p className="eyebrow mb-6">Why Southeast Asia</p>
+              <h2 className="headline-xl max-w-xl">
+                Growth here moves through ecosystems, local trust, and execution nuance<span className="text-primary">.</span>
+              </h2>
+              <p className="text-muted-foreground mt-6 leading-relaxed max-w-lg text-base">
+                Nearly 700 million people across ten countries. A digital economy past $300 billion — and accelerating. No single playbook covers it. That is why Enfactum exists.
+              </p>
+              <Link to="/company" className="inline-flex items-center gap-2 text-primary font-semibold text-sm mt-8 hover:gap-3 transition-all duration-300">
+                Learn more about us <ArrowRight className="w-4 h-4" />
+              </Link>
             </RevealSection>
+          </ParallaxLayer>
+        </div>
+
+        {/* Right — 5 cols, stacked unequal cards */}
+        <div className="md:col-span-5 space-y-4">
+          {[
+            { market: "Singapore", role: "HQ & Strategy Hub", icon: "🇸🇬", size: "large" },
+            { market: "India", role: "Operating Bench", icon: "🇮🇳", size: "normal" },
+          ].map((node, i) => (
+            <ParallaxLayer key={i} speed={0.03 + i * 0.04}>
+              <RevealSection delay={0.1 + i * 0.12} scale>
+                <div className={`jt-card-dark flex items-center gap-5 shadow-xl shadow-black/20 ${node.size === 'large' ? 'p-8 md:p-10' : 'p-6 md:p-8'}`}>
+                  <span className={node.size === 'large' ? 'text-4xl' : 'text-2xl'}>{node.icon}</span>
+                  <div>
+                    <p className={`font-bold text-foreground ${node.size === 'large' ? 'text-xl' : 'text-base'}`}>{node.market}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{node.role}</p>
+                  </div>
+                </div>
+              </RevealSection>
+            </ParallaxLayer>
           ))}
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { market: "Malaysia", role: "Regional Node", icon: "🇲🇾" },
+              { market: "Indonesia", role: "Growth Market", icon: "🇮🇩" },
+            ].map((node, i) => (
+              <ParallaxLayer key={i} speed={0.06}>
+                <RevealSection delay={0.3 + i * 0.1} scale>
+                  <div className="jt-card-dark flex flex-col items-start p-6 shadow-lg shadow-black/15 min-h-[120px]">
+                    <span className="text-xl mb-3">{node.icon}</span>
+                    <p className="text-sm font-bold text-foreground">{node.market}</p>
+                    <p className="text-[10px] text-muted-foreground mt-1">{node.role}</p>
+                  </div>
+                </RevealSection>
+              </ParallaxLayer>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -161,8 +255,8 @@ const WhySEA = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   CAPABILITIES — White bg, JoinTalent card grid
-   Large rounded cards with hover lift + arrow
+   CAPABILITIES — White bg, unequal 2-col layout
+   First card spans full width, rest in 2 cols
    ═══════════════════════════════════════════════ */
 const capabilities = [
   { title: "Growth Infrastructure", desc: "GTM strategy, partner programs, and demand operations that build lasting market position.", href: "/capabilities/growth-infrastructure", num: "01" },
@@ -172,40 +266,65 @@ const capabilities = [
 ];
 
 const Capabilities = () => (
-  <section className="section-light py-24 md:py-32">
-    <div className="section-container">
+  <section className="section-light py-24 md:py-32 relative overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none" style={{
+      background: 'linear-gradient(180deg, hsl(0 0% 98%), hsl(210 20% 96%) 50%, hsl(0 0% 98%))',
+    }} />
+    <AbstractRing className="w-[500px] h-[500px] top-[-10%] left-[-10%]" />
+    <AbstractDots className="bottom-20 right-10 text-primary" />
+
+    <div className="section-container relative z-10">
       <RevealSection>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
             <p className="eyebrow mb-4">Our Solutions</p>
             <h2 className="headline-lg">Four capabilities<span className="text-primary">.</span><br />One growth architecture<span className="text-primary">.</span></h2>
           </div>
-          <p className="text-sm max-w-xs leading-relaxed">
+          <p className="text-sm max-w-xs leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>
             Each capability connects. Together, they form a growth operating system for Southeast Asia.
           </p>
         </div>
       </RevealSection>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {capabilities.map((cap, i) => (
-          <RevealSection key={i} delay={i * 0.1} scale>
-            <Link to={cap.href} className="group block h-full">
-              <div className="jt-card h-full flex flex-col justify-between min-h-[260px] relative overflow-hidden">
-                {/* Hover gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/[0.03] group-hover:to-primary/[0.06] transition-all duration-700 rounded-2xl" />
+      {/* Featured first card — full width */}
+      <RevealSection delay={0} scale>
+        <Link to={capabilities[0].href} className="group block mb-6">
+          <div className="jt-card flex flex-col md:flex-row md:items-center justify-between min-h-[200px] shadow-lg shadow-black/[0.06] relative overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(var(--light-card)), hsl(210 60% 97%))' }}>
+            <AbstractBlob className="w-[300px] h-[300px] top-[-30%] right-[-10%] !blur-[80px]" color="210 100% 50%" />
+            <div className="relative z-10 max-w-lg">
+              <span className="text-xs font-mono tracking-wider mb-4 block" style={{ color: 'hsl(var(--light-muted))' }}>{capabilities[0].num}</span>
+              <h3 className="text-3xl md:text-4xl font-bold mb-3 transition-colors duration-400 group-hover:text-primary" style={{ color: 'hsl(var(--light-fg))' }}>
+                {capabilities[0].title}
+              </h3>
+              <p className="text-base leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{capabilities[0].desc}</p>
+            </div>
+            <div className="relative z-10 mt-6 md:mt-0">
+              <div className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-white shadow-md" style={{ backgroundColor: 'hsl(var(--light-card-border))' }}>
+                <ArrowUpRight className="w-5 h-5 transition-transform duration-500 group-hover:rotate-45" />
+              </div>
+            </div>
+          </div>
+        </Link>
+      </RevealSection>
 
+      {/* Remaining 3 in unequal grid */}
+      <div className="grid md:grid-cols-3 gap-6">
+        {capabilities.slice(1).map((cap, i) => (
+          <RevealSection key={i} delay={0.1 + i * 0.1} scale>
+            <Link to={cap.href} className="group block h-full">
+              <div className="jt-card h-full flex flex-col justify-between min-h-[260px] relative overflow-hidden shadow-md shadow-black/[0.04]">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/[0.03] group-hover:to-primary/[0.06] transition-all duration-700 rounded-2xl" />
                 <div className="relative z-10 flex items-start justify-between">
                   <span className="text-xs font-mono tracking-wider" style={{ color: 'hsl(var(--light-muted))' }}>{cap.num}</span>
                   <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-white" style={{ backgroundColor: 'hsl(var(--light-card-border))' }}>
                     <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:rotate-45" />
                   </div>
                 </div>
-
                 <div className="relative z-10 mt-auto">
-                  <h3 className="text-2xl md:text-[1.75rem] font-bold mb-3 transition-colors duration-400 group-hover:text-primary" style={{ color: 'hsl(var(--light-fg))' }}>
+                  <h3 className="text-2xl font-bold mb-3 transition-colors duration-400 group-hover:text-primary" style={{ color: 'hsl(var(--light-fg))' }}>
                     {cap.title}
                   </h3>
-                  <p className="text-sm leading-relaxed max-w-sm">{cap.desc}</p>
+                  <p className="text-sm leading-relaxed max-w-sm" style={{ color: 'hsl(var(--light-muted))' }}>{cap.desc}</p>
                 </div>
               </div>
             </Link>
@@ -217,26 +336,34 @@ const Capabilities = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   PULL QUOTE — Dark bg, typographic moment
+   PULL QUOTE — Dark bg with gradient & parallax
    ═══════════════════════════════════════════════ */
 const PullQuote = () => (
-  <section className="bg-background py-28 md:py-40">
-    <div className="section-container">
-      <RevealSection blur>
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.03em]" style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3.75rem)' }}>
-            Growth in Southeast Asia requires{" "}
-            <span className="text-primary">Growth Architects</span>
-            , not just strategists<span className="text-primary">.</span>
-          </p>
-        </div>
-      </RevealSection>
+  <section className="relative py-32 md:py-44 overflow-hidden" style={{
+    background: 'linear-gradient(160deg, hsl(220 16% 7%), hsl(220 20% 10%), hsl(220 16% 7%))',
+  }}>
+    <AbstractBlob className="w-[600px] h-[600px] top-[-20%] left-[20%]" color="210 100% 50%" />
+    <AbstractRing className="w-[400px] h-[400px] bottom-[-10%] right-[10%]" />
+
+    <div className="section-container relative z-10">
+      <ParallaxLayer speed={0.08}>
+        <RevealSection blur>
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="font-display font-bold text-foreground leading-[1.08] tracking-[-0.03em]" style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3.75rem)' }}>
+              Growth in Southeast Asia requires{" "}
+              <span className="text-primary">Growth Architects</span>
+              , not just strategists<span className="text-primary">.</span>
+            </p>
+          </div>
+        </RevealSection>
+      </ParallaxLayer>
     </div>
   </section>
 );
 
 /* ═══════════════════════════════════════════════
    HOW WE WORK — White bg, numbered steps
+   Unequal: first 2 steps larger, last 3 smaller
    ═══════════════════════════════════════════════ */
 const processSteps = [
   { step: "Define", desc: "Diagnose the growth challenge and map the ecosystem landscape." },
@@ -247,8 +374,12 @@ const processSteps = [
 ];
 
 const HowWeWork = () => (
-  <section className="section-light py-24 md:py-32">
-    <div className="section-container">
+  <section className="section-light py-24 md:py-32 relative overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none" style={{
+      background: 'radial-gradient(ellipse 50% 60% at 20% 80%, hsl(210 100% 50% / 0.03), transparent 50%)',
+    }} />
+
+    <div className="section-container relative z-10">
       <RevealSection>
         <div className="text-center mb-16">
           <p className="eyebrow mb-4">How We Work</p>
@@ -256,15 +387,31 @@ const HowWeWork = () => (
         </div>
       </RevealSection>
 
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
-        {processSteps.map((step, i) => (
-          <RevealSection key={i} delay={i * 0.08} scale>
-            <div className="jt-card text-center md:text-left flex flex-col items-center md:items-start min-h-[200px] group">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold mb-6 transition-all duration-500 group-hover:scale-110" style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', color: 'hsl(var(--primary))' }}>
+      {/* Top row: 2 large steps */}
+      <div className="grid md:grid-cols-2 gap-6 mb-6">
+        {processSteps.slice(0, 2).map((step, i) => (
+          <RevealSection key={i} delay={i * 0.1} scale>
+            <div className="jt-card flex flex-col min-h-[220px] group shadow-md shadow-black/[0.04]">
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-bold mb-6 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg" style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', color: 'hsl(var(--primary))', boxShadow: '0 4px 20px -4px hsl(var(--primary) / 0.15)' }}>
                 {i + 1}
               </div>
+              <h3 className="text-2xl font-bold mb-3" style={{ color: 'hsl(var(--light-fg))' }}>{step.step}</h3>
+              <p className="text-sm leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{step.desc}</p>
+            </div>
+          </RevealSection>
+        ))}
+      </div>
+
+      {/* Bottom row: 3 smaller steps */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+        {processSteps.slice(2).map((step, i) => (
+          <RevealSection key={i} delay={0.2 + i * 0.08} scale>
+            <div className="jt-card flex flex-col min-h-[180px] group shadow-sm shadow-black/[0.03]">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold mb-5 transition-all duration-500 group-hover:scale-110" style={{ backgroundColor: 'hsl(var(--primary) / 0.08)', color: 'hsl(var(--primary))' }}>
+                {i + 3}
+              </div>
               <h3 className="text-lg font-bold mb-2" style={{ color: 'hsl(var(--light-fg))' }}>{step.step}</h3>
-              <p className="text-xs leading-relaxed">{step.desc}</p>
+              <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{step.desc}</p>
             </div>
           </RevealSection>
         ))}
@@ -274,7 +421,7 @@ const HowWeWork = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   SECTORS — Dark bg, clean card grid
+   SECTORS — Dark, asymmetric 5/7 split
    ═══════════════════════════════════════════════ */
 const sectorClusters = [
   { label: "Enterprise Technology", names: "HP · Oracle · Dell EMC · Commvault · Redington · element14" },
@@ -284,33 +431,40 @@ const sectorClusters = [
 ];
 
 const SectorExperience = () => (
-  <section className="bg-background py-24 md:py-32">
-    <div className="section-container">
-      <div className="grid md:grid-cols-5 gap-16 md:gap-12">
-        {/* Left — large stats */}
-        <div className="md:col-span-2">
-          <RevealSection blur>
-            <p className="eyebrow mb-10">Experience</p>
-            <div className="space-y-10">
-              {[
-                { num: "40+", label: "Enterprise clients" },
-                { num: "100+", label: "Programmes delivered" },
-                { num: "5+", label: "Year avg. partnerships" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="stat-accent text-[clamp(2.5rem,4vw,4rem)]">{stat.num}</p>
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider mt-2">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </RevealSection>
+  <section className="relative py-24 md:py-32 overflow-hidden" style={{
+    background: 'linear-gradient(170deg, hsl(220 16% 7%), hsl(220 18% 9%), hsl(220 16% 7%))',
+  }}>
+    <AbstractBlob className="w-[400px] h-[400px] bottom-[-10%] left-[-5%]" color="210 100% 50%" />
+    <AbstractDots className="top-20 right-20 text-foreground" />
+
+    <div className="section-container relative z-10">
+      <div className="grid md:grid-cols-12 gap-16 md:gap-12">
+        {/* Left — 5 cols, stats */}
+        <div className="md:col-span-5">
+          <ParallaxLayer speed={0.06}>
+            <RevealSection blur>
+              <p className="eyebrow mb-10">Experience</p>
+              <div className="space-y-10">
+                {[
+                  { num: "40+", label: "Enterprise clients" },
+                  { num: "100+", label: "Programmes delivered" },
+                  { num: "5+", label: "Year avg. partnerships" },
+                ].map((stat) => (
+                  <div key={stat.label}>
+                    <p className="stat-accent text-[clamp(2.5rem,4vw,4rem)]">{stat.num}</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider mt-2">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </RevealSection>
+          </ParallaxLayer>
         </div>
 
-        {/* Right — sector cards */}
-        <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* Right — 7 cols, sector cards */}
+        <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {sectorClusters.map((cluster, i) => (
             <RevealSection key={i} delay={i * 0.08} scale>
-              <div className="jt-card-dark min-h-[150px] flex flex-col justify-end">
+              <div className="jt-card-dark min-h-[150px] flex flex-col justify-end shadow-xl shadow-black/20">
                 <p className="text-xs text-primary/60 uppercase tracking-wider mb-3 font-semibold">{cluster.label}</p>
                 <p className="text-sm text-foreground/60 leading-relaxed">{cluster.names}</p>
               </div>
@@ -323,14 +477,18 @@ const SectorExperience = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   SELECTED WORK — White bg, editorial
+   SELECTED WORK — White bg, unequal 8/4 featured
    ═══════════════════════════════════════════════ */
 const SelectedWork = () => {
   const flagships = getFlagshipCases();
   const featured = flagships.slice(0, 3);
   return (
-    <section className="section-light py-24 md:py-32">
-      <div className="section-container">
+    <section className="section-light py-24 md:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse 40% 50% at 80% 70%, hsl(210 100% 50% / 0.03), transparent 50%)',
+      }} />
+
+      <div className="section-container relative z-10">
         <RevealSection>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div>
@@ -343,28 +501,51 @@ const SelectedWork = () => {
           </div>
         </RevealSection>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {featured.map((cs, i) => (
-            <RevealSection key={cs.id} delay={i * 0.1} scale>
-              <Link to={`/work#${cs.id}`} className="group block h-full">
-                <div className="jt-card h-full flex flex-col min-h-[280px]">
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{cs.sectors?.[0] || 'Case Study'}</span>
-                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }} />
+        {/* Unequal: first card large, next 2 stacked */}
+        <div className="grid md:grid-cols-12 gap-6">
+          {featured[0] && (
+            <RevealSection delay={0} scale className="md:col-span-7">
+              <Link to={`/work#${featured[0].id}`} className="group block h-full">
+                <div className="jt-card h-full flex flex-col justify-between min-h-[360px] shadow-lg shadow-black/[0.06] relative overflow-hidden" style={{ background: 'linear-gradient(150deg, hsl(var(--light-card)), hsl(210 40% 97%))' }}>
+                  <AbstractBlob className="w-[250px] h-[250px] bottom-[-20%] right-[-10%] !blur-[60px]" color="210 100% 50%" />
+                  <div className="relative z-10 flex items-center justify-between mb-8">
+                    <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{featured[0].sectors?.[0] || 'Case Study'}</span>
+                    <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }} />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
-                    {cs.client}
-                  </h3>
-                  <p className="text-sm leading-relaxed flex-1">{cs.headline}</p>
-                  {cs.outcomes && cs.outcomes[0] && (
-                    <div className="mt-6 pt-5" style={{ borderTop: '1px solid hsl(var(--light-card-border))' }}>
-                      <p className="text-sm font-semibold" style={{ color: 'hsl(var(--primary))' }}>{cs.outcomes[0]}</p>
-                    </div>
-                  )}
+                  <div className="relative z-10 mt-auto">
+                    <h3 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
+                      {featured[0].client}
+                    </h3>
+                    <p className="text-base leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{featured[0].headline}</p>
+                    {featured[0].outcomes?.[0] && (
+                      <div className="mt-6 pt-5" style={{ borderTop: '1px solid hsl(var(--light-card-border))' }}>
+                        <p className="text-sm font-semibold" style={{ color: 'hsl(var(--primary))' }}>{featured[0].outcomes[0]}</p>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </Link>
             </RevealSection>
-          ))}
+          )}
+
+          <div className="md:col-span-5 flex flex-col gap-6">
+            {featured.slice(1).map((cs, i) => (
+              <RevealSection key={cs.id} delay={0.15 + i * 0.1} scale>
+                <Link to={`/work#${cs.id}`} className="group block h-full">
+                  <div className="jt-card h-full flex flex-col min-h-[165px] shadow-md shadow-black/[0.04]">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{cs.sectors?.[0] || 'Case Study'}</span>
+                      <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }} />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
+                      {cs.client}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{cs.headline}</p>
+                  </div>
+                </Link>
+              </RevealSection>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -372,36 +553,61 @@ const SelectedWork = () => {
 };
 
 /* ═══════════════════════════════════════════════
-   DEPTH — Dark bg, 3 cards
+   DEPTH — Dark bg, unequal 3 cards
    ═══════════════════════════════════════════════ */
 const DepthSection = () => (
-  <section className="bg-background py-24 md:py-32">
-    <div className="section-container">
+  <section className="relative py-24 md:py-32 overflow-hidden" style={{
+    background: 'linear-gradient(180deg, hsl(220 16% 7%), hsl(220 20% 9%), hsl(220 16% 7%))',
+  }}>
+    <AbstractRing className="w-[500px] h-[500px] top-[-15%] right-[-10%]" />
+
+    <div className="section-container relative z-10">
       <RevealSection blur>
         <div className="text-center mb-16">
           <p className="eyebrow mb-4">Behind the work</p>
-          <h2 className="headline-lg">Depth where it matters<span className="text-primary">.</span></h2>
+          <h2 className="headline-lg text-foreground">Depth where it matters<span className="text-primary">.</span></h2>
         </div>
       </RevealSection>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {[
-          { stat: "12+", title: "Senior Principals", desc: "Named leaders across strategy, growth, technology, and creative.", href: "/company/leadership" },
-          { stat: "200+", title: "Operating Bench", desc: "Execution depth across SEA and India — embedded, not outsourced.", href: "/company" },
-          { stat: "5", title: "Regional Nodes", desc: "Singapore · India · Malaysia · Indonesia · USA", href: "/company/regional-nodes" },
-        ].map((item, i) => (
-          <RevealSection key={i} delay={i * 0.1} scale>
-            <Link to={item.href} className="group block h-full">
-              <div className="jt-card-dark h-full flex flex-col justify-between min-h-[240px]">
-                <p className="stat-accent text-6xl md:text-7xl">{item.stat}</p>
+      {/* Unequal: first card wide */}
+      <div className="grid md:grid-cols-12 gap-6">
+        <RevealSection delay={0} scale className="md:col-span-5">
+          <Link to="/company/leadership" className="group block h-full">
+            <div className="jt-card-dark h-full flex flex-col justify-between min-h-[280px] shadow-2xl shadow-primary/[0.08]" style={{ background: 'linear-gradient(135deg, hsl(var(--card)), hsl(220 18% 12%))' }}>
+              <p className="stat-accent text-7xl md:text-8xl">12+</p>
+              <div className="mt-auto">
+                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 mb-2">Senior Principals</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">Named leaders across strategy, growth, technology, and creative.</p>
+              </div>
+            </div>
+          </Link>
+        </RevealSection>
+
+        <div className="md:col-span-7 grid sm:grid-cols-2 gap-6">
+          <RevealSection delay={0.1} scale>
+            <Link to="/company" className="group block h-full">
+              <div className="jt-card-dark h-full flex flex-col justify-between min-h-[280px] shadow-xl shadow-black/20">
+                <p className="stat-accent text-6xl">200+</p>
                 <div className="mt-auto">
-                  <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 mb-2">Operating Bench</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Execution depth across SEA and India — embedded, not outsourced.</p>
                 </div>
               </div>
             </Link>
           </RevealSection>
-        ))}
+
+          <RevealSection delay={0.2} scale>
+            <Link to="/company/regional-nodes" className="group block h-full">
+              <div className="jt-card-dark h-full flex flex-col justify-between min-h-[280px] shadow-xl shadow-black/20">
+                <p className="stat-accent text-6xl">5</p>
+                <div className="mt-auto">
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 mb-2">Regional Nodes</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Singapore · India · Malaysia · Indonesia · USA</p>
+                </div>
+              </div>
+            </Link>
+          </RevealSection>
+        </div>
       </div>
     </div>
   </section>
@@ -418,8 +624,10 @@ const articles = [
 ];
 
 const Thinking = () => (
-  <section className="section-light py-24 md:py-32">
-    <div className="section-container">
+  <section className="section-light py-24 md:py-32 relative overflow-hidden">
+    <AbstractDots className="top-10 right-20 text-primary" />
+
+    <div className="section-container relative z-10">
       <RevealSection>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
@@ -435,15 +643,15 @@ const Thinking = () => (
       {articles.map((article, i) => (
         <RevealSection key={i} delay={i * 0.06}>
           <Link to="/thinking" className="group block">
-            <div className="flex items-center gap-6 md:gap-8 py-5 transition-all duration-300" style={{ borderBottom: '1px solid hsl(var(--light-card-border))' }}>
+            <div className="flex items-center gap-6 md:gap-8 py-5 transition-all duration-300 group-hover:pl-2" style={{ borderBottom: '1px solid hsl(var(--light-card-border))' }}>
               <span className="text-xs uppercase tracking-wider shrink-0 w-[90px] hidden md:block" style={{ color: 'hsl(var(--primary))' }}>
                 {article.category}
               </span>
               <h3 className="flex-1 text-base md:text-lg font-medium leading-snug group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
                 {article.title}
               </h3>
-              <span className="text-xs shrink-0 hidden md:block">{article.readTime}</span>
-              <ArrowUpRight className="w-4 h-4 opacity-30 group-hover:opacity-100 transition-all duration-300 shrink-0" style={{ color: 'hsl(var(--primary))' }} />
+              <span className="text-xs shrink-0 hidden md:block" style={{ color: 'hsl(var(--light-muted))' }}>{article.readTime}</span>
+              <ArrowUpRight className="w-4 h-4 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 shrink-0" style={{ color: 'hsl(var(--primary))' }} />
             </div>
           </Link>
         </RevealSection>
@@ -453,7 +661,7 @@ const Thinking = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   INSIGHT CAROUSEL — Dark bg
+   INSIGHT CAROUSEL — Dark bg with gradient
    ═══════════════════════════════════════════════ */
 const clientInsights: React.ReactNode[] = [
   <>Enterprise pipeline grows when you lead with <span className="text-primary">diagnostics</span>, not product demos.</>,
@@ -482,8 +690,12 @@ const QuoteCarousel = ({ quotes }: { quotes: React.ReactNode[] }) => {
   }, [quotes.length]);
 
   return (
-    <section className="bg-background">
-      <div className="section-container py-20 md:py-28" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+    <section className="relative overflow-hidden" style={{
+      background: 'linear-gradient(160deg, hsl(220 16% 7%), hsl(220 20% 10%), hsl(220 16% 8%))',
+    }}>
+      <AbstractBlob className="w-[500px] h-[500px] top-[-20%] right-[-10%]" color="210 100% 50%" />
+
+      <div className="section-container py-20 md:py-28 relative z-10" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         <RevealSection>
           <p className="eyebrow mb-10">What we believe</p>
         </RevealSection>
@@ -517,16 +729,22 @@ const QuoteCarousel = ({ quotes }: { quotes: React.ReactNode[] }) => {
 };
 
 /* ═══════════════════════════════════════════════
-   CTA — White bg variant
+   CTA — White bg with gradient
    ═══════════════════════════════════════════════ */
 const CTASection = () => (
-  <section className="section-light py-24 md:py-32">
-    <div className="section-container text-center">
+  <section className="section-light py-24 md:py-32 relative overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none" style={{
+      background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.04), transparent 60%)',
+    }} />
+    <AbstractRing className="w-[300px] h-[300px] top-[10%] left-[5%]" />
+    <AbstractRing className="w-[200px] h-[200px] bottom-[15%] right-[10%]" />
+
+    <div className="section-container text-center relative z-10">
       <RevealSection scale>
         <div className="max-w-3xl mx-auto">
           <p className="eyebrow mb-6">Next step</p>
           <h2 className="headline-xl">Let's move growth forward<span className="text-primary">.</span></h2>
-          <p className="text-lg mt-5 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg mt-5 max-w-xl mx-auto leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>
             Tell us where growth needs to move next.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-10">
