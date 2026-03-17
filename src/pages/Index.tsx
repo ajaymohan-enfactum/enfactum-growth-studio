@@ -256,11 +256,11 @@ const WhySEA = () => (
           <SEASignalField />
 
           {/* Gradient overlay to blend into text side */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0c1629] via-transparent to-transparent md:w-1/3 pointer-events-none" />
+           <div className="absolute inset-0 bg-gradient-to-r from-[#0e1525] via-transparent to-transparent md:w-1/3 pointer-events-none" />
 
-          {/* Top/bottom fade */}
-          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#0a1328] to-transparent pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0e1830] to-transparent pointer-events-none" />
+           {/* Top/bottom fade */}
+           <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#0e1525] to-transparent pointer-events-none" />
+           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#111b2e] to-transparent pointer-events-none" />
 
           {/* Soft radial depth */}
           <div className="absolute inset-0 pointer-events-none" style={{
