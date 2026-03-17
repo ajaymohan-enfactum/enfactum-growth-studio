@@ -72,9 +72,9 @@ export const sectorClusters: SectorCluster[] = [
     narrative:
       "Working with publishers, institutions, and ecosystem builders where trust, reach, and stakeholder alignment matter.",
     brands: [
-      b("The Economist", "economist.com", "/logos/economist.png"),
-      b("Abbott", "abbott.com", "/logos/abbott.png"),
-      b("NUS", "nus.edu.sg", "/logos/nus.png"),
+      b("The Economist", "economist.com", "/logos/economist.png", "/logos/economist-color.png", "#1e1f23"),
+      b("Abbott", "abbott.com", "/logos/abbott.png", "/logos/abbott-color.png", "#1e1f23"),
+      b("NUS", "nus.edu.sg", "/logos/nus.png", "/logos/nus-color.png", "#1e1f23"),
       b("Andaz", null, "/logos/andaz.png"),
       b("eBaoTech", null, "/logos/ebaotech.png"),
     ],
