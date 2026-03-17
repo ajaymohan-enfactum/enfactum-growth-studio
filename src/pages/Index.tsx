@@ -610,7 +610,7 @@ const HowWeWork = () => (
                   </span>
                   <h3 className="text-lg font-display font-semibold text-foreground">{step.step}</h3>
                   <div className="h-px w-8 bg-primary/15 my-2.5" />
-                  <p className="text-sm text-foreground/35 leading-relaxed">{step.desc}</p>
+                  <p className="text-sm text-foreground/50 leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             </RevealSection>
