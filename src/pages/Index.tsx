@@ -665,7 +665,7 @@ const SectorExperience = () => (
                 <p className="text-[10px] tracking-[0.2em] text-primary/60 uppercase mb-2">
                   {cluster.label}
                 </p>
-                <p className="text-[15px] text-foreground/40 leading-relaxed tracking-wide">
+                <p className="text-[15px] text-foreground/55 leading-relaxed tracking-wide">
                   {cluster.names}
                 </p>
               </div>
