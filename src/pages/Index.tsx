@@ -191,7 +191,7 @@ const Hero = () => {
    Thesis moment — editorial split with living system visual
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
-  <section id="why-sea" className="relative overflow-hidden" style={{ background: "linear-gradient(180deg, #0a1328 0%, #0c1629 40%, #0e1830 100%)" }}>
+  <section id="why-sea" className="relative overflow-hidden" style={{ background: "linear-gradient(180deg, #0e1525 0%, #101828 40%, #111b2e 100%)" }}>
     {/* Faint architectural vertical rules */}
     <div className="absolute top-0 bottom-0 left-[8%] md:left-[12%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent" />
     <div className="absolute top-0 bottom-0 right-[8%] md:right-[38%] w-px bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent hidden md:block" />
