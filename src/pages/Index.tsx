@@ -554,9 +554,8 @@ const DepthSection = () => (
               </div>
             </Link>
           </RevealSection>
+          </RevealSection>
         </div>
-      </div>
-    </div>
   </section>
 );
 
