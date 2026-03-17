@@ -495,6 +495,7 @@ const SelectedWork = () => {
                 </div>
               </Link>
             </RevealSection>
+          ))}
         </div>
       </div>
     </section>
