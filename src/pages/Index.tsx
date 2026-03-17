@@ -221,8 +221,8 @@ const WhySEA = () => (
           {/* Supporting context — tighter, more embedded */}
           <RevealSection blur delay={0.35}>
             <div className="mt-12 space-y-3 max-w-md">
-              <p className="text-sm text-foreground/40 leading-relaxed">Nearly 700 million people across ten countries. A digital economy past $300 billion — and accelerating.</p>
-              <p className="text-sm text-foreground/55 font-medium leading-relaxed">No single playbook covers it. That is why Enfactum exists.</p>
+               <p className="text-sm text-foreground/50 leading-relaxed">Nearly 700 million people across ten countries. A digital economy past $300 billion — and accelerating.</p>
+               <p className="text-sm text-foreground/65 font-medium leading-relaxed">No single playbook covers it. That is why Enfactum exists.</p>
             </div>
           </RevealSection>
 
