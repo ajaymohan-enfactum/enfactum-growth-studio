@@ -602,7 +602,7 @@ const HowWeWork = () => (
               <div className="flex gap-6 relative group">
                 {/* Node */}
                 <div className="relative shrink-0 mt-1.5">
-                  <div className="w-[9px] h-[9px] rounded-full bg-primary/25 ring-[3px] ring-[#0B1121] relative z-10 ml-[10px]" />
+                  <div className="w-[9px] h-[9px] rounded-full bg-primary/30 ring-[3px] ring-card relative z-10 ml-[10px]" />
                 </div>
                 <div>
                   <span className="text-[10px] tracking-[0.3em] text-primary/30 uppercase font-display block mb-1">
