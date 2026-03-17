@@ -175,7 +175,7 @@ const Hero = () => {
         transition={{ duration: 0.8, delay: 2.2, ease }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] tracking-[0.3em] text-foreground/20 uppercase">Scroll</span>
+        <span className="text-[10px] tracking-[0.3em] text-foreground/35 uppercase">Scroll</span>
         <ChevronDown
           className="w-4 h-4 text-primary/50"
           strokeWidth={1.5}
