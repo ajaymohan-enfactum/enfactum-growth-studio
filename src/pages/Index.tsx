@@ -127,7 +127,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.1, ease }}
-              className="text-[13px] tracking-[0.25em] text-foreground/35 uppercase mt-5 font-light"
+              className="text-[13px] tracking-[0.25em] text-foreground/50 uppercase mt-5 font-light"
             >
               Growth &amp; Innovation Operating Partner · Southeast Asia
             </motion.p>
