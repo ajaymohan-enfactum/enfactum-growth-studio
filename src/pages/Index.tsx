@@ -324,28 +324,12 @@ const HowWeWork = () => (
         </div>
       </RevealSection>
 
-      {/* Top row: 2 large steps */}
-      <div className="grid md:grid-cols-2 gap-6 mb-6">
-        {processSteps.slice(0, 2).map((step, i) => (
-          <RevealSection key={i} delay={i * 0.1} scale>
-            <div className="jt-card flex flex-col min-h-[220px] group shadow-md shadow-black/[0.04]">
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-bold mb-6 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg" style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', color: 'hsl(var(--primary))', boxShadow: '0 4px 20px -4px hsl(var(--primary) / 0.15)' }}>
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
+        {processSteps.map((step, i) => (
+          <RevealSection key={i} delay={i * 0.08} scale>
+            <div className="jt-card flex flex-col min-h-[200px] group shadow-md shadow-black/[0.04]">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold mb-6 transition-all duration-500 group-hover:scale-110" style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', color: 'hsl(var(--primary))' }}>
                 {i + 1}
-              </div>
-              <h3 className="text-2xl font-bold mb-3" style={{ color: 'hsl(var(--light-fg))' }}>{step.step}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{step.desc}</p>
-            </div>
-          </RevealSection>
-        ))}
-      </div>
-
-      {/* Bottom row: 3 smaller steps */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-        {processSteps.slice(2).map((step, i) => (
-          <RevealSection key={i} delay={0.2 + i * 0.08} scale>
-            <div className="jt-card flex flex-col min-h-[180px] group shadow-sm shadow-black/[0.03]">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold mb-5 transition-all duration-500 group-hover:scale-110" style={{ backgroundColor: 'hsl(var(--primary) / 0.08)', color: 'hsl(var(--primary))' }}>
-                {i + 3}
               </div>
               <h3 className="text-lg font-bold mb-2" style={{ color: 'hsl(var(--light-fg))' }}>{step.step}</h3>
               <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{step.desc}</p>
