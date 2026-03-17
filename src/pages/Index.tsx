@@ -766,8 +766,13 @@ const depthItems = [
 
 const DepthSection = () => (
   <section id="depth" className="py-24 md:py-32 relative overflow-hidden">
+    {/* Background visual */}
+    <div className="absolute inset-0 pointer-events-none">
+      <img src={innovationParticles} alt="" className="w-full h-full object-cover opacity-[0.05]" />
+      <div className="absolute inset-0 bg-background/70" />
+    </div>
     {/* Architectural vertical line */}
-    <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent hidden md:block" />
+    <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-primary/[0.06] to-transparent hidden md:block" />
 
     <div className="section-container relative z-10">
       {/* Header */}
