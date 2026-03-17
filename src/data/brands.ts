@@ -11,6 +11,8 @@ export interface BrandEntry {
   localLogo: string | null;
   /** Optional color logo path — rendered without monochrome filter */
   colorLogo?: string | null;
+  /** Optional custom plate background color for color-logo brands */
+  plateColor?: string | null;
 }
 
 export interface SectorCluster {
