@@ -300,7 +300,7 @@ const GrowthBreaks = () => (
           <h2 className="text-[clamp(1.5rem,2.8vw,2.5rem)] font-display font-semibold text-foreground leading-[1.12] tracking-[-0.02em]">
             The friction points we're built to solve.
           </h2>
-          <p className="text-sm text-foreground/35 mt-4 max-w-md leading-relaxed">
+          <p className="text-sm text-foreground/50 mt-4 max-w-md leading-relaxed">
             Five structural failures that repeat across Southeast Asia — and that no single vendor, agency, or consultant is built to address.
           </p>
         </div>
