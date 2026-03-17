@@ -224,10 +224,9 @@ const capabilities = [
 ];
 
 const Capabilities = () => (
-  <section className="section-light py-24 md:py-32 relative overflow-hidden">
-    <div className="absolute inset-0 pointer-events-none" style={{
-      background: 'linear-gradient(180deg, hsl(0 0% 98%), hsl(210 20% 96%) 50%, hsl(0 0% 98%))',
-    }} />
+  <section className="relative py-24 md:py-32 overflow-hidden" style={{
+    background: 'linear-gradient(180deg, hsl(220 16% 7%), hsl(220 18% 9%), hsl(220 16% 7%))',
+  }}>
     <AbstractRing className="w-[500px] h-[500px] top-[-10%] left-[-10%]" />
     <AbstractDots className="bottom-20 right-10 text-primary" />
 
@@ -238,7 +237,7 @@ const Capabilities = () => (
             <p className="eyebrow mb-4">Our Solutions</p>
             <h2 className="headline-lg">Four capabilities<span className="text-primary">.</span><br />One growth architecture<span className="text-primary">.</span></h2>
           </div>
-          <p className="text-sm max-w-xs leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>
+          <p className="text-sm max-w-xs leading-relaxed text-muted-foreground">
             Each capability connects. Together, they form a growth operating system for Southeast Asia.
           </p>
         </div>
@@ -248,19 +247,19 @@ const Capabilities = () => (
         {capabilities.map((cap, i) => (
           <RevealSection key={i} delay={i * 0.1} scale>
             <Link to={cap.href} className="group block h-full">
-              <div className="jt-card h-full flex flex-col justify-between min-h-[260px] relative overflow-hidden shadow-md shadow-black/[0.04]">
+              <div className="jt-card-dark h-full flex flex-col justify-between min-h-[260px] relative overflow-hidden shadow-xl shadow-black/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/[0.03] group-hover:to-primary/[0.06] transition-all duration-700 rounded-2xl" />
                 <div className="relative z-10 flex items-start justify-between">
-                  <span className="text-xs font-mono tracking-wider" style={{ color: 'hsl(var(--light-muted))' }}>{cap.num}</span>
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-white" style={{ backgroundColor: 'hsl(var(--light-card-border))' }}>
+                  <span className="text-xs font-mono tracking-wider text-muted-foreground">{cap.num}</span>
+                  <div className="w-10 h-10 rounded-full bg-border flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-white">
                     <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:rotate-45" />
                   </div>
                 </div>
                 <div className="relative z-10 mt-auto">
-                  <h3 className="text-2xl font-bold mb-3 transition-colors duration-400 group-hover:text-primary" style={{ color: 'hsl(var(--light-fg))' }}>
+                  <h3 className="text-2xl font-bold text-foreground mb-3 transition-colors duration-400 group-hover:text-primary">
                     {cap.title}
                   </h3>
-                  <p className="text-sm leading-relaxed max-w-sm" style={{ color: 'hsl(var(--light-muted))' }}>{cap.desc}</p>
+                  <p className="text-sm leading-relaxed max-w-sm text-muted-foreground">{cap.desc}</p>
                 </div>
               </div>
             </Link>
