@@ -777,7 +777,7 @@ const DepthSection = () => (
           <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-display font-bold text-foreground leading-[1.08] tracking-[-0.02em]">
             Depth where it matters.
           </h2>
-          <p className="text-sm text-foreground/30 mt-4 leading-relaxed max-w-sm">
+          <p className="text-sm text-foreground/50 mt-4 leading-relaxed max-w-sm">
             Every engagement is led by named principals with domain expertise — not rotated junior consultants.
           </p>
         </div>
