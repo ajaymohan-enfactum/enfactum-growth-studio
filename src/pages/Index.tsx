@@ -540,7 +540,7 @@ const HowWeWork = () => (
           <h2 className="text-[clamp(1.5rem,2.8vw,2.5rem)] font-display font-semibold text-foreground leading-[1.12] tracking-[-0.02em]">
             From strategy to operating momentum.
           </h2>
-          <p className="text-sm text-foreground/30 mt-4 leading-relaxed max-w-md">
+          <p className="text-sm text-foreground/50 mt-4 leading-relaxed max-w-md">
             Five phases. Each one builds on the last. No phase exists in isolation.
           </p>
         </div>
