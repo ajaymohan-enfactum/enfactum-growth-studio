@@ -129,10 +129,9 @@ const Hero = () => {
    STATS — White bg, UNEQUAL grid (1 large + 3 small)
    ═══════════════════════════════════════════════ */
 const Stats = () => (
-  <section className="section-light py-24 md:py-32 relative overflow-hidden">
-    {/* Subtle gradient wash */}
+  <section className="bg-background py-24 md:py-32 relative overflow-hidden">
     <div className="absolute inset-0 pointer-events-none" style={{
-      background: 'radial-gradient(ellipse 60% 50% at 70% 30%, hsl(210 100% 50% / 0.04), transparent 60%)',
+      background: 'radial-gradient(ellipse 60% 50% at 70% 30%, hsl(210 100% 50% / 0.06), transparent 60%)',
     }} />
     <AbstractDots className="top-10 left-10 text-primary" />
 
@@ -152,9 +151,9 @@ const Stats = () => (
           { num: "15+", label: "Years in-region" },
         ].map((stat, i) => (
           <RevealSection key={i} delay={i * 0.1} scale>
-            <div className="jt-card text-center flex flex-col items-center justify-center min-h-[180px] shadow-md shadow-black/[0.04]">
+            <div className="jt-card-dark text-center flex flex-col items-center justify-center min-h-[180px] shadow-xl shadow-black/20">
               <p className="stat-accent text-[clamp(2rem,4vw,3.5rem)] mb-3">{stat.num}</p>
-              <p className="text-sm font-medium" style={{ color: 'hsl(var(--light-muted))' }}>{stat.label}</p>
+              <p className="text-sm font-medium text-muted-foreground">{stat.label}</p>
             </div>
           </RevealSection>
         ))}
@@ -225,10 +224,9 @@ const capabilities = [
 ];
 
 const Capabilities = () => (
-  <section className="section-light py-24 md:py-32 relative overflow-hidden">
-    <div className="absolute inset-0 pointer-events-none" style={{
-      background: 'linear-gradient(180deg, hsl(0 0% 98%), hsl(210 20% 96%) 50%, hsl(0 0% 98%))',
-    }} />
+  <section className="relative py-24 md:py-32 overflow-hidden" style={{
+    background: 'linear-gradient(180deg, hsl(220 16% 7%), hsl(220 18% 9%), hsl(220 16% 7%))',
+  }}>
     <AbstractRing className="w-[500px] h-[500px] top-[-10%] left-[-10%]" />
     <AbstractDots className="bottom-20 right-10 text-primary" />
 
@@ -239,7 +237,7 @@ const Capabilities = () => (
             <p className="eyebrow mb-4">Our Solutions</p>
             <h2 className="headline-lg">Four capabilities<span className="text-primary">.</span><br />One growth architecture<span className="text-primary">.</span></h2>
           </div>
-          <p className="text-sm max-w-xs leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>
+          <p className="text-sm max-w-xs leading-relaxed text-muted-foreground">
             Each capability connects. Together, they form a growth operating system for Southeast Asia.
           </p>
         </div>
@@ -249,19 +247,19 @@ const Capabilities = () => (
         {capabilities.map((cap, i) => (
           <RevealSection key={i} delay={i * 0.1} scale>
             <Link to={cap.href} className="group block h-full">
-              <div className="jt-card h-full flex flex-col justify-between min-h-[260px] relative overflow-hidden shadow-md shadow-black/[0.04]">
+              <div className="jt-card-dark h-full flex flex-col justify-between min-h-[260px] relative overflow-hidden shadow-xl shadow-black/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/[0.03] group-hover:to-primary/[0.06] transition-all duration-700 rounded-2xl" />
                 <div className="relative z-10 flex items-start justify-between">
-                  <span className="text-xs font-mono tracking-wider" style={{ color: 'hsl(var(--light-muted))' }}>{cap.num}</span>
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-white" style={{ backgroundColor: 'hsl(var(--light-card-border))' }}>
+                  <span className="text-xs font-mono tracking-wider text-muted-foreground">{cap.num}</span>
+                  <div className="w-10 h-10 rounded-full bg-border flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-white">
                     <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:rotate-45" />
                   </div>
                 </div>
                 <div className="relative z-10 mt-auto">
-                  <h3 className="text-2xl font-bold mb-3 transition-colors duration-400 group-hover:text-primary" style={{ color: 'hsl(var(--light-fg))' }}>
+                  <h3 className="text-2xl font-bold text-foreground mb-3 transition-colors duration-400 group-hover:text-primary">
                     {cap.title}
                   </h3>
-                  <p className="text-sm leading-relaxed max-w-sm" style={{ color: 'hsl(var(--light-muted))' }}>{cap.desc}</p>
+                  <p className="text-sm leading-relaxed max-w-sm text-muted-foreground">{cap.desc}</p>
                 </div>
               </div>
             </Link>
@@ -311,9 +309,9 @@ const processSteps = [
 ];
 
 const HowWeWork = () => (
-  <section className="section-light py-24 md:py-32 relative overflow-hidden">
+  <section className="bg-background py-24 md:py-32 relative overflow-hidden">
     <div className="absolute inset-0 pointer-events-none" style={{
-      background: 'radial-gradient(ellipse 50% 60% at 20% 80%, hsl(210 100% 50% / 0.03), transparent 50%)',
+      background: 'radial-gradient(ellipse 50% 60% at 20% 80%, hsl(210 100% 50% / 0.05), transparent 50%)',
     }} />
 
     <div className="section-container relative z-10">
@@ -327,12 +325,12 @@ const HowWeWork = () => (
       <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
         {processSteps.map((step, i) => (
           <RevealSection key={i} delay={i * 0.08} scale>
-            <div className="jt-card flex flex-col min-h-[200px] group shadow-md shadow-black/[0.04]">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold mb-6 transition-all duration-500 group-hover:scale-110" style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', color: 'hsl(var(--primary))' }}>
+            <div className="jt-card-dark flex flex-col min-h-[200px] group shadow-xl shadow-black/20">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold mb-6 transition-all duration-500 group-hover:scale-110 bg-primary/10 text-primary">
                 {i + 1}
               </div>
-              <h3 className="text-lg font-bold mb-2" style={{ color: 'hsl(var(--light-fg))' }}>{step.step}</h3>
-              <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>{step.desc}</p>
+              <h3 className="text-lg font-bold text-foreground mb-2">{step.step}</h3>
+              <p className="text-xs leading-relaxed text-muted-foreground">{step.desc}</p>
             </div>
           </RevealSection>
         ))}
@@ -402,9 +400,11 @@ const SelectedWork = () => {
   const flagships = getFlagshipCases();
   const featured = flagships.slice(0, 3);
   return (
-    <section className="section-light py-24 md:py-32 relative overflow-hidden">
+    <section className="relative py-24 md:py-32 overflow-hidden" style={{
+      background: 'linear-gradient(170deg, hsl(220 16% 7%), hsl(220 18% 9%), hsl(220 16% 7%))',
+    }}>
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 40% 50% at 80% 70%, hsl(210 100% 50% / 0.03), transparent 50%)',
+        background: 'radial-gradient(ellipse 40% 50% at 80% 70%, hsl(210 100% 50% / 0.05), transparent 50%)',
       }} />
 
       <div className="section-container relative z-10">
@@ -414,7 +414,7 @@ const SelectedWork = () => {
               <p className="eyebrow mb-4">Case Studies</p>
               <h2 className="headline-lg">Proven outcomes<span className="text-primary">,</span> real change<span className="text-primary">.</span></h2>
             </div>
-            <Link to="/work" className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }}>
+            <Link to="/work" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-300">
               View all work <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -424,18 +424,18 @@ const SelectedWork = () => {
           {featured.map((cs, i) => (
             <RevealSection key={cs.id} delay={i * 0.1} scale>
               <Link to={`/work#${cs.id}`} className="group block h-full">
-                <div className="jt-card h-full flex flex-col min-h-[280px] shadow-md shadow-black/[0.04]">
+                <div className="jt-card-dark h-full flex flex-col min-h-[280px] shadow-xl shadow-black/20">
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'hsl(var(--primary))' }}>{cs.sectors?.[0] || 'Case Study'}</span>
-                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }} />
+                    <span className="text-xs font-medium uppercase tracking-wider text-primary">{cs.sectors?.[0] || 'Case Study'}</span>
+                    <ArrowUpRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                     {cs.client}
                   </h3>
-                  <p className="text-sm leading-relaxed flex-1" style={{ color: 'hsl(var(--light-muted))' }}>{cs.headline}</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground flex-1">{cs.headline}</p>
                   {cs.outcomes?.[0] && (
-                    <div className="mt-6 pt-5" style={{ borderTop: '1px solid hsl(var(--light-card-border))' }}>
-                      <p className="text-sm font-semibold" style={{ color: 'hsl(var(--primary))' }}>{cs.outcomes[0]}</p>
+                    <div className="mt-6 pt-5 border-t border-border">
+                      <p className="text-sm font-semibold text-primary">{cs.outcomes[0]}</p>
                     </div>
                   )}
                 </div>
@@ -516,7 +516,7 @@ const articles = [
 ];
 
 const Thinking = () => (
-  <section className="section-light py-24 md:py-32 relative overflow-hidden">
+  <section className="bg-background py-24 md:py-32 relative overflow-hidden">
     <AbstractDots className="top-10 right-20 text-primary" />
 
     <div className="section-container relative z-10">
@@ -526,7 +526,7 @@ const Thinking = () => (
             <p className="eyebrow mb-4">Insights</p>
             <h2 className="headline-md">Perspectives from inside the work<span className="text-primary">.</span></h2>
           </div>
-          <Link to="/thinking" className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all duration-300" style={{ color: 'hsl(var(--primary))' }}>
+          <Link to="/thinking" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-300">
             All insights <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -535,15 +535,15 @@ const Thinking = () => (
       {articles.map((article, i) => (
         <RevealSection key={i} delay={i * 0.06}>
           <Link to="/thinking" className="group block">
-            <div className="flex items-center gap-6 md:gap-8 py-5 transition-all duration-300 group-hover:pl-2" style={{ borderBottom: '1px solid hsl(var(--light-card-border))' }}>
-              <span className="text-xs uppercase tracking-wider shrink-0 w-[90px] hidden md:block" style={{ color: 'hsl(var(--primary))' }}>
+            <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-border/40 transition-all duration-300 group-hover:pl-2">
+              <span className="text-xs uppercase tracking-wider text-primary shrink-0 w-[90px] hidden md:block">
                 {article.category}
               </span>
-              <h3 className="flex-1 text-base md:text-lg font-medium leading-snug group-hover:text-primary transition-colors duration-300" style={{ color: 'hsl(var(--light-fg))' }}>
+              <h3 className="flex-1 text-base md:text-lg font-medium text-foreground leading-snug group-hover:text-primary transition-colors duration-300">
                 {article.title}
               </h3>
-              <span className="text-xs shrink-0 hidden md:block" style={{ color: 'hsl(var(--light-muted))' }}>{article.readTime}</span>
-              <ArrowUpRight className="w-4 h-4 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 shrink-0" style={{ color: 'hsl(var(--primary))' }} />
+              <span className="text-xs text-muted-foreground shrink-0 hidden md:block">{article.readTime}</span>
+              <ArrowUpRight className="w-4 h-4 text-primary opacity-30 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 shrink-0" />
             </div>
           </Link>
         </RevealSection>
@@ -624,9 +624,11 @@ const QuoteCarousel = ({ quotes }: { quotes: React.ReactNode[] }) => {
    CTA — White bg with gradient
    ═══════════════════════════════════════════════ */
 const CTASection = () => (
-  <section className="section-light py-24 md:py-32 relative overflow-hidden">
+  <section className="relative py-24 md:py-32 overflow-hidden" style={{
+    background: 'linear-gradient(160deg, hsl(220 16% 7%), hsl(220 20% 10%), hsl(220 16% 8%))',
+  }}>
     <div className="absolute inset-0 pointer-events-none" style={{
-      background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.04), transparent 60%)',
+      background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.06), transparent 60%)',
     }} />
     <AbstractRing className="w-[300px] h-[300px] top-[10%] left-[5%]" />
     <AbstractRing className="w-[200px] h-[200px] bottom-[15%] right-[10%]" />
@@ -636,7 +638,7 @@ const CTASection = () => (
         <div className="max-w-3xl mx-auto">
           <p className="eyebrow mb-6">Next step</p>
           <h2 className="headline-xl">Let's move growth forward<span className="text-primary">.</span></h2>
-          <p className="text-lg mt-5 max-w-xl mx-auto leading-relaxed" style={{ color: 'hsl(var(--light-muted))' }}>
+          <p className="text-lg text-muted-foreground mt-5 max-w-xl mx-auto leading-relaxed">
             Tell us where growth needs to move next.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-10">
@@ -647,7 +649,7 @@ const CTASection = () => (
               <Button variant="hero-outline" size="xl">Explore capabilities</Button>
             </Link>
           </div>
-          <a href="mailto:info@enfactum.com" className="inline-block text-sm mt-6 transition-colors duration-300" style={{ color: 'hsl(var(--light-muted))' }}>
+          <a href="mailto:info@enfactum.com" className="inline-block text-sm text-muted-foreground mt-6 transition-colors duration-300 hover:text-foreground">
             Or email us directly at info@enfactum.com
           </a>
         </div>
