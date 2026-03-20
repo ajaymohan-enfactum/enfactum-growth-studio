@@ -766,7 +766,7 @@ const SelectedWork = () => {
                           <p className="font-display text-3xl md:text-4xl font-bold text-primary/70 tracking-tight leading-none">
                             {r.metric}
                           </p>
-                          <span className="text-[11px] text-foreground/25 mt-2 block leading-snug font-body">
+                         <span className="text-[11px] text-foreground/40 mt-2 block leading-snug font-body">
                             {r.label}
                           </span>
                         </div>
