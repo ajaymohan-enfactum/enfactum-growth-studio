@@ -606,8 +606,8 @@ const SectorExperience = () => (
             <h2 className="headline-lg">Credibility built across sectors<span className="text-primary">.</span></h2>
           </div>
           <div className="md:col-span-4 md:col-start-8 flex items-end">
-            <p className="text-[13px] text-foreground/25 leading-relaxed font-body">
-              A decade of operating across enterprise technology, consumer brands, institutions, and new-economy platforms — the breadth that builds pattern recognition.
+            <p className="text-[13px] text-foreground/40 leading-relaxed font-body">
+              A decade of operating across enterprise technology, consumer brands, industrial systems, institutions, and new-economy platforms — the breadth that builds pattern recognition.
             </p>
           </div>
         </div>
