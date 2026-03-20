@@ -456,7 +456,7 @@ const PullQuote = () => {
           </p>
 
           {/* Supporting context line */}
-          <p className="text-[13px] text-foreground/20 mt-8 max-w-md mx-auto leading-relaxed font-body">
+          <p className="text-[13px] text-foreground/40 mt-8 max-w-md mx-auto leading-relaxed font-body">
             Strategy without execution infrastructure is a presentation. We build the systems that make growth move.
           </p>
 
