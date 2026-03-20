@@ -230,17 +230,6 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
                 </span>
               ))}
             </div>
-            {/* Brand logo */}
-            {brandLookup[cs.client] && (
-              <div className="mb-2 mt-1">
-                <BrandLogo
-                  name={brandLookup[cs.client].name}
-                  domain={brandLookup[cs.client].domain}
-                  localLogo={brandLookup[cs.client].localLogo}
-                  height={18}
-                />
-              </div>
-            )}
             <span className="text-[10px] text-dim font-body block mb-2">{cs.client}</span>
             <Link to={`/work#${cs.id}`}>
               <h3 className="font-display text-lg md:text-xl font-semibold text-foreground group-hover:text-primary/90 transition-colors duration-500 leading-tight hover:text-primary/80">
