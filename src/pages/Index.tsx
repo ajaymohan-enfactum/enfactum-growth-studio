@@ -1113,6 +1113,7 @@ const Index = () => (
 
     <Hero />
     <Stats />
+    <BrandMarquee />
     <WhySEA />
     <Capabilities />
     <SectorExperience />
