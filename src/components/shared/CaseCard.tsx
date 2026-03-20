@@ -72,14 +72,6 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
 
               {/* Client */}
               <div className="flex items-center gap-3 mb-4">
-                {brandLookup[cs.client] && (
-                  <BrandLogo
-                    name={brandLookup[cs.client].name}
-                    domain={brandLookup[cs.client].domain}
-                    localLogo={brandLookup[cs.client].localLogo}
-                    height={18}
-                  />
-                )}
                 <span className="text-[11px] text-foreground/30 tracking-[0.15em] uppercase font-body">{cs.client}</span>
               </div>
 
