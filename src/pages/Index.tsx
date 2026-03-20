@@ -210,7 +210,7 @@ const WhySEA = () => (
           </RevealSection>
           <RevealSection delay={0.15} blur>
             <p className="text-secondary-foreground mt-6 leading-[1.8] max-w-md text-[15px]">
-              Nearly 700 million people across ten countries. A digital economy past $300 billion — and accelerating. No single playbook covers it. That is why Enfactum exists.
+              Nearly 700 million people across ten countries — no single playbook covers it. That is why Enfactum exists.
             </p>
             <Link to="/company" className="inline-flex items-center gap-2 text-primary font-semibold text-sm mt-6 hover:gap-3 transition-all duration-300">
               Learn more about us <ArrowRight className="w-4 h-4" />
@@ -546,7 +546,7 @@ const HowWeWork = () => {
           <div className="md:col-span-4 md:col-start-8 flex items-end">
             <RevealSection delay={0.1}>
               <p className="text-[13px] text-foreground/40 leading-relaxed font-body">
-                Five phases. One continuous operating sequence. Each phase builds on the last — designed to create lasting infrastructure, not short-term outputs.
+                Five phases, one continuous operating sequence — each phase builds on the last to create lasting infrastructure.
               </p>
             </RevealSection>
           </div>
@@ -1122,7 +1122,7 @@ const Index = () => (
     <SelectedWork />
     <DepthSection />
     <Thinking />
-    <PointOfView />
+    
     <CTASection />
   </PageLayout>
 );
