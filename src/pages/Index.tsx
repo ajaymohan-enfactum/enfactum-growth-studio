@@ -174,7 +174,7 @@ const WhySEA = () => (
             </h2>
           </RevealSection>
           <RevealSection delay={0.15} blur>
-            <p className="text-muted-foreground mt-6 leading-[1.8] max-w-md text-[15px]">
+            <p className="text-secondary-foreground mt-6 leading-[1.8] max-w-md text-[15px]">
               Nearly 700 million people across ten countries. A digital economy past $300 billion — and accelerating. No single playbook covers it. That is why Enfactum exists.
             </p>
             <Link to="/company" className="inline-flex items-center gap-2 text-primary font-semibold text-sm mt-6 hover:gap-3 transition-all duration-300">
