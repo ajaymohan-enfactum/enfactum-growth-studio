@@ -140,7 +140,7 @@ const Brands = () => {
       <HeroSection
         eyebrow="Brands"
         headline={<>Trusted across the industries <span className="text-primary">shaping Southeast Asia.</span></>}
-        description="A cross-sector portfolio of enterprise, consumer, institutional, and innovation-led brands that reflects Enfactum's operating range across the region."
+        description="A cross-sector portfolio of enterprise, industrial & energy, consumer, institutional, and innovation-led brands that reflects Enfactum's operating range across the region."
         variant="institutional"
       >
         <div className="flex flex-wrap gap-4 mt-2">
