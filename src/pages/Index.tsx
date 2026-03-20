@@ -808,7 +808,7 @@ const SelectedWork = () => {
                       {cs.results?.slice(0, 2).map((r: { metric: string; label: string }, ri: number) => (
                         <div key={ri}>
                           <p className="text-lg font-display font-bold text-primary/60 tracking-tight leading-none">{r.metric}</p>
-                          <span className="text-[10px] text-foreground/20 mt-1 block font-body">{r.label}</span>
+                          <span className="text-[10px] text-foreground/35 mt-1 block font-body">{r.label}</span>
                         </div>
                       ))}
                     </div>
