@@ -63,7 +63,30 @@ export const sectorClusters: SectorCluster[] = [
       b("L'Oréal", "loreal.com", "/logos/loreal.png"),
       b("Kiehl's", "kiehls.com", "/logos/kiehls.png"),
       b("JSHealth Vitamins", "jshealth.com", "/logos/jshealth.png", "/logos/jshealth-color.png", "#1e1f23"),
+    ],
+  },
+  {
+    sector: "Industrial & Energy",
+    num: "03",
+    narrative:
+      "Partnering with industrial and energy brands expanding distribution, channel programs, and market presence across the region.",
+    brands: [
       b("Castrol", "castrol.com", "/logos/castrol.png", "/logos/castrol-color.png", "#1e1f23"),
+      b("Güntner", null, "/logos/guntner.png", "/logos/guntner-color.png", "#1e1f23"),
+      b("markem-imaje", null, "/logos/markem.png", "/logos/markem-color.png", "#1e1f23"),
+    ],
+  },
+  {
+    sector: "Institutions & Ecosystems",
+    num: "04",
+    narrative:
+      "Working with publishers, institutions, and ecosystem builders where trust, reach, and stakeholder alignment matter.",
+    brands: [
+      b("The Economist", "economist.com", "/logos/economist.png", "/logos/economist-color.png", "#1e1f23"),
+      b("Abbott", "abbott.com", "/logos/abbott.png", "/logos/abbott-color.png", "#1e1f23"),
+      b("NUS", "nus.edu.sg", "/logos/nus.png", "/logos/nus-color.png", "#1e1f23"),
+      b("Andaz", null, "/logos/andaz.png"),
+      b("eBaoTech", null, "/logos/ebaotech.png"),
     ],
   },
   {
@@ -81,7 +104,7 @@ export const sectorClusters: SectorCluster[] = [
   },
   {
     sector: "New Economy & Innovation",
-    num: "04",
+    num: "05",
     narrative:
       "Partnering with emerging and innovation-led companies shaping new categories across the region.",
     brands: [

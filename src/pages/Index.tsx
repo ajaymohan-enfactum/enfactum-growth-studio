@@ -89,9 +89,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.3, ease }}
-          className="text-[clamp(1rem,1.3vw,1.25rem)] text-muted-foreground mt-8 max-w-lg leading-[1.7] font-light"
+          className="text-[clamp(1rem,1.3vw,1.25rem)] text-muted-foreground mt-8 max-w-xl leading-[1.7] font-light"
         >
-          Helping enterprise brands scale across Southeast Asia with embedded growth architecture.
+          We help enterprise brands enter and grow across Southeast Asia — building partner programs, demand systems, AI ecosystems, and commercial infrastructure that compounds.
         </motion.p>
 
         {/* CTAs */}
@@ -174,7 +174,7 @@ const WhySEA = () => (
             </h2>
           </RevealSection>
           <RevealSection delay={0.15} blur>
-            <p className="text-muted-foreground mt-6 leading-[1.8] max-w-md text-[15px]">
+            <p className="text-secondary-foreground mt-6 leading-[1.8] max-w-md text-[15px]">
               Nearly 700 million people across ten countries. A digital economy past $300 billion — and accelerating. No single playbook covers it. That is why Enfactum exists.
             </p>
             <Link to="/company" className="inline-flex items-center gap-2 text-primary font-semibold text-sm mt-6 hover:gap-3 transition-all duration-300">
@@ -445,7 +445,7 @@ const PullQuote = () => {
           </div>
 
           {/* Eyebrow context */}
-          <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/15 font-body mb-8">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/30 font-body mb-8">
             Our conviction
           </p>
 
@@ -456,7 +456,7 @@ const PullQuote = () => {
           </p>
 
           {/* Supporting context line */}
-          <p className="text-[13px] text-foreground/20 mt-8 max-w-md mx-auto leading-relaxed font-body">
+          <p className="text-[13px] text-foreground/40 mt-8 max-w-md mx-auto leading-relaxed font-body">
             Strategy without execution infrastructure is a presentation. We build the systems that make growth move.
           </p>
 
@@ -510,7 +510,7 @@ const HowWeWork = () => {
           </div>
           <div className="md:col-span-4 md:col-start-8 flex items-end">
             <RevealSection delay={0.1}>
-              <p className="text-[13px] text-foreground/25 leading-relaxed font-body">
+              <p className="text-[13px] text-foreground/40 leading-relaxed font-body">
                 Five phases. One continuous operating sequence. Each phase builds on the last — designed to create lasting infrastructure, not short-term outputs.
               </p>
             </RevealSection>
@@ -551,7 +551,7 @@ const HowWeWork = () => {
                       {/* Glow behind node */}
                       <div className="absolute inset-0 rounded-full bg-primary/10 blur-sm scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
-                    <span className="text-[10px] text-foreground/15 tracking-[0.2em] uppercase font-body">{step.phase}</span>
+                    <span className="text-[10px] text-foreground/30 tracking-[0.2em] uppercase font-body">{step.phase}</span>
                   </div>
 
                   {/* Step number */}
@@ -568,7 +568,7 @@ const HowWeWork = () => {
                   <div className="w-8 h-px bg-primary/15 mb-4 group-hover:w-12 group-hover:bg-primary/30 transition-all duration-500" />
 
                   {/* Description */}
-                  <p className="text-[12px] leading-[1.75] text-foreground/30 font-body max-w-[200px]">{step.desc}</p>
+                  <p className="text-[12px] leading-[1.75] text-foreground/45 font-body max-w-[200px]">{step.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -583,10 +583,11 @@ const HowWeWork = () => {
    SECTORS — Curated breadth & credibility
    ═══════════════════════════════════════════════ */
 const sectorClusters = [
-  { label: "Enterprise Technology", names: "HP · Oracle · Dell EMC · Commvault · Redington · element14", num: "01" },
+  { label: "Enterprise Technology", names: "HP · Oracle · Dell EMC · Commvault · Singtel · Redington · element14", num: "01" },
   { label: "Consumer & Brand Growth", names: "L'Oréal · Lancôme · Kiehl's · Brands For Less · JSHealth", num: "02" },
-  { label: "Media & Institutions", names: "The Economist · NUS · Andaz · Abbott · InsureMO", num: "03" },
-  { label: "New Economy", names: "Lazada · MyRepublic · Singtel · Integrate", num: "04" },
+  { label: "Industrial & Energy", names: "Castrol · Güntner · markem-imaje", num: "03" },
+  { label: "Institutions & Ecosystems", names: "The Economist · NUS · Abbott · Andaz · eBaoTech", num: "04" },
+  { label: "New Economy & Innovation", names: "Lazada · MyRepublic · InsureMO · Integrate", num: "05" },
 ];
 
 const SectorExperience = () => (
@@ -605,8 +606,8 @@ const SectorExperience = () => (
             <h2 className="headline-lg">Credibility built across sectors<span className="text-primary">.</span></h2>
           </div>
           <div className="md:col-span-4 md:col-start-8 flex items-end">
-            <p className="text-[13px] text-foreground/25 leading-relaxed font-body">
-              A decade of operating across enterprise technology, consumer brands, institutions, and new-economy platforms — the breadth that builds pattern recognition.
+            <p className="text-[13px] text-foreground/40 leading-relaxed font-body">
+              A decade of operating across enterprise technology, consumer brands, industrial systems, institutions, and new-economy platforms — the breadth that builds pattern recognition.
             </p>
           </div>
         </div>
@@ -627,8 +628,8 @@ const SectorExperience = () => (
                     <p className="stat-accent text-[clamp(2.5rem,4vw,3.75rem)]">{stat.num}</p>
                     <div className="w-6 h-px bg-primary/20 mt-1" />
                   </div>
-                  <p className="text-[13px] font-medium text-foreground/60 mt-3 font-body">{stat.label}</p>
-                  <p className="text-[11px] text-foreground/15 mt-1 font-body">{stat.sub}</p>
+                  <p className="text-[13px] font-medium text-foreground/70 mt-3 font-body">{stat.label}</p>
+                  <p className="text-[11px] text-foreground/35 mt-1 font-body">{stat.sub}</p>
                 </div>
               ))}
             </div>
@@ -661,7 +662,7 @@ const SectorExperience = () => (
                             {cluster.label}
                           </h3>
                         </div>
-                        <p className="text-[12px] text-foreground/25 leading-[1.8] font-body">{cluster.names}</p>
+                        <p className="text-[12px] text-foreground/40 leading-[1.8] font-body">{cluster.names}</p>
                       </div>
                       {/* Arrow */}
                       <div className="col-span-2 flex items-center justify-end mt-1">
@@ -739,7 +740,7 @@ const SelectedWork = () => {
                     </div>
 
                     {/* Client */}
-                    <span className="text-[11px] text-foreground/20 uppercase tracking-[0.2em] font-body block mb-3">{lead.client}</span>
+                    <span className="text-[11px] text-foreground/35 uppercase tracking-[0.2em] font-body block mb-3">{lead.client}</span>
 
                     {/* Headline — dramatic scale */}
                     <h3 className="text-2xl md:text-3xl lg:text-[2.25rem] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em] group-hover:text-primary transition-colors duration-500 max-w-xl">
@@ -747,7 +748,7 @@ const SelectedWork = () => {
                     </h3>
 
                     {/* Challenge */}
-                    <p className="text-[13px] text-foreground/30 mt-6 leading-[1.8] max-w-md font-body">
+                    <p className="text-[13px] text-foreground/45 mt-6 leading-[1.8] max-w-md font-body">
                       {lead.challenge}
                     </p>
 
@@ -765,7 +766,7 @@ const SelectedWork = () => {
                           <p className="font-display text-3xl md:text-4xl font-bold text-primary/70 tracking-tight leading-none">
                             {r.metric}
                           </p>
-                          <span className="text-[11px] text-foreground/25 mt-2 block leading-snug font-body">
+                         <span className="text-[11px] text-foreground/40 mt-2 block leading-snug font-body">
                             {r.label}
                           </span>
                         </div>
@@ -792,14 +793,14 @@ const SelectedWork = () => {
                   </div>
                   {/* Client + Headline */}
                   <div className="md:col-span-4">
-                    <span className="text-[10px] text-foreground/15 uppercase tracking-[0.2em] font-body block mb-2">{cs.client}</span>
+                    <span className="text-[10px] text-foreground/35 uppercase tracking-[0.2em] font-body block mb-2">{cs.client}</span>
                     <h3 className="font-display text-lg font-bold text-foreground leading-[1.2] group-hover:text-primary transition-colors duration-400">
                       {cs.headline}
                     </h3>
                   </div>
                   {/* Challenge */}
                   <div className="md:col-span-3">
-                    <p className="text-[12px] text-foreground/25 leading-[1.75] font-body">{cs.challenge}</p>
+                    <p className="text-[12px] text-foreground/40 leading-[1.75] font-body">{cs.challenge}</p>
                   </div>
                   {/* Metrics */}
                   <div className="md:col-span-3">
@@ -807,7 +808,7 @@ const SelectedWork = () => {
                       {cs.results?.slice(0, 2).map((r: { metric: string; label: string }, ri: number) => (
                         <div key={ri}>
                           <p className="text-lg font-display font-bold text-primary/60 tracking-tight leading-none">{r.metric}</p>
-                          <span className="text-[10px] text-foreground/20 mt-1 block font-body">{r.label}</span>
+                          <span className="text-[10px] text-foreground/35 mt-1 block font-body">{r.label}</span>
                         </div>
                       ))}
                     </div>
@@ -1079,9 +1080,9 @@ const Index = () => (
     <Stats />
     <WhySEA />
     <Capabilities />
+    <SectorExperience />
     <PullQuote />
     <HowWeWork />
-    <SectorExperience />
     <SelectedWork />
     <DepthSection />
     <Thinking />
