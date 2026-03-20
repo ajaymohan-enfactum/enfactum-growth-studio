@@ -628,8 +628,8 @@ const SectorExperience = () => (
                     <p className="stat-accent text-[clamp(2.5rem,4vw,3.75rem)]">{stat.num}</p>
                     <div className="w-6 h-px bg-primary/20 mt-1" />
                   </div>
-                  <p className="text-[13px] font-medium text-foreground/60 mt-3 font-body">{stat.label}</p>
-                  <p className="text-[11px] text-foreground/15 mt-1 font-body">{stat.sub}</p>
+                  <p className="text-[13px] font-medium text-foreground/70 mt-3 font-body">{stat.label}</p>
+                  <p className="text-[11px] text-foreground/35 mt-1 font-body">{stat.sub}</p>
                 </div>
               ))}
             </div>
