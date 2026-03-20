@@ -2,9 +2,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import AnimatedCounter from "./AnimatedCounter";
-import BrandLogo from "./BrandLogo";
 import type { CaseStudy } from "@/data/caseStudies";
-import { brandLookup } from "@/data/brands";
 import { ArrowRight } from "lucide-react";
 
 interface CaseCardProps {
@@ -72,14 +70,6 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
 
               {/* Client */}
               <div className="flex items-center gap-3 mb-4">
-                {brandLookup[cs.client] && (
-                  <BrandLogo
-                    name={brandLookup[cs.client].name}
-                    domain={brandLookup[cs.client].domain}
-                    localLogo={brandLookup[cs.client].localLogo}
-                    height={18}
-                  />
-                )}
                 <span className="text-[11px] text-foreground/30 tracking-[0.15em] uppercase font-body">{cs.client}</span>
               </div>
 
@@ -238,17 +228,6 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
                 </span>
               ))}
             </div>
-            {/* Brand logo */}
-            {brandLookup[cs.client] && (
-              <div className="mb-2 mt-1">
-                <BrandLogo
-                  name={brandLookup[cs.client].name}
-                  domain={brandLookup[cs.client].domain}
-                  localLogo={brandLookup[cs.client].localLogo}
-                  height={18}
-                />
-              </div>
-            )}
             <span className="text-[10px] text-dim font-body block mb-2">{cs.client}</span>
             <Link to={`/work#${cs.id}`}>
               <h3 className="font-display text-lg md:text-xl font-semibold text-foreground group-hover:text-primary/90 transition-colors duration-500 leading-tight hover:text-primary/80">
