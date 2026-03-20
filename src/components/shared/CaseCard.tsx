@@ -2,9 +2,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import AnimatedCounter from "./AnimatedCounter";
-import BrandLogo from "./BrandLogo";
 import type { CaseStudy } from "@/data/caseStudies";
-import { brandLookup } from "@/data/brands";
 import { ArrowRight } from "lucide-react";
 
 interface CaseCardProps {
