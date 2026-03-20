@@ -98,11 +98,15 @@
   }
   body {
     @apply bg-background text-foreground font-body antialiased;
+    font-size: 17px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
+  }
+  h1, h2 {
+    color: #FFFFFF;
   }
 }
 
@@ -117,28 +121,36 @@
     @apply max-w-[1400px] mx-auto px-0;
   }
   .eyebrow {
-    @apply text-[11px] uppercase tracking-[0.25em] font-medium text-primary/85 font-body;
+    @apply text-[11px] uppercase tracking-[0.3em] font-medium font-body;
+    color: rgba(255, 255, 255, 0.55);
   }
   .headline-display {
-    @apply text-[clamp(2.5rem,5.5vw,5.5rem)] font-extrabold leading-[0.95] tracking-[-0.035em] text-foreground;
+    @apply text-[clamp(2.5rem,5.5vw,5.5rem)] font-extrabold leading-[0.95] tracking-[-0.035em];
+    color: #FFFFFF;
   }
   .headline-xl {
     @apply text-[clamp(2.25rem,4.5vw,4.5rem)] font-bold leading-[1.0] tracking-[-0.03em];
+    color: #FFFFFF;
   }
   .headline-lg {
     @apply text-[clamp(1.75rem,3vw,3rem)] font-bold leading-[1.08] tracking-[-0.025em];
+    color: #FFFFFF;
   }
   .headline-md {
     @apply text-[clamp(1.375rem,2vw,2rem)] font-semibold leading-[1.15] tracking-[-0.015em];
+    color: #FFFFFF;
   }
   .body-xl {
-    @apply text-[clamp(1.125rem,1.4vw,1.375rem)] leading-[1.65] text-secondary-foreground font-light;
+    @apply text-[clamp(1.125rem,1.4vw,1.375rem)] leading-[1.65] font-light;
+    color: rgba(255, 255, 255, 0.80);
   }
   .body-lg {
-    @apply text-[clamp(1rem,1.2vw,1.25rem)] leading-[1.7] text-secondary-foreground font-light;
+    @apply text-[clamp(1rem,1.2vw,1.25rem)] leading-[1.7] font-light;
+    color: rgba(255, 255, 255, 0.80);
   }
   .body-md {
-    @apply text-[15px] leading-[1.75] text-secondary-foreground;
+    @apply text-[15px] leading-[1.75];
+    color: rgba(255, 255, 255, 0.78);
   }
 
   /* Light section — inverts to white bg */

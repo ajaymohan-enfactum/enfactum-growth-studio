@@ -23,7 +23,7 @@ CardTitle.displayName = "CardTitle";
 
 const CardDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
   ({ className, ...props }, ref) => (
-    <p ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />
+    <p ref={ref} className={cn("text-[15px]", className)} style={{ color: 'rgba(255,255,255,0.72)' }} {...props} />
   ),
 );
 CardDescription.displayName = "CardDescription";
