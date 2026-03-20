@@ -1122,7 +1122,7 @@ const Index = () => (
     <SelectedWork />
     <DepthSection />
     <Thinking />
-    <PointOfView />
+    
     <CTASection />
   </PageLayout>
 );
