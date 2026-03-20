@@ -89,9 +89,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.3, ease }}
-          className="text-[clamp(1rem,1.3vw,1.25rem)] text-muted-foreground mt-8 max-w-lg leading-[1.7] font-light"
+          className="text-[clamp(1rem,1.3vw,1.25rem)] text-muted-foreground mt-8 max-w-xl leading-[1.7] font-light"
         >
-          Helping enterprise brands scale across Southeast Asia with embedded growth architecture.
+          We help enterprise brands enter and grow across Southeast Asia — building partner programs, demand systems, AI ecosystems, and commercial infrastructure that compounds.
         </motion.p>
 
         {/* CTAs */}
