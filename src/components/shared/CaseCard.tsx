@@ -70,7 +70,7 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
 
               {/* Client */}
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-[11px] text-foreground/30 tracking-[0.15em] uppercase font-body">{cs.client}</span>
+                <span className="text-[11px] text-foreground tracking-[0.15em] uppercase font-body">{cs.client}</span>
               </div>
 
               {/* Headline — dramatic scale, links to work page */}
