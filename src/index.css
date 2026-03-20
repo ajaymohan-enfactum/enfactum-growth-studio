@@ -121,7 +121,8 @@
     @apply max-w-[1400px] mx-auto px-0;
   }
   .eyebrow {
-    @apply text-[11px] uppercase tracking-[0.25em] font-medium text-primary/85 font-body;
+    @apply text-[11px] uppercase tracking-[0.3em] font-medium font-body;
+    color: rgba(255, 255, 255, 0.55);
   }
   .headline-display {
     @apply text-[clamp(2.5rem,5.5vw,5.5rem)] font-extrabold leading-[0.95] tracking-[-0.035em] text-foreground;
