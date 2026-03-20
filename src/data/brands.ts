@@ -46,8 +46,6 @@ export const sectorClusters: SectorCluster[] = [
       b("Singtel", "singtel.com", "/logos/singtel.png", "/logos/singtel-color.png", "#1e1f23"),
       b("Redington", null, "/logos/redington.png", "/logos/redington-color.png", "#1e1f23"),
       b("element14", null, "/logos/element14.png", "/logos/element14-color.png", "#1e1f23"),
-      b("Güntner", null, "/logos/guntner.png", "/logos/guntner-color.png", "#1e1f23"),
-      b("markem-imaje", null, "/logos/markem.png", "/logos/markem-color.png", "#1e1f23"),
       b("Commvault", "commvault.com", "/logos/commvault.png", "/logos/commvault-color.png", "#1e1f23"),
       b("DSCOOP", null, "/logos/dscoop.png"),
     ],
