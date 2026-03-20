@@ -551,7 +551,7 @@ const HowWeWork = () => {
                       {/* Glow behind node */}
                       <div className="absolute inset-0 rounded-full bg-primary/10 blur-sm scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
-                    <span className="text-[10px] text-foreground/15 tracking-[0.2em] uppercase font-body">{step.phase}</span>
+                    <span className="text-[10px] text-foreground/30 tracking-[0.2em] uppercase font-body">{step.phase}</span>
                   </div>
 
                   {/* Step number */}
