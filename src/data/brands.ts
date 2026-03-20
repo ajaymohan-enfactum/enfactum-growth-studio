@@ -104,7 +104,7 @@ export const sectorClusters: SectorCluster[] = [
   },
   {
     sector: "New Economy & Innovation",
-    num: "04",
+    num: "05",
     narrative:
       "Partnering with emerging and innovation-led companies shaping new categories across the region.",
     brands: [
