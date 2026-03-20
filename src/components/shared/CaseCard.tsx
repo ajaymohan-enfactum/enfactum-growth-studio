@@ -162,7 +162,7 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
         <div className="group block">
           <div className="grid md:grid-cols-12 gap-4 py-6 border-b border-border/20 hover:border-primary/10 transition-colors duration-700">
             <div className="md:col-span-3">
-              <span className="text-[11px] text-dim font-body block mb-1">{cs.client}</span>
+              <span className="text-[11px] text-foreground font-body block mb-1">{cs.client}</span>
               <h3 className="font-display text-[14px] font-semibold text-foreground group-hover:text-primary/90 transition-colors duration-500 leading-snug">
                 {cs.headline}
               </h3>
@@ -228,7 +228,7 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
                 </span>
               ))}
             </div>
-            <span className="text-[10px] text-dim font-body block mb-2">{cs.client}</span>
+            <span className="text-[10px] text-foreground font-body block mb-2">{cs.client}</span>
             <Link to={`/work#${cs.id}`}>
               <h3 className="font-display text-lg md:text-xl font-semibold text-foreground group-hover:text-primary/90 transition-colors duration-500 leading-tight hover:text-primary/80">
                 {cs.headline}
