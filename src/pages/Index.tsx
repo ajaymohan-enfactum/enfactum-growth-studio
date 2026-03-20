@@ -84,14 +84,15 @@ const Hero = () => {
           </motion.h1>
         </div>
 
-        {/* Subtext */}
+        {/* Descriptor */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.3, ease }}
-          className="text-[clamp(1rem,1.3vw,1.25rem)] text-muted-foreground mt-8 max-w-xl leading-[1.7] font-light"
+          className="mt-8 max-w-[580px] leading-[1.7] font-light"
+          style={{ fontSize: '18px', color: 'rgba(255,255,255,0.70)' }}
         >
-          We help enterprise brands enter and grow across Southeast Asia — building partner programs, demand systems, AI ecosystems, and commercial infrastructure that compounds.
+          We help enterprise brands enter and grow in Southeast Asian markets — building the commercial infrastructure, partnerships, and on-the-ground teams that drive lasting revenue.
         </motion.p>
 
         {/* CTAs */}
