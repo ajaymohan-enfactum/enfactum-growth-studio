@@ -1080,9 +1080,9 @@ const Index = () => (
     <Stats />
     <WhySEA />
     <Capabilities />
+    <SectorExperience />
     <PullQuote />
     <HowWeWork />
-    <SectorExperience />
     <SelectedWork />
     <DepthSection />
     <Thinking />
