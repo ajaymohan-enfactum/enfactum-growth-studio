@@ -445,7 +445,7 @@ const PullQuote = () => {
           </div>
 
           {/* Eyebrow context */}
-          <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/15 font-body mb-8">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/30 font-body mb-8">
             Our conviction
           </p>
 
