@@ -153,6 +153,40 @@ const Stats = () => (
 );
 
 /* ═══════════════════════════════════════════════
+   BRAND MARQUEE — Trusted-by logo/text strip
+   ═══════════════════════════════════════════════ */
+const brandNames = [
+  "HP", "Oracle", "Dell EMC", "Seagate", "Commvault",
+  "L'Oréal", "Lancôme", "Kiehl's",
+  "The Economist", "NUS",
+  "Lazada", "Singtel",
+];
+
+const BrandMarquee = () => (
+  <section className="relative py-10 md:py-12 border-b border-border/10 overflow-hidden">
+    <div className="section-container mb-6">
+      <p className="eyebrow text-center">Trusted by</p>
+    </div>
+    <div className="relative">
+      {/* Fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to right, hsl(220 16% 7%), transparent)' }} />
+      <div className="absolute right-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to left, hsl(220 16% 7%), transparent)' }} />
+      <div className="flex animate-ticker" style={{ animationDuration: '35s', width: 'max-content' }}>
+        {[...brandNames, ...brandNames].map((name, i) => (
+          <span
+            key={i}
+            className="inline-flex items-center px-8 md:px-10 text-[15px] md:text-[16px] font-display font-semibold tracking-[-0.01em] whitespace-nowrap"
+            style={{ color: 'rgba(255,255,255,0.40)' }}
+          >
+            {name}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+/* ═══════════════════════════════════════════════
    WHY SEA — Editorial asymmetric layout
    ═══════════════════════════════════════════════ */
 const WhySEA = () => (
@@ -1079,6 +1113,7 @@ const Index = () => (
 
     <Hero />
     <Stats />
+    <BrandMarquee />
     <WhySEA />
     <Capabilities />
     <SectorExperience />
