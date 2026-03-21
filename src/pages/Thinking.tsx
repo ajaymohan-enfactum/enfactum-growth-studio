@@ -43,7 +43,7 @@ const LeadArticle = ({ article }: { article: Article }) => (
   <Link to={`/thinking/${article.slug}`} className="block group">
     <article className="relative">
       {/* Large decorative number */}
-      <span className="absolute -top-4 right-0 text-[120px] md:text-[180px] font-display font-bold text-foreground/[0.015] leading-none select-none pointer-events-none hidden md:block animate-ambient-drift">
+      <span className="absolute -top-4 right-0 text-[120px] md:text-[180px] font-display font-bold text-foreground/[0.015] leading-none select-none pointer-events-none hidden md:block">
         01
       </span>
       <div className="grid md:grid-cols-12 gap-8 md:gap-12 relative z-10">
