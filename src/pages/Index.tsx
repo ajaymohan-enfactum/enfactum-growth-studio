@@ -792,7 +792,7 @@ const SelectedWork = () => {
    DEPTH — Institutional trust strip (not cards)
    ═══════════════════════════════════════════════ */
 const DepthSection = () => (
-  <section className="relative py-24 md:py-32 overflow-hidden">
+  <section className="relative py-20 md:py-24 overflow-hidden">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
 
     <div className="section-container relative z-10">
