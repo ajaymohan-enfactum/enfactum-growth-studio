@@ -552,7 +552,7 @@ const sectorClusters = [
 ];
 
 const SectorExperience = () => (
-  <section className="relative py-28 md:py-36 overflow-hidden bg-[hsl(var(--section-alt))]">
+  <section className="relative py-20 md:py-28 overflow-hidden bg-[hsl(var(--section-alt))]">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
     <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
     {/* Subtle vertical guide at the column split */}
