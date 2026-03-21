@@ -146,7 +146,7 @@
   }
   .body-xl {
     @apply text-[clamp(1.125rem,1.4vw,1.375rem)] leading-[1.65] font-light;
-    color: rgba(255, 255, 255, 0.80);
+    color: rgba(255, 255, 255, 0.82);
   }
   .body-lg {
     @apply text-[clamp(1rem,1.2vw,1.25rem)] leading-[1.7] font-light;
