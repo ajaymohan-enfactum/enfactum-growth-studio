@@ -130,7 +130,7 @@
   }
   .headline-display {
     @apply text-[clamp(2.5rem,5.5vw,5.5rem)] font-extrabold leading-[0.95] tracking-[-0.035em];
-    color: #FFFFFF;
+    color: #FFFFFF !important;
   }
   .headline-xl {
     @apply text-[clamp(2.25rem,4.5vw,4.5rem)] font-bold leading-[1.0] tracking-[-0.03em];
