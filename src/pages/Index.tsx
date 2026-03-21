@@ -145,29 +145,40 @@ const Hero = () => {
 /* ═══════════════════════════════════════════════
    STATS — Horizontal counter strip (not cards)
    ═══════════════════════════════════════════════ */
-const Stats = () => (
-  <section className="relative py-16 md:py-20 border-y border-border/20" style={{
-    background: 'linear-gradient(90deg, hsl(220 18% 8%), hsl(220 16% 9%), hsl(220 18% 8%))',
-  }}>
-    <div className="section-container">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
-        {[
-          { num: "700M+", label: "People across ten countries" },
-          { num: "$300B+", label: "Digital economy" },
-          { num: "40+", label: "Enterprise clients" },
-          { num: "15+", label: "Years in-region" },
-        ].map((stat, i) => (
-          <RevealSection key={i} delay={i * 0.1}>
-            <div className={`text-center md:text-left ${i > 0 ? 'md:border-l md:border-border/20 md:pl-8' : ''}`}>
-              <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-1">{stat.num}</p>
-              <p className="text-xs text-muted-foreground tracking-wide">{stat.label}</p>
-            </div>
-          </RevealSection>
-        ))}
+const Stats = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const stats = [
+    { num: "700M+", label: "People across ten countries" },
+    { num: "$300B+", label: "Digital economy" },
+    { num: "40+", label: "Enterprise clients" },
+    { num: "15+", label: "Years in-region" },
+  ];
+
+  return (
+    <section ref={ref} className="relative py-16 md:py-20 border-y border-border/20" style={{
+      background: 'linear-gradient(90deg, hsl(220 18% 8%), hsl(220 16% 9%), hsl(220 18% 8%))',
+    }}>
+      <div className="section-container">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+              transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className={`text-center md:text-left ${i > 0 ? 'md:border-l md:border-border/20 md:pl-8' : ''}`}>
+                <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-1">{stat.num}</p>
+                <p className="text-xs text-muted-foreground tracking-wide">{stat.label}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 /* ═══════════════════════════════════════════════
    BRAND MARQUEE — Trusted-by logo/text strip
