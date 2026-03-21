@@ -183,8 +183,8 @@ const Work = () => {
           }} />
           {/* Left accent line */}
           <div className="absolute top-0 bottom-0 left-[6%] w-px bg-gradient-to-b from-transparent via-primary/[0.06] to-transparent hidden md:block" />
-          {/* Ambient breathing glow */}
-          <div className="absolute inset-0 pointer-events-none animate-glow-breathe" style={{
+          {/* Static atmospheric glow */}
+          <div className="absolute inset-0 pointer-events-none" style={{
             background: 'radial-gradient(ellipse 50% 50% at 70% 40%, hsl(210 100% 50% / 0.04), transparent 60%)',
           }} />
 
