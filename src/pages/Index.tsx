@@ -212,10 +212,10 @@ const WhySEA = () => {
   const seaRef = useRef<HTMLDivElement>(null);
   const seaInView = useInView(seaRef, { once: true, amount: 0.2 });
   const markets = [
-    { market: "Singapore", role: "HQ & Strategy Hub", flag: "🇸🇬" },
-    { market: "India", role: "Operating Bench", flag: "🇮🇳" },
-    { market: "Malaysia", role: "Regional Node", flag: "🇲🇾" },
-    { market: "Indonesia", role: "Growth Market", flag: "🇮🇩" },
+    { market: "Singapore", role: "HQ & Strategy Hub", code: "sg" },
+    { market: "India", role: "Operating Bench", code: "in" },
+    { market: "Malaysia", role: "Regional Node", code: "my" },
+    { market: "Indonesia", role: "Growth Market", code: "id" },
   ];
 
   return (
@@ -257,7 +257,7 @@ const WhySEA = () => {
                 transition={{ duration: 0.6, delay: 0.3 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="flex items-center gap-5 py-4 border-b border-border/15 group hover:border-primary/15 transition-colors duration-500">
-                  <span className="w-8 h-8 rounded-full bg-card border border-border/30 flex items-center justify-center text-base overflow-hidden">{node.flag}</span>
+                  <img src={`https://flagcdn.com/w80/${node.code}.png`} alt={node.market} className="w-8 h-8 rounded-full object-cover" />
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-foreground">{node.market}</p>
                     <p className="text-xs text-muted-foreground mt-0.5">{node.role}</p>
