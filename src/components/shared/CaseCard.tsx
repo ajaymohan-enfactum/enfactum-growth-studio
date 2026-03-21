@@ -29,7 +29,7 @@ const capabilitySlugMap: Record<string, string> = {
 const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
   const cardId = id || cs.id;
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const isInView = useInView(ref, { once: true, margin: "100px 0px" });
   const [hovered, setHovered] = useState(false);
 
   const primaryCapHref = cs.capabilities[0] ? capabilitySlugMap[cs.capabilities[0]] : null;
