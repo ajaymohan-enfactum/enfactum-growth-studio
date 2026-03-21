@@ -53,7 +53,13 @@ const Hero = () => {
         </motion.span>
       </motion.div>
 
-      <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 px-6 md:px-12 lg:px-16 max-w-[1200px] mx-auto w-full">
+      <motion.div
+        style={{ y: heroY, opacity: heroOpacity }}
+        className="relative z-10 px-6 md:px-12 lg:px-16 max-w-[1200px] mx-auto w-full"
+        initial={{ filter: "blur(6px)" }}
+        animate={{ filter: "blur(0px)" }}
+        transition={{ duration: 1.2, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+      >
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
