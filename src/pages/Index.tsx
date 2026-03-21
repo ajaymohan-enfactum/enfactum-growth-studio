@@ -98,7 +98,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.3, ease }}
           className="mt-8 max-w-[580px] leading-[1.7] font-light"
-          style={{ fontSize: '18px', color: 'rgba(255,255,255,0.70)' }}
+          style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)' }}
         >
           We help enterprise brands enter and grow in Southeast Asian markets — building the commercial infrastructure, partnerships, and on-the-ground teams that drive lasting revenue.
         </motion.p>
@@ -160,8 +160,8 @@ const Stats = () => {
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className={`text-center md:text-left ${i > 0 ? 'md:border-l md:border-border/20 md:pl-8' : ''}`}>
-                <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-1">{stat.num}</p>
-                <p className="text-xs text-muted-foreground tracking-wide">{stat.label}</p>
+                <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-1" style={{ color: '#FFFFFF' }}>{stat.num}</p>
+                <p className="text-xs tracking-wide" style={{ color: 'rgba(255,255,255,0.65)' }}>{stat.label}</p>
               </div>
             </motion.div>
           ))}
