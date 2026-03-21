@@ -370,7 +370,7 @@ const Capabilities = () => {
                   
                   <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="p-2 rounded-lg bg-primary/10 text-primary transition-all duration-500 group-hover/card:bg-primary/20 group-hover/card:shadow-[0_0_16px_-4px_hsl(210_100%_50%/0.3)]">
+                      <div className="p-2 rounded-lg bg-primary/10 text-primary">
                         <cap.icon className="w-4 h-4" />
                       </div>
                       <span className="text-[10px] font-mono tracking-wider text-muted-foreground">{cap.num}</span>
