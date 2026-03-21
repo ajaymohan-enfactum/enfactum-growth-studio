@@ -291,21 +291,8 @@ const WhySEA = () => {
   </section>
   );
 };
-                  <span className="text-xl">{node.flag}</span>
-                  <div className="flex-1">
-                    <p className="text-sm font-semibold text-foreground">{node.market}</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">{node.role}</p>
-                  </div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary/60 transition-colors duration-500" />
-                </div>
-              ))}
-            </div>
-          </RevealSection>
-        </div>
-      </div>
-    </div>
-  </section>
-);
+
+
 
 /* ═══════════════════════════════════════════════
    CAPABILITIES — Interconnected architecture
