@@ -191,27 +191,29 @@ const brandNames = [
 ];
 
 const BrandMarquee = () => (
-  <section className="relative py-10 md:py-12 border-b border-border/10 overflow-hidden">
-    <div className="section-container mb-6">
-      <p className="eyebrow text-center">Trusted by</p>
-    </div>
-    <div className="relative">
-      {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to right, hsl(220 16% 7%), transparent)' }} />
-      <div className="absolute right-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to left, hsl(220 16% 7%), transparent)' }} />
-      <div className="flex animate-ticker" style={{ animationDuration: '35s', width: 'max-content' }}>
-        {[...brandNames, ...brandNames].map((name, i) => (
-          <span
-            key={i}
-            className="inline-flex items-center px-8 md:px-10 text-[15px] md:text-[16px] font-display font-semibold tracking-[-0.01em] whitespace-nowrap"
-            style={{ color: 'rgba(255,255,255,0.40)' }}
-          >
-            {name}
-          </span>
-        ))}
+  <RevealSection blur delay={0.1}>
+    <section className="relative py-10 md:py-12 border-b border-border/10 overflow-hidden">
+      <div className="section-container mb-6">
+        <p className="eyebrow text-center">Trusted by</p>
       </div>
-    </div>
-  </section>
+      <div className="relative">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to right, hsl(220 16% 7%), transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to left, hsl(220 16% 7%), transparent)' }} />
+        <div className="flex animate-ticker" style={{ animationDuration: '35s', width: 'max-content' }}>
+          {[...brandNames, ...brandNames].map((name, i) => (
+            <span
+              key={i}
+              className="inline-flex items-center px-8 md:px-10 text-[15px] md:text-[16px] font-display font-semibold tracking-[-0.01em] whitespace-nowrap hover:text-foreground/60 transition-colors duration-500"
+              style={{ color: 'rgba(255,255,255,0.40)' }}
+            >
+              {name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  </RevealSection>
 );
 
 /* ═══════════════════════════════════════════════
