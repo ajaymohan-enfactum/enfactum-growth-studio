@@ -43,7 +43,7 @@ const LeadArticle = ({ article }: { article: Article }) => (
   <Link to={`/thinking/${article.slug}`} className="block group">
     <article className="relative">
       {/* Large decorative number */}
-      <span className="absolute -top-4 right-0 text-[120px] md:text-[180px] font-display font-bold text-foreground/[0.015] leading-none select-none pointer-events-none hidden md:block">
+      <span className="absolute -top-4 right-0 text-[120px] md:text-[180px] font-display font-bold text-foreground/[0.015] leading-none select-none pointer-events-none hidden md:block animate-ambient-drift">
         01
       </span>
       <div className="grid md:grid-cols-12 gap-8 md:gap-12 relative z-10">
@@ -63,12 +63,12 @@ const LeadArticle = ({ article }: { article: Article }) => (
           <p className="text-[15px] text-foreground/35 mt-6 leading-[1.8] max-w-lg font-body">
             {article.teaser}
           </p>
-          <span className="inline-flex items-center gap-1.5 mt-8 text-[11px] text-primary/50 uppercase tracking-[0.15em] font-body font-medium group-hover:text-primary/80 transition-colors duration-500">
-            Read article <ArrowRight className="w-3.5 h-3.5" />
+          <span className="inline-flex items-center gap-1.5 mt-8 text-[11px] text-primary/50 uppercase tracking-[0.15em] font-body font-medium group-hover:text-primary/80 group-hover:gap-2.5 transition-all duration-500">
+            Read article <ArrowRight className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1" />
           </span>
         </div>
         <div className="md:col-span-4 md:col-start-9 flex flex-col justify-end">
-          <div className="border-l-2 border-primary/10 pl-6">
+          <div className="border-l-2 border-primary/10 pl-6 group-hover:border-primary/25 transition-colors duration-500">
             <p className="text-[14px] font-medium text-foreground/60 font-body">{article.author}</p>
             {article.authorRole && (
               <p className="text-[11px] text-foreground/20 font-body mt-0.5">{article.authorRole}</p>
