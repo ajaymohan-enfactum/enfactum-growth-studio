@@ -998,7 +998,7 @@ const PointOfView = () => {
    CTA
    ═══════════════════════════════════════════════ */
 const CTASection = () => (
-  <section className="relative py-36 md:py-48 overflow-hidden" style={{
+  <section className="relative py-24 md:py-24 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 11%) 50%, hsl(220 16% 7%))',
   }}>
     <div className="absolute inset-0 pointer-events-none" style={{
