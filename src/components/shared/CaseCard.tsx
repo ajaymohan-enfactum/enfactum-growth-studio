@@ -47,12 +47,10 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
         transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
         <article
-          className="relative py-16 md:py-20 border-b border-border/20 group transition-all duration-700 hover:border-primary/15"
+          className="relative py-16 md:py-20 border-b border-border/20 group"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          {/* Hover accent glow */}
-          <div className={`absolute inset-0 pointer-events-none transition-opacity duration-700 ${hovered ? 'opacity-100' : 'opacity-0'}`} style={{ background: 'radial-gradient(ellipse 60% 50% at 30% 50%, hsl(210 100% 50% / 0.02), transparent 70%)' }} />
           <div className="grid md:grid-cols-12 gap-8 md:gap-12">
             {/* Left — Editorial content */}
             <div className="md:col-span-7">
