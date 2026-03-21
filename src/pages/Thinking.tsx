@@ -115,7 +115,7 @@ const SecondaryArticle = ({ article, index }: { article: Article; index: number 
 /* ═══ Archive row — minimal ═══ */
 const ArchiveRow = ({ article }: { article: Article }) => (
   <Link to={`/thinking/${article.slug}`} className="block group">
-    <article className="grid md:grid-cols-12 gap-4 py-5 border-b border-border/8 group-hover:border-primary/10 transition-colors duration-500">
+    <article className="grid md:grid-cols-12 gap-4 py-5 border-b border-border/8 group-hover:border-primary/10 transition-colors duration-500 group-hover:pl-1">
       <div className="md:col-span-2">
         <span className="text-[10px] text-primary/30 uppercase tracking-[0.15em] font-body">{article.category}</span>
       </div>
@@ -130,6 +130,7 @@ const ArchiveRow = ({ article }: { article: Article }) => (
       <div className="md:col-span-2 flex items-center justify-end gap-3">
         <span className="text-[10px] text-foreground/12 font-body">{article.readTime}</span>
         <span className="text-[10px] text-foreground/12 font-body">{article.date}</span>
+        <ArrowRight className="w-3 h-3 text-foreground/0 group-hover:text-primary/50 transition-all duration-500" />
       </div>
     </article>
   </Link>
