@@ -761,7 +761,7 @@ const SelectedWork = () => {
                   </div>
                   {/* Challenge */}
                   <div className="md:col-span-3">
-                    <p className="text-[12px] text-foreground/40 leading-[1.75] font-body">{cs.challenge}</p>
+                    <p className="text-[12px] text-foreground/65 leading-[1.75] font-body">{cs.challenge}</p>
                   </div>
                   {/* Metrics */}
                   <div className="md:col-span-3">
