@@ -325,101 +325,46 @@ const Capabilities = () => {
       {/* Architecture grid — 2x2 with animated connecting lines */}
       <div className="relative">
         {/* Center connection hub — animated */}
+        {/* Center connection node */}
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border border-primary/20 bg-primary/[0.04] backdrop-blur-sm z-10 hidden md:flex items-center justify-center"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full border border-primary/15 bg-primary/[0.03] backdrop-blur-sm z-10 hidden md:flex items-center justify-center"
           initial={{ scale: 0, opacity: 0 }}
           animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Pulsing core */}
-          <motion.div
-            className="w-3 h-3 rounded-full bg-primary/60"
-            animate={isInView ? {
-              scale: [1, 1.4, 1],
-              opacity: [0.6, 1, 0.6],
-              boxShadow: [
-                '0 0 0 0 hsl(210 100% 50% / 0)',
-                '0 0 12px 4px hsl(210 100% 50% / 0.3)',
-                '0 0 0 0 hsl(210 100% 50% / 0)',
-              ],
-            } : {}}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-          />
-          {/* Outer ring pulse */}
-          <motion.div
-            className="absolute inset-0 rounded-full border border-primary/10"
-            animate={isInView ? {
-              scale: [1, 1.3, 1],
-              opacity: [0.2, 0, 0.2],
-            } : {}}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-          />
+          <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
         </motion.div>
 
-        {/* Connecting lines — animated draw-in */}
+        {/* Connecting lines — static, revealed on scroll */}
         <div className="absolute inset-0 hidden md:block pointer-events-none z-[5]">
-          {/* Left horizontal */}
           <motion.div
             className="absolute top-[calc(50%-1px)] left-[25%] h-px origin-right"
-            style={{ width: '25%', background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.06), hsl(210 100% 50% / 0.2))' }}
+            style={{ width: '25%', background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.04), hsl(210 100% 50% / 0.12))' }}
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.7, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
           />
-          {/* Right horizontal */}
           <motion.div
             className="absolute top-[calc(50%-1px)] left-[50%] h-px origin-left"
-            style={{ width: '25%', background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.2), hsl(210 100% 50% / 0.06))' }}
+            style={{ width: '25%', background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.12), hsl(210 100% 50% / 0.04))' }}
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.7, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
           />
-          {/* Top vertical */}
           <motion.div
             className="absolute left-[calc(50%-1px)] top-[25%] w-px origin-bottom"
-            style={{ height: '25%', background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.06), hsl(210 100% 50% / 0.2))' }}
+            style={{ height: '25%', background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.04), hsl(210 100% 50% / 0.12))' }}
             initial={{ scaleY: 0 }}
             animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 0.7, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
           />
-          {/* Bottom vertical */}
           <motion.div
             className="absolute left-[calc(50%-1px)] top-[50%] w-px origin-top"
-            style={{ height: '25%', background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.2), hsl(210 100% 50% / 0.06))' }}
+            style={{ height: '25%', background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.12), hsl(210 100% 50% / 0.04))' }}
             initial={{ scaleY: 0 }}
             animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 0.7, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
           />
-
-          {/* Signal pulses traveling along lines — after lines draw in */}
-          {isInView && (
-            <>
-              <motion.div
-                className="absolute top-[calc(50%-2px)] w-1.5 h-1.5 rounded-full bg-primary/40"
-                initial={{ left: '25%', opacity: 0 }}
-                animate={{ left: '50%', opacity: [0, 0.8, 0] }}
-                transition={{ duration: 1.5, delay: 2, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute top-[calc(50%-2px)] w-1.5 h-1.5 rounded-full bg-primary/40"
-                initial={{ left: '75%', opacity: 0 }}
-                animate={{ left: '50%', opacity: [0, 0.8, 0] }}
-                transition={{ duration: 1.5, delay: 3.5, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute left-[calc(50%-2px)] w-1.5 h-1.5 rounded-full bg-primary/40"
-                initial={{ top: '25%', opacity: 0 }}
-                animate={{ top: '50%', opacity: [0, 0.8, 0] }}
-                transition={{ duration: 1.5, delay: 2.8, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute left-[calc(50%-2px)] w-1.5 h-1.5 rounded-full bg-primary/40"
-                initial={{ top: '75%', opacity: 0 }}
-                animate={{ top: '50%', opacity: [0, 0.8, 0] }}
-                transition={{ duration: 1.5, delay: 4.2, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
-              />
-            </>
-          )}
         </div>
 
         <div className="grid md:grid-cols-2 gap-4 md:gap-5 group/grid">
