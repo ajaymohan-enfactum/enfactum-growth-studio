@@ -154,7 +154,7 @@
   }
   .body-md {
     @apply text-[15px] leading-[1.75];
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(255, 255, 255, 0.82);
   }
 
   /* Light section — inverts to white bg */
