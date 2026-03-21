@@ -709,7 +709,7 @@ const SelectedWork = () => {
                     </h3>
 
                     {/* Challenge */}
-                    <p className="text-[13px] text-foreground/45 mt-6 leading-[1.8] max-w-md font-body">
+                    <p className="text-[13px] text-foreground/65 mt-6 leading-[1.8] max-w-md font-body">
                       {lead.challenge}
                     </p>
 
