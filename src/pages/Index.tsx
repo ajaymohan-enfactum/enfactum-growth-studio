@@ -291,7 +291,7 @@ const Capabilities = () => {
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
   return (
-  <section ref={sectionRef} className="relative py-28 md:py-36 overflow-hidden" style={{
+  <section ref={sectionRef} className="relative py-20 md:py-28 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 10%), hsl(220 18% 8%))',
   }}>
     {/* Structural grid lines suggesting architecture */}
