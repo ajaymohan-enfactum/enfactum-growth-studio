@@ -623,7 +623,7 @@ const SectorExperience = () => (
                             {cluster.label}
                           </h3>
                         </div>
-                        <p className="text-[12px] text-foreground/40 leading-[1.8] font-body">{cluster.names}</p>
+                        <p className="text-[12px] text-foreground/65 leading-[1.8] font-body">{cluster.names}</p>
                       </div>
                       {/* Arrow */}
                       <div className="col-span-2 flex items-center justify-end mt-1">
