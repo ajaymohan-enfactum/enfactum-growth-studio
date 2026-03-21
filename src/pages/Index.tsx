@@ -384,7 +384,7 @@ const Capabilities = () => {
                     <p className="text-sm leading-relaxed max-w-sm text-muted-foreground">{cap.desc}</p>
                   </div>
 
-                  <div className="relative z-10 mt-6 flex items-center gap-2 opacity-0 group-hover/card:opacity-100 transition-all duration-500 translate-y-2 group-hover/card:translate-y-0">
+                  <div className="relative z-10 mt-6 flex items-center gap-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-400">
                     <span className="text-xs text-primary font-medium">Explore</span>
                     <ArrowRight className="w-3 h-3 text-primary" />
                   </div>
