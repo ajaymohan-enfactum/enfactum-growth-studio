@@ -176,7 +176,7 @@ const Work = () => {
 
       {/* ─── Flagship Cases — editorial atmosphere ─── */}
       {flagshipCases.length > 0 && (
-        <section className="py-20 md:py-28 relative overflow-hidden">
+        <section className="py-20 md:py-28 relative">
           {/* Sharp editorial background */}
           <div className="absolute inset-0 pointer-events-none" style={{
             background: 'linear-gradient(180deg, hsl(220 20% 6%), hsl(215 25% 8%) 50%, hsl(220 16% 7%))',
