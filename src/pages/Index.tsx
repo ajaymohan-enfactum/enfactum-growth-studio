@@ -529,7 +529,7 @@ const HowWeWork = () => {
                   <div className="w-8 h-px bg-primary/15 mb-4 group-hover:w-12 group-hover:bg-primary/30 transition-all duration-500" />
 
                   {/* Description */}
-                  <p className="text-[12px] leading-[1.75] text-foreground/45 font-body max-w-[200px]">{step.desc}</p>
+                  <p className="text-[12px] leading-[1.75] text-foreground/70 font-body max-w-[200px]">{step.desc}</p>
                 </div>
               </motion.div>
             ))}
