@@ -839,7 +839,7 @@ const Thinking = () => {
   const thinkInView = useInView(thinkRef, { once: true, amount: 0.15 });
 
   return (
-  <section ref={thinkRef} className="relative py-24 md:py-32 overflow-hidden" style={{
+  <section ref={thinkRef} className="relative py-20 md:py-24 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 18% 9%), hsl(220 18% 8%))',
   }}>
     <div className="section-container relative z-10">
