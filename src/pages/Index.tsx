@@ -701,7 +701,7 @@ const SelectedWork = () => {
                     </div>
 
                     {/* Client */}
-                    <span className="text-[11px] text-foreground/35 uppercase tracking-[0.2em] font-body block mb-3">{lead.client}</span>
+                    <span className="text-[11px] text-foreground/65 uppercase tracking-[0.2em] font-body block mb-3">{lead.client}</span>
 
                     {/* Headline — dramatic scale */}
                     <h3 className="text-2xl md:text-3xl lg:text-[2.25rem] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em] group-hover:text-primary transition-colors duration-500 max-w-xl">
