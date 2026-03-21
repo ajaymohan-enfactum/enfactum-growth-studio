@@ -32,15 +32,26 @@ const Hero = () => {
       {/* Canvas atmosphere — topology, aurora, signal flow */}
       <HeroAtmosphere />
 
-      {/* Giant SEA watermark for spatial depth */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <span
+      {/* Giant SEA watermark with ambient drift for spatial depth */}
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+        initial={{ opacity: 0, scale: 1.08, filter: "blur(12px)" }}
+        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+        transition={{ duration: 2.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <motion.span
           className="font-display font-black tracking-[-0.06em] text-primary/[0.035]"
           style={{ fontSize: 'clamp(18rem, 40vw, 45rem)', lineHeight: 0.85 }}
+          animate={{
+            y: [0, -8, 0, 6, 0],
+            x: [0, 4, 0, -3, 0],
+            scale: [1, 1.005, 1, 0.997, 1],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         >
           SEA
-        </span>
-      </div>
+        </motion.span>
+      </motion.div>
 
       <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 px-6 md:px-12 lg:px-16 max-w-[1200px] mx-auto w-full">
         {/* Eyebrow */}
