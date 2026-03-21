@@ -219,7 +219,7 @@ const WhySEA = () => {
   ];
 
   return (
-  <section ref={seaRef} className="relative py-20 md:py-28 overflow-hidden">
+  <section ref={seaRef} className="relative py-16 md:py-24 overflow-hidden">
     <div className="absolute inset-0 pointer-events-none" style={{
       background: 'radial-gradient(ellipse 60% 50% at 70% 40%, hsl(210 80% 20% / 0.08), transparent 60%)',
     }} />
