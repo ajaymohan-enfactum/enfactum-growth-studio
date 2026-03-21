@@ -175,10 +175,8 @@ const Stats = () => {
    BRAND MARQUEE — Trusted-by logo/text strip
    ═══════════════════════════════════════════════ */
 const brandNames = [
-  "HP", "Oracle", "Dell EMC", "Seagate", "Commvault",
-  "L'Oréal", "Lancôme", "Kiehl's",
-  "The Economist", "NUS",
-  "Lazada", "Singtel",
+  "HP", "Oracle", "Dell EMC", "L'Oréal", "Lancôme", "The Economist", "Lazada",
+  "Singtel", "NUS", "Seagate", "Kiehl's", "Abbott", "Commvault", "Redington",
 ];
 
 const BrandMarquee = () => (
