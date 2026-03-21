@@ -903,20 +903,20 @@ const Thinking = () => {
       {articles.map((article, i) => (
         <motion.div
           key={i}
-          initial={{ opacity: 0, x: -12 }}
-          animate={thinkInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -12 }}
-          transition={{ duration: 0.6, delay: 0.3 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={thinkInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+          transition={{ duration: 0.5, delay: 0.2 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
         >
           <Link to="/thinking" className="group block">
-            <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-border/20 transition-all duration-400 group-hover:pl-2 group-hover:border-primary/15">
+            <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-border/20 transition-colors duration-300 group-hover:border-primary/15">
               <span className="text-xs uppercase tracking-wider text-primary/50 shrink-0 w-[90px] hidden md:block">
                 {article.category}
               </span>
-              <h3 className="flex-1 text-base md:text-lg font-medium text-foreground leading-snug group-hover:text-primary transition-colors duration-400">
+              <h3 className="flex-1 text-base md:text-lg font-medium text-foreground leading-snug group-hover:text-primary transition-colors duration-300">
                 {article.title}
               </h3>
               <span className="text-xs text-muted-foreground shrink-0 hidden md:block">{article.readTime}</span>
-              <ArrowUpRight className="w-4 h-4 text-muted-foreground/20 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-all duration-400 shrink-0" />
+              <ArrowUpRight className="w-4 h-4 text-muted-foreground/20 group-hover:text-primary transition-colors duration-300 shrink-0" />
             </div>
           </Link>
         </motion.div>
