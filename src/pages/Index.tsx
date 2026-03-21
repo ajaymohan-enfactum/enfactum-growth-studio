@@ -408,7 +408,7 @@ const PullQuote = () => {
   const lineWidth = useTransform(scrollYProgress, [0.1, 0.45], ["0%", "100%"]);
 
   return (
-    <section ref={ref} className="relative py-32 md:py-44 overflow-hidden">
+    <section ref={ref} className="relative py-20 md:py-20 overflow-hidden">
       <div className="absolute inset-0" style={{
         background: 'linear-gradient(180deg, hsl(220 16% 7% / 0), hsl(215 30% 9% / 0.6) 30%, hsl(210 35% 10% / 0.8) 50%, hsl(215 30% 9% / 0.6) 70%, hsl(220 16% 7% / 0))',
       }} />
