@@ -479,7 +479,7 @@ const HowWeWork = () => {
           </div>
           <div className="md:col-span-4 md:col-start-8 flex items-end">
             <RevealSection delay={0.1}>
-              <p className="text-[13px] text-foreground/40 leading-relaxed font-body">
+              <p className="text-[13px] text-foreground/65 leading-relaxed font-body">
                 Five phases, one continuous operating sequence — each phase builds on the last to create lasting infrastructure.
               </p>
             </RevealSection>
