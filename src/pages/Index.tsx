@@ -212,10 +212,10 @@ const WhySEA = () => {
   const seaRef = useRef<HTMLDivElement>(null);
   const seaInView = useInView(seaRef, { once: true, amount: 0.2 });
   const markets = [
-    { market: "Singapore", role: "HQ & Strategy Hub", flag: "🇸🇬" },
-    { market: "India", role: "Operating Bench", flag: "🇮🇳" },
-    { market: "Malaysia", role: "Regional Node", flag: "🇲🇾" },
-    { market: "Indonesia", role: "Growth Market", flag: "🇮🇩" },
+    { market: "Singapore", role: "HQ & Strategy Hub", code: "sg" },
+    { market: "India", role: "Operating Bench", code: "in" },
+    { market: "Malaysia", role: "Regional Node", code: "my" },
+    { market: "Indonesia", role: "Growth Market", code: "id" },
   ];
 
   return (
