@@ -958,12 +958,16 @@ const articles = [
   { title: "Why Channel Partners Are Your Real Growth Engine in ASEAN.", category: "Field Note", readTime: "4 min" },
 ];
 
-const Thinking = () => (
-  <section className="relative py-24 md:py-32 overflow-hidden" style={{
+const Thinking = () => {
+  const thinkRef = useRef<HTMLDivElement>(null);
+  const thinkInView = useInView(thinkRef, { once: true, amount: 0.15 });
+
+  return (
+  <section ref={thinkRef} className="relative py-24 md:py-32 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 18% 9%), hsl(220 18% 8%))',
   }}>
     <div className="section-container relative z-10">
-      <RevealSection>
+      <RevealSection blur>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
             <p className="eyebrow mb-4">Insights</p>
@@ -976,24 +980,30 @@ const Thinking = () => (
       </RevealSection>
 
       {articles.map((article, i) => (
-        <RevealSection key={i} delay={i * 0.06}>
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, x: -12 }}
+          animate={thinkInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -12 }}
+          transition={{ duration: 0.6, delay: 0.3 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+        >
           <Link to="/thinking" className="group block">
-            <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-border/20 transition-all duration-300 group-hover:pl-2 group-hover:border-primary/15">
+            <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-border/20 transition-all duration-400 group-hover:pl-2 group-hover:border-primary/15">
               <span className="text-xs uppercase tracking-wider text-primary/50 shrink-0 w-[90px] hidden md:block">
                 {article.category}
               </span>
-              <h3 className="flex-1 text-base md:text-lg font-medium text-foreground leading-snug group-hover:text-primary transition-colors duration-300">
+              <h3 className="flex-1 text-base md:text-lg font-medium text-foreground leading-snug group-hover:text-primary transition-colors duration-400">
                 {article.title}
               </h3>
               <span className="text-xs text-muted-foreground shrink-0 hidden md:block">{article.readTime}</span>
-              <ArrowUpRight className="w-4 h-4 text-muted-foreground/20 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300 shrink-0" />
+              <ArrowUpRight className="w-4 h-4 text-muted-foreground/20 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-all duration-400 shrink-0" />
             </div>
           </Link>
-        </RevealSection>
+        </motion.div>
       ))}
     </div>
   </section>
-);
+  );
+};
 
 /* ═══════════════════════════════════════════════
    POINT OF VIEW — Conviction moment
