@@ -768,8 +768,8 @@ const SelectedWork = () => {
                     <div className="flex flex-wrap gap-x-6 gap-y-3">
                       {cs.results?.slice(0, 2).map((r: { metric: string; label: string }, ri: number) => (
                         <div key={ri}>
-                          <p className="text-lg font-display font-bold text-primary/60 tracking-tight leading-none">{r.metric}</p>
-                          <span className="text-[10px] text-foreground/35 mt-1 block font-body">{r.label}</span>
+                          <p className="text-lg font-display font-bold text-primary tracking-tight leading-none">{r.metric}</p>
+                          <span className="text-[10px] text-foreground/65 mt-1 block font-body">{r.label}</span>
                         </div>
                       ))}
                     </div>
