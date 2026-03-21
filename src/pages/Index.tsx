@@ -257,7 +257,7 @@ const WhySEA = () => {
                 transition={{ duration: 0.6, delay: 0.3 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="flex items-center gap-5 py-4 border-b border-border/15 group hover:border-primary/15 transition-colors duration-500">
-                  <span className="text-xl">{node.flag}</span>
+                  <span className="w-8 h-8 rounded-full bg-card border border-border/30 flex items-center justify-center text-base overflow-hidden">{node.flag}</span>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-foreground">{node.market}</p>
                     <p className="text-xs text-muted-foreground mt-0.5">{node.role}</p>
