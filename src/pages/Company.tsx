@@ -231,7 +231,7 @@ const Company = () => (
                       <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
                     </div>
                   ) : (
-                    {/* Placeholder avatar — replace with real headshot at /public/team/[firstname-lastname].jpg */}
+                    /* Placeholder avatar — replace with real headshot at /public/team/[firstname-lastname].jpg */
                     <div className="w-full aspect-[3/4] rounded-sm bg-gradient-to-b from-secondary/60 to-secondary/20 border border-border/20 mb-5 relative overflow-hidden flex items-center justify-center">
                       <div className="w-20 h-20 rounded-full bg-foreground/[0.06] border border-border/30" />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
