@@ -100,6 +100,18 @@ export default {
           "0%": { clipPath: "inset(100% 0 0 0)" },
           "100%": { clipPath: "inset(0 0 0 0)" },
         },
+        "ambient-drift": {
+          "0%, 100%": { transform: "translateY(0) scale(1)", opacity: "0.04" },
+          "50%": { transform: "translateY(-6px) scale(1.005)", opacity: "0.055" },
+        },
+        "line-draw": {
+          "0%": { transform: "scaleX(0)" },
+          "100%": { transform: "scaleX(1)" },
+        },
+        "glow-breathe": {
+          "0%, 100%": { opacity: "0.03" },
+          "50%": { opacity: "0.07" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -109,6 +121,8 @@ export default {
         shimmer: "shimmer 4s ease-in-out infinite",
         ticker: "ticker linear infinite",
         "curtain-reveal": "curtain-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+        "ambient-drift": "ambient-drift 12s ease-in-out infinite",
+        "glow-breathe": "glow-breathe 6s ease-in-out infinite",
       },
     },
   },

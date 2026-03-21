@@ -183,6 +183,10 @@ const Work = () => {
           }} />
           {/* Left accent line */}
           <div className="absolute top-0 bottom-0 left-[6%] w-px bg-gradient-to-b from-transparent via-primary/[0.06] to-transparent hidden md:block" />
+          {/* Ambient breathing glow */}
+          <div className="absolute inset-0 pointer-events-none animate-glow-breathe" style={{
+            background: 'radial-gradient(ellipse 50% 50% at 70% 40%, hsl(210 100% 50% / 0.04), transparent 60%)',
+          }} />
 
           <div className="section-container relative z-10">
             <RevealSection blur>
@@ -196,7 +200,7 @@ const Work = () => {
                     measurable commercial, operational, or ecosystem outcomes.
                   </p>
                 </div>
-                <span className="text-[80px] md:text-[100px] font-display font-bold text-foreground/[0.02] leading-none select-none pointer-events-none hidden md:block">
+                <span className="text-[80px] md:text-[100px] font-display font-bold text-foreground/[0.02] leading-none select-none pointer-events-none hidden md:block animate-ambient-drift">
                   W
                 </span>
               </div>

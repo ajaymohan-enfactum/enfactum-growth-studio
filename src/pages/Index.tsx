@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useInView, useMotionValue, useSpring } from "framer-motion";
 import { useRef, useCallback, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import MagneticButton from "@/components/shared/MagneticButton";
@@ -32,17 +32,34 @@ const Hero = () => {
       {/* Canvas atmosphere — topology, aurora, signal flow */}
       <HeroAtmosphere />
 
-      {/* Giant SEA watermark for spatial depth */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <span
+      {/* Giant SEA watermark with ambient drift for spatial depth */}
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+        initial={{ opacity: 0, scale: 1.08, filter: "blur(12px)" }}
+        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+        transition={{ duration: 2.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <motion.span
           className="font-display font-black tracking-[-0.06em] text-primary/[0.035]"
           style={{ fontSize: 'clamp(18rem, 40vw, 45rem)', lineHeight: 0.85 }}
+          animate={{
+            y: [0, -8, 0, 6, 0],
+            x: [0, 4, 0, -3, 0],
+            scale: [1, 1.005, 1, 0.997, 1],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         >
           SEA
-        </span>
-      </div>
+        </motion.span>
+      </motion.div>
 
-      <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 px-6 md:px-12 lg:px-16 max-w-[1200px] mx-auto w-full">
+      <motion.div
+        style={{ y: heroY, opacity: heroOpacity }}
+        className="relative z-10 px-6 md:px-12 lg:px-16 max-w-[1200px] mx-auto w-full"
+        initial={{ filter: "blur(6px)" }}
+        animate={{ filter: "blur(0px)" }}
+        transition={{ duration: 1.2, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+      >
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -128,29 +145,40 @@ const Hero = () => {
 /* ═══════════════════════════════════════════════
    STATS — Horizontal counter strip (not cards)
    ═══════════════════════════════════════════════ */
-const Stats = () => (
-  <section className="relative py-16 md:py-20 border-y border-border/20" style={{
-    background: 'linear-gradient(90deg, hsl(220 18% 8%), hsl(220 16% 9%), hsl(220 18% 8%))',
-  }}>
-    <div className="section-container">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
-        {[
-          { num: "700M+", label: "People across ten countries" },
-          { num: "$300B+", label: "Digital economy" },
-          { num: "40+", label: "Enterprise clients" },
-          { num: "15+", label: "Years in-region" },
-        ].map((stat, i) => (
-          <RevealSection key={i} delay={i * 0.1}>
-            <div className={`text-center md:text-left ${i > 0 ? 'md:border-l md:border-border/20 md:pl-8' : ''}`}>
-              <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-1">{stat.num}</p>
-              <p className="text-xs text-muted-foreground tracking-wide">{stat.label}</p>
-            </div>
-          </RevealSection>
-        ))}
+const Stats = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const stats = [
+    { num: "700M+", label: "People across ten countries" },
+    { num: "$300B+", label: "Digital economy" },
+    { num: "40+", label: "Enterprise clients" },
+    { num: "15+", label: "Years in-region" },
+  ];
+
+  return (
+    <section ref={ref} className="relative py-16 md:py-20 border-y border-border/20" style={{
+      background: 'linear-gradient(90deg, hsl(220 18% 8%), hsl(220 16% 9%), hsl(220 18% 8%))',
+    }}>
+      <div className="section-container">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+              transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className={`text-center md:text-left ${i > 0 ? 'md:border-l md:border-border/20 md:pl-8' : ''}`}>
+                <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-1">{stat.num}</p>
+                <p className="text-xs text-muted-foreground tracking-wide">{stat.label}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 /* ═══════════════════════════════════════════════
    BRAND MARQUEE — Trusted-by logo/text strip
@@ -163,34 +191,46 @@ const brandNames = [
 ];
 
 const BrandMarquee = () => (
-  <section className="relative py-10 md:py-12 border-b border-border/10 overflow-hidden">
-    <div className="section-container mb-6">
-      <p className="eyebrow text-center">Trusted by</p>
-    </div>
-    <div className="relative">
-      {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to right, hsl(220 16% 7%), transparent)' }} />
-      <div className="absolute right-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to left, hsl(220 16% 7%), transparent)' }} />
-      <div className="flex animate-ticker" style={{ animationDuration: '35s', width: 'max-content' }}>
-        {[...brandNames, ...brandNames].map((name, i) => (
-          <span
-            key={i}
-            className="inline-flex items-center px-8 md:px-10 text-[15px] md:text-[16px] font-display font-semibold tracking-[-0.01em] whitespace-nowrap"
-            style={{ color: 'rgba(255,255,255,0.40)' }}
-          >
-            {name}
-          </span>
-        ))}
+  <RevealSection blur delay={0.1}>
+    <section className="relative py-10 md:py-12 border-b border-border/10 overflow-hidden">
+      <div className="section-container mb-6">
+        <p className="eyebrow text-center">Trusted by</p>
       </div>
-    </div>
-  </section>
+      <div className="relative">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to right, hsl(220 16% 7%), transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to left, hsl(220 16% 7%), transparent)' }} />
+        <div className="flex animate-ticker" style={{ animationDuration: '35s', width: 'max-content' }}>
+          {[...brandNames, ...brandNames].map((name, i) => (
+            <span
+              key={i}
+              className="inline-flex items-center px-8 md:px-10 text-[15px] md:text-[16px] font-display font-semibold tracking-[-0.01em] whitespace-nowrap hover:text-foreground/60 transition-colors duration-500"
+              style={{ color: 'rgba(255,255,255,0.40)' }}
+            >
+              {name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  </RevealSection>
 );
 
 /* ═══════════════════════════════════════════════
    WHY SEA — Editorial asymmetric layout
    ═══════════════════════════════════════════════ */
-const WhySEA = () => (
-  <section className="relative py-20 md:py-28 overflow-hidden">
+const WhySEA = () => {
+  const seaRef = useRef<HTMLDivElement>(null);
+  const seaInView = useInView(seaRef, { once: true, amount: 0.2 });
+  const markets = [
+    { market: "Singapore", role: "HQ & Strategy Hub", flag: "🇸🇬" },
+    { market: "India", role: "Operating Bench", flag: "🇮🇳" },
+    { market: "Malaysia", role: "Regional Node", flag: "🇲🇾" },
+    { market: "Indonesia", role: "Growth Market", flag: "🇮🇩" },
+  ];
+
+  return (
+  <section ref={seaRef} className="relative py-20 md:py-28 overflow-hidden">
     <div className="absolute inset-0 pointer-events-none" style={{
       background: 'radial-gradient(ellipse 60% 50% at 70% 40%, hsl(210 80% 20% / 0.08), transparent 60%)',
     }} />
@@ -219,30 +259,40 @@ const WhySEA = () => (
         </div>
 
         <div className="md:col-span-5 md:col-start-8">
-          <RevealSection delay={0.2}>
-            <div className="space-y-0">
-              {[
-                { market: "Singapore", role: "HQ & Strategy Hub", flag: "🇸🇬" },
-                { market: "India", role: "Operating Bench", flag: "🇮🇳" },
-                { market: "Malaysia", role: "Regional Node", flag: "🇲🇾" },
-                { market: "Indonesia", role: "Growth Market", flag: "🇮🇩" },
-              ].map((node, i) => (
-                <div key={i} className="flex items-center gap-5 py-4 border-b border-border/15 group hover:border-primary/15 transition-colors duration-500">
+          <div className="space-y-0">
+            {markets.map((node, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: 20 }}
+                animate={seaInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+                transition={{ duration: 0.6, delay: 0.3 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div className="flex items-center gap-5 py-4 border-b border-border/15 group hover:border-primary/15 transition-colors duration-500">
                   <span className="text-xl">{node.flag}</span>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-foreground">{node.market}</p>
                     <p className="text-xs text-muted-foreground mt-0.5">{node.role}</p>
                   </div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary/60 transition-colors duration-500" />
+                  <motion.div
+                    className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary/60 transition-colors duration-500"
+                    animate={seaInView ? {
+                      scale: [1, 1.6, 1],
+                      opacity: [0.5, 1, 0.5],
+                    } : {}}
+                    transition={{ duration: 2.5, delay: 1 + i * 0.4, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 </div>
-              ))}
-            </div>
-          </RevealSection>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </section>
-);
+  );
+};
+
+
 
 /* ═══════════════════════════════════════════════
    CAPABILITIES — Interconnected architecture
@@ -381,17 +431,17 @@ const Capabilities = () => {
           )}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 md:gap-5">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-5 group/grid">
           {capData.map((cap, i) => (
             <RevealSection key={i} delay={i * 0.1} scale>
-              <Link to={cap.href} className="group block h-full">
-                <div className="relative h-full rounded-xl border border-border/40 bg-card/40 backdrop-blur-sm p-8 md:p-10 flex flex-col justify-between min-h-[280px] overflow-hidden transition-all duration-700 hover:border-primary/25 hover:bg-card/60">
+              <Link to={cap.href} className="group/card block h-full">
+                <div className="relative h-full rounded-xl border border-border/40 bg-card/40 backdrop-blur-sm p-8 md:p-10 flex flex-col justify-between min-h-[280px] overflow-hidden transition-all duration-700 hover:border-primary/25 hover:bg-card/60 group-hover/grid:opacity-60 hover:!opacity-100">
                   {/* Subtle gradient on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/[0.02] group-hover:to-primary/[0.05] transition-all duration-700 rounded-xl" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover/card:from-primary/[0.02] group-hover/card:to-primary/[0.05] transition-all duration-700 rounded-xl" />
                   
                   <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                      <div className="p-2 rounded-lg bg-primary/10 text-primary transition-all duration-500 group-hover/card:bg-primary/20 group-hover/card:shadow-[0_0_16px_-4px_hsl(210_100%_50%/0.3)]">
                         <cap.icon className="w-4 h-4" />
                       </div>
                       <span className="text-[10px] font-mono tracking-wider text-muted-foreground">{cap.num}</span>
@@ -399,13 +449,13 @@ const Capabilities = () => {
                   </div>
 
                   <div className="relative z-10 mt-auto">
-                    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 transition-colors duration-400 group-hover:text-primary">
+                    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 transition-colors duration-400 group-hover/card:text-primary">
                       {cap.title}
                     </h3>
                     <p className="text-sm leading-relaxed max-w-sm text-muted-foreground">{cap.desc}</p>
                   </div>
 
-                  <div className="relative z-10 mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="relative z-10 mt-6 flex items-center gap-2 opacity-0 group-hover/card:opacity-100 transition-all duration-500 translate-y-2 group-hover/card:translate-y-0">
                     <span className="text-xs text-primary font-medium">Explore</span>
                     <ArrowRight className="w-3 h-3 text-primary" />
                   </div>
@@ -908,12 +958,16 @@ const articles = [
   { title: "Why Channel Partners Are Your Real Growth Engine in ASEAN.", category: "Field Note", readTime: "4 min" },
 ];
 
-const Thinking = () => (
-  <section className="relative py-24 md:py-32 overflow-hidden" style={{
+const Thinking = () => {
+  const thinkRef = useRef<HTMLDivElement>(null);
+  const thinkInView = useInView(thinkRef, { once: true, amount: 0.15 });
+
+  return (
+  <section ref={thinkRef} className="relative py-24 md:py-32 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 18% 9%), hsl(220 18% 8%))',
   }}>
     <div className="section-container relative z-10">
-      <RevealSection>
+      <RevealSection blur>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
             <p className="eyebrow mb-4">Insights</p>
@@ -926,24 +980,30 @@ const Thinking = () => (
       </RevealSection>
 
       {articles.map((article, i) => (
-        <RevealSection key={i} delay={i * 0.06}>
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, x: -12 }}
+          animate={thinkInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -12 }}
+          transition={{ duration: 0.6, delay: 0.3 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+        >
           <Link to="/thinking" className="group block">
-            <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-border/20 transition-all duration-300 group-hover:pl-2 group-hover:border-primary/15">
+            <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-border/20 transition-all duration-400 group-hover:pl-2 group-hover:border-primary/15">
               <span className="text-xs uppercase tracking-wider text-primary/50 shrink-0 w-[90px] hidden md:block">
                 {article.category}
               </span>
-              <h3 className="flex-1 text-base md:text-lg font-medium text-foreground leading-snug group-hover:text-primary transition-colors duration-300">
+              <h3 className="flex-1 text-base md:text-lg font-medium text-foreground leading-snug group-hover:text-primary transition-colors duration-400">
                 {article.title}
               </h3>
               <span className="text-xs text-muted-foreground shrink-0 hidden md:block">{article.readTime}</span>
-              <ArrowUpRight className="w-4 h-4 text-muted-foreground/20 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300 shrink-0" />
+              <ArrowUpRight className="w-4 h-4 text-muted-foreground/20 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-all duration-400 shrink-0" />
             </div>
           </Link>
-        </RevealSection>
+        </motion.div>
       ))}
     </div>
   </section>
-);
+  );
+};
 
 /* ═══════════════════════════════════════════════
    POINT OF VIEW — Conviction moment
@@ -1061,43 +1121,83 @@ const PointOfView = () => {
 /* ═══════════════════════════════════════════════
    CTA
    ═══════════════════════════════════════════════ */
-const CTASection = () => (
-  <section className="relative py-36 md:py-48 overflow-hidden" style={{
+const CTASection = () => {
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const ctaInView = useInView(ctaRef, { once: true, amount: 0.3 });
+
+  return (
+  <section ref={ctaRef} className="relative py-36 md:py-48 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 11%) 50%, hsl(220 16% 7%))',
   }}>
-    <div className="absolute inset-0 pointer-events-none" style={{
-      background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.05), transparent 60%)',
-    }} />
+    {/* Ambient radial glow — breathes subtly */}
+    <motion.div
+      className="absolute inset-0 pointer-events-none"
+      animate={{
+        background: [
+          'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.04), transparent 60%)',
+          'radial-gradient(ellipse 55% 65% at 48% 48%, hsl(210 100% 50% / 0.06), transparent 65%)',
+          'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.04), transparent 60%)',
+        ],
+      }}
+      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+    />
     {/* Top separator */}
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/15 to-transparent" />
 
     <div className="section-container text-center relative z-10">
-      <RevealSection scale>
-        <div className="max-w-2xl mx-auto">
-          <div className="w-10 h-px bg-primary/25 mx-auto mb-8" />
-          <h2 className="headline-lg">Let's move growth forward<span className="text-primary">.</span></h2>
-          <p className="text-[15px] text-muted-foreground mt-5 max-w-md mx-auto leading-relaxed">
-            Tell us where growth needs to move next.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-10">
-            <Link to="/contact">
-              <Button variant="hero" size="xl">Start a conversation</Button>
-            </Link>
-            <Link to="/capabilities">
-              <Button variant="hero-outline" size="xl">Explore capabilities</Button>
-            </Link>
-          </div>
-          <a href="mailto:info@enfactum.com" className="inline-block text-sm text-muted-foreground mt-6 transition-colors duration-300 hover:text-foreground">
-            Or email us directly at info@enfactum.com
-          </a>
-        </div>
-      </RevealSection>
+      <div className="max-w-2xl mx-auto">
+        <motion.div
+          initial={{ width: 0 }}
+          animate={ctaInView ? { width: 40 } : { width: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="h-px bg-primary/25 mx-auto mb-8"
+        />
+        <motion.h2
+          className="headline-lg"
+          initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+          animate={ctaInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Let's move growth forward<span className="text-primary">.</span>
+        </motion.h2>
+        <motion.p
+          className="text-[15px] text-muted-foreground mt-5 max-w-md mx-auto leading-relaxed"
+          initial={{ opacity: 0, y: 16 }}
+          animate={ctaInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Tell us where growth needs to move next.
+        </motion.p>
+        <motion.div
+          className="flex flex-wrap justify-center gap-4 mt-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={ctaInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Link to="/contact">
+            <Button variant="hero" size="xl">Start a conversation</Button>
+          </Link>
+          <Link to="/capabilities">
+            <Button variant="hero-outline" size="xl">Explore capabilities</Button>
+          </Link>
+        </motion.div>
+        <motion.a
+          href="mailto:info@enfactum.com"
+          className="inline-block text-sm text-muted-foreground mt-6 transition-colors duration-300 hover:text-foreground"
+          initial={{ opacity: 0 }}
+          animate={ctaInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Or email us directly at info@enfactum.com
+        </motion.a>
+      </div>
     </div>
 
     {/* Bottom separator before footer */}
     <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
   </section>
-);
+  );
+};
 
 /* ═══════════════════════════════════════════════
    PAGE ASSEMBLY

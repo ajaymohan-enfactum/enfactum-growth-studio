@@ -1,5 +1,5 @@
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { ReactNode, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { ReactNode, useRef, Children } from "react";
 
 interface RevealSectionProps {
   children: ReactNode;
@@ -12,7 +12,13 @@ interface RevealSectionProps {
   blur?: boolean;
   /** Scale reveal — subtle zoom-in from slightly smaller */
   scale?: boolean;
+  /** Stagger children — reveals each child sequentially */
+  stagger?: boolean;
+  /** Stagger interval in seconds */
+  staggerInterval?: number;
 }
+
+const easeOut = [0.22, 1, 0.36, 1] as const;
 
 const RevealSection = ({
   children,
@@ -22,9 +28,34 @@ const RevealSection = ({
   curtain = false,
   blur = false,
   scale = false,
+  stagger = false,
+  staggerInterval = 0.12,
 }: RevealSectionProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+  /* ── Stagger mode: wraps each child in its own reveal ── */
+  if (stagger) {
+    const childArray = Children.toArray(children);
+    return (
+      <div ref={ref} className={className}>
+        {childArray.map((child, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: distance * 0.6, filter: blur ? "blur(8px)" : "blur(0px)" }}
+            animate={
+              isInView
+                ? { opacity: 1, y: 0, filter: "blur(0px)" }
+                : { opacity: 0, y: distance * 0.6, filter: blur ? "blur(8px)" : "blur(0px)" }
+            }
+            transition={{ duration: 0.9, delay: delay + i * staggerInterval, ease: easeOut }}
+          >
+            {child}
+          </motion.div>
+        ))}
+      </div>
+    );
+  }
 
   if (curtain) {
     return (
@@ -33,7 +64,7 @@ const RevealSection = ({
           className="relative"
           initial={{ clipPath: "inset(100% 0 0 0)", opacity: 0 }}
           animate={isInView ? { clipPath: "inset(0% 0 0 0)", opacity: 1 } : { clipPath: "inset(100% 0 0 0)", opacity: 0 }}
-          transition={{ duration: 1.1, delay, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1.1, delay, ease: easeOut }}
         >
           {children}
         </motion.div>
@@ -51,7 +82,7 @@ const RevealSection = ({
             ? { opacity: 1, y: 0, filter: "blur(0px)" }
             : { opacity: 0, y: distance * 0.6, filter: "blur(12px)" }
         }
-        transition={{ duration: 1.1, delay, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.1, delay, ease: easeOut }}
         className={className}
       >
         {children}
@@ -69,7 +100,7 @@ const RevealSection = ({
             ? { opacity: 1, scale: 1, y: 0 }
             : { opacity: 0, scale: 0.92, y: distance * 0.5 }
         }
-        transition={{ duration: 1.0, delay, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.0, delay, ease: easeOut }}
         className={className}
       >
         {children}
@@ -82,7 +113,7 @@ const RevealSection = ({
       ref={ref}
       initial={{ opacity: 0, y: distance }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: distance }}
-      transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.9, delay, ease: easeOut }}
       className={className}
     >
       {children}
