@@ -100,7 +100,7 @@ const Hero = () => {
           className="mt-8 max-w-[580px] leading-[1.7] font-light"
           style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)' }}
         >
-          We help enterprise brands enter and grow in Southeast Asian markets — building the commercial infrastructure, partnerships, and on-the-ground teams that drive lasting revenue.
+          We help enterprise brands enter and grow across Southeast Asia — building the commercial infrastructure, partnerships, and on-the-ground teams that drive lasting revenue.
         </motion.p>
 
         {/* CTAs */}
