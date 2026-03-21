@@ -754,7 +754,7 @@ const SelectedWork = () => {
                   </div>
                   {/* Client + Headline */}
                   <div className="md:col-span-4">
-                    <span className="text-[10px] text-foreground/35 uppercase tracking-[0.2em] font-body block mb-2">{cs.client}</span>
+                    <span className="text-[10px] text-foreground/65 uppercase tracking-[0.2em] font-body block mb-2">{cs.client}</span>
                     <h3 className="font-display text-lg font-bold text-foreground leading-[1.2] group-hover:text-primary transition-colors duration-400">
                       {cs.headline}
                     </h3>
