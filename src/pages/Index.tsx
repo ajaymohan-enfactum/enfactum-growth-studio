@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence, useScroll, useTransform, useInView, useMotionValue, useSpring } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef, useCallback, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import MagneticButton from "@/components/shared/MagneticButton";
@@ -39,26 +39,17 @@ const Hero = () => {
         animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
         transition={{ duration: 2.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
       >
-        <motion.span
+        <span
           className="font-display font-black tracking-[-0.06em] text-primary/[0.035]"
           style={{ fontSize: 'clamp(18rem, 40vw, 45rem)', lineHeight: 0.85 }}
-          animate={{
-            y: [0, -8, 0, 6, 0],
-            x: [0, 4, 0, -3, 0],
-            scale: [1, 1.005, 1, 0.997, 1],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         >
           SEA
-        </motion.span>
+        </span>
       </motion.div>
 
       <motion.div
         style={{ y: heroY, opacity: heroOpacity }}
         className="relative z-10 px-6 md:px-12 lg:px-16 max-w-[1200px] mx-auto w-full"
-        initial={{ filter: "blur(6px)" }}
-        animate={{ filter: "blur(0px)" }}
-        transition={{ duration: 1.2, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* Eyebrow */}
         <motion.div
@@ -273,14 +264,7 @@ const WhySEA = () => {
                     <p className="text-sm font-semibold text-foreground">{node.market}</p>
                     <p className="text-xs text-muted-foreground mt-0.5">{node.role}</p>
                   </div>
-                  <motion.div
-                    className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary/60 transition-colors duration-500"
-                    animate={seaInView ? {
-                      scale: [1, 1.6, 1],
-                      opacity: [0.5, 1, 0.5],
-                    } : {}}
-                    transition={{ duration: 2.5, delay: 1 + i * 0.4, repeat: Infinity, ease: "easeInOut" }}
-                  />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary/50 transition-colors duration-500" />
                 </div>
               </motion.div>
             ))}
@@ -334,101 +318,46 @@ const Capabilities = () => {
       {/* Architecture grid — 2x2 with animated connecting lines */}
       <div className="relative">
         {/* Center connection hub — animated */}
+        {/* Center connection node */}
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border border-primary/20 bg-primary/[0.04] backdrop-blur-sm z-10 hidden md:flex items-center justify-center"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full border border-primary/15 bg-primary/[0.03] backdrop-blur-sm z-10 hidden md:flex items-center justify-center"
           initial={{ scale: 0, opacity: 0 }}
           animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Pulsing core */}
-          <motion.div
-            className="w-3 h-3 rounded-full bg-primary/60"
-            animate={isInView ? {
-              scale: [1, 1.4, 1],
-              opacity: [0.6, 1, 0.6],
-              boxShadow: [
-                '0 0 0 0 hsl(210 100% 50% / 0)',
-                '0 0 12px 4px hsl(210 100% 50% / 0.3)',
-                '0 0 0 0 hsl(210 100% 50% / 0)',
-              ],
-            } : {}}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-          />
-          {/* Outer ring pulse */}
-          <motion.div
-            className="absolute inset-0 rounded-full border border-primary/10"
-            animate={isInView ? {
-              scale: [1, 1.3, 1],
-              opacity: [0.2, 0, 0.2],
-            } : {}}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-          />
+          <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
         </motion.div>
 
-        {/* Connecting lines — animated draw-in */}
+        {/* Connecting lines — static, revealed on scroll */}
         <div className="absolute inset-0 hidden md:block pointer-events-none z-[5]">
-          {/* Left horizontal */}
           <motion.div
             className="absolute top-[calc(50%-1px)] left-[25%] h-px origin-right"
-            style={{ width: '25%', background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.06), hsl(210 100% 50% / 0.2))' }}
+            style={{ width: '25%', background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.04), hsl(210 100% 50% / 0.12))' }}
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.7, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
           />
-          {/* Right horizontal */}
           <motion.div
             className="absolute top-[calc(50%-1px)] left-[50%] h-px origin-left"
-            style={{ width: '25%', background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.2), hsl(210 100% 50% / 0.06))' }}
+            style={{ width: '25%', background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.12), hsl(210 100% 50% / 0.04))' }}
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.7, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
           />
-          {/* Top vertical */}
           <motion.div
             className="absolute left-[calc(50%-1px)] top-[25%] w-px origin-bottom"
-            style={{ height: '25%', background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.06), hsl(210 100% 50% / 0.2))' }}
+            style={{ height: '25%', background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.04), hsl(210 100% 50% / 0.12))' }}
             initial={{ scaleY: 0 }}
             animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 0.7, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
           />
-          {/* Bottom vertical */}
           <motion.div
             className="absolute left-[calc(50%-1px)] top-[50%] w-px origin-top"
-            style={{ height: '25%', background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.2), hsl(210 100% 50% / 0.06))' }}
+            style={{ height: '25%', background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.12), hsl(210 100% 50% / 0.04))' }}
             initial={{ scaleY: 0 }}
             animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 0.7, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
           />
-
-          {/* Signal pulses traveling along lines — after lines draw in */}
-          {isInView && (
-            <>
-              <motion.div
-                className="absolute top-[calc(50%-2px)] w-1.5 h-1.5 rounded-full bg-primary/40"
-                initial={{ left: '25%', opacity: 0 }}
-                animate={{ left: '50%', opacity: [0, 0.8, 0] }}
-                transition={{ duration: 1.5, delay: 2, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute top-[calc(50%-2px)] w-1.5 h-1.5 rounded-full bg-primary/40"
-                initial={{ left: '75%', opacity: 0 }}
-                animate={{ left: '50%', opacity: [0, 0.8, 0] }}
-                transition={{ duration: 1.5, delay: 3.5, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute left-[calc(50%-2px)] w-1.5 h-1.5 rounded-full bg-primary/40"
-                initial={{ top: '25%', opacity: 0 }}
-                animate={{ top: '50%', opacity: [0, 0.8, 0] }}
-                transition={{ duration: 1.5, delay: 2.8, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute left-[calc(50%-2px)] w-1.5 h-1.5 rounded-full bg-primary/40"
-                initial={{ top: '75%', opacity: 0 }}
-                animate={{ top: '50%', opacity: [0, 0.8, 0] }}
-                transition={{ duration: 1.5, delay: 4.2, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
-              />
-            </>
-          )}
         </div>
 
         <div className="grid md:grid-cols-2 gap-4 md:gap-5 group/grid">
@@ -441,7 +370,7 @@ const Capabilities = () => {
                   
                   <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="p-2 rounded-lg bg-primary/10 text-primary transition-all duration-500 group-hover/card:bg-primary/20 group-hover/card:shadow-[0_0_16px_-4px_hsl(210_100%_50%/0.3)]">
+                      <div className="p-2 rounded-lg bg-primary/10 text-primary">
                         <cap.icon className="w-4 h-4" />
                       </div>
                       <span className="text-[10px] font-mono tracking-wider text-muted-foreground">{cap.num}</span>
@@ -455,7 +384,7 @@ const Capabilities = () => {
                     <p className="text-sm leading-relaxed max-w-sm text-muted-foreground">{cap.desc}</p>
                   </div>
 
-                  <div className="relative z-10 mt-6 flex items-center gap-2 opacity-0 group-hover/card:opacity-100 transition-all duration-500 translate-y-2 group-hover/card:translate-y-0">
+                  <div className="relative z-10 mt-6 flex items-center gap-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-400">
                     <span className="text-xs text-primary font-medium">Explore</span>
                     <ArrowRight className="w-3 h-3 text-primary" />
                   </div>
@@ -626,15 +555,7 @@ const HowWeWork = () => {
                   {/* Step node — on the rail */}
                   <div className="flex items-center gap-3 mb-7 md:mb-8">
                     <div className="relative">
-                      <motion.div
-                        className="w-[14px] h-[14px] rounded-full border-2 border-primary/30 bg-background relative z-10 group-hover:border-primary group-hover:bg-primary/10 transition-all duration-500"
-                        animate={isInView ? {
-                          borderColor: ['hsl(210 100% 50% / 0.3)', 'hsl(210 100% 50% / 0.5)', 'hsl(210 100% 50% / 0.3)'],
-                        } : {}}
-                        transition={{ duration: 3, delay: 1.5 + i * 0.3, repeat: Infinity, ease: "easeInOut" }}
-                      />
-                      {/* Glow behind node */}
-                      <div className="absolute inset-0 rounded-full bg-primary/10 blur-sm scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="w-[14px] h-[14px] rounded-full border-2 border-primary/30 bg-background relative z-10 group-hover:border-primary group-hover:bg-primary/10 transition-all duration-500" />
                     </div>
                     <span className="text-[10px] text-foreground/30 tracking-[0.2em] uppercase font-body">{step.phase}</span>
                   </div>
@@ -982,20 +903,20 @@ const Thinking = () => {
       {articles.map((article, i) => (
         <motion.div
           key={i}
-          initial={{ opacity: 0, x: -12 }}
-          animate={thinkInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -12 }}
-          transition={{ duration: 0.6, delay: 0.3 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={thinkInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+          transition={{ duration: 0.5, delay: 0.2 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
         >
           <Link to="/thinking" className="group block">
-            <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-border/20 transition-all duration-400 group-hover:pl-2 group-hover:border-primary/15">
+            <div className="flex items-center gap-6 md:gap-8 py-5 border-b border-border/20 transition-colors duration-300 group-hover:border-primary/15">
               <span className="text-xs uppercase tracking-wider text-primary/50 shrink-0 w-[90px] hidden md:block">
                 {article.category}
               </span>
-              <h3 className="flex-1 text-base md:text-lg font-medium text-foreground leading-snug group-hover:text-primary transition-colors duration-400">
+              <h3 className="flex-1 text-base md:text-lg font-medium text-foreground leading-snug group-hover:text-primary transition-colors duration-300">
                 {article.title}
               </h3>
               <span className="text-xs text-muted-foreground shrink-0 hidden md:block">{article.readTime}</span>
-              <ArrowUpRight className="w-4 h-4 text-muted-foreground/20 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-all duration-400 shrink-0" />
+              <ArrowUpRight className="w-4 h-4 text-muted-foreground/20 group-hover:text-primary transition-colors duration-300 shrink-0" />
             </div>
           </Link>
         </motion.div>
@@ -1121,83 +1042,41 @@ const PointOfView = () => {
 /* ═══════════════════════════════════════════════
    CTA
    ═══════════════════════════════════════════════ */
-const CTASection = () => {
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const ctaInView = useInView(ctaRef, { once: true, amount: 0.3 });
-
-  return (
-  <section ref={ctaRef} className="relative py-36 md:py-48 overflow-hidden" style={{
+const CTASection = () => (
+  <section className="relative py-36 md:py-48 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 11%) 50%, hsl(220 16% 7%))',
   }}>
-    {/* Ambient radial glow — breathes subtly */}
-    <motion.div
-      className="absolute inset-0 pointer-events-none"
-      animate={{
-        background: [
-          'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.04), transparent 60%)',
-          'radial-gradient(ellipse 55% 65% at 48% 48%, hsl(210 100% 50% / 0.06), transparent 65%)',
-          'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.04), transparent 60%)',
-        ],
-      }}
-      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-    />
-    {/* Top separator */}
+    <div className="absolute inset-0 pointer-events-none" style={{
+      background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.04), transparent 60%)',
+    }} />
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/15 to-transparent" />
 
     <div className="section-container text-center relative z-10">
-      <div className="max-w-2xl mx-auto">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={ctaInView ? { width: 40 } : { width: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="h-px bg-primary/25 mx-auto mb-8"
-        />
-        <motion.h2
-          className="headline-lg"
-          initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
-          animate={ctaInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-          transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        >
-          Let's move growth forward<span className="text-primary">.</span>
-        </motion.h2>
-        <motion.p
-          className="text-[15px] text-muted-foreground mt-5 max-w-md mx-auto leading-relaxed"
-          initial={{ opacity: 0, y: 16 }}
-          animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        >
-          Tell us where growth needs to move next.
-        </motion.p>
-        <motion.div
-          className="flex flex-wrap justify-center gap-4 mt-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <Link to="/contact">
-            <Button variant="hero" size="xl">Start a conversation</Button>
-          </Link>
-          <Link to="/capabilities">
-            <Button variant="hero-outline" size="xl">Explore capabilities</Button>
-          </Link>
-        </motion.div>
-        <motion.a
-          href="mailto:info@enfactum.com"
-          className="inline-block text-sm text-muted-foreground mt-6 transition-colors duration-300 hover:text-foreground"
-          initial={{ opacity: 0 }}
-          animate={ctaInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        >
-          Or email us directly at info@enfactum.com
-        </motion.a>
-      </div>
+      <RevealSection blur>
+        <div className="max-w-2xl mx-auto">
+          <div className="w-10 h-px bg-primary/25 mx-auto mb-8" />
+          <h2 className="headline-lg">Let's move growth forward<span className="text-primary">.</span></h2>
+          <p className="text-[15px] text-muted-foreground mt-5 max-w-md mx-auto leading-relaxed">
+            Tell us where growth needs to move next.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mt-10">
+            <Link to="/contact">
+              <Button variant="hero" size="xl">Start a conversation</Button>
+            </Link>
+            <Link to="/capabilities">
+              <Button variant="hero-outline" size="xl">Explore capabilities</Button>
+            </Link>
+          </div>
+          <a href="mailto:info@enfactum.com" className="inline-block text-sm text-muted-foreground mt-6 transition-colors duration-300 hover:text-foreground">
+            Or email us directly at info@enfactum.com
+          </a>
+        </div>
+      </RevealSection>
     </div>
 
-    {/* Bottom separator before footer */}
     <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
   </section>
-  );
-};
+);
 
 /* ═══════════════════════════════════════════════
    PAGE ASSEMBLY

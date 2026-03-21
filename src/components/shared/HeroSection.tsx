@@ -119,19 +119,6 @@ const HeroSection = ({ eyebrow, headline, description, children, compact = false
       <motion.div className={`absolute inset-0 topology-grid ${vs.gridOpacity}`} style={{ y: bgY }} />
       <motion.div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-background" style={{ y: bgY, opacity: bgOpacity }} />
 
-      {/* Ambient drift glow */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        animate={{
-          background: [
-            `radial-gradient(ellipse 50% 50% at 40% 50%, ${vs.spotlightColor}, transparent 70%)`,
-            `radial-gradient(ellipse 55% 55% at 60% 45%, ${vs.spotlightColor}, transparent 75%)`,
-            `radial-gradient(ellipse 50% 50% at 40% 50%, ${vs.spotlightColor}, transparent 70%)`,
-          ],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-
       {/* Systemic variant — adds structural grid lines */}
       {variant === "systemic" && (
         <div className="absolute inset-0 pointer-events-none z-[1]">
