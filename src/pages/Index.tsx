@@ -429,7 +429,7 @@ const PullQuote = () => {
 
           <div className="mt-10">
             <p className="text-sm font-semibold text-foreground tracking-tight">Ajay Mohan</p>
-            <p className="text-xs text-foreground/45 mt-1 font-body">Founder & Managing Partner</p>
+            <p className="text-xs text-foreground/65 mt-1 font-body">Founder & Managing Partner</p>
           </div>
 
           {/* Bottom rule */}
@@ -479,7 +479,7 @@ const HowWeWork = () => {
           </div>
           <div className="md:col-span-4 md:col-start-8 flex items-end">
             <RevealSection delay={0.1}>
-              <p className="text-[13px] text-foreground/40 leading-relaxed font-body">
+              <p className="text-[13px] text-foreground/65 leading-relaxed font-body">
                 Five phases, one continuous operating sequence — each phase builds on the last to create lasting infrastructure.
               </p>
             </RevealSection>
@@ -512,7 +512,7 @@ const HowWeWork = () => {
                     <div className="relative">
                       <div className="w-[14px] h-[14px] rounded-full border-2 border-primary/30 bg-background relative z-10 group-hover:border-primary group-hover:bg-primary/10 transition-all duration-500" />
                     </div>
-                    <span className="text-[10px] text-foreground/30 tracking-[0.2em] uppercase font-body">{step.phase}</span>
+                    <span className="text-[10px] text-foreground/65 tracking-[0.2em] uppercase font-body">{step.phase}</span>
                   </div>
 
                   {/* Step number */}
@@ -529,7 +529,7 @@ const HowWeWork = () => {
                   <div className="w-8 h-px bg-primary/15 mb-4 group-hover:w-12 group-hover:bg-primary/30 transition-all duration-500" />
 
                   {/* Description */}
-                  <p className="text-[12px] leading-[1.75] text-foreground/45 font-body max-w-[200px]">{step.desc}</p>
+                  <p className="text-[12px] leading-[1.75] text-foreground/70 font-body max-w-[200px]">{step.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -567,7 +567,7 @@ const SectorExperience = () => (
             <h2 className="headline-lg">Credibility built across sectors<span className="text-primary">.</span></h2>
           </div>
           <div className="md:col-span-4 md:col-start-8 flex items-end">
-            <p className="text-[13px] text-foreground/40 leading-relaxed font-body">
+            <p className="text-[13px] text-foreground/65 leading-relaxed font-body">
               A decade of operating across enterprise technology, consumer brands, industrial systems, institutions, and new-economy platforms — the breadth that builds pattern recognition.
             </p>
           </div>
@@ -590,7 +590,7 @@ const SectorExperience = () => (
                     <div className="w-6 h-px bg-primary/20 mt-1" />
                   </div>
                   <p className="text-[13px] font-medium text-foreground/70 mt-3 font-body">{stat.label}</p>
-                  <p className="text-[11px] text-foreground/35 mt-1 font-body">{stat.sub}</p>
+                  <p className="text-[11px] text-foreground/65 mt-1 font-body">{stat.sub}</p>
                 </div>
               ))}
             </div>
@@ -623,7 +623,7 @@ const SectorExperience = () => (
                             {cluster.label}
                           </h3>
                         </div>
-                        <p className="text-[12px] text-foreground/40 leading-[1.8] font-body">{cluster.names}</p>
+                        <p className="text-[12px] text-foreground/65 leading-[1.8] font-body">{cluster.names}</p>
                       </div>
                       {/* Arrow */}
                       <div className="col-span-2 flex items-center justify-end mt-1">
@@ -694,14 +694,14 @@ const SelectedWork = () => {
                         </span>
                       ))}
                       {lead.sectors?.[0] && (
-                        <span className="text-[9px] px-2.5 py-1 rounded-sm bg-secondary text-muted-foreground/60 font-medium tracking-[0.15em] uppercase">
+                        <span className="text-[9px] px-2.5 py-1 rounded-sm bg-secondary text-muted-foreground/75 font-medium tracking-[0.15em] uppercase">
                           {lead.sectors[0]}
                         </span>
                       )}
                     </div>
 
                     {/* Client */}
-                    <span className="text-[11px] text-foreground/35 uppercase tracking-[0.2em] font-body block mb-3">{lead.client}</span>
+                    <span className="text-[11px] text-foreground/65 uppercase tracking-[0.2em] font-body block mb-3">{lead.client}</span>
 
                     {/* Headline — dramatic scale */}
                     <h3 className="text-2xl md:text-3xl lg:text-[2.25rem] font-display font-bold text-foreground leading-[1.1] tracking-[-0.02em] group-hover:text-primary transition-colors duration-500 max-w-xl">
@@ -709,7 +709,7 @@ const SelectedWork = () => {
                     </h3>
 
                     {/* Challenge */}
-                    <p className="text-[13px] text-foreground/45 mt-6 leading-[1.8] max-w-md font-body">
+                    <p className="text-[13px] text-foreground/65 mt-6 leading-[1.8] max-w-md font-body">
                       {lead.challenge}
                     </p>
 
@@ -727,7 +727,7 @@ const SelectedWork = () => {
                           <p className="font-display text-3xl md:text-4xl font-bold text-primary/70 tracking-tight leading-none">
                             {r.metric}
                           </p>
-                         <span className="text-[11px] text-foreground/40 mt-2 block leading-snug font-body">
+                         <span className="text-[11px] text-foreground/65 mt-2 block leading-snug font-body">
                             {r.label}
                           </span>
                         </div>
@@ -754,14 +754,14 @@ const SelectedWork = () => {
                   </div>
                   {/* Client + Headline */}
                   <div className="md:col-span-4">
-                    <span className="text-[10px] text-foreground/35 uppercase tracking-[0.2em] font-body block mb-2">{cs.client}</span>
+                    <span className="text-[10px] text-foreground/65 uppercase tracking-[0.2em] font-body block mb-2">{cs.client}</span>
                     <h3 className="font-display text-lg font-bold text-foreground leading-[1.2] group-hover:text-primary transition-colors duration-400">
                       {cs.headline}
                     </h3>
                   </div>
                   {/* Challenge */}
                   <div className="md:col-span-3">
-                    <p className="text-[12px] text-foreground/40 leading-[1.75] font-body">{cs.challenge}</p>
+                    <p className="text-[12px] text-foreground/65 leading-[1.75] font-body">{cs.challenge}</p>
                   </div>
                   {/* Metrics */}
                   <div className="md:col-span-3">
