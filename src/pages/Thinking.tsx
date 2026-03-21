@@ -68,7 +68,7 @@ const LeadArticle = ({ article }: { article: Article }) => (
           </span>
         </div>
         <div className="md:col-span-4 md:col-start-9 flex flex-col justify-end">
-          <div className="border-l-2 border-primary/10 pl-6 group-hover:border-primary/25 transition-colors duration-500">
+          <div className="border-l-2 border-primary/10 pl-6">
             <p className="text-[14px] font-medium text-foreground/60 font-body">{article.author}</p>
             {article.authorRole && (
               <p className="text-[11px] text-foreground/20 font-body mt-0.5">{article.authorRole}</p>
