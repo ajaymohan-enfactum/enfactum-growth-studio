@@ -429,7 +429,7 @@ const PullQuote = () => {
 
           <div className="mt-10">
             <p className="text-sm font-semibold text-foreground tracking-tight">Ajay Mohan</p>
-            <p className="text-xs text-foreground/45 mt-1 font-body">Founder & Managing Partner</p>
+            <p className="text-xs text-foreground/65 mt-1 font-body">Founder & Managing Partner</p>
           </div>
 
           {/* Bottom rule */}
