@@ -901,7 +901,7 @@ const PointOfView = () => {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-24 md:py-32 overflow-hidden">
+    <section ref={ref} className="relative py-20 md:py-24 overflow-hidden">
       {/* Continuous background — no alternate bg, just the default page tone */}
       <div className="absolute inset-0 pointer-events-none" style={{
         background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 60% 12% / 0.05), transparent 70%)',
