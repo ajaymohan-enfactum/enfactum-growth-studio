@@ -555,15 +555,7 @@ const HowWeWork = () => {
                   {/* Step node — on the rail */}
                   <div className="flex items-center gap-3 mb-7 md:mb-8">
                     <div className="relative">
-                      <motion.div
-                        className="w-[14px] h-[14px] rounded-full border-2 border-primary/30 bg-background relative z-10 group-hover:border-primary group-hover:bg-primary/10 transition-all duration-500"
-                        animate={isInView ? {
-                          borderColor: ['hsl(210 100% 50% / 0.3)', 'hsl(210 100% 50% / 0.5)', 'hsl(210 100% 50% / 0.3)'],
-                        } : {}}
-                        transition={{ duration: 3, delay: 1.5 + i * 0.3, repeat: Infinity, ease: "easeInOut" }}
-                      />
-                      {/* Glow behind node */}
-                      <div className="absolute inset-0 rounded-full bg-primary/10 blur-sm scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="w-[14px] h-[14px] rounded-full border-2 border-primary/30 bg-background relative z-10 group-hover:border-primary group-hover:bg-primary/10 transition-all duration-500" />
                     </div>
                     <span className="text-[10px] text-foreground/30 tracking-[0.2em] uppercase font-body">{step.phase}</span>
                   </div>
