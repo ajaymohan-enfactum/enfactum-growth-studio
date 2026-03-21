@@ -23,7 +23,7 @@ const Hero = () => {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[85vh] flex flex-col justify-center overflow-hidden">
       {/* Deep atmospheric background */}
       <div className="absolute inset-0" style={{
         background: 'linear-gradient(180deg, #0A101F 0%, #060D18 40%, #0D1526 70%, #060D18 100%)',
