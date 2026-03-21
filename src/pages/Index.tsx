@@ -512,7 +512,7 @@ const HowWeWork = () => {
                     <div className="relative">
                       <div className="w-[14px] h-[14px] rounded-full border-2 border-primary/30 bg-background relative z-10 group-hover:border-primary group-hover:bg-primary/10 transition-all duration-500" />
                     </div>
-                    <span className="text-[10px] text-foreground/30 tracking-[0.2em] uppercase font-body">{step.phase}</span>
+                    <span className="text-[10px] text-foreground/65 tracking-[0.2em] uppercase font-body">{step.phase}</span>
                   </div>
 
                   {/* Step number */}
