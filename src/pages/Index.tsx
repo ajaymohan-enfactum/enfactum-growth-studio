@@ -650,7 +650,7 @@ const SelectedWork = () => {
   const supporting = flagships.slice(1, 3); // Economist, BFL
 
   return (
-    <section className="relative py-28 md:py-36 overflow-hidden" style={{
+    <section className="relative py-20 md:py-28 overflow-hidden" style={{
       background: 'linear-gradient(170deg, hsl(220 18% 8%), hsl(222 20% 10%), hsl(220 18% 8%))',
     }}>
       <div className="absolute inset-0 pointer-events-none" style={{
