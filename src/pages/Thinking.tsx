@@ -63,8 +63,8 @@ const LeadArticle = ({ article }: { article: Article }) => (
           <p className="text-[15px] text-foreground/35 mt-6 leading-[1.8] max-w-lg font-body">
             {article.teaser}
           </p>
-          <span className="inline-flex items-center gap-1.5 mt-8 text-[11px] text-primary/50 uppercase tracking-[0.15em] font-body font-medium group-hover:text-primary/80 group-hover:gap-2.5 transition-all duration-500">
-            Read article <ArrowRight className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1" />
+          <span className="inline-flex items-center gap-1.5 mt-8 text-[11px] text-primary/50 uppercase tracking-[0.15em] font-body font-medium group-hover:text-primary/80 transition-colors duration-300">
+            Read article <ArrowRight className="w-3.5 h-3.5" />
           </span>
         </div>
         <div className="md:col-span-4 md:col-start-9 flex flex-col justify-end">
