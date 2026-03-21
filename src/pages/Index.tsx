@@ -458,7 +458,7 @@ const HowWeWork = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section ref={ref} className="relative py-28 md:py-36 overflow-hidden" style={{
+    <section ref={ref} className="relative py-20 md:py-28 overflow-hidden" style={{
       background: 'linear-gradient(180deg, hsl(220 16% 7%), hsl(218 22% 9.5%), hsl(220 16% 7%))',
     }}>
       {/* Structural vertical guides */}
