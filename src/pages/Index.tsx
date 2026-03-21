@@ -694,7 +694,7 @@ const SelectedWork = () => {
                         </span>
                       ))}
                       {lead.sectors?.[0] && (
-                        <span className="text-[9px] px-2.5 py-1 rounded-sm bg-secondary text-muted-foreground/60 font-medium tracking-[0.15em] uppercase">
+                        <span className="text-[9px] px-2.5 py-1 rounded-sm bg-secondary text-muted-foreground/75 font-medium tracking-[0.15em] uppercase">
                           {lead.sectors[0]}
                         </span>
                       )}
