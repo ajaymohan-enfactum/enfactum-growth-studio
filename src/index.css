@@ -150,7 +150,7 @@
   }
   .body-lg {
     @apply text-[clamp(1rem,1.2vw,1.25rem)] leading-[1.7] font-light;
-    color: rgba(255, 255, 255, 0.80);
+    color: rgba(255, 255, 255, 0.82);
   }
   .body-md {
     @apply text-[15px] leading-[1.75];
