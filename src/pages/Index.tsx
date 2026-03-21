@@ -219,8 +219,18 @@ const BrandMarquee = () => (
 /* ═══════════════════════════════════════════════
    WHY SEA — Editorial asymmetric layout
    ═══════════════════════════════════════════════ */
-const WhySEA = () => (
-  <section className="relative py-20 md:py-28 overflow-hidden">
+const WhySEA = () => {
+  const seaRef = useRef<HTMLDivElement>(null);
+  const seaInView = useInView(seaRef, { once: true, amount: 0.2 });
+  const markets = [
+    { market: "Singapore", role: "HQ & Strategy Hub", flag: "🇸🇬" },
+    { market: "India", role: "Operating Bench", flag: "🇮🇳" },
+    { market: "Malaysia", role: "Regional Node", flag: "🇲🇾" },
+    { market: "Indonesia", role: "Growth Market", flag: "🇮🇩" },
+  ];
+
+  return (
+  <section ref={seaRef} className="relative py-20 md:py-28 overflow-hidden">
     <div className="absolute inset-0 pointer-events-none" style={{
       background: 'radial-gradient(ellipse 60% 50% at 70% 40%, hsl(210 80% 20% / 0.08), transparent 60%)',
     }} />
@@ -249,15 +259,38 @@ const WhySEA = () => (
         </div>
 
         <div className="md:col-span-5 md:col-start-8">
-          <RevealSection delay={0.2}>
-            <div className="space-y-0">
-              {[
-                { market: "Singapore", role: "HQ & Strategy Hub", flag: "🇸🇬" },
-                { market: "India", role: "Operating Bench", flag: "🇮🇳" },
-                { market: "Malaysia", role: "Regional Node", flag: "🇲🇾" },
-                { market: "Indonesia", role: "Growth Market", flag: "🇮🇩" },
-              ].map((node, i) => (
-                <div key={i} className="flex items-center gap-5 py-4 border-b border-border/15 group hover:border-primary/15 transition-colors duration-500">
+          <div className="space-y-0">
+            {markets.map((node, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: 20 }}
+                animate={seaInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+                transition={{ duration: 0.6, delay: 0.3 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div className="flex items-center gap-5 py-4 border-b border-border/15 group hover:border-primary/15 transition-colors duration-500">
+                  <span className="text-xl">{node.flag}</span>
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-foreground">{node.market}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">{node.role}</p>
+                  </div>
+                  <motion.div
+                    className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary/60 transition-colors duration-500"
+                    animate={seaInView ? {
+                      scale: [1, 1.6, 1],
+                      opacity: [0.5, 1, 0.5],
+                    } : {}}
+                    transition={{ duration: 2.5, delay: 1 + i * 0.4, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  );
+};
                   <span className="text-xl">{node.flag}</span>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-foreground">{node.market}</p>
