@@ -264,14 +264,7 @@ const WhySEA = () => {
                     <p className="text-sm font-semibold text-foreground">{node.market}</p>
                     <p className="text-xs text-muted-foreground mt-0.5">{node.role}</p>
                   </div>
-                  <motion.div
-                    className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary/60 transition-colors duration-500"
-                    animate={seaInView ? {
-                      scale: [1, 1.6, 1],
-                      opacity: [0.5, 1, 0.5],
-                    } : {}}
-                    transition={{ duration: 2.5, delay: 1 + i * 0.4, repeat: Infinity, ease: "easeInOut" }}
-                  />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary/50 transition-colors duration-500" />
                 </div>
               </motion.div>
             ))}
