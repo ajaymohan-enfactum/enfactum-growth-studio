@@ -88,7 +88,7 @@ const LeadArticle = ({ article }: { article: Article }) => (
 /* ═══ Secondary featured — mid-weight ═══ */
 const SecondaryArticle = ({ article, index }: { article: Article; index: number }) => (
   <Link to={`/thinking/${article.slug}`} className="block group">
-    <article className="py-8 border-t border-border/10 group-hover:border-primary/10 transition-colors duration-500">
+    <article className="py-8 border-t border-border/10 group-hover:border-primary/10 transition-colors duration-300">
       <div className="flex items-center gap-3 mb-3">
         <span className="text-[10px] text-primary/40 uppercase tracking-[0.2em] font-body font-medium">
           {article.category}
