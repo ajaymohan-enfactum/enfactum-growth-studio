@@ -200,7 +200,7 @@ const Work = () => {
                     measurable commercial, operational, or ecosystem outcomes.
                   </p>
                 </div>
-                <span className="text-[80px] md:text-[100px] font-display font-bold text-foreground/[0.02] leading-none select-none pointer-events-none hidden md:block">
+                <span className="text-[80px] md:text-[100px] font-display font-bold text-foreground/[0.02] leading-none select-none pointer-events-none hidden md:block animate-ambient-drift">
                   W
                 </span>
               </div>
