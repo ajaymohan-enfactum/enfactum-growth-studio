@@ -219,7 +219,7 @@ const WhySEA = () => {
   ];
 
   return (
-  <section ref={seaRef} className="relative py-20 md:py-28 overflow-hidden">
+  <section ref={seaRef} className="relative py-16 md:py-24 overflow-hidden">
     <div className="absolute inset-0 pointer-events-none" style={{
       background: 'radial-gradient(ellipse 60% 50% at 70% 40%, hsl(210 80% 20% / 0.08), transparent 60%)',
     }} />
@@ -291,7 +291,7 @@ const Capabilities = () => {
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
   return (
-  <section ref={sectionRef} className="relative py-28 md:py-36 overflow-hidden" style={{
+  <section ref={sectionRef} className="relative py-20 md:py-28 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 10%), hsl(220 18% 8%))',
   }}>
     {/* Structural grid lines suggesting architecture */}
@@ -408,7 +408,7 @@ const PullQuote = () => {
   const lineWidth = useTransform(scrollYProgress, [0.1, 0.45], ["0%", "100%"]);
 
   return (
-    <section ref={ref} className="relative py-32 md:py-44 overflow-hidden">
+    <section ref={ref} className="relative py-20 md:py-20 overflow-hidden">
       <div className="absolute inset-0" style={{
         background: 'linear-gradient(180deg, hsl(220 16% 7% / 0), hsl(215 30% 9% / 0.6) 30%, hsl(210 35% 10% / 0.8) 50%, hsl(215 30% 9% / 0.6) 70%, hsl(220 16% 7% / 0))',
       }} />
@@ -458,7 +458,7 @@ const HowWeWork = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section ref={ref} className="relative py-28 md:py-36 overflow-hidden" style={{
+    <section ref={ref} className="relative py-20 md:py-28 overflow-hidden" style={{
       background: 'linear-gradient(180deg, hsl(220 16% 7%), hsl(218 22% 9.5%), hsl(220 16% 7%))',
     }}>
       {/* Structural vertical guides */}
@@ -552,7 +552,7 @@ const sectorClusters = [
 ];
 
 const SectorExperience = () => (
-  <section className="relative py-28 md:py-36 overflow-hidden bg-[hsl(var(--section-alt))]">
+  <section className="relative py-20 md:py-28 overflow-hidden bg-[hsl(var(--section-alt))]">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
     <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
     {/* Subtle vertical guide at the column split */}
@@ -650,7 +650,7 @@ const SelectedWork = () => {
   const supporting = flagships.slice(1, 3); // Economist, BFL
 
   return (
-    <section className="relative py-28 md:py-36 overflow-hidden" style={{
+    <section className="relative py-20 md:py-28 overflow-hidden" style={{
       background: 'linear-gradient(170deg, hsl(220 18% 8%), hsl(222 20% 10%), hsl(220 18% 8%))',
     }}>
       <div className="absolute inset-0 pointer-events-none" style={{
@@ -792,7 +792,7 @@ const SelectedWork = () => {
    DEPTH — Institutional trust strip (not cards)
    ═══════════════════════════════════════════════ */
 const DepthSection = () => (
-  <section className="relative py-24 md:py-32 overflow-hidden">
+  <section className="relative py-20 md:py-24 overflow-hidden">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
 
     <div className="section-container relative z-10">
@@ -839,7 +839,7 @@ const Thinking = () => {
   const thinkInView = useInView(thinkRef, { once: true, amount: 0.15 });
 
   return (
-  <section ref={thinkRef} className="relative py-24 md:py-32 overflow-hidden" style={{
+  <section ref={thinkRef} className="relative py-20 md:py-24 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 18% 9%), hsl(220 18% 8%))',
   }}>
     <div className="section-container relative z-10">
@@ -901,7 +901,7 @@ const PointOfView = () => {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-24 md:py-32 overflow-hidden">
+    <section ref={ref} className="relative py-20 md:py-24 overflow-hidden">
       {/* Continuous background — no alternate bg, just the default page tone */}
       <div className="absolute inset-0 pointer-events-none" style={{
         background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 60% 12% / 0.05), transparent 70%)',
@@ -998,7 +998,7 @@ const PointOfView = () => {
    CTA
    ═══════════════════════════════════════════════ */
 const CTASection = () => (
-  <section className="relative py-36 md:py-48 overflow-hidden" style={{
+  <section className="relative py-24 md:py-24 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 11%) 50%, hsl(220 16% 7%))',
   }}>
     <div className="absolute inset-0 pointer-events-none" style={{
