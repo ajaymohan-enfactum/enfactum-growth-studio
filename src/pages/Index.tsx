@@ -1042,83 +1042,41 @@ const PointOfView = () => {
 /* ═══════════════════════════════════════════════
    CTA
    ═══════════════════════════════════════════════ */
-const CTASection = () => {
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const ctaInView = useInView(ctaRef, { once: true, amount: 0.3 });
-
-  return (
-  <section ref={ctaRef} className="relative py-36 md:py-48 overflow-hidden" style={{
+const CTASection = () => (
+  <section className="relative py-36 md:py-48 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 11%) 50%, hsl(220 16% 7%))',
   }}>
-    {/* Ambient radial glow — breathes subtly */}
-    <motion.div
-      className="absolute inset-0 pointer-events-none"
-      animate={{
-        background: [
-          'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.04), transparent 60%)',
-          'radial-gradient(ellipse 55% 65% at 48% 48%, hsl(210 100% 50% / 0.06), transparent 65%)',
-          'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.04), transparent 60%)',
-        ],
-      }}
-      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-    />
-    {/* Top separator */}
+    <div className="absolute inset-0 pointer-events-none" style={{
+      background: 'radial-gradient(ellipse 50% 60% at 50% 50%, hsl(210 100% 50% / 0.04), transparent 60%)',
+    }} />
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/15 to-transparent" />
 
     <div className="section-container text-center relative z-10">
-      <div className="max-w-2xl mx-auto">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={ctaInView ? { width: 40 } : { width: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="h-px bg-primary/25 mx-auto mb-8"
-        />
-        <motion.h2
-          className="headline-lg"
-          initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
-          animate={ctaInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-          transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        >
-          Let's move growth forward<span className="text-primary">.</span>
-        </motion.h2>
-        <motion.p
-          className="text-[15px] text-muted-foreground mt-5 max-w-md mx-auto leading-relaxed"
-          initial={{ opacity: 0, y: 16 }}
-          animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        >
-          Tell us where growth needs to move next.
-        </motion.p>
-        <motion.div
-          className="flex flex-wrap justify-center gap-4 mt-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <Link to="/contact">
-            <Button variant="hero" size="xl">Start a conversation</Button>
-          </Link>
-          <Link to="/capabilities">
-            <Button variant="hero-outline" size="xl">Explore capabilities</Button>
-          </Link>
-        </motion.div>
-        <motion.a
-          href="mailto:info@enfactum.com"
-          className="inline-block text-sm text-muted-foreground mt-6 transition-colors duration-300 hover:text-foreground"
-          initial={{ opacity: 0 }}
-          animate={ctaInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        >
-          Or email us directly at info@enfactum.com
-        </motion.a>
-      </div>
+      <RevealSection blur>
+        <div className="max-w-2xl mx-auto">
+          <div className="w-10 h-px bg-primary/25 mx-auto mb-8" />
+          <h2 className="headline-lg">Let's move growth forward<span className="text-primary">.</span></h2>
+          <p className="text-[15px] text-muted-foreground mt-5 max-w-md mx-auto leading-relaxed">
+            Tell us where growth needs to move next.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mt-10">
+            <Link to="/contact">
+              <Button variant="hero" size="xl">Start a conversation</Button>
+            </Link>
+            <Link to="/capabilities">
+              <Button variant="hero-outline" size="xl">Explore capabilities</Button>
+            </Link>
+          </div>
+          <a href="mailto:info@enfactum.com" className="inline-block text-sm text-muted-foreground mt-6 transition-colors duration-300 hover:text-foreground">
+            Or email us directly at info@enfactum.com
+          </a>
+        </div>
+      </RevealSection>
     </div>
 
-    {/* Bottom separator before footer */}
     <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
   </section>
-  );
-};
+);
 
 /* ═══════════════════════════════════════════════
    PAGE ASSEMBLY
