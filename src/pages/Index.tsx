@@ -431,17 +431,17 @@ const Capabilities = () => {
           )}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 md:gap-5">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-5 group/grid">
           {capData.map((cap, i) => (
             <RevealSection key={i} delay={i * 0.1} scale>
-              <Link to={cap.href} className="group block h-full">
-                <div className="relative h-full rounded-xl border border-border/40 bg-card/40 backdrop-blur-sm p-8 md:p-10 flex flex-col justify-between min-h-[280px] overflow-hidden transition-all duration-700 hover:border-primary/25 hover:bg-card/60">
+              <Link to={cap.href} className="group/card block h-full">
+                <div className="relative h-full rounded-xl border border-border/40 bg-card/40 backdrop-blur-sm p-8 md:p-10 flex flex-col justify-between min-h-[280px] overflow-hidden transition-all duration-700 hover:border-primary/25 hover:bg-card/60 group-hover/grid:opacity-60 hover:!opacity-100">
                   {/* Subtle gradient on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/[0.02] group-hover:to-primary/[0.05] transition-all duration-700 rounded-xl" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover/card:from-primary/[0.02] group-hover/card:to-primary/[0.05] transition-all duration-700 rounded-xl" />
                   
                   <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                      <div className="p-2 rounded-lg bg-primary/10 text-primary transition-all duration-500 group-hover/card:bg-primary/20 group-hover/card:shadow-[0_0_16px_-4px_hsl(210_100%_50%/0.3)]">
                         <cap.icon className="w-4 h-4" />
                       </div>
                       <span className="text-[10px] font-mono tracking-wider text-muted-foreground">{cap.num}</span>
@@ -449,13 +449,13 @@ const Capabilities = () => {
                   </div>
 
                   <div className="relative z-10 mt-auto">
-                    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 transition-colors duration-400 group-hover:text-primary">
+                    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 transition-colors duration-400 group-hover/card:text-primary">
                       {cap.title}
                     </h3>
                     <p className="text-sm leading-relaxed max-w-sm text-muted-foreground">{cap.desc}</p>
                   </div>
 
-                  <div className="relative z-10 mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="relative z-10 mt-6 flex items-center gap-2 opacity-0 group-hover/card:opacity-100 transition-all duration-500 translate-y-2 group-hover/card:translate-y-0">
                     <span className="text-xs text-primary font-medium">Explore</span>
                     <ArrowRight className="w-3 h-3 text-primary" />
                   </div>
