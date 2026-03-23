@@ -553,7 +553,7 @@ const SectorExperience = () => (
         <div className="grid md:grid-cols-12 gap-8 mb-20 md:mb-24">
           <div className="md:col-span-5">
             <p className="eyebrow mb-5">Experience</p>
-            <h2 className="headline-lg">Credibility built across sectors<span className="text-primary">.</span></h2>
+            <h2 className="headline-lg"><span className="text-primary">Credibility</span> built across sectors<span className="text-foreground">.</span></h2>
           </div>
           <div className="md:col-span-4 md:col-start-8 flex items-end">
             <p className="text-[13px] text-foreground/65 leading-relaxed font-body">
