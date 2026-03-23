@@ -568,7 +568,7 @@ const SectorExperience = () => (
           </div>
           <div className="md:col-span-4 md:col-start-8 flex items-end">
             <p className="text-[13px] text-foreground/65 leading-relaxed font-body">
-              A decade of operating across enterprise technology, consumer brands, industrial systems, institutions, and new-economy platforms — the breadth that builds pattern recognition.
+              A decade of operating across enterprise, consumer, industrial, and new-economy sectors — the breadth that builds pattern recognition.
             </p>
           </div>
         </div>
