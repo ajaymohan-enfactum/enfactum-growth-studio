@@ -224,7 +224,7 @@ const WhySEA = () => {
           <RevealSection blur>
             <p className="eyebrow mb-5">Why Southeast Asia</p>
             <h2 className="headline-lg max-w-md">
-              Growth here moves through ecosystems, local trust, and execution nuance<span className="text-primary">.</span>
+              Growth here moves through <span className="text-primary">ecosystems</span>, local trust, and execution nuance.
             </h2>
           </RevealSection>
           <RevealSection delay={0.15} blur>
