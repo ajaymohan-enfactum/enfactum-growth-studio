@@ -361,7 +361,6 @@ const Capabilities = () => {
                       <div className="p-2 rounded-lg bg-primary/10 text-primary">
                         <cap.icon className="w-4 h-4" />
                       </div>
-                      <span className="text-[10px] font-mono tracking-wider text-muted-foreground">{cap.num}</span>
                     </div>
                   </div>
 
