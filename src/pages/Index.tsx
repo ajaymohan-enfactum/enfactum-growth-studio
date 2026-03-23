@@ -412,8 +412,8 @@ const PullQuote = () => {
             <motion.div className="h-px bg-primary/25" style={{ width: lineWidth }} />
           </div>
 
-          <blockquote className="font-display italic text-foreground leading-[1.25] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.75rem)' }}>
-            "Growth in Southeast Asia doesn't follow a formula. It follows relationships, ecosystems, and the judgment of people who've done it before."
+          <blockquote className="font-display font-bold text-foreground leading-[1.25] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.75rem)' }}>
+            "Growth in Southeast Asia doesn't follow a formula. It follows <span className="text-primary">relationships</span>, <span className="text-primary">ecosystems</span>, and the <span className="text-primary">judgment</span> of people who've done it before."
           </blockquote>
 
           <div className="mt-10">
