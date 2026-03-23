@@ -999,7 +999,7 @@ const CTASection = () => (
       <RevealSection blur>
         <div className="max-w-2xl mx-auto">
           <div className="w-10 h-px bg-primary/25 mx-auto mb-8" />
-          <h2 className="headline-lg">Let's move growth forward<span className="text-primary">.</span></h2>
+          <h2 className="headline-lg">Let's move <span className="text-primary">growth</span> forward.</h2>
           <p className="text-[15px] text-muted-foreground mt-5 max-w-md mx-auto leading-relaxed">
             Tell us where growth needs to move next.
           </p>
