@@ -87,7 +87,7 @@ const Hero = () => {
               transition={{ duration: 0.9, delay: 0.8, ease }}
             >
               and execution{" "}
-              <span className="text-primary">move together.</span>
+              <span className="text-primary">move together</span>.
             </motion.span>
           </motion.h1>
         </div>
