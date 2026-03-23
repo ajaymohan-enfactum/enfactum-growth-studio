@@ -787,7 +787,7 @@ const DepthSection = () => (
     <div className="section-container relative z-10">
       <RevealSection blur>
         <p className="eyebrow mb-4">Behind the work</p>
-        <h2 className="headline-lg text-foreground mb-16">Depth where it matters<span className="text-primary">.</span></h2>
+        <h2 className="headline-lg text-foreground mb-16"><span className="text-primary">Depth</span> where it matters.</h2>
       </RevealSection>
 
       <div className="grid md:grid-cols-3 gap-0 border border-border/20 rounded-xl overflow-hidden">
