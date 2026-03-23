@@ -119,16 +119,6 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 2.2, ease }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
-      >
-        <span className="text-[10px] tracking-[0.3em] text-muted-foreground/60 uppercase">Scroll</span>
-        <ChevronDown className="w-4 h-4 text-primary/40" strokeWidth={1.5} style={{ animation: 'scroll-bounce 2s ease-in-out infinite' }} />
-      </motion.div>
     </section>
   );
 };
