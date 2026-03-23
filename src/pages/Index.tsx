@@ -580,9 +580,9 @@ const SectorExperience = () => (
           <RevealSection blur>
             <div className="space-y-0">
               {[
-                { num: "40+", label: "Enterprise clients", sub: "across Southeast Asia" },
                 { num: "100+", label: "Programmes delivered", sub: "strategy through execution" },
                 { num: "5+", label: "Year avg. partnerships", sub: "embedded, not project-based" },
+                { num: "10", label: "Markets covered", sub: "across Southeast Asia" },
               ].map((stat, i) => (
                 <div key={stat.label} className={`py-8 ${i > 0 ? 'border-t border-border/10' : ''}`}>
                   <div className="flex items-baseline gap-4">
