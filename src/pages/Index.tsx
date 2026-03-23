@@ -787,7 +787,7 @@ const DepthSection = () => (
     <div className="section-container relative z-10">
       <RevealSection blur>
         <p className="eyebrow mb-4">Behind the work</p>
-        <h2 className="headline-lg text-foreground mb-16">Depth where it matters<span className="text-primary">.</span></h2>
+        <h2 className="headline-lg text-foreground mb-16"><span className="text-primary">Depth</span> where it matters.</h2>
       </RevealSection>
 
       <div className="grid md:grid-cols-3 gap-0 border border-border/20 rounded-xl overflow-hidden">
@@ -836,7 +836,7 @@ const Thinking = () => {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
             <p className="eyebrow mb-4">Insights</p>
-            <h2 className="headline-md">Perspectives from inside the work<span className="text-primary">.</span></h2>
+            <h2 className="headline-md">Perspectives from inside the <span className="text-primary">work</span>.</h2>
           </div>
           <Link to="/thinking" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-300">
             All insights <ArrowRight className="w-4 h-4" />
