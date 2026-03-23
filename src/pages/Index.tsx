@@ -211,6 +211,7 @@ const WhySEA = () => {
     { market: "India", role: "Operating Bench", code: "in" },
     { market: "Malaysia", role: "Regional Node", code: "my" },
     { market: "Indonesia", role: "Growth Market", code: "id" },
+    { market: "United States", role: "N.A. Office", code: "us" },
   ];
 
   return (
