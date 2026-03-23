@@ -156,6 +156,10 @@
     @apply text-[15px] leading-[1.75];
     color: rgba(255, 255, 255, 0.82);
   }
+  .card-description {
+    @apply text-[15px] leading-[1.75];
+    color: rgba(255, 255, 255, 0.72);
+  }
 
   /* Light section — inverts to white bg */
   .section-light {
