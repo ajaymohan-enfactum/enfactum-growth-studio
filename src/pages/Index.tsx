@@ -653,7 +653,7 @@ const SelectedWork = () => {
           <div className="grid md:grid-cols-12 gap-8 mb-20 md:mb-24">
             <div className="md:col-span-6">
               <p className="eyebrow mb-4">Selected Work</p>
-              <h2 className="headline-lg">Proven outcomes<span className="text-primary">,</span> real change<span className="text-primary">.</span></h2>
+              <h2 className="headline-lg">Proven <span className="text-primary">outcomes</span>, real change.</h2>
             </div>
             <div className="md:col-span-4 md:col-start-8 flex items-end">
               <Link to="/work" className="inline-flex items-center gap-2 text-[11px] text-primary/50 hover:text-primary uppercase tracking-[0.2em] font-body transition-colors duration-500">
