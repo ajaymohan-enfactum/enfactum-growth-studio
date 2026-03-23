@@ -179,12 +179,17 @@ const BrandMarquee = () => (
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to right, hsl(220 16% 7%), transparent)' }} />
         <div className="absolute right-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to left, hsl(220 16% 7%), transparent)' }} />
+        {/* Center spotlight — brightens brands as they pass "Trusted by" */}
+        <div className="absolute inset-0 z-[5] pointer-events-none" style={{
+          background: 'radial-gradient(ellipse 220px 100% at 50% 50%, rgba(255,255,255,0.55), transparent)',
+          mixBlendMode: 'screen',
+        }} />
         <div className="flex animate-ticker" style={{ animationDuration: '35s', width: 'max-content' }}>
           {[...brandNames, ...brandNames].map((name, i) => (
             <span
               key={i}
-              className="inline-flex items-center px-8 md:px-10 text-[15px] md:text-[16px] font-display font-semibold tracking-[-0.01em] whitespace-nowrap hover:text-foreground/60 transition-colors duration-500"
-              style={{ color: 'rgba(255,255,255,0.40)' }}
+              className="inline-flex items-center px-8 md:px-10 text-[15px] md:text-[16px] font-display font-semibold tracking-[-0.01em] whitespace-nowrap transition-colors duration-500"
+              style={{ color: 'rgba(255,255,255,0.22)' }}
             >
               {name}
             </span>
