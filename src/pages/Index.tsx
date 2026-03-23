@@ -87,7 +87,7 @@ const Hero = () => {
               transition={{ duration: 0.9, delay: 0.8, ease }}
             >
               and execution{" "}
-              <span className="text-primary">move together.</span>
+              <span className="text-primary">move together</span>.
             </motion.span>
           </motion.h1>
         </div>
@@ -224,7 +224,7 @@ const WhySEA = () => {
           <RevealSection blur>
             <p className="eyebrow mb-5">Why Southeast Asia</p>
             <h2 className="headline-lg max-w-md">
-              Growth here moves through ecosystems, local trust, and execution nuance<span className="text-primary">.</span>
+              Growth here moves through <span className="text-primary">ecosystems</span>, local trust, and execution nuance.
             </h2>
           </RevealSection>
           <RevealSection delay={0.15} blur>
@@ -296,7 +296,7 @@ const Capabilities = () => {
       <RevealSection>
         <div className="text-center mb-16 md:mb-20">
           <p className="eyebrow mb-5">Our Solutions</p>
-          <h2 className="headline-lg">Four capabilities<span className="text-primary">.</span><br className="hidden md:block" />One growth architecture<span className="text-primary">.</span></h2>
+          <h2 className="headline-lg">Four <span className="text-primary">capabilities</span>.<br className="hidden md:block" />One growth <span className="text-primary">architecture</span>.</h2>
           <p className="text-sm max-w-md mx-auto leading-relaxed text-muted-foreground mt-5">
             Each capability connects. Together, they form a growth operating system for Southeast Asia.
           </p>
