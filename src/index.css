@@ -110,7 +110,7 @@
     color: #FFFFFF;
   }
   h2 {
-    color: rgba(255, 255, 255, 0.95);
+    color: #FFFFFF;
   }
 }
 
@@ -134,15 +134,15 @@
   }
   .headline-xl {
     @apply text-[clamp(2.25rem,4.5vw,4.5rem)] font-bold leading-[1.0] tracking-[-0.03em];
-    color: rgba(255, 255, 255, 0.95);
+    color: #FFFFFF;
   }
   .headline-lg {
     @apply text-[clamp(1.75rem,3vw,3rem)] font-bold leading-[1.08] tracking-[-0.025em];
-    color: rgba(255, 255, 255, 0.95);
+    color: #FFFFFF;
   }
   .headline-md {
     @apply text-[clamp(1.375rem,2vw,2rem)] font-semibold leading-[1.15] tracking-[-0.015em];
-    color: rgba(255, 255, 255, 0.95);
+    color: #FFFFFF;
   }
   .body-xl {
     @apply text-[clamp(1.125rem,1.4vw,1.375rem)] leading-[1.65] font-light;
@@ -155,6 +155,10 @@
   .body-md {
     @apply text-[15px] leading-[1.75];
     color: rgba(255, 255, 255, 0.82);
+  }
+  .card-description {
+    @apply text-[15px] leading-[1.75];
+    color: rgba(255, 255, 255, 0.72);
   }
 
   /* Light section — inverts to white bg */
