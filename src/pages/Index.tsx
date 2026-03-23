@@ -463,7 +463,7 @@ const HowWeWork = () => {
           <div className="md:col-span-6">
             <RevealSection blur>
               <p className="eyebrow mb-5">How We Work</p>
-              <h2 className="headline-lg max-w-lg">From strategy to operating momentum<span className="text-primary">.</span></h2>
+              <h2 className="headline-lg max-w-lg">From strategy to operating <span className="text-primary">momentum</span>.</h2>
             </RevealSection>
           </div>
           <div className="md:col-span-4 md:col-start-8 flex items-end">
