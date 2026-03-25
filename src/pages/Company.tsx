@@ -12,6 +12,7 @@ import AnimatedCounter from "@/components/shared/AnimatedCounter";
 import ajayPhoto from "@/assets/team/ajay-mohan.png";
 import williamPhoto from "@/assets/team/william-gaultier.png";
 import poojaPhoto from "@/assets/team/pooja-mohan.png";
+import sumitPhoto from "@/assets/team/sumit-ramchandani.png";
 
 /* ═══════════════════════════════════════════════
    DATA
