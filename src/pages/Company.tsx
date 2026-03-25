@@ -12,6 +12,7 @@ import AnimatedCounter from "@/components/shared/AnimatedCounter";
 import ajayPhoto from "@/assets/team/ajay-mohan.png";
 import williamPhoto from "@/assets/team/william-gaultier.png";
 import poojaPhoto from "@/assets/team/pooja-mohan.png";
+import sumitPhoto from "@/assets/team/sumit-ramchandani.png";
 
 /* ═══════════════════════════════════════════════
    DATA
@@ -28,7 +29,7 @@ const leaders = [
   { name: "Ajay Mohan", role: "Founder & Managing Partner", focus: "Strategy · Growth · Southeast Asia", bio: "15+ years building growth infrastructure for enterprise brands across Asia Pacific. Leads Enfactum's strategic vision and client partnerships.", photo: ajayPhoto },
   { name: "William Gaultier", role: "Partner", focus: "Ecosystems · Innovation · Partnerships", bio: "Deep enterprise and ecosystem experience across ASEAN, driving innovation programmes and strategic partnerships.", photo: williamPhoto },
   { name: "Pooja Mohan", role: "Director / Co-Founder", focus: "Operations · Creative Strategy · Scale", bio: "Leads Enfactum's operational backbone — managing delivery, team coordination, and programme execution across the region.", photo: poojaPhoto },
-  { name: "Sumit Ramchandani", role: "Adtech & Martech Lead", focus: "Martech · Performance · Data", bio: "Specialist in marketing technology, performance infrastructure, and data-driven growth architectures." },
+  { name: "Sumit Ramchandani", role: "Adtech & Martech Lead", focus: "Martech · Performance · Data", bio: "Specialist in marketing technology, performance infrastructure, and data-driven growth architectures.", photo: sumitPhoto },
 ];
 
 const domainSpecialists = [
