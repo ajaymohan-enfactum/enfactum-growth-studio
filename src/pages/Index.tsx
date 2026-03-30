@@ -130,7 +130,7 @@ const Hero = () => {
    ═══════════════════════════════════════════════ */
 const Stats = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: false, amount: 0.3 });
   const stats = [
     { num: "700M+", label: "People across ten countries" },
     { num: "$300B+", label: "Digital economy" },
@@ -207,7 +207,7 @@ const BrandMarquee = () => (
    ═══════════════════════════════════════════════ */
 const WhySEA = () => {
   const seaRef = useRef<HTMLDivElement>(null);
-  const seaInView = useInView(seaRef, { once: true, amount: 0.2 });
+  const seaInView = useInView(seaRef, { once: false, amount: 0.2 });
   const markets = [
     { market: "Singapore", role: "HQ & Strategy Hub", code: "sg" },
     { market: "India", role: "Operating Bench", code: "in" },
@@ -286,7 +286,7 @@ const capData = [
 
 const Capabilities = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
 
   return (
   <section ref={sectionRef} className="relative py-20 md:py-28 overflow-hidden" style={{
@@ -464,7 +464,7 @@ const processSteps = [
 
 const HowWeWork = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref, { once: false, amount: 0.2 });
 
   return (
     <section ref={ref} className="relative py-20 md:py-28 overflow-hidden" style={{
@@ -845,7 +845,7 @@ const articles = [
 
 const Thinking = () => {
   const thinkRef = useRef<HTMLDivElement>(null);
-  const thinkInView = useInView(thinkRef, { once: true, amount: 0.15 });
+  const thinkInView = useInView(thinkRef, { once: false, amount: 0.15 });
 
   return (
   <section ref={thinkRef} className="relative py-20 md:py-24 overflow-hidden" style={{

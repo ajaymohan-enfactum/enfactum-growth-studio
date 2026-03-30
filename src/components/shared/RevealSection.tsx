@@ -33,7 +33,7 @@ const RevealSection = ({
   staggerInterval = 0.12,
 }: RevealSectionProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "50px 0px" });
+  const isInView = useInView(ref, { once: false, margin: "50px 0px" });
 
   /* ── Stagger mode: wraps each child in its own reveal ── */
   if (stagger) {
