@@ -126,7 +126,7 @@
   }
   .eyebrow {
     @apply text-[11px] uppercase tracking-[0.3em] font-medium font-body;
-    color: rgba(255, 255, 255, 0.55) !important;
+    color: #71717A !important;
   }
   .headline-display {
     @apply text-[clamp(2.5rem,5.5vw,5.5rem)] font-extrabold leading-[0.95] tracking-[-0.035em];
