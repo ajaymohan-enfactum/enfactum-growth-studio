@@ -114,7 +114,7 @@ const RevealSection = ({
       ref={ref}
       initial={{ opacity: 0, y: distance }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: distance }}
-      transition={{ duration: 0.9, delay, ease: easeOut }}
+      transition={{ ...springTransition, delay }}
       className={className}
     >
       {children}
