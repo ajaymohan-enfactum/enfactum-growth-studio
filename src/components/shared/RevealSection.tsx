@@ -25,7 +25,7 @@ const RevealSection = ({
   children,
   className = "",
   delay = 0,
-  distance = 40,
+  distance = 30,
   curtain = false,
   blur = false,
   scale = false,
