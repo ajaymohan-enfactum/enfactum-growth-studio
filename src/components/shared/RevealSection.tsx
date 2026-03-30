@@ -18,13 +18,14 @@ interface RevealSectionProps {
   staggerInterval?: number;
 }
 
+const springTransition = { type: "spring" as const, damping: 20, stiffness: 100 };
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
 const RevealSection = ({
   children,
   className = "",
   delay = 0,
-  distance = 40,
+  distance = 30,
   curtain = false,
   blur = false,
   scale = false,
@@ -48,7 +49,7 @@ const RevealSection = ({
                 ? { opacity: 1, y: 0, filter: "blur(0px)" }
                 : { opacity: 0, y: distance * 0.6, filter: blur ? "blur(8px)" : "blur(0px)" }
             }
-            transition={{ duration: 0.9, delay: delay + i * staggerInterval, ease: easeOut }}
+            transition={{ ...springTransition, delay: delay + i * staggerInterval }}
           >
             {child}
           </motion.div>
@@ -82,7 +83,7 @@ const RevealSection = ({
             ? { opacity: 1, y: 0, filter: "blur(0px)" }
             : { opacity: 0, y: distance * 0.6, filter: "blur(12px)" }
         }
-        transition={{ duration: 1.1, delay, ease: easeOut }}
+        transition={{ ...springTransition, delay }}
         className={className}
       >
         {children}
@@ -100,7 +101,7 @@ const RevealSection = ({
             ? { opacity: 1, scale: 1, y: 0 }
             : { opacity: 0, scale: 0.92, y: distance * 0.5 }
         }
-        transition={{ duration: 1.0, delay, ease: easeOut }}
+        transition={{ ...springTransition, delay }}
         className={className}
       >
         {children}
@@ -113,7 +114,7 @@ const RevealSection = ({
       ref={ref}
       initial={{ opacity: 0, y: distance }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: distance }}
-      transition={{ duration: 0.9, delay, ease: easeOut }}
+      transition={{ ...springTransition, delay }}
       className={className}
     >
       {children}
