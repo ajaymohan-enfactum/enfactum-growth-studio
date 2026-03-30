@@ -68,7 +68,8 @@ const Hero = () => {
         {/* Headline — staggered lines */}
         <div className="max-w-4xl">
           <motion.h1
-            className="text-[clamp(2.5rem,5.8vw,5.5rem)] font-extrabold text-foreground leading-[0.92] tracking-[-0.04em]"
+            className="text-[clamp(2.5rem,5.8vw,5.5rem)] font-extrabold leading-[0.92] tracking-[-0.04em]"
+            style={{ color: '#F4F4F5' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.1 }}
