@@ -100,7 +100,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.3, ease }}
           className="mt-8 max-w-[580px] leading-[1.7] font-light"
-          style={{ fontSize: '18px', color: 'rgba(255,255,255,0.85)' }}
+          style={{ fontSize: '18px', color: '#D4D4D8' }}
         >
           We help enterprise brands enter and grow in Southeast Asian markets — building the commercial infrastructure, partnerships, and on-the-ground teams that drive lasting revenue.
         </motion.p>
