@@ -18,6 +18,7 @@ interface RevealSectionProps {
   staggerInterval?: number;
 }
 
+const springTransition = { type: "spring" as const, damping: 20, stiffness: 100 };
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
 const RevealSection = ({
