@@ -101,7 +101,7 @@ const RevealSection = ({
             ? { opacity: 1, scale: 1, y: 0 }
             : { opacity: 0, scale: 0.92, y: distance * 0.5 }
         }
-        transition={{ duration: 1.0, delay, ease: easeOut }}
+        transition={{ ...springTransition, delay }}
         className={className}
       >
         {children}
