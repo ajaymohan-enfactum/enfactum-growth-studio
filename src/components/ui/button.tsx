@@ -15,8 +15,10 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-secondary hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_30px_-4px_hsl(var(--primary)/0.5)] text-base font-semibold",
-        "hero-outline": "border border-foreground/30 bg-transparent text-foreground hover:border-primary hover:text-primary text-base",
+        hero: "bg-primary/20 text-primary-foreground backdrop-blur-md border border-primary/30 hover:bg-primary/30 hover:border-primary/50 hover:shadow-[0_0_30px_-4px_hsl(var(--primary)/0.4),inset_0_1px_0_0_hsl(var(--primary)/0.15)] text-base font-semibold",
+        "hero-outline": "backdrop-blur-md bg-foreground/[0.06] border border-foreground/15 text-foreground hover:bg-foreground/[0.1] hover:border-primary/40 hover:text-primary hover:shadow-[0_0_20px_-6px_hsl(var(--primary)/0.25)] text-base",
+        glass: "backdrop-blur-md bg-foreground/[0.06] border border-foreground/10 text-foreground hover:bg-foreground/[0.1] hover:border-primary/30 hover:shadow-[0_0_20px_-6px_hsl(var(--primary)/0.2)]",
+        "glass-primary": "backdrop-blur-md bg-primary/15 border border-primary/25 text-primary-foreground hover:bg-primary/25 hover:border-primary/40 hover:shadow-[0_0_25px_-4px_hsl(var(--primary)/0.35),inset_0_1px_0_0_hsl(var(--primary)/0.1)]",
       },
       size: {
         default: "h-10 px-5 py-2",
