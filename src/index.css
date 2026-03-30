@@ -146,19 +146,19 @@
   }
   .body-xl {
     @apply text-[clamp(1.125rem,1.4vw,1.375rem)] leading-[1.65] font-light;
-    color: rgba(255, 255, 255, 0.82);
+    color: #D4D4D8;
   }
   .body-lg {
     @apply text-[clamp(1rem,1.2vw,1.25rem)] leading-[1.7] font-light;
-    color: rgba(255, 255, 255, 0.82);
+    color: #D4D4D8;
   }
   .body-md {
     @apply text-[15px] leading-[1.75];
-    color: rgba(255, 255, 255, 0.82);
+    color: #D4D4D8;
   }
   .card-description {
     @apply text-[15px] leading-[1.75];
-    color: rgba(255, 255, 255, 0.72);
+    color: #A1A1AA;
   }
 
   /* Light section — inverts to white bg */
