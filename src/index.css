@@ -63,17 +63,17 @@
 
   .dark {
     --background: 220 16% 7%;
-    --foreground: 220 10% 92%;
+    --foreground: 240 5% 96%;
     --card: 220 14% 10%;
-    --card-foreground: 220 10% 92%;
+    --card-foreground: 240 5% 96%;
     --popover: 220 14% 10%;
-    --popover-foreground: 220 10% 92%;
+    --popover-foreground: 240 5% 96%;
     --primary: 210 100% 50%;
     --primary-foreground: 0 0% 100%;
     --secondary: 220 12% 13%;
-    --secondary-foreground: 220 8% 72%;
+    --secondary-foreground: 240 5% 84%;
     --muted: 220 12% 13%;
-    --muted-foreground: 220 8% 58%;
+    --muted-foreground: 240 4% 46%;
     --accent: 210 100% 50%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 50%;
