@@ -68,7 +68,8 @@ const Hero = () => {
         {/* Headline — staggered lines */}
         <div className="max-w-4xl">
           <motion.h1
-            className="text-[clamp(2.5rem,5.8vw,5.5rem)] font-extrabold text-foreground leading-[0.92] tracking-[-0.04em]"
+            className="text-[clamp(2.5rem,5.8vw,5.5rem)] font-extrabold leading-[0.92] tracking-[-0.04em]"
+            style={{ color: '#F4F4F5' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.1 }}
@@ -99,7 +100,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.3, ease }}
           className="mt-8 max-w-[580px] leading-[1.7] font-light"
-          style={{ fontSize: '18px', color: 'rgba(255,255,255,0.85)' }}
+          style={{ fontSize: '18px', color: '#D4D4D8' }}
         >
           We help enterprise brands enter and grow in Southeast Asian markets — building the commercial infrastructure, partnerships, and on-the-ground teams that drive lasting revenue.
         </motion.p>
@@ -151,8 +152,8 @@ const Stats = () => {
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className={`text-center md:text-left ${i > 0 ? 'md:border-l md:border-border/20 md:pl-8' : ''}`}>
-                <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-1" style={{ color: '#FFFFFF' }}>{stat.num}</p>
-                <p className="text-xs tracking-wide" style={{ color: 'rgba(255,255,255,0.65)' }}>{stat.label}</p>
+                <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-1" style={{ color: '#F4F4F5' }}>{stat.num}</p>
+                <p className="text-xs tracking-wide" style={{ color: '#71717A' }}>{stat.label}</p>
               </div>
             </motion.div>
           ))}
@@ -190,7 +191,7 @@ const BrandMarquee = () => (
             <span
               key={i}
               className="inline-flex items-center px-8 md:px-10 text-[15px] md:text-[16px] font-display font-semibold tracking-[-0.01em] whitespace-nowrap transition-colors duration-500"
-              style={{ color: 'rgba(255,255,255,0.22)' }}
+              style={{ color: '#71717A' }}
             >
               {name}
             </span>
