@@ -355,19 +355,31 @@ const Capabilities = () => {
           />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 md:gap-5 group/grid">
+        <motion.div
+          className="grid md:grid-cols-2 gap-4 md:gap-5 group/grid"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
+          }}
+        >
           {capData.map((cap, i) => (
-            <RevealSection key={i} delay={i * 0.1} scale>
+            <motion.div
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 40, scale: 0.95, filter: "blur(6px)" },
+                visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+              }}
+            >
               <Link to={cap.href} className="group/card block h-full">
-                <div className="relative h-full rounded-xl border border-border/40 bg-card/40 backdrop-blur-sm p-8 md:p-10 flex flex-col justify-between min-h-[280px] overflow-hidden transition-all duration-700 hover:border-primary/25 hover:bg-card/60 group-hover/grid:opacity-60 hover:!opacity-100">
+                <div className="relative h-full rounded-xl border border-foreground/[0.06] bg-foreground/[0.03] backdrop-blur-md p-8 md:p-10 flex flex-col justify-between min-h-[280px] overflow-hidden transition-all duration-700 hover:border-primary/25 hover:bg-foreground/[0.06] hover:shadow-[0_0_40px_-10px_hsl(var(--primary)/0.15)] group-hover/grid:opacity-60 hover:!opacity-100">
                   {/* Subtle gradient on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover/card:from-primary/[0.02] group-hover/card:to-primary/[0.05] transition-all duration-700 rounded-xl" />
                   
                   <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="p-2 rounded-lg bg-primary/10 text-primary">
-                        <cap.icon className="w-4 h-4" />
-                      </div>
+                      <CapabilityIcon type={cap.iconType} />
                     </div>
                   </div>
 
@@ -384,9 +396,9 @@ const Capabilities = () => {
                   </div>
                 </div>
               </Link>
-            </RevealSection>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   </section>
