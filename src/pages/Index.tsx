@@ -191,7 +191,7 @@ const BrandMarquee = () => (
             <span
               key={i}
               className="inline-flex items-center px-8 md:px-10 text-[15px] md:text-[16px] font-display font-semibold tracking-[-0.01em] whitespace-nowrap transition-colors duration-500"
-              style={{ color: 'rgba(255,255,255,0.22)' }}
+              style={{ color: '#71717A' }}
             >
               {name}
             </span>
