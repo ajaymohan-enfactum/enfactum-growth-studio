@@ -71,11 +71,13 @@ const Navbar = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-background/90 backdrop-blur-xl border-b border-border/50"
+            ? "bg-background/80 backdrop-blur-2xl border-b border-border/40"
             : "bg-transparent"
         }`}
       >
-        <div className="section-container flex items-center justify-between h-16 md:h-20">
+        <div className={`section-container flex items-center justify-between transition-all duration-500 ${
+          shrunk ? "h-14 md:h-16" : "h-16 md:h-20"
+        }`}>
           <Link to="/" className="flex items-center">
             <EnfactumLogo />
           </Link>

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ScrollProgress from "@/components/shared/ScrollProgress";
+import LivingBackground from "@/components/shared/LivingBackground";
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -13,7 +14,8 @@ const PageLayout = ({ children }: PageLayoutProps) => {
   const { pathname } = useLocation();
 
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen relative">
+      <LivingBackground />
       <ScrollProgress />
       <Navbar />
       <AnimatePresence mode="wait">
