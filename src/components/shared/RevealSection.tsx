@@ -83,7 +83,7 @@ const RevealSection = ({
             ? { opacity: 1, y: 0, filter: "blur(0px)" }
             : { opacity: 0, y: distance * 0.6, filter: "blur(12px)" }
         }
-        transition={{ duration: 1.1, delay, ease: easeOut }}
+        transition={{ ...springTransition, delay }}
         className={className}
       >
         {children}
