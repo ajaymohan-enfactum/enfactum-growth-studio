@@ -49,7 +49,7 @@ const RevealSection = ({
                 ? { opacity: 1, y: 0, filter: "blur(0px)" }
                 : { opacity: 0, y: distance * 0.6, filter: blur ? "blur(8px)" : "blur(0px)" }
             }
-            transition={{ duration: 0.9, delay: delay + i * staggerInterval, ease: easeOut }}
+            transition={{ ...springTransition, delay: delay + i * staggerInterval }}
           >
             {child}
           </motion.div>
