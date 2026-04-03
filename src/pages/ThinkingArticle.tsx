@@ -95,6 +95,11 @@ const ThinkingArticle = () => {
             </div>
           </RevealSection>
 
+          {/* Share buttons */}
+          <RevealSection delay={0.15}>
+            <ShareBar title={article.title} slug={article.slug} />
+          </RevealSection>
+
           {/* Related links */}
           <RevealSection delay={0.2}>
             <div className="mt-16 pt-8 border-t border-border/30 grid sm:grid-cols-2 gap-6">
