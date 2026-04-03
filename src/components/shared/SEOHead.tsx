@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 interface SEOHeadProps {
   title: string;
   description: string;
-  path?: string;
   type?: "website" | "article";
   /** Custom OG image path (relative to BASE_URL). Defaults to /og-image.png */
   ogImage?: string;
