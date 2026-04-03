@@ -6,6 +6,8 @@ interface SEOHeadProps {
   description: string;
   path?: string;
   type?: "website" | "article";
+  /** Custom OG image path (relative to BASE_URL). Defaults to /og-image.png */
+  ogImage?: string;
   article?: {
     author?: string;
     publishedTime?: string;
