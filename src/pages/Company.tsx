@@ -4,7 +4,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
-import SEOHead from "@/components/shared/SEOHead";
+import SEOHead, { makeBreadcrumbSchema } from "@/components/shared/SEOHead";
 import RegionalNodesMap from "@/components/shared/RegionalNodesMap";
 import { ArrowRight } from "lucide-react";
 import AnimatedCounter from "@/components/shared/AnimatedCounter";
@@ -64,6 +64,29 @@ const Company = () => (
     <SEOHead
       title="Company"
       description="Enfactum is a Singapore-headquartered growth and innovation operating partner for enterprise brands in Southeast Asia. 40+ clients, 15+ markets, 200+ specialists across strategy, creative, technology, and operations."
+      jsonLd={[
+        makeBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Company", url: "/company" },
+        ]),
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Ajay Mohan",
+          jobTitle: "Co-Founder",
+          email: "ajay.mohan@enfactum.com",
+          url: "https://enfactum.com/company",
+          worksFor: { "@type": "Organization", name: "Enfactum", url: "https://enfactum.com" },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "William Gaultier",
+          jobTitle: "Co-Founder",
+          url: "https://enfactum.com/company",
+          worksFor: { "@type": "Organization", name: "Enfactum", url: "https://enfactum.com" },
+        },
+      ]}
     />
 
     {/* ─── HERO ─── */}
