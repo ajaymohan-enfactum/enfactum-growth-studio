@@ -109,7 +109,7 @@ export const organizationSchema = {
     "Southeast Asia market entry",
     "B2B growth strategy",
   ],
-  sameAs: ["https://linkedin.com/company/enfactum"],
+  sameAs: ["https://linkedin.com/company/enfactum", "https://twitter.com/enfactum", "https://youtube.com/@enfactum"],
 };
 
 export const webSiteSchema = {

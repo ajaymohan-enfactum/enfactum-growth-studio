@@ -73,6 +73,12 @@ const Footer = () => {
             <a href="https://www.linkedin.com/company/995805" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
               LinkedIn
             </a>
+            <a href="https://twitter.com/enfactum" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+              X / Twitter
+            </a>
+            <a href="https://youtube.com/@enfactum" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+              YouTube
+            </a>
           </div>
         </div>
       </div>
