@@ -3,8 +3,8 @@ import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead, { makeBlogPostingSchema, makeBreadcrumbSchema } from "@/components/shared/SEOHead";
-import { ArrowLeft } from "lucide-react";
-import { getArticleBySlug } from "@/data/articles";
+import { ArrowLeft, Linkedin, Twitter, LinkIcon, Check } from "lucide-react";
+import { getArticleBySlug, articles } from "@/data/articles";
 
 const ThinkingArticle = () => {
   const { slug } = useParams<{ slug: string }>();
