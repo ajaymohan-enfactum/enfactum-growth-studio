@@ -431,7 +431,7 @@ const Contact = () => {
               <p className="eyebrow mb-3">Direct contact</p>
               <div className="space-y-1.5 text-sm text-muted-foreground">
                 <a href="mailto:info@enfactum.com" className="block hover:text-foreground transition-colors">info@enfactum.com</a>
-                <a href="tel:+65XXXXXXXX" className="block hover:text-foreground transition-colors">+65 XXXX XXXX</a>
+                <a href="tel:+6569116752" className="block hover:text-foreground transition-colors">+65 6911 6752</a>
               </div>
             </div>
             <div className="md:col-span-5">

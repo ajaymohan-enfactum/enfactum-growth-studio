@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "65XXXXXXXX"; // Replace with real number
+const WHATSAPP_NUMBER = "6569116752";
 const PREFILLED_MESSAGE = encodeURIComponent(
   "Hi, I found you via enfactum.com and would like to discuss growth for my brand."
 );

@@ -17,7 +17,7 @@ interface SEOHeadProps {
 }
 
 const SITE_NAME = "Enfactum";
-const BASE_URL = "https://enfactum.com";
+const BASE_URL = "https://www.enfactum.com";
 
 /**
  * Per-page SEO metadata: title, meta description, OG tags, JSON-LD.
