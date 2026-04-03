@@ -13,7 +13,7 @@ interface SEOHeadProps {
     section?: string;
     tags?: string[];
   };
-  jsonLd?: Record<string, unknown>;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const SITE_NAME = "Enfactum";
