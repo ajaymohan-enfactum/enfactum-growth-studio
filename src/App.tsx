@@ -45,6 +45,10 @@ const App = () => (
         <PageViewTracker />
         <Routes>
           <Route path="/" element={<Index />} />
+          {/* Legacy URL redirects */}
+          <Route path="/landing_pages.html" element={<Navigate to="/capabilities" replace />} />
+          <Route path="/ecommerce_solutions.html" element={<Navigate to="/capabilities" replace />} />
+          <Route path="/lead_nurturing.html" element={<Navigate to="/capabilities" replace />} />
           <Route path="/capabilities" element={<Capabilities />} />
           <Route path="/capabilities/:slug" element={<CapabilityDetail />} />
           <Route path="/work" element={<Work />} />
