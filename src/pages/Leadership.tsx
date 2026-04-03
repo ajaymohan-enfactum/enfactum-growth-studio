@@ -327,10 +327,29 @@ const Leadership = () => {
       <SEOHead
         title="Leadership"
         description="The Enfactum leadership team brings decades of experience across strategy, growth, technology, and creative — Growth Architects who have built and run growth programmes across Southeast Asia."
-        jsonLd={makeBreadcrumbSchema([
-          { name: "Company", url: "/company" },
-          { name: "Leadership", url: "/company/leadership" },
-        ])}
+        jsonLd={[
+          makeBreadcrumbSchema([
+            { name: "Company", url: "/company" },
+            { name: "Leadership", url: "/company/leadership" },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Ajay Mohan",
+            jobTitle: "Co-Founder",
+            email: "ajay.mohan@enfactum.com",
+            url: "https://enfactum.com/company/leadership",
+            worksFor: { "@type": "Organization", name: "Enfactum", url: "https://enfactum.com" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "William Gaultier",
+            jobTitle: "Co-Founder",
+            url: "https://enfactum.com/company/leadership",
+            worksFor: { "@type": "Organization", name: "Enfactum", url: "https://enfactum.com" },
+          },
+        ]}
       />
       <HeroSection
         eyebrow="Leadership"
