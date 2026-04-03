@@ -94,25 +94,39 @@ const ThinkingArticle = () => {
             </div>
           </RevealSection>
 
-          {/* Related links */}
+          {/* Related Articles */}
           <RevealSection delay={0.2}>
-            <div className="mt-16 pt-8 border-t border-border/30 grid sm:grid-cols-2 gap-6">
-              <Link to="/capabilities" className="group block">
-                <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-1">
-                  Related
-                </p>
-                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                  Explore capabilities →
-                </span>
-              </Link>
-              <Link to="/work" className="group block">
-                <p className="text-[10px] text-dim uppercase tracking-wider font-body mb-1">
-                  Related
-                </p>
-                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                  View selected work →
-                </span>
-              </Link>
+            <div className="mt-16 pt-8 border-t border-border/30">
+              <h2 className="font-display text-lg font-semibold text-foreground mb-6">
+                Continue reading
+              </h2>
+              <div className="grid gap-5">
+                {articles
+                  .filter((a) => a.slug !== article.slug)
+                  .slice(0, 3)
+                  .map((related) => (
+                    <Link
+                      key={related.slug}
+                      to={`/thinking/${related.slug}`}
+                      className="group flex gap-4 items-start p-4 -mx-4 rounded-lg hover:bg-secondary/40 transition-colors"
+                    >
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[10px] text-primary uppercase tracking-wider font-body mb-1">
+                          {related.category}
+                        </p>
+                        <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                          {related.title}
+                        </h3>
+                        <p className="text-xs text-muted-foreground mt-1 line-clamp-1 font-body">
+                          {related.teaser}
+                        </p>
+                      </div>
+                      <span className="text-[11px] text-dim whitespace-nowrap mt-1 font-body">
+                        {related.readTime}
+                      </span>
+                    </Link>
+                  ))}
+              </div>
             </div>
           </RevealSection>
         </div>
