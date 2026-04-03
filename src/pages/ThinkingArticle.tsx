@@ -1,10 +1,60 @@
+import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead, { makeBlogPostingSchema, makeBreadcrumbSchema } from "@/components/shared/SEOHead";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Linkedin, Twitter, LinkIcon, Check } from "lucide-react";
 import { getArticleBySlug } from "@/data/articles";
+
+const BASE_URL = "https://enfactum.com";
+
+const ShareBar = ({ title, slug }: { title: string; slug: string }) => {
+  const [copied, setCopied] = useState(false);
+  const url = `${BASE_URL}/thinking/${slug}`;
+  const encodedUrl = encodeURIComponent(url);
+  const encodedTitle = encodeURIComponent(title);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const btnClass =
+    "inline-flex items-center gap-2 px-4 py-2.5 rounded-md border border-border/30 bg-card/40 text-xs font-medium text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-card/70 transition-all duration-300";
+
+  return (
+    <div className="mt-12 pt-8 border-t border-border/30">
+      <p className="text-[10px] text-dim uppercase tracking-[0.2em] font-body mb-4">Share this article</p>
+      <div className="flex flex-wrap gap-3">
+        <a
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={btnClass}
+          aria-label="Share on LinkedIn"
+        >
+          <Linkedin className="w-3.5 h-3.5" /> LinkedIn
+        </a>
+        <a
+          href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={btnClass}
+          aria-label="Share on Twitter"
+        >
+          <Twitter className="w-3.5 h-3.5" /> Twitter / X
+        </a>
+        <button onClick={handleCopy} className={btnClass} aria-label="Copy link">
+          {copied ? <Check className="w-3.5 h-3.5 text-primary" /> : <LinkIcon className="w-3.5 h-3.5" />}
+          {copied ? "Copied!" : "Copy link"}
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const ThinkingArticle = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -92,6 +142,11 @@ const ThinkingArticle = () => {
                 </p>
               ))}
             </div>
+          </RevealSection>
+
+          {/* Share buttons */}
+          <RevealSection delay={0.15}>
+            <ShareBar title={article.title} slug={article.slug} />
           </RevealSection>
 
           {/* Related links */}
