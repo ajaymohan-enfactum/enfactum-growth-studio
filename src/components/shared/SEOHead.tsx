@@ -37,6 +37,12 @@ const SEOHead = ({ title, description, type = "website", ogImage, article, jsonL
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
 
+      {/* Hreflang — regional English markets */}
+      <link rel="alternate" hrefLang="en-SG" href={canonical} />
+      <link rel="alternate" hrefLang="en-MY" href={canonical} />
+      <link rel="alternate" hrefLang="en-US" href={canonical} />
+      <link rel="alternate" hrefLang="x-default" href={canonical} />
+
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
