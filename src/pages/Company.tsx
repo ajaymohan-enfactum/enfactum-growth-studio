@@ -4,7 +4,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import HeroSection from "@/components/shared/HeroSection";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
-import SEOHead from "@/components/shared/SEOHead";
+import SEOHead, { makeBreadcrumbSchema } from "@/components/shared/SEOHead";
 import RegionalNodesMap from "@/components/shared/RegionalNodesMap";
 import { ArrowRight } from "lucide-react";
 import AnimatedCounter from "@/components/shared/AnimatedCounter";
