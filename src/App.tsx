@@ -24,6 +24,7 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import NotFound from "./pages/NotFound";
+import WhatsAppButton from "./components/shared/WhatsAppButton";
 
 const queryClient = new QueryClient();
 
