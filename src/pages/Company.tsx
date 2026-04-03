@@ -226,6 +226,9 @@ const Company = () => (
                   <img
                     src={leaders[0].photo}
                     alt={leaders[0].name}
+                    loading="lazy"
+                    width={400}
+                    height={533}
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
