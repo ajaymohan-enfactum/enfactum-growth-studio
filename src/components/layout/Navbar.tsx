@@ -68,13 +68,16 @@ const Navbar = () => {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-background/80 backdrop-blur-2xl border-b border-border/40"
-            : "bg-transparent"
-        }`}
-      >
+      <header role="banner">
+        <nav
+          role="navigation"
+          aria-label="Main navigation"
+          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+            scrolled
+              ? "bg-background/80 backdrop-blur-2xl border-b border-border/40"
+              : "bg-transparent"
+          }`}
+        >
         <div className={`section-container flex items-center justify-between transition-all duration-500 ${
           shrunk ? "h-14 md:h-16" : "h-16 md:h-20"
         }`}>
@@ -116,7 +119,8 @@ const Navbar = () => {
             <Menu className="w-5 h-5" />
           </button>
         </div>
-      </nav>
+        </nav>
+      </header>
 
       {/* Mega Menu — Desktop & Mobile */}
       <MegaMenu open={megaOpen} onClose={() => setMegaOpen(false)} />

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ScrollToTop from "./components/ScrollToTop";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -45,6 +45,10 @@ const App = () => (
         <PageViewTracker />
         <Routes>
           <Route path="/" element={<Index />} />
+          {/* Legacy URL redirects */}
+          <Route path="/landing_pages.html" element={<Navigate to="/capabilities" replace />} />
+          <Route path="/ecommerce_solutions.html" element={<Navigate to="/capabilities" replace />} />
+          <Route path="/lead_nurturing.html" element={<Navigate to="/capabilities" replace />} />
           <Route path="/capabilities" element={<Capabilities />} />
           <Route path="/capabilities/:slug" element={<CapabilityDetail />} />
           <Route path="/work" element={<Work />} />
