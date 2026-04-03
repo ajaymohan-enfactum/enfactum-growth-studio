@@ -6,6 +6,8 @@ interface SEOHeadProps {
   description: string;
   path?: string;
   type?: "website" | "article";
+  /** Custom OG image path (relative to BASE_URL). Defaults to /og-image.png */
+  ogImage?: string;
   article?: {
     author?: string;
     publishedTime?: string;
@@ -23,7 +25,7 @@ const BASE_URL = "https://enfactum.com";
  * Keeps metadata invisible in the premium UI while making pages
  * fully legible to search engines and AI systems.
  */
-const SEOHead = ({ title, description, path, type = "website", article, jsonLd }: SEOHeadProps) => {
+const SEOHead = ({ title, description, path, type = "website", ogImage, article, jsonLd }: SEOHeadProps) => {
   const { pathname } = useLocation();
   const resolvedPath = path ?? pathname;
   // Normalize: remove trailing slash except for root
@@ -43,11 +45,15 @@ const SEOHead = ({ title, description, path, type = "website", article, jsonLd }
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonical} />
       <meta property="og:site_name" content={SITE_NAME} />
+      <meta property="og:image" content={`${BASE_URL}${ogImage || "/og-image.png"}`} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={`${BASE_URL}${ogImage || "/og-image.png"}`} />
 
       {/* Article metadata */}
       {article?.author && <meta property="article:author" content={article.author} />}
