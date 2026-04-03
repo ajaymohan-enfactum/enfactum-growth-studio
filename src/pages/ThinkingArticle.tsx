@@ -30,7 +30,7 @@ const ThinkingArticle = () => {
             description: article.teaser,
             datePublished: article.date,
             authorName: article.author,
-            authorUrl: "https://enfactum.com/company/leadership",
+            authorUrl: "https://www.enfactum.com/company/leadership",
             url: `/thinking/${article.slug}`,
           }),
           ...makeBreadcrumbSchema([

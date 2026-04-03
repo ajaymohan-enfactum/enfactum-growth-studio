@@ -83,8 +83,8 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Enfactum",
-  url: "https://enfactum.com",
-  logo: "https://enfactum.com/og-image.png",
+  url: "https://www.enfactum.com",
+  logo: "https://www.enfactum.com/og-image.png",
   description: "Growth and innovation operating partner for enterprise brands in Southeast Asia. Enfactum brings together strategy, ecosystems, and execution to help enterprise brands scale across the region.",
   foundingDate: "2010",
   areaServed: [
@@ -122,7 +122,7 @@ export const webSiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Enfactum",
-  url: "https://enfactum.com",
+  url: "https://www.enfactum.com",
   description: "Growth and innovation operating partner for enterprise brands scaling across Southeast Asia.",
 };
 
@@ -131,7 +131,7 @@ export const makeServiceSchema = (name: string, description: string, url: string
   "@type": "Service",
   name,
   description,
-  url: `https://enfactum.com${url}`,
+  url: `https://www.enfactum.com${url}`,
   provider: {
     "@type": "Organization",
     name: "Enfactum",
@@ -159,7 +159,7 @@ export const makeBreadcrumbSchema = (items: { name: string; url: string }[]) => 
     "@type": "ListItem",
     position: i + 1,
     name: item.name,
-    item: `https://enfactum.com${item.url}`,
+    item: `https://www.enfactum.com${item.url}`,
   })),
 });
 
@@ -196,17 +196,17 @@ export const makeBlogPostingSchema = ({
   publisher: {
     "@type": "Organization",
     name: "Enfactum",
-    url: "https://enfactum.com",
+    url: "https://www.enfactum.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://enfactum.com/favicon-192.png",
+      url: "https://www.enfactum.com/favicon-192.png",
     },
   },
-  url: `https://enfactum.com${url}`,
-  image: image || "https://enfactum.com/og-image.png",
+  url: `https://www.enfactum.com${url}`,
+  image: image || "https://www.enfactum.com/og-image.png",
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": `https://enfactum.com${url}`,
+    "@id": `https://www.enfactum.com${url}`,
   },
 });
 
