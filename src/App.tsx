@@ -44,6 +44,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <PageViewTracker />
+        <WhatsAppButton />
         <Routes>
           <Route path="/" element={<Index />} />
           {/* Legacy URL redirects */}
