@@ -161,7 +161,6 @@ const Thinking = () => {
       <SEOHead
         title="Thinking"
         description="Original Growth Architect-led perspectives on growth, market entry, AI ecosystems, partnerships, and commercial strategy across Southeast Asia."
-        path="/thinking"
       />
       <HeroSection
         eyebrow="Thinking"

@@ -61,7 +61,6 @@ const RegionalNodes = () => (
     <SEOHead
       title="Regional Nodes"
       description="Enfactum's regional operating network spans Singapore, India, Malaysia, Indonesia, and the USA — each node with a distinct role in delivering growth programmes across Southeast Asia."
-      path="/company/regional-nodes"
       jsonLd={{
         ...makeBreadcrumbSchema([
           { name: "Company", url: "/company" },

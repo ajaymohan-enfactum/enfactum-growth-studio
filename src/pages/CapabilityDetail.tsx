@@ -388,7 +388,6 @@ const BuyerCapabilityPage = ({ data }: { data: BuyerCapData }) => (
     <SEOHead
       title={data.seoTitle}
       description={data.seoDescription}
-      path={`/capabilities/${data.eyebrow.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
     />
 
     {/* ─── S1: CHALLENGE / HERO ─── */}

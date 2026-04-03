@@ -133,7 +133,6 @@ const Brands = () => {
       <SEOHead
         title="Brands & Clients — Enterprise Credibility Across Southeast Asia"
         description="Enfactum has worked with 40+ brands across enterprise technology, industrial & energy, consumer growth, institutions, and innovation sectors in Southeast Asia."
-        path="/brands"
       />
 
       {/* ─── HERO ─── */}

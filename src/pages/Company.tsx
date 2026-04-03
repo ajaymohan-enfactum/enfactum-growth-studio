@@ -64,7 +64,6 @@ const Company = () => (
     <SEOHead
       title="Company"
       description="Enfactum is a Singapore-headquartered growth and innovation operating partner for enterprise brands in Southeast Asia. 40+ clients, 15+ markets, 200+ specialists across strategy, creative, technology, and operations."
-      path="/company"
     />
 
     {/* ─── HERO ─── */}

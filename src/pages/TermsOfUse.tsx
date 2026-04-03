@@ -7,7 +7,6 @@ const TermsOfUse = () => (
     <SEOHead
       title="Terms of Use"
       description="Terms and conditions governing the use of the Enfactum website and services."
-      path="/terms"
     />
     <HeroSection
       eyebrow="Legal"

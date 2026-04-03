@@ -7,7 +7,6 @@ const PrivacyPolicy = () => (
     <SEOHead
       title="Privacy Policy"
       description="Enfactum's privacy policy — how we collect, use, and protect your personal information."
-      path="/privacy"
     />
     <HeroSection
       eyebrow="Legal"

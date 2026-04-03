@@ -17,7 +17,6 @@ const ThinkingArticle = () => {
       <SEOHead
         title={article.title}
         description={article.teaser}
-        path={`/thinking/${article.slug}`}
         type="article"
         article={{
           author: article.author,

@@ -134,7 +134,6 @@ const Work = () => {
       <SEOHead
         title="Selected Work"
         description="Case studies and outcomes from Enfactum's work with enterprise brands across Southeast Asia."
-        path="/work"
       />
       <HeroSection
         eyebrow="Work"

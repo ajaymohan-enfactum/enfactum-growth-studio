@@ -28,7 +28,6 @@ const Careers = () => (
     <SEOHead
       title="Careers"
       description="Join Enfactum's Architect Bench. Open roles across strategy, creative, technology, demand operations, and programme management in Singapore, India, Malaysia, and Indonesia."
-      path="/company/careers"
       jsonLd={makeBreadcrumbSchema([
         { name: "Company", url: "/company" },
         { name: "Careers", url: "/company/careers" },

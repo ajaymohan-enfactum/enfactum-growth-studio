@@ -57,7 +57,6 @@ const Partnerships = () => (
     <SEOHead
       title="Partnership Models"
       description="Enfactum designs, activates, and operates partnerships for enterprise brands across Southeast Asia — from channel and distributor activation to innovation ecosystems, strategic alliances, and Build-Operate-Transfer programmes."
-      path="/partnerships"
       jsonLd={makeFAQSchema([
         { question: "What types of partnerships does Enfactum support?", answer: "Enfactum works with enterprise technology platforms, distributors and channel ecosystems, AI and innovation partners, startups and venture ecosystems, media and content partners, and specialist collaborators across Southeast Asia." },
         { question: "How does Enfactum approach partnership-led growth?", answer: "Enfactum treats partnerships as growth infrastructure — designing the strategy, activating the ecosystem, building programme operations, and operating the system until it creates measurable commercial movement." },
