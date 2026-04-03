@@ -187,7 +187,6 @@ const Capabilities = () => (
     <SEOHead
       title="Capabilities — Growth Infrastructure, Brand & Demand, AI Ecosystems, Live Experiences"
       description="Enfactum's four integrated capabilities for enterprise brands in Southeast Asia: Growth Infrastructure, Brand & Demand, AI Ecosystems, and Live Experiences."
-      path="/capabilities"
     />
     <HeroSection
       eyebrow="Capabilities"

@@ -197,7 +197,6 @@ const Contact = () => {
       <SEOHead
         title="Start a Conversation"
         description="Get in touch with Enfactum to discuss growth, market entry, partnerships, or career opportunities in Southeast Asia. Offices in Singapore, India, Malaysia, Indonesia, and the USA."
-        path="/contact"
       />
       <HeroSection
         eyebrow="Contact"

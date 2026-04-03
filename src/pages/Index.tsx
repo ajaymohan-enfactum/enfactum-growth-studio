@@ -1050,7 +1050,6 @@ const Index = () => (
     <SEOHead
       title="Enfactum — Growth & Innovation Operating Partner for Southeast Asia"
       description="Enfactum brings together strategy, ecosystems, and execution to help enterprise brands scale across Southeast Asia."
-      path="/"
       jsonLd={{ ...organizationSchema, ...webSiteSchema }}
     />
 

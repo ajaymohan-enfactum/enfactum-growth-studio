@@ -27,7 +27,6 @@ const OperatingModel = () => (
     <SEOHead
       title="Growth Architecture"
       description="Enfactum's growth architecture is designed for execution: Define, Build, Operate, Transfer, Scale. Consulting, embedded teams, and Build-Operate-Transfer engagements for enterprise brands in Southeast Asia."
-      path="/company/operating-model"
       jsonLd={makeBreadcrumbSchema([
         { name: "Company", url: "/company" },
         { name: "Growth Architecture", url: "/company/operating-model" },

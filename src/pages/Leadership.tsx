@@ -327,7 +327,6 @@ const Leadership = () => {
       <SEOHead
         title="Leadership"
         description="The Enfactum leadership team brings decades of experience across strategy, growth, technology, and creative — Growth Architects who have built and run growth programmes across Southeast Asia."
-        path="/company/leadership"
         jsonLd={makeBreadcrumbSchema([
           { name: "Company", url: "/company" },
           { name: "Leadership", url: "/company/leadership" },
