@@ -78,6 +78,7 @@ export const organizationSchema = {
   "@type": "Organization",
   name: "Enfactum",
   url: "https://enfactum.com",
+  logo: "https://enfactum.com/og-image.png",
   description: "Growth and innovation operating partner for enterprise brands in Southeast Asia. Enfactum brings together strategy, ecosystems, and execution to help enterprise brands scale across the region.",
   foundingDate: "2010",
   areaServed: [
