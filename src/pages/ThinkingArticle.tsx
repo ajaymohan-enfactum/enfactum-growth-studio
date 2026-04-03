@@ -20,8 +20,23 @@ const ThinkingArticle = () => {
         type="article"
         article={{
           author: article.author,
+          publishedTime: article.date,
           section: article.theme,
           tags: [article.category, article.theme],
+        }}
+        jsonLd={{
+          ...makeBlogPostingSchema({
+            headline: article.title,
+            description: article.teaser,
+            datePublished: article.date,
+            authorName: article.author,
+            authorUrl: "https://enfactum.com/company/leadership",
+            url: `/thinking/${article.slug}`,
+          }),
+          ...makeBreadcrumbSchema([
+            { name: "Thinking", url: "/thinking" },
+            { name: article.title, url: `/thinking/${article.slug}` },
+          ]),
         }}
       />
 
