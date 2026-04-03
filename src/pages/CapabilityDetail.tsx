@@ -388,6 +388,15 @@ const BuyerCapabilityPage = ({ data }: { data: BuyerCapData }) => (
     <SEOHead
       title={data.seoTitle}
       description={data.seoDescription}
+      jsonLd={[
+        makeServiceSchema(data.eyebrow, data.seoDescription, `/capabilities/${Object.keys(buyerCapData).find(k => buyerCapData[k] === data) || ''}`),
+        makeFAQSchema(data.faqs),
+        makeBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Capabilities", url: "/capabilities" },
+          { name: data.eyebrow, url: `/capabilities/${Object.keys(buyerCapData).find(k => buyerCapData[k] === data) || ''}` },
+        ]),
+      ]}
     />
 
     {/* ─── S1: CHALLENGE / HERO ─── */}
