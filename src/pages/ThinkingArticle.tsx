@@ -64,9 +64,12 @@ const ThinkingArticle = () => {
 
             <div className="flex items-center gap-3 mt-6 pt-4 border-t border-border/30">
               <div className="flex-1">
-                <p className="text-[13px] font-medium text-foreground font-body">
+                <Link
+                  to={`/company#${article.author.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="text-[13px] font-medium text-foreground hover:text-primary transition-colors font-body"
+                >
                   {article.author}
-                </p>
+                </Link>
                 {article.authorRole && (
                   <p className="text-[11px] text-muted-foreground font-body">
                     {article.authorRole}
