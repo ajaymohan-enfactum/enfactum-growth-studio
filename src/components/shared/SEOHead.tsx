@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 
 interface SEOHeadProps {
   title: string;
@@ -22,9 +23,13 @@ const BASE_URL = "https://enfactum.com";
  * Keeps metadata invisible in the premium UI while making pages
  * fully legible to search engines and AI systems.
  */
-const SEOHead = ({ title, description, path = "/", type = "website", article, jsonLd }: SEOHeadProps) => {
+const SEOHead = ({ title, description, path, type = "website", article, jsonLd }: SEOHeadProps) => {
+  const { pathname } = useLocation();
+  const resolvedPath = path ?? pathname;
+  // Normalize: remove trailing slash except for root
+  const normalizedPath = resolvedPath === "/" ? "/" : resolvedPath.replace(/\/+$/, "");
   const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
-  const canonical = `${BASE_URL}${path}`;
+  const canonical = `${BASE_URL}${normalizedPath}`;
 
   return (
     <Helmet>
