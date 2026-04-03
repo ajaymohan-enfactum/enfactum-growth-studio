@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
 import CTABand from "@/components/shared/CTABand";
 import SEOHead, { makeBlogPostingSchema, makeBreadcrumbSchema } from "@/components/shared/SEOHead";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Linkedin, Twitter, LinkIcon, Check } from "lucide-react";
 import { getArticleBySlug } from "@/data/articles";
 
 const ThinkingArticle = () => {
