@@ -422,18 +422,25 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* ═══ PRIVACY FOOTER ═══ */}
+      {/* ═══ DIRECT CONTACT + PRIVACY ═══ */}
       <section className="py-16">
         <div className="section-container">
           <div className="section-divider mb-12" />
           <div className="grid md:grid-cols-12 gap-8">
+            <div className="md:col-span-4">
+              <p className="eyebrow mb-3">Direct contact</p>
+              <div className="space-y-1.5 text-sm text-muted-foreground">
+                <a href="mailto:info@enfactum.com" className="block hover:text-foreground transition-colors">info@enfactum.com</a>
+                <a href="tel:+65XXXXXXXX" className="block hover:text-foreground transition-colors">+65 XXXX XXXX</a>
+              </div>
+            </div>
             <div className="md:col-span-5">
               <p className="text-[13px] text-muted-foreground leading-relaxed">
                 All inquiries are handled confidentially. We do not share your information with third parties.
                 By submitting this form, you agree to receive a response from our team.
               </p>
             </div>
-            <div className="md:col-span-5 md:col-start-8 flex items-end justify-end">
+            <div className="md:col-span-3 flex items-end justify-end">
               <p className="text-[11px] text-muted-foreground/40">
                 Singapore · India · Malaysia · Indonesia · USA
               </p>
