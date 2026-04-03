@@ -149,6 +149,13 @@ const Contact = () => {
       return;
     }
 
+    // Build mailto with form data
+    const subject = encodeURIComponent(`[${form.type}] New inquiry from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company || "—"}\nRole: ${form.role || "—"}\nInquiry Type: ${form.type}\n\nMessage:\n${form.message}`
+    );
+    window.open(`mailto:info@enfactum.com?subject=${subject}&body=${body}`, "_blank");
+
     setErrors({});
     setSubmitted(true);
     toast.success("Message received. We'll be in touch within 48 hours.");
