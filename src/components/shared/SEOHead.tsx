@@ -24,11 +24,10 @@ const BASE_URL = "https://enfactum.com";
  * Keeps metadata invisible in the premium UI while making pages
  * fully legible to search engines and AI systems.
  */
-const SEOHead = ({ title, description, path, type = "website", ogImage, article, jsonLd }: SEOHeadProps) => {
+const SEOHead = ({ title, description, type = "website", ogImage, article, jsonLd }: SEOHeadProps) => {
   const { pathname } = useLocation();
-  const resolvedPath = path ?? pathname;
   // Normalize: remove trailing slash except for root
-  const normalizedPath = resolvedPath === "/" ? "/" : resolvedPath.replace(/\/+$/, "");
+  const normalizedPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
   const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
   const canonical = `${BASE_URL}${normalizedPath}`;
 
