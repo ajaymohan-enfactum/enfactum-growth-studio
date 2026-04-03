@@ -75,16 +75,16 @@ const Company = () => (
           name: "Ajay Mohan",
           jobTitle: "Co-Founder",
           email: "ajay.mohan@enfactum.com",
-          url: "https://enfactum.com/company",
-          worksFor: { "@type": "Organization", name: "Enfactum", url: "https://enfactum.com" },
+          url: "https://www.enfactum.com/company",
+          worksFor: { "@type": "Organization", name: "Enfactum", url: "https://www.enfactum.com" },
         },
         {
           "@context": "https://schema.org",
           "@type": "Person",
           name: "William Gaultier",
           jobTitle: "Co-Founder",
-          url: "https://enfactum.com/company",
-          worksFor: { "@type": "Organization", name: "Enfactum", url: "https://enfactum.com" },
+          url: "https://www.enfactum.com/company",
+          worksFor: { "@type": "Organization", name: "Enfactum", url: "https://www.enfactum.com" },
         },
       ]}
     />
