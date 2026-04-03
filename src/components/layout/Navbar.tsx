@@ -119,7 +119,8 @@ const Navbar = () => {
             <Menu className="w-5 h-5" />
           </button>
         </div>
-      </nav>
+        </nav>
+      </header>
 
       {/* Mega Menu — Desktop & Mobile */}
       <MegaMenu open={megaOpen} onClose={() => setMegaOpen(false)} />
