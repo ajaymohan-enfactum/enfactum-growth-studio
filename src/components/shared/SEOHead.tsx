@@ -156,4 +156,51 @@ export const makeBreadcrumbSchema = (items: { name: string; url: string }[]) => 
   })),
 });
 
+export const makeBlogPostingSchema = ({
+  headline,
+  description,
+  datePublished,
+  dateModified,
+  authorName,
+  authorUrl,
+  url,
+  image,
+}: {
+  headline: string;
+  description: string;
+  datePublished: string;
+  dateModified?: string;
+  authorName: string;
+  authorUrl?: string;
+  url: string;
+  image?: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline,
+  description,
+  datePublished,
+  dateModified: dateModified || datePublished,
+  author: {
+    "@type": "Person",
+    name: authorName,
+    ...(authorUrl ? { url: authorUrl } : {}),
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Enfactum",
+    url: "https://enfactum.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://enfactum.com/favicon-192.png",
+    },
+  },
+  url: `https://enfactum.com${url}`,
+  image: image || "https://enfactum.com/og-image.png",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": `https://enfactum.com${url}`,
+  },
+});
+
 export default SEOHead;
