@@ -24,7 +24,7 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import NotFound from "./pages/NotFound";
-import WhatsAppButton from "./components/shared/WhatsAppButton";
+
 
 const queryClient = new QueryClient();
 
@@ -44,7 +44,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <PageViewTracker />
-        <WhatsAppButton />
+        
         <Routes>
           <Route path="/" element={<Index />} />
           {/* Legacy URL redirects */}
