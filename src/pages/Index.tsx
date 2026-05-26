@@ -4,6 +4,7 @@ import { useRef, useCallback, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import MagneticButton from "@/components/shared/MagneticButton";
 import HeroAtmosphere from "@/components/shared/HeroAtmosphere";
+import HeroBackground from "@/components/HeroBackground";
 
 import PageLayout from "@/components/layout/PageLayout";
 import RevealSection from "@/components/shared/RevealSection";
@@ -41,6 +42,11 @@ const Hero = () => {
 
       {/* Canvas atmosphere — topology, aurora, signal flow */}
       <HeroAtmosphere />
+
+      {/* Animated SEA landmark map background */}
+      <div className="absolute inset-0 pointer-events-none opacity-70 mix-blend-screen">
+        <HeroBackground />
+      </div>
 
       {/* Giant SEA watermark with ambient drift for spatial depth */}
       <motion.div
