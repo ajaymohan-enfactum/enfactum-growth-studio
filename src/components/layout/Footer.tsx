@@ -49,7 +49,7 @@ const offices = [
 
 const Footer = () => {
   return (
-    <footer role="contentinfo" className="bg-background border-t border-border">
+    <footer role="contentinfo" className="relative z-[1] bg-background border-t border-border">
       <div className="section-container py-16 md:py-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">
