@@ -1,0 +1,163 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+const HeroBackground = () => {
+  const locations = [
+    {
+      id: "agra",
+      name: "Taj Mahal",
+      country: "India",
+      cx: 250,
+      cy: 200,
+      imageSrc: "/assets/expected-taj-mahal.png",
+      delay: 0.5,
+    },
+    {
+      id: "kl",
+      name: "Petronas Towers",
+      country: "Malaysia",
+      cx: 650,
+      cy: 400,
+      imageSrc: "/assets/expected-petronas.png",
+      delay: 1.5,
+    },
+    {
+      id: "sg",
+      name: "Merlion",
+      country: "Singapore",
+      cx: 680,
+      cy: 470,
+      imageSrc: "/assets/expected-merlion.png",
+      delay: 2.5,
+    },
+    {
+      id: "jakarta",
+      name: "Monas",
+      country: "Indonesia",
+      cx: 750,
+      cy: 550,
+      imageSrc: "/assets/expected-monas.png",
+      delay: 3.5,
+    },
+  ];
+
+  const connectionPath = `M ${locations[0].cx} ${locations[0].cy} 
+                          Q 450 250 ${locations[1].cx} ${locations[1].cy} 
+                          Q 660 435 ${locations[2].cx} ${locations[2].cy} 
+                          Q 720 510 ${locations[3].cx} ${locations[3].cy}`;
+
+  return (
+    <div className="relative w-full h-screen bg-[#061938] overflow-hidden flex items-center justify-center">
+      <img
+        src="/assets/expected-map-bg.png"
+        alt="Map"
+        className="absolute inset-0 w-full h-full object-cover opacity-50"
+      />
+
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f2a52_1px,transparent_1px),linear-gradient(to_bottom,#0f2a52_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
+
+      <div className="relative w-full max-w-6xl aspect-[16/9] z-10">
+        <svg
+          className="absolute inset-0 w-full h-full drop-shadow-[0_0_15px_rgba(0,195,255,0.5)]"
+          viewBox="0 0 1000 600"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <motion.path
+            d={connectionPath}
+            fill="transparent"
+            stroke="#00d8ff"
+            strokeWidth="3"
+            strokeDasharray="10 10"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 0.8 }}
+            transition={{ duration: 4, ease: "easeInOut", delay: 0.5 }}
+          />
+
+          <motion.circle
+            r="5"
+            fill="#ffffff"
+            className="drop-shadow-[0_0_10px_#ffffff]"
+            initial={{ offsetDistance: "0%", opacity: 0 }}
+            animate={{ offsetDistance: "100%", opacity: [0, 1, 1, 0] }}
+            transition={{ duration: 4, ease: "easeInOut", delay: 0.5, repeat: Infinity, repeatDelay: 2 }}
+            style={{ offsetPath: `path('${connectionPath}')` }}
+          />
+
+          {locations.map((loc) => (
+            <g key={loc.id}>
+              <motion.circle
+                cx={loc.cx}
+                cy={loc.cy}
+                r="12"
+                fill="transparent"
+                stroke="#00d8ff"
+                strokeWidth="2"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: [1, 1.5, 1], opacity: [0, 0.8, 0] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: loc.delay,
+                }}
+              />
+              <motion.circle
+                cx={loc.cx}
+                cy={loc.cy}
+                r="6"
+                fill="#00d8ff"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", delay: loc.delay }}
+              />
+            </g>
+          ))}
+        </svg>
+
+        {locations.map((loc) => (
+          <motion.div
+            key={`info-${loc.id}`}
+            className="absolute flex flex-col items-center justify-center pointer-events-none"
+            style={{
+              left: `${(loc.cx / 1000) * 100}%`,
+              top: `${(loc.cy / 600) * 100}%`,
+              transform: "translate(-50%, -100%)",
+            }}
+            initial={{ y: 20, opacity: 0, scale: 0.8 }}
+            animate={{ y: -15, opacity: 1, scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              delay: loc.delay + 0.2,
+            }}
+          >
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="relative w-32 h-32 md:w-40 md:h-40 -mt-12 flex items-end justify-center"
+            >
+              <div className="absolute inset-x-4 bottom-4 h-1/2 bg-[#00d8ff]/10 rounded-full blur-xl border border-[#00d8ff]/30" />
+
+              <img
+                src={loc.imageSrc}
+                alt={loc.name}
+                className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_15px_rgba(0,216,255,0.6)]"
+              />
+            </motion.div>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none mix-blend-plus-lighter">
+        <h1 className="text-4xl md:text-6xl font-bold text-white tracking-wider drop-shadow-[0_0_20px_rgba(0,216,255,0.8)]">
+          CONNECTING ASIA
+        </h1>
+      </div>
+    </div>
+  );
+};
+
+export default HeroBackground;
