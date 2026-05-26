@@ -62,11 +62,29 @@ const trustPoints = [
 ];
 
 const officeNodes = [
-  { city: "Singapore", role: "Head Office", address: "7 Straits View, #05-01, Marina One East Tower, 018936" },
-  { city: "India", role: "Scale & Execution", address: "304, Tower T1, Assotech Business Cresterra, Noida 201304" },
-  { city: "Malaysia", role: "Market Node", address: "498-3-7, Wisma Indah, Jalan Tun Razak, Kuala Lumpur" },
-  { city: "Indonesia", role: "Market Node", address: "Cyber 2 Tower, 17th Floor, Jl. Rasuna Said, Jakarta 12950" },
-  { city: "United States", role: "Strategic Node", address: "45 Rockefeller Plaza, Suite #2000, New York, NY 10111" },
+  {
+    entity: "Enfactum Pte Ltd",
+    city: "Singapore",
+    role: "Head Office",
+    lines: ["7 Straits View, #05-01", "Marina One East Tower", "Singapore 018936"],
+  },
+  {
+    entity: "Enfactum LLP",
+    city: "India",
+    role: "Scale & Execution",
+    lines: [
+      "Unit No 304, 3rd Floor, Tower T1",
+      "Assotech Business Cresterra",
+      "Plot No 22, Sector 135, Express Way",
+      "Noida, Gautam Buddha Nagar, UP 201305",
+    ],
+  },
+  {
+    entity: "Enfactum Sdn Bhd",
+    city: "Malaysia",
+    role: "Market Node",
+    lines: ["21 Jalan Maya 1/5, Horizon Hills", "Iskandar Puteri, Johor 79100"],
+  },
 ];
 
 /* ── Input component ── */
@@ -376,16 +394,21 @@ const Contact = () => {
                 </div>
 
                 <div className="border-t border-border/30 pt-12">
-                  <p className="eyebrow mb-6">Regional nodes</p>
-                  <div className="space-y-4">
+                  <p className="eyebrow mb-6">Offices</p>
+                  <div className="space-y-6">
                     {officeNodes.map((node) => (
-                      <div key={node.city} className="mb-1">
+                      <address key={node.entity} className="not-italic block">
                         <div className="flex items-baseline justify-between">
-                          <span className="font-display text-[14px] font-medium text-foreground">{node.city}</span>
+                          <span className="font-display text-[14px] font-medium text-foreground">{node.entity}</span>
                           <span className="text-[12px] text-muted-foreground">{node.role}</span>
                         </div>
-                        <p className="text-[11px] text-muted-foreground/50 mt-0.5">{node.address}</p>
-                      </div>
+                        <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground/60 mt-0.5 mb-1.5">{node.city}</p>
+                        <div className="space-y-0.5 text-[12px] text-muted-foreground/70 leading-relaxed">
+                          {node.lines.map((line) => (
+                            <p key={line}>{line}</p>
+                          ))}
+                        </div>
+                      </address>
                     ))}
                   </div>
                 </div>
