@@ -51,7 +51,7 @@ const HeroBackground = () => {
       <img
         src="/assets/expected-map-bg.png"
         alt="Map"
-        className="absolute inset-0 w-full h-full object-cover opacity-50"
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
       />
 
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f2a52_1px,transparent_1px),linear-gradient(to_bottom,#0f2a52_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
@@ -151,11 +151,6 @@ const HeroBackground = () => {
         ))}
       </div>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none mix-blend-plus-lighter">
-        <h1 className="text-4xl md:text-6xl font-bold text-white tracking-wider drop-shadow-[0_0_20px_rgba(0,216,255,0.8)]">
-          CONNECTING ASIA
-        </h1>
-      </div>
     </div>
   );
 };
