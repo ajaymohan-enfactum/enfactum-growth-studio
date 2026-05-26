@@ -14,6 +14,15 @@ import CapabilityIcon from "@/components/shared/CapabilityIcon";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
+/* Add body class on homepage so the Circuit-Spice Mesh overlay
+   is excluded from the hero zone (handled in index.css). */
+const useHomePageBodyClass = () => {
+  useEffect(() => {
+    document.body.classList.add('home-page');
+    return () => document.body.classList.remove('home-page');
+  }, []);
+};
+
 /* ═══════════════════════════════════════════════
    HERO — Cinematic, atmospheric, flagship entrance
    ═══════════════════════════════════════════════ */
