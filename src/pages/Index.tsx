@@ -1054,7 +1054,9 @@ const CTASection = () => (
 /* ═══════════════════════════════════════════════
    PAGE ASSEMBLY
    ═══════════════════════════════════════════════ */
-const Index = () => (
+const Index = () => {
+  useHomePageBodyClass();
+  return (
   <PageLayout>
     <SEOHead
       title="Enfactum — Growth & Innovation Operating Partner for Southeast Asia"
@@ -1076,6 +1078,7 @@ const Index = () => (
     
     <CTASection />
   </PageLayout>
-);
+  );
+};
 
 export default Index;
