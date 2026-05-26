@@ -6,89 +6,105 @@
 
 @layer base {
   :root {
-    --background: 220 16% 7%;
+    /* ─────────────────────────────────────────────
+       Enfactum brand palette (HSL)
+       Navy 0B0F1A · 111827 · 1E293B
+       Electric Blue 2563EB · Jade 1A4D3E / 10B981
+       Amber C17D3C · Magenta CTA E91E8C
+       ───────────────────────────────────────────── */
+    --background: 222 41% 7%;          /* Deep Navy #0B0F1A */
     --foreground: 240 5% 96%;
 
-    --card: 220 14% 10%;
+    --card: 220 39% 11%;               /* Navy Mid #111827 */
     --card-foreground: 240 5% 96%;
 
-    --popover: 220 14% 10%;
+    --popover: 220 39% 11%;
     --popover-foreground: 240 5% 96%;
 
-    --primary: 210 100% 50%;
+    --primary: 221 83% 53%;            /* Electric Blue #2563EB */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 12% 13%;
+    --secondary: 217 33% 17%;          /* Navy Light #1E293B */
     --secondary-foreground: 240 5% 84%;
 
-    --muted: 220 12% 13%;
-    --muted-foreground: 240 4% 46%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 240 4% 60%;
 
-    --accent: 210 100% 50%;
+    --accent: 221 83% 53%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 10% 15%;
-    --input: 220 10% 15%;
-    --ring: 210 100% 50%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 221 83% 53%;
 
     --radius: 1rem;
 
-    --sidebar-background: 220 16% 7%;
+    --sidebar-background: 222 41% 7%;
     --sidebar-foreground: 240 5% 96%;
-    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary: 221 83% 53%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 12% 13%;
+    --sidebar-accent: 217 33% 17%;
     --sidebar-accent-foreground: 220 8% 65%;
-    --sidebar-border: 220 10% 15%;
-    --sidebar-ring: 210 100% 50%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 221 83% 53%;
 
     /* Custom tokens */
-    --surface-elevated: 220 14% 11%;
-    --surface-overlay: 220 14% 9%;
-    --text-dim: 240 4% 46%;
-    --line-subtle: 220 8% 15%;
-    --section-alt: 220 14% 9%;
+    --surface-elevated: 220 39% 13%;
+    --surface-overlay: 220 39% 9%;
+    --text-dim: 240 4% 60%;
+    --line-subtle: 217 33% 17%;
+    --section-alt: 220 39% 9%;
+
+    /* Brand accents */
+    --navy-deep: 222 41% 7%;
+    --navy-mid: 220 39% 11%;
+    --navy-light: 217 33% 17%;
+    --electric-blue: 221 83% 53%;
+    --jade: 161 49% 20%;
+    --jade-bright: 160 84% 39%;
+    --amber: 28 53% 50%;
+    --magenta: 327 82% 51%;
 
     /* Light section tokens */
     --light-bg: 0 0% 98%;
-    --light-fg: 220 16% 12%;
-    --light-muted: 220 8% 46%;
+    --light-fg: 222 41% 7%;
+    --light-muted: 217 15% 40%;
     --light-border: 220 10% 90%;
     --light-card: 0 0% 100%;
     --light-card-border: 220 10% 92%;
   }
 
   .dark {
-    --background: 220 16% 7%;
+    --background: 222 41% 7%;
     --foreground: 240 5% 96%;
-    --card: 220 14% 10%;
+    --card: 220 39% 11%;
     --card-foreground: 240 5% 96%;
-    --popover: 220 14% 10%;
+    --popover: 220 39% 11%;
     --popover-foreground: 240 5% 96%;
-    --primary: 210 100% 50%;
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 12% 13%;
+    --secondary: 217 33% 17%;
     --secondary-foreground: 240 5% 84%;
-    --muted: 220 12% 13%;
-    --muted-foreground: 240 4% 46%;
-    --accent: 210 100% 50%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 240 4% 60%;
+    --accent: 221 83% 53%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 10% 15%;
-    --input: 220 10% 15%;
-    --ring: 210 100% 50%;
-    --sidebar-background: 220 16% 7%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 221 83% 53%;
+    --sidebar-background: 222 41% 7%;
     --sidebar-foreground: 240 5% 96%;
-    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary: 221 83% 53%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 12% 13%;
+    --sidebar-accent: 217 33% 17%;
     --sidebar-accent-foreground: 220 8% 65%;
-    --sidebar-border: 220 10% 15%;
-    --sidebar-ring: 210 100% 50%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 221 83% 53%;
   }
 }
 

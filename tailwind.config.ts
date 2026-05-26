@@ -66,6 +66,21 @@ export default {
         overlay: "hsl(var(--surface-overlay))",
         dim: "hsl(var(--text-dim))",
         "line-subtle": "hsl(var(--line-subtle))",
+        // Brand palette
+        "navy-deep": "hsl(var(--navy-deep))",
+        "navy-mid": "hsl(var(--navy-mid))",
+        "navy-light": "hsl(var(--navy-light))",
+        "electric-blue": "hsl(var(--electric-blue))",
+        jade: {
+          DEFAULT: "hsl(var(--jade))",
+          bright: "hsl(var(--jade-bright))",
+        },
+        amber: {
+          DEFAULT: "hsl(var(--amber))",
+        },
+        magenta: {
+          DEFAULT: "hsl(var(--magenta))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
