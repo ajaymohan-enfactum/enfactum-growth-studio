@@ -62,11 +62,29 @@ const trustPoints = [
 ];
 
 const officeNodes = [
-  { city: "Singapore", role: "Head Office", address: "7 Straits View, #05-01, Marina One East Tower, 018936" },
-  { city: "India", role: "Scale & Execution", address: "304, Tower T1, Assotech Business Cresterra, Noida 201304" },
-  { city: "Malaysia", role: "Market Node", address: "498-3-7, Wisma Indah, Jalan Tun Razak, Kuala Lumpur" },
-  { city: "Indonesia", role: "Market Node", address: "Cyber 2 Tower, 17th Floor, Jl. Rasuna Said, Jakarta 12950" },
-  { city: "United States", role: "Strategic Node", address: "45 Rockefeller Plaza, Suite #2000, New York, NY 10111" },
+  {
+    entity: "Enfactum Pte Ltd",
+    city: "Singapore",
+    role: "Head Office",
+    lines: ["7 Straits View, #05-01", "Marina One East Tower", "Singapore 018936"],
+  },
+  {
+    entity: "Enfactum LLP",
+    city: "India",
+    role: "Scale & Execution",
+    lines: [
+      "Unit No 304, 3rd Floor, Tower T1",
+      "Assotech Business Cresterra",
+      "Plot No 22, Sector 135, Express Way",
+      "Noida, Gautam Buddha Nagar, UP 201305",
+    ],
+  },
+  {
+    entity: "Enfactum Sdn Bhd",
+    city: "Malaysia",
+    role: "Market Node",
+    lines: ["21 Jalan Maya 1/5, Horizon Hills", "Iskandar Puteri, Johor 79100"],
+  },
 ];
 
 /* ── Input component ── */

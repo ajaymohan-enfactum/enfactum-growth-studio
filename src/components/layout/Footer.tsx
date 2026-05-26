@@ -24,6 +24,29 @@ const footerLinks = {
   ],
 };
 
+const offices = [
+  {
+    entity: "Enfactum Pte Ltd",
+    location: "Singapore",
+    lines: ["7 Straits View, #05-01", "Marina One East Tower", "Singapore 018936"],
+  },
+  {
+    entity: "Enfactum LLP",
+    location: "India",
+    lines: [
+      "Unit No 304, 3rd Floor, Tower T1",
+      "Assotech Business Cresterra",
+      "Plot No 22, Sector 135, Express Way",
+      "Noida, Gautam Buddha Nagar, UP 201305",
+    ],
+  },
+  {
+    entity: "Enfactum Sdn Bhd",
+    location: "Malaysia",
+    lines: ["21 Jalan Maya 1/5, Horizon Hills", "Iskandar Puteri, Johor 79100"],
+  },
+];
+
 const Footer = () => {
   return (
     <footer role="contentinfo" className="bg-background border-t border-border">
@@ -37,9 +60,6 @@ const Footer = () => {
               Growth and innovation operating partner for enterprise brands scaling across Southeast Asia. Strategy, ecosystems, and execution.
             </p>
             <div className="mt-6 space-y-1.5 text-xs text-dim">
-              <p>7 Straits View, #05-01</p>
-              <p>Marina One East Tower</p>
-              <p>Singapore 018936</p>
               <a href="mailto:info@enfactum.com" className="block hover:text-foreground transition-colors">info@enfactum.com</a>
               <a href="tel:+6569116752" className="block hover:text-foreground transition-colors">+65 6911 6752</a>
             </div>
@@ -64,6 +84,29 @@ const Footer = () => {
             </div>
           ))}
         </div>
+
+        {/* ── Global offices ── */}
+        <div className="mt-16 pt-10 border-t border-border/60">
+          <h4 className="text-xs uppercase tracking-[0.15em] font-medium text-muted-foreground mb-6">
+            Offices
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {offices.map((office) => (
+              <address key={office.entity} className="not-italic">
+                <p className="text-sm font-medium text-foreground">{office.entity}</p>
+                <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground/70 mt-1 mb-2">
+                  {office.location}
+                </p>
+                <div className="space-y-0.5 text-xs text-dim leading-relaxed">
+                  {office.lines.map((line) => (
+                    <p key={line}>{line}</p>
+                  ))}
+                </div>
+              </address>
+            ))}
+          </div>
+        </div>
+
         <div className="line-glow mt-12 mb-8" />
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-dim">
           <span>© {new Date().getFullYear()} Enfactum. All rights reserved.</span>
