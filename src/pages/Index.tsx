@@ -294,11 +294,26 @@ const WhySEA = () => {
    CAPABILITIES — Interconnected architecture
    ═══════════════════════════════════════════════ */
 const capData = [
-  { title: "Growth Infrastructure", desc: "GTM strategy, partner programs, and demand operations that build lasting market position.", href: "/capabilities/growth-infrastructure", num: "01", iconType: "growth" as const },
-  { title: "Brand & Demand", desc: "Performance, social, creative, and digital experiences that connect brand to commercial outcomes.", href: "/capabilities/brand-demand", num: "02", iconType: "brand" as const },
-  { title: "AI Ecosystems", desc: "Venture strategy, startup scouting, and innovation programs that move beyond pilot stage.", href: "/capabilities/ai-ecosystems", num: "03", iconType: "ai" as const },
-  { title: "Live Experiences", desc: "Product launches, summits, roadshows, and activations that create market momentum.", href: "/capabilities/live-experiences", num: "04", iconType: "live" as const },
+  { title: "Growth Infrastructure", desc: "GTM strategy, partner programs, and demand operations that build lasting market position.", href: "/capabilities/growth-infrastructure", num: "01", iconType: "growth" as const, cities: ["Singapore", "Kuala Lumpur", "Jakarta"] },
+  { title: "Brand & Demand", desc: "Performance, social, creative, and digital experiences that connect brand to commercial outcomes.", href: "/capabilities/brand-demand", num: "02", iconType: "brand" as const, cities: ["Singapore", "Kuala Lumpur", "Jakarta", "Melbourne", "Manila", "Thailand"] },
+  { title: "AI Ecosystems", desc: "Venture strategy, startup scouting, and innovation programs that move beyond pilot stage.", href: "/capabilities/ai-ecosystems", num: "03", iconType: "ai" as const, cities: ["Singapore"] },
+  { title: "Live Experiences", desc: "Product launches, summits, roadshows, and activations that create market momentum.", href: "/capabilities/live-experiences", num: "04", iconType: "live" as const, cities: ["India", "Singapore", "Malaysia", "Thailand", "Philippines", "Indonesia", "Australia"] },
 ];
+
+// City coordinates as % of map background (x, y)
+const CITY_COORDS: Record<string, { x: number; y: number }> = {
+  "Singapore":    { x: 83.6, y: 57.5 },
+  "Kuala Lumpur": { x: 79.4, y: 56.5 },
+  "Jakarta":      { x: 81.2, y: 63.0 },
+  "Melbourne":    { x: 94.5, y: 76.0 },
+  "Manila":       { x: 87.0, y: 51.5 },
+  "Thailand":     { x: 78.0, y: 50.0 },
+  "India":        { x: 73.4, y: 43.0 },
+  "Malaysia":     { x: 79.4, y: 56.5 },
+  "Philippines":  { x: 87.0, y: 51.5 },
+  "Indonesia":    { x: 81.2, y: 63.0 },
+  "Australia":    { x: 92.0, y: 71.0 },
+};
 
 const Capabilities = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
