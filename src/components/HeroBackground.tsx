@@ -18,8 +18,8 @@ const HeroBackground = () => {
       name: "Petronas Towers",
       country: "Malaysia",
       label: "Enfactum Malaysia",
-      cx: 705,
-      cy: 415,
+      cx: 642,
+      cy: 425,
       imageSrc: "/assets/expected-petronas.png",
       delay: 1.5,
     },
@@ -28,8 +28,8 @@ const HeroBackground = () => {
       name: "Merlion",
       country: "Singapore",
       label: "Enfactum Singapore",
-      cx: 745,
-      cy: 438,
+      cx: 675,
+      cy: 450,
       imageSrc: "/assets/expected-merlion.png",
       delay: 2.5,
     },
@@ -38,8 +38,8 @@ const HeroBackground = () => {
       name: "Monas",
       country: "Indonesia",
       label: "Enfactum Indonesia",
-      cx: 812,
-      cy: 544,
+      cx: 724,
+      cy: 550,
       imageSrc: "/assets/expected-monas.png",
       delay: 3.5,
     },
@@ -47,8 +47,8 @@ const HeroBackground = () => {
 
   const connectionPath = `M ${locations[0].cx} ${locations[0].cy} 
                           Q 450 250 ${locations[1].cx} ${locations[1].cy} 
-                          Q 660 435 ${locations[2].cx} ${locations[2].cy} 
-                          Q 720 510 ${locations[3].cx} ${locations[3].cy}`;
+                          Q 650 440 ${locations[2].cx} ${locations[2].cy} 
+                          Q 700 500 ${locations[3].cx} ${locations[3].cy}`;
 
   return (
     <div className="relative w-full h-screen bg-[#061938] overflow-hidden flex items-center justify-center">
@@ -119,7 +119,7 @@ const HeroBackground = () => {
         {locations.map((loc) => (
           <motion.div
             key={`info-${loc.id}`}
-            className="absolute flex flex-col items-center justify-center group"
+            className="absolute z-30 flex flex-col items-center justify-center group pointer-events-auto"
             style={{
               left: `${(loc.cx / 1000) * 100}%`,
               top: `${(loc.cy / 600) * 100}%`,
