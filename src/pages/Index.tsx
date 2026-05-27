@@ -44,7 +44,7 @@ const Hero = () => {
       <HeroAtmosphere />
 
       {/* Animated SEA landmark map background */}
-      <div className="absolute inset-0 pointer-events-none opacity-70 mix-blend-screen">
+      <div className="absolute inset-0 opacity-90">
         <HeroBackground />
       </div>
 
