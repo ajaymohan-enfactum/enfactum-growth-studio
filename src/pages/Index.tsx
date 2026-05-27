@@ -318,17 +318,68 @@ const CITY_COORDS: Record<string, { x: number; y: number }> = {
 const Capabilities = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const activeCities = hoveredIdx !== null ? capData[hoveredIdx].cities : [];
 
   return (
   <section ref={sectionRef} className="relative py-20 md:py-28 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 10%), hsl(220 18% 8%))',
   }}>
+    {/* World map background — revealed on card hover */}
+    <div
+      className="absolute inset-0 pointer-events-none transition-opacity duration-700 ease-out"
+      style={{
+        backgroundImage: `url(${worldMapBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        opacity: hoveredIdx !== null ? 0.55 : 0.08,
+      }}
+      aria-hidden="true"
+    />
+    {/* Vignette */}
+    <div className="absolute inset-0 pointer-events-none" style={{
+      background: 'radial-gradient(ellipse at center, transparent 30%, hsl(220 18% 8% / 0.7) 100%)',
+    }} />
+
     {/* Structural grid lines suggesting architecture */}
     <div className="absolute inset-0 pointer-events-none">
       <div className="absolute top-0 bottom-0 left-[25%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent hidden md:block" />
       <div className="absolute top-0 bottom-0 left-[50%] w-px bg-gradient-to-b from-transparent via-primary/[0.06] to-transparent hidden md:block" />
       <div className="absolute top-0 bottom-0 left-[75%] w-px bg-gradient-to-b from-transparent via-primary/[0.04] to-transparent hidden md:block" />
       <div className="absolute left-0 right-0 top-[50%] h-px bg-gradient-to-r from-transparent via-primary/[0.04] to-transparent hidden md:block" />
+    </div>
+
+    {/* City label overlays on background map */}
+    <div className="absolute inset-0 pointer-events-none hidden md:block z-[6]">
+      {Object.entries(CITY_COORDS).map(([name, pos]) => {
+        // Dedupe: only show each coord once based on first matching active city
+        const active = activeCities.includes(name);
+        // Avoid duplicate labels at same coord (e.g., Malaysia & Kuala Lumpur)
+        const earlierDup = activeCities.find(c => c !== name && CITY_COORDS[c] && CITY_COORDS[c].x === pos.x && CITY_COORDS[c].y === pos.y);
+        const isDupSuppressed = active && earlierDup && activeCities.indexOf(earlierDup) < activeCities.indexOf(name);
+        return (
+          <div
+            key={name}
+            className="absolute transition-all duration-500 ease-out"
+            style={{
+              left: `${pos.x}%`,
+              top: `${pos.y}%`,
+              transform: 'translate(-50%, -50%)',
+              opacity: active && !isDupSuppressed ? 1 : 0,
+            }}
+          >
+            <div className="flex flex-col items-center gap-1.5">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary))]" />
+              </span>
+              <span className="text-[11px] font-semibold tracking-wide text-white whitespace-nowrap px-2 py-0.5 rounded bg-background/70 backdrop-blur-sm border border-primary/30">
+                {name}
+              </span>
+            </div>
+          </div>
+        );
+      })}
     </div>
 
     <div className="section-container relative z-10">
@@ -344,51 +395,8 @@ const Capabilities = () => {
 
       {/* Architecture grid — 2x2 with animated connecting lines */}
       <div className="relative">
-        {/* Center connection hub — animated */}
-        {/* Center connection node */}
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full border border-primary/15 bg-primary/[0.03] backdrop-blur-sm z-10 hidden md:flex items-center justify-center"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
-        </motion.div>
-
-        {/* Connecting lines — static, revealed on scroll */}
-        <div className="absolute inset-0 hidden md:block pointer-events-none z-[5]">
-          <motion.div
-            className="absolute top-[calc(50%-1px)] left-[25%] h-px origin-right"
-            style={{ width: '25%', background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.04), hsl(210 100% 50% / 0.12))' }}
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          />
-          <motion.div
-            className="absolute top-[calc(50%-1px)] left-[50%] h-px origin-left"
-            style={{ width: '25%', background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.12), hsl(210 100% 50% / 0.04))' }}
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          />
-          <motion.div
-            className="absolute left-[calc(50%-1px)] top-[25%] w-px origin-bottom"
-            style={{ height: '25%', background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.04), hsl(210 100% 50% / 0.12))' }}
-            initial={{ scaleY: 0 }}
-            animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          />
-          <motion.div
-            className="absolute left-[calc(50%-1px)] top-[50%] w-px origin-top"
-            style={{ height: '25%', background: 'linear-gradient(180deg, hsl(210 100% 50% / 0.12), hsl(210 100% 50% / 0.04))' }}
-            initial={{ scaleY: 0 }}
-            animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          />
-        </div>
-
-        <motion.div
-          className="grid md:grid-cols-2 gap-4 md:gap-5 group/grid"
+          className="grid md:grid-cols-2 gap-4 md:gap-5"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={{
@@ -396,16 +404,22 @@ const Capabilities = () => {
             visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
           }}
         >
-          {capData.map((cap, i) => (
+          {capData.map((cap, i) => {
+            const isHidden = hoveredIdx !== null && hoveredIdx !== i;
+            return (
             <motion.div
               key={i}
               variants={{
                 hidden: { opacity: 0, y: 40, scale: 0.95, filter: "blur(6px)" },
                 visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
               }}
+              onMouseEnter={() => setHoveredIdx(i)}
+              onMouseLeave={() => setHoveredIdx(null)}
+              animate={{ opacity: isHidden ? 0 : 1, pointerEvents: isHidden ? 'none' : 'auto' }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
               <Link to={cap.href} className="group/card block h-full">
-                <div className="relative h-full rounded-xl border border-foreground/[0.06] bg-foreground/[0.03] backdrop-blur-md p-8 md:p-10 flex flex-col justify-between min-h-[280px] overflow-hidden transition-all duration-700 hover:border-primary/25 hover:bg-foreground/[0.06] hover:shadow-[0_0_40px_-10px_hsl(var(--primary)/0.15)] group-hover/grid:opacity-60 hover:!opacity-100">
+                <div className="relative h-full rounded-xl border border-foreground/[0.06] bg-foreground/[0.03] backdrop-blur-md p-8 md:p-10 flex flex-col justify-between min-h-[280px] overflow-hidden transition-all duration-700 hover:border-primary/25 hover:bg-foreground/[0.06] hover:shadow-[0_0_40px_-10px_hsl(var(--primary)/0.15)]">
                   {/* Subtle gradient on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover/card:from-primary/[0.02] group-hover/card:to-primary/[0.05] transition-all duration-700 rounded-xl" />
                   
@@ -429,7 +443,7 @@ const Capabilities = () => {
                 </div>
               </Link>
             </motion.div>
-          ))}
+          );})}
         </motion.div>
       </div>
     </div>
