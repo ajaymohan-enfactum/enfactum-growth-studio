@@ -119,7 +119,7 @@ const HeroBackground = () => {
         {locations.map((loc) => (
           <motion.div
             key={`info-${loc.id}`}
-            className="absolute z-30 flex flex-col items-center justify-center group pointer-events-auto"
+            className="absolute z-50 flex flex-col items-center justify-center group pointer-events-auto"
             style={{
               left: `${(loc.cx / 1000) * 100}%`,
               top: `${(loc.cy / 600) * 100}%`,
@@ -151,7 +151,7 @@ const HeroBackground = () => {
               />
             </motion.div>
 
-            <div className="pointer-events-none absolute top-full mt-1 px-3 py-1.5 rounded-md bg-[#061938]/90 border border-[#00d8ff]/40 text-[#00d8ff] text-xs md:text-sm font-medium tracking-wide whitespace-nowrap opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 drop-shadow-[0_0_10px_rgba(0,216,255,0.4)] z-30">
+            <div className="pointer-events-none absolute left-1/2 top-[calc(100%+0.25rem)] z-50 -translate-x-1/2 -translate-y-1 rounded-md bg-[#061938]/95 px-3 py-1.5 text-xs font-medium tracking-wide text-[#00d8ff] opacity-0 drop-shadow-[0_0_10px_rgba(0,216,255,0.4)] transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 md:text-sm whitespace-nowrap border border-[#00d8ff]/40">
               {loc.label}
             </div>
           </motion.div>
