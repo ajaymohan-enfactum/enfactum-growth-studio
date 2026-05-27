@@ -12,6 +12,7 @@ import SEOHead, { organizationSchema, webSiteSchema } from "@/components/shared/
 import { getFlagshipCases } from "@/data/caseStudies";
 import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import CapabilityIcon from "@/components/shared/CapabilityIcon";
+import worldMapBg from "@/assets/worldmap.png";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
