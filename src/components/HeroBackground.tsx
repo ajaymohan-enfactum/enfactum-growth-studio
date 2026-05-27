@@ -7,8 +7,8 @@ const HeroBackground = () => {
       id: "agra",
       name: "Taj Mahal",
       country: "India",
-      cx: 250,
-      cy: 200,
+      cx: 247,
+      cy: 92,
       imageSrc: "/assets/expected-taj-mahal.png",
       delay: 0.5,
     },
@@ -16,8 +16,8 @@ const HeroBackground = () => {
       id: "kl",
       name: "Petronas Towers",
       country: "Malaysia",
-      cx: 650,
-      cy: 400,
+      cx: 773,
+      cy: 414,
       imageSrc: "/assets/expected-petronas.png",
       delay: 1.5,
     },
@@ -25,8 +25,8 @@ const HeroBackground = () => {
       id: "sg",
       name: "Merlion",
       country: "Singapore",
-      cx: 680,
-      cy: 470,
+      cx: 820,
+      cy: 419,
       imageSrc: "/assets/expected-merlion.png",
       delay: 2.5,
     },
@@ -34,8 +34,8 @@ const HeroBackground = () => {
       id: "jakarta",
       name: "Monas",
       country: "Indonesia",
-      cx: 750,
-      cy: 550,
+      cx: 852,
+      cy: 519,
       imageSrc: "/assets/expected-monas.png",
       delay: 3.5,
     },
@@ -48,19 +48,18 @@ const HeroBackground = () => {
 
   return (
     <div className="relative w-full h-screen bg-[#061938] overflow-hidden flex items-center justify-center">
-      <img
-        src="/assets/expected-map-bg.png"
-        alt="Map"
-        className="absolute inset-0 w-full h-full object-cover opacity-30"
-      />
-
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f2a52_1px,transparent_1px),linear-gradient(to_bottom,#0f2a52_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
 
       <div className="relative w-full max-w-6xl aspect-[16/9] z-10">
+        <img
+          src="/assets/expected-map-bg.png"
+          alt="Map"
+          className="absolute inset-0 w-full h-full object-fill opacity-60"
+        />
         <svg
           className="absolute inset-0 w-full h-full drop-shadow-[0_0_15px_rgba(0,195,255,0.5)]"
           viewBox="0 0 1000 600"
-          preserveAspectRatio="xMidYMid slice"
+          preserveAspectRatio="none"
         >
           <motion.path
             d={connectionPath}
