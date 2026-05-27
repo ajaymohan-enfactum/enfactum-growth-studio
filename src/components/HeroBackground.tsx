@@ -8,8 +8,8 @@ const HeroBackground = () => {
       name: "Taj Mahal",
       country: "India",
       label: "Enfactum India",
-      cx: 260,
-      cy: 102,
+      cx: 236,
+      cy: 79,
       imageSrc: "/assets/expected-taj-mahal.png",
       delay: 0.5,
     },
@@ -18,8 +18,8 @@ const HeroBackground = () => {
       name: "Petronas Towers",
       country: "Malaysia",
       label: "Enfactum Malaysia",
-      cx: 705,
-      cy: 415,
+      cx: 642,
+      cy: 425,
       imageSrc: "/assets/expected-petronas.png",
       delay: 1.5,
     },
@@ -28,8 +28,8 @@ const HeroBackground = () => {
       name: "Merlion",
       country: "Singapore",
       label: "Enfactum Singapore",
-      cx: 745,
-      cy: 438,
+      cx: 675,
+      cy: 450,
       imageSrc: "/assets/expected-merlion.png",
       delay: 2.5,
     },
@@ -38,8 +38,8 @@ const HeroBackground = () => {
       name: "Monas",
       country: "Indonesia",
       label: "Enfactum Indonesia",
-      cx: 812,
-      cy: 544,
+      cx: 724,
+      cy: 550,
       imageSrc: "/assets/expected-monas.png",
       delay: 3.5,
     },
@@ -47,8 +47,8 @@ const HeroBackground = () => {
 
   const connectionPath = `M ${locations[0].cx} ${locations[0].cy} 
                           Q 450 250 ${locations[1].cx} ${locations[1].cy} 
-                          Q 660 435 ${locations[2].cx} ${locations[2].cy} 
-                          Q 720 510 ${locations[3].cx} ${locations[3].cy}`;
+                          Q 650 440 ${locations[2].cx} ${locations[2].cy} 
+                          Q 700 500 ${locations[3].cx} ${locations[3].cy}`;
 
   return (
     <div className="relative w-full h-screen bg-[#061938] overflow-hidden flex items-center justify-center">
@@ -119,11 +119,11 @@ const HeroBackground = () => {
         {locations.map((loc) => (
           <motion.div
             key={`info-${loc.id}`}
-            className="absolute flex flex-col items-center justify-center group"
+            className="absolute z-50 flex flex-col items-center justify-center group pointer-events-auto"
             style={{
               left: `${(loc.cx / 1000) * 100}%`,
               top: `${(loc.cy / 600) * 100}%`,
-              transform: "translate(-50%, -50%)",
+              transform: "translate(-50%, -65%)",
             }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -151,7 +151,7 @@ const HeroBackground = () => {
               />
             </motion.div>
 
-            <div className="pointer-events-none absolute top-full mt-1 px-3 py-1.5 rounded-md bg-[#061938]/90 border border-[#00d8ff]/40 text-[#00d8ff] text-xs md:text-sm font-medium tracking-wide whitespace-nowrap opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 drop-shadow-[0_0_10px_rgba(0,216,255,0.4)] z-30">
+            <div className="pointer-events-none absolute left-1/2 top-[calc(100%+0.25rem)] z-50 -translate-x-1/2 -translate-y-1 rounded-md bg-[#061938]/95 px-3 py-1.5 text-xs font-medium tracking-wide text-[#00d8ff] opacity-0 drop-shadow-[0_0_10px_rgba(0,216,255,0.4)] transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 md:text-sm whitespace-nowrap border border-[#00d8ff]/40">
               {loc.label}
             </div>
           </motion.div>
