@@ -7,6 +7,7 @@ const HeroBackground = () => {
       id: "agra",
       name: "Taj Mahal",
       country: "India",
+      label: "Enfactum India",
       cx: 247,
       cy: 92,
       imageSrc: "/assets/expected-taj-mahal.png",
@@ -16,6 +17,7 @@ const HeroBackground = () => {
       id: "kl",
       name: "Petronas Towers",
       country: "Malaysia",
+      label: "Enfactum Malaysia",
       cx: 773,
       cy: 414,
       imageSrc: "/assets/expected-petronas.png",
@@ -25,6 +27,7 @@ const HeroBackground = () => {
       id: "sg",
       name: "Merlion",
       country: "Singapore",
+      label: "Enfactum Singapore",
       cx: 820,
       cy: 419,
       imageSrc: "/assets/expected-merlion.png",
@@ -34,6 +37,7 @@ const HeroBackground = () => {
       id: "jakarta",
       name: "Monas",
       country: "Indonesia",
+      label: "Enfactum Indonesia",
       cx: 852,
       cy: 519,
       imageSrc: "/assets/expected-monas.png",
@@ -115,14 +119,14 @@ const HeroBackground = () => {
         {locations.map((loc) => (
           <motion.div
             key={`info-${loc.id}`}
-            className="absolute flex flex-col items-center justify-center pointer-events-none"
+            className="absolute flex flex-col items-center justify-center group"
             style={{
               left: `${(loc.cx / 1000) * 100}%`,
               top: `${(loc.cy / 600) * 100}%`,
-              transform: "translate(-50%, -100%)",
+              transform: "translate(-50%, -50%)",
             }}
-            initial={{ y: 20, opacity: 0, scale: 0.8 }}
-            animate={{ y: -15, opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{
               type: "spring",
               stiffness: 100,
@@ -130,15 +134,15 @@ const HeroBackground = () => {
             }}
           >
             <motion.div
-              animate={{ y: [0, -8, 0] }}
+              animate={{ y: [0, -6, 0] }}
               transition={{
                 duration: 4,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="relative w-32 h-32 md:w-40 md:h-40 -mt-12 flex items-end justify-center"
+              className="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center cursor-pointer"
             >
-              <div className="absolute inset-x-4 bottom-4 h-1/2 bg-[#00d8ff]/10 rounded-full blur-xl border border-[#00d8ff]/30" />
+              <div className="absolute inset-x-3 bottom-2 h-1/2 bg-[#00d8ff]/10 rounded-full blur-xl border border-[#00d8ff]/30" />
 
               <img
                 src={loc.imageSrc}
@@ -146,6 +150,10 @@ const HeroBackground = () => {
                 className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_15px_rgba(0,216,255,0.6)]"
               />
             </motion.div>
+
+            <div className="pointer-events-none absolute top-full mt-1 px-3 py-1.5 rounded-md bg-[#061938]/90 border border-[#00d8ff]/40 text-[#00d8ff] text-xs md:text-sm font-medium tracking-wide whitespace-nowrap opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 drop-shadow-[0_0_10px_rgba(0,216,255,0.4)] z-30">
+              {loc.label}
+            </div>
           </motion.div>
         ))}
       </div>
