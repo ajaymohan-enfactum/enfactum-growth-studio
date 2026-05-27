@@ -8,8 +8,8 @@ const HeroBackground = () => {
       name: "Taj Mahal",
       country: "India",
       label: "Enfactum India",
-      cx: 260,
-      cy: 102,
+      cx: 236,
+      cy: 79,
       imageSrc: "/assets/expected-taj-mahal.png",
       delay: 0.5,
     },
@@ -123,7 +123,7 @@ const HeroBackground = () => {
             style={{
               left: `${(loc.cx / 1000) * 100}%`,
               top: `${(loc.cy / 600) * 100}%`,
-              transform: "translate(-50%, -50%)",
+              transform: "translate(-50%, -65%)",
             }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
