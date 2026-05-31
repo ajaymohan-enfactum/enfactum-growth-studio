@@ -122,7 +122,8 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
                   <div key={ri} className="group/metric">
                     <AnimatedCounter
                       value={r.metric}
-                      className="font-display text-3xl md:text-4xl font-bold text-primary/70 tracking-tight block leading-none"
+                      className="font-display text-3xl md:text-4xl font-bold tracking-tight block leading-none"
+                      style={{ color: ['#2563EB','#10B981','#C17D3C','#E91E8C'][ri % 4] }}
                     />
                     <span className="text-[11px] text-foreground/25 mt-2 block leading-snug font-body">
                       {r.label}
@@ -263,7 +264,8 @@ const CaseCard = ({ cs, index = 0, variant = "full", id }: CaseCardProps) => {
                 <div key={ri}>
                   <AnimatedCounter
                     value={r.metric}
-                    className="font-display text-xl font-bold text-primary/75 tracking-tight block leading-none"
+                    className="font-display text-xl font-bold tracking-tight block leading-none"
+                    style={{ color: ['#2563EB','#10B981','#C17D3C','#E91E8C'][ri % 4] }}
                   />
                   <span className="text-[10px] text-muted-foreground/60 mt-1 block leading-snug font-body">
                     {r.label}

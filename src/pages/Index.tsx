@@ -180,7 +180,7 @@ const Stats = () => {
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className={`text-center md:text-left ${i > 0 ? 'md:border-l md:border-border/20 md:pl-8' : ''}`}>
-                <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-1" style={{ color: '#F4F4F5' }}>{stat.num}</p>
+                <p className="stat-accent text-[clamp(2rem,3.5vw,3rem)] mb-1" style={{ color: ['#2563EB','#10B981','#C17D3C','#E91E8C'][i % 4] }}>{stat.num}</p>
                 <p className="text-xs tracking-wide" style={{ color: '#71717A' }}>{stat.label}</p>
               </div>
             </motion.div>
@@ -903,7 +903,7 @@ const DepthSection = () => (
           <RevealSection key={i} delay={i * 0.1}>
             <Link to={item.href} className="group block">
               <div className={`p-8 md:p-10 h-full flex flex-col justify-between min-h-[260px] transition-all duration-500 hover:bg-card/40 ${i < 2 ? 'md:border-r md:border-border/20' : ''}`}>
-                <p className="stat-accent text-5xl md:text-6xl">{item.stat}</p>
+                <p className="stat-accent text-5xl md:text-6xl" style={{ color: ['#2563EB','#10B981','#C17D3C','#E91E8C'][i % 4] }}>{item.stat}</p>
                 <div className="mt-auto">
                   <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors duration-300 mb-2">{item.label}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
