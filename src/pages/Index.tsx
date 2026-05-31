@@ -337,21 +337,25 @@ const Capabilities = () => {
   <section ref={sectionRef} className="relative py-20 md:py-28 overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(220 18% 8%), hsl(222 20% 10%), hsl(220 18% 8%))',
   }}>
-    {/* World map background — revealed on card hover */}
+    {/* World map background */}
     <div
       className="absolute inset-0 pointer-events-none transition-opacity duration-700 ease-out"
       style={{
         backgroundImage: `url(${worldMapBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        opacity: hoveredIdx !== null ? 0.55 : 0.08,
+        opacity: hoveredIdx !== null ? 0.7 : 0.55,
       }}
       aria-hidden="true"
     />
+    {/* Darkening overlays — match hero treatment */}
+    <div className="absolute inset-0 pointer-events-none bg-black/55" aria-hidden="true" />
+    <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#061938]/40 via-transparent to-[#061938]/70" aria-hidden="true" />
     {/* Vignette */}
     <div className="absolute inset-0 pointer-events-none" style={{
       background: 'radial-gradient(ellipse at center, transparent 30%, hsl(220 18% 8% / 0.7) 100%)',
     }} />
+
 
     {/* Structural grid lines suggesting architecture */}
     <div className="absolute inset-0 pointer-events-none">
