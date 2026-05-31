@@ -8,8 +8,8 @@ const HeroBackground = () => {
       name: "Taj Mahal",
       country: "India",
       label: "Enfactum India",
-      cx: 236,
-      cy: 79,
+      cx: 240,
+      cy: 117,
       imageSrc: "/assets/expected-taj-mahal.png",
       delay: 0.5,
     },
@@ -18,8 +18,8 @@ const HeroBackground = () => {
       name: "Petronas Towers",
       country: "Malaysia",
       label: "Enfactum Malaysia",
-      cx: 642,
-      cy: 425,
+      cx: 615,
+      cy: 422,
       imageSrc: "/assets/expected-petronas.png",
       delay: 1.5,
     },
@@ -28,8 +28,8 @@ const HeroBackground = () => {
       name: "Merlion",
       country: "Singapore",
       label: "Enfactum Singapore",
-      cx: 675,
-      cy: 450,
+      cx: 633,
+      cy: 444,
       imageSrc: "/assets/expected-merlion.png",
       delay: 2.5,
     },
@@ -38,57 +38,30 @@ const HeroBackground = () => {
       name: "Monas",
       country: "Indonesia",
       label: "Enfactum Indonesia",
-      cx: 724,
-      cy: 550,
+      cx: 698,
+      cy: 528,
       imageSrc: "/assets/expected-monas.png",
       delay: 3.5,
     },
   ];
 
-  const connectionPath = `M ${locations[0].cx} ${locations[0].cy} 
-                          Q 450 250 ${locations[1].cx} ${locations[1].cy} 
-                          Q 650 440 ${locations[2].cx} ${locations[2].cy} 
-                          Q 700 500 ${locations[3].cx} ${locations[3].cy}`;
-
   return (
-    <div className="relative w-full h-screen bg-[#061938] overflow-hidden flex items-center justify-center">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f2a52_1px,transparent_1px),linear-gradient(to_bottom,#0f2a52_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
+    <div className="relative w-full h-screen bg-[#061938] overflow-hidden">
+      <img
+        src="/assets/expected-map-bg.png"
+        alt="Map"
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
+      />
+      {/* Darkening overlay */}
+      <div className="absolute inset-0 bg-black/55 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#061938]/40 via-transparent to-[#061938]/70 pointer-events-none" />
 
-      <div className="relative w-full max-w-6xl aspect-[16/9] z-10">
-        <img
-          src="/assets/expected-map-bg.png"
-          alt="Map"
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
-        />
-        {/* Darkening overlay */}
-        <div className="absolute inset-0 bg-black/55 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#061938]/40 via-transparent to-[#061938]/70 pointer-events-none" />
+      <div className="absolute inset-0 z-10">
         <svg
-          className="absolute inset-0 w-full h-full drop-shadow-[0_0_15px_rgba(0,195,255,0.5)]"
+          className="absolute inset-0 w-full h-full"
           viewBox="0 0 1000 600"
           preserveAspectRatio="none"
         >
-          <motion.path
-            d={connectionPath}
-            fill="transparent"
-            stroke="#00d8ff"
-            strokeWidth="3"
-            strokeDasharray="10 10"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.8 }}
-            transition={{ duration: 4, ease: "easeInOut", delay: 0.5 }}
-          />
-
-          <motion.circle
-            r="5"
-            fill="#ffffff"
-            className="drop-shadow-[0_0_10px_#ffffff]"
-            initial={{ offsetDistance: "0%", opacity: 0 }}
-            animate={{ offsetDistance: "100%", opacity: [0, 1, 1, 0] }}
-            transition={{ duration: 4, ease: "easeInOut", delay: 0.5, repeat: Infinity, repeatDelay: 2 }}
-            style={{ offsetPath: `path('${connectionPath}')` }}
-          />
-
           {locations.map((loc) => (
             <g key={loc.id}>
               <motion.circle
@@ -109,7 +82,7 @@ const HeroBackground = () => {
               <motion.circle
                 cx={loc.cx}
                 cy={loc.cy}
-                r="6"
+                r="5"
                 fill="#00d8ff"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -126,7 +99,7 @@ const HeroBackground = () => {
             style={{
               left: `${(loc.cx / 1000) * 100}%`,
               top: `${(loc.cy / 600) * 100}%`,
-              transform: "translate(-50%, -65%)",
+              transform: "translate(-50%, -100%)",
             }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -143,9 +116,9 @@ const HeroBackground = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center cursor-pointer"
+              className="relative w-20 h-20 md:w-28 md:h-28 flex items-end justify-center cursor-pointer"
             >
-              <div className="absolute inset-x-3 bottom-2 h-1/2 bg-[#00d8ff]/10 rounded-full blur-xl border border-[#00d8ff]/30" />
+              <div className="absolute inset-x-3 bottom-1 h-1/3 bg-[#00d8ff]/10 rounded-full blur-xl border border-[#00d8ff]/30" />
 
               <img
                 src={loc.imageSrc}
@@ -160,7 +133,6 @@ const HeroBackground = () => {
           </motion.div>
         ))}
       </div>
-
     </div>
   );
 };
