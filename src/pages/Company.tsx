@@ -176,8 +176,10 @@ const Company = () => (
               <div className="relative text-center md:text-left">
                 <AnimatedCounter
                   value={m.metric}
-                  className="font-display text-[clamp(2.5rem,4vw,3.5rem)] font-bold text-foreground/90 tracking-tight block leading-none"
+                  className="font-display text-[clamp(2.5rem,4vw,3.5rem)] font-bold tracking-tight block leading-none"
                 />
+                <style>{''}</style>
+
                 <span className="text-[11px] text-foreground/30 block leading-snug font-body tracking-wide mt-3">
                   {m.label}
                 </span>
