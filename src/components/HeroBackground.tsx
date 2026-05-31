@@ -58,8 +58,11 @@ const HeroBackground = () => {
         <img
           src="/assets/expected-map-bg.png"
           alt="Map"
-          className="absolute inset-0 w-full h-full object-fill opacity-60"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
         />
+        {/* Darkening overlay */}
+        <div className="absolute inset-0 bg-black/55 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#061938]/40 via-transparent to-[#061938]/70 pointer-events-none" />
         <svg
           className="absolute inset-0 w-full h-full drop-shadow-[0_0_15px_rgba(0,195,255,0.5)]"
           viewBox="0 0 1000 600"

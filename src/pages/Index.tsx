@@ -129,10 +129,22 @@ const Hero = () => {
           className="flex flex-wrap gap-4 mt-10"
         >
           <Link to="/contact">
-            <MagneticButton variant="hero" size="xl">Start a conversation</MagneticButton>
+            <MagneticButton
+              variant="hero"
+              size="xl"
+              style={{ border: '1px solid #1E293B' }}
+            >
+              Start a conversation
+            </MagneticButton>
           </Link>
           <Link to="/work">
-            <MagneticButton variant="hero-outline" size="xl">See our work</MagneticButton>
+            <MagneticButton
+              variant="hero-outline"
+              size="xl"
+              style={{ backgroundColor: '#2563EB', border: '1px solid #1E293B', color: '#F8FAFC' }}
+            >
+              See our work
+            </MagneticButton>
           </Link>
         </motion.div>
       </motion.div>
