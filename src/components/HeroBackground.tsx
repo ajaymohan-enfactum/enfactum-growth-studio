@@ -47,6 +47,7 @@ const HeroBackground = () => {
         src="/assets/expected-map-bg.png"
         alt="Map"
         className="absolute inset-0 w-full h-full object-cover opacity-80"
+        style={{ objectPosition: "center top" }}
       />
       {/* Darkening overlay */}
       <div className="absolute inset-0 bg-black/55 pointer-events-none" />
