@@ -43,7 +43,12 @@ const offices = [
   {
     entity: "Enfactum Sdn Bhd",
     location: "Malaysia",
-    lines: ["21 Jalan Maya 1/5, Horizon Hills", "Iskandar Puteri, Johor 79100"],
+    lines: [
+      "Level 1, Glo Damansara Shopping Mall",
+      "699, Jln Damansara, Taman Tun Dr Ismail",
+      "60000 Kuala Lumpur",
+      "Wilayah Persekutuan Kuala Lumpur, Malaysia",
+    ],
   },
 ];
 
