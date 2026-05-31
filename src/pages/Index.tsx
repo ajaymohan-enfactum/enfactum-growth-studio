@@ -73,7 +73,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease }}
-          className="mb-8"
+          className="mb-8 mt-[50px]"
         >
           <div className="inline-flex items-center gap-3">
             <div className="w-8 h-px bg-primary/40" />
