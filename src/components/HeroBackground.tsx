@@ -8,8 +8,8 @@ const HeroBackground = () => {
       name: "Taj Mahal",
       country: "India",
       label: "Enfactum India",
-      cx: 300,
-      cy: 115,
+      cx: 236,
+      cy: 79,
       imageSrc: "/assets/expected-taj-mahal.png",
       delay: 0.5,
     },
@@ -18,8 +18,8 @@ const HeroBackground = () => {
       name: "Petronas Towers",
       country: "Malaysia",
       label: "Enfactum Malaysia",
-      cx: 680,
-      cy: 282,
+      cx: 642,
+      cy: 425,
       imageSrc: "/assets/expected-petronas.png",
       delay: 1.5,
     },
@@ -28,8 +28,8 @@ const HeroBackground = () => {
       name: "Merlion",
       country: "Singapore",
       label: "Enfactum Singapore",
-      cx: 698,
-      cy: 328,
+      cx: 675,
+      cy: 450,
       imageSrc: "/assets/expected-merlion.png",
       delay: 2.5,
     },
@@ -38,17 +38,17 @@ const HeroBackground = () => {
       name: "Monas",
       country: "Indonesia",
       label: "Enfactum Indonesia",
-      cx: 660,
-      cy: 495,
+      cx: 724,
+      cy: 550,
       imageSrc: "/assets/expected-monas.png",
       delay: 3.5,
     },
   ];
 
-  const connectionPath = `M ${locations[0].cx} ${locations[0].cy}
-                          Q 500 200 ${locations[1].cx} ${locations[1].cy}
-                          Q 700 305 ${locations[2].cx} ${locations[2].cy}
-                          Q 720 420 ${locations[3].cx} ${locations[3].cy}`;
+  const connectionPath = `M ${locations[0].cx} ${locations[0].cy} 
+                          Q 450 250 ${locations[1].cx} ${locations[1].cy} 
+                          Q 650 440 ${locations[2].cx} ${locations[2].cy} 
+                          Q 700 500 ${locations[3].cx} ${locations[3].cy}`;
 
   return (
     <div className="relative w-full h-screen bg-[#061938] overflow-hidden flex items-center justify-center">
