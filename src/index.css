@@ -123,11 +123,13 @@
     @apply font-display;
   }
   h1 {
+    @apply font-serif font-normal;
     color: #F4F4F5;
   }
   h2 {
     color: #F4F4F5;
   }
+
 }
 
 @layer components {
