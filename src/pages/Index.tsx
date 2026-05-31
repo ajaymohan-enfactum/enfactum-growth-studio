@@ -396,13 +396,26 @@ const Capabilities = () => {
           >
             <div className="flex flex-col items-center gap-1.5">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary))]" />
+                <span
+                  className="absolute inline-flex h-full w-full animate-ping rounded-full"
+                  style={{ backgroundColor: `${CITY_COLORS[name] ?? '#2563EB'}99` }}
+                />
+                <span
+                  className="relative inline-flex h-2.5 w-2.5 rounded-full"
+                  style={{
+                    backgroundColor: CITY_COLORS[name] ?? '#2563EB',
+                    boxShadow: `0 0 12px ${CITY_COLORS[name] ?? '#2563EB'}`,
+                  }}
+                />
               </span>
-              <span className="text-[11px] font-semibold tracking-wide text-white whitespace-nowrap px-2 py-0.5 rounded bg-background/70 backdrop-blur-sm border border-primary/30">
+              <span
+                className="text-[11px] font-semibold tracking-wide text-white whitespace-nowrap px-2 py-0.5 rounded bg-background/70 backdrop-blur-sm border"
+                style={{ borderColor: `${CITY_COLORS[name] ?? '#2563EB'}66` }}
+              >
                 {name}
               </span>
             </div>
+
           </div>
         );
       })}
