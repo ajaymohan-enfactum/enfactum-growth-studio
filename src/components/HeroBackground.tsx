@@ -53,6 +53,71 @@ const HeroBackground = () => {
       <div className="absolute inset-0 bg-black/55 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#061938]/40 via-transparent to-[#061938]/70 pointer-events-none" />
 
+      {/* Fibre optic cable lines */}
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none z-[5]"
+        viewBox="0 0 1000 600"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <filter id="fibreGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <linearGradient id="fibreStroke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#00d8ff" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#00d8ff" stopOpacity="0.25" />
+          </linearGradient>
+        </defs>
+
+        {/* Base curved path through all four cities */}
+        <path
+          d="M 240 60 Q 430 180 615 365 Q 624 376 633 387 Q 666 425 698 471"
+          fill="none"
+          stroke="url(#fibreStroke)"
+          strokeWidth="0.8"
+          strokeLinecap="round"
+          filter="url(#fibreGlow)"
+        />
+        <path
+          d="M 240 60 Q 430 180 615 365 Q 624 376 633 387 Q 666 425 698 471"
+          fill="none"
+          stroke="#00d8ff"
+          strokeWidth="0.5"
+          strokeLinecap="round"
+          strokeDasharray="6 18"
+          filter="url(#fibreGlow)"
+        >
+          <animate
+            attributeName="stroke-dashoffset"
+            from="0"
+            to="-240"
+            dur="2.4s"
+            repeatCount="indefinite"
+          />
+        </path>
+        <path
+          d="M 240 60 Q 430 180 615 365 Q 624 376 633 387 Q 666 425 698 471"
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth="0.7"
+          strokeLinecap="round"
+          strokeDasharray="3 60"
+          filter="url(#fibreGlow)"
+        >
+          <animate
+            attributeName="stroke-dashoffset"
+            from="0"
+            to="-630"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </path>
+      </svg>
+
       <div className="absolute inset-0 z-10">
         {locations.map((loc) => (
           <motion.div
