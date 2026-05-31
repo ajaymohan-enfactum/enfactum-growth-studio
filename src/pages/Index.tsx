@@ -306,8 +306,8 @@ const WhySEA = () => {
    CAPABILITIES — Interconnected architecture
    ═══════════════════════════════════════════════ */
 const capData = [
-  { title: "Growth Infrastructure", desc: "GTM strategy, partner programs, and demand operations that build lasting market position.", href: "/capabilities/growth-infrastructure", num: "01", iconType: "growth" as const, cities: ["Singapore", "Kuala Lumpur", "Jakarta"] },
-  { title: "Brand & Demand", desc: "Performance, social, creative, and digital experiences that connect brand to commercial outcomes.", href: "/capabilities/brand-demand", num: "02", iconType: "brand" as const, cities: ["Singapore", "Kuala Lumpur", "Jakarta", "Melbourne", "Manila", "Thailand"] },
+  { title: "Growth Infrastructure", desc: "GTM strategy, partner programs, and demand operations that build lasting market position.", href: "/capabilities/growth-infrastructure", num: "01", iconType: "growth" as const, cities: ["Singapore", "Malaysia", "Indonesia"] },
+  { title: "Brand & Demand", desc: "Performance, social, creative, and digital experiences that connect brand to commercial outcomes.", href: "/capabilities/brand-demand", num: "02", iconType: "brand" as const, cities: ["Singapore", "Malaysia", "Indonesia", "Melbourne", "Philippines", "Thailand"] },
   { title: "AI Ecosystems", desc: "Venture strategy, startup scouting, and innovation programs that move beyond pilot stage.", href: "/capabilities/ai-ecosystems", num: "03", iconType: "ai" as const, cities: ["Singapore"] },
   { title: "Live Experiences", desc: "Product launches, summits, roadshows, and activations that create market momentum.", href: "/capabilities/live-experiences", num: "04", iconType: "live" as const, cities: ["India", "Singapore", "Malaysia", "Thailand", "Philippines", "Indonesia", "Australia"] },
 ];
@@ -315,17 +315,27 @@ const capData = [
 // City coordinates as % of map background (x, y)
 const CITY_COORDS: Record<string, { x: number; y: number }> = {
   "Singapore":    { x: 83.6, y: 57.5 },
-  "Kuala Lumpur": { x: 79.4, y: 56.5 },
-  "Jakarta":      { x: 81.2, y: 63.0 },
+  "Malaysia":     { x: 79.4, y: 56.5 },
+  "Indonesia":    { x: 81.2, y: 63.0 },
   "Melbourne":    { x: 94.5, y: 76.0 },
-  "Manila":       { x: 87.0, y: 51.5 },
+  "Philippines":  { x: 87.0, y: 51.5 },
   "Thailand":     { x: 78.0, y: 50.0 },
   "India":        { x: 73.4, y: 43.0 },
-  "Malaysia":     { x: 79.4, y: 56.5 },
-  "Philippines":  { x: 87.0, y: 51.5 },
-  "Indonesia":    { x: 81.2, y: 63.0 },
   "Australia":    { x: 92.0, y: 71.0 },
 };
+
+// Distinct dot colors per location (from brand palette)
+const CITY_COLORS: Record<string, string> = {
+  "Singapore":   "#2563EB", // Electric Blue
+  "Malaysia":    "#10B981", // Jade Bright
+  "Indonesia":   "#C17D3C", // Amber
+  "Melbourne":   "#E91E8C", // Magenta CTA
+  "Philippines": "#1A4D3E", // Jade
+  "Thailand":    "#1E293B", // Navy Light
+  "India":       "#111827", // Navy Mid
+  "Australia":   "#0B0F1A", // Deep Navy
+};
+
 
 const Capabilities = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -386,13 +396,26 @@ const Capabilities = () => {
           >
             <div className="flex flex-col items-center gap-1.5">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary))]" />
+                <span
+                  className="absolute inline-flex h-full w-full animate-ping rounded-full"
+                  style={{ backgroundColor: `${CITY_COLORS[name] ?? '#2563EB'}99` }}
+                />
+                <span
+                  className="relative inline-flex h-2.5 w-2.5 rounded-full"
+                  style={{
+                    backgroundColor: CITY_COLORS[name] ?? '#2563EB',
+                    boxShadow: `0 0 12px ${CITY_COLORS[name] ?? '#2563EB'}`,
+                  }}
+                />
               </span>
-              <span className="text-[11px] font-semibold tracking-wide text-white whitespace-nowrap px-2 py-0.5 rounded bg-background/70 backdrop-blur-sm border border-primary/30">
+              <span
+                className="text-[11px] font-semibold tracking-wide text-white whitespace-nowrap px-2 py-0.5 rounded bg-background/70 backdrop-blur-sm border"
+                style={{ borderColor: `${CITY_COLORS[name] ?? '#2563EB'}66` }}
+              >
                 {name}
               </span>
             </div>
+
           </div>
         );
       })}
