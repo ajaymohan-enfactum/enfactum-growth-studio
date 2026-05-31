@@ -50,6 +50,16 @@ const offices = [
       "Wilayah Persekutuan Kuala Lumpur, Malaysia",
     ],
   },
+  {
+    entity: "Enfactum Indonesia",
+    location: "Indonesia",
+    lines: [
+      "Cyber2 Tower, 17th–18th Floor",
+      "Jl. H. R. Rasuna Said Blok X-5",
+      "RT.7/RW.2, Kuningan",
+      "Jakarta 12950",
+    ],
+  },
 ];
 
 const Footer = () => {

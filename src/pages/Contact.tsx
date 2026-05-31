@@ -90,6 +90,17 @@ const officeNodes = [
       "Wilayah Persekutuan Kuala Lumpur, Malaysia",
     ],
   },
+  {
+    entity: "Enfactum Indonesia",
+    city: "Indonesia",
+    role: "Market Node",
+    lines: [
+      "Cyber2 Tower, 17th–18th Floor",
+      "Jl. H. R. Rasuna Said Blok X-5",
+      "RT.7/RW.2, Kuningan",
+      "Jakarta 12950",
+    ],
+  },
 ];
 
 /* ── Input component ── */
