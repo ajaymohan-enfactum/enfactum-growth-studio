@@ -7,8 +7,8 @@ const HeroBackground = () => {
       id: "agra",
       name: "Taj Mahal",
       label: "Enfactum India",
-      cx: 240,
-      cy: 60,
+      cx: 715,
+      cy: 204,
       imageSrc: "/assets/expected-taj-mahal.png",
       delay: 0.5,
     },
@@ -16,8 +16,8 @@ const HeroBackground = () => {
       id: "kl",
       name: "Petronas Towers",
       label: "Enfactum Malaysia",
-      cx: 615,
-      cy: 365,
+      cx: 782,
+      cy: 290,
       imageSrc: "/assets/expected-petronas.png",
       delay: 1.5,
     },
@@ -25,8 +25,8 @@ const HeroBackground = () => {
       id: "sg",
       name: "Merlion",
       label: "Enfactum Singapore",
-      cx: 633,
-      cy: 387,
+      cx: 788,
+      cy: 296,
       imageSrc: "/assets/expected-merlion.png",
       delay: 2.5,
     },
@@ -34,8 +34,8 @@ const HeroBackground = () => {
       id: "jakarta",
       name: "Monas",
       label: "Enfactum Indonesia",
-      cx: 698,
-      cy: 471,
+      cx: 797,
+      cy: 320,
       imageSrc: "/assets/expected-monas.png",
       delay: 3.5,
     },
@@ -47,7 +47,7 @@ const HeroBackground = () => {
         src="/assets/expected-map-bg.png"
         alt="Map"
         className="absolute inset-0 w-full h-full object-cover opacity-80"
-        style={{ objectPosition: "center 75%" }}
+        style={{ objectPosition: "center center" }}
       />
       {/* Darkening overlay */}
       <div className="absolute inset-0 bg-black/55 pointer-events-none" />
