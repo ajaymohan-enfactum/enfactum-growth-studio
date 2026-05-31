@@ -5,7 +5,9 @@ interface AnimatedCounterProps {
   value: string;
   className?: string;
   duration?: number;
+  style?: React.CSSProperties;
 }
+
 
 /**
  * Parses a metric string like "40+", "15+", "$2.4M", "100%", "Jaya Grocer"
@@ -24,7 +26,7 @@ const parseMetric = (value: string): { prefix: string; number: number; decimals:
   return { prefix, number, decimals, suffix };
 };
 
-const AnimatedCounter = ({ value, className = "", duration = 1.5 }: AnimatedCounterProps) => {
+const AnimatedCounter = ({ value, className = "", duration = 1.5, style }: AnimatedCounterProps) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   const [display, setDisplay] = useState(value);
@@ -64,14 +66,15 @@ const AnimatedCounter = ({ value, className = "", duration = 1.5 }: AnimatedCoun
 
   // If not parseable as number, just show the value
   if (!parsed.current) {
-    return <span className={className}>{value}</span>;
+    return <span className={className} style={style}>{value}</span>;
   }
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={className} style={style}>
       {display}
     </span>
   );
 };
+
 
 export default AnimatedCounter;
