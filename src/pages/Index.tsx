@@ -679,7 +679,7 @@ const SectorExperience = () => (
               ].map((stat, i) => (
                 <div key={stat.label} className={`py-8 ${i > 0 ? 'border-t border-border/10' : ''}`}>
                   <div className="flex items-baseline gap-4">
-                    <p className="stat-accent text-[clamp(2.5rem,4vw,3.75rem)]">{stat.num}</p>
+                    <p className="stat-accent text-[clamp(2.5rem,4vw,3.75rem)]" style={{ color: ['#2563EB','#10B981','#C17D3C','#E91E8C'][i % 4] }}>{stat.num}</p>
                     <div className="w-6 h-px bg-primary/20 mt-1" />
                   </div>
                   <p className="text-[13px] font-medium text-foreground/70 mt-3 font-body">{stat.label}</p>
