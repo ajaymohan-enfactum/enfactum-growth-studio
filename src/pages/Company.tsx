@@ -177,8 +177,9 @@ const Company = () => (
                 <AnimatedCounter
                   value={m.metric}
                   className="font-display text-[clamp(2.5rem,4vw,3.5rem)] font-bold tracking-tight block leading-none"
+                  style={{ color: ['#2563EB','#10B981','#C17D3C','#E91E8C'][i % 4] }}
                 />
-                <style>{''}</style>
+
 
                 <span className="text-[11px] text-foreground/30 block leading-snug font-body tracking-wide mt-3">
                   {m.label}
